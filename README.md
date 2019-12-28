@@ -10,6 +10,6 @@ Znalazłeś błąd lub masz sugestię?
  
 Aktualizacja tłumaczeń
 ----------------------
-* `python manage_translations.py recreate_tx_config`
-* `python manage_translations.py fetch`
-* `python manage_translations.py recreate_readme`
+* `./manage_translations.py recreate_tx_config`
+* `./manage_translations.py fetch`
+* `./manage_translations.py recreate_readme`
