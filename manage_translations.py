@@ -82,11 +82,13 @@ def recreate_tx_config():
 def _get_resources():
     resources = []
     offset = 0
+    with open('.tx/api-key') as f:
+        transifex_api_key = f.read()
     while True:
         response = requests.get(
             f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
             params={'language_code': LANGUAGE, 'offset': offset},
-            auth=('api', getenv('TRANSIFEX_API_KEY')))
+            auth=('api', transifex_api_key))
         response_list = response.json()
         resources.extend(response_list)
         if len(response_list) < 100:
