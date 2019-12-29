@@ -12,7 +12,6 @@
 # * regenerate_tx_config: recreate configuration for all resources.
 
 import os
-from os import getenv
 import sys
 from argparse import ArgumentParser
 from subprocess import call
