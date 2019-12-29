@@ -1,0 +1,27 @@
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - '*'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - run: sudo apt-get install -y gettext
+      - run: pip install transifex-client
+      - run: cp .github/workflows/.transifexrc $HOME
+      - run: ./manage_translations.py fetch
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      - run: git config --local user.email 'maciej.olko@gmail.com'
+      - run: git config --local user.name 'Maciej Olko'
+      - run: git commit -a -m 'Update translation from Transifex' || true
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 3.8

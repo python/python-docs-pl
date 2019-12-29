@@ -16,9 +16,6 @@ import sys
 from argparse import ArgumentParser
 from subprocess import call
 
-from numpy import average
-import requests
-
 LANGUAGE = 'pl'
 
 
@@ -30,7 +27,10 @@ def fetch():
         sys.stderr.write("The Transifex client app is required (pip install transifex-client).\n")
         exit(1)
     lang = LANGUAGE
-    call(f'tx pull -l {lang} --minimum-perc=25', shell=True)
+    if os.getenv('GITHUB_ACTIONS'):
+        call(f'tx pull -l {lang} --minimum-perc=25 --force', shell=True)
+    else:
+        call(f'tx pull -l {lang} --minimum-perc=25', shell=True)
     for root, _, po_files in os.walk('.'):
         for po_file in po_files:
             if not po_file.endswith(".po"):
@@ -79,12 +79,13 @@ def recreate_tx_config():
 
 
 def _get_resources():
+    from requests import get
     resources = []
     offset = 0
     with open('.tx/api-key') as f:
         transifex_api_key = f.read()
     while True:
-        response = requests.get(
+        response = get(
             f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
             params={'language_code': LANGUAGE, 'offset': offset},
             auth=('api', transifex_api_key))
@@ -97,6 +98,8 @@ def _get_resources():
 
 
 def recreate_readme():
+    from numpy import average
+    
     def language_switcher(entry):
         return (entry['name'].startswith('bugs') or
                 entry['name'].startswith('tutorial') or
