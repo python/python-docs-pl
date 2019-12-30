@@ -9,6 +9,7 @@
 #
 # * fetch: fetch translations from transifex.com and strip source lines from the
 #          files.
+# * recreate_readme: recreate readme to update translation progress.
 # * regenerate_tx_config: recreate configuration for all resources.
 
 import os
