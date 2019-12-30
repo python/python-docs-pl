@@ -5,7 +5,7 @@ on:
     branches:
       - '*'
 jobs:
-  update:
+  update-translation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -19,8 +19,26 @@ jobs:
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email 'maciej.olko@gmail.com'
-      - run: git config --local user.name 'Maciej Olko'
+      - run: git config --local user.name "GitHub Action's update-translation job"
       - run: git commit -a -m 'Update translation from Transifex' || true
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 3.8
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - run: pip install requests numpy
+      - run: ./manage_translations.py recreate_readme
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      - run: git config --local user.email 'maciej.olko@gmail.com'
+      - run: git config --local user.name "GitHub Action's update-readme job"
+      - run: git commit -a -m 'Update translation progress' || true
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

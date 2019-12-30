@@ -82,8 +82,11 @@ def _get_resources():
     from requests import get
     resources = []
     offset = 0
-    with open('.tx/api-key') as f:
-        transifex_api_key = f.read()
+    if os.path.exists('.tx/api-key'):
+        with open('.tx/api-key') as f:
+            transifex_api_key = f.read()
+    else:
+        transifex_api_key = os.getenv('TX_TOKEN')
     while True:
         response = get(
             f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
