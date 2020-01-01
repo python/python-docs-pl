@@ -39,6 +39,7 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email 'maciej.olko@gmail.com'
       - run: git config --local user.name "GitHub Action's update-readme job"
+      - run: git pull
       - run: git commit -a -m 'Update translation progress' || true
       - uses: ad-m/github-push-action@master
         with:
