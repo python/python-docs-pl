@@ -1,6 +1,6 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
-![9.99% language switchera](https://img.shields.io/badge/language_switcher-9.99%25-0.svg)
+![10.06% language switchera](https://img.shields.io/badge/language_switcher-10.06%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.pl&url=http://gce.zhsj.me/python/newest)
 
 [Pomóż tłumaczyć](https://www.transifex.com/python-doc/python-newest/)
