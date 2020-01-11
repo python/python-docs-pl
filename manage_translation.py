@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #
-# This python file contains utility scripts to manage Python docs Polish translations.
+# This python file contains utility scripts to manage Python docs Polish translation.
 # It has to be run inside the python-docs-pl git root directory.
 #
 # Inspired by django-docs-translations script by claudep.
 #
-# The following command is available:
+# The following commands are available:
 #
 # * fetch: fetch translations from transifex.com and strip source lines from the
 #          files.
@@ -37,7 +37,6 @@ def fetch():
             if not po_file.endswith(".po"):
                 continue
             po_path = os.path.join(root, po_file)
-            print(po_path)
             call(f'msgcat --no-location -o {po_path} {po_path}', shell=True)
 
 

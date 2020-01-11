@@ -15,10 +15,10 @@ jobs:
       - run: pip install transifex-client requests numpy
       - uses: actions/checkout@master
       - run: cp .github/workflows/.transifexrc $HOME
-      - run: ./manage_translations.py fetch
+      - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: ./manage_translations.py recreate_readme
+      - run: ./manage_translation.py recreate_readme
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email 'maciej.olko@gmail.com'
