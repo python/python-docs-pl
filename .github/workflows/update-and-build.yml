@@ -14,7 +14,7 @@ jobs:
       - run: sudo apt-get install -y gettext
       - run: pip install transifex-client requests numpy
       - uses: actions/checkout@master
-      - run: cp .github/workflows/.transifexrc $HOME
+      - run: echo -e '[https://www.transifex.com]\napi_hostname = https://api.transifex.com\nhostname = https://www.transifex.com\nusername = api' > $HOME/.transifexrc
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
