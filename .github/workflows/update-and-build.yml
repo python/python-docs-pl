@@ -44,9 +44,7 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: make venv
         working-directory: ./Doc
-      - run: echo 'gettext_compact = False' >> conf.py
-        working-directory: ./Doc
-      - run: make -e SPHINXOPTS="-D language='pl'" html
+      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0" html
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
