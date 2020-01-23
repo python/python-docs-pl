@@ -23,7 +23,8 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email 'maciej.olko@gmail.com'
       - run: git config --local user.name "GitHub Action's update-translation job"
-      - run: git commit -a -m 'Update translation from Transifex' || true
+      - run: git add .
+      - run: git commit -m 'Update translation from Transifex' || true
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
