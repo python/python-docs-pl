@@ -117,7 +117,8 @@ def recreate_readme():
 
     with open('README.md', 'w') as file:
         file.write(
-            f'''Polskie tłumaczenie dokumentacji Pythona
+            f'''\
+Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![{language_switcher_status:.2f}% language switchera](https://img.shields.io/badge/language_switcher-{language_switcher_status:.2f}%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
