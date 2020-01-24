@@ -13,6 +13,7 @@
 # * regenerate_tx_config: recreate configuration for all resources.
 
 import os
+from re import match
 import sys
 from argparse import ArgumentParser
 from subprocess import call
@@ -61,6 +62,8 @@ def recreate_tx_config():
             name = RESOURCE_NAME_MAP.get(slug, slug)
             if '--' in slug:
                 directory, file_name = name.split('--')
+                if match(r'\d+_\d+', file_name):
+                    file_name = file_name.replace('_', '.')
                 config.writelines((
                     '\n',
                     f'[{PROJECT_SLUG}.{slug}]\n',
