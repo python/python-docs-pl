@@ -137,6 +137,25 @@ Znalazłeś błąd lub masz sugestię?
 * [Dodaj zgłoszenie](https://github.com/m-aciek/python-docs-pl/issues) w tym projekcie
 * lub sam [nanieś poprawkę](https://www.transifex.com/python-doc/python-newest/)
   w projekcie *Python document translation* na platformie Transifex.
+
+Jak pobrać najnowszy deweloperski build?
+----------------------------------------
+* Wejdź w [zakładkę Actions](https://github.com/m-aciek/python-docs-pl/actions),
+* wejdź w ostatni zakończony workflow (*.github/workflows/update-and-build.yml*),
+* w prawym górnym rogu rozwiń listę artefaktów klikając w *Artifacts*,
+* wybierz *build*, aby pobrać dokumentację,
+* po rozpakowaniu otwórz `index.html` w przeglądarce.
+
+Tłumaczenie pobierane jest do tego repozytorium
+[raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3).
+ 
+Dlaczego ta dokumentacja nie jest dostępna na docs.python.org?
+--------------------------------------------------------------
+Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
+[kiedy w pełni przetłumaczone będą zasoby](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
+* `bugs`,
+* wszystkie w katalogu `tutorial`,
+* `library/functions`.
  
 Aktualizacja tłumaczeń
 ----------------------
