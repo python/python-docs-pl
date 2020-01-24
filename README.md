@@ -19,9 +19,8 @@ Jak pobrać najnowszy deweloperski build?
 ----------------------------------------
 * Zaloguj się na GitHubie,
 * wejdź w [zakładkę Actions](https://github.com/m-aciek/python-docs-pl/actions),
-* wejdź w ostatni zakończony workflow (*.github/workflows/update-and-build.yml*),
-* w prawym górnym rogu rozwiń listę artefaktów klikając w *Artifacts*,
-* wybierz *build*, aby pobrać dokumentację,
+* wejdź w ostatni pomyślnie zakończony workflow (*.github/workflows/update-and-build.yml*),
+* w sekcji *Artifacts* wybierz *build*, aby pobrać dokumentację,
 * po rozpakowaniu otwórz `index.html` w przeglądarce.
 
 [Raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3)
