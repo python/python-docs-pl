@@ -1,7 +1,7 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/m-aciek/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
-![10.33% language switchera](https://img.shields.io/badge/language_switcher-10.33%25-0.svg)
+![10.40% language switchera](https://img.shields.io/badge/language_switcher-10.40%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.pl&url=http://gce.zhsj.me/python/newest)
 
 [Pomóż tłumaczyć](https://www.transifex.com/python-doc/python-newest/)
