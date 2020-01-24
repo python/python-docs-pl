@@ -23,8 +23,8 @@ Jak pobrać najnowszy deweloperski build?
 * wybierz *build*, aby pobrać dokumentację,
 * po rozpakowaniu otwórz `index.html` w przeglądarce.
 
-Tłumaczenie pobierane jest do tego repozytorium
-[raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3).
+[Raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3)
+tłumaczenie synchronizowane jest z Transifeksa do tego repozytorium.
  
 Dlaczego ta dokumentacja nie jest dostępna na docs.python.org?
 --------------------------------------------------------------
