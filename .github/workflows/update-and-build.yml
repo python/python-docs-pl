@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: 3.8
       - run: sudo apt-get install -y gettext
-      - run: pip install transifex-client requests numpy
+      - run: pip install transifex-client requests
       - uses: actions/checkout@master
       - run: echo -e '[https://www.transifex.com]\napi_hostname = https://api.transifex.com\nhostname = https://www.transifex.com\nusername = api' > $HOME/.transifexrc
       - run: ./manage_translation.py fetch

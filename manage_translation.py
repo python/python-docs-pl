@@ -118,12 +118,13 @@ def _get_number_of_translators():
 
 
 def recreate_readme():
-    from numpy import average
-    
     def language_switcher(entry):
         return (entry['name'].startswith('bugs') or
                 entry['name'].startswith('tutorial') or
                 entry['name'].startswith('library--functions'))
+
+    def average(averages, weights):
+        return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
 
     resources = _get_resources()
     filtered = list(filter(language_switcher, resources))
