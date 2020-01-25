@@ -47,7 +47,7 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
-      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0" html
+      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" html
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
