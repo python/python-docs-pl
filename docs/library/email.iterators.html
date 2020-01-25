@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>email.iterators: Iterators &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="O tych dokumentach" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="json — JSON encoder and decoder" href="json.html" />
+    <link rel="prev" title="email.utils: Miscellaneous utilities" href="email.utils.html" />
+    <link rel="canonical" href="https://docs.python.org/3/library/email.iterators.html" />
+    
+      
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Indeks modułów Pythona"
+             >moduły</a> |</li>
+        <li class="right" >
+          <a href="json.html" title="json — JSON encoder and decoder"
+             accesskey="N">dalej</a> |</li>
+        <li class="right" >
+          <a href="email.utils.html" title="email.utils: Miscellaneous utilities"
+             accesskey="P">wstecz</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+    <li>
+      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Szybkie wyszukiwanie" type="text" name="q" />
+          <input type="submit" value="Szukaj" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-email.iterators">
+<span id="email-iterators-iterators"></span><h1><a class="reference internal" href="#module-email.iterators" title="email.iterators: Iterate over a  message object tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code></a>: Iterators<a class="headerlink" href="#module-email.iterators" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/email/iterators.py">Lib/email/iterators.py</a></p>
+<hr class="docutils" />
+<p>Iterating over a message object tree is fairly easy with the
+<a class="reference internal" href="email.compat32-message.html#email.message.Message.walk" title="email.message.Message.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.walk</span></code></a> method.  The
+<a class="reference internal" href="#module-email.iterators" title="email.iterators: Iterate over a  message object tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code></a> module provides some useful higher level iterations over
+message object trees.</p>
+<dl class="function">
+<dt id="email.iterators.body_line_iterator">
+<code class="sig-prename descclassname">email.iterators.</code><code class="sig-name descname">body_line_iterator</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">decode=False</em><span class="sig-paren">)</span><a class="headerlink" href="#email.iterators.body_line_iterator" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This iterates over all the payloads in all the subparts of <em>msg</em>, returning the
+string payloads line-by-line.  It skips over all the subpart headers, and it
+skips over any subpart with a payload that isn’t a Python string.  This is
+somewhat equivalent to reading the flat text representation of the message from
+a file using <a class="reference internal" href="io.html#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a>, skipping over all the
+intervening headers.</p>
+<p>Optional <em>decode</em> is passed through to <a class="reference internal" href="email.compat32-message.html#email.message.Message.get_payload" title="email.message.Message.get_payload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.get_payload</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="email.iterators.typed_subpart_iterator">
+<code class="sig-prename descclassname">email.iterators.</code><code class="sig-name descname">typed_subpart_iterator</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">maintype='text'</em>, <em class="sig-param">subtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.iterators.typed_subpart_iterator" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This iterates over all the subparts of <em>msg</em>, returning only those subparts that
+match the MIME type specified by <em>maintype</em> and <em>subtype</em>.</p>
+<p>Note that <em>subtype</em> is optional; if omitted, then subpart MIME type matching is
+done only with the main type.  <em>maintype</em> is optional too; it defaults to
+<em class="mimetype">text</em>.</p>
+<p>Thus, by default <a class="reference internal" href="#email.iterators.typed_subpart_iterator" title="email.iterators.typed_subpart_iterator"><code class="xref py py-func docutils literal notranslate"><span class="pre">typed_subpart_iterator()</span></code></a> returns each subpart that has a
+MIME type of <em class="mimetype">text/*</em>.</p>
+</dd></dl>
+
+<p>The following function has been added as a useful debugging tool.  It should
+<em>not</em> be considered part of the supported public interface for the package.</p>
+<dl class="function">
+<dt id="email.iterators._structure">
+<code class="sig-prename descclassname">email.iterators.</code><code class="sig-name descname">_structure</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">fp=None</em>, <em class="sig-param">level=0</em>, <em class="sig-param">include_default=False</em><span class="sig-paren">)</span><a class="headerlink" href="#email.iterators._structure" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Prints an indented representation of the content types of the message object
+structure.  For example:</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_file</span><span class="p">(</span><span class="n">somefile</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_structure</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="go">multipart/mixed</span>
+<span class="go">    text/plain</span>
+<span class="go">    text/plain</span>
+<span class="go">    multipart/digest</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">        message/rfc822</span>
+<span class="go">            text/plain</span>
+<span class="go">    text/plain</span>
+</pre></div>
+</div>
+<p>Optional <em>fp</em> is a file-like object to print the output to.  It must be
+suitable for Python’s <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function.  <em>level</em> is used internally.
+<em>include_default</em>, if true, prints the default type as well.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="email.utils.html"
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.utils</span></code>: Miscellaneous utilities</a></p>
+  <h4>Następny temat</h4>
+  <p class="topless"><a href="json.html"
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code> — JSON encoder and decoder</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Zgłoś błąd</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/email.iterators.rst"
+            rel="nofollow">Pokaż źródło
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Indeks modułów Pythona"
+             >moduły</a> |</li>
+        <li class="right" >
+          <a href="json.html" title="json — JSON encoder and decoder"
+             >dalej</a> |</li>
+        <li class="right" >
+          <a href="email.utils.html" title="email.utils: Miscellaneous utilities"
+             >wstecz</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+    <li>
+      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Szybkie wyszukiwanie" type="text" name="q" />
+          <input type="submit" value="Szukaj" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2020, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Ostatnia modyfikacja sty 25, 2020.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+
+  </body>
+</html>

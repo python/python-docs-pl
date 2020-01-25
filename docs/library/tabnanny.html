@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>tabnanny — Detection of ambiguous indentation &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="O tych dokumentach" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="pyclbr — Python class browser support" href="pyclbr.html" />
+    <link rel="prev" title="tokenize — Tokenizer for Python source" href="tokenize.html" />
+    <link rel="canonical" href="https://docs.python.org/3/library/tabnanny.html" />
+    
+      
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Indeks modułów Pythona"
+             >moduły</a> |</li>
+        <li class="right" >
+          <a href="pyclbr.html" title="pyclbr — Python class browser support"
+             accesskey="N">dalej</a> |</li>
+        <li class="right" >
+          <a href="tokenize.html" title="tokenize — Tokenizer for Python source"
+             accesskey="P">wstecz</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+    <li>
+      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="language.html" accesskey="U">Python Language Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Szybkie wyszukiwanie" type="text" name="q" />
+          <input type="submit" value="Szukaj" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tabnanny">
+<span id="tabnanny-detection-of-ambiguous-indentation"></span><h1><a class="reference internal" href="#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a> — Detection of ambiguous indentation<a class="headerlink" href="#module-tabnanny" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/tabnanny.py">Lib/tabnanny.py</a></p>
+<hr class="docutils" />
+<p>For the time being this module is intended to be called as a script. However it
+is possible to import it into an IDE and use the function <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a>
+described below.</p>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>The API provided by this module is likely to change in future releases; such
+changes may not be backward compatible.</p>
+</div>
+<dl class="function">
+<dt id="tabnanny.check">
+<code class="sig-prename descclassname">tabnanny.</code><code class="sig-name descname">check</code><span class="sig-paren">(</span><em class="sig-param">file_or_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#tabnanny.check" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>If <em>file_or_dir</em> is a directory and not a symbolic link, then recursively
+descend the directory tree named by <em>file_or_dir</em>, checking all <code class="file docutils literal notranslate"><span class="pre">.py</span></code>
+files along the way.  If <em>file_or_dir</em> is an ordinary Python source file, it
+is checked for whitespace related problems.  The diagnostic messages are
+written to standard output using the <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="tabnanny.verbose">
+<code class="sig-prename descclassname">tabnanny.</code><code class="sig-name descname">verbose</code><a class="headerlink" href="#tabnanny.verbose" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Flag indicating whether to print verbose messages. This is incremented by the
+<code class="docutils literal notranslate"><span class="pre">-v</span></code> option if called as a script.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="tabnanny.filename_only">
+<code class="sig-prename descclassname">tabnanny.</code><code class="sig-name descname">filename_only</code><a class="headerlink" href="#tabnanny.filename_only" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Flag indicating whether to print only the filenames of files containing
+whitespace related problems.  This is set to true by the <code class="docutils literal notranslate"><span class="pre">-q</span></code> option if called
+as a script.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="tabnanny.NannyNag">
+<em class="property">exception </em><code class="sig-prename descclassname">tabnanny.</code><code class="sig-name descname">NannyNag</code><a class="headerlink" href="#tabnanny.NannyNag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Raised by <a class="reference internal" href="#tabnanny.process_tokens" title="tabnanny.process_tokens"><code class="xref py py-func docutils literal notranslate"><span class="pre">process_tokens()</span></code></a> if detecting an ambiguous indent. Captured and
+handled in <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="tabnanny.process_tokens">
+<code class="sig-prename descclassname">tabnanny.</code><code class="sig-name descname">process_tokens</code><span class="sig-paren">(</span><em class="sig-param">tokens</em><span class="sig-paren">)</span><a class="headerlink" href="#tabnanny.process_tokens" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This function is used by <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a> to process tokens generated by the
+<a class="reference internal" href="tokenize.html#module-tokenize" title="tokenize: Lexical scanner for Python source code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> module.</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="tokenize.html#module-tokenize" title="tokenize: Lexical scanner for Python source code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a></dt><dd><p>Lexical scanner for Python source code.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="tokenize.html"
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> — Tokenizer for Python source</a></p>
+  <h4>Następny temat</h4>
+  <p class="topless"><a href="pyclbr.html"
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyclbr</span></code> — Python class browser support</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Zgłoś błąd</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/tabnanny.rst"
+            rel="nofollow">Pokaż źródło
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Indeks modułów Pythona"
+             >moduły</a> |</li>
+        <li class="right" >
+          <a href="pyclbr.html" title="pyclbr — Python class browser support"
+             >dalej</a> |</li>
+        <li class="right" >
+          <a href="tokenize.html" title="tokenize — Tokenizer for Python source"
+             >wstecz</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+    <li>
+      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="language.html" >Python Language Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Szybkie wyszukiwanie" type="text" name="q" />
+          <input type="submit" value="Szukaj" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2020, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Ostatnia modyfikacja sty 25, 2020.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+
+  </body>
+</html>
