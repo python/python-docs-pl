@@ -215,8 +215,8 @@ Running an asyncio Program
     Execute the :term:`coroutine` *coro* and return the result.
 
     This function runs the passed coroutine, taking care of
-    managing the asyncio event loop, *finalizing asynchronous
-    generators*, and closing the threadpool.
+    managing the asyncio event loop and *finalizing asynchronous
+    generators*.
 
     This function cannot be called when another asyncio event loop is
     running in the same thread.
@@ -237,8 +237,6 @@ Running an asyncio Program
 
     .. versionadded:: 3.7
 
-    .. versionchanged:: 3.9
-       Updated to use :meth:`loop.shutdown_default_executor`.
 
     .. note::
        The source code for ``asyncio.run()`` can be found in

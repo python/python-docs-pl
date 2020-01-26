@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>enum — Support for enumerations &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>enum — Support for enumerations &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -105,7 +105,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/enum.py">Lib/enum.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/enum.py">Lib/enum.py</a></p>
 <hr class="docutils" />
 <p>An enumeration is a set of symbolic names (members) bound to unique,
 constant values.  Within an enumeration, the members can be compared
@@ -154,7 +154,7 @@ the bitwise operations without losing their <a class="reference internal" href="
 <dl class="class">
 <dt id="enum.auto">
 <em class="property">class </em><code class="sig-prename descclassname">enum.</code><code class="sig-name descname">auto</code><a class="headerlink" href="#enum.auto" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Instances are replaced with an appropriate value for Enum members.  By default, the initial value starts at 1.</p>
+<dd><p>Instances are replaced with an appropriate value for Enum members. Initial value starts at 1.</p>
 </dd></dl>
 
 <div class="versionadded">
@@ -481,8 +481,8 @@ enumeration, with the exception of special methods (<a class="reference internal
 <a class="reference internal" href="../reference/datamodel.html#object.__add__" title="object.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>, etc.), descriptors (methods are also descriptors), and
 variable names listed in <code class="xref py py-attr docutils literal notranslate"><span class="pre">_ignore_</span></code>.</p>
 <p>Note:  if your enumeration defines <a class="reference internal" href="../reference/datamodel.html#object.__new__" title="object.__new__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a> and/or <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> then
-any value(s) given to the enum member will be passed into those methods.
-See <a class="reference internal" href="#planet">Planet</a> for an example.</p>
+whatever value(s) were given to the enum member will be passed into those
+methods.  See <a class="reference internal" href="#planet">Planet</a> for an example.</p>
 </div>
 <div class="section" id="restricted-enum-subclassing">
 <h2>Restricted Enum subclassing<a class="headerlink" href="#restricted-enum-subclassing" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -822,7 +822,8 @@ example above.</p></li>
 <li><p>While <a class="reference internal" href="#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a> can have members of any type, once you mix in an
 additional type, all the members must have values of that type, e.g.
 <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> above.  This restriction does not apply to mix-ins which only
-add methods and don’t specify another type.</p></li>
+add methods and don’t specify another data type such as <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or
+<a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p></li>
 <li><p>When another data type is mixed in, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> attribute is <em>not the
 same</em> as the enum member itself, although it is equivalent and will compare
 equal.</p></li>
@@ -830,11 +831,9 @@ equal.</p></li>
 <a class="reference internal" href="../reference/datamodel.html#object.__str__" title="object.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__repr__" title="object.__repr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> respectively; other codes (such as
 <cite>%i</cite> or <cite>%h</cite> for IntEnum) treat the enum member as its mixed-in type.</p></li>
 <li><p><a class="reference internal" href="../reference/lexical_analysis.html#f-strings"><span class="std std-ref">Formatted string literals</span></a>, <a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a>,
-and <a class="reference internal" href="functions.html#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> will use the mixed-in type’s <a class="reference internal" href="../reference/datamodel.html#object.__format__" title="object.__format__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__format__()</span></code></a>
-unless <a class="reference internal" href="../reference/datamodel.html#object.__str__" title="object.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__format__" title="object.__format__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__format__()</span></code></a> is overridden in the subclass,
-in which case the overridden methods or <a class="reference internal" href="#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a> methods will be used.
-Use the !s and !r format codes to force usage of the <a class="reference internal" href="#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a> class’s
-<a class="reference internal" href="../reference/datamodel.html#object.__str__" title="object.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__repr__" title="object.__repr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> methods.</p></li>
+and <a class="reference internal" href="functions.html#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> will use the mixed-in
+type’s <a class="reference internal" href="../reference/datamodel.html#object.__format__" title="object.__format__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__format__()</span></code></a>.  If the <a class="reference internal" href="#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a> class’s <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> or
+<a class="reference internal" href="functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> is desired, use the <cite>!s</cite> or <cite>!r</cite> format codes.</p></li>
 </ol>
 </div>
 </div>
@@ -1121,7 +1120,7 @@ all the members are created it is no longer used.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">_value_</span></code> – value of the member; can be set / modified in <code class="docutils literal notranslate"><span class="pre">__new__</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_missing_</span></code> – a lookup function used when a value is not found; may be
 overridden</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_ignore_</span></code> – a list of names, either as a <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
+<li><p><code class="docutils literal notranslate"><span class="pre">_ignore_</span></code> – a list of names, either as a <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a> or a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a>,
 that will not be transformed into members, and will be removed from the final
 class</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_order_</span></code> – used in Python 2/3 code to ensure member order is consistent
@@ -1299,7 +1298,7 @@ all named flags and all named combinations of flags that are in the value:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/enum.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/enum.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1331,7 +1330,7 @@ all named flags and all named combinations of flags that are in the value:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1366,7 +1365,7 @@ all named flags and all named combinations of flags that are in the value:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

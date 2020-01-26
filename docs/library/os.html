@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>os — Miscellaneous operating system interfaces &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>os — Miscellaneous operating system interfaces &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-os">
 <span id="os-miscellaneous-operating-system-interfaces"></span><h1><a class="reference internal" href="#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> — Miscellaneous operating system interfaces<a class="headerlink" href="#module-os" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/os.py">Lib/os.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/os.py">Lib/os.py</a></p>
 <hr class="docutils" />
 <p>This module provides a portable way of using operating system dependent
 functionality.  If you just want to read or write a file see <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>, if
@@ -191,9 +191,9 @@ and is equivalent to <code class="docutils literal notranslate"><span class="pre
 typically during Python startup as part of processing <code class="file docutils literal notranslate"><span class="pre">site.py</span></code>.  Changes
 to the environment made after this time are not reflected in <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>,
 except for changes made by modifying <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> directly.</p>
-<p>This mapping may be used to modify the environment as well as query the
-environment.  <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> will be called automatically when the mapping
-is modified.</p>
+<p>If the platform supports the <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> function, this mapping may be used
+to modify the environment as well as query the environment.  <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> will
+be called automatically when the mapping is modified.</p>
 <p>On Unix, keys and values use <a class="reference internal" href="sys.html#sys.getfilesystemencoding" title="sys.getfilesystemencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getfilesystemencoding()</span></code></a> and
 <code class="docutils literal notranslate"><span class="pre">'surrogateescape'</span></code> error handler. Use <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code></a> if you would like
 to use a different encoding.</p>
@@ -208,10 +208,13 @@ to modify <code class="docutils literal notranslate"><span class="pre">os.enviro
 cause memory leaks.  Refer to the system documentation for
 <code class="xref c c-func docutils literal notranslate"><span class="pre">putenv()</span></code>.</p>
 </div>
-<p>You can delete items in this mapping to unset environment variables.
-<a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a> will be called automatically when an item is deleted from
-<code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, and when one of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">pop()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code> methods is
-called.</p>
+<p>If <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> is not provided, a modified copy of this mapping  may be
+passed to the appropriate process-creation functions to cause  child processes
+to use a modified environment.</p>
+<p>If the platform supports the <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a> function, you can delete items in
+this mapping to unset environment variables. <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a> will be called
+automatically when an item is deleted from <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, and when
+one of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">pop()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code> methods is called.</p>
 </dd></dl>
 
 <dl class="data">
@@ -517,18 +520,16 @@ group id.</p>
 <dd><p id="index-9">Set the environment variable named <em>key</em> to the string <em>value</em>.  Such
 changes to the environment affect subprocesses started with <a class="reference internal" href="#os.system" title="os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a>,
 <a class="reference internal" href="#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code></a> or <a class="reference internal" href="#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">fork()</span></code></a> and <a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>.</p>
-<p>Assignments to items in <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> are automatically translated into
-corresponding calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a>; however, calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a>
-don’t update <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually preferable to assign to items
-of <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: most flavors of Unix, Windows.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
 <p>On some platforms, including FreeBSD and Mac OS X, setting <code class="docutils literal notranslate"><span class="pre">environ</span></code> may
-cause memory leaks. Refer to the system documentation for <code class="xref c c-func docutils literal notranslate"><span class="pre">putenv()</span></code>.</p>
+cause memory leaks. Refer to the system documentation for putenv.</p>
 </div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The function is now always available.</p>
-</div>
+<p>When <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> is supported, assignments to items in <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> are
+automatically translated into corresponding calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a>; however,
+calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> don’t update <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually
+preferable to assign to items of <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -715,13 +716,11 @@ with named attributes.</p>
 <dd><p id="index-13">Unset (delete) the environment variable named <em>key</em>. Such changes to the
 environment affect subprocesses started with <a class="reference internal" href="#os.system" title="os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a>, <a class="reference internal" href="#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code></a> or
 <a class="reference internal" href="#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">fork()</span></code></a> and <a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>.</p>
-<p>Deletion of items in <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> is automatically translated into a
-corresponding call to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a>; however, calls to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a>
-don’t update <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually preferable to delete items of
-<code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The function is now always available and is also available on Windows.</p>
-</div>
+<p>When <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a> is supported, deletion of items in <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> is
+automatically translated into a corresponding call to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a>; however,
+calls to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a> don’t update <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually
+preferable to delete items of <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: most flavors of Unix.</p>
 </dd></dl>
 
 </div>
@@ -1363,22 +1362,22 @@ exception, the function now retries the system call instead of raising an
 
 <dl class="function">
 <dt id="os.sendfile">
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">sendfile</code><span class="sig-paren">(</span><em class="sig-param">out_fd</em>, <em class="sig-param">in_fd</em>, <em class="sig-param">offset</em>, <em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#os.sendfile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">os.</code><code class="sig-name descname">sendfile</code><span class="sig-paren">(</span><em class="sig-param">out</em>, <em class="sig-param">in</em>, <em class="sig-param">offset</em>, <em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#os.sendfile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt>
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">sendfile</code><span class="sig-paren">(</span><em class="sig-param">out_fd</em>, <em class="sig-param">in_fd</em>, <em class="sig-param">offset</em>, <em class="sig-param">count</em>, <span class="optional">[</span><em class="sig-param">headers</em>, <span class="optional">]</span><span class="optional">[</span><em class="sig-param">trailers</em>, <span class="optional">]</span><em class="sig-param">flags=0</em><span class="sig-paren">)</span></dt>
-<dd><p>Copy <em>count</em> bytes from file descriptor <em>in_fd</em> to file descriptor <em>out_fd</em>
+<code class="sig-prename descclassname">os.</code><code class="sig-name descname">sendfile</code><span class="sig-paren">(</span><em class="sig-param">out</em>, <em class="sig-param">in</em>, <em class="sig-param">offset</em>, <em class="sig-param">count</em>, <span class="optional">[</span><em class="sig-param">headers</em>, <span class="optional">]</span><span class="optional">[</span><em class="sig-param">trailers</em>, <span class="optional">]</span><em class="sig-param">flags=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Copy <em>count</em> bytes from file descriptor <em>in</em> to file descriptor <em>out</em>
 starting at <em>offset</em>.
-Return the number of bytes sent. When EOF is reached return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+Return the number of bytes sent. When EOF is reached return 0.</p>
 <p>The first function notation is supported by all platforms that define
 <a class="reference internal" href="#os.sendfile" title="os.sendfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code></a>.</p>
 <p>On Linux, if <em>offset</em> is given as <code class="docutils literal notranslate"><span class="pre">None</span></code>, the bytes are read from the
-current position of <em>in_fd</em> and the position of <em>in_fd</em> is updated.</p>
+current position of <em>in</em> and the position of <em>in</em> is updated.</p>
 <p>The second case may be used on Mac OS X and FreeBSD where <em>headers</em> and
 <em>trailers</em> are arbitrary sequences of buffers that are written before and
-after the data from <em>in_fd</em> is written. It returns the same as the first case.</p>
-<p>On Mac OS X and FreeBSD, a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> for <em>count</em> specifies to send until
-the end of <em>in_fd</em> is reached.</p>
-<p>All platforms support sockets as <em>out_fd</em> file descriptor, and some platforms
+after the data from <em>in</em> is written. It returns the same as the first case.</p>
+<p>On Mac OS X and FreeBSD, a value of 0 for <em>count</em> specifies to send until
+the end of <em>in</em> is reached.</p>
+<p>All platforms support sockets as <em>out</em> file descriptor, and some platforms
 allow other types (e.g. regular file, pipe) as well.</p>
 <p>Cross-platform applications should not use <em>headers</em>, <em>trailers</em> and <em>flags</em>
 arguments.</p>
@@ -1390,9 +1389,6 @@ arguments.</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Parameters <em>out</em> and <em>in</em> was renamed to <em>out_fd</em> and <em>in_fd</em>.</p>
 </div>
 </dd></dl>
 
@@ -3637,20 +3633,6 @@ process handles to be killed.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="os.pidfd_open">
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">pidfd_open</code><span class="sig-paren">(</span><em class="sig-param">pid</em>, <em class="sig-param">flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#os.pidfd_open" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return a file descriptor referring to the process <em>pid</em>.  This descriptor can
-be used to perform process management without races and signals.  The <em>flags</em>
-argument is provided for future extensions; no flag values are currently
-defined.</p>
-<p>See the <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/pidfd_open(2)">pidfd_open(2)</a></em> man page for more details.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux 5.3+</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="os.plock">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">plock</code><span class="sig-paren">(</span><em class="sig-param">op</em><span class="sig-paren">)</span><a class="headerlink" href="#os.plock" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Lock program segments into memory.  The value of <em>op</em> (defined in
@@ -4001,8 +3983,7 @@ produced.</p>
 <dt id="os.waitid">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">waitid</code><span class="sig-paren">(</span><em class="sig-param">idtype</em>, <em class="sig-param">id</em>, <em class="sig-param">options</em><span class="sig-paren">)</span><a class="headerlink" href="#os.waitid" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Wait for the completion of one or more child processes.
-<em>idtype</em> can be <a class="reference internal" href="#os.P_PID" title="os.P_PID"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_PID</span></code></a>, <a class="reference internal" href="#os.P_PGID" title="os.P_PGID"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_PGID</span></code></a>, <a class="reference internal" href="#os.P_ALL" title="os.P_ALL"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_ALL</span></code></a>, or
-<a class="reference internal" href="#os.P_PIDFD" title="os.P_PIDFD"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_PIDFD</span></code></a> on Linux.
+<em>idtype</em> can be <a class="reference internal" href="#os.P_PID" title="os.P_PID"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_PID</span></code></a>, <a class="reference internal" href="#os.P_PGID" title="os.P_PGID"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_PGID</span></code></a> or <a class="reference internal" href="#os.P_ALL" title="os.P_ALL"><code class="xref py py-data docutils literal notranslate"><span class="pre">P_ALL</span></code></a>.
 <em>id</em> specifies the pid to wait on.
 <em>options</em> is constructed from the ORing of one or more of <a class="reference internal" href="#os.WEXITED" title="os.WEXITED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WEXITED</span></code></a>,
 <a class="reference internal" href="#os.WSTOPPED" title="os.WSTOPPED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WSTOPPED</span></code></a> or <a class="reference internal" href="#os.WCONTINUED" title="os.WCONTINUED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WCONTINUED</span></code></a> and additionally may be ORed with
@@ -4033,17 +4014,6 @@ how <em>id</em> is interpreted.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="os.P_PIDFD">
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">P_PIDFD</code><a class="headerlink" href="#os.P_PIDFD" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>This is a Linux-specific <em>idtype</em> that indicates that <em>id</em> is a file
-descriptor that refers to a process.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux 5.4+</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
 <dt id="os.WEXITED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WEXITED</code><a class="headerlink" href="#os.WEXITED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt id="os.WSTOPPED">
@@ -4061,14 +4031,10 @@ child signal to wait for.</p>
 <dl class="data">
 <dt id="os.CLD_EXITED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_EXITED</code><a class="headerlink" href="#os.CLD_EXITED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dt id="os.CLD_KILLED">
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_KILLED</code><a class="headerlink" href="#os.CLD_KILLED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt id="os.CLD_DUMPED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_DUMPED</code><a class="headerlink" href="#os.CLD_DUMPED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt id="os.CLD_TRAPPED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_TRAPPED</code><a class="headerlink" href="#os.CLD_TRAPPED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dt id="os.CLD_STOPPED">
-<code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_STOPPED</code><a class="headerlink" href="#os.CLD_STOPPED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt id="os.CLD_CONTINUED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">CLD_CONTINUED</code><a class="headerlink" href="#os.CLD_CONTINUED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>These are the possible values for <code class="xref py py-attr docutils literal notranslate"><span class="pre">si_code</span></code> in the result returned by
@@ -4076,9 +4042,6 @@ child signal to wait for.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added <a class="reference internal" href="#os.CLD_KILLED" title="os.CLD_KILLED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_KILLED</span></code></a> and <a class="reference internal" href="#os.CLD_STOPPED" title="os.CLD_STOPPED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_STOPPED</span></code></a> values.</p>
 </div>
 </dd></dl>
 
@@ -4668,7 +4631,7 @@ block in these cases, but instead immediately raises <a class="reference interna
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/os.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/os.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -4700,7 +4663,7 @@ block in these cases, but instead immediately raises <a class="reference interna
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -4735,7 +4698,7 @@ block in these cases, but instead immediately raises <a class="reference interna
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

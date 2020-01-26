@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>logging — Logging facility for Python &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>logging — Logging facility for Python &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-logging">
 <span id="logging-logging-facility-for-python"></span><h1><a class="reference internal" href="#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> — Logging facility for Python<a class="headerlink" href="#module-logging" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/logging/__init__.py">Lib/logging/__init__.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/logging/__init__.py">Lib/logging/__init__.py</a></p>
 <div class="sidebar" id="index-0">
 <p class="sidebar-title">Important</p>
 <p>This page contains the API reference information. For tutorial
@@ -643,7 +643,7 @@ for more information on string formatting.</p>
 <a class="reference internal" href="#logrecord-attributes"><span class="std std-ref">LogRecord attributes</span></a>.</p>
 <dl class="class">
 <dt id="logging.Formatter">
-<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Formatter</code><span class="sig-paren">(</span><em class="sig-param">fmt=None</em>, <em class="sig-param">datefmt=None</em>, <em class="sig-param">style='%'</em>, <em class="sig-param">validate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Formatter</code><span class="sig-paren">(</span><em class="sig-param">fmt=None</em>, <em class="sig-param">datefmt=None</em>, <em class="sig-param">style='%'</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> class.  The instance is
 initialized with a format string for the message as a whole, as well as a
 format string for the date/time portion of a message.  If no <em>fmt</em> is
@@ -651,11 +651,8 @@ specified, <code class="docutils literal notranslate"><span class="pre">'%(messa
 is used which is described in the <a class="reference internal" href="#logging.Formatter.formatTime" title="logging.Formatter.formatTime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">formatTime()</span></code></a> documentation.</p>
 <p>The <em>style</em> parameter can be one of «%», «{« or «$» and determines how
 the format string will be merged with its data: using one of %-formatting,
-<a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or <a class="reference internal" href="string.html#string.Template" title="string.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a>. This only applies to the
-format string <em>fmt</em> (e.g. <code class="docutils literal notranslate"><span class="pre">'%(message)s'</span></code> or <code class="docutils literal notranslate"><span class="pre">{message}</span></code>), not to the
-actual log messages passed to <code class="docutils literal notranslate"><span class="pre">Logger.debug</span></code> etc; see
-<a class="reference internal" href="../howto/logging-cookbook.html#formatting-styles"><span class="std std-ref">Using particular formatting styles throughout your application</span></a> for more information on using {- and $-formatting
-for log messages.</p>
+<a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or <a class="reference internal" href="string.html#string.Template" title="string.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a>. See <a class="reference internal" href="../howto/logging-cookbook.html#formatting-styles"><span class="std std-ref">Using particular formatting styles throughout your application</span></a>
+for more information on using {- and $-formatting for log messages.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>style</em> parameter was added.</p>
 </div>
@@ -1392,23 +1389,6 @@ root logger are removed and closed, before
 carrying out the configuration as specified
 by the other arguments.</p></td>
 </tr>
-<tr class="row-odd"><td><p><em>encoding</em></p></td>
-<td><p>If this keyword argument is specified along
-with <em>filename</em>, its value is used when the
-FileHandler is created, and thus used when
-opening the output file.</p></td>
-</tr>
-<tr class="row-even"><td><p><em>errors</em></p></td>
-<td><p>If this keyword argument is specified along
-with <em>filename</em>, its value is used when the
-FileHandler is created, and thus used when
-opening the output file. If not specified,
-the value «backslashreplace» is used. Note
-that if <code class="docutils literal notranslate"><span class="pre">None</span></code> is specified, it will be
-passed as such to func:<cite>open</cite>, which means
-that it will be treated the same as passing
-«errors».</p></td>
-</tr>
 </tbody>
 </table>
 <div class="versionchanged">
@@ -1422,9 +1402,6 @@ together with <em>filename</em>).</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <em>force</em> argument was added.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>encoding</em> and <em>errors</em> arguments were added.</p>
 </div>
 </dd></dl>
 
@@ -1598,7 +1575,7 @@ library.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/logging.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/logging.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1630,7 +1607,7 @@ library.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1665,7 +1642,7 @@ library.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

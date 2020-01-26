@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>tracemalloc — Trace memory allocations &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>tracemalloc — Trace memory allocations &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -105,7 +105,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/tracemalloc.py">Lib/tracemalloc.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/tracemalloc.py">Lib/tracemalloc.py</a></p>
 <hr class="docutils" />
 <p>The tracemalloc module is a debug tool to trace memory blocks allocated by
 Python. It provides the following information:</p>
@@ -395,8 +395,6 @@ allocations, <code class="docutils literal notranslate"><span class="pre">False<
 allocators. Collected tracebacks of traces will be limited to <em>nframe</em>
 frames. By default, a trace of a memory block only stores the most recent
 frame: the limit is <code class="docutils literal notranslate"><span class="pre">1</span></code>. <em>nframe</em> must be greater or equal to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-<p>You can still read the original number of total frames that composed the
-traceback by looking at the <a class="reference internal" href="#tracemalloc.Traceback.total_nframe" title="tracemalloc.Traceback.total_nframe"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Traceback.total_nframe</span></code></a> attribute.</p>
 <p>Storing more than <code class="docutils literal notranslate"><span class="pre">1</span></code> frame is only useful to compute statistics grouped
 by <code class="docutils literal notranslate"><span class="pre">'traceback'</span></code> or to compute cumulative statistics: see the
 <a class="reference internal" href="#tracemalloc.Snapshot.compare_to" title="tracemalloc.Snapshot.compare_to"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snapshot.compare_to()</span></code></a> and <a class="reference internal" href="#tracemalloc.Snapshot.statistics" title="tracemalloc.Snapshot.statistics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snapshot.statistics()</span></code></a> methods.</p>
@@ -783,25 +781,11 @@ most recent frame.</p>
 failed to get a frame, the filename <code class="docutils literal notranslate"><span class="pre">&quot;&lt;unknown&gt;&quot;</span></code> at line number <code class="docutils literal notranslate"><span class="pre">0</span></code> is
 used.</p>
 <p>When a snapshot is taken, tracebacks of traces are limited to
-<a class="reference internal" href="#tracemalloc.get_traceback_limit" title="tracemalloc.get_traceback_limit"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_traceback_limit()</span></code></a> frames. See the <a class="reference internal" href="#tracemalloc.take_snapshot" title="tracemalloc.take_snapshot"><code class="xref py py-func docutils literal notranslate"><span class="pre">take_snapshot()</span></code></a> function.
-The original number of frames of the traceback is stored in the
-<a class="reference internal" href="#tracemalloc.Traceback.total_nframe" title="tracemalloc.Traceback.total_nframe"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Traceback.total_nframe</span></code></a> attribute. That allows to know if a traceback
-has been truncated by the traceback limit.</p>
+<a class="reference internal" href="#tracemalloc.get_traceback_limit" title="tracemalloc.get_traceback_limit"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_traceback_limit()</span></code></a> frames. See the <a class="reference internal" href="#tracemalloc.take_snapshot" title="tracemalloc.take_snapshot"><code class="xref py py-func docutils literal notranslate"><span class="pre">take_snapshot()</span></code></a> function.</p>
 <p>The <a class="reference internal" href="#tracemalloc.Trace.traceback" title="tracemalloc.Trace.traceback"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Trace.traceback</span></code></a> attribute is an instance of <a class="reference internal" href="#tracemalloc.Traceback" title="tracemalloc.Traceback"><code class="xref py py-class docutils literal notranslate"><span class="pre">Traceback</span></code></a>
 instance.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Frames are now sorted from the oldest to the most recent, instead of most recent to oldest.</p>
-</div>
-<dl class="attribute">
-<dt id="tracemalloc.Traceback.total_nframe">
-<code class="sig-name descname">total_nframe</code><a class="headerlink" href="#tracemalloc.Traceback.total_nframe" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Total number of frames that composed the traceback before truncation.
-This attribute can be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> if the information is not
-available.</p>
-</dd></dl>
-
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <a class="reference internal" href="#tracemalloc.Traceback.total_nframe" title="tracemalloc.Traceback.total_nframe"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Traceback.total_nframe</span></code></a> attribute was added.</p>
 </div>
 <dl class="method">
 <dt id="tracemalloc.Traceback.format">
@@ -879,7 +863,7 @@ is reversed, returning the most recent frame first instead of last.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/tracemalloc.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/tracemalloc.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -911,7 +895,7 @@ is reversed, returning the most recent frame first instead of last.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -946,7 +930,7 @@ is reversed, returning the most recent frame first instead of last.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

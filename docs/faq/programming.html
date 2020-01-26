@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>Programming FAQ &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>Programming FAQ &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Często zadawane pytania odnośnie Pythona</a> &#187;</li>
@@ -296,7 +296,7 @@ which don’t. One is Thomas Heller’s py2exe (Windows only) at</p>
 code when it is modified by adding an assignment statement somewhere in
 the body of a function.</p>
 <p>This code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bar</span><span class="p">()</span>
@@ -304,14 +304,14 @@ the body of a function.</p>
 </pre></div>
 </div>
 <p>works, but this code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>results in an UnboundLocalError:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
 <span class="gr">UnboundLocalError</span>: <span class="n">local variable &#39;x&#39; referenced before assignment</span>
@@ -325,7 +325,7 @@ earlier <code class="docutils literal notranslate"><span class="pre">print(x)</s
 an error results.</p>
 <p>In the example above you can access the outer scope variable by declaring it
 global:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foobar</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">global</span> <span class="n">x</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -337,13 +337,13 @@ global:</p>
 <p>This explicit declaration is required in order to remind you that (unlike the
 superficially analogous situation with class and instance variables) you are
 actually modifying the value of the variable in the outer scope:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">11</span>
 </pre></div>
 </div>
 <p>You can do a similar thing in a nested scope using the <a class="reference internal" href="../reference/simple_stmts.html#nonlocal"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">nonlocal</span></code></a>
 keyword:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
 <span class="gp">... </span>   <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">... </span>   <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
 <span class="gp">... </span>       <span class="k">nonlocal</span> <span class="n">x</span>
@@ -1693,7 +1693,7 @@ the lifetime of the object.  Since in CPython, this is the object’s memory
 address, it happens frequently that after an object is deleted from memory, the
 next freshly created object is allocated at the same position in memory.  This
 is illustrated by this example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> 
 <span class="go">13901272</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> 
 <span class="go">13901272</span>
@@ -1703,7 +1703,7 @@ is illustrated by this example:</p>
 deleted immediately after execution of the <code class="docutils literal notranslate"><span class="pre">id()</span></code> call.  To be sure that
 objects whose id you want to examine are still alive, create another reference
 to the object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2000</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
 <span class="go">13901272</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> 
@@ -1900,7 +1900,7 @@ class objects:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/faq/programming.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/faq/programming.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1932,7 +1932,7 @@ class objects:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Często zadawane pytania odnośnie Pythona</a> &#187;</li>
@@ -1966,7 +1966,7 @@ class objects:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

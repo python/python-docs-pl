@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>3. Defining Extension Types: Assorted Topics &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>3. Defining Extension Types: Assorted Topics &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -100,7 +100,7 @@
           <div class="body" role="main">
             
   <div class="section" id="defining-extension-types-assorted-topics">
-<span id="new-types-topics"></span><h1>3. Defining Extension Types: Assorted Topics<a class="headerlink" href="#defining-extension-types-assorted-topics" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<span id="new-types-topics"></span><h1><span class="section-number">3. </span>Defining Extension Types: Assorted Topics<a class="headerlink" href="#defining-extension-types-assorted-topics" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p id="dnt-type-methods">This section aims to give a quick fly-by on the various type methods you can
 implement and what they do.</p>
 <p>Here is the definition of <a class="reference internal" href="../c-api/type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a>, with some fields only used in
@@ -217,7 +217,7 @@ Python script references <code class="docutils literal notranslate"><span class=
 <p>Now we come to the basic type methods – the ones most extension types will
 implement.</p>
 <div class="section" id="finalization-and-de-allocation">
-<h2>3.1. Finalization and De-allocation<a class="headerlink" href="#finalization-and-de-allocation" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Finalization and De-allocation<a class="headerlink" href="#finalization-and-de-allocation" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="highlight-c notranslate" id="index-0"><div class="highlight"><pre><span></span><span class="n">destructor</span> <span class="n">tp_dealloc</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -257,7 +257,7 @@ done.  This can be done using the <a class="reference internal" href="../c-api/e
         <span class="cm">/* This saves the current exception state */</span>
         <span class="n">PyErr_Fetch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">err_type</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">err_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">err_traceback</span><span class="p">);</span>
 
-        <span class="n">cbresult</span> <span class="o">=</span> <span class="n">PyObject_CallNoArgs</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">);</span>
+        <span class="n">cbresult</span> <span class="o">=</span> <span class="n">PyObject_CallObject</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">cbresult</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
             <span class="n">PyErr_WriteUnraisable</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">);</span>
         <span class="k">else</span>
@@ -292,7 +292,7 @@ finalization code in <a class="reference internal" href="../c-api/typeobj.html#c
 </div>
 </div>
 <div class="section" id="object-presentation">
-<span id="index-3"></span><h2>3.2. Object Presentation<a class="headerlink" href="#object-presentation" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">3.2. </span>Object Presentation<a class="headerlink" href="#object-presentation" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>In Python, there are two ways to generate a textual representation of an object:
 the <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> function, and the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> function.  (The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a>
 function just calls <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a>.)  These handlers are both optional.</p>
@@ -331,7 +331,7 @@ used instead.</p>
 </div>
 </div>
 <div class="section" id="attribute-management">
-<h2>3.3. Attribute Management<a class="headerlink" href="#attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Attribute Management<a class="headerlink" href="#attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>For every object which can support attributes, the corresponding type must
 provide the functions that control how the attributes are resolved.  There needs
 to be a function which can retrieve attributes (if any are defined), and another
@@ -356,7 +356,7 @@ The actual need for type-specific attribute handlers almost completely
 disappeared starting with Python 2.2, though there are many examples which have
 not been updated to use some of the new generic mechanism that is available.</p>
 <div class="section" id="generic-attribute-management">
-<span id="id1"></span><h3>3.3.1. Generic Attribute Management<a class="headerlink" href="#generic-attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">3.3.1. </span>Generic Attribute Management<a class="headerlink" href="#generic-attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Most extension types only use <em>simple</em> attributes.  So, what makes the
 attributes simple?  There are only a couple of conditions that must be met:</p>
 <ol class="arabic simple">
@@ -449,7 +449,7 @@ class object, and get the doc string using its <code class="xref py py-attr docu
 of <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is required.</p>
 </div>
 <div class="section" id="type-specific-attribute-management">
-<h3>3.3.2. Type-specific Attribute Management<a class="headerlink" href="#type-specific-attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Type-specific Attribute Management<a class="headerlink" href="#type-specific-attribute-management" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>For simplicity, only the <code class="xref c c-type docutils literal notranslate"><span class="pre">char*</span></code> version will be demonstrated here; the
 type of the name parameter is the only difference between the <code class="xref c c-type docutils literal notranslate"><span class="pre">char*</span></code>
 and <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> flavors of the interface. This example effectively does
@@ -492,7 +492,7 @@ example that simply raises an exception; if this were really all you wanted, the
 </div>
 </div>
 <div class="section" id="object-comparison">
-<h2>3.4. Object Comparison<a class="headerlink" href="#object-comparison" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Object Comparison<a class="headerlink" href="#object-comparison" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">richcmpfunc</span> <span class="n">tp_richcompare</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -537,7 +537,7 @@ size of an internal pointer is equal:</p>
 </div>
 </div>
 <div class="section" id="abstract-protocol-support">
-<h2>3.5. Abstract Protocol Support<a class="headerlink" href="#abstract-protocol-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Abstract Protocol Support<a class="headerlink" href="#abstract-protocol-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Python supports a variety of <em>abstract</em> «protocols;» the specific interfaces
 provided to use these interfaces are documented in <a class="reference internal" href="../c-api/abstract.html#abstract"><span class="std std-ref">Warstwa obiektów abstrakcyjnych</span></a>.</p>
 <p>A number of these abstract interfaces were defined early in the development of
@@ -655,7 +655,7 @@ occurs, <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject
 and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 </div>
 <div class="section" id="weak-reference-support">
-<span id="weakref-support"></span><h2>3.6. Weak Reference Support<a class="headerlink" href="#weak-reference-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="weakref-support"></span><h2><span class="section-number">3.6. </span>Weak Reference Support<a class="headerlink" href="#weak-reference-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>One of the goals of Python’s weak reference implementation is to allow any type
 to participate in the weak reference mechanism without incurring the overhead on
 performance-critical objects (such as numbers).</p>
@@ -705,7 +705,7 @@ non-<code class="docutils literal notranslate"><span class="pre">NULL</span></co
 </div>
 </div>
 <div class="section" id="more-suggestions">
-<h2>3.7. More Suggestions<a class="headerlink" href="#more-suggestions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2><span class="section-number">3.7. </span>More Suggestions<a class="headerlink" href="#more-suggestions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>In order to learn how to implement any specific method for your new data type,
 get the <a class="reference internal" href="../glossary.html#term-cpython"><span class="xref std std-term">CPython</span></a> source code.  Go to the <code class="file docutils literal notranslate"><span class="pre">Objects</span></code> directory,
 then search the C source files for <code class="docutils literal notranslate"><span class="pre">tp_</span></code> plus the function you want
@@ -758,16 +758,16 @@ its use might be something like the following:</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="newtypes_tutorial.html"
-                        title="poprzedni rozdział">2. Defining Extension Types: Tutorial</a></p>
+                        title="poprzedni rozdział"><span class="section-number">2. </span>Defining Extension Types: Tutorial</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="building.html"
-                        title="następny rozdział">4. Building C and C++ Extensions</a></p>
+                        title="następny rozdział"><span class="section-number">4. </span>Building C and C++ Extensions</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/extending/newtypes.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/extending/newtypes.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -799,7 +799,7 @@ its use might be something like the following:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -833,7 +833,7 @@ its use might be something like the following:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

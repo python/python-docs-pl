@@ -145,7 +145,7 @@ print a message for each get or set.  Overriding :meth:`__getattribute__` is
 alternate approach that could do this for every attribute.  However, this
 descriptor is useful for monitoring just a few chosen attributes::
 
-    class RevealAccess:
+    class RevealAccess(object):
         """A data descriptor that sets and returns values
            normally and prints a message logging their access.
         """
@@ -162,7 +162,7 @@ descriptor is useful for monitoring just a few chosen attributes::
             print('Updating', self.name)
             self.val = val
 
-    >>> class MyClass:
+    >>> class MyClass(object):
     ...     x = RevealAccess(10, 'var "x"')
     ...     y = 5
     ...
@@ -194,7 +194,7 @@ triggers function calls upon access to an attribute.  Its signature is::
 
 The documentation shows a typical use to define a managed attribute ``x``::
 
-    class C:
+    class C(object):
         def getx(self): return self.__x
         def setx(self, value): self.__x = value
         def delx(self): del self.__x
@@ -203,7 +203,7 @@ The documentation shows a typical use to define a managed attribute ``x``::
 To see how :func:`property` is implemented in terms of the descriptor protocol,
 here is a pure Python equivalent::
 
-    class Property:
+    class Property(object):
         "Emulate PyProperty_Type() in Objects/descrobject.c"
 
         def __init__(self, fget=None, fset=None, fdel=None, doc=None):
@@ -250,7 +250,7 @@ to be recalculated on every access; however, the programmer does not want to
 affect existing client code accessing the attribute directly.  The solution is
 to wrap access to the value attribute in a property data descriptor::
 
-    class Cell:
+    class Cell(object):
         . . .
         def getvalue(self):
             "Recalculate the cell before returning value"
@@ -277,7 +277,7 @@ binding methods during attribute access.  This means that all functions are
 non-data descriptors which return bound methods when they are invoked from an
 object.  In pure Python, it works like this::
 
-    class Function:
+    class Function(object):
         . . .
         def __get__(self, obj, objtype=None):
             "Simulate func_descr_get() in Objects/funcobject.c"
@@ -287,7 +287,7 @@ object.  In pure Python, it works like this::
 
 Running the interpreter shows how the function descriptor works in practice::
 
-    >>> class D:
+    >>> class D(object):
     ...     def f(self, x):
     ...         return x
     ...
@@ -367,7 +367,7 @@ It can be called either from an object or the class:  ``s.erf(1.5) --> .9332`` o
 Since staticmethods return the underlying function with no changes, the example
 calls are unexciting::
 
-    >>> class E:
+    >>> class E(object):
     ...     def f(x):
     ...         print(x)
     ...     f = staticmethod(f)
@@ -380,7 +380,7 @@ calls are unexciting::
 Using the non-data descriptor protocol, a pure Python version of
 :func:`staticmethod` would look like this::
 
-    class StaticMethod:
+    class StaticMethod(object):
         "Emulate PyStaticMethod_Type() in Objects/funcobject.c"
 
         def __init__(self, f):
@@ -393,7 +393,7 @@ Unlike static methods, class methods prepend the class reference to the
 argument list before calling the function.  This format is the same
 for whether the caller is an object or a class::
 
-    >>> class E:
+    >>> class E(object):
     ...     def f(klass, x):
     ...         return klass.__name__, x
     ...     f = classmethod(f)
@@ -410,7 +410,7 @@ is to create alternate class constructors.  In Python 2.3, the classmethod
 :func:`dict.fromkeys` creates a new dictionary from a list of keys.  The pure
 Python equivalent is::
 
-    class Dict:
+    class Dict(object):
         . . .
         def fromkeys(klass, iterable, value=None):
             "Emulate dict_fromkeys() in Objects/dictobject.c"
@@ -428,7 +428,7 @@ Now a new dictionary of unique keys can be constructed like this::
 Using the non-data descriptor protocol, a pure Python version of
 :func:`classmethod` would look like this::
 
-    class ClassMethod:
+    class ClassMethod(object):
         "Emulate PyClassMethod_Type() in Objects/funcobject.c"
 
         def __init__(self, f):

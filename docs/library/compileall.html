@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>compileall — Byte-compile Python libraries &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>compileall — Byte-compile Python libraries &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-compileall">
 <span id="compileall-byte-compile-python-libraries"></span><h1><a class="reference internal" href="#module-compileall" title="compileall: Tools for byte-compiling all Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> — Byte-compile Python libraries<a class="headerlink" href="#module-compileall" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/compileall.py">Lib/compileall.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/compileall.py">Lib/compileall.py</a></p>
 <hr class="docutils" />
 <p>This module provides some utility functions to support installing Python
 libraries.  These functions compile Python source files in a directory tree.
@@ -151,19 +151,6 @@ appear in compilation time tracebacks, and is also compiled in to the
 byte-code file, where it will be used in tracebacks and other messages in
 cases where the source file does not exist at the time the byte-code file is
 executed.</p>
-</dd></dl>
-
-<dl class="cmdoption">
-<dt id="cmdoption-compileall-s">
-<code class="sig-name descname">-s</code><code class="sig-prename descclassname"> strip_prefix</code><a class="headerlink" href="#cmdoption-compileall-s" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="cmdoption">
-<dt id="cmdoption-compileall-p">
-<code class="sig-name descname">-p</code><code class="sig-prename descclassname"> prepend_prefix</code><a class="headerlink" href="#cmdoption-compileall-p" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Remove (<code class="docutils literal notranslate"><span class="pre">-s</span></code>) or append (<code class="docutils literal notranslate"><span class="pre">-p</span></code>) the given prefix of paths
-recorded in the <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files.
-Cannot be combined with <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
 </dd></dl>
 
 <dl class="cmdoption">
@@ -222,20 +209,6 @@ variable is not set, and <code class="docutils literal notranslate"><span class=
 environment variable is set.</p>
 </dd></dl>
 
-<dl class="cmdoption">
-<dt id="cmdoption-compileall-o">
-<code class="sig-name descname">-o</code><code class="sig-prename descclassname"> level</code><a class="headerlink" href="#cmdoption-compileall-o" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Compile with the given optimization level. May be used multiple times
-to compile for multiple levels at a time (for example,
-<code class="docutils literal notranslate"><span class="pre">compileall</span> <span class="pre">-o</span> <span class="pre">1</span> <span class="pre">-o</span> <span class="pre">2</span></code>).</p>
-</dd></dl>
-
-<dl class="cmdoption">
-<dt id="cmdoption-compileall-e">
-<code class="sig-name descname">-e</code><code class="sig-prename descclassname"> dir</code><a class="headerlink" href="#cmdoption-compileall-e" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Ignore symlinks pointing outside the given directory.</p>
-</dd></dl>
-
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Added the <code class="docutils literal notranslate"><span class="pre">-i</span></code>, <code class="docutils literal notranslate"><span class="pre">-b</span></code> and <code class="docutils literal notranslate"><span class="pre">-h</span></code> options.</p>
 </div>
@@ -246,12 +219,6 @@ byte-code file ending in <code class="docutils literal notranslate"><span class=
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Added the <code class="docutils literal notranslate"><span class="pre">--invalidation-mode</span></code> option.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added the <code class="docutils literal notranslate"><span class="pre">-s</span></code>, <code class="docutils literal notranslate"><span class="pre">-p</span></code>, <code class="docutils literal notranslate"><span class="pre">-e</span></code> options.
-Raised the default recursion limit from 10 to
-<a class="reference internal" href="sys.html#sys.getrecursionlimit" title="sys.getrecursionlimit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getrecursionlimit()</span></code></a>.
-Added the possibility to specify the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option multiple times.</p>
 </div>
 <p>There is no command-line option to control the optimization level used by the
 <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> function, because the Python interpreter itself already
@@ -265,7 +232,7 @@ runtime.</p>
 <h2>Public functions<a class="headerlink" href="#public-functions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="compileall.compile_dir">
-<code class="sig-prename descclassname">compileall.</code><code class="sig-name descname">compile_dir</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">maxlevels=sys.getrecursionlimit()</em>, <em class="sig-param">ddir=None</em>, <em class="sig-param">force=False</em>, <em class="sig-param">rx=None</em>, <em class="sig-param">quiet=0</em>, <em class="sig-param">legacy=False</em>, <em class="sig-param">optimize=-1</em>, <em class="sig-param">workers=1</em>, <em class="sig-param">invalidation_mode=None</em>, <em class="sig-param">stripdir=None</em>, <em class="sig-param">prependdir=None</em>, <em class="sig-param">limit_sl_dest=None</em><span class="sig-paren">)</span><a class="headerlink" href="#compileall.compile_dir" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">compileall.</code><code class="sig-name descname">compile_dir</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">maxlevels=10</em>, <em class="sig-param">ddir=None</em>, <em class="sig-param">force=False</em>, <em class="sig-param">rx=None</em>, <em class="sig-param">quiet=0</em>, <em class="sig-param">legacy=False</em>, <em class="sig-param">optimize=-1</em>, <em class="sig-param">workers=1</em>, <em class="sig-param">invalidation_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#compileall.compile_dir" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Recursively descend the directory tree named by <em>dir</em>, compiling all <code class="file docutils literal notranslate"><span class="pre">.py</span></code>
 files along the way. Return a true value if all the files compiled successfully,
 and a false value otherwise.</p>
@@ -300,9 +267,6 @@ lower than <code class="docutils literal notranslate"><span class="pre">0</span>
 <p><em>invalidation_mode</em> should be a member of the
 <a class="reference internal" href="py_compile.html#py_compile.PycInvalidationMode" title="py_compile.PycInvalidationMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">py_compile.PycInvalidationMode</span></code></a> enum and controls how the generated
 pycs are invalidated at runtime.</p>
-<p>The <em>stripdir</em>, <em>prependdir</em> and <em>limit_sl_dest</em> arguments correspond to
-the <code class="docutils literal notranslate"><span class="pre">-s</span></code>, <code class="docutils literal notranslate"><span class="pre">-p</span></code> and <code class="docutils literal notranslate"><span class="pre">-e</span></code> options described above.
-They may be specified as <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Added the <em>legacy</em> and <em>optimize</em> parameter.</p>
 </div>
@@ -327,9 +291,6 @@ no matter what the value of <em>optimize</em> is.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Setting <em>workers</em> to 0 now chooses the optimal number of cores.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added <em>stripdir</em>, <em>prependdir</em> and <em>limit_sl_dest</em> arguments.</p>
 </div>
 </dd></dl>
 
@@ -359,9 +320,6 @@ the built-in <a class="reference internal" href="functions.html#compile" title="
 <p><em>invalidation_mode</em> should be a member of the
 <a class="reference internal" href="py_compile.html#py_compile.PycInvalidationMode" title="py_compile.PycInvalidationMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">py_compile.PycInvalidationMode</span></code></a> enum and controls how the generated
 pycs are invalidated at runtime.</p>
-<p>The <em>stripdir</em>, <em>prependdir</em> and <em>limit_sl_dest</em> arguments correspond to
-the <code class="docutils literal notranslate"><span class="pre">-s</span></code>, <code class="docutils literal notranslate"><span class="pre">-p</span></code> and <code class="docutils literal notranslate"><span class="pre">-e</span></code> options described above.
-They may be specified as <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> or <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
@@ -377,9 +335,6 @@ no matter what the value of <em>optimize</em> is.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.7.2: </span>The <em>invalidation_mode</em> parameter’s default value is updated to None.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added <em>stripdir</em>, <em>prependdir</em> and <em>limit_sl_dest</em> arguments.</p>
 </div>
 </dd></dl>
 
@@ -461,7 +416,7 @@ subdirectory and all its subdirectories:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/compileall.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/compileall.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -493,7 +448,7 @@ subdirectory and all its subdirectories:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -528,7 +483,7 @@ subdirectory and all its subdirectories:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

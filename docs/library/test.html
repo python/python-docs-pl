@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>test — Regression tests package for Python &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>test — Regression tests package for Python &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -369,57 +369,6 @@ possible to generate such a filename.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="test.support.LOOPBACK_TIMEOUT">
-<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">LOOPBACK_TIMEOUT</code><a class="headerlink" href="#test.support.LOOPBACK_TIMEOUT" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Timeout in seconds for tests using a network server listening on the network
-local loopback interface like <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>.</p>
-<p>The timeout is long enough to prevent test failure: it takes into account
-that the client and the server can run in different threads or even
-different processes.</p>
-<p>The timeout should be long enough for <a class="reference internal" href="socket.html#socket.socket.connect" title="socket.socket.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a>,
-<a class="reference internal" href="socket.html#socket.socket.recv" title="socket.socket.recv"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> and <a class="reference internal" href="socket.html#socket.socket.send" title="socket.socket.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a> methods of
-<a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">socket.socket</span></code></a>.</p>
-<p>Its default value is 5 seconds.</p>
-<p>See also <a class="reference internal" href="#test.support.INTERNET_TIMEOUT" title="test.support.INTERNET_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">INTERNET_TIMEOUT</span></code></a>.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="test.support.INTERNET_TIMEOUT">
-<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">INTERNET_TIMEOUT</code><a class="headerlink" href="#test.support.INTERNET_TIMEOUT" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Timeout in seconds for network requests going to the Internet.</p>
-<p>The timeout is short enough to prevent a test to wait for too long if the
-Internet request is blocked for whatever reason.</p>
-<p>Usually, a timeout using <a class="reference internal" href="#test.support.INTERNET_TIMEOUT" title="test.support.INTERNET_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">INTERNET_TIMEOUT</span></code></a> should not mark a test as
-failed, but skip the test instead: see
-<a class="reference internal" href="#test.support.transient_internet" title="test.support.transient_internet"><code class="xref py py-func docutils literal notranslate"><span class="pre">transient_internet()</span></code></a>.</p>
-<p>Its default value is 1 minute.</p>
-<p>See also <a class="reference internal" href="#test.support.LOOPBACK_TIMEOUT" title="test.support.LOOPBACK_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">LOOPBACK_TIMEOUT</span></code></a>.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="test.support.SHORT_TIMEOUT">
-<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">SHORT_TIMEOUT</code><a class="headerlink" href="#test.support.SHORT_TIMEOUT" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Timeout in seconds to mark a test as failed if the test takes „too long”.</p>
-<p>The timeout value depends on the regrtest <code class="docutils literal notranslate"><span class="pre">--timeout</span></code> command line option.</p>
-<p>If a test using <a class="reference internal" href="#test.support.SHORT_TIMEOUT" title="test.support.SHORT_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHORT_TIMEOUT</span></code></a> starts to fail randomly on slow
-buildbots, use <a class="reference internal" href="#test.support.LONG_TIMEOUT" title="test.support.LONG_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">LONG_TIMEOUT</span></code></a> instead.</p>
-<p>Its default value is 30 seconds.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="test.support.LONG_TIMEOUT">
-<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">LONG_TIMEOUT</code><a class="headerlink" href="#test.support.LONG_TIMEOUT" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Timeout in seconds to detect when a test hangs.</p>
-<p>It is long enough to reduce the risk of test failure on the slowest Python
-buildbots. It should not be used to mark a test as failed if the test takes
-„too long”.  The timeout value depends on the regrtest <code class="docutils literal notranslate"><span class="pre">--timeout</span></code> command
-line option.</p>
-<p>Its default value is 5 minutes.</p>
-<p>See also <a class="reference internal" href="#test.support.LOOPBACK_TIMEOUT" title="test.support.LOOPBACK_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">LOOPBACK_TIMEOUT</span></code></a>, <a class="reference internal" href="#test.support.INTERNET_TIMEOUT" title="test.support.INTERNET_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">INTERNET_TIMEOUT</span></code></a> and
-<a class="reference internal" href="#test.support.SHORT_TIMEOUT" title="test.support.SHORT_TIMEOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">SHORT_TIMEOUT</span></code></a>.</p>
-</dd></dl>
-
-<dl class="data">
 <dt id="test.support.IPV6_ENABLED">
 <code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">IPV6_ENABLED</code><a class="headerlink" href="#test.support.IPV6_ENABLED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if IPV6 is enabled on this host, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
@@ -512,13 +461,6 @@ not set with <code class="docutils literal notranslate"><span class="pre">WITH_D
 <dt id="test.support.ALWAYS_EQ">
 <code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">ALWAYS_EQ</code><a class="headerlink" href="#test.support.ALWAYS_EQ" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Object that is equal to anything.  Used to test mixed type comparison.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="test.support.NEVER_EQ">
-<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">NEVER_EQ</code><a class="headerlink" href="#test.support.NEVER_EQ" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Object that is not equal to anything (even to <a class="reference internal" href="#test.support.ALWAYS_EQ" title="test.support.ALWAYS_EQ"><code class="xref py py-data docutils literal notranslate"><span class="pre">ALWAYS_EQ</span></code></a>).
-Used to test mixed type comparison.</p>
 </dd></dl>
 
 <dl class="data">
@@ -789,6 +731,14 @@ time the regrtest began.</p>
 <code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">get_original_stdout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.support.get_original_stdout" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the original stdout set by <a class="reference internal" href="#test.support.record_original_stdout" title="test.support.record_original_stdout"><code class="xref py py-func docutils literal notranslate"><span class="pre">record_original_stdout()</span></code></a> or
 <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code> if it’s not set.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="test.support.strip_python_strerr">
+<code class="sig-prename descclassname">test.support.</code><code class="sig-name descname">strip_python_strerr</code><span class="sig-paren">(</span><em class="sig-param">stderr</em><span class="sig-paren">)</span><a class="headerlink" href="#test.support.strip_python_strerr" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Strip the <em>stderr</em> of a Python process from potential debug output
+emitted by the interpreter.  This will typically be run on the result of
+<a class="reference internal" href="subprocess.html#subprocess.Popen.communicate" title="subprocess.Popen.communicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subprocess.Popen.communicate()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1658,9 +1608,6 @@ interpreter can start.</p>
 <dd><p>Set up the environment based on <em>env_vars</em> for running the interpreter
 in a subprocess.  The values can include <code class="docutils literal notranslate"><span class="pre">__isolated</span></code>, <code class="docutils literal notranslate"><span class="pre">__cleanenv</span></code>,
 <code class="docutils literal notranslate"><span class="pre">__cwd</span></code>, and <code class="docutils literal notranslate"><span class="pre">TERM</span></code>.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The function no longer strips whitespaces from <em>stderr</em>.</p>
-</div>
 </dd></dl>
 
 <dl class="function">
@@ -1673,9 +1620,6 @@ variables <em>env_vars</em> succeeds (<code class="docutils literal notranslate"
 environment.</p>
 <p>Python is started in isolated mode (command line option <code class="docutils literal notranslate"><span class="pre">-I</span></code>),
 except if the <code class="docutils literal notranslate"><span class="pre">__isolated</span></code> keyword is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The function no longer strips whitespaces from <em>stderr</em>.</p>
-</div>
 </dd></dl>
 
 <dl class="function">
@@ -1685,9 +1629,6 @@ except if the <code class="docutils literal notranslate"><span class="pre">__iso
 variables <em>env_vars</em> fails (<code class="docutils literal notranslate"><span class="pre">rc</span> <span class="pre">!=</span> <span class="pre">0</span></code>) and return a <code class="docutils literal notranslate"><span class="pre">(return</span> <span class="pre">code,</span>
 <span class="pre">stdout,</span> <span class="pre">stderr)</span></code> tuple.</p>
 <p>See <a class="reference internal" href="#test.support.script_helper.assert_python_ok" title="test.support.script_helper.assert_python_ok"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_python_ok()</span></code></a> for more options.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The function no longer strips whitespaces from <em>stderr</em>.</p>
-</div>
 </dd></dl>
 
 <dl class="function">
@@ -1739,36 +1680,6 @@ path and the archive name for the zip file.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-test.support.bytecode_helper">
-<span id="test-support-bytecode-helper-support-tools-for-testing-correct-bytecode-generation"></span><h1><a class="reference internal" href="#module-test.support.bytecode_helper" title="test.support.bytecode_helper: Support tools for testing correct bytecode generation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support.bytecode_helper</span></code></a> — Support tools for testing correct bytecode generation<a class="headerlink" href="#module-test.support.bytecode_helper" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p>The <a class="reference internal" href="#module-test.support.bytecode_helper" title="test.support.bytecode_helper: Support tools for testing correct bytecode generation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support.bytecode_helper</span></code></a> module provides support for testing
-and inspecting bytecode generation.</p>
-<p>The module defines the following class:</p>
-<dl class="class">
-<dt id="test.support.bytecode_helper.BytecodeTestCase">
-<em class="property">class </em><code class="sig-prename descclassname">test.support.bytecode_helper.</code><code class="sig-name descname">BytecodeTestCase</code><span class="sig-paren">(</span><em class="sig-param">unittest.TestCase</em><span class="sig-paren">)</span><a class="headerlink" href="#test.support.bytecode_helper.BytecodeTestCase" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>This class has custom assertion methods for inspecting bytecode.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test.support.bytecode_helper.BytecodeTestCase.get_disassembly_as_string">
-<code class="sig-prename descclassname">BytecodeTestCase.</code><code class="sig-name descname">get_disassembly_as_string</code><span class="sig-paren">(</span><em class="sig-param">co</em><span class="sig-paren">)</span><a class="headerlink" href="#test.support.bytecode_helper.BytecodeTestCase.get_disassembly_as_string" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return the disassembly of <em>co</em> as string.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test.support.bytecode_helper.BytecodeTestCase.assertInBytecode">
-<code class="sig-prename descclassname">BytecodeTestCase.</code><code class="sig-name descname">assertInBytecode</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">opname</em>, <em class="sig-param">argval=_UNSPECIFIED</em><span class="sig-paren">)</span><a class="headerlink" href="#test.support.bytecode_helper.BytecodeTestCase.assertInBytecode" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return instr if <em>opname</em> is found, otherwise throws <a class="reference internal" href="exceptions.html#AssertionError" title="AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test.support.bytecode_helper.BytecodeTestCase.assertNotInBytecode">
-<code class="sig-prename descclassname">BytecodeTestCase.</code><code class="sig-name descname">assertNotInBytecode</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">opname</em>, <em class="sig-param">argval=_UNSPECIFIED</em><span class="sig-paren">)</span><a class="headerlink" href="#test.support.bytecode_helper.BytecodeTestCase.assertNotInBytecode" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Throws <a class="reference internal" href="exceptions.html#AssertionError" title="AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a> if <em>opname</em> is found.</p>
-</dd></dl>
-
-</div>
 
 
           </div>
@@ -1785,7 +1696,6 @@ and inspecting bytecode generation.</p>
 </li>
 <li><a class="reference internal" href="#module-test.support"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support</span></code> — Utilities for the Python test suite</a></li>
 <li><a class="reference internal" href="#module-test.support.script_helper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support.script_helper</span></code> — Utilities for the Python execution tests</a></li>
-<li><a class="reference internal" href="#module-test.support.bytecode_helper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support.bytecode_helper</span></code> — Support tools for testing correct bytecode generation</a></li>
 </ul>
 
   <h4>Poprzedni temat</h4>
@@ -1799,7 +1709,7 @@ and inspecting bytecode generation.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/test.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/test.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1831,7 +1741,7 @@ and inspecting bytecode generation.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1866,7 +1776,7 @@ and inspecting bytecode generation.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

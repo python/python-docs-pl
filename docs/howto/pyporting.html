@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>Porting Python 2 Code to Python 3 &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>Porting Python 2 Code to Python 3 &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -127,27 +127,20 @@ are:</p>
 <ol class="arabic simple">
 <li><p>Only worry about supporting Python 2.7</p></li>
 <li><p>Make sure you have good test coverage (<a class="reference external" href="https://pypi.org/project/coverage">coverage.py</a> can help;
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">coverage</span></code>)</p></li>
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">coverage</span></code>)</p></li>
 <li><p>Learn the differences between Python 2 &amp; 3</p></li>
-<li><p>Use <a class="reference external" href="http://python-future.org/automatic_conversion.html">Futurize</a> (or <a class="reference external" href="https://python-modernize.readthedocs.io/">Modernize</a>) to update your code (e.g. <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">future</span></code>)</p></li>
+<li><p>Use <a class="reference external" href="http://python-future.org/automatic_conversion.html">Futurize</a> (or <a class="reference external" href="https://python-modernize.readthedocs.io/">Modernize</a>) to update your code (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">future</span></code>)</p></li>
 <li><p>Use <a class="reference external" href="https://pypi.org/project/pylint">Pylint</a> to help make sure you don’t regress on your Python 3 support
-(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylint</span></code>)</p></li>
+(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylint</span></code>)</p></li>
 <li><p>Use <a class="reference external" href="https://pypi.org/project/caniusepython3">caniusepython3</a> to find out which of your dependencies are blocking your
-use of Python 3 (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">caniusepython3</span></code>)</p></li>
+use of Python 3 (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">caniusepython3</span></code>)</p></li>
 <li><p>Once your dependencies are no longer blocking you, use continuous integration
 to make sure you stay compatible with Python 2 &amp; 3 (<a class="reference external" href="https://pypi.org/project/tox">tox</a> can help test
-against multiple versions of Python; <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tox</span></code>)</p></li>
+against multiple versions of Python; <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tox</span></code>)</p></li>
 <li><p>Consider using optional static type checking to make sure your type usage
 works in both Python 2 &amp; 3 (e.g. use <a class="reference external" href="http://mypy-lang.org/">mypy</a> to check your typing under both
-Python 2 &amp; Python 3; <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mypy</span></code>).</p></li>
+Python 2 &amp; Python 3).</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Note: Using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span></code> guarantees that the <code class="docutils literal notranslate"><span class="pre">pip</span></code> you invoke
-is the one installed for the Python currently in use, whether it be
-a system-wide <code class="docutils literal notranslate"><span class="pre">pip</span></code> or one installed within a
-<a class="reference internal" href="../tutorial/venv.html#tut-venv"><span class="std std-ref">virtual environment</span></a>.</p>
-</div>
 </div>
 <div class="section" id="details">
 <h2>Details<a class="headerlink" href="#details" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -168,7 +161,7 @@ your code to support Python 2 &amp; 3 simultaneously.</p>
 <p>While you can make Python 2.5 work with Python 3, it is <strong>much</strong> easier if you
 only have to work with Python 2.7. If dropping Python 2.5 is not an
 option then the <a class="reference external" href="https://pypi.org/project/six">six</a> project can help you support Python 2.5 &amp; 3 simultaneously
-(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">six</span></code>). Do realize, though, that nearly all the projects listed
+(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">six</span></code>). Do realize, though, that nearly all the projects listed
 in this HOWTO will not be available to you.</p>
 <p>If you are able to skip Python 2.5 and older, then the required changes
 to your code should continue to look and feel like idiomatic Python code. At
@@ -540,7 +533,7 @@ to make sure everything functions as expected in both versions of Python.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/howto/pyporting.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/pyporting.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -572,7 +565,7 @@ to make sure everything functions as expected in both versions of Python.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -606,7 +599,7 @@ to make sure everything functions as expected in both versions of Python.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>pathlib — Object-oriented filesystem paths &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>pathlib — Object-oriented filesystem paths &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -105,7 +105,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/pathlib.py">Lib/pathlib.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/pathlib.py">Lib/pathlib.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>This module offers classes representing filesystem paths with semantics
 appropriate for different operating systems.  Path classes are divided
@@ -539,7 +539,7 @@ root, if any:</p>
 <code class="sig-prename descclassname">PurePath.</code><code class="sig-name descname">as_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pathlib.PurePath.as_uri" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Represent the path as a <code class="docutils literal notranslate"><span class="pre">file</span></code> URI.  <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if
 the path isn’t absolute.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">PurePosixPath</span><span class="p">(</span><span class="s1">&#39;/etc/passwd&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">PurePosixPath</span><span class="p">(</span><span class="s1">&#39;/etc/passwd&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">as_uri</span><span class="p">()</span>
 <span class="go">&#39;file:///etc/passwd&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;c:/Windows&#39;</span><span class="p">)</span>
@@ -572,28 +572,12 @@ if it has both a root and (if the flavour allows) a drive:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pathlib.PurePath.is_relative_to">
-<code class="sig-prename descclassname">PurePath.</code><code class="sig-name descname">is_relative_to</code><span class="sig-paren">(</span><em class="sig-param">*other</em><span class="sig-paren">)</span><a class="headerlink" href="#pathlib.PurePath.is_relative_to" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return whether or not this path is relative to the <em>other</em> path.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">PurePath</span><span class="p">(</span><span class="s1">&#39;/etc/passwd&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_relative_to</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_relative_to</span><span class="p">(</span><span class="s1">&#39;/usr&#39;</span><span class="p">)</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="pathlib.PurePath.is_reserved">
 <code class="sig-prename descclassname">PurePath.</code><code class="sig-name descname">is_reserved</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pathlib.PurePath.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>With <a class="reference internal" href="#pathlib.PureWindowsPath" title="pathlib.PureWindowsPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PureWindowsPath</span></code></a>, return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path is considered
 reserved under Windows, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.  With <a class="reference internal" href="#pathlib.PurePosixPath" title="pathlib.PurePosixPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PurePosixPath</span></code></a>,
 <code class="docutils literal notranslate"><span class="pre">False</span></code> is always returned.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;nul&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_reserved</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;nul&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_reserved</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">PurePosixPath</span><span class="p">(</span><span class="s1">&#39;nul&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_reserved</span><span class="p">()</span>
 <span class="go">False</span>
@@ -1094,22 +1078,6 @@ meaning as in <a class="reference internal" href="functions.html#open" title="op
 </dd></dl>
 
 <dl class="method">
-<dt id="pathlib.Path.readlink">
-<code class="sig-prename descclassname">Path.</code><code class="sig-name descname">readlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pathlib.Path.readlink" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return the path to which the symbolic link points (as returned by
-<a class="reference internal" href="os.html#os.readlink" title="os.readlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.readlink()</span></code></a>):</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;mylink&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">symlink_to</span><span class="p">(</span><span class="s1">&#39;setup.py&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">readlink</span><span class="p">()</span>
-<span class="go">PosixPath(&#39;setup.py&#39;)</span>
-</pre></div>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="pathlib.Path.rename">
 <code class="sig-prename descclassname">Path.</code><code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#pathlib.Path.rename" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Rename this file or directory to the given <em>target</em>, and return a new Path
@@ -1368,30 +1336,27 @@ considering them equivalent.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.islink" title="os.path.islink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.islink()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.Path.is_symlink" title="pathlib.Path.is_symlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.is_symlink()</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="os.html#os.readlink" title="os.readlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.readlink()</span></code></a></p></td>
-<td><p><a class="reference internal" href="#pathlib.Path.readlink" title="pathlib.Path.readlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.readlink()</span></code></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.Path.stat" title="pathlib.Path.stat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.stat()</span></code></a>,
 <a class="reference internal" href="#pathlib.Path.owner" title="pathlib.Path.owner"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.owner()</span></code></a>,
 <a class="reference internal" href="#pathlib.Path.group" title="pathlib.Path.group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.group()</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.isabs" title="os.path.isabs"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.isabs()</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.isabs" title="os.path.isabs"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.isabs()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.PurePath.is_absolute" title="pathlib.PurePath.is_absolute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PurePath.is_absolute()</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.join" title="os.path.join"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.join()</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.join" title="os.path.join"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.join()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.PurePath.joinpath" title="pathlib.PurePath.joinpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">PurePath.joinpath()</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.basename" title="os.path.basename"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.basename()</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.basename" title="os.path.basename"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.basename()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.PurePath.name" title="pathlib.PurePath.name"><code class="xref py py-data docutils literal notranslate"><span class="pre">PurePath.name</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.dirname" title="os.path.dirname"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.dirname()</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.dirname" title="os.path.dirname"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.dirname()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.PurePath.parent" title="pathlib.PurePath.parent"><code class="xref py py-data docutils literal notranslate"><span class="pre">PurePath.parent</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.samefile" title="os.path.samefile"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.samefile()</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.samefile" title="os.path.samefile"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.samefile()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.Path.samefile" title="pathlib.Path.samefile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.samefile()</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="os.path.html#os.path.splitext" title="os.path.splitext"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.splitext()</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="os.path.html#os.path.splitext" title="os.path.splitext"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.splitext()</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pathlib.PurePath.suffix" title="pathlib.PurePath.suffix"><code class="xref py py-data docutils literal notranslate"><span class="pre">PurePath.suffix</span></code></a></p></td>
 </tr>
 </tbody>
@@ -1436,7 +1401,7 @@ considering them equivalent.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/pathlib.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/pathlib.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1468,7 +1433,7 @@ considering them equivalent.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1503,7 +1468,7 @@ considering them equivalent.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

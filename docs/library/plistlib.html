@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>plistlib — Generate and parse Apple .plist files &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>plistlib — Generate and parse Mac OS X .plist files &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -101,12 +101,11 @@
           <div class="body" role="main">
             
   <div class="section" id="module-plistlib">
-<span id="plistlib-generate-and-parse-apple-plist-files"></span><h1><a class="reference internal" href="#module-plistlib" title="plistlib: Generate and parse Apple plist files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code></a> — Generate and parse Apple <code class="docutils literal notranslate"><span class="pre">.plist</span></code> files<a class="headerlink" href="#module-plistlib" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/plistlib.py">Lib/plistlib.py</a></p>
+<span id="plistlib-generate-and-parse-mac-os-x-plist-files"></span><h1><a class="reference internal" href="#module-plistlib" title="plistlib: Generate and parse Mac OS X plist files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code></a> — Generate and parse Mac OS X <code class="docutils literal notranslate"><span class="pre">.plist</span></code> files<a class="headerlink" href="#module-plistlib" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/plistlib.py">Lib/plistlib.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>This module provides an interface for reading and writing the „property list”
-files used by Apple, primarily on macOS and iOS. This module supports both binary
-and XML plist files.</p>
+files used mainly by Mac OS X and supports both binary and XML plist files.</p>
 <p>The property list (<code class="docutils literal notranslate"><span class="pre">.plist</span></code>) file format is a simple serialization supporting
 basic object types, like dictionaries, lists, numbers and strings.  Usually the
 top level object is a dictionary.</p>
@@ -115,7 +114,7 @@ top level object is a dictionary.</p>
 <p>To work with plist data in bytes objects, use <a class="reference internal" href="#plistlib.dumps" title="plistlib.dumps"><code class="xref py py-func docutils literal notranslate"><span class="pre">dumps()</span></code></a>
 and <a class="reference internal" href="#plistlib.loads" title="plistlib.loads"><code class="xref py py-func docutils literal notranslate"><span class="pre">loads()</span></code></a>.</p>
 <p>Values can be strings, integers, floats, booleans, tuples, lists, dictionaries
-(but only with string keys), <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>
+(but only with string keys), <a class="reference internal" href="#plistlib.Data" title="plistlib.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a>, <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bytesarray</span></code>
 or <a class="reference internal" href="datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> objects.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>New API, old API deprecated.  Support for binary format plists added.</p>
@@ -123,9 +122,6 @@ or <a class="reference internal" href="datetime.html#datetime.datetime" title="d
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Support added for reading and writing <a class="reference internal" href="#plistlib.UID" title="plistlib.UID"><code class="xref py py-class docutils literal notranslate"><span class="pre">UID</span></code></a> tokens in binary plists as used
 by NSKeyedArchiver and NSKeyedUnarchiver.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Old API removed.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">Zobacz także</p>
@@ -137,7 +133,7 @@ by NSKeyedArchiver and NSKeyedUnarchiver.</p>
 <p>This module defines the following functions:</p>
 <dl class="function">
 <dt id="plistlib.load">
-<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">fp</em>, <em class="sig-param">*</em>, <em class="sig-param">fmt=None</em>, <em class="sig-param">dict_type=dict</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.load" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">fp</em>, <em class="sig-param">*</em>, <em class="sig-param">fmt=None</em>, <em class="sig-param">use_builtin_types=True</em>, <em class="sig-param">dict_type=dict</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.load" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Read a plist file. <em>fp</em> should be a readable and binary file object.
 Return the unpacked root object (which usually is a
 dictionary).</p>
@@ -147,6 +143,9 @@ dictionary).</p>
 <li><p><a class="reference internal" href="#plistlib.FMT_XML" title="plistlib.FMT_XML"><code class="xref py py-data docutils literal notranslate"><span class="pre">FMT_XML</span></code></a>: XML file format</p></li>
 <li><p><a class="reference internal" href="#plistlib.FMT_BINARY" title="plistlib.FMT_BINARY"><code class="xref py py-data docutils literal notranslate"><span class="pre">FMT_BINARY</span></code></a>: Binary plist format</p></li>
 </ul>
+<p>If <em>use_builtin_types</em> is true (the default) binary data will be returned
+as instances of <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, otherwise it is returned as instances of
+<a class="reference internal" href="#plistlib.Data" title="plistlib.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></a>.</p>
 <p>The <em>dict_type</em> is the type used for dictionaries that are read from the
 plist file.</p>
 <p>XML data for the <a class="reference internal" href="#plistlib.FMT_XML" title="plistlib.FMT_XML"><code class="xref py py-data docutils literal notranslate"><span class="pre">FMT_XML</span></code></a> format is parsed using the Expat parser
@@ -162,7 +161,7 @@ when the file cannot be parsed.</p>
 
 <dl class="function">
 <dt id="plistlib.loads">
-<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">loads</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">fmt=None</em>, <em class="sig-param">dict_type=dict</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.loads" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">loads</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">fmt=None</em>, <em class="sig-param">use_builtin_types=True</em>, <em class="sig-param">dict_type=dict</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.loads" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Load a plist from a bytes object. See <a class="reference internal" href="#plistlib.load" title="plistlib.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> for an explanation of
 the keyword arguments.</p>
 <div class="versionadded">
@@ -206,7 +205,71 @@ arguments of this function.</p>
 </div>
 </dd></dl>
 
+<p>The following functions are deprecated:</p>
+<dl class="function">
+<dt id="plistlib.readPlist">
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">readPlist</code><span class="sig-paren">(</span><em class="sig-param">pathOrFile</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.readPlist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Read a plist file. <em>pathOrFile</em> may be either a file name or a (readable
+and binary) file object. Returns the unpacked root object (which usually
+is a dictionary).</p>
+<p>This function calls <a class="reference internal" href="#plistlib.load" title="plistlib.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> to do the actual work, see the documentation
+of <a class="reference internal" href="#plistlib.load" title="plistlib.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">that</span> <span class="pre">function</span></code></a> for an explanation of the keyword arguments.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>Use <a class="reference internal" href="#plistlib.load" title="plistlib.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> instead.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Dict values in the result are now normal dicts.  You no longer can use
+attribute access to access items of these dictionaries.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="plistlib.writePlist">
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">writePlist</code><span class="sig-paren">(</span><em class="sig-param">rootObject</em>, <em class="sig-param">pathOrFile</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.writePlist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Write <em>rootObject</em> to an XML plist file. <em>pathOrFile</em> may be either a file name
+or a (writable and binary) file object</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>Use <a class="reference internal" href="#plistlib.dump" title="plistlib.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump()</span></code></a> instead.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="plistlib.readPlistFromBytes">
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">readPlistFromBytes</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.readPlistFromBytes" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Read a plist data from a bytes object.  Return the root object.</p>
+<p>See <a class="reference internal" href="#plistlib.load" title="plistlib.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> for a description of the keyword arguments.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>Use <a class="reference internal" href="#plistlib.loads" title="plistlib.loads"><code class="xref py py-func docutils literal notranslate"><span class="pre">loads()</span></code></a> instead.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Dict values in the result are now normal dicts.  You no longer can use
+attribute access to access items of these dictionaries.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="plistlib.writePlistToBytes">
+<code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">writePlistToBytes</code><span class="sig-paren">(</span><em class="sig-param">rootObject</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.writePlistToBytes" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Return <em>rootObject</em> as an XML plist-formatted bytes object.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>Use <a class="reference internal" href="#plistlib.dumps" title="plistlib.dumps"><code class="xref py py-func docutils literal notranslate"><span class="pre">dumps()</span></code></a> instead.</p>
+</div>
+</dd></dl>
+
 <p>The following classes are available:</p>
+<dl class="class">
+<dt id="plistlib.Data">
+<em class="property">class </em><code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">Data</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.Data" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Return a „data” wrapper object around the bytes object <em>data</em>.  This is used
+in functions converting from/to plists to represent the <code class="docutils literal notranslate"><span class="pre">&lt;data&gt;</span></code> type
+available in plists.</p>
+<p>It has one attribute, <code class="xref py py-attr docutils literal notranslate"><span class="pre">data</span></code>, that can be used to retrieve the Python
+bytes object stored in it.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>Use a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object instead.</p>
+</div>
+</dd></dl>
+
 <dl class="class">
 <dt id="plistlib.UID">
 <em class="property">class </em><code class="sig-prename descclassname">plistlib.</code><code class="sig-name descname">UID</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#plistlib.UID" title="Stały odnośnik do tej definicji">¶</a></dt>
@@ -277,7 +340,7 @@ of the UID.  <code class="xref py py-attr docutils literal notranslate"><span cl
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code> — Generate and parse Apple <code class="docutils literal notranslate"><span class="pre">.plist</span></code> files</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code> — Generate and parse Mac OS X <code class="docutils literal notranslate"><span class="pre">.plist</span></code> files</a><ul>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -294,7 +357,7 @@ of the UID.  <code class="xref py py-attr docutils literal notranslate"><span cl
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/plistlib.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/plistlib.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -326,7 +389,7 @@ of the UID.  <code class="xref py py-attr docutils literal notranslate"><span cl
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -361,7 +424,7 @@ of the UID.  <code class="xref py py-attr docutils literal notranslate"><span cl
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

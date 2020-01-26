@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>threading — Thread-based parallelism &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>threading — Thread-based parallelism &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-threading">
 <span id="threading-thread-based-parallelism"></span><h1><a class="reference internal" href="#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> — Thread-based parallelism<a class="headerlink" href="#module-threading" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/threading.py">Lib/threading.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/threading.py">Lib/threading.py</a></p>
 <hr class="docutils" />
 <p>This module constructs higher-level threading interfaces on top of the lower
 level <a class="reference internal" href="_thread.html#module-_thread" title="_thread: Low-level threading API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code></a> module.  See also the <a class="reference internal" href="queue.html#module-queue" title="queue: A synchronized queue class."><code class="xref py py-mod docutils literal notranslate"><span class="pre">queue</span></code></a> module.</p>
@@ -351,7 +351,6 @@ current thread.</p>
 <p>If the subclass overrides the constructor, it must make sure to invoke the
 base class constructor (<code class="docutils literal notranslate"><span class="pre">Thread.__init__()</span></code>) before doing anything else to
 the thread.</p>
-<p>Daemon threads must not be used in subinterpreters.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added the <em>daemon</em> argument.</p>
 </div>
@@ -364,11 +363,6 @@ object’s <a class="reference internal" href="#threading.Thread.run" title="thr
 of control.</p>
 <p>This method will raise a <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> if called more than once
 on the same thread object.</p>
-<p>Raise a <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> if the thread is a daemon thread and the
-method is called from a subinterpreter.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>In a subinterpreter, spawning a daemon thread now raises an exception.</p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -856,13 +850,10 @@ that interval, return <code class="docutils literal notranslate"><span class="pr
 
 <dl class="method">
 <dt id="threading.Semaphore.release">
-<code class="sig-name descname">release</code><span class="sig-paren">(</span><em class="sig-param">n=1</em><span class="sig-paren">)</span><a class="headerlink" href="#threading.Semaphore.release" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Release a semaphore, incrementing the internal counter by <em>n</em>.  When it
-was zero on entry and other threads are waiting for it to become larger
-than zero again, wake up <em>n</em> of those threads.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added the <em>n</em> parameter to release multiple waiting threads at once.</p>
-</div>
+<code class="sig-name descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#threading.Semaphore.release" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Release a semaphore, incrementing the internal counter by one.  When it
+was zero on entry and another thread is waiting for it to become larger
+than zero again, wake up that thread.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1174,7 +1165,7 @@ the following snippet:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/threading.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/threading.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1206,7 +1197,7 @@ the following snippet:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1241,7 +1232,7 @@ the following snippet:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

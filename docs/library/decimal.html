@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>decimal — Decimal fixed point and floating point arithmetic &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>decimal — Decimal fixed point and floating point arithmetic &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-decimal">
 <span id="decimal-decimal-fixed-point-and-floating-point-arithmetic"></span><h1><a class="reference internal" href="#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code></a> — Decimal fixed point and floating point arithmetic<a class="headerlink" href="#module-decimal" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/decimal.py">Lib/decimal.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/decimal.py">Lib/decimal.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code></a> module provides support for fast correctly-rounded
 decimal floating point arithmetic. It offers several advantages over the
@@ -131,7 +131,7 @@ multiplicands.  For instance, <code class="docutils literal notranslate"><span c
 <li><p>Unlike hardware based binary floating point, the decimal module has a user
 alterable precision (defaulting to 28 places) which can be as large as needed for
 a given problem:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="go">Decimal(&#39;0.142857&#39;)</span>
@@ -296,7 +296,7 @@ floating point flying circus:</p>
 </pre></div>
 </div>
 <p>And some mathematical functions are also available to Decimal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">28</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">28</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
 <span class="go">Decimal(&#39;1.414213562373095048801688724&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
@@ -310,7 +310,7 @@ floating point flying circus:</p>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantize()</span></code> method rounds a number to a fixed exponent.  This method is
 useful for monetary applications that often round results to a fixed number of
 places:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;7.325&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;.01&#39;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;7.325&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;.01&#39;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span>
 <span class="go">Decimal(&#39;7.32&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;7.325&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.&#39;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_UP</span><span class="p">)</span>
 <span class="go">Decimal(&#39;8&#39;)</span>
@@ -551,7 +551,7 @@ numerical value.  Similar to the <a class="reference internal" href="#decimal.De
 gives a total ordering on <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instances.  Two
 <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instances with the same numeric value but different
 representations compare unequal in this ordering:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12.0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_total</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12.0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_total</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="p">))</span>
 <span class="go">Decimal(&#39;-1&#39;)</span>
 </pre></div>
 </div>
@@ -605,7 +605,7 @@ context and is quiet: no flags are changed and no rounding is performed.</p>
 <code class="sig-name descname">copy_sign</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_sign" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a copy of the first operand with the sign set to be the same as the
 sign of the second operand.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy_sign</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;-1.5&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy_sign</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;-1.5&#39;</span><span class="p">))</span>
 <span class="go">Decimal(&#39;-2.3&#39;)</span>
 </pre></div>
 </div>
@@ -620,7 +620,7 @@ InvalidOperation if the second operand cannot be converted exactly.</p>
 <dd><p>Return the value of the (natural) exponential function <code class="docutils literal notranslate"><span class="pre">e**x</span></code> at the
 given number.  The result is correctly rounded using the
 <a class="reference internal" href="#decimal.ROUND_HALF_EVEN" title="decimal.ROUND_HALF_EVEN"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_EVEN</span></code></a> rounding mode.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
 <span class="go">Decimal(&#39;2.718281828459045235360287471&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">321</span><span class="p">)</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
 <span class="go">Decimal(&#39;2.561702493119680037517373933E+139&#39;)</span>
@@ -662,7 +662,7 @@ can also be constructed directly from a <a class="reference internal" href="func
 <code class="sig-name descname">fma</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">third</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.fma" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fused multiply-add.  Return self*other+third with no rounding of the
 intermediate product self*other.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="go">Decimal(&#39;11&#39;)</span>
 </pre></div>
 </div>
@@ -886,7 +886,7 @@ is one of the following ten strings.</p>
 <code class="sig-name descname">quantize</code><span class="sig-paren">(</span><em class="sig-param">exp</em>, <em class="sig-param">rounding=None</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.quantize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a value equal to the first operand after rounding and having the
 exponent of the second operand.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.41421356&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.000&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.41421356&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.000&#39;</span><span class="p">))</span>
 <span class="go">Decimal(&#39;1.414&#39;)</span>
 </pre></div>
 </div>
@@ -924,7 +924,7 @@ minimize its absolute value.  More precisely, the return value is
 value of <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">/</span> <span class="pre">other</span></code>, and if two integers are equally near then the
 even one is chosen.</p>
 <p>If the result is zero then its sign will be the sign of <em>self</em>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">remainder_near</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">remainder_near</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="go">Decimal(&#39;-2&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">remainder_near</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="go">Decimal(&#39;5&#39;)</span>
@@ -1972,7 +1972,7 @@ various representations of zero with differing precisions yet equivalent in
 value.  This takes a bit of getting used to.  For an eye accustomed to
 normalized floating point representations, it is not immediately obvious that
 the following calculation returns a value equal to zero:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;Infinity&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;Infinity&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;0E-1000026&#39;)</span>
 </pre></div>
 </div>
@@ -2164,7 +2164,7 @@ to work with the <a class="reference internal" href="#decimal.Decimal" title="de
 <p>Q. It is cumbersome to type <code class="docutils literal notranslate"><span class="pre">decimal.Decimal('1234.5')</span></code>.  Is there a way to
 minimize typing when using the interactive interpreter?</p>
 <p>A. Some users abbreviate the constructor to just a single letter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="p">(</span><span class="s1">&#39;1.23&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">D</span><span class="p">(</span><span class="s1">&#39;3.45&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;4.68&#39;)</span>
 </pre></div>
@@ -2174,20 +2174,20 @@ places and need to be rounded.  Others are not supposed to have excess digits
 and need to be validated.  What methods should be used?</p>
 <p>A. The <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantize()</span></code> method rounds to a fixed number of decimal places. If
 the <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-const docutils literal notranslate"><span class="pre">Inexact</span></code></a> trap is set, it is also useful for validation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">TWOPLACES</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span>       <span class="c1"># same as Decimal(&#39;0.01&#39;)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">TWOPLACES</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span>       <span class="c1"># same as Decimal(&#39;0.01&#39;)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Round to two places</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Round to two places</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.214&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">TWOPLACES</span><span class="p">)</span>
 <span class="go">Decimal(&#39;3.21&#39;)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Validate that a number does not exceed two places</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Validate that a number does not exceed two places</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.21&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">TWOPLACES</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">Context</span><span class="p">(</span><span class="n">traps</span><span class="o">=</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]))</span>
 <span class="go">Decimal(&#39;3.21&#39;)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.214&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">TWOPLACES</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">Context</span><span class="p">(</span><span class="n">traps</span><span class="o">=</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.214&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">TWOPLACES</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">Context</span><span class="p">(</span><span class="n">traps</span><span class="o">=</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]))</span>
 <span class="gt">Traceback (most recent call last):</span>
    <span class="c">...</span>
 <span class="gr">Inexact</span>: <span class="n">None</span>
@@ -2199,7 +2199,7 @@ throughout an application?</p>
 will automatically preserve fixed point.  Others operations, like division and
 non-integer multiplication, will change the number of decimal places and need to
 be followed-up with a <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantize()</span></code> step:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;102.72&#39;</span><span class="p">)</span>           <span class="c1"># Initial fixed-point values</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;102.72&#39;</span><span class="p">)</span>           <span class="c1"># Initial fixed-point values</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.17&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>                           <span class="c1"># Addition preserves fixed-point</span>
 <span class="go">Decimal(&#39;105.89&#39;)</span>
@@ -2215,13 +2215,13 @@ be followed-up with a <code class="xref py py-meth docutils literal notranslate"
 </div>
 <p>In developing fixed-point applications, it is convenient to define functions
 to handle the <code class="xref py py-meth docutils literal notranslate"><span class="pre">quantize()</span></code> step:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="n">TWOPLACES</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="n">TWOPLACES</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="n">TWOPLACES</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>                       <span class="c1"># Automatically preserve fixed-point</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>                       <span class="c1"># Automatically preserve fixed-point</span>
 <span class="go">Decimal(&#39;325.62&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">div</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="go">Decimal(&#39;0.03&#39;)</span>
@@ -2233,7 +2233,7 @@ various precisions. Is there a way to transform them to a single recognizable
 canonical value?</p>
 <p>A. The <code class="xref py py-meth docutils literal notranslate"><span class="pre">normalize()</span></code> method maps all equivalent values to a single
 representative:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">Decimal</span><span class="p">,</span> <span class="s1">&#39;200 200.000 2E2 .02E+4&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">Decimal</span><span class="p">,</span> <span class="s1">&#39;200 200.000 2E2 .02E+4&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
 <span class="go">[Decimal(&#39;2E+2&#39;), Decimal(&#39;2E+2&#39;), Decimal(&#39;2E+2&#39;), Decimal(&#39;2E+2&#39;)]</span>
 </pre></div>
@@ -2247,11 +2247,11 @@ original’s two-place significance.</p>
 <p>If an application does not care about tracking significance, it is easy to
 remove the exponent and trailing zeroes, losing significance, but keeping the
 value unchanged:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">remove_exponent</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">remove_exponent</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">to_integral</span><span class="p">()</span> <span class="k">else</span> <span class="n">d</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">remove_exponent</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;5E+3&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">remove_exponent</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;5E+3&#39;</span><span class="p">))</span>
 <span class="go">Decimal(&#39;5000&#39;)</span>
 </pre></div>
 </div>
@@ -2292,7 +2292,7 @@ using the unary plus operation:</p>
 </div>
 <p>Alternatively, inputs can be rounded upon creation using the
 <a class="reference internal" href="#decimal.Context.create_decimal" title="decimal.Context.create_decimal"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Context.create_decimal()</span></code></a> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span><span class="o">.</span><span class="n">create_decimal</span><span class="p">(</span><span class="s1">&#39;1.2345678&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span><span class="o">.</span><span class="n">create_decimal</span><span class="p">(</span><span class="s1">&#39;1.2345678&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;1.2345&#39;)</span>
 </pre></div>
 </div>
@@ -2304,7 +2304,7 @@ arbitrary precision correctly-rounded decimal floating point arithmetic.
 for medium-sized numbers and the <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform">Number Theoretic Transform</a>
 for very large numbers.  However, to realize this performance gain, the
 context needs to be set for unrounded calculations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="n">MAX_PREC</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emax</span> <span class="o">=</span> <span class="n">MAX_EMAX</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emin</span> <span class="o">=</span> <span class="n">MIN_EMIN</span>
@@ -2357,7 +2357,7 @@ context needs to be set for unrounded calculations.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/decimal.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/decimal.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -2389,7 +2389,7 @@ context needs to be set for unrounded calculations.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -2424,7 +2424,7 @@ context needs to be set for unrounded calculations.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

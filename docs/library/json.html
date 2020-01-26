@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>json — JSON encoder and decoder &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>json — JSON encoder and decoder &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-json">
 <span id="json-json-encoder-and-decoder"></span><h1><a class="reference internal" href="#module-json" title="json: Encode and decode the JSON format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a> — JSON encoder and decoder<a class="headerlink" href="#module-json" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/json/__init__.py">Lib/json/__init__.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/json/__init__.py">Lib/json/__init__.py</a></p>
 <hr class="docutils" />
 <p><a class="reference external" href="http://json.org">JSON (JavaScript Object Notation)</a>, specified by
 <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7159.html"><strong>RFC 7159</strong></a> (which obsoletes <span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc4627.html"><strong>RFC 4627</strong></a>) and by
@@ -349,15 +349,16 @@ UTF-8, UTF-16 or UTF-32.</p>
 <dd><p>Deserialize <em>s</em> (a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>
 instance containing a JSON document) to a Python object using this
 <a class="reference internal" href="#json-to-py-table"><span class="std std-ref">conversion table</span></a>.</p>
-<p>The other arguments have the same meaning as in <a class="reference internal" href="#json.load" title="json.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a>.</p>
+<p>The other arguments have the same meaning as in <a class="reference internal" href="#json.load" title="json.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a>, except
+<em>encoding</em> which is ignored and deprecated since Python 3.1.</p>
 <p>If the data being deserialized is not a valid JSON document, a
 <a class="reference internal" href="#json.JSONDecodeError" title="json.JSONDecodeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">JSONDecodeError</span></code></a> will be raised.</p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.1, will be removed in version 3.9: </span><em>encoding</em> keyword argument.</p>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span><em>s</em> can now be of type <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>. The
 input encoding should be UTF-8, UTF-16 or UTF-32.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The keyword argument <em>encoding</em> has been removed.</p>
 </div>
 </dd></dl>
 
@@ -744,7 +745,7 @@ when serializing instances of „exotic” numerical types such as
 </div>
 <div class="section" id="module-json.tool">
 <span id="command-line-interface"></span><span id="json-commandline"></span><h2>Command Line Interface<a class="headerlink" href="#module-json.tool" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/json/tool.py">Lib/json/tool.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/json/tool.py">Lib/json/tool.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-json.tool" title="json.tool: A command line to validate and pretty-print JSON."><code class="xref py py-mod docutils literal notranslate"><span class="pre">json.tool</span></code></a> module provides a simple command line interface to validate
 and pretty-print JSON objects.</p>
@@ -802,29 +803,11 @@ to <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><
 </dd></dl>
 
 <dl class="cmdoption">
-<dt id="cmdoption-json-tool-no-ensure-ascii">
-<code class="sig-name descname">--no-ensure-ascii</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-json-tool-no-ensure-ascii" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Disable escaping of non-ascii characters, see <a class="reference internal" href="#json.dumps" title="json.dumps"><code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></a> for more information.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="cmdoption">
 <dt id="cmdoption-json-tool-json-lines">
 <code class="sig-name descname">--json-lines</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-json-tool-json-lines" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parse every input line as separate JSON object.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
-</div>
-</dd></dl>
-
-<dl class="cmdoption">
-<dt id="cmdoption-json-tool-indent">
-<code class="sig-name descname">--indent</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--tab</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--no-indent</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--compact</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-json-tool-indent" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Mutually exclusive options for whitespace control</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
 </div>
 </dd></dl>
 
@@ -886,7 +869,7 @@ U+2029 (PARAGRAPH SEPARATOR) characters in strings, whereas JavaScript
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/json.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/json.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -918,7 +901,7 @@ U+2029 (PARAGRAPH SEPARATOR) characters in strings, whereas JavaScript
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -953,7 +936,7 @@ U+2029 (PARAGRAPH SEPARATOR) characters in strings, whereas JavaScript
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

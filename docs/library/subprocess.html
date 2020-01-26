@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>subprocess — Subprocess management &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>subprocess — Subprocess management &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-subprocess">
 <span id="subprocess-subprocess-management"></span><h1><a class="reference internal" href="#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> — Subprocess management<a class="headerlink" href="#module-subprocess" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/subprocess.py">Lib/subprocess.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/subprocess.py">Lib/subprocess.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module allows you to spawn new processes, connect to their
 input/output/error pipes, and obtain their return codes.  This module intends to
@@ -441,7 +441,7 @@ are able to handle the less common cases not covered by the convenience
 functions.</p>
 <dl class="class">
 <dt id="subprocess.Popen">
-<em class="property">class </em><code class="sig-prename descclassname">subprocess.</code><code class="sig-name descname">Popen</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">bufsize=-1</em>, <em class="sig-param">executable=None</em>, <em class="sig-param">stdin=None</em>, <em class="sig-param">stdout=None</em>, <em class="sig-param">stderr=None</em>, <em class="sig-param">preexec_fn=None</em>, <em class="sig-param">close_fds=True</em>, <em class="sig-param">shell=False</em>, <em class="sig-param">cwd=None</em>, <em class="sig-param">env=None</em>, <em class="sig-param">universal_newlines=None</em>, <em class="sig-param">startupinfo=None</em>, <em class="sig-param">creationflags=0</em>, <em class="sig-param">restore_signals=True</em>, <em class="sig-param">start_new_session=False</em>, <em class="sig-param">pass_fds=()</em>, <em class="sig-param">*</em>, <em class="sig-param">group=None</em>, <em class="sig-param">extra_groups=None</em>, <em class="sig-param">user=None</em>, <em class="sig-param">umask=-1</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">errors=None</em>, <em class="sig-param">text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">subprocess.</code><code class="sig-name descname">Popen</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">bufsize=-1</em>, <em class="sig-param">executable=None</em>, <em class="sig-param">stdin=None</em>, <em class="sig-param">stdout=None</em>, <em class="sig-param">stderr=None</em>, <em class="sig-param">preexec_fn=None</em>, <em class="sig-param">close_fds=True</em>, <em class="sig-param">shell=False</em>, <em class="sig-param">cwd=None</em>, <em class="sig-param">env=None</em>, <em class="sig-param">universal_newlines=None</em>, <em class="sig-param">startupinfo=None</em>, <em class="sig-param">creationflags=0</em>, <em class="sig-param">restore_signals=True</em>, <em class="sig-param">start_new_session=False</em>, <em class="sig-param">pass_fds=()</em>, <em class="sig-param">*</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">errors=None</em>, <em class="sig-param">text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Execute a child program in a new process.  On POSIX, the class uses
 <a class="reference internal" href="os.html#os.execvp" title="os.execvp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">os.execvp()</span></code></a>-like behavior to execute the child program.  On Windows,
 the class uses the Windows <code class="docutils literal notranslate"><span class="pre">CreateProcess()</span></code> function.  The arguments to
@@ -628,39 +628,6 @@ child process prior to the execution of the subprocess.  (POSIX only)</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span><em>start_new_session</em> was added.</p>
 </div>
-<p>If <em>group</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the setregid() system call will be made in the
-child process prior to the execution of the subprocess. If the provided
-value is a string, it will be looked up via <a class="reference internal" href="grp.html#grp.getgrnam" title="grp.getgrnam"><code class="xref py py-func docutils literal notranslate"><span class="pre">grp.getgrnam()</span></code></a> and
-the value in <code class="docutils literal notranslate"><span class="pre">gr_gid</span></code> will be used. If the value is an integer, it
-will be passed verbatim. (POSIX only)</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: POSIX</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-<p>If <em>extra_groups</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the setgroups() system call will be
-made in the child process prior to the execution of the subprocess.
-Strings provided in <em>extra_groups</em> will be looked up via
-<a class="reference internal" href="grp.html#grp.getgrnam" title="grp.getgrnam"><code class="xref py py-func docutils literal notranslate"><span class="pre">grp.getgrnam()</span></code></a> and the values in <code class="docutils literal notranslate"><span class="pre">gr_gid</span></code> will be used.
-Integer values will be passed verbatim. (POSIX only)</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: POSIX</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-<p>If <em>user</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the setreuid() system call will be made in the
-child process prior to the execution of the subprocess. If the provided
-value is a string, it will be looked up via <a class="reference internal" href="pwd.html#pwd.getpwnam" title="pwd.getpwnam"><code class="xref py py-func docutils literal notranslate"><span class="pre">pwd.getpwnam()</span></code></a> and
-the value in <code class="docutils literal notranslate"><span class="pre">pw_uid</span></code> will be used. If the value is an integer, it will
-be passed verbatim. (POSIX only)</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: POSIX</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-<p>If <em>umask</em> is not negative, the umask() system call will be made in the
-child process prior to the execution of the subprocess.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: POSIX</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
 <p>If <em>env</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it must be a mapping that defines the environment
 variables for the new process; these are used instead of the default
 behavior of inheriting the current process» environment.</p>
@@ -844,7 +811,6 @@ size is large or unlimited.</p>
 <dt id="subprocess.Popen.send_signal">
 <code class="sig-prename descclassname">Popen.</code><code class="sig-name descname">send_signal</code><span class="sig-paren">(</span><em class="sig-param">signal</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.send_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sends the signal <em>signal</em> to the child.</p>
-<p>Do nothing if the process completed.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
 <p>On Windows, SIGTERM is an alias for <a class="reference internal" href="#subprocess.Popen.terminate" title="subprocess.Popen.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">terminate()</span></code></a>. CTRL_C_EVENT and
@@ -1625,7 +1591,7 @@ described in rule 3.</p></li>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/subprocess.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/subprocess.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1657,7 +1623,7 @@ described in rule 3.</p></li>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1692,7 +1658,7 @@ described in rule 3.</p></li>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

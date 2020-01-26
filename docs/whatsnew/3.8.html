@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>Co nowego w Pythonie 3.8 &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>Co nowego w Pythonie 3.8 &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,14 +18,14 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Szukaj" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New In Python 3.7" href="3.7.html" />
-    <link rel="prev" title="What’s New In Python 3.9" href="3.9.html" />
+    <link rel="prev" title="What’s New in Python" href="index.html" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/3.8.html" />
     
       
@@ -63,7 +63,7 @@
           <a href="3.7.html" title="What’s New In Python 3.7"
              accesskey="N">dalej</a> |</li>
         <li class="right" >
-          <a href="3.9.html" title="What’s New In Python 3.9"
+          <a href="index.html" title="What’s New in Python"
              accesskey="P">wstecz</a> |</li>
 
     <li><img src="../_static/py.png" alt=""
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Python</a> &#187;</li>
@@ -107,6 +107,7 @@
 </dd>
 </dl>
 <p>Ten artykuł opisuje nowe funkcjonalności Pythona 3.8 w porównaniu do 3.7. Pełne szczegóły znajdziesz w <a class="reference internal" href="changelog.html#changelog"><span class="std std-ref">changelogu</span></a>.</p>
+<p>Python 3.8 został wydany 14 października 2019.</p>
 <div class="section" id="summary-release-highlights">
 <h2>Podsumowanie – najważniejsze nowości<a class="headerlink" href="#summary-release-highlights" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 </div>
@@ -266,7 +267,7 @@ this change is backward incompatible on purpose.
 <p>Added an <code class="docutils literal notranslate"><span class="pre">=</span></code> specifier to <a class="reference internal" href="../glossary.html#term-f-string"><span class="xref std std-term">f-string</span></a>s. An f-string such as
 <code class="docutils literal notranslate"><span class="pre">f'{expr=}'</span></code> will expand to the text of the expression, an equal sign,
 then the representation of the evaluated expression.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;eric_idle&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;eric_idle&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">member_since</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1975</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;{user=} {member_since=}&#39;</span>
 <span class="go">&quot;user=&#39;eric_idle&#39; member_since=datetime.date(1975, 7, 31)&quot;</span>
@@ -346,16 +347,16 @@ documentation.</p>
 <p>See <span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0587"><strong>PEP 587</strong></a> for a full description.</p>
 <p>(Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue36763">bpo-36763</a>.)</p>
 </div>
-<div class="section" id="pep-590-vectorcall-a-fast-calling-protocol-for-cpython">
-<h3>PEP 590: Vectorcall: a fast calling protocol for CPython<a class="headerlink" href="#pep-590-vectorcall-a-fast-calling-protocol-for-cpython" title="Stały odnośnik do tego nagłówka">¶</a></h3>
-<p><a class="reference internal" href="../c-api/call.html#vectorcall"><span class="std std-ref">The Vectorcall Protocol</span></a> is added to the Python/C API.
+<div class="section" id="vectorcall-a-fast-calling-protocol-for-cpython">
+<h3>Vectorcall: a fast calling protocol for CPython<a class="headerlink" href="#vectorcall-a-fast-calling-protocol-for-cpython" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>The „vectorcall” protocol is added to the Python/C API.
 It is meant to formalize existing optimizations which were already done
 for various classes.
-Any static type implementing a callable can use this protocol.</p>
+Any extension type implementing a callable can use this protocol.</p>
 <p>This is currently provisional.
 The aim is to make it fully public in Python 3.9.</p>
 <p>See <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0590"><strong>PEP 590</strong></a> for a full description.</p>
-<p>(Contributed by Jeroen Demeyer, Mark Shannon and Petr Viktorin in <a class="reference external" href="https://bugs.python.org/issue36974">bpo-36974</a>.)</p>
+<p>(Contributed by Jeroen Demeyer and Mark Shannon in <a class="reference external" href="https://bugs.python.org/issue36974">bpo-36974</a>.)</p>
 </div>
 <div class="section" id="pickle-protocol-5-with-out-of-band-data-buffers">
 <h3>Pickle protocol 5 with out-of-band data buffers<a class="headerlink" href="#pickle-protocol-5-with-out-of-band-data-buffers" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -474,7 +475,7 @@ modulo 137, write:</p>
 equations</a>.
 For example, to find integer solutions for <code class="docutils literal notranslate"><span class="pre">4258𝑥</span> <span class="pre">+</span> <span class="pre">147𝑦</span> <span class="pre">=</span> <span class="pre">369</span></code>,
 first rewrite as <code class="docutils literal notranslate"><span class="pre">4258𝑥</span> <span class="pre">≡</span> <span class="pre">369</span> <span class="pre">(mod</span> <span class="pre">147)</span></code> then solve:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">369</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">4258</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">147</span><span class="p">)</span> <span class="o">%</span> <span class="mi">147</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">369</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">4258</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">147</span><span class="p">)</span> <span class="o">%</span> <span class="mi">147</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4258</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">369</span><span class="p">)</span> <span class="o">//</span> <span class="o">-</span><span class="mi">147</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">4258</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">147</span> <span class="o">*</span> <span class="n">y</span>
 <span class="go">369</span>
@@ -1759,7 +1760,7 @@ were not linked to <code class="docutils literal notranslate"><span class="pre">
 library built by the <code class="docutils literal notranslate"><span class="pre">*shared*</span></code> section of <code class="docutils literal notranslate"><span class="pre">Modules/Setup</span></code>.
 (Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue21536">bpo-21536</a>.)</p></li>
 <li><p>Use of <code class="docutils literal notranslate"><span class="pre">#</span></code> variants of formats in parsing or building value (e.g.
-<a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>, <a class="reference internal" href="../c-api/arg.html#c.Py_BuildValue" title="Py_BuildValue"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_BuildValue()</span></code></a>, <a class="reference internal" href="../c-api/call.html#c.PyObject_CallFunction" title="PyObject_CallFunction"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallFunction()</span></code></a>,
+<a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>, <a class="reference internal" href="../c-api/arg.html#c.Py_BuildValue" title="Py_BuildValue"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_BuildValue()</span></code></a>, <a class="reference internal" href="../c-api/object.html#c.PyObject_CallFunction" title="PyObject_CallFunction"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallFunction()</span></code></a>,
 etc.) without <code class="docutils literal notranslate"><span class="pre">PY_SSIZE_T_CLEAN</span></code> defined raises <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code> now.
 It will be removed in 3.10 or 4.0.  Read <a class="reference internal" href="../c-api/arg.html#arg-parsing"><span class="std std-ref">Parsing arguments and building values</span></a> for detail.
 (Contributed by Inada Naoki in <a class="reference external" href="https://bugs.python.org/issue36381">bpo-36381</a>.)</p></li>
@@ -1865,9 +1866,9 @@ cleaning-up code for <a class="reference internal" href="../reference/simple_stm
 <a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a>.</p>
 <p>Removed opcodes <code class="xref std std-opcode docutils literal notranslate"><span class="pre">BREAK_LOOP</span></code>, <code class="xref std std-opcode docutils literal notranslate"><span class="pre">CONTINUE_LOOP</span></code>,
 <code class="xref std std-opcode docutils literal notranslate"><span class="pre">SETUP_LOOP</span></code> and <code class="xref std std-opcode docutils literal notranslate"><span class="pre">SETUP_EXCEPT</span></code>.  Added new opcodes
-<a class="reference internal" href="../library/dis.html#opcode-ROT_FOUR"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">ROT_FOUR</span></code></a>, <code class="xref std std-opcode docutils literal notranslate"><span class="pre">BEGIN_FINALLY</span></code>, <code class="xref std std-opcode docutils literal notranslate"><span class="pre">CALL_FINALLY</span></code> and
-<code class="xref std std-opcode docutils literal notranslate"><span class="pre">POP_FINALLY</span></code>.  Changed the behavior of <code class="xref std std-opcode docutils literal notranslate"><span class="pre">END_FINALLY</span></code>
-and <code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code>.</p>
+<a class="reference internal" href="../library/dis.html#opcode-ROT_FOUR"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">ROT_FOUR</span></code></a>, <a class="reference internal" href="../library/dis.html#opcode-BEGIN_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BEGIN_FINALLY</span></code></a>, <a class="reference internal" href="../library/dis.html#opcode-CALL_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">CALL_FINALLY</span></code></a> and
+<a class="reference internal" href="../library/dis.html#opcode-POP_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">POP_FINALLY</span></code></a>.  Changed the behavior of <a class="reference internal" href="../library/dis.html#opcode-END_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">END_FINALLY</span></code></a>
+and <a class="reference internal" href="../library/dis.html#opcode-WITH_CLEANUP_START"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code></a>.</p>
 <p>(Contributed by Mark Shannon, Antoine Pitrou and Serhiy Storchaka in
 <a class="reference external" href="https://bugs.python.org/issue17611">bpo-17611</a>.)</p>
 </li>
@@ -1963,7 +1964,7 @@ details, see the documentation for <code class="docutils literal notranslate"><s
 <li><a class="reference internal" href="#f-strings-support-for-self-documenting-expressions-and-debugging">f-strings support <code class="docutils literal notranslate"><span class="pre">=</span></code> for self-documenting expressions and debugging</a></li>
 <li><a class="reference internal" href="#pep-578-python-runtime-audit-hooks">PEP 578: Python Runtime Audit Hooks</a></li>
 <li><a class="reference internal" href="#pep-587-python-initialization-configuration">PEP 587: Python Initialization Configuration</a></li>
-<li><a class="reference internal" href="#pep-590-vectorcall-a-fast-calling-protocol-for-cpython">PEP 590: Vectorcall: a fast calling protocol for CPython</a></li>
+<li><a class="reference internal" href="#vectorcall-a-fast-calling-protocol-for-cpython">Vectorcall: a fast calling protocol for CPython</a></li>
 <li><a class="reference internal" href="#pickle-protocol-5-with-out-of-band-data-buffers">Pickle protocol 5 with out-of-band data buffers</a></li>
 </ul>
 </li>
@@ -2037,8 +2038,8 @@ details, see the documentation for <code class="docutils literal notranslate"><s
 </ul>
 
   <h4>Poprzedni temat</h4>
-  <p class="topless"><a href="3.9.html"
-                        title="poprzedni rozdział">What’s New In Python 3.9</a></p>
+  <p class="topless"><a href="index.html"
+                        title="poprzedni rozdział">What’s New in Python</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="3.7.html"
                         title="następny rozdział">What’s New In Python 3.7</a></p>
@@ -2047,7 +2048,7 @@ details, see the documentation for <code class="docutils literal notranslate"><s
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/3.8.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/whatsnew/3.8.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -2070,7 +2071,7 @@ details, see the documentation for <code class="docutils literal notranslate"><s
           <a href="3.7.html" title="What’s New In Python 3.7"
              >dalej</a> |</li>
         <li class="right" >
-          <a href="3.9.html" title="What’s New In Python 3.9"
+          <a href="index.html" title="What’s New in Python"
              >wstecz</a> |</li>
 
     <li><img src="../_static/py.png" alt=""
@@ -2079,7 +2080,7 @@ details, see the documentation for <code class="docutils literal notranslate"><s
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Python</a> &#187;</li>
@@ -2113,7 +2114,7 @@ details, see the documentation for <code class="docutils literal notranslate"><s
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

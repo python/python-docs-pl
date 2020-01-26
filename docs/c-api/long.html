@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>Integer Objects &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>Integer Objects &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -138,7 +138,9 @@ int <code class="sig-name descname">PyLong_CheckExact</code><span class="sig-par
 <dd><em class="refcount">Return value: New reference.</em><p>Return a new <a class="reference internal" href="#c.PyLongObject" title="PyLongObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyLongObject</span></code></a> object from <em>v</em>, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
 <p>The current implementation keeps an array of integer objects for all integers
 between <code class="docutils literal notranslate"><span class="pre">-5</span></code> and <code class="docutils literal notranslate"><span class="pre">256</span></code>, when you create an int in that range you actually
-just get back a reference to the existing object.</p>
+just get back a reference to the existing object. So it should be possible to
+change the value of <code class="docutils literal notranslate"><span class="pre">1</span></code>.  I suspect the behaviour of Python in this case is
+undefined. :-)</p>
 </dd></dl>
 
 <dl class="function">
@@ -291,8 +293,8 @@ long long <code class="sig-name descname">PyLong_AsLongLongAndOverflow</code><sp
 instance of <a class="reference internal" href="#c.PyLongObject" title="PyLongObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyLongObject</span></code></a>, first call its <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> or
 <a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__()</span></code></a> method (if present) to convert it to a
 <a class="reference internal" href="#c.PyLongObject" title="PyLongObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyLongObject</span></code></a>.</p>
-<p>If the value of <em>obj</em> is greater than <code class="xref py py-const docutils literal notranslate"><span class="pre">LLONG_MAX</span></code> or less than
-<code class="xref py py-const docutils literal notranslate"><span class="pre">LLONG_MIN</span></code>, set <em>*overflow</em> to <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code>, respectively,
+<p>If the value of <em>obj</em> is greater than <code class="xref py py-const docutils literal notranslate"><span class="pre">PY_LLONG_MAX</span></code> or less than
+<code class="xref py py-const docutils literal notranslate"><span class="pre">PY_LLONG_MIN</span></code>, set <em>*overflow</em> to <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code>, respectively,
 and return <code class="docutils literal notranslate"><span class="pre">-1</span></code>; otherwise, set <em>*overflow</em> to <code class="docutils literal notranslate"><span class="pre">0</span></code>.  If any other
 exception occurs set <em>*overflow</em> to <code class="docutils literal notranslate"><span class="pre">0</span></code> and return <code class="docutils literal notranslate"><span class="pre">-1</span></code> as usual.</p>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> on error.  Use <a class="reference internal" href="exceptions.html#c.PyErr_Occurred" title="PyErr_Occurred"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code></a> to disambiguate.</p>
@@ -380,7 +382,7 @@ is not an instance of <a class="reference internal" href="#c.PyLongObject" title
 <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__()</span></code></a> method (if present) to convert
 it to a <a class="reference internal" href="#c.PyLongObject" title="PyLongObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyLongObject</span></code></a>.</p>
 <p>If the value of <em>obj</em> is out of range for an <code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span></code>,
-return the reduction of that value modulo <code class="docutils literal notranslate"><span class="pre">ULLONG_MAX</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+return the reduction of that value modulo <code class="docutils literal notranslate"><span class="pre">PY_ULLONG_MAX</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">(unsigned</span> <span class="pre">long</span> <span class="pre">long)-1</span></code> on error.  Use <a class="reference internal" href="exceptions.html#c.PyErr_Occurred" title="PyErr_Occurred"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code></a>
 to disambiguate.</p>
 <div class="versionchanged">
@@ -430,7 +432,7 @@ with <a class="reference internal" href="#c.PyLong_FromVoidPtr" title="PyLong_Fr
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/long.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/long.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -462,7 +464,7 @@ with <a class="reference internal" href="#c.PyLong_FromVoidPtr" title="PyLong_Fr
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -497,7 +499,7 @@ with <a class="reference internal" href="#c.PyLong_FromVoidPtr" title="PyLong_Fr
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>functools — Higher-order functions and operations on callable objects &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>functools — Higher-order functions and operations on callable objects &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-functools">
 <span id="functools-higher-order-functions-and-operations-on-callable-objects"></span><h1><a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code></a> — Higher-order functions and operations on callable objects<a class="headerlink" href="#module-functools" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/functools.py">Lib/functools.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/functools.py">Lib/functools.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code></a> module is for higher-order functions: functions that act on
 or return other functions. In general, any callable object can be treated as a
@@ -195,10 +195,6 @@ power-of-two.</p>
 <p>If <em>typed</em> is set to true, function arguments of different types will be
 cached separately.  For example, <code class="docutils literal notranslate"><span class="pre">f(3)</span></code> and <code class="docutils literal notranslate"><span class="pre">f(3.0)</span></code> will be treated
 as distinct calls with distinct results.</p>
-<p>The wrapped function is instrumented with a <code class="xref py py-func docutils literal notranslate"><span class="pre">cache_parameters()</span></code>
-function that returns a new <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> showing the values for <em>maxsize</em>
-and <em>typed</em>.  This is for information purposes only.  Mutating the values
-has no effect.</p>
 <p>To help measure the effectiveness of the cache and tune the <em>maxsize</em>
 parameter, the wrapped function is instrumented with a <code class="xref py py-func docutils literal notranslate"><span class="pre">cache_info()</span></code>
 function that returns a <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> showing <em>hits</em>, <em>misses</em>,
@@ -263,9 +259,6 @@ technique:</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Added the <em>user_function</em> option.</p>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9: </span>Added the function <code class="xref py py-func docutils literal notranslate"><span class="pre">cache_parameters()</span></code></p>
 </div>
 </dd></dl>
 
@@ -338,7 +331,7 @@ some portion of a function’s arguments and/or keywords resulting in a new obje
 with a simplified signature.  For example, <a class="reference internal" href="#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">partial()</span></code></a> can be used to create
 a callable that behaves like the <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code></a> function where the <em>base</em> argument
 defaults to two:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">basetwo</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">basetwo</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s1">&#39;Convert base 2 string to an int.&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">basetwo</span><span class="p">(</span><span class="s1">&#39;10010&#39;</span><span class="p">)</span>
@@ -366,7 +359,7 @@ used as a method: the <em>self</em> argument will be inserted as the first
 positional argument, even before the <em>args</em> and <em>keywords</em> supplied to
 the <a class="reference internal" href="#functools.partialmethod" title="functools.partialmethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">partialmethod</span></code></a> constructor.</p>
 <p>Example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Cell</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_alive</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="gp">... </span>    <span class="nd">@property</span>
@@ -507,20 +500,6 @@ method resolution order is used to find a more generic implementation.
 The original function decorated with <code class="docutils literal notranslate"><span class="pre">&#64;singledispatch</span></code> is registered
 for the base <code class="docutils literal notranslate"><span class="pre">object</span></code> type, which means it is used if no better
 implementation is found.</p>
-<p>If an implementation registered to <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a>, virtual
-subclasses will be dispatched to that implementation:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Mapping</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@fun</span><span class="o">.</span><span class="n">register</span>
-<span class="gp">... </span><span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keys &amp; Values&quot;</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">arg</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;=&gt;&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fun</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">})</span>
-<span class="go">a =&gt; b</span>
-</pre></div>
-</div>
 <p>To check which implementation will the generic function choose for
 a given type, use the <code class="docutils literal notranslate"><span class="pre">dispatch()</span></code> attribute:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fun</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
@@ -595,186 +574,6 @@ or non-cls argument, create your function accordingly:</p>
 <code class="docutils literal notranslate"><span class="pre">abstractmethod</span></code>, and others.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
-</div>
-</dd></dl>
-
-<dl class="class">
-<dt id="functools.TopologicalSorter">
-<em class="property">class </em><code class="sig-prename descclassname">functools.</code><code class="sig-name descname">TopologicalSorter</code><span class="sig-paren">(</span><em class="sig-param">graph=None</em><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Provides functionality to topologically sort a graph of hashable nodes.</p>
-<p>A topological order is a linear ordering of the vertices in a graph such that
-for every directed edge u -&gt; v from vertex u to vertex v, vertex u comes
-before vertex v in the ordering. For instance, the vertices of the graph may
-represent tasks to be performed, and the edges may represent constraints that
-one task must be performed before another; in this example, a topological
-ordering is just a valid sequence for the tasks. A complete topological
-ordering is possible if and only if the graph has no directed cycles, that
-is, if it is a directed acyclic graph.</p>
-<p>If the optional <em>graph</em> argument is provided it must be a dictionary
-representing a directed acyclic graph where the keys are nodes and the values
-are iterables of all predecessors of that node in the graph (the nodes that
-have edges that point to the value in the key). Additional nodes can be added
-to the graph using the <a class="reference internal" href="#functools.TopologicalSorter.add" title="functools.TopologicalSorter.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> method.</p>
-<p>In the general case, the steps required to perform the sorting of a given
-graph are as follows:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Create an instance of the <a class="reference internal" href="#functools.TopologicalSorter" title="functools.TopologicalSorter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologicalSorter</span></code></a> with an optional
-initial graph.</p></li>
-<li><p>Add additional nodes to the graph.</p></li>
-<li><p>Call <a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare()</span></code></a> on the graph.</p></li>
-<li><p>While <a class="reference internal" href="#functools.TopologicalSorter.is_active" title="functools.TopologicalSorter.is_active"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_active()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, iterate over
-the nodes returned by <a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ready()</span></code></a> and
-process them. Call <a class="reference internal" href="#functools.TopologicalSorter.done" title="functools.TopologicalSorter.done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">done()</span></code></a> on each node as it
-finishes processing.</p></li>
-</ul>
-</div></blockquote>
-<p>In case just an immediate sorting of the nodes in the graph is required and
-no parallelism is involved, the convenience method
-<a class="reference internal" href="#functools.TopologicalSorter.static_order" title="functools.TopologicalSorter.static_order"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.static_order()</span></code></a> can be used directly:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">graph</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">},</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">},</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">}}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">TopologicalSorter</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">static_order</span><span class="p">())</span>
-<span class="go">(&#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;)</span>
-</pre></div>
-</div>
-<p>The class is designed to easily support parallel processing of the nodes as
-they become ready. For instance:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">topological_sorter</span> <span class="o">=</span> <span class="n">TopologicalSorter</span><span class="p">()</span>
-
-<span class="c1"># Add nodes to &#39;topological_sorter&#39;...</span>
-
-<span class="n">topological_sorter</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">topological_sorter</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">topological_sorter</span><span class="o">.</span><span class="n">get_ready</span><span class="p">():</span>
-        <span class="c1"># Worker threads or processes take nodes to work on off the</span>
-        <span class="c1"># &#39;task_queue&#39; queue.</span>
-        <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-
-    <span class="c1"># When the work for a node is done, workers put the node in</span>
-    <span class="c1"># &#39;finalized_tasks_queue&#39; so we can get more nodes to work on.</span>
-    <span class="c1"># The definition of &#39;is_active()&#39; guarantees that, at this point, at</span>
-    <span class="c1"># least one node has been placed on &#39;task_queue&#39; that hasn&#39;t yet</span>
-    <span class="c1"># been passed to &#39;done()&#39;, so this blocking &#39;get()&#39; must (eventually)</span>
-    <span class="c1"># succeed.  After calling &#39;done()&#39;, we loop back to call &#39;get_ready()&#39;</span>
-    <span class="c1"># again, so put newly freed nodes on &#39;task_queue&#39; as soon as</span>
-    <span class="c1"># logically possible.</span>
-    <span class="n">node</span> <span class="o">=</span> <span class="n">finalized_tasks_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-    <span class="n">topological_sorter</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="method">
-<dt id="functools.TopologicalSorter.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">node</em>, <em class="sig-param">*predecessors</em><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.add" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Add a new node and its predecessors to the graph. Both the <em>node</em> and all
-elements in <em>predecessors</em> must be hashable.</p>
-<p>If called multiple times with the same node argument, the set of
-dependencies will be the union of all dependencies passed in.</p>
-<p>It is possible to add a node with no dependencies (<em>predecessors</em> is not
-provided) or to provide a dependency twice. If a node that has not been
-provided before is included among <em>predecessors</em> it will be automatically
-added to the graph with no predecessors of its own.</p>
-<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if called after <a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="functools.TopologicalSorter.prepare">
-<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.prepare" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Mark the graph as finished and check for cycles in the graph. If any cycle
-is detected, <a class="reference internal" href="#functools.CycleError" title="functools.CycleError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CycleError</span></code></a> will be raised, but
-<a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ready()</span></code></a> can still be used to obtain as many
-nodes as possible until cycles block more progress. After a call to this
-function, the graph cannot be modified, and therefore no more nodes can be
-added using <a class="reference internal" href="#functools.TopologicalSorter.add" title="functools.TopologicalSorter.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="functools.TopologicalSorter.is_active">
-<code class="sig-name descname">is_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.is_active" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if more progress can be made and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.
-Progress can be made if cycles do not block the resolution and either
-there are still nodes ready that haven’t yet been returned by
-<a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.get_ready()</span></code></a> or the number of nodes marked
-<a class="reference internal" href="#functools.TopologicalSorter.done" title="functools.TopologicalSorter.done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.done()</span></code></a> is less than the number that have been
-returned by <a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.get_ready()</span></code></a>.</p>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code> method of this class defers to
-this function, so instead of:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<p>if possible to simply do:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">ts</span><span class="p">:</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if called without calling
-<a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare()</span></code></a> previously.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="functools.TopologicalSorter.done">
-<code class="sig-name descname">done</code><span class="sig-paren">(</span><em class="sig-param">*nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.done" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Marks a set of nodes returned by <a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.get_ready()</span></code></a> as
-processed, unblocking any successor of each node in <em>nodes</em> for being
-returned in the future by a call to <a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.get_ready()</span></code></a>.</p>
-<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if any node in <em>nodes</em> has already been marked as
-processed by a previous call to this method or if a node was not added to
-the graph by using <a class="reference internal" href="#functools.TopologicalSorter.add" title="functools.TopologicalSorter.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.add()</span></code></a>, if called without
-calling <a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare()</span></code></a> or if node has not yet been
-returned by <a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ready()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="functools.TopologicalSorter.get_ready">
-<code class="sig-name descname">get_ready</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.get_ready" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Returns a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with all the nodes that are ready. Initially it
-returns all nodes with no predecessors, and once those are marked as
-processed by calling <a class="reference internal" href="#functools.TopologicalSorter.done" title="functools.TopologicalSorter.done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.done()</span></code></a>, further calls will
-return all new nodes that have all their predecessors already processed.
-Once no more progress can be made, empty tuples are returned.</p>
-<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if called without calling
-<a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prepare()</span></code></a> previously.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="functools.TopologicalSorter.static_order">
-<code class="sig-name descname">static_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functools.TopologicalSorter.static_order" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Returns an iterable of nodes in a topological order. Using this method
-does not require to call <a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.prepare()</span></code></a> or
-<a class="reference internal" href="#functools.TopologicalSorter.done" title="functools.TopologicalSorter.done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.done()</span></code></a>. This method is equivalent to:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">static_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
-    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
-        <span class="n">node_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ready</span><span class="p">()</span>
-        <span class="k">yield from</span> <span class="n">node_group</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="o">*</span><span class="n">node_group</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The particular order that is returned may depend on the specific order in
-which the items were inserted in the graph. For example:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">TopologicalSorter</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="o">*</span><span class="n">ts</span><span class="o">.</span><span class="n">static_order</span><span class="p">()])</span>
-<span class="go">[2, 0, 1, 3]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts2</span> <span class="o">=</span> <span class="n">TopologicalSorter</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ts2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="o">*</span><span class="n">ts2</span><span class="o">.</span><span class="n">static_order</span><span class="p">()])</span>
-<span class="go">[0, 2, 1, 3]</span>
-</pre></div>
-</div>
-<p>This is due to the fact that „0” and „2” are in the same level in the
-graph (they would have been returned in the same call to
-<a class="reference internal" href="#functools.TopologicalSorter.get_ready" title="functools.TopologicalSorter.get_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_ready()</span></code></a>) and the order between them is
-determined by the order of insertion.</p>
-<p>If any cycle is detected, <a class="reference internal" href="#functools.CycleError" title="functools.CycleError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CycleError</span></code></a> will be raised.</p>
-</dd></dl>
-
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
 </div>
 </dd></dl>
 
@@ -886,22 +685,6 @@ are not created automatically.  Also, <a class="reference internal" href="#funct
 classes behave like static methods and do not transform into bound methods
 during instance attribute look-up.</p>
 </div>
-<div class="section" id="exceptions">
-<h2>Exceptions<a class="headerlink" href="#exceptions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>The <a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code></a> module defines the following exception classes:</p>
-<dl class="exception">
-<dt id="functools.CycleError">
-<em class="property">exception </em><code class="sig-prename descclassname">functools.</code><code class="sig-name descname">CycleError</code><a class="headerlink" href="#functools.CycleError" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Subclass of <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> raised by <a class="reference internal" href="#functools.TopologicalSorter.prepare" title="functools.TopologicalSorter.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologicalSorter.prepare()</span></code></a> if cycles exist
-in the working graph. If multiple cycles exist, only one undefined choice among them will
-be reported and included in the exception.</p>
-<p>The detected cycle can be accessed via the second element in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">args</span></code>
-attribute of the exception instance and consists in a list of nodes, such that each node is,
-in the graph, an immediate predecessor of the next node in the list. In the reported list,
-the first and the last node will be the same, to make it clear that it is cyclic.</p>
-</dd></dl>
-
-</div>
 </div>
 
 
@@ -914,7 +697,6 @@ the first and the last node will be the same, to make it clear that it is cyclic
   <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code> — Higher-order functions and operations on callable objects</a><ul>
 <li><a class="reference internal" href="#partial-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">partial</span></code> Objects</a></li>
-<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
 </ul>
 </li>
 </ul>
@@ -930,7 +712,7 @@ the first and the last node will be the same, to make it clear that it is cyclic
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/functools.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/functools.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -962,7 +744,7 @@ the first and the last node will be the same, to make it clear that it is cyclic
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -997,7 +779,7 @@ the first and the last node will be the same, to make it clear that it is cyclic
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

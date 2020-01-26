@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>logging.handlers — Logging handlers &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>logging.handlers — Logging handlers &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-logging.handlers">
 <span id="logging-handlers-logging-handlers"></span><h1><a class="reference internal" href="#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a> — Logging handlers<a class="headerlink" href="#module-logging.handlers" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/logging/handlers.py">Lib/logging/handlers.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/logging/handlers.py">Lib/logging/handlers.py</a></p>
 <div class="sidebar">
 <p class="sidebar-title">Important</p>
 <p>This page contains only reference information. For tutorials,
@@ -134,7 +134,7 @@ will be used.</p>
 <dt id="logging.StreamHandler.emit">
 <code class="sig-name descname">emit</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.StreamHandler.emit" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If a formatter is specified, it is used to format the record. The record
-is then written to the stream followed by <a class="reference internal" href="#logging.StreamHandler.terminator" title="logging.StreamHandler.terminator"><code class="xref py py-attr docutils literal notranslate"><span class="pre">terminator</span></code></a>. If exception information
+is then written to the stream with a terminator. If exception information
 is present, it is formatted using <a class="reference internal" href="traceback.html#traceback.print_exception" title="traceback.print_exception"><code class="xref py py-func docutils literal notranslate"><span class="pre">traceback.print_exception()</span></code></a> and
 appended to the stream.</p>
 </dd></dl>
@@ -160,26 +160,20 @@ The old stream is flushed before the new stream is set.</p>
 <dd class="field-even"><p>the old stream, if the stream was changed, or <em>None</em> if it wasn’t.</p>
 </dd>
 </dl>
+</dd></dl>
+
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="logging.StreamHandler.terminator">
-<code class="sig-name descname">terminator</code><a class="headerlink" href="#logging.StreamHandler.terminator" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>String used as the terminator when writing a formatted record to a stream.
-Default value is <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
-<p>If you don’t want a newline termination, you can set the handler instance’s
-<code class="docutils literal notranslate"><span class="pre">terminator</span></code> attribute to the empty string.</p>
-<p>In earlier versions, the terminator was hardcoded as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <code class="docutils literal notranslate"><span class="pre">StreamHandler</span></code> class now has a <code class="docutils literal notranslate"><span class="pre">terminator</span></code> attribute, default
+value <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, which is used as the terminator when writing a formatted
+record to a stream. If you don’t want this newline termination, you can
+set the handler instance’s <code class="docutils literal notranslate"><span class="pre">terminator</span></code> attribute to the empty string.
+In earlier versions, the terminator was hardcoded as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
 </div>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 <div class="section" id="filehandler">
 <span id="file-handler"></span><h2>FileHandler<a class="headerlink" href="#filehandler" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -188,19 +182,15 @@ sends logging output to a disk file.  It inherits the output functionality from
 <a class="reference internal" href="#logging.StreamHandler" title="logging.StreamHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamHandler</span></code></a>.</p>
 <dl class="class">
 <dt id="logging.FileHandler">
-<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">FileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.FileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">FileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.FileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.FileHandler" title="logging.FileHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileHandler</span></code></a> class. The specified file is
 opened and used as the stream for logging. If <em>mode</em> is not specified,
 <code class="xref py py-const docutils literal notranslate"><span class="pre">'a'</span></code> is used.  If <em>encoding</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is used to open the file
 with that encoding.  If <em>delay</em> is true, then file opening is deferred until the
-first call to <a class="reference internal" href="#logging.FileHandler.emit" title="logging.FileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>. By default, the file grows indefinitely. If
-<em>errors</em> is specified, it’s used to determine how encoding errors are handled.</p>
+first call to <a class="reference internal" href="#logging.FileHandler.emit" title="logging.FileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>. By default, the file grows indefinitely.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>As well as string values, <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> objects are also accepted
 for the <em>filename</em> argument.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>errors</em> parameter was added.</p>
 </div>
 <dl class="method">
 <dt id="logging.FileHandler.close">
@@ -271,19 +261,15 @@ exclusive locks - and so there is no need for such a handler. Furthermore,
 for this value.</p>
 <dl class="class">
 <dt id="logging.handlers.WatchedFileHandler">
-<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">WatchedFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.WatchedFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">WatchedFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.WatchedFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.handlers.WatchedFileHandler" title="logging.handlers.WatchedFileHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">WatchedFileHandler</span></code></a> class. The specified
 file is opened and used as the stream for logging. If <em>mode</em> is not specified,
 <code class="xref py py-const docutils literal notranslate"><span class="pre">'a'</span></code> is used.  If <em>encoding</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is used to open the file
 with that encoding.  If <em>delay</em> is true, then file opening is deferred until the
-first call to <a class="reference internal" href="#logging.handlers.WatchedFileHandler.emit" title="logging.handlers.WatchedFileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>.  By default, the file grows indefinitely. If
-<em>errors</em> is provided, it determines how encoding errors are handled.</p>
+first call to <a class="reference internal" href="#logging.handlers.WatchedFileHandler.emit" title="logging.handlers.WatchedFileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>.  By default, the file grows indefinitely.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>As well as string values, <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> objects are also accepted
 for the <em>filename</em> argument.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>errors</em> parameter was added.</p>
 </div>
 <dl class="method">
 <dt id="logging.handlers.WatchedFileHandler.reopenIfNeeded">
@@ -315,7 +301,7 @@ not need to instantiate this class, but it has attributes and methods you may
 need to override.</p>
 <dl class="class">
 <dt id="logging.handlers.BaseRotatingHandler">
-<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">BaseRotatingHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.BaseRotatingHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">BaseRotatingHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.BaseRotatingHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The parameters are as for <code class="xref py py-class docutils literal notranslate"><span class="pre">FileHandler</span></code>. The attributes are:</p>
 <dl class="attribute">
 <dt id="logging.handlers.BaseRotatingHandler.namer">
@@ -405,13 +391,12 @@ override the methods.</p>
 module, supports rotation of disk log files.</p>
 <dl class="class">
 <dt id="logging.handlers.RotatingFileHandler">
-<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">RotatingFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">maxBytes=0</em>, <em class="sig-param">backupCount=0</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.RotatingFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">RotatingFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">mode='a'</em>, <em class="sig-param">maxBytes=0</em>, <em class="sig-param">backupCount=0</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.RotatingFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.handlers.RotatingFileHandler" title="logging.handlers.RotatingFileHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">RotatingFileHandler</span></code></a> class. The specified
 file is opened and used as the stream for logging. If <em>mode</em> is not specified,
 <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is used.  If <em>encoding</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it is used to open the file
 with that encoding.  If <em>delay</em> is true, then file opening is deferred until the
-first call to <a class="reference internal" href="#logging.handlers.RotatingFileHandler.emit" title="logging.handlers.RotatingFileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>.  By default, the file grows indefinitely. If
-<em>errors</em> is provided, it determines how encoding errors are handled.</p>
+first call to <a class="reference internal" href="#logging.handlers.RotatingFileHandler.emit" title="logging.handlers.RotatingFileHandler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>.  By default, the file grows indefinitely.</p>
 <p>You can use the <em>maxBytes</em> and <em>backupCount</em> values to allow the file to
 <em class="dfn">rollover</em> at a predetermined size. When the size is about to be exceeded,
 the file is closed and a new file is silently opened for output. Rollover occurs
@@ -429,9 +414,6 @@ and renamed to <code class="file docutils literal notranslate"><span class="pre"
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>As well as string values, <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> objects are also accepted
 for the <em>filename</em> argument.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>errors</em> parameter was added.</p>
 </div>
 <dl class="method">
 <dt id="logging.handlers.RotatingFileHandler.doRollover">
@@ -456,7 +438,7 @@ previously.</p>
 timed intervals.</p>
 <dl class="class">
 <dt id="logging.handlers.TimedRotatingFileHandler">
-<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">TimedRotatingFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">when='h'</em>, <em class="sig-param">interval=1</em>, <em class="sig-param">backupCount=0</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">utc=False</em>, <em class="sig-param">atTime=None</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.TimedRotatingFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.handlers.</code><code class="sig-name descname">TimedRotatingFileHandler</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">when='h'</em>, <em class="sig-param">interval=1</em>, <em class="sig-param">backupCount=0</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">delay=False</em>, <em class="sig-param">utc=False</em>, <em class="sig-param">atTime=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.TimedRotatingFileHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.handlers.TimedRotatingFileHandler" title="logging.handlers.TimedRotatingFileHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimedRotatingFileHandler</span></code></a> class. The
 specified file is opened and used as the stream for logging. On rotating it also
 sets the filename suffix. Rotating happens based on the product of <em>when</em> and
@@ -530,8 +512,6 @@ is set to happen „at midnight” or „on a particular weekday”. Note that i
 these cases, the <em>atTime</em> value is effectively used to compute the <em>initial</em>
 rollover, and subsequent rollovers would be calculated via the normal
 interval calculation.</p>
-<p>If <em>errors</em> is specified, it’s used to determine how encoding errors are
-handled.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
 <p>Calculation of the initial rollover time is done when the handler
@@ -553,9 +533,6 @@ rollover) occurred.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>As well as string values, <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> objects are also accepted
 for the <em>filename</em> argument.</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>errors</em> parameter was added.</p>
 </div>
 <dl class="method">
 <dt id="logging.handlers.TimedRotatingFileHandler.doRollover">
@@ -1362,7 +1339,7 @@ implementations.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/logging.handlers.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/logging.handlers.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1394,7 +1371,7 @@ implementations.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1429,7 +1406,7 @@ implementations.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

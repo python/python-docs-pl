@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>socket — Low-level networking interface &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>socket — Low-level networking interface &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-socket">
 <span id="socket-low-level-networking-interface"></span><h1><a class="reference internal" href="#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> — Low-level networking interface<a class="headerlink" href="#module-socket" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/socket.py">Lib/socket.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/socket.py">Lib/socket.py</a></p>
 <hr class="docutils" />
 <p>This module provides access to the BSD <em>socket</em> interface. It is available on
 all modern Unix systems, Windows, MacOS, and probably additional platforms.</p>
@@ -293,22 +293,6 @@ family is represented as a <code class="docutils literal notranslate"><span clas
 are non-negative integers.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
-</div>
-</li>
-<li><p><code class="xref py py-const docutils literal notranslate"><span class="pre">IPPROTO_UDPLITE</span></code> is a variant of UDP which allows you to specify
-what portion of a packet is covered with the checksum. It adds two socket
-options that you can change.
-<code class="docutils literal notranslate"><span class="pre">self.setsockopt(IPPROTO_UDPLITE,</span> <span class="pre">UDPLITE_SEND_CSCOV,</span> <span class="pre">length)</span></code> will
-change what portion of outgoing packets are covered by the checksum and
-<code class="docutils literal notranslate"><span class="pre">self.setsockopt(IPPROTO_UDPLITE,</span> <span class="pre">UDPLITE_RECV_CSCOV,</span> <span class="pre">length)</span></code> will
-filter out packets which cover too little of their data. In both cases
-<code class="docutils literal notranslate"><span class="pre">length</span></code> should be in <code class="docutils literal notranslate"><span class="pre">range(8,</span> <span class="pre">2**16,</span> <span class="pre">8)</span></code>.</p>
-<p>Such a socket should be constructed with
-<code class="docutils literal notranslate"><span class="pre">socket(AF_INET,</span> <span class="pre">SOCK_DGRAM,</span> <span class="pre">IPPROTO_UDPLITE)</span></code> for IPv4 or
-<code class="docutils literal notranslate"><span class="pre">socket(AF_INET6,</span> <span class="pre">SOCK_DGRAM,</span> <span class="pre">IPPROTO_UDPLITE)</span></code> for IPv6.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux &gt;= 2.6.20, FreeBSD &gt;= 10.1-RELEASE</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
 </div>
 </li>
 </ul>
@@ -1769,33 +1753,6 @@ Set mode, IV, AEAD associated data length and flags for <a class="reference inte
 </dd></dl>
 
 <dl class="method">
-<dt id="socket.socket.send_fds">
-<code class="sig-prename descclassname">socket.</code><code class="sig-name descname">send_fds</code><span class="sig-paren">(</span><em class="sig-param">sock</em>, <em class="sig-param">buffers</em>, <em class="sig-param">fds</em><span class="optional">[</span>, <em class="sig-param">flags</em><span class="optional">[</span>, <em class="sig-param">address</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#socket.socket.send_fds" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Send the list of file descriptors <em>fds</em> over an <a class="reference internal" href="#socket.AF_UNIX" title="socket.AF_UNIX"><code class="xref py py-const docutils literal notranslate"><span class="pre">AF_UNIX</span></code></a> socket.
-The <em>fds</em> parameter is a sequence of file descriptors.
-Consult <a class="reference internal" href="#socket.socket.sendmsg" title="socket.socket.sendmsg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sendmsg()</span></code></a> for the documentation of these parameters.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix supporting <a class="reference internal" href="#socket.socket.sendmsg" title="socket.socket.sendmsg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sendmsg()</span></code></a> and <code class="xref py py-const docutils literal notranslate"><span class="pre">SCM_RIGHTS</span></code> mechanism.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="socket.socket.recv_fds">
-<code class="sig-prename descclassname">socket.</code><code class="sig-name descname">recv_fds</code><span class="sig-paren">(</span><em class="sig-param">sock</em>, <em class="sig-param">bufsize</em>, <em class="sig-param">maxfds</em><span class="optional">[</span>, <em class="sig-param">flags</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#socket.socket.recv_fds" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Receive up to <em>maxfds</em> file descriptors. Return <code class="docutils literal notranslate"><span class="pre">(msg,</span> <span class="pre">list(fds),</span> <span class="pre">flags,</span> <span class="pre">addr)</span></code>. Consult
-<a class="reference internal" href="#socket.socket.recvmsg" title="socket.socket.recvmsg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recvmsg()</span></code></a> for the documentation of these parameters.</p>
-<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix supporting <a class="reference internal" href="#socket.socket.recvmsg" title="socket.socket.recvmsg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recvmsg()</span></code></a> and <code class="xref py py-const docutils literal notranslate"><span class="pre">SCM_RIGHTS</span></code> mechanism.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Any truncated integers at the end of the list of file descriptors.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="socket.socket.sendfile">
 <code class="sig-prename descclassname">socket.</code><code class="sig-name descname">sendfile</code><span class="sig-paren">(</span><em class="sig-param">file</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">count=None</em><span class="sig-paren">)</span><a class="headerlink" href="#socket.socket.sendfile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Send a file until EOF is reached by using high-performance
@@ -2243,7 +2200,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/socket.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/socket.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -2275,7 +2232,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -2310,7 +2267,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

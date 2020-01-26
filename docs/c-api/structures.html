@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>Common Object Structures &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>Common Object Structures &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -105,8 +105,6 @@
 <p>There are a large number of structures which are used in the definition of
 object types for Python.  This section describes these structures and how they
 are used.</p>
-<div class="section" id="base-object-types-and-macros">
-<h2>Base object types and macros<a class="headerlink" href="#base-object-types-and-macros" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>All Python objects ultimately share a small number of fields at the beginning
 of the object’s representation in memory.  These are represented by the
 <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> and <a class="reference internal" href="#c.PyVarObject" title="PyVarObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyVarObject</span></code></a> types, which are defined, in turn,
@@ -212,9 +210,6 @@ This macro expands to:</p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="implementing-functions-and-methods">
-<h2>Implementing functions and methods<a class="headerlink" href="#implementing-functions-and-methods" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="type">
 <dt id="c.PyCFunction">
 <code class="sig-name descname">PyCFunction</code><a class="headerlink" href="#c.PyCFunction" title="Stały odnośnik do tej definicji">¶</a></dt>
@@ -340,11 +335,9 @@ parameter is the number of arguments (the length of the array).</p>
 <code class="sig-name descname">METH_FASTCALL | METH_KEYWORDS</code></dt>
 <dd><p>Extension of <a class="reference internal" href="#METH_FASTCALL" title="METH_FASTCALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span></code></a> supporting also keyword arguments,
 with methods of type <a class="reference internal" href="#c._PyCFunctionFastWithKeywords" title="_PyCFunctionFastWithKeywords"><code class="xref c c-type docutils literal notranslate"><span class="pre">_PyCFunctionFastWithKeywords</span></code></a>.
-Keyword arguments are passed the same way as in the
-<a class="reference internal" href="call.html#vectorcall"><span class="std std-ref">vectorcall protocol</span></a>:
+Keyword arguments are passed the same way as in the vectorcall protocol:
 there is an additional fourth <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> parameter
 which is a tuple representing the names of the keyword arguments
-(which are guaranteed to be strings)
 or possibly <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there are no keywords.  The values of the keyword
 arguments are stored in the <em>args</em> array, after the positional arguments.</p>
 <p>This is not part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">limited API</span></a>.</p>
@@ -409,9 +402,6 @@ slot.  This is helpful because calls to PyCFunctions are optimized more
 than wrapper object calls.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="accessing-attributes-of-extension-types">
-<h2>Accessing attributes of extension types<a class="headerlink" href="#accessing-attributes-of-extension-types" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="type">
 <dt id="c.PyMemberDef">
 <code class="sig-name descname">PyMemberDef</code><a class="headerlink" href="#c.PyMemberDef" title="Stały odnośnik do tej definicji">¶</a></dt>
@@ -539,18 +529,6 @@ read-only access.  Using <code class="xref c c-macro docutils literal notranslat
 <code class="xref c c-macro docutils literal notranslate"><span class="pre">READONLY</span></code>.  <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_STRING</span></code> data is interpreted as UTF-8.
 Only <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_OBJECT</span></code> and <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_OBJECT_EX</span></code>
 members can be deleted.  (They are set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>).</p>
-<p id="pymemberdef-offsets">Heap allocated types (created using <a class="reference internal" href="type.html#c.PyType_FromSpec" title="PyType_FromSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromSpec()</span></code></a> or similar),
-<code class="docutils literal notranslate"><span class="pre">PyMemberDef</span></code> may contain definitions for the special members
-<code class="docutils literal notranslate"><span class="pre">__dictoffset__</span></code> and <code class="docutils literal notranslate"><span class="pre">__weaklistoffset__</span></code>, corresponding to
-<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dictoffset" title="PyTypeObject.tp_dictoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dictoffset</span></code></a> and
-<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_weaklistoffset" title="PyTypeObject.tp_weaklistoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_weaklistoffset</span></code></a> in type objects.
-These must be defined with <code class="docutils literal notranslate"><span class="pre">T_PYSSIZET</span></code> and <code class="docutils literal notranslate"><span class="pre">READONLY</span></code>, for example:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">PyMemberDef</span> <span class="n">spam_type_members</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">{</span><span class="s">&quot;__dictoffset__&quot;</span><span class="p">,</span> <span class="n">T_PYSSIZET</span><span class="p">,</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">Spam_object</span><span class="p">,</span> <span class="n">dict</span><span class="p">),</span> <span class="n">READONLY</span><span class="p">},</span>
-    <span class="p">{</span><span class="nb">NULL</span><span class="p">}</span>  <span class="cm">/* Sentinel */</span>
-<span class="p">};</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="type">
@@ -614,7 +592,6 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
 </dd></dl>
 
 </div>
-</div>
 
 
           </div>
@@ -622,16 +599,6 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Common Object Structures</a><ul>
-<li><a class="reference internal" href="#base-object-types-and-macros">Base object types and macros</a></li>
-<li><a class="reference internal" href="#implementing-functions-and-methods">Implementing functions and methods</a></li>
-<li><a class="reference internal" href="#accessing-attributes-of-extension-types">Accessing attributes of extension types</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="allocation.html"
                         title="poprzedni rozdział">Allocating Objects on the Heap</a></p>
@@ -643,7 +610,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/structures.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/structures.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -675,7 +642,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -710,7 +677,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

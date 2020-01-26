@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>statistics — Mathematical statistics functions &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>statistics — Mathematical statistics functions &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -105,7 +105,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/statistics.py">Lib/statistics.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/statistics.py">Lib/statistics.py</a></p>
 <hr class="docutils" />
 <p>This module provides functions for calculating mathematical statistics of
 numeric (<a class="reference internal" href="numbers.html#numbers.Real" title="numbers.Real"><code class="xref py py-class docutils literal notranslate"><span class="pre">Real</span></code></a>-valued) data.</p>
@@ -830,6 +830,39 @@ Carlo simulation</a>:</p>
 <span class="go">[1.4591308524824727, 1.8035946855390597, 2.175091447274739]</span>
 </pre></div>
 </div>
+<p>Normal distributions can be used to approximate <a class="reference external" href="http://mathworld.wolfram.com/BinomialDistribution.html">Binomial
+distributions</a>
+when the sample size is large and when the probability of a successful
+trial is near 50%.</p>
+<p>For example, an open source conference has 750 attendees and two rooms with a
+500 person capacity.  There is a talk about Python and another about Ruby.
+In previous conferences, 65% of the attendees preferred to listen to Python
+talks.  Assuming the population preferences haven’t changed, what is the
+probability that the rooms will stay within their capacity limits?</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">750</span>             <span class="c1"># Sample size</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.65</span>            <span class="c1"># Preference for Python</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">p</span>         <span class="c1"># Preference for Ruby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="mi">500</span>             <span class="c1"># Room capacity</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Approximation using the cumulative normal distribution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">NormalDist</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">q</span><span class="p">))</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.8402</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Solution using the cumulative binomial distribution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">comb</span><span class="p">,</span> <span class="n">fsum</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">fsum</span><span class="p">(</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span><span class="o">**</span><span class="n">r</span> <span class="o">*</span> <span class="n">q</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.8402</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Approximation using a simulation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">seed</span><span class="p">,</span> <span class="n">choices</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed</span><span class="p">(</span><span class="mi">8675309</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">trial</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">choices</span><span class="p">((</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Ruby&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">(</span><span class="n">trial</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">k</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">))</span>
+<span class="go">0.8398</span>
+</pre></div>
+</div>
 <p>Normal distributions commonly arise in machine learning problems.</p>
 <p>Wikipedia has a <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier#Sex_classification">nice example of a Naive Bayesian Classifier</a>.
 The challenge is to predict a person’s gender from measurements of normally
@@ -906,7 +939,7 @@ feature measurements given the gender:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/statistics.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/statistics.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -938,7 +971,7 @@ feature measurements given the gender:</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -973,7 +1006,7 @@ feature measurements given the gender:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

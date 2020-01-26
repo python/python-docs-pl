@@ -48,7 +48,7 @@ and :meth:`flush` methods).
    .. method:: emit(record)
 
       If a formatter is specified, it is used to format the record. The record
-      is then written to the stream followed by :attr:`terminator`. If exception information
+      is then written to the stream with a terminator. If exception information
       is present, it is formatted using :func:`traceback.print_exception` and
       appended to the stream.
 
@@ -68,19 +68,15 @@ and :meth:`flush` methods).
 
       :return: the old stream, if the stream was changed, or *None* if it wasn't.
 
-      .. versionadded:: 3.7
+   .. versionadded:: 3.7
 
-   .. attribute:: terminator
 
-      String used as the terminator when writing a formatted record to a stream.
-      Default value is ``'\n'``.
-
-      If you don't want a newline termination, you can set the handler instance's
-      ``terminator`` attribute to the empty string.
-
-      In earlier versions, the terminator was hardcoded as ``'\n'``.
-
-      .. versionadded:: 3.2
+.. versionchanged:: 3.2
+   The ``StreamHandler`` class now has a ``terminator`` attribute, default
+   value ``'\n'``, which is used as the terminator when writing a formatted
+   record to a stream. If you don't want this newline termination, you can
+   set the handler instance's ``terminator`` attribute to the empty string.
+   In earlier versions, the terminator was hardcoded as ``'\n'``.
 
 
 .. _file-handler:
@@ -93,25 +89,22 @@ sends logging output to a disk file.  It inherits the output functionality from
 :class:`StreamHandler`.
 
 
-.. class:: FileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
+.. class:: FileHandler(filename, mode='a', encoding=None, delay=False)
 
    Returns a new instance of the :class:`FileHandler` class. The specified file is
    opened and used as the stream for logging. If *mode* is not specified,
    :const:`'a'` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
-   first call to :meth:`emit`. By default, the file grows indefinitely. If
-   *errors* is specified, it's used to determine how encoding errors are handled.
+   first call to :meth:`emit`. By default, the file grows indefinitely.
 
    .. versionchanged:: 3.6
       As well as string values, :class:`~pathlib.Path` objects are also accepted
       for the *filename* argument.
 
-   .. versionchanged:: 3.9
-      The *errors* parameter was added.
-
    .. method:: close()
 
       Closes the file.
+
 
    .. method:: emit(record)
 
@@ -175,21 +168,17 @@ exclusive locks - and so there is no need for such a handler. Furthermore,
 for this value.
 
 
-.. class:: WatchedFileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
+.. class:: WatchedFileHandler(filename, mode='a', encoding=None, delay=False)
 
    Returns a new instance of the :class:`WatchedFileHandler` class. The specified
    file is opened and used as the stream for logging. If *mode* is not specified,
    :const:`'a'` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
-   first call to :meth:`emit`.  By default, the file grows indefinitely. If
-   *errors* is provided, it determines how encoding errors are handled.
+   first call to :meth:`emit`.  By default, the file grows indefinitely.
 
    .. versionchanged:: 3.6
       As well as string values, :class:`~pathlib.Path` objects are also accepted
       for the *filename* argument.
-
-   .. versionchanged:: 3.9
-      The *errors* parameter was added.
 
    .. method:: reopenIfNeeded()
 
@@ -216,7 +205,7 @@ module, is the base class for the rotating file handlers,
 not need to instantiate this class, but it has attributes and methods you may
 need to override.
 
-.. class:: BaseRotatingHandler(filename, mode, encoding=None, delay=False, errors=None)
+.. class:: BaseRotatingHandler(filename, mode, encoding=None, delay=False)
 
    The parameters are as for :class:`FileHandler`. The attributes are:
 
@@ -295,14 +284,13 @@ The :class:`RotatingFileHandler` class, located in the :mod:`logging.handlers`
 module, supports rotation of disk log files.
 
 
-.. class:: RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=False, errors=None)
+.. class:: RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=False)
 
    Returns a new instance of the :class:`RotatingFileHandler` class. The specified
    file is opened and used as the stream for logging. If *mode* is not specified,
    ``'a'`` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
-   first call to :meth:`emit`.  By default, the file grows indefinitely. If
-   *errors* is provided, it determines how encoding errors are handled.
+   first call to :meth:`emit`.  By default, the file grows indefinitely.
 
    You can use the *maxBytes* and *backupCount* values to allow the file to
    :dfn:`rollover` at a predetermined size. When the size is about to be exceeded,
@@ -322,9 +310,6 @@ module, supports rotation of disk log files.
    .. versionchanged:: 3.6
       As well as string values, :class:`~pathlib.Path` objects are also accepted
       for the *filename* argument.
-
-   .. versionchanged:: 3.9
-      The *errors* parameter was added.
 
    .. method:: doRollover()
 
@@ -346,7 +331,7 @@ The :class:`TimedRotatingFileHandler` class, located in the
 timed intervals.
 
 
-.. class:: TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False, atTime=None, errors=None)
+.. class:: TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False, atTime=None)
 
    Returns a new instance of the :class:`TimedRotatingFileHandler` class. The
    specified file is opened and used as the stream for logging. On rotating it also
@@ -406,9 +391,6 @@ timed intervals.
    rollover, and subsequent rollovers would be calculated via the normal
    interval calculation.
 
-   If *errors* is specified, it's used to determine how encoding errors are
-   handled.
-
    .. note:: Calculation of the initial rollover time is done when the handler
       is initialised. Calculation of subsequent rollover times is done only
       when rollover occurs, and rollover occurs only when emitting output. If
@@ -428,9 +410,6 @@ timed intervals.
    .. versionchanged:: 3.6
       As well as string values, :class:`~pathlib.Path` objects are also accepted
       for the *filename* argument.
-
-   .. versionchanged:: 3.9
-      The *errors* parameter was added.
 
    .. method:: doRollover()
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>urllib.request — Extensible library for opening URLs &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>urllib.request — Extensible library for opening URLs &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-urllib.request">
 <span id="urllib-request-extensible-library-for-opening-urls"></span><h1><a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> — Extensible library for opening URLs<a class="headerlink" href="#module-urllib.request" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module defines functions and classes which help in
 opening URLs (mostly HTTP) in a complex world — basic and digest
@@ -137,8 +137,15 @@ point to a directory of hashed certificate files.  More information can
 be found in <a class="reference internal" href="ssl.html#ssl.SSLContext.load_verify_locations" title="ssl.SSLContext.load_verify_locations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLContext.load_verify_locations()</span></code></a>.</p>
 <p>The <em>cadefault</em> parameter is ignored.</p>
 <p>This function always returns an object which can work as a
-<a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> and has the properties <em>url</em>, <em>headers</em>, and <em>status</em>.
-See <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> for more detail on these properties.</p>
+<a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> and has methods such as</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">geturl()</span></code> — return the URL of the resource retrieved,
+commonly used to determine if a redirect was followed</p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">info()</span></code> — return the meta-information of the page, such as headers,
+in the form of an <a class="reference internal" href="email.parser.html#email.message_from_string" title="email.message_from_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">email.message_from_string()</span></code></a> instance (see
+<a class="reference external" href="http://jkorpela.fi/http.html">Quick Reference to HTTP Headers</a>)</p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">getcode()</span></code> – return the HTTP status code of the response.</p></li>
+</ul>
 <p>For HTTP and HTTPS URLs, this function returns a
 <a class="reference internal" href="http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.client.HTTPResponse</span></code></a> object slightly modified. In addition
 to the three new methods above, the msg attribute contains the
@@ -148,7 +155,7 @@ the response headers as it is specified in the documentation for
 <a class="reference internal" href="http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPResponse</span></code></a>.</p>
 <p>For FTP, file, and data URLs and requests explicitly handled by legacy
 <a class="reference internal" href="#urllib.request.URLopener" title="urllib.request.URLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">URLopener</span></code></a> and <a class="reference internal" href="#urllib.request.FancyURLopener" title="urllib.request.FancyURLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">FancyURLopener</span></code></a> classes, this function
-returns a <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> object.</p>
+returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code> object.</p>
 <p>Raises <a class="reference internal" href="urllib.error.html#urllib.error.URLError" title="urllib.error.URLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">URLError</span></code></a> on protocol errors.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">None</span></code> may be returned if no handler handles the request (though
 the default installed global <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> uses
@@ -1607,67 +1614,11 @@ using the <a class="reference internal" href="ftplib.html#module-ftplib" title="
 <div class="section" id="module-urllib.response">
 <span id="urllib-response-response-classes-used-by-urllib"></span><h1><a class="reference internal" href="#module-urllib.response" title="urllib.response: Response classes used by urllib."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.response</span></code></a> — Response classes used by urllib<a class="headerlink" href="#module-urllib.response" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>The <a class="reference internal" href="#module-urllib.response" title="urllib.response: Response classes used by urllib."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.response</span></code></a> module defines functions and classes which define a
-minimal file-like interface, including <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>.
-Functions defined by this module are used internally by the <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module.
-The typical response object is a <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> instance:</p>
-<dl class="class">
-<dt id="urllib.response.addinfourl">
-<em class="property">class </em><code class="sig-prename descclassname">urllib.response.</code><code class="sig-name descname">addinfourl</code><a class="headerlink" href="#urllib.response.addinfourl" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="urllib.response.addinfourl.url">
-<code class="sig-name descname">url</code><a class="headerlink" href="#urllib.response.addinfourl.url" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>URL of the resource retrieved, commonly used to determine if a redirect was followed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="urllib.response.addinfourl.headers">
-<code class="sig-name descname">headers</code><a class="headerlink" href="#urllib.response.addinfourl.headers" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Returns the headers of the response in the form of an <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> instance.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="urllib.response.addinfourl.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#urllib.response.addinfourl.status" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-<p>Status code returned by server.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="urllib.response.addinfourl.geturl">
-<code class="sig-name descname">geturl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.geturl" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.url" title="urllib.response.addinfourl.url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">url</span></code></a>.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="urllib.response.addinfourl.info">
-<code class="sig-name descname">info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.info" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.headers" title="urllib.response.addinfourl.headers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">headers</span></code></a>.</p>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="urllib.response.addinfourl.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#urllib.response.addinfourl.code" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.status" title="urllib.response.addinfourl.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">status</span></code></a>.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="urllib.response.addinfourl.getstatus">
-<code class="sig-name descname">getstatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.getstatus" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.status" title="urllib.response.addinfourl.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">status</span></code></a>.</p>
-</div>
-</dd></dl>
-
-</dd></dl>
-
+minimal file like interface, including <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>. The
+typical response object is an addinfourl instance, which defines an <code class="docutils literal notranslate"><span class="pre">info()</span></code>
+method and that returns headers and a <code class="docutils literal notranslate"><span class="pre">geturl()</span></code> method that returns the url.
+Functions defined by this module are used internally by the
+<a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module.</p>
 </div>
 
 
@@ -1720,7 +1671,7 @@ The typical response object is a <a class="reference internal" href="#urllib.res
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/urllib.request.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/urllib.request.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1752,7 +1703,7 @@ The typical response object is a <a class="reference internal" href="#urllib.res
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1787,7 +1738,7 @@ The typical response object is a <a class="reference internal" href="#urllib.res
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

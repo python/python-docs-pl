@@ -1558,15 +1558,8 @@ expression support in the :mod:`re` module).
    :func:`codecs.register_error`, see section :ref:`error-handlers`. For a
    list of possible encodings, see section :ref:`standard-encodings`.
 
-   By default, the *errors* argument is not checked for best performances, but
-   only used at the first encoding error. Enable the :ref:`Python Development
-   Mode <devmode>`, or use a debug build to check *errors*.
-
    .. versionchanged:: 3.1
       Support for keyword arguments added.
-
-   .. versionchanged:: 3.9
-      The *errors* is now checked in development mode and in debug mode.
 
 
 .. method:: str.endswith(suffix[, start[, end]])
@@ -1781,16 +1774,6 @@ expression support in the :mod:`re` module).
 
    Return ``True`` if all cased characters [4]_ in the string are uppercase and
    there is at least one cased character, ``False`` otherwise.
-
-      >>> 'BANANA'.isupper()
-      True
-      >>> 'banana'.isupper()
-      False
-      >>> 'baNana'.isupper()
-      False
-      >>> ' '.isupper()
-      False
-
 
 
 .. method:: str.join(iterable)
@@ -2595,10 +2578,6 @@ arbitrary binary data.
    :func:`codecs.register_error`, see section :ref:`error-handlers`. For a
    list of possible encodings, see section :ref:`standard-encodings`.
 
-   By default, the *errors* argument is not checked for best performances, but
-   only used at the first decoding error. Enable the :ref:`Python Development
-   Mode <devmode>`, or use a debug build to check *errors*.
-
    .. note::
 
       Passing the *encoding* argument to :class:`str` allows decoding any
@@ -2607,9 +2586,6 @@ arbitrary binary data.
 
    .. versionchanged:: 3.1
       Added support for keyword arguments.
-
-   .. versionchanged:: 3.9
-      The *errors* is now checked in development mode and in debug mode.
 
 
 .. method:: bytes.endswith(suffix[, start[, end]])
@@ -4223,8 +4199,7 @@ pairs within braces, for example: ``{'jack': 4098, 'sjoerd': 4127}`` or ``{4098:
       >>> c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
       >>> d = dict([('two', 2), ('one', 1), ('three', 3)])
       >>> e = dict({'three': 3, 'one': 1, 'two': 2})
-      >>> f = dict({'one': 1, 'three': 3}, two=2)
-      >>> a == b == c == d == e == f
+      >>> a == b == c == d == e
       True
 
    Providing keyword arguments as in the first example only works for keys that

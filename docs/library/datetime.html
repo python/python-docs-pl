@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>datetime — Basic date and time types &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>datetime — Basic date and time types &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-datetime">
 <span id="datetime-basic-date-and-time-types"></span><h1><a class="reference internal" href="#module-datetime" title="datetime: Basic date and time types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a> — Basic date and time types<a class="headerlink" href="#module-datetime" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/datetime.py">Lib/datetime.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/datetime.py">Lib/datetime.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-datetime" title="datetime: Basic date and time types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a> module supplies classes for manipulating dates and times.</p>
 <p>While date and time arithmetic is supported, the focus of the implementation is
@@ -2760,8 +2760,8 @@ naive).</p></td>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%Z</span></code></p></td>
 <td><p>Time zone name (empty string
 if the object is naive).</p></td>
-<td><p>(empty), UTC, GMT</p></td>
-<td><p>(6)</p></td>
+<td><p>(empty), UTC, EST, CST</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%j</span></code></p></td>
 <td><p>Day of the year as a
@@ -2970,18 +2970,10 @@ and seconds.
 For example, <code class="docutils literal notranslate"><span class="pre">'+01:00:00'</span></code> will be parsed as an offset of one hour.
 In addition, providing <code class="docutils literal notranslate"><span class="pre">'Z'</span></code> is identical to <code class="docutils literal notranslate"><span class="pre">'+00:00'</span></code>.</p>
 </div>
-<dl>
-<dt><code class="docutils literal notranslate"><span class="pre">%Z</span></code></dt><dd><p>In <code class="xref py py-meth docutils literal notranslate"><span class="pre">strftime()</span></code>, <code class="docutils literal notranslate"><span class="pre">%Z</span></code> is replaced by an empty string if
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">tzname()</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>; otherwise <code class="docutils literal notranslate"><span class="pre">%Z</span></code> is replaced by the
-returned value, which must be a string.</p>
-<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">strptime()</span></code> only accepts certain values for <code class="docutils literal notranslate"><span class="pre">%Z</span></code>:</p>
-<ol class="arabic simple">
-<li><p>any value in <code class="docutils literal notranslate"><span class="pre">time.tzname</span></code> for your machine’s locale</p></li>
-<li><p>the hard-coded values <code class="docutils literal notranslate"><span class="pre">UTC</span></code> and <code class="docutils literal notranslate"><span class="pre">GMT</span></code></p></li>
-</ol>
-<p>So someone living in Japan may have <code class="docutils literal notranslate"><span class="pre">JST</span></code>, <code class="docutils literal notranslate"><span class="pre">UTC</span></code>, and <code class="docutils literal notranslate"><span class="pre">GMT</span></code> as
-valid values, but probably not <code class="docutils literal notranslate"><span class="pre">EST</span></code>. It will raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for
-invalid values.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">%Z</span></code></dt><dd><p>If <code class="xref py py-meth docutils literal notranslate"><span class="pre">tzname()</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">%Z</span></code> is replaced by an empty
+string. Otherwise <code class="docutils literal notranslate"><span class="pre">%Z</span></code> is replaced by the returned value, which must
+be a string.</p>
 </dd>
 </dl>
 <div class="versionchanged">
@@ -3079,7 +3071,7 @@ for a good explanation.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/datetime.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/datetime.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -3111,7 +3103,7 @@ for a good explanation.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -3146,7 +3138,7 @@ for a good explanation.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

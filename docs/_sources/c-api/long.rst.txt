@@ -42,7 +42,9 @@ distinguished from a number.  Use :c:func:`PyErr_Occurred` to disambiguate.
 
    The current implementation keeps an array of integer objects for all integers
    between ``-5`` and ``256``, when you create an int in that range you actually
-   just get back a reference to the existing object.
+   just get back a reference to the existing object. So it should be possible to
+   change the value of ``1``.  I suspect the behaviour of Python in this case is
+   undefined. :-)
 
 
 .. c:function:: PyObject* PyLong_FromUnsignedLong(unsigned long v)
@@ -195,8 +197,8 @@ distinguished from a number.  Use :c:func:`PyErr_Occurred` to disambiguate.
    :meth:`__int__` method (if present) to convert it to a
    :c:type:`PyLongObject`.
 
-   If the value of *obj* is greater than :const:`LLONG_MAX` or less than
-   :const:`LLONG_MIN`, set *\*overflow* to ``1`` or ``-1``, respectively,
+   If the value of *obj* is greater than :const:`PY_LLONG_MAX` or less than
+   :const:`PY_LLONG_MIN`, set *\*overflow* to ``1`` or ``-1``, respectively,
    and return ``-1``; otherwise, set *\*overflow* to ``0``.  If any other
    exception occurs set *\*overflow* to ``0`` and return ``-1`` as usual.
 
@@ -304,7 +306,7 @@ distinguished from a number.  Use :c:func:`PyErr_Occurred` to disambiguate.
    it to a :c:type:`PyLongObject`.
 
    If the value of *obj* is out of range for an :c:type:`unsigned long long`,
-   return the reduction of that value modulo ``ULLONG_MAX + 1``.
+   return the reduction of that value modulo ``PY_ULLONG_MAX + 1``.
 
    Returns ``(unsigned long long)-1`` on error.  Use :c:func:`PyErr_Occurred`
    to disambiguate.

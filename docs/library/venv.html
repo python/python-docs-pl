@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>venv — Creation of virtual environments &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>venv — Creation of virtual environments &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -105,7 +105,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/venv/">Lib/venv/</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/venv/">Lib/venv/</a></p>
 <hr class="docutils" id="index-0" />
 <p>The <a class="reference internal" href="#module-venv" title="venv: Creation of virtual environments."><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> module provides support for creating lightweight „virtual
 environments” with their own site directories, optionally isolated from system
@@ -153,7 +153,7 @@ your <a class="reference internal" href="../using/windows.html#using-on-windows"
 </div>
 <p>The command, if run with <code class="docutils literal notranslate"><span class="pre">-h</span></code>, will show the available options:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
-            [--upgrade] [--without-pip] [--prompt PROMPT] [--upgrade-deps]
+            [--upgrade] [--without-pip] [--prompt PROMPT]
             ENV_DIR [ENV_DIR ...]
 
 Creates virtual Python environments in one or more target directories.
@@ -178,15 +178,10 @@ optional arguments:
                         environment (pip is bootstrapped by default)
   --prompt PROMPT       Provides an alternative prompt prefix for this
                         environment.
-  --upgrade-deps        Upgrade core dependencies: pip setuptools to the
-                        latest version in PyPI
 
 Once an environment has been created, you may wish to activate it, e.g. by
 sourcing an activate script in its bin directory.
 </pre></div>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Add <code class="docutils literal notranslate"><span class="pre">--upgrade-deps</span></code> option to upgrade pip + setuptools to the latest on PyPI</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>Installs pip by default, added the <code class="docutils literal notranslate"><span class="pre">--without-pip</span></code>  and <code class="docutils literal notranslate"><span class="pre">--copies</span></code>
@@ -233,7 +228,7 @@ directory containing the virtual environment):</p>
 </tr>
 <tr class="row-odd"><td></td>
 <td><p>fish</p></td>
-<td><p>$ source &lt;venv&gt;/bin/activate.fish</p></td>
+<td><p>$ . &lt;venv&gt;/bin/activate.fish</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td><p>csh/tcsh</p></td>
@@ -320,7 +315,7 @@ mechanisms for third-party virtual environment creators to customize environment
 creation according to their needs, the <a class="reference internal" href="#venv.EnvBuilder" title="venv.EnvBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvBuilder</span></code></a> class.</p>
 <dl class="class">
 <dt id="venv.EnvBuilder">
-<em class="property">class </em><code class="sig-prename descclassname">venv.</code><code class="sig-name descname">EnvBuilder</code><span class="sig-paren">(</span><em class="sig-param">system_site_packages=False</em>, <em class="sig-param">clear=False</em>, <em class="sig-param">symlinks=False</em>, <em class="sig-param">upgrade=False</em>, <em class="sig-param">with_pip=False</em>, <em class="sig-param">prompt=None</em>, <em class="sig-param">upgrade_deps=False</em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">venv.</code><code class="sig-name descname">EnvBuilder</code><span class="sig-paren">(</span><em class="sig-param">system_site_packages=False</em>, <em class="sig-param">clear=False</em>, <em class="sig-param">symlinks=False</em>, <em class="sig-param">upgrade=False</em>, <em class="sig-param">with_pip=False</em>, <em class="sig-param">prompt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#venv.EnvBuilder" title="venv.EnvBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvBuilder</span></code></a> class accepts the following keyword arguments on
 instantiation:</p>
 <ul class="simple">
@@ -338,18 +333,13 @@ installed in the virtual environment. This uses <a class="reference internal" hr
 the <code class="docutils literal notranslate"><span class="pre">--default-pip</span></code> option.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code> – a String to be used after virtual environment is activated
 (defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code> which means directory name of the environment would
-be used). If the special string <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> is provided, the basename of the
-current directory is used as the prompt.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">upgrade_deps</span></code> – Update the base venv modules to the latest on PyPI</p></li>
+be used).</p></li>
 </ul>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>Added the <code class="docutils literal notranslate"><span class="pre">with_pip</span></code> parameter</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.6: </span>Added the <code class="docutils literal notranslate"><span class="pre">prompt</span></code> parameter</p>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9: </span>Added the <code class="docutils literal notranslate"><span class="pre">upgrade_deps</span></code> parameter</p>
 </div>
 <p>Creators of third-party virtual environment tools will be free to use the
 provided <a class="reference internal" href="#venv.EnvBuilder" title="venv.EnvBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvBuilder</span></code></a> class as a base class.</p>
@@ -412,17 +402,6 @@ executable, unless files with those names already exist.</p>
 <code class="sig-name descname">setup_scripts</code><span class="sig-paren">(</span><em class="sig-param">context</em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.setup_scripts" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Installs activation scripts appropriate to the platform into the virtual
 environment.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="venv.EnvBuilder.upgrade_dependencies">
-<code class="sig-name descname">upgrade_dependencies</code><span class="sig-paren">(</span><em class="sig-param">context</em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.upgrade_dependencies" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Upgrades the core venv dependency packages (currently <code class="docutils literal notranslate"><span class="pre">pip</span></code> and
-<code class="docutils literal notranslate"><span class="pre">setuptools</span></code>) in the environment. This is done by shelling out to the
-<code class="docutils literal notranslate"><span class="pre">pip</span></code> executable in the environment.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -741,7 +720,7 @@ subclass which installs setuptools and pip into a created virtual environment:</
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/venv.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/venv.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -773,7 +752,7 @@ subclass which installs setuptools and pip into a created virtual environment:</
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -808,7 +787,7 @@ subclass which installs setuptools and pip into a created virtual environment:</
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

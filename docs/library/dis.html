@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>dis — Disassembler for Python bytecode &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>dis — Disassembler for Python bytecode &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-dis">
 <span id="dis-disassembler-for-python-bytecode"></span><h1><a class="reference internal" href="#module-dis" title="dis: Disassembler for Python bytecode."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dis</span></code></a> — Disassembler for Python bytecode<a class="headerlink" href="#module-dis" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/dis.py">Lib/dis.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/dis.py">Lib/dis.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-dis" title="dis: Disassembler for Python bytecode."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dis</span></code></a> module supports the analysis of CPython <a class="reference internal" href="../glossary.html#term-bytecode"><span class="xref std std-term">bytecode</span></a> by
 disassembling it. The CPython bytecode which this module takes as an input is
@@ -335,7 +335,7 @@ object.</p>
 <dd><p>This generator function uses the <code class="docutils literal notranslate"><span class="pre">co_firstlineno</span></code> and <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code>
 attributes of the code object <em>code</em> to find the offsets which are starts of
 lines in the source code.  They are generated as <code class="docutils literal notranslate"><span class="pre">(offset,</span> <span class="pre">lineno)</span></code> pairs.
-See <a class="reference external" href="https://github.com/python/cpython/tree/master/Objects/lnotab_notes.txt">Objects/lnotab_notes.txt</a> for the <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code> format and
+See <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Objects/lnotab_notes.txt">Objects/lnotab_notes.txt</a> for the <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code> format and
 how to decode it.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>Line numbers can be decreasing. Before, they were always increasing.</p>
@@ -880,34 +880,55 @@ popped values are used to restore the exception state.</p>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-RERAISE">
-<code class="sig-name descname">RERAISE</code><a class="headerlink" href="#opcode-RERAISE" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Re-raises the exception currently on top of the stack.</p>
+<dt id="opcode-POP_FINALLY">
+<code class="sig-name descname">POP_FINALLY</code><span class="sig-paren">(</span><em class="sig-param">preserve_tos</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-POP_FINALLY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Cleans up the value stack and the block stack.  If <em>preserve_tos</em> is not
+<code class="docutils literal notranslate"><span class="pre">0</span></code> TOS first is popped from the stack and pushed on the stack after
+performing other stack operations:</p>
+<ul class="simple">
+<li><p>If TOS is <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or an integer (pushed by <a class="reference internal" href="#opcode-BEGIN_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BEGIN_FINALLY</span></code></a>
+or <a class="reference internal" href="#opcode-CALL_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">CALL_FINALLY</span></code></a>) it is popped from the stack.</p></li>
+<li><p>If TOS is an exception type (pushed when an exception has been raised)
+6 values are popped from the stack, the last three popped values are
+used to restore the exception state.  An exception handler block is
+removed from the block stack.</p></li>
+</ul>
+<p>It is similar to <a class="reference internal" href="#opcode-END_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">END_FINALLY</span></code></a>, but doesn’t change the bytecode
+counter nor raise an exception.  Used for implementing <a class="reference internal" href="../reference/simple_stmts.html#break"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code></a>,
+<a class="reference internal" href="../reference/simple_stmts.html#continue"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code></a> and <a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> in the <a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-WITH_EXCEPT_START">
-<code class="sig-name descname">WITH_EXCEPT_START</code><a class="headerlink" href="#opcode-WITH_EXCEPT_START" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Calls the function in position 7 on the stack with the top three
-items on the stack as arguments.
-Used to implement the call <code class="docutils literal notranslate"><span class="pre">context_manager.__exit__(*exc_info())</span></code> when an exception
-has occurred in a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement.</p>
+<dt id="opcode-BEGIN_FINALLY">
+<code class="sig-name descname">BEGIN_FINALLY</code><a class="headerlink" href="#opcode-BEGIN_FINALLY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Pushes <code class="docutils literal notranslate"><span class="pre">NULL</span></code> onto the stack for using it in <a class="reference internal" href="#opcode-END_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">END_FINALLY</span></code></a>,
+<a class="reference internal" href="#opcode-POP_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">POP_FINALLY</span></code></a>, <a class="reference internal" href="#opcode-WITH_CLEANUP_START"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code></a> and
+<a class="reference internal" href="#opcode-WITH_CLEANUP_FINISH"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_FINISH</span></code></a>.  Starts the <a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-LOAD_ASSERTION_ERROR">
-<code class="sig-name descname">LOAD_ASSERTION_ERROR</code><a class="headerlink" href="#opcode-LOAD_ASSERTION_ERROR" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Pushes <a class="reference internal" href="exceptions.html#AssertionError" title="AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a> onto the stack.  Used by the <a class="reference internal" href="../reference/simple_stmts.html#assert"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">assert</span></code></a>
-statement.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
+<dt id="opcode-END_FINALLY">
+<code class="sig-name descname">END_FINALLY</code><a class="headerlink" href="#opcode-END_FINALLY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Terminates a <a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> clause.  The interpreter recalls whether the
+exception has to be re-raised or execution has to be continued depending on
+the value of TOS.</p>
+<ul class="simple">
+<li><p>If TOS is <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (pushed by <a class="reference internal" href="#opcode-BEGIN_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BEGIN_FINALLY</span></code></a>) continue from
+the next instruction. TOS is popped.</p></li>
+<li><p>If TOS is an integer (pushed by <a class="reference internal" href="#opcode-CALL_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">CALL_FINALLY</span></code></a>), sets the
+bytecode counter to TOS.  TOS is popped.</p></li>
+<li><p>If TOS is an exception type (pushed when an exception has been raised)
+6 values are popped from the stack, the first three popped values are
+used to re-raise the exception and the last three popped values are used
+to restore the exception state.  An exception handler block is removed
+from the block stack.</p></li>
+</ul>
 </dd></dl>
 
 <dl class="opcode">
@@ -922,7 +943,7 @@ by <a class="reference internal" href="#opcode-CALL_FUNCTION"><code class="xref 
 <code class="sig-name descname">SETUP_WITH</code><span class="sig-paren">(</span><em class="sig-param">delta</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-SETUP_WITH" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This opcode performs several operations before a with block starts.  First,
 it loads <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> from the context manager and pushes it onto
-the stack for later use by <code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code>.  Then,
+the stack for later use by <a class="reference internal" href="#opcode-WITH_CLEANUP_START"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code></a>.  Then,
 <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> is called, and a finally block pointing to <em>delta</em>
 is pushed.  Finally, the result of calling the <code class="docutils literal notranslate"><span class="pre">__enter__()</span></code> method is pushed onto
 the stack.  The next opcode will either ignore it (<a class="reference internal" href="#opcode-POP_TOP"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">POP_TOP</span></code></a>), or
@@ -931,6 +952,33 @@ store it in (a) variable(s) (<a class="reference internal" href="#opcode-STORE_F
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-WITH_CLEANUP_START">
+<code class="sig-name descname">WITH_CLEANUP_START</code><a class="headerlink" href="#opcode-WITH_CLEANUP_START" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Starts cleaning up the stack when a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement block exits.</p>
+<p>At the top of the stack are either <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (pushed by
+<a class="reference internal" href="#opcode-BEGIN_FINALLY"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BEGIN_FINALLY</span></code></a>) or 6 values pushed if an exception has been
+raised in the with block.  Below is the context manager’s
+<a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code></a> bound method.</p>
+<p>If TOS is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, calls <code class="docutils literal notranslate"><span class="pre">SECOND(None,</span> <span class="pre">None,</span> <span class="pre">None)</span></code>,
+removes the function from the stack, leaving TOS, and pushes <code class="docutils literal notranslate"><span class="pre">None</span></code>
+to the stack.  Otherwise calls <code class="docutils literal notranslate"><span class="pre">SEVENTH(TOP,</span> <span class="pre">SECOND,</span> <span class="pre">THIRD)</span></code>,
+shifts the bottom 3 values of the stack down, replaces the empty spot
+with <code class="docutils literal notranslate"><span class="pre">NULL</span></code> and pushes TOS.  Finally pushes the result of the call.</p>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-WITH_CLEANUP_FINISH">
+<code class="sig-name descname">WITH_CLEANUP_FINISH</code><a class="headerlink" href="#opcode-WITH_CLEANUP_FINISH" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Finishes cleaning up the stack when a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement block exits.</p>
+<p>TOS is result of <code class="docutils literal notranslate"><span class="pre">__exit__()</span></code> or <code class="docutils literal notranslate"><span class="pre">__aexit__()</span></code> function call pushed
+by <a class="reference internal" href="#opcode-WITH_CLEANUP_START"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">WITH_CLEANUP_START</span></code></a>.  SECOND is <code class="docutils literal notranslate"><span class="pre">None</span></code> or an exception type
+(pushed when an exception has been raised).</p>
+<p>Pops two values from the stack.  If SECOND is not None and TOS is true
+unwinds the EXCEPT_HANDLER block which was created when the exception
+was caught and pushes <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to the stack.</p>
 </dd></dl>
 
 <p>All of the following opcodes use their arguments.</p>
@@ -1058,31 +1106,46 @@ onto the stack.</p>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-LIST_TO_TUPLE">
-<code class="sig-name descname">LIST_TO_TUPLE</code><a class="headerlink" href="#opcode-LIST_TO_TUPLE" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><blockquote>
-<div><p>Pops a list from the stack and pushes a tuple containing the same values.</p>
-</div></blockquote>
+<dt id="opcode-BUILD_TUPLE_UNPACK">
+<code class="sig-name descname">BUILD_TUPLE_UNPACK</code><span class="sig-paren">(</span><em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_TUPLE_UNPACK" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Pops <em>count</em> iterables from the stack, joins them in a single tuple,
+and pushes the result.  Implements iterable unpacking in tuple
+displays <code class="docutils literal notranslate"><span class="pre">(*x,</span> <span class="pre">*y,</span> <span class="pre">*z)</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-LIST_EXTEND">
-<code class="sig-name descname">LIST_EXTEND</code><span class="sig-paren">(</span><em class="sig-param">i</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-LIST_EXTEND" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Calls <code class="docutils literal notranslate"><span class="pre">list.extend(TOS1[-i],</span> <span class="pre">TOS)</span></code>.  Used to build lists.</p>
+<dt id="opcode-BUILD_TUPLE_UNPACK_WITH_CALL">
+<code class="sig-name descname">BUILD_TUPLE_UNPACK_WITH_CALL</code><span class="sig-paren">(</span><em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_TUPLE_UNPACK_WITH_CALL" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_TUPLE_UNPACK</span></code></a>,
+but is used for <code class="docutils literal notranslate"><span class="pre">f(*x,</span> <span class="pre">*y,</span> <span class="pre">*z)</span></code> call syntax. The stack item at position
+<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">+</span> <span class="pre">1</span></code> should be the corresponding callable <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
 </div>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-SET_UPDATE">
-<code class="sig-name descname">SET_UPDATE</code><a class="headerlink" href="#opcode-SET_UPDATE" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Calls <code class="docutils literal notranslate"><span class="pre">set.update(TOS1[-i],</span> <span class="pre">TOS)</span></code>.  Used to build sets.</p>
+<dt id="opcode-BUILD_LIST_UNPACK">
+<code class="sig-name descname">BUILD_LIST_UNPACK</code><span class="sig-paren">(</span><em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_LIST_UNPACK" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_TUPLE_UNPACK</span></code></a>, but pushes a list
+instead of tuple.  Implements iterable unpacking in list
+displays <code class="docutils literal notranslate"><span class="pre">[*x,</span> <span class="pre">*y,</span> <span class="pre">*z]</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_SET_UNPACK">
+<code class="sig-name descname">BUILD_SET_UNPACK</code><span class="sig-paren">(</span><em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_SET_UNPACK" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_TUPLE_UNPACK</span></code></a>, but pushes a set
+instead of tuple.  Implements iterable unpacking in set
+displays <code class="docutils literal notranslate"><span class="pre">{*x,</span> <span class="pre">*y,</span> <span class="pre">*z}</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
@@ -1126,28 +1189,6 @@ argument instead of encoding it in the second byte of the argument.</p>
 </dd></dl>
 
 <dl class="opcode">
-<dt id="opcode-IS_OP">
-<code class="sig-name descname">IS_OP</code><span class="sig-paren">(</span><em class="sig-param">invert</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-IS_OP" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><blockquote>
-<div><p>Performs <code class="docutils literal notranslate"><span class="pre">is</span></code> comparison, or <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> if <code class="docutils literal notranslate"><span class="pre">invert</span></code> is 1.</p>
-</div></blockquote>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="opcode">
-<dt id="opcode-CONTAINS_OP">
-<code class="sig-name descname">CONTAINS_OP</code><span class="sig-paren">(</span><em class="sig-param">invert</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-CONTAINS_OP" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><blockquote>
-<div><p>Performs <code class="docutils literal notranslate"><span class="pre">in</span></code> comparison, or <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> if <code class="docutils literal notranslate"><span class="pre">invert</span></code> is 1.</p>
-</div></blockquote>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
-</div>
-</dd></dl>
-
-<dl class="opcode">
 <dt id="opcode-IMPORT_NAME">
 <code class="sig-name descname">IMPORT_NAME</code><span class="sig-paren">(</span><em class="sig-param">namei</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-IMPORT_NAME" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Imports the module <code class="docutils literal notranslate"><span class="pre">co_names[namei]</span></code>.  TOS and TOS1 are popped and provide
@@ -1186,18 +1227,6 @@ resulting object is pushed onto the stack, to be subsequently stored by a
 <dd><p>If TOS is false, sets the bytecode counter to <em>target</em>.  TOS is popped.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
-</div>
-</dd></dl>
-
-<dl class="opcode">
-<dt id="opcode-JUMP_IF_NOT_EXC_MATCH">
-<code class="sig-name descname">JUMP_IF_NOT_EXC_MATCH</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-JUMP_IF_NOT_EXC_MATCH" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><blockquote>
-<div><p>Tests whether the second value on the stack is an exception matching TOS,
-and jumps if it is not. Pops two values from the stack.</p>
-</div></blockquote>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
 </div>
 </dd></dl>
 
@@ -1247,6 +1276,17 @@ code counter is incremented by <em>delta</em>.</p>
 <code class="sig-name descname">SETUP_FINALLY</code><span class="sig-paren">(</span><em class="sig-param">delta</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-SETUP_FINALLY" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Pushes a try block from a try-finally or try-except clause onto the block
 stack.  <em>delta</em> points to the finally block or the first except block.</p>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-CALL_FINALLY">
+<code class="sig-name descname">CALL_FINALLY</code><span class="sig-paren">(</span><em class="sig-param">delta</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-CALL_FINALLY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Pushes the address of the next instruction onto the stack and increments
+bytecode counter by <em>delta</em>.  Used for calling the finally block as a
+„subroutine”.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1344,10 +1384,8 @@ returned by the callable object.</p>
 <code class="sig-name descname">CALL_FUNCTION_KW</code><span class="sig-paren">(</span><em class="sig-param">argc</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-CALL_FUNCTION_KW" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Calls a callable object with positional (if any) and keyword arguments.
 <em>argc</em> indicates the total number of positional and keyword arguments.
-The top element on the stack contains a tuple with the names of the
-keyword arguments, which must be strings.
-Below that are the values for the keyword arguments,
-in the order corresponding to the tuple.
+The top element on the stack contains a tuple of keyword argument names.
+Below that are keyword arguments in the order corresponding to the tuple.
 Below that are positional arguments, with the right-most parameter on
 top.  Below the arguments is a callable object to call.
 <code class="docutils literal notranslate"><span class="pre">CALL_FUNCTION_KW</span></code> pops all arguments and the callable object off the stack,
@@ -1365,6 +1403,10 @@ returned by the callable object.</p>
 <dd><p>Calls a callable object with variable set of positional and keyword
 arguments.  If the lowest bit of <em>flags</em> is set, the top of the stack
 contains a mapping object containing additional keyword arguments.
+Below that is an iterable object containing positional arguments and
+a callable object to call.  <a class="reference internal" href="#opcode-BUILD_MAP_UNPACK_WITH_CALL"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_MAP_UNPACK_WITH_CALL</span></code></a> and
+<a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK_WITH_CALL"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_TUPLE_UNPACK_WITH_CALL</span></code></a> can be used for merging multiple
+mapping objects and iterables containing arguments.
 Before the callable is called, the mapping object and iterable object
 are each „unpacked” and their contents passed in as keyword and
 positional arguments respectively.
@@ -1572,7 +1614,7 @@ scopes or names in outer scopes that are referenced from this scope.  It does
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/dis.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/dis.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1604,7 +1646,7 @@ scopes or names in outer scopes that are referenced from this scope.  It does
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1639,7 +1681,7 @@ scopes or names in outer scopes that are referenced from this scope.  It does
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

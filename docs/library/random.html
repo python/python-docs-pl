@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>random — Generate pseudo-random numbers &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>random — Generate pseudo-random numbers &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-random">
 <span id="random-generate-pseudo-random-numbers"></span><h1><a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> — Generate pseudo-random numbers<a class="headerlink" href="#module-random" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/random.py">Lib/random.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/random.py">Lib/random.py</a></p>
 <hr class="docutils" />
 <p>This module implements pseudo-random number generators for various
 distributions.</p>
@@ -165,11 +165,6 @@ of Python), the algorithm for <a class="reference internal" href="stdtypes.html#
 narrower range of seeds.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Moved to the version 2 scheme which uses all of the bits in a string seed.</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>In the future, the <em>seed</em> must be one of the following types:
-<em>NoneType</em>, <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
-<a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -253,9 +248,8 @@ the same length as the <em>population</em> sequence.  It is a <a class="referenc
 to specify both <em>weights</em> and <em>cum_weights</em>.</p>
 <p>The <em>weights</em> or <em>cum_weights</em> can use any numeric type that interoperates
 with the <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> values returned by <a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-func docutils literal notranslate"><span class="pre">random()</span></code></a> (that includes
-integers, floats, and fractions but excludes decimals).  Behavior is
-undefined if any weight is negative.  A <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if all
-weights are zero.</p>
+integers, floats, and fractions but excludes decimals).  Weights are
+assumed to be non-negative.</p>
 <p>For a given seed, the <a class="reference internal" href="#random.choices" title="random.choices"><code class="xref py py-func docutils literal notranslate"><span class="pre">choices()</span></code></a> function with equal weighting
 typically produces a different sequence than repeated calls to
 <a class="reference internal" href="#random.choice" title="random.choice"><code class="xref py py-func docutils literal notranslate"><span class="pre">choice()</span></code></a>.  The algorithm used by <a class="reference internal" href="#random.choices" title="random.choices"><code class="xref py py-func docutils literal notranslate"><span class="pre">choices()</span></code></a> uses floating
@@ -264,9 +258,6 @@ by <a class="reference internal" href="#random.choice" title="random.choice"><co
 to avoid small biases from round-off error.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Raises a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if all weights are zero.</p>
 </div>
 </dd></dl>
 
@@ -418,11 +409,6 @@ parameter.</p>
 <em class="property">class </em><code class="sig-prename descclassname">random.</code><code class="sig-name descname">Random</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">seed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.Random" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Class that implements the default pseudo-random number generator used by the
 <a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> module.</p>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>In the future, the <em>seed</em> must be one of the following types:
-<code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code>, <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
-<a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>.</p>
-</div>
 </dd></dl>
 
 <dl class="class">
@@ -628,7 +614,7 @@ how to perform data analysis using Python.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/random.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/random.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -660,7 +646,7 @@ how to perform data analysis using Python.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -695,7 +681,7 @@ how to perform data analysis using Python.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

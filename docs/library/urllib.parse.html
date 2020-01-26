@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>urllib.parse — Parse URLs into components &#8212; Python 3.9.0a3 - dokumentacja</title>
+    <title>urllib.parse — Parse URLs into components &#8212; Python 3.8.1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.9.0a3 - dokumentacja"
+          title="Szukaj pośród Python 3.8.1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -72,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -102,7 +102,7 @@
             
   <div class="section" id="module-urllib.parse">
 <span id="urllib-parse-parse-urls-into-components"></span><h1><a class="reference internal" href="#module-urllib.parse" title="urllib.parse: Parse URLs into or assemble them from components."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.parse</span></code></a> — Parse URLs into components<a class="headerlink" href="#module-urllib.parse" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/master/Lib/urllib/parse.py">Lib/urllib/parse.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/urllib/parse.py">Lib/urllib/parse.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>This module defines a standard interface to break Uniform Resource Locator (URL)
 strings up in components (addressing scheme, network location, path etc.), to
@@ -127,12 +127,12 @@ or on combining URL components into a URL string.</p>
 <dd><p>Parse a URL into six components, returning a 6-item <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a>.  This
 corresponds to the general structure of a URL:
 <code class="docutils literal notranslate"><span class="pre">scheme://netloc/path;parameters?query#fragment</span></code>.
-Each tuple item is a string, possibly empty. The components are not broken up
-into smaller parts (for example, the network location is a single string), and %
+Each tuple item is a string, possibly empty. The components are not broken up in
+smaller parts (for example, the network location is a single string), and %
 escapes are not expanded. The delimiters as shown above are not part of the
 result, except for a leading slash in the <em>path</em> component, which is retained if
 present.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;http://www.cwi.nl:80/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">o</span>   
 <span class="go">ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
@@ -466,7 +466,7 @@ with an empty query; the RFC states that these are equivalent).</p>
 another URL (<em>url</em>).  Informally, this uses components of the base URL, in
 particular the addressing scheme, the network location and (part of) the
 path, to provide missing components in the relative URL.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.cwi.nl/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">,</span> <span class="s1">&#39;FAQ.html&#39;</span><span class="p">)</span>
 <span class="go">&#39;http://www.cwi.nl/%7Eguido/FAQ.html&#39;</span>
 </pre></div>
@@ -475,8 +475,9 @@ path, to provide missing components in the relative URL.  For example:</p>
 <a class="reference internal" href="#urllib.parse.urlparse" title="urllib.parse.urlparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlparse()</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>If <em>url</em> is an absolute URL (that is, it starts with <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">scheme://</span></code>),
-the <em>url</em>’s hostname and/or scheme will be present in the result.  For example:</p>
+<p>If <em>url</em> is an absolute URL (that is, starting with <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">scheme://</span></code>),
+the <em>url</em>’s host name and/or scheme will be present in the result.  For example:</p>
+</div>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.cwi.nl/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="s1">&#39;//www.python.org/</span><span class="si">%7E</span><span class="s1">guido&#39;</span><span class="p">)</span>
 <span class="go">&#39;http://www.python.org/%7Eguido&#39;</span>
@@ -484,9 +485,8 @@ the <em>url</em>’s hostname and/or scheme will be present in the result.  For 
 </div>
 <p>If you do not want that behavior, preprocess the <em>url</em> with <a class="reference internal" href="#urllib.parse.urlsplit" title="urllib.parse.urlsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlsplit()</span></code></a> and
 <a class="reference internal" href="#urllib.parse.urlunsplit" title="urllib.parse.urlunsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunsplit()</span></code></a>, removing possible <em>scheme</em> and <em>netloc</em> parts.</p>
-</div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Behavior updated to match the semantics defined in <span class="target" id="index-4"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3986.html"><strong>RFC 3986</strong></a>.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Behaviour updated to match the semantics defined in <span class="target" id="index-4"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3986.html"><strong>RFC 3986</strong></a>.</p>
 </div>
 </dd></dl>
 
@@ -597,7 +597,7 @@ For <a class="reference internal" href="#urllib.parse.urlsplit" title="urllib.pa
 made to the URL returned by this method.</p>
 <p>The result of this method remains unchanged if passed back through the original
 parsing function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlsplit</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlsplit</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;HTTP://www.Python.org/doc/#&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span>
@@ -686,10 +686,10 @@ task isn’t already covered by the URL parsing functions above.</p>
 <code class="sig-prename descclassname">urllib.parse.</code><code class="sig-name descname">quote</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">safe='/'</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.parse.quote" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Replace special characters in <em>string</em> using the <code class="docutils literal notranslate"><span class="pre">%xx</span></code> escape. Letters,
 digits, and the characters <code class="docutils literal notranslate"><span class="pre">'_.-~'</span></code> are never quoted. By default, this
-function is intended for quoting the path section of a URL. The optional
-<em>safe</em> parameter specifies additional ASCII characters that should not be
-quoted — its default value is <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</p>
-<p><em>string</em> may be either a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.</p>
+function is intended for quoting the path section of URL. The optional <em>safe</em>
+parameter specifies additional ASCII characters that should not be quoted
+— its default value is <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</p>
+<p><em>string</em> may be either a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Moved from <span class="target" id="index-5"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2396.html"><strong>RFC 2396</strong></a> to <span class="target" id="index-6"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3986.html"><strong>RFC 3986</strong></a> for quoting URL strings. „~” is now
 included in the set of unreserved characters.</p>
@@ -709,7 +709,7 @@ non-ASCII characters, as accepted by the <a class="reference internal" href="std
 <dl class="function">
 <dt id="urllib.parse.quote_plus">
 <code class="sig-prename descclassname">urllib.parse.</code><code class="sig-name descname">quote_plus</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">safe=''</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.parse.quote_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Like <a class="reference internal" href="#urllib.parse.quote" title="urllib.parse.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a>, but also replace spaces with plus signs, as required for
+<dd><p>Like <a class="reference internal" href="#urllib.parse.quote" title="urllib.parse.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a>, but also replace spaces by plus signs, as required for
 quoting HTML form values when building up a query string to go into a URL.
 Plus signs in the original string are escaped unless they are included in
 <em>safe</em>.  It also does not have <em>safe</em> default to <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</p>
@@ -728,25 +728,22 @@ Plus signs in the original string are escaped unless they are included in
 <dl class="function">
 <dt id="urllib.parse.unquote">
 <code class="sig-prename descclassname">urllib.parse.</code><code class="sig-name descname">unquote</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">encoding='utf-8'</em>, <em class="sig-param">errors='replace'</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.parse.unquote" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Replace <code class="docutils literal notranslate"><span class="pre">%xx</span></code> escapes with their single-character equivalent.
+<dd><p>Replace <code class="docutils literal notranslate"><span class="pre">%xx</span></code> escapes by their single-character equivalent.
 The optional <em>encoding</em> and <em>errors</em> parameters specify how to decode
 percent-encoded sequences into Unicode characters, as accepted by the
 <a class="reference internal" href="stdtypes.html#bytes.decode" title="bytes.decode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.decode()</span></code></a> method.</p>
-<p><em>string</em> may be either a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.</p>
+<p><em>string</em> must be a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
 <p><em>encoding</em> defaults to <code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code>.
 <em>errors</em> defaults to <code class="docutils literal notranslate"><span class="pre">'replace'</span></code>, meaning invalid sequences are replaced
 by a placeholder character.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">unquote('/El%20Ni%C3%B1o/')</span></code> yields <code class="docutils literal notranslate"><span class="pre">'/El</span> <span class="pre">Niño/'</span></code>.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span><em>string</em> parameter supports bytes and str objects (previously only str).</p>
-</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="urllib.parse.unquote_plus">
 <code class="sig-prename descclassname">urllib.parse.</code><code class="sig-name descname">unquote_plus</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">encoding='utf-8'</em>, <em class="sig-param">errors='replace'</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.parse.unquote_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Like <a class="reference internal" href="#urllib.parse.unquote" title="urllib.parse.unquote"><code class="xref py py-func docutils literal notranslate"><span class="pre">unquote()</span></code></a>, but also replace plus signs with spaces, as required
-for unquoting HTML form values.</p>
+<dd><p>Like <a class="reference internal" href="#urllib.parse.unquote" title="urllib.parse.unquote"><code class="xref py py-func docutils literal notranslate"><span class="pre">unquote()</span></code></a>, but also replace plus signs by spaces, as required for
+unquoting HTML form values.</p>
 <p><em>string</em> must be a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">unquote_plus('/El+Ni%C3%B1o/')</span></code> yields <code class="docutils literal notranslate"><span class="pre">'/El</span> <span class="pre">Niño/'</span></code>.</p>
 </dd></dl>
@@ -754,9 +751,9 @@ for unquoting HTML form values.</p>
 <dl class="function">
 <dt id="urllib.parse.unquote_to_bytes">
 <code class="sig-prename descclassname">urllib.parse.</code><code class="sig-name descname">unquote_to_bytes</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.parse.unquote_to_bytes" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Replace <code class="docutils literal notranslate"><span class="pre">%xx</span></code> escapes with their single-octet equivalent, and return a
+<dd><p>Replace <code class="docutils literal notranslate"><span class="pre">%xx</span></code> escapes by their single-octet equivalent, and return a
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.</p>
-<p><em>string</em> may be either a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.</p>
+<p><em>string</em> may be either a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>If it is a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, unescaped non-ASCII characters in <em>string</em>
 are encoded into UTF-8 bytes.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">unquote_to_bytes('a%26%EF')</span></code> yields <code class="docutils literal notranslate"><span class="pre">b'a&amp;\xef'</span></code>.</p>
@@ -783,7 +780,7 @@ and not encode «/» characters.  For maximum control of what is quoted, use
 <p>When a sequence of two-element tuples is used as the <em>query</em>
 argument, the first element of each tuple is a key and the second is a
 value. The value element in itself can be a sequence and in that case, if
-the optional parameter <em>doseq</em> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>, individual
+the optional parameter <em>doseq</em> is evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>, individual
 <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs separated by <code class="docutils literal notranslate"><span class="pre">'&amp;'</span></code> are generated for each element of
 the value sequence for the key.  The order of parameters in the encoded
 string will match the order of parameter tuples in the sequence.</p>
@@ -792,11 +789,10 @@ string will match the order of parameter tuples in the sequence.</p>
 when a query element is a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>).</p>
 <p>To reverse this encoding process, <a class="reference internal" href="#urllib.parse.parse_qs" title="urllib.parse.parse_qs"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_qs()</span></code></a> and <a class="reference internal" href="#urllib.parse.parse_qsl" title="urllib.parse.parse_qsl"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_qsl()</span></code></a> are
 provided in this module to parse query strings into Python data structures.</p>
-<p>Refer to <a class="reference internal" href="urllib.request.html#urllib-examples"><span class="std std-ref">urllib examples</span></a> to find out how the
-<a class="reference internal" href="#urllib.parse.urlencode" title="urllib.parse.urlencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.parse.urlencode()</span></code></a> method can be used for generating the query
-string of a URL or data for a POST request.</p>
+<p>Refer to <a class="reference internal" href="urllib.request.html#urllib-examples"><span class="std std-ref">urllib examples</span></a> to find out how urlencode
+method can be used for generating query string for a URL or data for POST.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span><em>query</em> supports bytes and string objects.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Query parameter supports bytes and string objects.</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.5: </span><em>quote_via</em> parameter.</p>
@@ -857,7 +853,7 @@ treatment of border cases.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/library/urllib.parse.rst"
+        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/urllib.parse.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -889,7 +885,7 @@ treatment of border cases.</p>
     
 
     <li>
-      <a href="../index.html">3.9.0a3 Documentation</a> &#187;
+      <a href="../index.html">3.8.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -924,7 +920,7 @@ treatment of border cases.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

@@ -511,32 +511,6 @@ The module :mod:`curses` defines the following functions:
    Save the current state of the terminal modes in a buffer, usable by
    :func:`resetty`.
 
-.. function:: get_escdelay()
-
-   Retrieves the value set by :func:`set_escdelay`.
-
-   .. versionadded:: 3.9
-
-.. function:: set_escdelay(ms)
-
-   Sets the number of milliseconds to wait after reading an escape character,
-   to distinguish between an individual escape character entered on the
-   keyboard from escape sequences sent by cursor and function keys.
-
-   .. versionadded:: 3.9
-
-.. function:: get_tabsize()
-
-   Retrieves the value set by :func:`set_tabsize`.
-
-   .. versionadded:: 3.9
-
-.. function:: set_tabsize(size)
-
-   Sets the number of columns used by the curses library when converting a tab
-   character to spaces as it adds the tab to a window.
-
-   .. versionadded:: 3.9
 
 .. function:: setsyx(y, x)
 
@@ -682,7 +656,7 @@ The module :mod:`curses` defines the following functions:
    foreground color on the default background.
 
 
-.. function:: wrapper(func, /, *args, **kwargs)
+.. function:: wrapper(func, ...)
 
    Initialize curses and call another callable object, *func*, which should be the
    rest of your curses-using application.  If the application raises an exception,
