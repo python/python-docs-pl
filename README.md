@@ -1,7 +1,7 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/m-aciek/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
-![15.52% language switchera](https://img.shields.io/badge/language_switcher-15.52%25-0.svg)
+![16.61% language switchera](https://img.shields.io/badge/language_switcher-16.61%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.pl&url=http://gce.zhsj.me/python/newest)
 ![2 tłumaczy](https://img.shields.io/badge/tłumaczy-2-0.svg)
 
@@ -18,8 +18,8 @@ Znalazłeś błąd lub masz sugestię?
   w projekcie *Python document translation* na platformie Transifex.
 
 Jak obejrzeć najnowszy deweloperski build?
-------------------------------------------
-Wejdź na [m-aciek.github.io/python-docs-pl](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
+----------------------------------------
+Wejdź na [https://m-aciek.github.io/python-docs-pl/](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
 synchronizowane jest z Transifeksa
 [raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3).
  
