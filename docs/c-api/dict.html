@@ -166,18 +166,19 @@ This is equivalent to the Python expression <code class="docutils literal notran
 <dl class="function">
 <dt id="c.PyDict_SetItem">
 int <code class="sig-name descname">PyDict_SetItem</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *key</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *val</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_SetItem" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Insert <em>value</em> into the dictionary <em>p</em> with a key of <em>key</em>.  <em>key</em> must be
+<dd><p>Insert <em>val</em> into the dictionary <em>p</em> with a key of <em>key</em>.  <em>key</em> must be
 <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>; if it isn’t, <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> will be raised. Return
-<code class="docutils literal notranslate"><span class="pre">0</span></code> on success or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.</p>
+<code class="docutils literal notranslate"><span class="pre">0</span></code> on success or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.  This function <em>does not</em> steal a
+reference to <em>val</em>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyDict_SetItemString">
 int <code class="sig-name descname">PyDict_SetItemString</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, const char<em> *key</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *val</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_SetItemString" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p id="index-1">Insert <em>value</em> into the dictionary <em>p</em> using <em>key</em> as a key. <em>key</em> should
+<dd><p id="index-1">Insert <em>val</em> into the dictionary <em>p</em> using <em>key</em> as a key. <em>key</em> should
 be a <code class="xref c c-type docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code>.  The key object is created using
 <code class="docutils literal notranslate"><span class="pre">PyUnicode_FromString(key)</span></code>.  Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on
-failure.</p>
+failure.  This function <em>does not</em> steal a reference to <em>val</em>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -440,7 +441,7 @@ int <code class="sig-name descname">PyDict_ClearFreeList</code><span class="sig-
 <br />
     <br />
 
-    Ostatnia modyfikacja sty 29, 2020.
+    Ostatnia modyfikacja sty 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

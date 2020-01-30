@@ -610,7 +610,8 @@ This is the equivalent of the Python expression <code class="docutils literal no
 int <code class="sig-name descname">PyObject_SetItem</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *key</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *v</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_SetItem" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Map the object <em>key</em> to the value <em>v</em>.  Raise an exception and
 return <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure; return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.  This is the
-equivalent of the Python statement <code class="docutils literal notranslate"><span class="pre">o[key]</span> <span class="pre">=</span> <span class="pre">v</span></code>.</p>
+equivalent of the Python statement <code class="docutils literal notranslate"><span class="pre">o[key]</span> <span class="pre">=</span> <span class="pre">v</span></code>.  This function <em>does
+not</em> steal a reference to <em>v</em>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -721,7 +722,7 @@ iterated.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja sty 29, 2020.
+    Ostatnia modyfikacja sty 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

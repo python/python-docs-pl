@@ -135,7 +135,8 @@ See also <a class="reference internal" href="object.html#c.PyObject_GetItem" tit
 int <code class="sig-name descname">PyMapping_SetItemString</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em>, const char<em> *key</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *v</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyMapping_SetItemString" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Map the string <em>key</em> to the value <em>v</em> in object <em>o</em>.  Returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> on
 failure.  This is the equivalent of the Python statement <code class="docutils literal notranslate"><span class="pre">o[key]</span> <span class="pre">=</span> <span class="pre">v</span></code>.
-See also <a class="reference internal" href="object.html#c.PyObject_SetItem" title="PyObject_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetItem()</span></code></a>.</p>
+See also <a class="reference internal" href="object.html#c.PyObject_SetItem" title="PyObject_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetItem()</span></code></a>.  This function <em>does not</em> steal a
+reference to <em>v</em>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -287,7 +288,7 @@ tuple containing a key-value pair.  On failure, return <code class="docutils lit
 <br />
     <br />
 
-    Ostatnia modyfikacja sty 29, 2020.
+    Ostatnia modyfikacja sty 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
