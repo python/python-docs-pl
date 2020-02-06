@@ -3410,6 +3410,7 @@ inherit the environment of the current process.</p>
 file descriptor.  This functionality may not be supported on your platform;
 you can check whether or not it is available using <a class="reference internal" href="#os.supports_fd" title="os.supports_fd"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.supports_fd</span></code></a>.
 If it is unavailable, using it will raise a <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.exec</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">args</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix, Windows.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3: </span>Added support for specifying <em>path</em> as an open file descriptor
@@ -3733,6 +3734,7 @@ A value of <code class="docutils literal notranslate"><span class="pre">None</sp
 not being provided. This argument is a combination of the C library
 <code class="xref c c-data docutils literal notranslate"><span class="pre">POSIX_SPAWN_SETSCHEDPARAM</span></code> and <code class="xref c c-data docutils literal notranslate"><span class="pre">POSIX_SPAWN_SETSCHEDULER</span></code>
 flags.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.posix_spawn</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">argv</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
@@ -3746,6 +3748,7 @@ flags.</p>
 <p>Similar to <a class="reference internal" href="#os.posix_spawn" title="os.posix_spawn"><code class="xref py py-func docutils literal notranslate"><span class="pre">posix_spawn()</span></code></a> except that the system searches
 for the <em>executable</em> file in the list of directories specified by the
 <span class="target" id="index-31"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> environment variable (in the same way as for <code class="docutils literal notranslate"><span class="pre">execvp(3)</span></code>).</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.posix_spawn</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">argv</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
@@ -3845,6 +3848,7 @@ equivalent:</p>
 <span class="n">os</span><span class="o">.</span><span class="n">spawnvpe</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_WAIT</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
 </pre></div>
 </div>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.spawn</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">mode</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">args</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix, Windows.  <a class="reference internal" href="#os.spawnlp" title="os.spawnlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code></a>, <a class="reference internal" href="#os.spawnlpe" title="os.spawnlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code></a>, <a class="reference internal" href="#os.spawnvp" title="os.spawnvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code></a>
 and <a class="reference internal" href="#os.spawnvpe" title="os.spawnvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code></a> are not available on Windows.  <a class="reference internal" href="#os.spawnle" title="os.spawnle"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code></a> and
 <a class="reference internal" href="#os.spawnve" title="os.spawnve"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code></a> are not thread-safe on Windows; we advise you to use the
@@ -3912,6 +3916,7 @@ the path is properly encoded for Win32.</p>
 <p>To reduce interpreter startup overhead, the Win32 <code class="xref c c-func docutils literal notranslate"><span class="pre">ShellExecute()</span></code>
 function is not resolved until this function is first called.  If the function
 cannot be resolved, <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> will be raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.startfile</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">operation</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Windows.</p>
 </dd></dl>
 
@@ -4694,7 +4699,7 @@ block in these cases, but instead immediately raises <a class="reference interna
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 05, 2020.
+    Ostatnia modyfikacja lut 06, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

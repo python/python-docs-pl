@@ -155,6 +155,7 @@ process will quit without any input, <em>spawn</em> will then loop forever. If
 <p>If both callbacks signal EOF then <em>spawn</em> will probably never return, unless
 <em>select</em> throws an error on your platform when passed three empty lists. This
 is a bug, documented in <a class="reference external" href="https://bugs.python.org/issue26228">issue 26228</a>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">pty.spawn</span></code> with argument <code class="docutils literal notranslate"><span class="pre">argv</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.4: </span><a class="reference internal" href="#pty.spawn" title="pty.spawn"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn()</span></code></a> now returns the status value from <a class="reference internal" href="os.html#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.waitpid()</span></code></a>
 on the child process.</p>
@@ -288,7 +289,7 @@ pseudo-terminal to record all input and output of a terminal session in a
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 05, 2020.
+    Ostatnia modyfikacja lut 06, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
