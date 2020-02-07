@@ -141,6 +141,8 @@ references to list elements when calling
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue38149">bpo-38149</a>: <a class="reference internal" href="../library/sys.html#sys.audit" title="sys.audit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.audit()</span></code></a> is now called only once per call of
+<a class="reference internal" href="../library/glob.html#glob.glob" title="glob.glob"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob()</span></code></a> and <a class="reference internal" href="../library/glob.html#glob.iglob" title="glob.iglob"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.iglob()</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39450">bpo-39450</a>: Striped whitespace from docstring before returning it from
 <code class="xref py py-func docutils literal notranslate"><span class="pre">unittest.case.shortDescription()</span></code>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39493">bpo-39493</a>: Mark <code class="docutils literal notranslate"><span class="pre">typing.IO.closed</span></code> as a property</p></li>
@@ -154,6 +156,8 @@ defined in an extension module returning functions.</p></li>
 again.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39389">bpo-39389</a>: Write accurate compression level metadata in <a class="reference internal" href="../library/gzip.html#module-gzip" title="gzip: Interfaces for gzip compression and decompression using file objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code></a>
 archives, rather than always signaling maximum compression.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39274">bpo-39274</a>: <code class="docutils literal notranslate"><span class="pre">bool(fraction.Fraction)</span></code> now returns a boolean even if
+(numerator != 0) does not return a boolean (ex: numpy number).</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39297">bpo-39297</a>: Improved performance of importlib.metadata distribution
 discovery and resilients to inaccessible sys.path entries
 (importlib_metadata v1.4.0).</p></li>
@@ -17647,7 +17651,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 06, 2020.
+    Ostatnia modyfikacja lut 07, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
