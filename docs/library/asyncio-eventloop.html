@@ -447,7 +447,7 @@ must return a <a class="reference internal" href="asyncio-future.html#asyncio.Fu
 <h3><a class="toc-backref" href="#id5">Opening network connections</a><a class="headerlink" href="#opening-network-connections" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.loop.create_connection">
-<em class="property">coroutine </em><code class="sig-prename descclassname">loop.</code><code class="sig-name descname">create_connection</code><span class="sig-paren">(</span><em class="sig-param">protocol_factory</em>, <em class="sig-param">host=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">*</em>, <em class="sig-param">ssl=None</em>, <em class="sig-param">family=0</em>, <em class="sig-param">proto=0</em>, <em class="sig-param">flags=0</em>, <em class="sig-param">sock=None</em>, <em class="sig-param">local_addr=None</em>, <em class="sig-param">server_hostname=None</em>, <em class="sig-param">ssl_handshake_timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.loop.create_connection" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">coroutine </em><code class="sig-prename descclassname">loop.</code><code class="sig-name descname">create_connection</code><span class="sig-paren">(</span><em class="sig-param">protocol_factory</em>, <em class="sig-param">host=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">*</em>, <em class="sig-param">ssl=None</em>, <em class="sig-param">family=0</em>, <em class="sig-param">proto=0</em>, <em class="sig-param">flags=0</em>, <em class="sig-param">sock=None</em>, <em class="sig-param">local_addr=None</em>, <em class="sig-param">server_hostname=None</em>, <em class="sig-param">ssl_handshake_timeout=None</em>, <em class="sig-param">happy_eyeballs_delay=None</em>, <em class="sig-param">interleave=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.loop.create_connection" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Open a streaming transport connection to a given
 address specified by <em>host</em> and <em>port</em>.</p>
 <p>The socket family can be either <a class="reference internal" href="socket.html#socket.AF_INET" title="socket.AF_INET"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET</span></code></a> or
@@ -521,7 +521,7 @@ to wait for the TLS handshake to complete before aborting the connection.
 <code class="docutils literal notranslate"><span class="pre">60.0</span></code> seconds if <code class="docutils literal notranslate"><span class="pre">None</span></code> (default).</p></li>
 </ul>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8: </span>The <em>happy_eyeballs_delay</em> and <em>interleave</em> parameters.</p>
+<p><span class="versionmodified added">Nowe w wersji 3.8: </span>Added the <em>happy_eyeballs_delay</em> and <em>interleave</em> parameters.</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.7: </span>The <em>ssl_handshake_timeout</em> parameter.</p>
@@ -1815,7 +1815,7 @@ using the <a class="reference internal" href="#asyncio.loop.add_signal_handler" 
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 10, 2020.
+    Ostatnia modyfikacja lut 11, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

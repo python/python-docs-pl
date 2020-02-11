@@ -453,13 +453,19 @@ a sequence.  If <em>args</em> is a string, the interpretation is
 platform-dependent and described below.  See the <em>shell</em> and <em>executable</em>
 arguments for additional differences from the default behavior.  Unless
 otherwise stated, it is recommended to pass <em>args</em> as a sequence.</p>
+<p>An example of passing some arguments to an external program
+as a sequence is:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;/usr/bin/git&quot;</span><span class="p">,</span> <span class="s2">&quot;commit&quot;</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;Fixes a bug.&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>On POSIX, if <em>args</em> is a string, the string is interpreted as the name or
 path of the program to execute.  However, this can only be done if not
 passing arguments to the program.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p><a class="reference internal" href="shlex.html#shlex.split" title="shlex.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shlex.split()</span></code></a> can be useful when determining the correct
-tokenization for <em>args</em>, especially in complex cases:</p>
+<p>It may not be obvious how to break a shell command into a sequence of arguments,
+especially in complex cases. <a class="reference internal" href="shlex.html#shlex.split" title="shlex.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shlex.split()</span></code></a> can illustrate how to
+determine the correct tokenization for <em>args</em>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shlex</span><span class="o">,</span> <span class="nn">subprocess</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">command_line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="go">/bin/vikings -input eggs.txt -output &quot;spam spam.txt&quot; -cmd &quot;echo &#39;$MONEY&#39;&quot;</span>
@@ -1654,7 +1660,7 @@ described in rule 3.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 10, 2020.
+    Ostatnia modyfikacja lut 11, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
