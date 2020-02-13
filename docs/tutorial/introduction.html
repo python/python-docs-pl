@@ -395,13 +395,12 @@
 <span class="go">[1, 4, 9, 16, 25]</span>
 </pre></div>
 </div>
-<p>Lists also support operations like concatenation:</p>
+<p>Listy wspierają też operacje takie jak konkatenacja:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span> <span class="o">+</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
 </pre></div>
 </div>
-<p>Unlike strings, which are <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a>, lists are a <a class="reference internal" href="../glossary.html#term-mutable"><span class="xref std std-term">mutable</span></a>
-type, i.e. it is possible to change their content:</p>
+<p>W przeciwieństwie do ciągów znaków, które są <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">niemutowalne</span></a>, listy są typem <a class="reference internal" href="../glossary.html#term-mutable"><span class="xref std std-term">mutowalnym</span></a>, w szczególności można zmieniać ich treść:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>  <span class="c1"># something&#39;s wrong here</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># the cube of 4 is 64, not 65!</span>
 <span class="go">64</span>
@@ -410,16 +409,14 @@ type, i.e. it is possible to change their content:</p>
 <span class="go">[1, 8, 27, 64, 125]</span>
 </pre></div>
 </div>
-<p>You can also add new items at the end of the list, by using
-the <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> <em>method</em> (we will see more about methods later):</p>
+<p>Można również dodawać nowe elementy na końcu listy, przez użycie <em>metody</em> (dowiemy się więcej o metodach później) <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">216</span><span class="p">)</span>  <span class="c1"># add the cube of 6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># and the cube of 7</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span>
 <span class="go">[1, 8, 27, 64, 125, 216, 343]</span>
 </pre></div>
 </div>
-<p>Assignment to slices is also possible, and this can even change the size of the
-list or clear it entirely:</p>
+<p>Możliwe jest również przypisywanie do slice’ów. Może to zmienić rozmiar listy lub zupełnie ją wyczyścić:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span>
 <span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;]</span>
@@ -437,14 +434,13 @@ list or clear it entirely:</p>
 <span class="go">[]</span>
 </pre></div>
 </div>
-<p>The built-in function <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> also applies to lists:</p>
+<p>Wbudowana funkcja <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> ma również zastosowanie do list:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
 <span class="go">4</span>
 </pre></div>
 </div>
-<p>It is possible to nest lists (create lists containing other lists), for
-example:</p>
+<p>Można zagnieżdżać listy (tworzyć listy zawierające inne listy), na przykład:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
@@ -459,11 +455,8 @@ example:</p>
 </div>
 </div>
 <div class="section" id="first-steps-towards-programming">
-<span id="tut-firststeps"></span><h2><span class="section-number">3.2. </span>First Steps Towards Programming<a class="headerlink" href="#first-steps-towards-programming" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>Of course, we can use Python for more complicated tasks than adding two and two
-together.  For instance, we can write an initial sub-sequence of the
-<a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci series</a>
-as follows:</p>
+<span id="tut-firststeps"></span><h2><span class="section-number">3.2. </span>Pierwsze kroki do programowania<a class="headerlink" href="#first-steps-towards-programming" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Oczywiście możemy używać Pythona do zadań bardziej skomplikowanych niż dodawanie dwóch do dwóch. Na przykład możemy napisać początkowy podciąg <a class="reference external" href="https://pl.wikipedia.org/wiki/Ci%C4%85g_Fibonacciego">ciągu Fibonacciego</a> następująco:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fibonacci series:</span>
 <span class="gp">... </span><span class="c1"># the sum of two elements defines the next</span>
 <span class="gp">... </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
@@ -480,21 +473,10 @@ as follows:</p>
 <span class="go">8</span>
 </pre></div>
 </div>
-<p>This example introduces several new features.</p>
+<p>Ten przykład wprowadza kilka nowych funkcji.</p>
 <ul>
-<li><p>The first line contains a <em>multiple assignment</em>: the variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>
-simultaneously get the new values 0 and 1.  On the last line this is used again,
-demonstrating that the expressions on the right-hand side are all evaluated
-first before any of the assignments take place.  The right-hand side expressions
-are evaluated  from the left to the right.</p></li>
-<li><p>The <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> loop executes as long as the condition (here: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>)
-remains true.  In Python, like in C, any non-zero integer value is true; zero is
-false.  The condition may also be a string or list value, in fact any sequence;
-anything with a non-zero length is true, empty sequences are false.  The test
-used in the example is a simple comparison.  The standard comparison operators
-are written the same as in C: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (less than), <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (greater than), <code class="docutils literal notranslate"><span class="pre">==</span></code>
-(equal to), <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (less than or equal to), <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (greater than or equal to)
-and <code class="docutils literal notranslate"><span class="pre">!=</span></code> (not equal to).</p></li>
+<li><p>Pierwsza linia zawiera <em>wielokrotne przypisanie</em>: zmienne <code class="docutils literal notranslate"><span class="pre">a</span></code> i <code class="docutils literal notranslate"><span class="pre">b</span></code> jednocześnie dostają nowe wartości 0 i 1. W ostatniej linii jest ponownie wykorzystane, demonstrując, że wyrażenia po prawej stronie są ewaluowane wcześniej, zanim którekolwiek z przypisań ma miejsce. Wyrażenia po prawej stronie są ewaluowane od lewej do prawej.</p></li>
+<li><p>Pętla <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> wykonuje się dopóki warunek (tutaj: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>) pozostaje prawdziwy. W Pythonie, tak jak w C, każda niezerowa liczba całkowita jest prawdziwa; zero jest fałszywe. Warunek może być również ciągiem znaków lub listą, tak naprawdę jakąkolwiek sekwencją; cokolwiek o niezerowej długości jest prawdziwe, puste sekwencje są fałszywe. Warunek użyty w przykładzie jest prostym porównaniem. Standardowe operatory porównań pisane są tak samo jak w C: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (mniejsze niż), <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (większe niż), <code class="docutils literal notranslate"><span class="pre">==</span></code> (równe), <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (mniejsze lub równe), <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (większe lub równe) i <code class="docutils literal notranslate"><span class="pre">!=</span></code> (różne).</p></li>
 <li><p>The <em>body</em> of the loop is <em>indented</em>: indentation is Python’s way of grouping
 statements.  At the interactive prompt, you have to type a tab or space(s) for
 each indented line.  In practice you will prepare more complicated input
@@ -558,7 +540,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 <li><a class="reference internal" href="#lists">3.1.3. Listy</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#first-steps-towards-programming">3.2. First Steps Towards Programming</a></li>
+<li><a class="reference internal" href="#first-steps-towards-programming">3.2. Pierwsze kroki do programowania</a></li>
 </ul>
 </li>
 </ul>
@@ -636,7 +618,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 12, 2020.
+    Ostatnia modyfikacja lut 13, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
