@@ -24,7 +24,7 @@
     <link rel="index" title="Indeks" href="../genindex.html" />
     <link rel="search" title="Szukaj" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4. More Control Flow Tools" href="controlflow.html" />
+    <link rel="next" title="4. Więcej narzędzi kontroli przepływu" href="controlflow.html" />
     <link rel="prev" title="2. Używanie Interpretera Pythona" href="interpreter.html" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/introduction.html" />
     
@@ -60,7 +60,7 @@
           <a href="../py-modindex.html" title="Indeks modułów Pythona"
              >moduły</a> |</li>
         <li class="right" >
-          <a href="controlflow.html" title="4. More Control Flow Tools"
+          <a href="controlflow.html" title="4. Więcej narzędzi kontroli przepływu"
              accesskey="N">dalej</a> |</li>
         <li class="right" >
           <a href="interpreter.html" title="2. Używanie Interpretera Pythona"
@@ -477,27 +477,14 @@
 <ul>
 <li><p>Pierwsza linia zawiera <em>wielokrotne przypisanie</em>: zmienne <code class="docutils literal notranslate"><span class="pre">a</span></code> i <code class="docutils literal notranslate"><span class="pre">b</span></code> jednocześnie dostają nowe wartości 0 i 1. W ostatniej linii jest ponownie wykorzystane, demonstrując, że wyrażenia po prawej stronie są ewaluowane wcześniej, zanim którekolwiek z przypisań ma miejsce. Wyrażenia po prawej stronie są ewaluowane od lewej do prawej.</p></li>
 <li><p>Pętla <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> wykonuje się dopóki warunek (tutaj: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>) pozostaje prawdziwy. W Pythonie, tak jak w C, każda niezerowa liczba całkowita jest prawdziwa; zero jest fałszywe. Warunek może być również ciągiem znaków lub listą, tak naprawdę jakąkolwiek sekwencją; cokolwiek o niezerowej długości jest prawdziwe, puste sekwencje są fałszywe. Warunek użyty w przykładzie jest prostym porównaniem. Standardowe operatory porównań pisane są tak samo jak w C: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (mniejsze niż), <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (większe niż), <code class="docutils literal notranslate"><span class="pre">==</span></code> (równe), <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (mniejsze lub równe), <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (większe lub równe) i <code class="docutils literal notranslate"><span class="pre">!=</span></code> (różne).</p></li>
-<li><p>The <em>body</em> of the loop is <em>indented</em>: indentation is Python’s way of grouping
-statements.  At the interactive prompt, you have to type a tab or space(s) for
-each indented line.  In practice you will prepare more complicated input
-for Python with a text editor; all decent text editors have an auto-indent
-facility.  When a compound statement is entered interactively, it must be
-followed by a blank line to indicate completion (since the parser cannot
-guess when you have typed the last line).  Note that each line within a basic
-block must be indented by the same amount.</p></li>
-<li><p>The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function writes the value of the argument(s) it is given.
-It differs from just writing the expression you want to write (as we did
-earlier in the calculator examples) in the way it handles multiple arguments,
-floating point quantities, and strings.  Strings are printed without quotes,
-and a space is inserted between items, so you can format things nicely, like
-this:</p>
+<li><p><em>Ciało</em> pętli jest <em>wcięte</em>: indentacja (wcięcia) jest sposobem na grupowanie instrukcji. W trybie interaktywnym trzeba wprowadzić znak(i) spacji lub tabulacji, aby wciąć wiersz. W praktyce będziesz przygotowywać bardziej skomplikowane dane wejściowe dla Pythona za pomocą edytora tekstu; wszystkie przyzwoite edytory tekstu mają funkcję automatycznych wcięć. W chwili, gdy wprowadza się jakąś instrukcję złożoną w czasie sesji interpretera Pythona, trzeba zakończyć ją pustym wierszem (bowiem interpreter nie wie, czy ostatni wprowadzony wiersz jest ostatnim z tej instrukcji). Ważne jest, aby każdy wiersz należący do tej samej grupy instrukcji, był wcięty o taką samą liczbę spacji lub znaków tabulacji.</p></li>
+<li><p>Funkcja <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> wypisuje wartość argumentu(-ów), które jej podano. Różnica pomiędzy tą instrukcją, a zwykłym zapisem wyrażenia, które chce się wypisać (tak jak robiliśmy to w przykładzie z kalkulatorem) występuje w sposobie obsługi wielu wyrażeń i napisów. Łańcuchy znaków wypisywane są bez cudzysłowów, a pomiędzy nimi zapisywane są spacje, tak aby można było ładnie sformatować pojawiający się napis, na przykład:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">256</span><span class="o">*</span><span class="mi">256</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The value of i is&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 <span class="go">The value of i is 65536</span>
 </pre></div>
 </div>
-<p>The keyword argument <em>end</em> can be used to avoid the newline after the output,
-or end the output with a different string:</p>
+<p>Keyword argument <em>end</em> można wykorzystać, aby uniknąć znaku nowej linii po wypisaniu lub aby zakończyć wypisanie innym ciągiem znaków:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -511,15 +498,10 @@ or end the output with a different string:</p>
 <p class="rubric">Przypisy</p>
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Since <code class="docutils literal notranslate"><span class="pre">**</span></code> has higher precedence than <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">-3**2</span></code> will be
-interpreted as <code class="docutils literal notranslate"><span class="pre">-(3**2)</span></code> and thus result in <code class="docutils literal notranslate"><span class="pre">-9</span></code>.  To avoid this
-and get <code class="docutils literal notranslate"><span class="pre">9</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">(-3)**2</span></code>.</p>
+<dd><p>Jako że <code class="docutils literal notranslate"><span class="pre">**</span></code> ma wyższą precedencję niż <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">-3**2</span></code> zostanie zinterpretowane jako <code class="docutils literal notranslate"><span class="pre">-(3**2)</span></code> i zwróci <code class="docutils literal notranslate"><span class="pre">-9</span></code>. Aby tego uniknąć i otrzymać <code class="docutils literal notranslate"><span class="pre">9</span></code>, możesz użyć <code class="docutils literal notranslate"><span class="pre">(-3)**2</span></code>.</p>
 </dd>
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Unlike other languages, special characters such as <code class="docutils literal notranslate"><span class="pre">\n</span></code> have the
-same meaning with both single (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>) and double (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>) quotes.
-The only difference between the two is that within single quotes you don’t
-need to escape <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (but you have to escape <code class="docutils literal notranslate"><span class="pre">\'</span></code>) and vice versa.</p>
+<dd><p>W przeciwieństwie do innych języków, znaki specjalne takie jak <code class="docutils literal notranslate"><span class="pre">\n</span></code> mają to samo znaczenie zarówno z pojedynczym (<code class="docutils literal notranslate"><span class="pre">'…'</span></code>) jak i podwójnym (<code class="docutils literal notranslate"><span class="pre">&quot;…&quot;</span></code>) cudzysłowem. Jedyną różnicą między nimi jest to, że wewnątrz pojedynczego cudzysłowu nie musisz escape’ować <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (lecz musisz escape’ować <code class="docutils literal notranslate"><span class="pre">\'</span></code>) i vice versa.</p>
 </dd>
 </dl>
 </div>
@@ -550,7 +532,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
                         title="poprzedni rozdział"><span class="section-number">2. </span>Używanie Interpretera Pythona</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="controlflow.html"
-                        title="następny rozdział"><span class="section-number">4. </span>More Control Flow Tools</a></p>
+                        title="następny rozdział"><span class="section-number">4. </span>Więcej narzędzi kontroli przepływu</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -576,7 +558,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
           <a href="../py-modindex.html" title="Indeks modułów Pythona"
              >moduły</a> |</li>
         <li class="right" >
-          <a href="controlflow.html" title="4. More Control Flow Tools"
+          <a href="controlflow.html" title="4. Więcej narzędzi kontroli przepływu"
              >dalej</a> |</li>
         <li class="right" >
           <a href="interpreter.html" title="2. Używanie Interpretera Pythona"
@@ -618,7 +600,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 13, 2020.
+    Ostatnia modyfikacja lut 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

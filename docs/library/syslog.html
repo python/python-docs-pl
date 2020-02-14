@@ -123,6 +123,7 @@ not encoded in <em>priority</em> using logical-or (<code class="docutils literal
 value given in the <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> call is used.</p>
 <p>If <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> has not been called prior to the call to <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a>,
 <code class="docutils literal notranslate"><span class="pre">openlog()</span></code> will be called with no arguments.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.syslog</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">priority</span></code>, <code class="docutils literal notranslate"><span class="pre">message</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -137,6 +138,7 @@ stripped.  The optional <em>logoption</em> keyword argument (default is 0) is a 
 field – see below for possible values to combine.  The optional <em>facility</em>
 keyword argument (default is <code class="xref py py-const docutils literal notranslate"><span class="pre">LOG_USER</span></code>) sets the default facility for
 messages which do not have a facility explicitly encoded.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.openlog</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">ident</span></code>, <code class="docutils literal notranslate"><span class="pre">logoption</span></code>, <code class="docutils literal notranslate"><span class="pre">facility</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>In previous versions, keyword arguments were not allowed, and <em>ident</em> was
 required.  The default for <em>ident</em> was dependent on the system libraries,
@@ -152,6 +154,7 @@ and often was <code class="docutils literal notranslate"><span class="pre">pytho
 example, <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> will be called on the first <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal notranslate"><span class="pre">syslog()</span></code></a> call (if
 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> hasn’t already been called), and <em>ident</em> and other
 <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal notranslate"><span class="pre">openlog()</span></code></a> parameters are reset to defaults.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.closelog</span></code> with no arguments.</p>
 </dd></dl>
 
 <dl class="function">
@@ -163,6 +166,7 @@ The default is to log all priorities.  The function <code class="docutils litera
 calculates the mask for the individual priority <em>pri</em>.  The function
 <code class="docutils literal notranslate"><span class="pre">LOG_UPTO(pri)</span></code> calculates the mask for all priorities up to and including
 <em>pri</em>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">syslog.setlogmask</span></code> with argument <code class="docutils literal notranslate"><span class="pre">maskpri</span></code>.</p>
 </dd></dl>
 
 <p>The module defines the following constants:</p>
@@ -296,7 +300,7 @@ mail logging:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 13, 2020.
+    Ostatnia modyfikacja lut 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

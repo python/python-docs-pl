@@ -142,6 +142,7 @@ in the buffer by the operating system is larger than 1024 bytes, this is
 most likely to result in a segmentation violation or a more subtle data
 corruption.</p>
 <p>If the <code class="xref c c-func docutils literal notranslate"><span class="pre">fcntl()</span></code> fails, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> is raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.fcntl</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, <code class="docutils literal notranslate"><span class="pre">arg</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -185,6 +186,7 @@ into the supplied buffer.</p>
 <span class="go">array(&#39;h&#39;, [13341])</span>
 </pre></div>
 </div>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.ioctl</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">arg</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -195,6 +197,7 @@ a <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IOBase
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/flock(2)">flock(2)</a></em> for details.  (On some systems, this function is emulated
 using <code class="xref c c-func docutils literal notranslate"><span class="pre">fcntl()</span></code>.)</p>
 <p>If the <code class="xref c c-func docutils literal notranslate"><span class="pre">flock()</span></code> fails, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception is raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.flock</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">operation</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -228,6 +231,7 @@ which the lock starts, relative to <em>whence</em>, and <em>whence</em> is as wi
 <p>The default for <em>start</em> is 0, which means to start at the beginning of the file.
 The default for <em>len</em> is 0 which means to lock to the end of the file.  The
 default for <em>whence</em> is also 0.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.lockf</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">whence</span></code>.</p>
 </dd></dl>
 
 <p>Examples (all on a SVR4 compliant system):</p>
@@ -336,7 +340,7 @@ functions.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 13, 2020.
+    Ostatnia modyfikacja lut 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

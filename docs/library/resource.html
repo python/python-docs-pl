@@ -163,6 +163,7 @@ limit.</p>
 <p><code class="docutils literal notranslate"><span class="pre">setrlimit</span></code> may also raise <a class="reference internal" href="#resource.error" title="resource.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">error</span></code></a> if the underlying system call
 fails.</p>
 <p>VxWorks only supports setting <a class="reference internal" href="#resource.RLIMIT_NOFILE" title="resource.RLIMIT_NOFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">RLIMIT_NOFILE</span></code></a>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">resource.setrlimit</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">resource</span></code>, <code class="docutils literal notranslate"><span class="pre">limits</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -179,6 +180,7 @@ set and the former resource limit is returned.</p>
 <p>Raises <a class="reference internal" href="exceptions.html#ProcessLookupError" title="ProcessLookupError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ProcessLookupError</span></code></a> when <em>pid</em> can’t be found and
 <a class="reference internal" href="exceptions.html#PermissionError" title="PermissionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code></a> when the user doesn’t have <code class="docutils literal notranslate"><span class="pre">CAP_SYS_RESOURCE</span></code> for
 the process.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">resource.prlimit</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">pid</span></code>, <code class="docutils literal notranslate"><span class="pre">resource</span></code>, <code class="docutils literal notranslate"><span class="pre">limits</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux 2.6.36 or later with glibc 2.13 or later.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
@@ -608,7 +610,7 @@ thread.  May not be available on all systems.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 13, 2020.
+    Ostatnia modyfikacja lut 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

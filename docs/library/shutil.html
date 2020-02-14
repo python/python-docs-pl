@@ -148,6 +148,7 @@ copied with this function.</p>
 <p>If <em>follow_symlinks</em> is false and <em>src</em> is a symbolic link,
 a new symbolic link will be created instead of copying the
 file <em>src</em> points to.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copyfile</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> used to be raised instead of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.
 Added <em>follow_symlinks</em> argument.
@@ -186,6 +187,7 @@ than the file it points to).  This functionality is not available on every
 platform; please see <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> for more information.  If
 <a class="reference internal" href="#shutil.copymode" title="shutil.copymode"><code class="xref py py-func docutils literal notranslate"><span class="pre">copymode()</span></code></a> cannot modify symbolic links on the local platform, and it
 is asked to do so, it will do nothing and return.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copymode</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added <em>follow_symlinks</em> argument.</p>
 </div>
@@ -229,6 +231,7 @@ is unavailable, when asked to modify a symbolic link,
 <p>Please see <a class="reference internal" href="os.html#os.supports_follow_symlinks" title="os.supports_follow_symlinks"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.supports_follow_symlinks</span></code></a>
 for more information.</p>
 </div>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copystat</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added <em>follow_symlinks</em> argument and support for Linux extended attributes.</p>
 </div>
@@ -250,6 +253,8 @@ mode (see <a class="reference internal" href="os.html#os.chmod" title="os.chmod"
 file’s creation and modification times, is not preserved.
 To preserve all file metadata from the original, use
 <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> instead.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copyfile</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copymode</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added <em>follow_symlinks</em> argument.
 Now returns path to the newly created file.</p>
@@ -277,6 +282,8 @@ cannot preserve file metadata.</p>
 <p><a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> uses <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> to copy the file metadata.
 Please see <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> for more information
 about platform support for modifying symbolic link metadata.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copyfile</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copystat</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added <em>follow_symlinks</em> argument, try to copy extended
 file system attributes too (currently Linux only).
@@ -417,6 +424,7 @@ will be created in or as <em>dst</em> and <em>src</em> will be removed.</p>
 default <em>copy_function</em> is <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a>.  Using <a class="reference internal" href="#shutil.copy" title="shutil.copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy()</span></code></a> as the
 <em>copy_function</em> allows the move to succeed when it is not possible to also
 copy the metadata, at the expense of not copying any of the metadata.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.move</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added explicit symlink handling for foreign filesystems, thus adapting
 it to the behavior of GNU’s <strong class="program">mv</strong>.
@@ -455,6 +463,7 @@ directory.</p>
 <p><em>user</em> can be a system user name or a uid; the same applies to <em>group</em>. At
 least one argument is required.</p>
 <p>See also <a class="reference internal" href="os.html#os.chown" title="os.chown"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.chown()</span></code></a>, the underlying function.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.chown</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">group</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
@@ -684,6 +693,7 @@ unpacked. If not provided, the current working directory is used.</p>
 will use the archive file name extension and see if an unpacker was
 registered for that extension.  In case none is found,
 a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.unpack_archive</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">filename</span></code>, <code class="docutils literal notranslate"><span class="pre">extract_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a> for <em>filename</em> and <em>extract_dir</em>.</p>
 </div>
@@ -881,7 +891,7 @@ size used by many terminal emulators.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 13, 2020.
+    Ostatnia modyfikacja lut 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
