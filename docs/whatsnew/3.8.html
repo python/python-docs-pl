@@ -1700,6 +1700,11 @@ external entities by default.
 <a class="reference internal" href="../library/dbm.html#module-dbm.gnu" title="dbm.gnu: GNU's reinterpretation of dbm. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a> or <a class="reference internal" href="../library/dbm.html#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a>) raises <code class="xref py py-attr docutils literal notranslate"><span class="pre">error</span></code> (<a class="reference internal" href="../library/dbm.html#dbm.dumb.error" title="dbm.dumb.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">dbm.dumb.error</span></code></a>,
 <a class="reference internal" href="../library/dbm.html#dbm.gnu.error" title="dbm.gnu.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">dbm.gnu.error</span></code></a> or <a class="reference internal" href="../library/dbm.html#dbm.ndbm.error" title="dbm.ndbm.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">dbm.ndbm.error</span></code></a>) instead of <a class="reference internal" href="../library/exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>.
 (Contributed by Xiang Zhang in <a class="reference external" href="https://bugs.python.org/issue33106">bpo-33106</a>.)</p></li>
+<li><p>Simplified AST for literals.  All constants will be represented as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ast.Constant</span></code> instances.  Instantiating old classes <code class="docutils literal notranslate"><span class="pre">Num</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Str</span></code>, <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">NameConstant</span></code> and <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> will return
+an instance of <code class="docutils literal notranslate"><span class="pre">Constant</span></code>.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://bugs.python.org/issue32892">bpo-32892</a>.)</p></li>
 <li><p><a class="reference internal" href="../library/os.path.html#os.path.expanduser" title="os.path.expanduser"><code class="xref py py-func docutils literal notranslate"><span class="pre">expanduser()</span></code></a> on Windows now prefers the <span class="target" id="index-20"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">USERPROFILE</span></code>
 environment variable and does not use <span class="target" id="index-21"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">HOME</span></code>, which is not normally
 set for regular user accounts.
@@ -2117,7 +2122,7 @@ The argument types are now str and List[str] again.
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 17, 2020.
+    Ostatnia modyfikacja lut 18, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
