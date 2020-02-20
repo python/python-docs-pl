@@ -1181,8 +1181,19 @@ equivalent syntactic forms:</p>
 <span class="n">Point2D</span> <span class="o">=</span> <span class="n">TypedDict</span><span class="p">(</span><span class="s1">&#39;Point2D&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>See <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0589"><strong>PEP 589</strong></a> for more examples and detailed rules of using <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code>
-with type checkers.</p>
+<p>By default, all keys must be present in a TypedDict. It is possible
+to override this by specifying totality.
+Usage:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">point2D</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+<p>This means that a point2D TypedDict can have any of the keys omitted.A type
+checker is only expected to support a literal False or True as the value of
+the total argument. True is the default, and makes all items defined in the
+class body be required.</p>
+<p>See <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0589"><strong>PEP 589</strong></a> for more examples and detailed rules of using <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
@@ -1708,7 +1719,7 @@ evaluated, so the second annotation does not need to be enclosed in quotes.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 19, 2020.
+    Ostatnia modyfikacja lut 20, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
