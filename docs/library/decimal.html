@@ -2299,20 +2299,69 @@ using the unary plus operation:</p>
 <p>Q. Is the CPython implementation fast for large numbers?</p>
 <p>A. Yes.  In the CPython and PyPy3 implementations, the C/CFFI versions of
 the decimal module integrate the high speed <a class="reference external" href="https://www.bytereef.org/mpdecimal/doc/libmpdec/index.html">libmpdec</a> library for
-arbitrary precision correctly-rounded decimal floating point arithmetic.
+arbitrary precision correctly-rounded decimal floating point arithmetic <a class="footnote-reference brackets" href="#id4" id="id2">1</a>.
 <code class="docutils literal notranslate"><span class="pre">libmpdec</span></code> uses <a class="reference external" href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba multiplication</a>
 for medium-sized numbers and the <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform">Number Theoretic Transform</a>
-for very large numbers.  However, to realize this performance gain, the
-context needs to be set for unrounded calculations.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="n">MAX_PREC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emax</span> <span class="o">=</span> <span class="n">MAX_EMAX</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emin</span> <span class="o">=</span> <span class="n">MIN_EMIN</span>
+for very large numbers.</p>
+<p>The context must be adapted for exact arbitrary precision arithmetic. <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emin</span></code>
+and <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emax</span></code> should always be set to the maximum values, <code class="xref py py-attr docutils literal notranslate"><span class="pre">clamp</span></code>
+should always be 0 (the default).  Setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> requires some care.</p>
+<p>The easiest approach for trying out bignum arithmetic is to use the maximum
+value for <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> as well <a class="footnote-reference brackets" href="#id5" id="id3">2</a>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="n">MAX_PREC</span><span class="p">,</span> <span class="n">Emax</span><span class="o">=</span><span class="n">MAX_EMAX</span><span class="p">,</span> <span class="n">Emin</span><span class="o">=</span><span class="n">MIN_EMIN</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">/</span> <span class="mi">128</span>
+<span class="go">Decimal(&#39;904625697166532776746648320380374280103671755200316906558262375061821325312&#39;)</span>
 </pre></div>
 </div>
-<div class="versionadded">
+<p>For inexact results, <a class="reference internal" href="#decimal.MAX_PREC" title="decimal.MAX_PREC"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MAX_PREC</span></code></a> is far too large on 64-bit platforms and
+the available memory will be insufficient:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">MemoryError</span>
+</pre></div>
+</div>
+<p>On systems with overallocation (e.g. Linux), a more sophisticated approach is to
+adjust <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> to the amount of available RAM.  Suppose that you have 8GB of
+RAM and expect 10 simultaneous operands using a maximum of 500MB each:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Maximum number of digits for a single operand using 500MB in 8 byte words</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># with 19 (9 for the 32-bit version) digits per word:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maxdigits</span> <span class="o">=</span> <span class="mi">19</span> <span class="o">*</span> <span class="p">((</span><span class="mi">500</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Check that this works:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="n">maxdigits</span><span class="p">,</span> <span class="n">Emax</span><span class="o">=</span><span class="n">MAX_EMAX</span><span class="p">,</span> <span class="n">Emin</span><span class="o">=</span><span class="n">MIN_EMIN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fill the available precision with nines:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">logical_invert</span><span class="p">()</span> <span class="o">*</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">524288112</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">  decimal.Inexact</span>: <span class="n">[&lt;class &#39;decimal.Inexact&#39;&gt;]</span>
+</pre></div>
+</div>
+<p>In general (and especially on systems without overallocation), it is recommended
+to estimate even tighter bounds and set the <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Inexact</span></code></a> trap if all calculations
+are expected to be exact.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>This approach now works for all exact results except for non-integer powers.
+Also backported to 3.7 and 3.8.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -2420,7 +2469,7 @@ context needs to be set for unrounded calculations.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 21, 2020.
+    Ostatnia modyfikacja lut 22, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

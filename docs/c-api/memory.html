@@ -666,6 +666,23 @@ three fields:</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
+<dl class="function">
+<dt id="c.PyTraceMalloc_Track">
+int <code class="sig-name descname">PyTraceMalloc_Track</code><span class="sig-paren">(</span>unsigned int<em> domain</em>, uintptr_t<em> ptr</em>, size_t<em> size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTraceMalloc_Track" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Track an allocated memory block in the <a class="reference internal" href="../library/tracemalloc.html#module-tracemalloc" title="tracemalloc: Trace memory allocations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tracemalloc</span></code></a> module.</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success, return <code class="docutils literal notranslate"><span class="pre">-1</span></code> on error (failed to allocate memory to
+store the trace). Return <code class="docutils literal notranslate"><span class="pre">-2</span></code> if tracemalloc is disabled.</p>
+<p>If memory block is already tracked, update the existing trace.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTraceMalloc_Untrack">
+int <code class="sig-name descname">PyTraceMalloc_Untrack</code><span class="sig-paren">(</span>unsigned int<em> domain</em>, uintptr_t<em> ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTraceMalloc_Untrack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Untrack an allocated memory block in the <a class="reference internal" href="../library/tracemalloc.html#module-tracemalloc" title="tracemalloc: Trace memory allocations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tracemalloc</span></code></a> module.
+Do nothing if the block was not tracked.</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">-2</span></code> if tracemalloc is disabled, otherwise return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="examples">
 <span id="memoryexamples"></span><h2>Examples<a class="headerlink" href="#examples" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -815,7 +832,7 @@ object types in C.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 21, 2020.
+    Ostatnia modyfikacja lut 22, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
