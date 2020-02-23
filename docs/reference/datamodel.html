@@ -1541,9 +1541,11 @@ that criterion, then the class definition will fail with <code class="docutils l
 is prepared. If the metaclass has a <code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> attribute, it is called
 as <code class="docutils literal notranslate"><span class="pre">namespace</span> <span class="pre">=</span> <span class="pre">metaclass.__prepare__(name,</span> <span class="pre">bases,</span> <span class="pre">**kwds)</span></code> (where the
 additional keyword arguments, if any, come from the class definition). The
-<code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> method should be implemented as a <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">classmethod()</span></code></a>.</p>
+<code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> method should be implemented as a <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">classmethod()</span></code></a>. The
+namespace returned by <code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> is passed in to <code class="docutils literal notranslate"><span class="pre">__new__</span></code>, but when
+the final class object is created the namespace is copied into a new <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
 <p>If the metaclass has no <code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> attribute, then the class namespace
-is initialised as an empty ordered mapping.</p>
+is initialised as an empty <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">dict()</span></code></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">Zobacz także</p>
 <dl class="simple">
@@ -2470,11 +2472,11 @@ reflected method is not called.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 22, 2020.
+    Ostatnia modyfikacja lut 23, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.3.
     </div>
 
   </body>
