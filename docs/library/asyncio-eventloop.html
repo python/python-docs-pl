@@ -522,6 +522,15 @@ to wait for the TLS handshake to complete before aborting the connection.
 </ul>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.8: </span>Added the <em>happy_eyeballs_delay</em> and <em>interleave</em> parameters.</p>
+<p>Happy Eyeballs Algorithm: Success with Dual-Stack Hosts.
+When a server’s IPv4 path and protocol are working, but the server’s
+IPv6 path and protocol are not working, a dual-stack client
+application experiences significant connection delay compared to an
+IPv4-only client.  This is undesirable because it causes the dual-
+stack client to have a worse user experience.  This document
+specifies requirements for algorithms that reduce this user-visible
+delay and provides an algorithm.</p>
+<p>For more information: <a class="reference external" href="https://tools.ietf.org/html/rfc6555">https://tools.ietf.org/html/rfc6555</a></p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.7: </span>The <em>ssl_handshake_timeout</em> parameter.</p>
@@ -1815,7 +1824,7 @@ using the <a class="reference internal" href="#asyncio.loop.add_signal_handler" 
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 24, 2020.
+    Ostatnia modyfikacja lut 25, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
