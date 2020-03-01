@@ -1694,11 +1694,23 @@ are also included in the pure Python version for compatibility.</p>
 <dl class="data">
 <dt id="decimal.HAVE_THREADS">
 <code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">HAVE_THREADS</code><a class="headerlink" href="#decimal.HAVE_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>The default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If Python is compiled without threads, the
-C version automatically disables the expensive thread local context
-machinery. In this case, the value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dd><p>The value is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Deprecated, because Python now always has threads.</p>
 </dd></dl>
 
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9.</span></p>
+</div>
+<dl class="data">
+<dt id="decimal.HAVE_CONTEXTVAR">
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">HAVE_CONTEXTVAR</code><a class="headerlink" href="#decimal.HAVE_CONTEXTVAR" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>The default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If Python is compiled <code class="docutils literal notranslate"><span class="pre">--without-decimal-contextvar</span></code>,
+the C version uses a thread-local rather than a coroutine-local context and the value
+is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  This is slightly faster in some nested context scenarios.</p>
+</dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9: </span>backported to 3.7 and 3.8</p>
+</div>
 </div>
 <div class="section" id="rounding-modes">
 <h2>Rounding modes<a class="headerlink" href="#rounding-modes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -2469,7 +2481,7 @@ Also backported to 3.7 and 3.8.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lut 29, 2020.
+    Ostatnia modyfikacja mar 01, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
