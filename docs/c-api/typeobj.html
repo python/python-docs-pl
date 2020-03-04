@@ -1819,7 +1819,7 @@ in section <a class="reference internal" href="gcsupport.html#supporting-cycle-d
 <p>The <a class="reference internal" href="#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> pointer is used by the garbage collector to detect
 reference cycles. A typical implementation of a <a class="reference internal" href="#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> function
 simply calls <a class="reference internal" href="gcsupport.html#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a> on each of the instance’s members that are Python
-objects.  For example, this is function <code class="xref c c-func docutils literal notranslate"><span class="pre">local_traverse()</span></code> from the
+objects that the instance owns. For example, this is function <code class="xref c c-func docutils literal notranslate"><span class="pre">local_traverse()</span></code> from the
 <a class="reference internal" href="../library/_thread.html#module-_thread" title="_thread: Low-level threading API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code></a> extension module:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span>
 <span class="nf">local_traverse</span><span class="p">(</span><span class="n">localobject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">visitproc</span> <span class="n">visit</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
@@ -1837,6 +1837,18 @@ be <code class="docutils literal notranslate"><span class="pre">NULL</span></cod
 <p>On the other hand, even if you know a member can never be part of a cycle, as a
 debugging aid you may want to visit it anyway just so the <a class="reference internal" href="../library/gc.html#module-gc" title="gc: Interface to the cycle-detecting garbage collector."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gc</span></code></a> module’s
 <a class="reference internal" href="../library/gc.html#gc.get_referents" title="gc.get_referents"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_referents()</span></code></a> function will include it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Ostrzeżenie</p>
+<p>When implementing <a class="reference internal" href="#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a>, only the members
+that the instance <em>owns</em> (by having strong references to them) must be
+visited. For instance, if an object supports weak references via the
+<a class="reference internal" href="#c.PyTypeObject.tp_weaklist" title="PyTypeObject.tp_weaklist"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_weaklist</span></code></a> slot, the pointer supporting
+the linked list (what <em>tp_weaklist</em> points to) must <strong>not</strong> be
+visited as the instance does not directly own the weak references to itself
+(the weakreference list is there to support the weak reference machinery,
+but the instance has no strong reference to the elements inside it, as they
+are allowed to be removed even if the instance is still alive).</p>
+</div>
 <p>Note that <a class="reference internal" href="gcsupport.html#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a> requires the <em>visit</em> and <em>arg</em> parameters to
 <code class="xref c c-func docutils literal notranslate"><span class="pre">local_traverse()</span></code> to have these specific names; don’t name them just
 anything.</p>
@@ -3431,7 +3443,7 @@ to create instances (e.g. uses a separate factory func):</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 03, 2020.
+    Ostatnia modyfikacja mar 04, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

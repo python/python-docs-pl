@@ -107,7 +107,13 @@
 <p><em>Release date: XXXX-XX-XX</em></p>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
-<ul class="simple">
+<ul>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39776">bpo-39776</a>: Fix race condition where threads created by PyGILState_Ensure()
+could get a duplicate id.</p>
+<p>This affects consumers of tstate-&gt;id like the contextvar caching
+machinery, which could return invalid cached objects under heavy thread
+load (observed in embedded scenarios).</p>
+</li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39778">bpo-39778</a>: Fixed a crash due to incorrect handling of weak references in
 <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code> classes. Patch by Pablo Galindo.</p></li>
 </ul>
@@ -148,6 +154,10 @@ Python 3.8</p></li>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue38597">bpo-38597</a>: <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> will no longer statically link
+<code class="file docutils literal notranslate"><span class="pre">vcruntime140.dll</span></code> when a redistributable version is unavailable.
+All future releases of CPython will include a copy of this DLL to ensure
+distributed extensions can continue to load.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38380">bpo-38380</a>: Update Windows builds to use SQLite 3.31.1</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39789">bpo-39789</a>: Update Windows release build machines to Visual Studio 2019
 (MSVC 14.2).</p></li>
@@ -17848,7 +17858,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 03, 2020.
+    Ostatnia modyfikacja mar 04, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
