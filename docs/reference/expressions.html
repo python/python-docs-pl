@@ -200,7 +200,7 @@ called „displays”, each of them in two flavors:</p>
 </ul>
 <p id="index-11">Common syntax elements for comprehensions are:</p>
 <pre>
-<strong id="grammar-token-comprehension">comprehension</strong> ::=  <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> <a class="reference internal" href="#grammar-token-comp-for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
+<strong id="grammar-token-comprehension">comprehension</strong> ::=  <a class="reference internal" href="#grammar-token-assignment-expression"><code class="xref docutils literal notranslate"><span class="pre">assignment_expression</span></code></a> <a class="reference internal" href="#grammar-token-comp-for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
 <strong id="grammar-token-comp-for">comp_for     </strong> ::=  [&quot;async&quot;] &quot;for&quot; <a class="reference internal" href="simple_stmts.html#grammar-token-target-list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a> &quot;in&quot; <a class="reference internal" href="#grammar-token-or-test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> [<a class="reference internal" href="#grammar-token-comp-iter"><code class="xref docutils literal notranslate"><span class="pre">comp_iter</span></code></a>]
 <strong id="grammar-token-comp-iter">comp_iter    </strong> ::=  <a class="reference internal" href="#grammar-token-comp-for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a> | <a class="reference internal" href="#grammar-token-comp-if"><code class="xref docutils literal notranslate"><span class="pre">comp_if</span></code></a>
 <strong id="grammar-token-comp-if">comp_if      </strong> ::=  &quot;if&quot; <a class="reference internal" href="#grammar-token-expression-nocond"><code class="xref docutils literal notranslate"><span class="pre">expression_nocond</span></code></a> [<a class="reference internal" href="#grammar-token-comp-iter"><code class="xref docutils literal notranslate"><span class="pre">comp_iter</span></code></a>]
@@ -738,7 +738,8 @@ series of <a class="reference internal" href="../glossary.html#term-argument"><s
                             [&quot;,&quot; <a class="reference internal" href="#grammar-token-keywords-arguments"><code class="xref docutils literal notranslate"><span class="pre">keywords_arguments</span></code></a>]
                           | <a class="reference internal" href="#grammar-token-starred-and-keywords"><code class="xref docutils literal notranslate"><span class="pre">starred_and_keywords</span></code></a> [&quot;,&quot; <a class="reference internal" href="#grammar-token-keywords-arguments"><code class="xref docutils literal notranslate"><span class="pre">keywords_arguments</span></code></a>]
                           | <a class="reference internal" href="#grammar-token-keywords-arguments"><code class="xref docutils literal notranslate"><span class="pre">keywords_arguments</span></code></a>
-<strong id="grammar-token-positional-arguments">positional_arguments</strong> ::=  [&quot;*&quot;] <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> (&quot;,&quot; [&quot;*&quot;] <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>)*
+<strong id="grammar-token-positional-arguments">positional_arguments</strong> ::=  positional_item (&quot;,&quot; positional_item)*
+<strong id="grammar-token-positional-item">positional_item     </strong> ::=  <a class="reference internal" href="#grammar-token-assignment-expression"><code class="xref docutils literal notranslate"><span class="pre">assignment_expression</span></code></a> | &quot;*&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>
 <strong id="grammar-token-starred-and-keywords">starred_and_keywords</strong> ::=  (&quot;*&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> | <a class="reference internal" href="#grammar-token-keyword-item"><code class="xref docutils literal notranslate"><span class="pre">keyword_item</span></code></a>)
                           (&quot;,&quot; &quot;*&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> | &quot;,&quot; <a class="reference internal" href="#grammar-token-keyword-item"><code class="xref docutils literal notranslate"><span class="pre">keyword_item</span></code></a>)*
 <strong id="grammar-token-keywords-arguments">keywords_arguments  </strong> ::=  (<a class="reference internal" href="#grammar-token-keyword-item"><code class="xref docutils literal notranslate"><span class="pre">keyword_item</span></code></a> | &quot;**&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>)
@@ -1204,9 +1205,16 @@ the desired value.  Because <a class="reference internal" href="#not"><code clas
 returns a boolean value regardless of the type of its argument
 (for example, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">'foo'</span></code> produces <code class="docutils literal notranslate"><span class="pre">False</span></code> rather than <code class="docutils literal notranslate"><span class="pre">''</span></code>.)</p>
 </div>
+<div class="section" id="assignment-expressions">
+<h2><span class="section-number">6.12. </span>Assignment expressions<a class="headerlink" href="#assignment-expressions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<pre>
+<strong id="grammar-token-assignment-expression">assignment_expression</strong> ::=  [<a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><code class="xref docutils literal notranslate"><span class="pre">identifier</span></code></a> &quot;:=&quot;] <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>
+</pre>
+<p>See <span class="target" id="index-85"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0572"><strong>PEP 572</strong></a> for more details about assignment expressions.</p>
+</div>
 <div class="section" id="conditional-expressions">
-<span id="if-expr"></span><h2><span class="section-number">6.12. </span>Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<pre id="index-85">
+<span id="if-expr"></span><h2><span class="section-number">6.13. </span>Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<pre id="index-86">
 <strong id="grammar-token-conditional-expression">conditional_expression</strong> ::=  <a class="reference internal" href="#grammar-token-or-test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> [&quot;if&quot; <a class="reference internal" href="#grammar-token-or-test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> &quot;else&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>]
 <strong id="grammar-token-expression">expression            </strong> ::=  <a class="reference internal" href="#grammar-token-conditional-expression"><code class="xref docutils literal notranslate"><span class="pre">conditional_expression</span></code></a> | <a class="reference internal" href="#grammar-token-lambda-expr"><code class="xref docutils literal notranslate"><span class="pre">lambda_expr</span></code></a>
 <strong id="grammar-token-expression-nocond">expression_nocond     </strong> ::=  <a class="reference internal" href="#grammar-token-or-test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> | <a class="reference internal" href="#grammar-token-lambda-expr-nocond"><code class="xref docutils literal notranslate"><span class="pre">lambda_expr_nocond</span></code></a>
@@ -1216,11 +1224,11 @@ priority of all Python operations.</p>
 <p>The expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">if</span> <span class="pre">C</span> <span class="pre">else</span> <span class="pre">y</span></code> first evaluates the condition, <em>C</em> rather than <em>x</em>.
 If <em>C</em> is true, <em>x</em> is evaluated and its value is returned; otherwise, <em>y</em> is
 evaluated and its value is returned.</p>
-<p>See <span class="target" id="index-86"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0308"><strong>PEP 308</strong></a> for more details about conditional expressions.</p>
+<p>See <span class="target" id="index-87"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0308"><strong>PEP 308</strong></a> for more details about conditional expressions.</p>
 </div>
 <div class="section" id="lambda">
-<span id="lambdas"></span><span id="id14"></span><h2><span class="section-number">6.13. </span>Lambdas<a class="headerlink" href="#lambda" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<pre id="index-87">
+<span id="lambdas"></span><span id="id14"></span><h2><span class="section-number">6.14. </span>Lambdas<a class="headerlink" href="#lambda" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<pre id="index-88">
 <strong id="grammar-token-lambda-expr">lambda_expr       </strong> ::=  &quot;lambda&quot; [<a class="reference internal" href="compound_stmts.html#grammar-token-parameter-list"><code class="xref docutils literal notranslate"><span class="pre">parameter_list</span></code></a>] &quot;:&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>
 <strong id="grammar-token-lambda-expr-nocond">lambda_expr_nocond</strong> ::=  &quot;lambda&quot; [<a class="reference internal" href="compound_stmts.html#grammar-token-parameter-list"><code class="xref docutils literal notranslate"><span class="pre">parameter_list</span></code></a>] &quot;:&quot; <a class="reference internal" href="#grammar-token-expression-nocond"><code class="xref docutils literal notranslate"><span class="pre">expression_nocond</span></code></a>
 </pre>
@@ -1236,33 +1244,33 @@ functions created with lambda expressions cannot contain statements or
 annotations.</p>
 </div>
 <div class="section" id="expression-lists">
-<span id="exprlists"></span><h2><span class="section-number">6.14. </span>Expression lists<a class="headerlink" href="#expression-lists" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<pre id="index-88">
+<span id="exprlists"></span><h2><span class="section-number">6.15. </span>Expression lists<a class="headerlink" href="#expression-lists" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<pre id="index-89">
 <strong id="grammar-token-expression-list">expression_list   </strong> ::=  <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>)* [&quot;,&quot;]
 <strong id="grammar-token-starred-list">starred_list      </strong> ::=  <a class="reference internal" href="#grammar-token-starred-item"><code class="xref docutils literal notranslate"><span class="pre">starred_item</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-starred-item"><code class="xref docutils literal notranslate"><span class="pre">starred_item</span></code></a>)* [&quot;,&quot;]
 <strong id="grammar-token-starred-expression">starred_expression</strong> ::=  <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> | (<a class="reference internal" href="#grammar-token-starred-item"><code class="xref docutils literal notranslate"><span class="pre">starred_item</span></code></a> &quot;,&quot;)* [<a class="reference internal" href="#grammar-token-starred-item"><code class="xref docutils literal notranslate"><span class="pre">starred_item</span></code></a>]
-<strong id="grammar-token-starred-item">starred_item      </strong> ::=  <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> | &quot;*&quot; <a class="reference internal" href="#grammar-token-or-expr"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>
+<strong id="grammar-token-starred-item">starred_item      </strong> ::=  <a class="reference internal" href="#grammar-token-assignment-expression"><code class="xref docutils literal notranslate"><span class="pre">assignment_expression</span></code></a> | &quot;*&quot; <a class="reference internal" href="#grammar-token-or-expr"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>
 </pre>
-<p id="index-89">Except when part of a list or set display, an expression list
+<p id="index-90">Except when part of a list or set display, an expression list
 containing at least one comma yields a tuple.  The length of
 the tuple is the number of expressions in the list.  The expressions are
 evaluated from left to right.</p>
-<p id="index-90">An asterisk <code class="docutils literal notranslate"><span class="pre">*</span></code> denotes <em class="dfn">iterable unpacking</em>.  Its operand must be
+<p id="index-91">An asterisk <code class="docutils literal notranslate"><span class="pre">*</span></code> denotes <em class="dfn">iterable unpacking</em>.  Its operand must be
 an <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>.  The iterable is expanded into a sequence of items,
 which are included in the new tuple, list, or set, at the site of
 the unpacking.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.5: </span>Iterable unpacking in expression lists, originally proposed by <span class="target" id="index-91"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0448"><strong>PEP 448</strong></a>.</p>
+<p><span class="versionmodified added">Nowe w wersji 3.5: </span>Iterable unpacking in expression lists, originally proposed by <span class="target" id="index-92"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0448"><strong>PEP 448</strong></a>.</p>
 </div>
-<p id="index-92">The trailing comma is required only to create a single tuple (a.k.a. a
+<p id="index-93">The trailing comma is required only to create a single tuple (a.k.a. a
 <em>singleton</em>); it is optional in all other cases.  A single expression without a
 trailing comma doesn’t create a tuple, but rather yields the value of that
 expression. (To create an empty tuple, use an empty pair of parentheses:
 <code class="docutils literal notranslate"><span class="pre">()</span></code>.)</p>
 </div>
 <div class="section" id="evaluation-order">
-<span id="evalorder"></span><h2><span class="section-number">6.15. </span>Evaluation order<a class="headerlink" href="#evaluation-order" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p id="index-93">Python evaluates expressions from left to right.  Notice that while evaluating
+<span id="evalorder"></span><h2><span class="section-number">6.16. </span>Evaluation order<a class="headerlink" href="#evaluation-order" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p id="index-94">Python evaluates expressions from left to right.  Notice that while evaluating
 an assignment, the right-hand side is evaluated before the left-hand side.</p>
 <p>In the following lines, expressions will be evaluated in the arithmetic order of
 their suffixes:</p>
@@ -1276,8 +1284,8 @@ their suffixes:</p>
 </div>
 </div>
 <div class="section" id="operator-precedence">
-<span id="operator-summary"></span><h2><span class="section-number">6.16. </span>Operator precedence<a class="headerlink" href="#operator-precedence" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p id="index-94">The following table summarizes the operator precedence in Python, from lowest
+<span id="operator-summary"></span><h2><span class="section-number">6.17. </span>Operator precedence<a class="headerlink" href="#operator-precedence" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p id="index-95">The following table summarizes the operator precedence in Python, from lowest
 precedence (least binding) to highest precedence (most binding).  Operators in
 the same box have the same precedence.  Unless the syntax is explicitly given,
 operators are binary.  Operators in the same box group left to right (except for
@@ -1469,11 +1477,12 @@ bitwise unary operator on its right, that is, <code class="docutils literal notr
 </ul>
 </li>
 <li><a class="reference internal" href="#boolean-operations">6.11. Boolean operations</a></li>
-<li><a class="reference internal" href="#conditional-expressions">6.12. Conditional expressions</a></li>
-<li><a class="reference internal" href="#lambda">6.13. Lambdas</a></li>
-<li><a class="reference internal" href="#expression-lists">6.14. Expression lists</a></li>
-<li><a class="reference internal" href="#evaluation-order">6.15. Evaluation order</a></li>
-<li><a class="reference internal" href="#operator-precedence">6.16. Operator precedence</a></li>
+<li><a class="reference internal" href="#assignment-expressions">6.12. Assignment expressions</a></li>
+<li><a class="reference internal" href="#conditional-expressions">6.13. Conditional expressions</a></li>
+<li><a class="reference internal" href="#lambda">6.14. Lambdas</a></li>
+<li><a class="reference internal" href="#expression-lists">6.15. Expression lists</a></li>
+<li><a class="reference internal" href="#evaluation-order">6.16. Evaluation order</a></li>
+<li><a class="reference internal" href="#operator-precedence">6.17. Operator precedence</a></li>
 </ul>
 </li>
 </ul>
@@ -1551,7 +1560,7 @@ bitwise unary operator on its right, that is, <code class="docutils literal notr
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 06, 2020.
+    Ostatnia modyfikacja mar 07, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
