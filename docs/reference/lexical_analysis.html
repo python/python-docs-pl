@@ -662,39 +662,39 @@ the string .format() method.</p>
 cannot be split across literals.</p>
 <p>Some examples of formatted string literals:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{name!r}</span><span class="s2">.&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">.&quot;</span>
 <span class="go">&quot;He said his name is &#39;Fred&#39;.&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;He said his name is {repr(name)}.&quot;</span>  <span class="c1"># repr() is equivalent to !r</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>  <span class="c1"># repr() is equivalent to !r</span>
 <span class="go">&quot;He said his name is &#39;Fred&#39;.&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">precision</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;12.34567&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;result: {value:</span><span class="si">{width}</span><span class="s2">.</span><span class="si">{precision}</span><span class="s2">}&quot;</span>  <span class="c1"># nested fields</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;result: </span><span class="si">{</span><span class="n">value</span><span class="si">:{</span><span class="n">width</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">precision</span><span class="si">}}</span><span class="s2">&quot;</span>  <span class="c1"># nested fields</span>
 <span class="go">&#39;result:      12.35&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;{today:%B </span><span class="si">%d</span><span class="s2">, %Y}&quot;</span>  <span class="c1"># using date format specifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using date format specifier</span>
 <span class="go">&#39;January 27, 2017&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{number:#0x}</span><span class="s2">&quot;</span>  <span class="c1"># using integer format specifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s2">#0x</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using integer format specifier</span>
 <span class="go">&#39;0x400&#39;</span>
 </pre></div>
 </div>
 <p>A consequence of sharing the same syntax as regular string literals is
 that characters in the replacement fields must not conflict with the
 quoting used in the outer formatted string literal:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;abc </span><span class="si">{a[&quot;x&quot;]}</span><span class="s2"> def&quot;</span>    <span class="c1"># error: outer string literal ended prematurely</span>
-<span class="sa">f</span><span class="s2">&quot;abc </span><span class="si">{a[&#39;x&#39;]}</span><span class="s2"> def&quot;</span>    <span class="c1"># workaround: use different quoting</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;abc </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> def&quot;</span>    <span class="c1"># error: outer string literal ended prematurely</span>
+<span class="sa">f</span><span class="s2">&quot;abc </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> def&quot;</span>    <span class="c1"># workaround: use different quoting</span>
 </pre></div>
 </div>
 <p>Backslashes are not allowed in format expressions and will raise
 an error:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;newline: {ord(&#39;</span><span class="se">\n</span><span class="s2">&#39;)}&quot;</span>  <span class="c1"># raises SyntaxError</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;newline: </span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># raises SyntaxError</span>
 </pre></div>
 </div>
 <p>To include a value in which a backslash escape is required, create
 a temporary variable.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newline</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;newline: </span><span class="si">{newline}</span><span class="s2">&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;newline: </span><span class="si">{</span><span class="n">newline</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="go">&#39;newline: 10&#39;</span>
 </pre></div>
 </div>
@@ -948,7 +948,7 @@ occurrence outside string literals and comments is an unconditional error:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 08, 2020.
+    Ostatnia modyfikacja mar 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

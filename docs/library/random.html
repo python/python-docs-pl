@@ -505,8 +505,8 @@ size five:</p>
 
 <span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span>
 <span class="n">means</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sample mean of {mean(data):.1f} has a 90</span><span class="si">% c</span><span class="s1">onfidence &#39;</span>
-      <span class="sa">f</span><span class="s1">&#39;interval from </span><span class="si">{means[1]:.1f}</span><span class="s1"> to </span><span class="si">{means[-2]:.1f}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sample mean of </span><span class="si">{</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> has a 90% confidence &#39;</span>
+      <span class="sa">f</span><span class="s1">&#39;interval from </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Resampling_(statistics)#Permutation_tests">resampling permutation test</a>
@@ -528,9 +528,9 @@ between the effects of a drug versus a placebo:</p>
     <span class="n">new_diff</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">combined</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">drug</span><span class="p">)])</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">drug</span><span class="p">):])</span>
     <span class="n">count</span> <span class="o">+=</span> <span class="p">(</span><span class="n">new_diff</span> <span class="o">&gt;=</span> <span class="n">observed_diff</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1"> label reshufflings produced only </span><span class="si">{count}</span><span class="s1"> instances with a difference&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;at least as extreme as the observed difference of </span><span class="si">{observed_diff:.1f}</span><span class="s1">.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The one-sided p-value of {count / n:.4f} leads us to reject the null&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> label reshufflings produced only </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1"> instances with a difference&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;at least as extreme as the observed difference of </span><span class="si">{</span><span class="n">observed_diff</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The one-sided p-value of </span><span class="si">{</span><span class="n">count</span> <span class="o">/</span> <span class="n">n</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> leads us to reject the null&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hypothesis that there is no difference between the drug and the placebo.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -559,8 +559,8 @@ between the effects of a drug versus a placebo:</p>
         <span class="n">starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">service_start</span><span class="p">)</span>
 
 <span class="n">waits</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="n">arrival</span> <span class="k">for</span> <span class="n">arrival</span><span class="p">,</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arrivals</span><span class="p">,</span> <span class="n">starts</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean wait: {mean(waits):.1f}.  Stdev wait: {stdev(waits):.1f}.&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median wait: {median(waits):.1f}.  Max wait: {max(waits):.1f}.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean wait: </span><span class="si">{</span><span class="n">mean</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.  Stdev wait: </span><span class="si">{</span><span class="n">stdev</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median wait: </span><span class="si">{</span><span class="n">median</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.  Max wait: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -677,7 +677,7 @@ how to perform data analysis using Python.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 08, 2020.
+    Ostatnia modyfikacja mar 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

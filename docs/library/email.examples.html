@@ -121,7 +121,7 @@ text content and the addresses may contain unicode characters):</p>
 
 <span class="c1"># me == the sender&#39;s email address</span>
 <span class="c1"># you == the recipient&#39;s email address</span>
-<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;The contents of </span><span class="si">{textfile}</span><span class="s1">&#39;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;The contents of </span><span class="si">{</span><span class="n">textfile</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">me</span>
 <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">you</span>
 
@@ -237,7 +237,7 @@ message: <a class="footnote-reference brackets" href="#id3" id="id2">1</a></p>
         <span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
     <span class="c1"># Create the message</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
-    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Contents of directory {os.path.abspath(directory)}&#39;</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Contents of directory </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
     <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">recipients</span><span class="p">)</span>
     <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">sender</span>
     <span class="n">msg</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="s1">&#39;You will not see this in a MIME-aware mail reader.</span><span class="se">\n</span><span class="s1">&#39;</span>
@@ -320,7 +320,7 @@ above, into a directory of files:</p>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">ext</span><span class="p">:</span>
                 <span class="c1"># Use a generic bag-of-bits extension</span>
                 <span class="n">ext</span> <span class="o">=</span> <span class="s1">&#39;.bin&#39;</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;part-</span><span class="si">{counter:03d}{ext}</span><span class="s1">&#39;</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;part-</span><span class="si">{</span><span class="n">counter</span><span class="si">:</span><span class="s1">03d</span><span class="si">}{</span><span class="n">ext</span><span class="si">}</span><span class="s1">&#39;</span>
         <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
             <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_payload</span><span class="p">(</span><span class="n">decode</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -570,7 +570,7 @@ Cela ressemble à un excellent recipie[1] déjeuner.
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 08, 2020.
+    Ostatnia modyfikacja mar 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

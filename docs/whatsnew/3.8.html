@@ -117,19 +117,19 @@
 <h3>Wyrażenia przypisania<a class="headerlink" href="#assignment-expressions" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Nowa składnia <code class="docutils literal notranslate"><span class="pre">:=</span></code> przypisuje wartości zmiennym w części większego wyrażenia. Jest pieszczotliwie nazywany „operatorem morsa” ze względu na podobieństwo do <a class="reference external" href="https://en.wikipedia.org/wiki/Walrus#/media/File:Pacific_Walrus_-_Bull_(8247646168).jpg">oczu i kłów morsa</a>.</p>
 <p>W tym przykładzie wyrażenie przypisania pomaga uniknąć wywołania <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> dwa razy:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List is too long (</span><span class="si">{n}</span><span class="s2"> elements, expected &lt;= 10)&quot;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List is too long (</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> elements, expected &lt;= 10)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Podobną korzyść odnosimy przy dopasowaniu wyrażenia regularnego, gdzie obiekty dopasowania są potrzebne dwa razy. Najpierw by sprawdzić, czy jest dopasowanie a następnie by wyekstrahować podgrupę:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">discount</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">mo</span> <span class="p">:</span><span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)</span><span class="si">% d</span><span class="s1">iscount&#39;</span><span class="p">,</span> <span class="n">advertisement</span><span class="p">)):</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">mo</span> <span class="o">:=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)</span><span class="si">% d</span><span class="s1">iscount&#39;</span><span class="p">,</span> <span class="n">advertisement</span><span class="p">)):</span>
     <span class="n">discount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">mo</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mf">100.0</span>
 </pre></div>
 </div>
 <p>Operator jest również przydatny w pętlach while, które obliczają wartość do sprawdzenia przerwania pętli a następnie potrzebują znów tej samej wartości w ciele pętli:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over fixed length blocks</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">block</span> <span class="p">:</span><span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">block</span> <span class="o">:=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
     <span class="n">process</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -137,7 +137,7 @@
 a value computed in a filtering condition is also needed in
 the expression body:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">clean_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span>
- <span class="k">if</span> <span class="p">(</span><span class="n">clean_name</span> <span class="p">:</span><span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;NFC&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span> <span class="ow">in</span> <span class="n">allowed_names</span><span class="p">]</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">clean_name</span> <span class="o">:=</span> <span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;NFC&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span> <span class="ow">in</span> <span class="n">allowed_names</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Try to limit use of the walrus operator to clean cases that reduce
@@ -269,20 +269,20 @@ this change is backward incompatible on purpose.
 then the representation of the evaluated expression.  For example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;eric_idle&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">member_since</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1975</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;{user=} {member_since=}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">user</span><span class="si">=}</span><span class="s1"> </span><span class="si">{</span><span class="n">member_since</span><span class="si">=}</span><span class="s1">&#39;</span>
 <span class="go">&quot;user=&#39;eric_idle&#39; member_since=datetime.date(1975, 7, 31)&quot;</span>
 </pre></div>
 </div>
 <p>The usual <a class="reference internal" href="../reference/lexical_analysis.html#f-strings"><span class="std std-ref">f-string format specifiers</span></a> allow more
 control over how the result of the expression is displayed:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">delta</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">member_since</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;{user=!s}  {delta.days=:,d}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">user</span><span class="si">=!s}</span><span class="s1">  </span><span class="si">{</span><span class="n">delta</span><span class="o">.</span><span class="n">days</span><span class="si">=:</span><span class="s1">,d</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="go">&#39;user=eric_idle  delta.days=16,075&#39;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> specifier will display the whole expression so that
 calculations can be shown:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;{theta=}  {cos(radians(theta))=:.3f}&#39;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">theta</span><span class="si">=}</span><span class="s1">  </span><span class="si">{</span><span class="n">cos</span><span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="si">=:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="go">theta=30  cos(radians(theta))=0.866</span>
 </pre></div>
 </div>
@@ -502,7 +502,7 @@ key is computed first and the value second:</p>
 because variables assigned in the key expression will be available in
 the value expression:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Martin von Löwis&#39;</span><span class="p">,</span> <span class="s1">&#39;Łukasz Langa&#39;</span><span class="p">,</span> <span class="s1">&#39;Walter Dörwald&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">{(</span><span class="n">n</span> <span class="p">:</span><span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;NFC&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span> <span class="p">:</span> <span class="n">n</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{(</span><span class="n">n</span> <span class="o">:=</span> <span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;NFC&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span> <span class="p">:</span> <span class="n">n</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
 <span class="go">{&#39;martin von löwis&#39;: &#39;Martin von Löwis&#39;,</span>
 <span class="go"> &#39;łukasz langa&#39;: &#39;Łukasz Langa&#39;,</span>
 <span class="go"> &#39;walter dörwald&#39;: &#39;Walter Dörwald&#39;}</span>
@@ -2122,7 +2122,7 @@ The argument types are now str and List[str] again.
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 08, 2020.
+    Ostatnia modyfikacja mar 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
