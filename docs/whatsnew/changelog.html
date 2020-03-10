@@ -125,6 +125,9 @@ load (observed in embedded scenarios).</p>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue39850">bpo-39850</a>: <a class="reference internal" href="../library/multiprocessing.html#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> now supports abstract socket addresses
+(if abstract sockets are supported in the running platform). Patch by
+Pablo Galindo.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue13487">bpo-13487</a>: Avoid a possible <em>„RuntimeError: dictionary changed size during
 iteration”</em> from <a class="reference internal" href="../library/inspect.html#inspect.getmodule" title="inspect.getmodule"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.getmodule()</span></code></a> when it tried to loop through
 <a class="reference internal" href="../library/sys.html#sys.modules" title="sys.modules"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sys.modules</span></code></a>.</p></li>
@@ -187,6 +190,8 @@ bundled icon image.</p></li>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue27115">bpo-27115</a>: For «Go to Line», use a Query box subclass with IDLE standard
+behavior and improved error checking.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39885">bpo-39885</a>: Since clicking to get an IDLE context menu moves the cursor,
 any text selection should be and now is cleared.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39852">bpo-39852</a>: Edit „Go to line” now clears any selection, preventing
@@ -197,6 +202,10 @@ accidental deletion. It also updates Ln and Col on the status bar.</p></li>
 <div class="section" id="tools-demos">
 <h3>Tools/Demos<a class="headerlink" href="#tools-demos" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue36184">bpo-36184</a>: Port python-gdb.py to FreeBSD. python-gdb.py now checks for
+„take_gil” function name to check if a frame tries to acquire the GIL,
+instead of checking for „pthread_cond_timedwait” which is specific to
+Linux and can be a different condition than the GIL.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39889">bpo-39889</a>: Fixed <code class="docutils literal notranslate"><span class="pre">unparse.py</span></code> for extended slices containing a single
 element (e.g. <code class="docutils literal notranslate"><span class="pre">a[i:j,]</span></code>). Remove redundant tuples when index with a
 tuple (e.g. <code class="docutils literal notranslate"><span class="pre">a[i,</span> <span class="pre">j]</span></code>).</p></li>
@@ -17884,7 +17893,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 09, 2020.
+    Ostatnia modyfikacja mar 10, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
