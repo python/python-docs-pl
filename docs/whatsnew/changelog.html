@@ -125,9 +125,15 @@ load (observed in embedded scenarios).</p>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue38662">bpo-38662</a>: The <code class="docutils literal notranslate"><span class="pre">ensurepip</span></code> module now invokes <code class="docutils literal notranslate"><span class="pre">pip</span></code> via the <code class="docutils literal notranslate"><span class="pre">runpy</span></code>
+module. Hence it is no longer tightly coupled with the internal API of the
+bundled <code class="docutils literal notranslate"><span class="pre">pip</span></code> version, allowing easier updates to a newer <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+version both internally and for distributors.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39850">bpo-39850</a>: <a class="reference internal" href="../library/multiprocessing.html#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> now supports abstract socket addresses
 (if abstract sockets are supported in the running platform). Patch by
 Pablo Galindo.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39828">bpo-39828</a>: Fix <a class="reference internal" href="../library/json.html#module-json.tool" title="json.tool: A command line to validate and pretty-print JSON."><code class="xref py py-mod docutils literal notranslate"><span class="pre">json.tool</span></code></a> to catch <a class="reference internal" href="../library/exceptions.html#BrokenPipeError" title="BrokenPipeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenPipeError</span></code></a>. Patch by
+Dong-hee Na.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue13487">bpo-13487</a>: Avoid a possible <em>„RuntimeError: dictionary changed size during
 iteration”</em> from <a class="reference internal" href="../library/inspect.html#inspect.getmodule" title="inspect.getmodule"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.getmodule()</span></code></a> when it tried to loop through
 <a class="reference internal" href="../library/sys.html#sys.modules" title="sys.modules"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sys.modules</span></code></a>.</p></li>
@@ -17893,7 +17899,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 10, 2020.
+    Ostatnia modyfikacja mar 11, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
