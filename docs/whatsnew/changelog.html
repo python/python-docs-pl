@@ -120,6 +120,8 @@ load (observed in embedded scenarios).</p>
 </li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39778">bpo-39778</a>: Fixed a crash due to incorrect handling of weak references in
 <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code> classes. Patch by Pablo Galindo.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39520">bpo-39520</a>: Fix unparsing of ext slices with no items (<code class="docutils literal notranslate"><span class="pre">foo[:,]</span></code>). Patch
+by Batuhan Taskaya.</p></li>
 </ul>
 </div>
 <div class="section" id="library">
@@ -129,6 +131,8 @@ load (observed in embedded scenarios).</p>
 module. Hence it is no longer tightly coupled with the internal API of the
 bundled <code class="docutils literal notranslate"><span class="pre">pip</span></code> version, allowing easier updates to a newer <code class="docutils literal notranslate"><span class="pre">pip</span></code>
 version both internally and for distributors.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39916">bpo-39916</a>: More reliable use of <code class="docutils literal notranslate"><span class="pre">os.scandir()</span></code> in <code class="docutils literal notranslate"><span class="pre">Path.glob()</span></code>. It no
+longer emits a ResourceWarning when interrupted.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39850">bpo-39850</a>: <a class="reference internal" href="../library/multiprocessing.html#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> now supports abstract socket addresses
 (if abstract sockets are supported in the running platform). Patch by
 Pablo Galindo.</p></li>
@@ -176,6 +180,11 @@ Python 3.8</p></li>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue39930">bpo-39930</a>: Ensures the required <code class="file docutils literal notranslate"><span class="pre">vcruntime140.dll</span></code> is included in
+install packages.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39847">bpo-39847</a>: Avoid hang when computer is hibernated whilst waiting for a
+mutex (for lock-related objects from <a class="reference internal" href="../library/threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a>) around 49-day
+uptime.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38597">bpo-38597</a>: <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> will no longer statically link
 <code class="file docutils literal notranslate"><span class="pre">vcruntime140.dll</span></code> when a redistributable version is unavailable.
 All future releases of CPython will include a copy of this DLL to ensure
@@ -17899,7 +17908,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 11, 2020.
+    Ostatnia modyfikacja mar 12, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
