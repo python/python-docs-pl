@@ -229,6 +229,11 @@ tuple (e.g. <code class="docutils literal notranslate"><span class="pre">a[i,</s
 <div class="section" id="c-api">
 <h3>C API<a class="headerlink" href="#c-api" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue39884">bpo-39884</a>: <a class="reference internal" href="../c-api/descriptor.html#c.PyDescr_NewMethod" title="PyDescr_NewMethod"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDescr_NewMethod()</span></code></a> and <code class="xref c c-func docutils literal notranslate"><span class="pre">PyCFunction_NewEx()</span></code> now
+include the method name in the SystemError „bad call flags” error message
+to ease debug.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue38643">bpo-38643</a>: <a class="reference internal" href="../c-api/number.html#c.PyNumber_ToBase" title="PyNumber_ToBase"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyNumber_ToBase()</span></code></a> now raises a <a class="reference internal" href="../library/exceptions.html#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a>
+instead of crashing when called with invalid base.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38913">bpo-38913</a>: Fixed segfault in <code class="docutils literal notranslate"><span class="pre">Py_BuildValue()</span></code> called with a format
 containing „#” and undefined PY_SSIZE_T_CLEAN whwn an exception is set.</p></li>
 </ul>
@@ -17908,7 +17913,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 12, 2020.
+    Ostatnia modyfikacja mar 13, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
