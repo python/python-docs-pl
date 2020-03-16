@@ -116,6 +116,9 @@ URLs now cause a InvalidURL to be raised.</p></li>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39965">bpo-39965</a>: Correctly raise <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> if <em>await</em> is used inside
+non-async functions and <code class="docutils literal notranslate"><span class="pre">PyCF_ALLOW_TOP_LEVEL_AWAIT</span></code> is set (like in the
+asyncio REPL). Patch by Pablo Galindo.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38894">bpo-38894</a>: Fix a bug that was causing incomplete results when calling
 <code class="docutils literal notranslate"><span class="pre">pathlib.Path.glob</span></code> in the presence of symlinks that point to files
 where the user does not have read access. Patch by Pablo Galindo and Matt
@@ -138,6 +141,12 @@ by Batuhan Taskaya.</p></li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue39360">bpo-39360</a>: Ensure all workers exit when finalizing a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.Pool</span></code> implicitly via the module finalization
+handlers of multiprocessing. This fixes a deadlock situation that can be
+experienced when the Pool is not properly finalized via the context
+manager or a call to <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool.terminate</span></code>. Patch by Batuhan
+Taskaya and Pablo Galindo.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39915">bpo-39915</a>: Ensure <a class="reference internal" href="../library/unittest.mock.html#unittest.mock.AsyncMock.await_args_list" title="unittest.mock.AsyncMock.await_args_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unittest.mock.AsyncMock.await_args_list</span></code></a> has call
 objects in the order of awaited arguments instead of using
 <a class="reference internal" href="../library/unittest.mock.html#unittest.mock.Mock.call_args" title="unittest.mock.Mock.call_args"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unittest.mock.Mock.call_args</span></code></a> which has the last value of the call.
@@ -17931,7 +17940,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 15, 2020.
+    Ostatnia modyfikacja mar 16, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
