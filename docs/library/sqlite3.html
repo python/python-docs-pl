@@ -251,9 +251,10 @@ returns.  It will look for a string formed [mytype] in there, and then decide
 that «mytype» is the type of the column. It will try to find an entry of
 «mytype» in the converters dictionary and then use the converter function found
 there to return the value. The column name found in <a class="reference internal" href="#sqlite3.Cursor.description" title="sqlite3.Cursor.description"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Cursor.description</span></code></a>
-is only the first word of the column name, i.  e. if you use something like
-<code class="docutils literal notranslate"><span class="pre">'as</span> <span class="pre">&quot;x</span> <span class="pre">[datetime]&quot;'</span></code> in your SQL, then we will parse out everything until the
-first blank for the column name: the column name would simply be „x”.</p>
+does not include the type, i. e. if you use something like
+<code class="docutils literal notranslate"><span class="pre">'as</span> <span class="pre">&quot;Expiration</span> <span class="pre">date</span> <span class="pre">[datetime]&quot;'</span></code> in your SQL, then we will parse out
+everything until the first <code class="docutils literal notranslate"><span class="pre">'['</span></code> for the column name and strip
+the preceeding space: the column name would simply be „Expiration date”.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1738,7 +1739,7 @@ configure.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 21, 2020.
+    Ostatnia modyfikacja mar 22, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
