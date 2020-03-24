@@ -146,6 +146,9 @@ the interpreter session on macOS.</p></li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue40014">bpo-40014</a>: Fix <code class="docutils literal notranslate"><span class="pre">os.getgrouplist()</span></code>: on macOS, the <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code>
+function returns a non-zero value without setting <code class="docutils literal notranslate"><span class="pre">errno</span></code> if the group
+list is too small. Double the list size and call it again in this case.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39360">bpo-39360</a>: Ensure all workers exit when finalizing a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.Pool</span></code> implicitly via the module finalization
 handlers of multiprocessing. This fixes a deadlock situation that can be
@@ -17957,7 +17960,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 23, 2020.
+    Ostatnia modyfikacja mar 24, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
