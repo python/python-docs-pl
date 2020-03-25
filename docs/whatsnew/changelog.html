@@ -116,6 +116,9 @@ URLs now cause a InvalidURL to be raised.</p></li>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul>
+<li><p><a class="reference external" href="https://bugs.python.org/issue20526">bpo-20526</a>: Fix <a class="reference internal" href="../c-api/init.html#c.PyThreadState_Clear" title="PyThreadState_Clear"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_Clear()</span></code></a>. <code class="docutils literal notranslate"><span class="pre">PyThreadState.frame</span></code> is
+a borrowed reference, not a strong reference: <code class="docutils literal notranslate"><span class="pre">PyThreadState_Clear()</span></code>
+must not call <code class="docutils literal notranslate"><span class="pre">Py_CLEAR(tstate-&gt;frame)</span></code>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39965">bpo-39965</a>: Correctly raise <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> if <em>await</em> is used inside
 non-async functions and <code class="docutils literal notranslate"><span class="pre">PyCF_ALLOW_TOP_LEVEL_AWAIT</span></code> is set (like in the
 asyncio REPL). Patch by Pablo Galindo.</p></li>
@@ -146,9 +149,11 @@ the interpreter session on macOS.</p></li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://bugs.python.org/issue40014">bpo-40014</a>: Fix <code class="docutils literal notranslate"><span class="pre">os.getgrouplist()</span></code>: on macOS, the <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code>
-function returns a non-zero value without setting <code class="docutils literal notranslate"><span class="pre">errno</span></code> if the group
-list is too small. Double the list size and call it again in this case.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue40014">bpo-40014</a>: Fix <code class="docutils literal notranslate"><span class="pre">os.getgrouplist()</span></code>: if <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code> function fails
+because the group list is too small, retry with a larger group list. On
+failure, the glibc implementation of <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code> sets <code class="docutils literal notranslate"><span class="pre">ngroups</span></code>
+to the total number of groups. For other implementations, double the group
+list size.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39360">bpo-39360</a>: Ensure all workers exit when finalizing a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.Pool</span></code> implicitly via the module finalization
 handlers of multiprocessing. This fixes a deadlock situation that can be
@@ -17960,7 +17965,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 24, 2020.
+    Ostatnia modyfikacja mar 25, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
