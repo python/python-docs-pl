@@ -169,11 +169,10 @@ required to be keywords:</p>
 </div>
 <p>One use case for this notation is that it allows pure Python functions
 to fully emulate behaviors of existing C coded functions.  For example,
-the built-in <a class="reference internal" href="../library/functions.html#pow" title="pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a> function does not accept keyword arguments:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
-    <span class="s2">&quot;Emulate the built in pow() function&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="n">r</span> <span class="k">if</span> <span class="n">z</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">r</span><span class="o">%</span><span class="n">z</span>
+the built-in <a class="reference internal" href="../library/functions.html#divmod" title="divmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a> function does not accept keyword arguments:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+    <span class="s2">&quot;Emulate the built in divmod() function&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Another use case is to preclude keyword arguments when the parameter
@@ -2122,7 +2121,7 @@ The argument types are now str and List[str] again.
 <br />
     <br />
 
-    Ostatnia modyfikacja mar 27, 2020.
+    Ostatnia modyfikacja mar 28, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
