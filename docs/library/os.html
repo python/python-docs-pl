@@ -4166,29 +4166,35 @@ used to determine the disposition of a process.</p>
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WCOREDUMP</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WCOREDUMP" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if a core dump was generated for the process, otherwise
 return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>This function should be employed only if <a class="reference internal" href="#os.WIFSIGNALED" title="os.WIFSIGNALED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSIGNALED()</span></code></a> is true.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="os.WIFCONTINUED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WIFCONTINUED</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WIFCONTINUED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process has been continued from a job control stop,
-otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if a stopped child has been resumed by delivery of
+<a class="reference internal" href="signal.html#signal.SIGCONT" title="signal.SIGCONT"><code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCONT</span></code></a> (if the process has been continued from a job
+control stop), otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>See <a class="reference internal" href="#os.WCONTINUED" title="os.WCONTINUED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WCONTINUED</span></code></a> option.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="os.WIFSTOPPED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WIFSTOPPED</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WIFSTOPPED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process has been stopped, otherwise return
-<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process was stopped by delivery of a signal,
+otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p><a class="reference internal" href="#os.WIFSTOPPED" title="os.WIFSTOPPED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSTOPPED()</span></code></a> only returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> call was
+done using <a class="reference internal" href="#os.WUNTRACED" title="os.WUNTRACED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WUNTRACED</span></code></a> option or when the process is being traced (see
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/ptrace(2)">ptrace(2)</a></em>).</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="os.WIFSIGNALED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WIFSIGNALED</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WIFSIGNALED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process exited due to a signal, otherwise return
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process was terminated by a signal, otherwise return
 <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
@@ -4196,7 +4202,8 @@ otherwise return <code class="docutils literal notranslate"><span class="pre">Fa
 <dl class="function">
 <dt id="os.WIFEXITED">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WIFEXITED</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WIFEXITED" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process exited using the <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/exit(2)">exit(2)</a></em> system call,
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process exited terminated normally, that is,
+by calling <code class="docutils literal notranslate"><span class="pre">exit()</span></code> or <code class="docutils literal notranslate"><span class="pre">_exit()</span></code>, or by returning from <code class="docutils literal notranslate"><span class="pre">main()</span></code>;
 otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
@@ -4204,8 +4211,8 @@ otherwise return <code class="docutils literal notranslate"><span class="pre">Fa
 <dl class="function">
 <dt id="os.WEXITSTATUS">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WEXITSTATUS</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WEXITSTATUS" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>If <code class="docutils literal notranslate"><span class="pre">WIFEXITED(status)</span></code> is true, return the integer parameter to the
-<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/exit(2)">exit(2)</a></em> system call.  Otherwise, the return value is meaningless.</p>
+<dd><p>Return the process exit status.</p>
+<p>This function should be employed only if <a class="reference internal" href="#os.WIFEXITED" title="os.WIFEXITED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFEXITED()</span></code></a> is true.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
@@ -4213,13 +4220,15 @@ otherwise return <code class="docutils literal notranslate"><span class="pre">Fa
 <dt id="os.WSTOPSIG">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WSTOPSIG</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WSTOPSIG" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the signal which caused the process to stop.</p>
+<p>This function should be employed only if <a class="reference internal" href="#os.WIFSTOPPED" title="os.WIFSTOPPED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSTOPPED()</span></code></a> is true.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="os.WTERMSIG">
 <code class="sig-prename descclassname">os.</code><code class="sig-name descname">WTERMSIG</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="headerlink" href="#os.WTERMSIG" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Return the signal which caused the process to exit.</p>
+<dd><p>Return the number of the signal that caused the process to terminate.</p>
+<p>This function should be employed only if <a class="reference internal" href="#os.WIFSIGNALED" title="os.WIFSIGNALED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSIGNALED()</span></code></a> is true.</p>
 <p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </dd></dl>
 
@@ -4730,7 +4739,7 @@ block in these cases, but instead immediately raises <a class="reference interna
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 01, 2020.
+    Ostatnia modyfikacja kwi 02, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
