@@ -112,6 +112,12 @@
 <li><p><a class="reference external" href="https://bugs.python.org/issue38576">bpo-38576</a>: Disallow control characters in hostnames in http.client,
 addressing CVE-2019-18348. Such potentially malicious header injection
 URLs now cause a InvalidURL to be raised.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39503">bpo-39503</a>: CVE-2020-8492: The
+<a class="reference internal" href="../library/urllib.request.html#urllib.request.AbstractBasicAuthHandler" title="urllib.request.AbstractBasicAuthHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractBasicAuthHandler</span></code></a> class of the
+<a class="reference internal" href="../library/urllib.request.html#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module uses an inefficient regular expression which
+can be exploited by an attacker to cause a denial of service. Fix the
+regex to prevent the catastrophic backtracking. Vulnerability reported by
+Ben Caller and Matt Schwager.</p></li>
 </ul>
 </div>
 <div class="section" id="core-and-builtins">
@@ -150,6 +156,10 @@ the interpreter session on macOS.</p></li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue39503">bpo-39503</a>: <a class="reference internal" href="../library/urllib.request.html#urllib.request.AbstractBasicAuthHandler" title="urllib.request.AbstractBasicAuthHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractBasicAuthHandler</span></code></a> of
+<a class="reference internal" href="../library/urllib.request.html#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> now parses all WWW-Authenticate HTTP headers and
+accepts multiple challenges per header: use the realm of the first Basic
+challenge.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40014">bpo-40014</a>: Fix <code class="docutils literal notranslate"><span class="pre">os.getgrouplist()</span></code>: if <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code> function fails
 because the group list is too small, retry with a larger group list. On
 failure, the glibc implementation of <code class="docutils literal notranslate"><span class="pre">getgrouplist()</span></code> sets <code class="docutils literal notranslate"><span class="pre">ngroups</span></code>
@@ -204,6 +214,8 @@ a try/except to assure file stream gets closed before an exception is
 raised.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38410">bpo-38410</a>: Properly handle <a class="reference internal" href="../library/sys.html#sys.audit" title="sys.audit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.audit()</span></code></a> failures in
 <a class="reference internal" href="../library/sys.html#sys.set_asyncgen_hooks" title="sys.set_asyncgen_hooks"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.set_asyncgen_hooks()</span></code></a>. Based on patch by Zackery Spytz.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue36541">bpo-36541</a>: lib2to3 now recognizes named assignment expressions (the walrus
+operator, <code class="docutils literal notranslate"><span class="pre">:=</span></code>)</p></li>
 </ul>
 </div>
 <div class="section" id="documentation">
@@ -226,6 +238,7 @@ Python 3.8</p></li>
 <div class="section" id="tests">
 <h3>Tests<a class="headerlink" href="#tests" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue40146">bpo-40146</a>: Update OpenSSL to 1.1.1f in Azure Pipelines.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40019">bpo-40019</a>: test_gdb now skips tests if it detects that gdb failed to read
 debug information because the Python binary is optimized.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue27807">bpo-27807</a>: <code class="docutils literal notranslate"><span class="pre">test_site.test_startup_imports()</span></code> is now skipped if a path
@@ -17983,7 +17996,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 02, 2020.
+    Ostatnia modyfikacja kwi 03, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
