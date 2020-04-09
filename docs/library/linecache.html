@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>linecache — Random access to text lines &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -114,7 +115,7 @@ file; in the absence of an encoding token, the file encoding defaults to UTF-8.<
 <p>The <a class="reference internal" href="#module-linecache" title="linecache: Provides random access to individual lines from text files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> module defines the following functions:</p>
 <dl class="function">
 <dt id="linecache.getline">
-<code class="sig-prename descclassname">linecache.</code><code class="sig-name descname">getline</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">lineno</em>, <em class="sig-param">module_globals=None</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.getline" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">linecache.</code><code class="descname">getline</code><span class="sig-paren">(</span><em>filename</em>, <em>lineno</em>, <em>module_globals=None</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.getline" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Get line <em>lineno</em> from file named <em>filename</em>. This function will never raise an
 exception — it will return <code class="docutils literal notranslate"><span class="pre">''</span></code> on errors (the terminating newline character
 will be included for lines that are found).</p>
@@ -129,14 +130,14 @@ it is looked up relative to the entries in the module search path, <code class="
 
 <dl class="function">
 <dt id="linecache.clearcache">
-<code class="sig-prename descclassname">linecache.</code><code class="sig-name descname">clearcache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#linecache.clearcache" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">linecache.</code><code class="descname">clearcache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#linecache.clearcache" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Clear the cache.  Use this function if you no longer need lines from files
 previously read using <a class="reference internal" href="#linecache.getline" title="linecache.getline"><code class="xref py py-func docutils literal notranslate"><span class="pre">getline()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="linecache.checkcache">
-<code class="sig-prename descclassname">linecache.</code><code class="sig-name descname">checkcache</code><span class="sig-paren">(</span><em class="sig-param">filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.checkcache" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">linecache.</code><code class="descname">checkcache</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.checkcache" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Check the cache for validity.  Use this function if files in the cache  may have
 changed on disk, and you require the updated version.  If <em>filename</em> is omitted,
 it will check all the entries in the cache.</p>
@@ -144,13 +145,13 @@ it will check all the entries in the cache.</p>
 
 <dl class="function">
 <dt id="linecache.lazycache">
-<code class="sig-prename descclassname">linecache.</code><code class="sig-name descname">lazycache</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">module_globals</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.lazycache" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">linecache.</code><code class="descname">lazycache</code><span class="sig-paren">(</span><em>filename</em>, <em>module_globals</em><span class="sig-paren">)</span><a class="headerlink" href="#linecache.lazycache" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Capture enough detail about a non-file-based module to permit getting its
 lines later via <a class="reference internal" href="#linecache.getline" title="linecache.getline"><code class="xref py py-func docutils literal notranslate"><span class="pre">getline()</span></code></a> even if <em>module_globals</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> in the later
 call. This avoids doing I/O until a line is actually needed, without having
 to carry the module globals around indefinitely.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
@@ -170,10 +171,10 @@ to carry the module globals around indefinitely.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="fnmatch.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fnmatch</span></code> — Unix filename pattern matching</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">fnmatch</span></code> — Unix filename pattern matching</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="shutil.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code> — High-level file operations</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">shutil</span></code> — High-level file operations</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -242,11 +243,11 @@ to carry the module globals around indefinitely.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

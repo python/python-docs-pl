@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>2. Writing the Setup Script &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -100,10 +101,10 @@
           <div class="body" role="main">
             
   <div class="section" id="writing-the-setup-script">
-<span id="setup-script"></span><h1><span class="section-number">2. </span>Writing the Setup Script<a class="headerlink" href="#writing-the-setup-script" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<span id="setup-script"></span><h1>2. Writing the Setup Script<a class="headerlink" href="#writing-the-setup-script" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>This document is being retained solely until the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> documentation
+<p class="first admonition-title">Informacja</p>
+<p class="last">This document is being retained solely until the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> documentation
 at <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a>
 independently covers all of the relevant information currently included here.</p>
 </div>
@@ -157,7 +158,7 @@ code instead of hardcoding path separators:</p>
 </pre></div>
 </div>
 <div class="section" id="listing-whole-packages">
-<span id="listing-packages"></span><h2><span class="section-number">2.1. </span>Listing whole packages<a class="headerlink" href="#listing-whole-packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="listing-packages"></span><h2>2.1. Listing whole packages<a class="headerlink" href="#listing-whole-packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">packages</span></code> option tells the Distutils to process (build, distribute,
 install, etc.) all pure Python modules found in each package mentioned in the
 <code class="docutils literal notranslate"><span class="pre">packages</span></code> list.  In order to do this, of course, there has to be a
@@ -198,7 +199,7 @@ applies recursively, you must explicitly list all packages in
 looking for any directory with an <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> file.)</p>
 </div>
 <div class="section" id="listing-individual-modules">
-<span id="listing-modules"></span><h2><span class="section-number">2.2. </span>Listing individual modules<a class="headerlink" href="#listing-individual-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="listing-modules"></span><h2>2.2. Listing individual modules<a class="headerlink" href="#listing-individual-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>For a small module distribution, you might prefer to list all modules rather
 than listing packages—especially the case of a single module that goes in the
 „root package” (i.e., no package at all).  This simplest case was shown in
@@ -213,7 +214,7 @@ that <code class="file docutils literal notranslate"><span class="pre">pkg/__ini
 package/directory correspondence using the <code class="docutils literal notranslate"><span class="pre">package_dir</span></code> option.</p>
 </div>
 <div class="section" id="describing-extension-modules">
-<span id="describing-extensions"></span><h2><span class="section-number">2.3. </span>Describing extension modules<a class="headerlink" href="#describing-extension-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="describing-extensions"></span><h2>2.3. Describing extension modules<a class="headerlink" href="#describing-extension-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Just as writing Python extension modules is a bit more complicated than writing
 pure Python modules, describing them to the Distutils is a bit more complicated.
 Unlike pure modules, it’s not enough just to list modules or packages and expect
@@ -245,7 +246,7 @@ machinery implemented by the <strong class="command">build_ext</strong> command)
 of flexibility in describing Python extensions, which is explained in the
 following sections.</p>
 <div class="section" id="extension-names-and-packages">
-<h3><span class="section-number">2.3.1. </span>Extension names and packages<a class="headerlink" href="#extension-names-and-packages" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>2.3.1. Extension names and packages<a class="headerlink" href="#extension-names-and-packages" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>The first argument to the <a class="reference internal" href="apiref.html#distutils.core.Extension" title="distutils.core.Extension"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extension</span></code></a> constructor is
 always the name of the extension, including any package names.  For example,</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Extension</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;src/foo1.c&#39;</span><span class="p">,</span> <span class="s1">&#39;src/foo2.c&#39;</span><span class="p">])</span>
@@ -273,7 +274,7 @@ same base package), use the <code class="docutils literal notranslate"><span cla
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg.subpkg.bar</span></code>.</p>
 </div>
 <div class="section" id="extension-source-files">
-<h3><span class="section-number">2.3.2. </span>Extension source files<a class="headerlink" href="#extension-source-files" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>2.3.2. Extension source files<a class="headerlink" href="#extension-source-files" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>The second argument to the <a class="reference internal" href="apiref.html#distutils.core.Extension" title="distutils.core.Extension"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extension</span></code></a> constructor is
 a list of source
 files.  Since the Distutils currently only support C, C++, and Objective-C
@@ -304,7 +305,7 @@ Visual C++. These will be compiled to binary resource (<code class="file docutil
 linked into the executable.</p>
 </div>
 <div class="section" id="preprocessor-options">
-<h3><span class="section-number">2.3.3. </span>Preprocessor options<a class="headerlink" href="#preprocessor-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>2.3.3. Preprocessor options<a class="headerlink" href="#preprocessor-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Three optional arguments to <a class="reference internal" href="apiref.html#distutils.core.Extension" title="distutils.core.Extension"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extension</span></code></a> will help if
 you need to specify include directories to search or preprocessor macros to
 define/undefine: <code class="docutils literal notranslate"><span class="pre">include_dirs</span></code>, <code class="docutils literal notranslate"><span class="pre">define_macros</span></code>, and <code class="docutils literal notranslate"><span class="pre">undef_macros</span></code>.</p>
@@ -372,7 +373,7 @@ just a list of macros to undefine.</p>
 </div>
 </div>
 <div class="section" id="library-options">
-<h3><span class="section-number">2.3.4. </span>Library options<a class="headerlink" href="#library-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>2.3.4. Library options<a class="headerlink" href="#library-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>You can also specify the libraries to link against when building your extension,
 and the directories to search for those libraries.  The <code class="docutils literal notranslate"><span class="pre">libraries</span></code> option is
 a list of libraries to link against, <code class="docutils literal notranslate"><span class="pre">library_dirs</span></code> is a list of directories
@@ -395,7 +396,7 @@ include the location in <code class="docutils literal notranslate"><span class="
 distribute your code.)</p>
 </div>
 <div class="section" id="other-options">
-<h3><span class="section-number">2.3.5. </span>Other options<a class="headerlink" href="#other-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>2.3.5. Other options<a class="headerlink" href="#other-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>There are still some other options which can be used to handle special cases.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">optional</span></code> option is a boolean; if it is true,
 a build failure in the extension will not abort the build process, but
@@ -417,12 +418,12 @@ previous build.</p>
 </div>
 </div>
 <div class="section" id="relationships-between-distributions-and-packages">
-<h2><span class="section-number">2.4. </span>Relationships between Distributions and Packages<a class="headerlink" href="#relationships-between-distributions-and-packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>2.4. Relationships between Distributions and Packages<a class="headerlink" href="#relationships-between-distributions-and-packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>A distribution may relate to packages in three specific ways:</p>
 <ol class="arabic simple">
-<li><p>It can require packages or modules.</p></li>
-<li><p>It can provide packages or modules.</p></li>
-<li><p>It can obsolete packages or modules.</p></li>
+<li>It can require packages or modules.</li>
+<li>It can provide packages or modules.</li>
+<li>It can obsolete packages or modules.</li>
 </ol>
 <p>These relationships can be specified using keyword arguments to the
 <a class="reference internal" href="apiref.html#distutils.core.setup" title="distutils.core.setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">distutils.core.setup()</span></code></a> function.</p>
@@ -444,23 +445,23 @@ number.  The accepted comparison operators are:</p>
 optional whitespace).  In this case, all of the qualifiers must be matched; a
 logical AND is used to combine the evaluations.</p>
 <p>Let’s look at a bunch of examples:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 35%" />
-<col style="width: 65%" />
+<col width="35%" />
+<col width="65%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Requires Expression</p></th>
-<th class="head"><p>Explanation</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Requires Expression</th>
+<th class="head">Explanation</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==1.0</span></code></p></td>
-<td><p>Only version <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is compatible</p></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">==1.0</span></code></td>
+<td>Only version <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is compatible</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;1.0,</span> <span class="pre">!=1.5.1,</span> <span class="pre">&lt;2.0</span></code></p></td>
-<td><p>Any version after <code class="docutils literal notranslate"><span class="pre">1.0</span></code> and before <code class="docutils literal notranslate"><span class="pre">2.0</span></code>
-is compatible, except <code class="docutils literal notranslate"><span class="pre">1.5.1</span></code></p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;1.0,</span> <span class="pre">!=1.5.1,</span> <span class="pre">&lt;2.0</span></code></td>
+<td>Any version after <code class="docutils literal notranslate"><span class="pre">1.0</span></code> and before <code class="docutils literal notranslate"><span class="pre">2.0</span></code>
+is compatible, except <code class="docutils literal notranslate"><span class="pre">1.5.1</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -471,24 +472,24 @@ strings, each of which names a Python module or package, and optionally
 identifies the version.  If the version is not specified, it is assumed to match
 that of the distribution.</p>
 <p>Some examples:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 31%" />
-<col style="width: 69%" />
+<col width="31%" />
+<col width="69%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Provides Expression</p></th>
-<th class="head"><p>Explanation</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Provides Expression</th>
+<th class="head">Explanation</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mypkg</span></code></p></td>
-<td><p>Provide <code class="docutils literal notranslate"><span class="pre">mypkg</span></code>, using the distribution
-version</p></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">mypkg</span></code></td>
+<td>Provide <code class="docutils literal notranslate"><span class="pre">mypkg</span></code>, using the distribution
+version</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mypkg</span> <span class="pre">(1.1)</span></code></p></td>
-<td><p>Provide <code class="docutils literal notranslate"><span class="pre">mypkg</span></code> version 1.1, regardless of
-the distribution version</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">mypkg</span> <span class="pre">(1.1)</span></code></td>
+<td>Provide <code class="docutils literal notranslate"><span class="pre">mypkg</span></code> version 1.1, regardless of
+the distribution version</td>
 </tr>
 </tbody>
 </table>
@@ -503,7 +504,7 @@ distribution being described.  If no qualifiers are given, all versions of the
 named module or package are understood to be obsoleted.</p>
 </div>
 <div class="section" id="installing-scripts">
-<span id="distutils-installing-scripts"></span><h2><span class="section-number">2.5. </span>Installing Scripts<a class="headerlink" href="#installing-scripts" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="distutils-installing-scripts"></span><h2>2.5. Installing Scripts<a class="headerlink" href="#installing-scripts" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>So far we have been dealing with pure and non-pure Python modules, which are
 usually not run by themselves but imported by scripts.</p>
 <p>Scripts are files containing Python source code, intended to be started from the
@@ -521,12 +522,12 @@ way.  From the PyXML setup script:</p>
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.1: </span>All the scripts will also be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code> file if no template is
+<p><span class="versionmodified">Zmienione w wersji 3.1: </span>All the scripts will also be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code> file if no template is
 provided.  See <a class="reference internal" href="sourcedist.html#manifest"><span class="std std-ref">Specifying the files to distribute</span></a>.</p>
 </div>
 </div>
 <div class="section" id="installing-package-data">
-<span id="distutils-installing-package-data"></span><h2><span class="section-number">2.6. </span>Installing Package Data<a class="headerlink" href="#installing-package-data" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="distutils-installing-package-data"></span><h2>2.6. Installing Package Data<a class="headerlink" href="#installing-package-data" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Often, additional files need to be installed into a package.  These files are
 often data that’s closely related to the package’s implementation, or text files
 containing documentation that might be of interest to programmers using the
@@ -562,12 +563,12 @@ the files can be arranged like this in the source tree:</p>
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.1: </span>All the files that match <code class="docutils literal notranslate"><span class="pre">package_data</span></code> will be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code>
+<p><span class="versionmodified">Zmienione w wersji 3.1: </span>All the files that match <code class="docutils literal notranslate"><span class="pre">package_data</span></code> will be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code>
 file if no template is provided.  See <a class="reference internal" href="sourcedist.html#manifest"><span class="std std-ref">Specifying the files to distribute</span></a>.</p>
 </div>
 </div>
 <div class="section" id="installing-additional-files">
-<span id="distutils-additional-files"></span><h2><span class="section-number">2.7. </span>Installing Additional Files<a class="headerlink" href="#installing-additional-files" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="distutils-additional-files"></span><h2>2.7. Installing Additional Files<a class="headerlink" href="#installing-additional-files" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">data_files</span></code> option can be used to specify additional files needed
 by the module distribution: configuration files, message catalogs, data files,
 anything which doesn’t fit in the previous categories.</p>
@@ -598,136 +599,136 @@ without specifying a target directory, but this is not recommended, and the
 files directly in the target directory, an empty string should be given as the
 directory.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.1: </span>All the files that match <code class="docutils literal notranslate"><span class="pre">data_files</span></code> will be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code>
+<p><span class="versionmodified">Zmienione w wersji 3.1: </span>All the files that match <code class="docutils literal notranslate"><span class="pre">data_files</span></code> will be added to the <code class="docutils literal notranslate"><span class="pre">MANIFEST</span></code>
 file if no template is provided.  See <a class="reference internal" href="sourcedist.html#manifest"><span class="std std-ref">Specifying the files to distribute</span></a>.</p>
 </div>
 </div>
 <div class="section" id="additional-meta-data">
-<span id="meta-data"></span><h2><span class="section-number">2.8. </span>Additional meta-data<a class="headerlink" href="#additional-meta-data" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="meta-data"></span><h2>2.8. Additional meta-data<a class="headerlink" href="#additional-meta-data" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The setup script may include additional meta-data beyond the name and version.
 This information includes:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 36%" />
-<col style="width: 23%" />
-<col style="width: 11%" />
+<col width="30%" />
+<col width="36%" />
+<col width="23%" />
+<col width="11%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Meta-Data</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Value</p></th>
-<th class="head"><p>Notes</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Meta-Data</th>
+<th class="head">Description</th>
+<th class="head">Value</th>
+<th class="head">Notes</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>name of the package</p></td>
-<td><p>short string</p></td>
-<td><p>(1)</p></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">name</span></code></td>
+<td>name of the package</td>
+<td>short string</td>
+<td>(1)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
-<td><p>version of this release</p></td>
-<td><p>short string</p></td>
-<td><p>(1)(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">version</span></code></td>
+<td>version of this release</td>
+<td>short string</td>
+<td>(1)(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">author</span></code></p></td>
-<td><p>package author’s name</p></td>
-<td><p>short string</p></td>
-<td><p>(3)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">author</span></code></td>
+<td>package author’s name</td>
+<td>short string</td>
+<td>(3)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">author_email</span></code></p></td>
-<td><p>email address of the
-package author</p></td>
-<td><p>email address</p></td>
-<td><p>(3)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">author_email</span></code></td>
+<td>email address of the
+package author</td>
+<td>email address</td>
+<td>(3)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">maintainer</span></code></p></td>
-<td><p>package maintainer’s name</p></td>
-<td><p>short string</p></td>
-<td><p>(3)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maintainer</span></code></td>
+<td>package maintainer’s name</td>
+<td>short string</td>
+<td>(3)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">maintainer_email</span></code></p></td>
-<td><p>email address of the
-package maintainer</p></td>
-<td><p>email address</p></td>
-<td><p>(3)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">maintainer_email</span></code></td>
+<td>email address of the
+package maintainer</td>
+<td>email address</td>
+<td>(3)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">url</span></code></p></td>
-<td><p>home page for the package</p></td>
-<td><p>URL</p></td>
-<td><p>(1)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">url</span></code></td>
+<td>home page for the package</td>
+<td>URL</td>
+<td>(1)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
-<td><p>short, summary
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">description</span></code></td>
+<td>short, summary
 description of the
-package</p></td>
-<td><p>short string</p></td>
-<td></td>
+package</td>
+<td>short string</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">long_description</span></code></p></td>
-<td><p>longer description of the
-package</p></td>
-<td><p>long string</p></td>
-<td><p>(4)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">long_description</span></code></td>
+<td>longer description of the
+package</td>
+<td>long string</td>
+<td>(4)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">download_url</span></code></p></td>
-<td><p>location where the
-package may be downloaded</p></td>
-<td><p>URL</p></td>
-<td></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">download_url</span></code></td>
+<td>location where the
+package may be downloaded</td>
+<td>URL</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">classifiers</span></code></p></td>
-<td><p>a list of classifiers</p></td>
-<td><p>list of strings</p></td>
-<td><p>(6)(7)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">classifiers</span></code></td>
+<td>a list of classifiers</td>
+<td>list of strings</td>
+<td>(6)(7)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">platforms</span></code></p></td>
-<td><p>a list of platforms</p></td>
-<td><p>list of strings</p></td>
-<td><p>(6)(8)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">platforms</span></code></td>
+<td>a list of platforms</td>
+<td>list of strings</td>
+<td>(6)(8)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">keywords</span></code></p></td>
-<td><p>a list of keywords</p></td>
-<td><p>list of strings</p></td>
-<td><p>(6)(8)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">keywords</span></code></td>
+<td>a list of keywords</td>
+<td>list of strings</td>
+<td>(6)(8)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">license</span></code></p></td>
-<td><p>license for the package</p></td>
-<td><p>short string</p></td>
-<td><p>(5)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">license</span></code></td>
+<td>license for the package</td>
+<td>short string</td>
+<td>(5)</td>
 </tr>
 </tbody>
 </table>
 <p>Notes:</p>
 <ol class="arabic simple">
-<li><p>These fields are required.</p></li>
-<li><p>It is recommended that versions take the form <em>major.minor[.patch[.sub]]</em>.</p></li>
-<li><p>Either the author or the maintainer must be identified. If maintainer is
-provided, distutils lists it as the author in <code class="file docutils literal notranslate"><span class="pre">PKG-INFO</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">long_description</span></code> field is used by PyPI when you publish a package,
-to build its project page.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">license</span></code> field is a text indicating the license covering the
+<li>These fields are required.</li>
+<li>It is recommended that versions take the form <em>major.minor[.patch[.sub]]</em>.</li>
+<li>Either the author or the maintainer must be identified. If maintainer is
+provided, distutils lists it as the author in <code class="file docutils literal notranslate"><span class="pre">PKG-INFO</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">long_description</span></code> field is used by PyPI when you publish a package,
+to build its project page.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">license</span></code> field is a text indicating the license covering the
 package where the license is not a selection from the „License” Trove
 classifiers. See the <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> field. Notice that
 there’s a <code class="docutils literal notranslate"><span class="pre">licence</span></code> distribution option which is deprecated but still
-acts as an alias for <code class="docutils literal notranslate"><span class="pre">license</span></code>.</p></li>
-<li><p>This field must be a list.</p></li>
-<li><p>The valid classifiers are listed on
-<a class="reference external" href="https://pypi.org/classifiers">PyPI</a>.</p></li>
-<li><p>To preserve backward compatibility, this field also accepts a string. If
+acts as an alias for <code class="docutils literal notranslate"><span class="pre">license</span></code>.</li>
+<li>This field must be a list.</li>
+<li>The valid classifiers are listed on
+<a class="reference external" href="https://pypi.org/classifiers">PyPI</a>.</li>
+<li>To preserve backward compatibility, this field also accepts a string. If
 you pass a comma-separated string <code class="docutils literal notranslate"><span class="pre">'foo,</span> <span class="pre">bar'</span></code>, it will be converted to
 <code class="docutils literal notranslate"><span class="pre">['foo',</span> <span class="pre">'bar']</span></code>, Otherwise, it will be converted to a list of one
-string.</p></li>
+string.</li>
 </ol>
-<dl class="simple">
-<dt>«short string»</dt><dd><p>A single line of text, not more than 200 characters.</p>
-</dd>
-<dt>«long string»</dt><dd><p>Multiple lines of plain text in reStructuredText format (see
-<a class="reference external" href="http://docutils.sourceforge.net/">http://docutils.sourceforge.net/</a>).</p>
-</dd>
-<dt>«list of strings»</dt><dd><p>See below.</p>
-</dd>
+<dl class="docutils">
+<dt>«short string»</dt>
+<dd>A single line of text, not more than 200 characters.</dd>
+<dt>«long string»</dt>
+<dd>Multiple lines of plain text in reStructuredText format (see
+<a class="reference external" href="http://docutils.sourceforge.net/">http://docutils.sourceforge.net/</a>).</dd>
+<dt>«list of strings»</dt>
+<dd>See below.</dd>
 </dl>
 <p>Encoding the version information is an art in itself. Python packages generally
 adhere to the version format <em>major.minor[.patch][sub]</em>. The major number is 0
@@ -739,11 +740,11 @@ information is sometimes used to indicate sub-releases.  These are
 „a1,a2,…,aN” (for alpha releases, where functionality and API may change),
 „b1,b2,…,bN” (for beta releases, which only fix bugs) and „pr1,pr2,…,prN”
 (for final pre-release release testing). Some examples:</p>
-<dl class="simple">
-<dt>0.1.0</dt><dd><p>the first, experimental release of a package</p>
-</dd>
-<dt>1.0.1a2</dt><dd><p>the second alpha release of the first patch version of 1.0</p>
-</dd>
+<dl class="docutils">
+<dt>0.1.0</dt>
+<dd>the first, experimental release of a package</dd>
+<dt>1.0.1a2</dt>
+<dd>the second alpha release of the first patch version of 1.0</dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">classifiers</span></code> must be specified in a list:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
@@ -767,12 +768,12 @@ information is sometimes used to indicate sub-releases.  These are
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span><a class="reference internal" href="apiref.html#distutils.core.setup" title="distutils.core.setup"><code class="xref py py-class docutils literal notranslate"><span class="pre">setup</span></code></a> now warns when <code class="docutils literal notranslate"><span class="pre">classifiers</span></code>, <code class="docutils literal notranslate"><span class="pre">keywords</span></code>
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span><a class="reference internal" href="apiref.html#distutils.core.setup" title="distutils.core.setup"><code class="xref py py-class docutils literal notranslate"><span class="pre">setup</span></code></a> now warns when <code class="docutils literal notranslate"><span class="pre">classifiers</span></code>, <code class="docutils literal notranslate"><span class="pre">keywords</span></code>
 or <code class="docutils literal notranslate"><span class="pre">platforms</span></code> fields are not specified as a list or a string.</p>
 </div>
 </div>
 <div class="section" id="debugging-the-setup-script">
-<span id="debug-setup-script"></span><h2><span class="section-number">2.9. </span>Debugging the setup script<a class="headerlink" href="#debugging-the-setup-script" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="debug-setup-script"></span><h2>2.9. Debugging the setup script<a class="headerlink" href="#debugging-the-setup-script" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Sometimes things go wrong, and the setup script doesn’t do what the developer
 wants.</p>
 <p>Distutils catches any exceptions when running the setup script, and print a
@@ -797,7 +798,7 @@ compiler) fails.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">2. Writing the Setup Script</a><ul>
 <li><a class="reference internal" href="#listing-whole-packages">2.1. Listing whole packages</a></li>
@@ -822,10 +823,10 @@ compiler) fails.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="introduction.html"
-                        title="poprzedni rozdział"><span class="section-number">1. </span>An Introduction to Distutils</a></p>
+                        title="poprzedni rozdział">1. An Introduction to Distutils</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="configfile.html"
-                        title="następny rozdział"><span class="section-number">3. </span>Writing the Setup Configuration File</a></p>
+                        title="następny rozdział">3. Writing the Setup Configuration File</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -893,11 +894,11 @@ compiler) fails.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

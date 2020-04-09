@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>File Objects &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -112,7 +113,7 @@ error reporting in the interpreter; third-party code is advised to access
 the <a class="reference internal" href="../library/io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a> APIs instead.</p>
 <dl class="function">
 <dt id="c.PyFile_FromFd">
-<code class="sig-name descname">PyFile_FromFd</code><span class="sig-paren">(</span>int<em> fd</em>, const char<em> *name</em>, const char<em> *mode</em>, int<em> buffering</em>, const char<em> *encoding</em>, const char<em> *errors</em>, const char<em> *newline</em>, int<em> closefd</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_FromFd" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">PyFile_FromFd</code><span class="sig-paren">(</span>int<em>&nbsp;fd</em>, const char<em>&nbsp;*name</em>, const char<em>&nbsp;*mode</em>, int<em>&nbsp;buffering</em>, const char<em>&nbsp;*encoding</em>, const char<em>&nbsp;*errors</em>, const char<em>&nbsp;*newline</em>, int<em>&nbsp;closefd</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_FromFd" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Create a Python file object from the file descriptor of an already
 opened file <em>fd</em>.  The arguments <em>name</em>, <em>encoding</em>, <em>errors</em> and <em>newline</em>
 can be <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to use the defaults; <em>buffering</em> can be <em>-1</em> to use the
@@ -120,19 +121,19 @@ default. <em>name</em> is ignored and kept for backward compatibility. Return
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure. For a more comprehensive description of the arguments,
 please refer to the <a class="reference internal" href="../library/io.html#io.open" title="io.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">io.open()</span></code></a> function documentation.</p>
 <div class="admonition warning">
-<p class="admonition-title">Ostrzeżenie</p>
-<p>Since Python streams have their own buffering layer, mixing them with
+<p class="first admonition-title">Ostrzeżenie</p>
+<p class="last">Since Python streams have their own buffering layer, mixing them with
 OS-level file descriptors can produce various issues (such as unexpected
 ordering of data).</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Ignore <em>name</em> attribute.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.2: </span>Ignore <em>name</em> attribute.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyObject_AsFileDescriptor">
-int <code class="sig-name descname">PyObject_AsFileDescriptor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_AsFileDescriptor" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyObject_AsFileDescriptor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_AsFileDescriptor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the file descriptor associated with <em>p</em> as an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code>.  If the
 object is an integer, its value is returned.  If not, the
 object’s <a class="reference internal" href="../library/io.html#io.IOBase.fileno" title="io.IOBase.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a> method is called if it exists; the
@@ -142,7 +143,7 @@ value.  Sets an exception and returns <code class="docutils literal notranslate"
 
 <dl class="function">
 <dt id="c.PyFile_GetLine">
-<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyFile_GetLine</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, int<em> n</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_GetLine" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyFile_GetLine</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em>, int<em>&nbsp;n</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_GetLine" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p id="index-1">Equivalent to <code class="docutils literal notranslate"><span class="pre">p.readline([n])</span></code>, this function reads one line from the
 object <em>p</em>.  <em>p</em> may be a file object or any object with a
 <a class="reference internal" href="../library/io.html#io.IOBase.readline" title="io.IOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a>
@@ -156,7 +157,7 @@ raised if the end of the file is reached immediately.</p>
 
 <dl class="function">
 <dt id="c.PyFile_SetOpenCodeHook">
-int <code class="sig-name descname">PyFile_SetOpenCodeHook</code><span class="sig-paren">(</span>Py_OpenCodeHookFunction<em> handler</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_SetOpenCodeHook" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyFile_SetOpenCodeHook</code><span class="sig-paren">(</span>Py_OpenCodeHookFunction<em>&nbsp;handler</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_SetOpenCodeHook" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Overrides the normal behavior of <a class="reference internal" href="../library/io.html#io.open_code" title="io.open_code"><code class="xref py py-func docutils literal notranslate"><span class="pre">io.open_code()</span></code></a> to pass its parameter
 through the provided handler.</p>
 <p>The handler is a function of type <code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span> <span class="pre">*(*)(PyObject</span> <span class="pre">*path,</span>
@@ -172,13 +173,13 @@ during its execution unless they are known to be frozen or available in
 -1 and sets an exception if the interpreter has been initialized.</p>
 <p>This function is safe to call before <a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyFile_WriteObject">
-int <code class="sig-name descname">PyFile_WriteObject</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *obj</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, int<em> flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_WriteObject" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyFile_WriteObject</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*obj</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em>, int<em>&nbsp;flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_WriteObject" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-2">Write object <em>obj</em> to file object <em>p</em>.  The only supported flag for <em>flags</em> is
 <code class="xref py py-const docutils literal notranslate"><span class="pre">Py_PRINT_RAW</span></code>; if given, the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> of the object is written
 instead of the <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>.  Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure; the
@@ -187,7 +188,7 @@ appropriate exception will be set.</p>
 
 <dl class="function">
 <dt id="c.PyFile_WriteString">
-int <code class="sig-name descname">PyFile_WriteString</code><span class="sig-paren">(</span>const char<em> *s</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_WriteString" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyFile_WriteString</code><span class="sig-paren">(</span>const char<em>&nbsp;*s</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFile_WriteString" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Write string <em>s</em> to file object <em>p</em>.  Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on
 failure; the appropriate exception will be set.</p>
 </dd></dl>
@@ -274,11 +275,11 @@ failure; the appropriate exception will be set.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>copy — Shallow and deep copy operations &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -112,44 +113,44 @@ operations (explained below).</p>
 <p>Interface summary:</p>
 <dl class="function">
 <dt id="copy.copy">
-<code class="sig-prename descclassname">copy.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#copy.copy" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">copy.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#copy.copy" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a shallow copy of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copy.deepcopy">
-<code class="sig-prename descclassname">copy.</code><code class="sig-name descname">deepcopy</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="optional">[</span>, <em class="sig-param">memo</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#copy.deepcopy" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">copy.</code><code class="descname">deepcopy</code><span class="sig-paren">(</span><em>x</em><span class="optional">[</span>, <em>memo</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#copy.deepcopy" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a deep copy of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="copy.error">
-<em class="property">exception </em><code class="sig-prename descclassname">copy.</code><code class="sig-name descname">error</code><a class="headerlink" href="#copy.error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">copy.</code><code class="descname">error</code><a class="headerlink" href="#copy.error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Raised for module specific errors.</p>
 </dd></dl>
 
 <p id="shallow-vs-deep-copy">The difference between shallow and deep copying is only relevant for compound
 objects (objects that contain other objects, like lists or class instances):</p>
 <ul class="simple">
-<li><p>A <em>shallow copy</em> constructs a new compound object and then (to the extent
-possible) inserts <em>references</em> into it to the objects found in the original.</p></li>
-<li><p>A <em>deep copy</em> constructs a new compound object and then, recursively, inserts
-<em>copies</em> into it of the objects found in the original.</p></li>
+<li>A <em>shallow copy</em> constructs a new compound object and then (to the extent
+possible) inserts <em>references</em> into it to the objects found in the original.</li>
+<li>A <em>deep copy</em> constructs a new compound object and then, recursively, inserts
+<em>copies</em> into it of the objects found in the original.</li>
 </ul>
 <p>Two problems often exist with deep copy operations that don’t exist with shallow
 copy operations:</p>
 <ul class="simple">
-<li><p>Recursive objects (compound objects that, directly or indirectly, contain a
-reference to themselves) may cause a recursive loop.</p></li>
-<li><p>Because deep copy copies everything it may copy too much, such as data
-which is intended to be shared between copies.</p></li>
+<li>Recursive objects (compound objects that, directly or indirectly, contain a
+reference to themselves) may cause a recursive loop.</li>
+<li>Because deep copy copies everything it may copy too much, such as data
+which is intended to be shared between copies.</li>
 </ul>
 <p>The <a class="reference internal" href="#copy.deepcopy" title="copy.deepcopy"><code class="xref py py-func docutils literal notranslate"><span class="pre">deepcopy()</span></code></a> function avoids these problems by:</p>
 <ul class="simple">
-<li><p>keeping a <code class="docutils literal notranslate"><span class="pre">memo</span></code> dictionary of objects already copied during the current
-copying pass; and</p></li>
-<li><p>letting user-defined classes override the copying operation or the set of
-components copied.</p></li>
+<li>keeping a <code class="docutils literal notranslate"><span class="pre">memo</span></code> dictionary of objects already copied during the current
+copying pass; and</li>
+<li>letting user-defined classes override the copying operation or the set of
+components copied.</li>
 </ul>
 <p>This module does not copy types like module, method, stack trace, stack frame,
 file, socket, window, array, or any similar types.  It does „copy” functions and
@@ -170,11 +171,11 @@ argument, the <code class="docutils literal notranslate"><span class="pre">memo<
 to make a deep copy of a component, it should call the <a class="reference internal" href="#copy.deepcopy" title="copy.deepcopy"><code class="xref py py-func docutils literal notranslate"><span class="pre">deepcopy()</span></code></a> function
 with the component as first argument and the memo dictionary as second argument.</p>
 <div class="admonition seealso">
-<p class="admonition-title">Zobacz także</p>
-<dl class="simple">
-<dt>Module <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd><p>Discussion of the special methods used to support object state retrieval and
-restoration.</p>
-</dd>
+<p class="first admonition-title">Zobacz także</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a></dt>
+<dd>Discussion of the special methods used to support object state retrieval and
+restoration.</dd>
 </dl>
 </div>
 </div>
@@ -187,10 +188,10 @@ restoration.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="types.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> — Dynamic type creation and names for built-in types</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">types</span></code> — Dynamic type creation and names for built-in types</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="pprint.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pprint</span></code> — Data pretty printer</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">pprint</span></code> — Data pretty printer</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -259,11 +260,11 @@ restoration.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

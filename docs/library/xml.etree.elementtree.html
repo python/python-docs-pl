@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>xml.etree.ElementTree — The ElementTree XML API &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -107,12 +108,12 @@
 <p>The <a class="reference internal" href="#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a> module implements a simple and efficient API
 for parsing and creating XML data.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>This module will use a fast implementation whenever available.
+<p><span class="versionmodified">Zmienione w wersji 3.3: </span>This module will use a fast implementation whenever available.
 The <code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.cElementTree</span></code> module is deprecated.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Ostrzeżenie</p>
-<p>The <a class="reference internal" href="#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a> module is not secure against
+<p class="first admonition-title">Ostrzeżenie</p>
+<p class="last">The <a class="reference internal" href="#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a> module is not secure against
 maliciously constructed data.  If you need to parse untrusted or
 unauthenticated data see <a class="reference internal" href="xml.html#xml-vulnerabilities"><span class="std std-ref">XML vulnerabilities</span></a>.</p>
 </div>
@@ -194,8 +195,8 @@ create an <a class="reference internal" href="#xml.etree.ElementTree.ElementTree
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Not all elements of the XML input will end up as elements of the
+<p class="first admonition-title">Informacja</p>
+<p class="last">Not all elements of the XML input will end up as elements of the
 parsed tree. Currently, this module skips over any XML comments,
 processing instructions, and document type declarations in the
 input. Nevertheless, trees built using this module’s API rather
@@ -465,19 +466,19 @@ module.  We’ll be using the <code class="docutils literal notranslate"><span c
 </div>
 <div class="section" id="supported-xpath-syntax">
 <h3>Supported XPath syntax<a class="headerlink" href="#supported-xpath-syntax" title="Stały odnośnik do tego nagłówka">¶</a></h3>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
+<col width="30%" />
+<col width="70%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Syntax</p></th>
-<th class="head"><p>Meaning</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Syntax</th>
+<th class="head">Meaning</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tag</span></code></p></td>
-<td><p>Selects all child elements with the given tag.
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">tag</span></code></td>
+<td><p class="first">Selects all child elements with the given tag.
 For example, <code class="docutils literal notranslate"><span class="pre">spam</span></code> selects all child elements
 named <code class="docutils literal notranslate"><span class="pre">spam</span></code>, and <code class="docutils literal notranslate"><span class="pre">spam/egg</span></code> selects all
 grandchildren named <code class="docutils literal notranslate"><span class="pre">egg</span></code> in all children named
@@ -485,62 +486,62 @@ grandchildren named <code class="docutils literal notranslate"><span class="pre"
 given namespace, <code class="docutils literal notranslate"><span class="pre">{*}spam</span></code> selects tags named
 <code class="docutils literal notranslate"><span class="pre">spam</span></code> in any (or no) namespace, and <code class="docutils literal notranslate"><span class="pre">{}*</span></code>
 only selects tags that are not in a namespace.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Support for star-wildcards was added.</p>
+<div class="last versionchanged">
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Support for star-wildcards was added.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td><p>Selects all child elements, including comments and
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+<td>Selects all child elements, including comments and
 processing instructions.  For example, <code class="docutils literal notranslate"><span class="pre">*/egg</span></code>
-selects all grandchildren named <code class="docutils literal notranslate"><span class="pre">egg</span></code>.</p></td>
+selects all grandchildren named <code class="docutils literal notranslate"><span class="pre">egg</span></code>.</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
-<td><p>Selects the current node.  This is mostly useful
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">.</span></code></td>
+<td>Selects the current node.  This is mostly useful
 at the beginning of the path, to indicate that it’s
-a relative path.</p></td>
+a relative path.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
-<td><p>Selects all subelements, on all levels beneath the
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">//</span></code></td>
+<td>Selects all subelements, on all levels beneath the
 current  element.  For example, <code class="docutils literal notranslate"><span class="pre">.//egg</span></code> selects
-all <code class="docutils literal notranslate"><span class="pre">egg</span></code> elements in the entire tree.</p></td>
+all <code class="docutils literal notranslate"><span class="pre">egg</span></code> elements in the entire tree.</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">..</span></code></p></td>
-<td><p>Selects the parent element.  Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">..</span></code></td>
+<td>Selects the parent element.  Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
 path attempts to reach the ancestors of the start
-element (the element <code class="docutils literal notranslate"><span class="pre">find</span></code> was called on).</p></td>
+element (the element <code class="docutils literal notranslate"><span class="pre">find</span></code> was called on).</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[&#64;attrib]</span></code></p></td>
-<td><p>Selects all elements that have the given attribute.</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">[&#64;attrib]</span></code></td>
+<td>Selects all elements that have the given attribute.</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[&#64;attrib='value']</span></code></p></td>
-<td><p>Selects all elements for which the given attribute
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">[&#64;attrib='value']</span></code></td>
+<td>Selects all elements for which the given attribute
 has the given value.  The value cannot contain
-quotes.</p></td>
+quotes.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[tag]</span></code></p></td>
-<td><p>Selects all elements that have a child named
-<code class="docutils literal notranslate"><span class="pre">tag</span></code>.  Only immediate children are supported.</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">[tag]</span></code></td>
+<td>Selects all elements that have a child named
+<code class="docutils literal notranslate"><span class="pre">tag</span></code>.  Only immediate children are supported.</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[.='text']</span></code></p></td>
-<td><p>Selects all elements whose complete text content,
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">[.='text']</span></code></td>
+<td><p class="first">Selects all elements whose complete text content,
 including descendants, equals the given <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<div class="last versionadded">
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[tag='text']</span></code></p></td>
-<td><p>Selects all elements that have a child named
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">[tag='text']</span></code></td>
+<td>Selects all elements that have a child named
 <code class="docutils literal notranslate"><span class="pre">tag</span></code> whose complete text content, including
-descendants, equals the given <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p></td>
+descendants, equals the given <code class="docutils literal notranslate"><span class="pre">text</span></code>.</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[position]</span></code></p></td>
-<td><p>Selects all elements that are located at the given
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">[position]</span></code></td>
+<td>Selects all elements that are located at the given
 position.  The position can be either an integer
 (1 is the first position), the expression <code class="docutils literal notranslate"><span class="pre">last()</span></code>
 (for the last position), or a position relative to
-the last position (e.g. <code class="docutils literal notranslate"><span class="pre">last()-1</span></code>).</p></td>
+the last position (e.g. <code class="docutils literal notranslate"><span class="pre">last()-1</span></code>).</td>
 </tr>
 </tbody>
 </table>
@@ -555,7 +556,7 @@ preceded by a tag name.</p>
 <span id="elementtree-functions"></span><h3>Functions<a class="headerlink" href="#functions" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="function">
 <dt id="xml.etree.ElementTree.canonicalize">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">canonicalize</code><span class="sig-paren">(</span><em class="sig-param">xml_data=None</em>, <em class="sig-param">*</em>, <em class="sig-param">out=None</em>, <em class="sig-param">from_file=None</em>, <em class="sig-param">**options</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.canonicalize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">canonicalize</code><span class="sig-paren">(</span><em>xml_data=None</em>, <em>*</em>, <em>out=None</em>, <em>from_file=None</em>, <em>**options</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.canonicalize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><a class="reference external" href="https://www.w3.org/TR/xml-c14n2/">C14N 2.0</a> transformation function.</p>
 <p>Canonicalization is a way to normalise XML output in a way that allows
 byte-by-byte comparisons and digital signatures.  It reduced the freedom
@@ -581,40 +582,40 @@ encoding.</p>
 </div>
 <p>The configuration <em>options</em> are as follows:</p>
 <ul class="simple">
-<li><p><em>with_comments</em>: set to true to include comments (default: false)</p></li>
-<li><dl class="simple">
-<dt><em>strip_text</em>: set to true to strip whitespace before and after text content</dt><dd><p>(default: false)</p>
-</dd>
+<li><em>with_comments</em>: set to true to include comments (default: false)</li>
+<li><dl class="first docutils">
+<dt><em>strip_text</em>: set to true to strip whitespace before and after text content</dt>
+<dd>(default: false)</dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><em>rewrite_prefixes</em>: set to true to replace namespace prefixes by „n{number}”</dt><dd><p>(default: false)</p>
-</dd>
+<li><dl class="first docutils">
+<dt><em>rewrite_prefixes</em>: set to true to replace namespace prefixes by „n{number}”</dt>
+<dd>(default: false)</dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><em>qname_aware_tags</em>: a set of qname aware tag names in which prefixes</dt><dd><p>should be replaced in text content (default: empty)</p>
-</dd>
+<li><dl class="first docutils">
+<dt><em>qname_aware_tags</em>: a set of qname aware tag names in which prefixes</dt>
+<dd>should be replaced in text content (default: empty)</dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><em>qname_aware_attrs</em>: a set of qname aware attribute names in which prefixes</dt><dd><p>should be replaced in text content (default: empty)</p>
-</dd>
+<li><dl class="first docutils">
+<dt><em>qname_aware_attrs</em>: a set of qname aware attribute names in which prefixes</dt>
+<dd>should be replaced in text content (default: empty)</dd>
 </dl>
 </li>
-<li><p><em>exclude_attrs</em>: a set of attribute names that should not be serialised</p></li>
-<li><p><em>exclude_tags</em>: a set of tag names that should not be serialised</p></li>
+<li><em>exclude_attrs</em>: a set of attribute names that should not be serialised</li>
+<li><em>exclude_tags</em>: a set of tag names that should not be serialised</li>
 </ul>
 <p>In the option list above, „a set” refers to any collection or iterable of
 strings, no ordering is expected.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.Comment">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">Comment</code><span class="sig-paren">(</span><em class="sig-param">text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Comment" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">Comment</code><span class="sig-paren">(</span><em>text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Comment" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Comment element factory.  This factory function creates a special element
 that will be serialized as an XML comment by the standard serializer.  The
 comment string can be either a bytestring or a Unicode string.  <em>text</em> is a
@@ -628,21 +629,21 @@ the tree using one of the <a class="reference internal" href="#xml.etree.Element
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.dump">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param">elem</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.dump" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">dump</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.dump" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Writes an element tree or element structure to sys.stdout.  This function
 should be used for debugging only.</p>
 <p>The exact output format is implementation dependent.  In this version, it’s
 written as an ordinary XML file.</p>
 <p><em>elem</em> is an element tree or an individual element.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.dump" title="xml.etree.ElementTree.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump()</span></code></a> function now preserves the attribute order specified
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.dump" title="xml.etree.ElementTree.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump()</span></code></a> function now preserves the attribute order specified
 by the user.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.fromstring">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">fromstring</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.fromstring" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">fromstring</code><span class="sig-paren">(</span><em>text</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.fromstring" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML section from a string constant.  Same as <a class="reference internal" href="#xml.etree.ElementTree.XML" title="xml.etree.ElementTree.XML"><code class="xref py py-func docutils literal notranslate"><span class="pre">XML()</span></code></a>.  <em>text</em>
 is a string containing XML data.  <em>parser</em> is an optional parser instance.
 If not given, the standard <a class="reference internal" href="#xml.etree.ElementTree.XMLParser" title="xml.etree.ElementTree.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a> parser is used.
@@ -651,26 +652,26 @@ Returns an <a class="reference internal" href="#xml.etree.ElementTree.Element" t
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.fromstringlist">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">fromstringlist</code><span class="sig-paren">(</span><em class="sig-param">sequence</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.fromstringlist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">fromstringlist</code><span class="sig-paren">(</span><em>sequence</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.fromstringlist" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML document from a sequence of string fragments.  <em>sequence</em> is a
 list or other sequence containing XML data fragments.  <em>parser</em> is an
 optional parser instance.  If not given, the standard <a class="reference internal" href="#xml.etree.ElementTree.XMLParser" title="xml.etree.ElementTree.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a>
 parser is used.  Returns an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.iselement">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">iselement</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.iselement" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">iselement</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.iselement" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Check if an object appears to be a valid element object.  <em>element</em> is an
 element instance.  Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this is an element object.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.iterparse">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">iterparse</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">events=None</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.iterparse" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">iterparse</code><span class="sig-paren">(</span><em>source</em>, <em>events=None</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.iterparse" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML section into an element tree incrementally, and reports what’s
 going on to the user.  <em>source</em> is a filename or <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>
 containing XML data.  <em>events</em> is a sequence of events to report back.  The
@@ -687,25 +688,25 @@ blocking reads on <em>source</em> (or the file it names).  As such, it’s unsui
 for applications where blocking reads can’t be made.  For fully non-blocking
 parsing, see <a class="reference internal" href="#xml.etree.ElementTree.XMLPullParser" title="xml.etree.ElementTree.XMLPullParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLPullParser</span></code></a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p><a class="reference internal" href="#xml.etree.ElementTree.iterparse" title="xml.etree.ElementTree.iterparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">iterparse()</span></code></a> only guarantees that it has seen the „&gt;” character of a
 starting tag when it emits a „start” event, so the attributes are defined,
 but the contents of the text and tail attributes are undefined at that
 point.  The same applies to the element children; they may or may not be
 present.</p>
-<p>If you need a fully populated element, look for „end” events instead.</p>
+<p class="last">If you need a fully populated element, look for „end” events instead.</p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.4: </span>The <em>parser</em> argument.</p>
+<p><span class="versionmodified">Niezalecane od wersji 3.4: </span>The <em>parser</em> argument.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code> events were added.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code> events were added.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.parse">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.parse" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>source</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.parse" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML section into an element tree.  <em>source</em> is a filename or file
 object containing XML data.  <em>parser</em> is an optional parser instance.  If
 not given, the standard <a class="reference internal" href="#xml.etree.ElementTree.XMLParser" title="xml.etree.ElementTree.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a> parser is used.  Returns an
@@ -714,7 +715,7 @@ not given, the standard <a class="reference internal" href="#xml.etree.ElementTr
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.ProcessingInstruction">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">ProcessingInstruction</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ProcessingInstruction" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">ProcessingInstruction</code><span class="sig-paren">(</span><em>target</em>, <em>text=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ProcessingInstruction" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>PI element factory.  This factory function creates a special element that
 will be serialized as an XML processing instruction.  <em>target</em> is a string
 containing the PI target.  <em>text</em> is a string containing the PI contents, if
@@ -728,20 +729,20 @@ they have been inserted into to the tree using one of the
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.register_namespace">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">register_namespace</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">uri</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.register_namespace" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">register_namespace</code><span class="sig-paren">(</span><em>prefix</em>, <em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.register_namespace" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Registers a namespace prefix.  The registry is global, and any existing
 mapping for either the given prefix or the namespace URI will be removed.
 <em>prefix</em> is a namespace prefix.  <em>uri</em> is a namespace uri.  Tags and
 attributes in this namespace will be serialized with the given prefix, if at
 all possible.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.SubElement">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">SubElement</code><span class="sig-paren">(</span><em class="sig-param">parent</em>, <em class="sig-param">tag</em>, <em class="sig-param">attrib={}</em>, <em class="sig-param">**extra</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.SubElement" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">SubElement</code><span class="sig-paren">(</span><em>parent</em>, <em>tag</em>, <em>attrib={}</em>, <em>**extra</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.SubElement" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Subelement factory.  This function creates an element instance, and appends
 it to an existing element.</p>
 <p>The element name, attribute names, and attribute values can be either
@@ -753,9 +754,9 @@ arguments.  Returns an element instance.</p>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.tostring">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">tostring</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">encoding=&quot;us-ascii&quot;</em>, <em class="sig-param">method=&quot;xml&quot;</em>, <em class="sig-param">*</em>, <em class="sig-param">xml_declaration=None</em>, <em class="sig-param">default_namespace=None</em>, <em class="sig-param">short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.tostring" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">tostring</code><span class="sig-paren">(</span><em>element</em>, <em>encoding=&quot;us-ascii&quot;</em>, <em>method=&quot;xml&quot;</em>, <em>*</em>, <em>xml_declaration=None</em>, <em>default_namespace=None</em>, <em>short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.tostring" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Generates a string representation of an XML element, including all
-subelements.  <em>element</em> is an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.  <em>encoding</em> <a class="footnote-reference brackets" href="#id9" id="id1">1</a> is
+subelements.  <em>element</em> is an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.  <em>encoding</em> <a class="footnote-reference" href="#id9" id="id1">[1]</a> is
 the output encoding (default is US-ASCII).  Use <code class="docutils literal notranslate"><span class="pre">encoding=&quot;unicode&quot;</span></code> to
 generate a Unicode string (otherwise, a bytestring is generated).  <em>method</em>
 is either <code class="docutils literal notranslate"><span class="pre">&quot;xml&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;html&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;text&quot;</span></code> (default is <code class="docutils literal notranslate"><span class="pre">&quot;xml&quot;</span></code>).
@@ -763,22 +764,22 @@ is either <code class="docutils literal notranslate"><span class="pre">&quot;xml
 meaning as in <a class="reference internal" href="#xml.etree.ElementTree.ElementTree.write" title="xml.etree.ElementTree.ElementTree.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ElementTree.write()</span></code></a>. Returns an (optionally) encoded string
 containing the XML data.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
+<p><span class="versionmodified">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8: </span>The <em>xml_declaration</em> and <em>default_namespace</em> parameters.</p>
+<p><span class="versionmodified">Nowe w wersji 3.8: </span>The <em>xml_declaration</em> and <em>default_namespace</em> parameters.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.tostring" title="xml.etree.ElementTree.tostring"><code class="xref py py-func docutils literal notranslate"><span class="pre">tostring()</span></code></a> function now preserves the attribute order
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.tostring" title="xml.etree.ElementTree.tostring"><code class="xref py py-func docutils literal notranslate"><span class="pre">tostring()</span></code></a> function now preserves the attribute order
 specified by the user.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.tostringlist">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">tostringlist</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">encoding=&quot;us-ascii&quot;</em>, <em class="sig-param">method=&quot;xml&quot;</em>, <em class="sig-param">*</em>, <em class="sig-param">xml_declaration=None</em>, <em class="sig-param">default_namespace=None</em>, <em class="sig-param">short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.tostringlist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">tostringlist</code><span class="sig-paren">(</span><em>element</em>, <em>encoding=&quot;us-ascii&quot;</em>, <em>method=&quot;xml&quot;</em>, <em>*</em>, <em>xml_declaration=None</em>, <em>default_namespace=None</em>, <em>short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.tostringlist" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Generates a string representation of an XML element, including all
-subelements.  <em>element</em> is an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.  <em>encoding</em> <a class="footnote-reference brackets" href="#id9" id="id2">1</a> is
+subelements.  <em>element</em> is an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.  <em>encoding</em> <a class="footnote-reference" href="#id9" id="id2">[1]</a> is
 the output encoding (default is US-ASCII).  Use <code class="docutils literal notranslate"><span class="pre">encoding=&quot;unicode&quot;</span></code> to
 generate a Unicode string (otherwise, a bytestring is generated).  <em>method</em>
 is either <code class="docutils literal notranslate"><span class="pre">&quot;xml&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;html&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;text&quot;</span></code> (default is <code class="docutils literal notranslate"><span class="pre">&quot;xml&quot;</span></code>).
@@ -787,23 +788,23 @@ meaning as in <a class="reference internal" href="#xml.etree.ElementTree.Element
 strings containing the XML data. It does not guarantee any specific sequence,
 except that <code class="docutils literal notranslate"><span class="pre">b&quot;&quot;.join(tostringlist(element))</span> <span class="pre">==</span> <span class="pre">tostring(element)</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
+<p><span class="versionmodified">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8: </span>The <em>xml_declaration</em> and <em>default_namespace</em> parameters.</p>
+<p><span class="versionmodified">Nowe w wersji 3.8: </span>The <em>xml_declaration</em> and <em>default_namespace</em> parameters.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.tostringlist" title="xml.etree.ElementTree.tostringlist"><code class="xref py py-func docutils literal notranslate"><span class="pre">tostringlist()</span></code></a> function now preserves the attribute order
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.tostringlist" title="xml.etree.ElementTree.tostringlist"><code class="xref py py-func docutils literal notranslate"><span class="pre">tostringlist()</span></code></a> function now preserves the attribute order
 specified by the user.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.XML">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">XML</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XML" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">XML</code><span class="sig-paren">(</span><em>text</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XML" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML section from a string constant.  This function can be used to
 embed „XML literals” in Python code.  <em>text</em> is a string containing XML
 data.  <em>parser</em> is an optional parser instance.  If not given, the standard
@@ -812,7 +813,7 @@ data.  <em>parser</em> is an optional parser instance.  If not given, the standa
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.XMLID">
-<code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">XMLID</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLID" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementTree.</code><code class="descname">XMLID</code><span class="sig-paren">(</span><em>text</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLID" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses an XML section from a string constant, and also returns a dictionary
 which maps from element id:s to elements.  <em>text</em> is a string containing XML
 data.  <em>parser</em> is an optional parser instance.  If not given, the standard
@@ -873,7 +874,7 @@ data.  <em>parser</em> is an optional parser instance.  If not given, the standa
 <span id="id5"></span><h3>Functions<a class="headerlink" href="#elementinclude-functions" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="function">
 <dt id="xml.etree.ElementTree.xml.etree.ElementInclude.default_loader">
-<code class="sig-prename descclassname">xml.etree.ElementInclude.</code><code class="sig-name descname">default_loader</code><span class="sig-paren">(</span><em class="sig-param">href</em>, <em class="sig-param">parse</em>, <em class="sig-param">encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.xml.etree.ElementInclude.default_loader" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementInclude.</code><code class="descname">default_loader</code><span class="sig-paren">(</span><em>href</em>, <em>parse</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.xml.etree.ElementInclude.default_loader" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Default loader. This default loader reads an included resource from disk.  <em>href</em> is a URL.
 <em>parse</em> is for parse mode either „xml” or „text”.  <em>encoding</em>
 is an optional text encoding.  If not given, encoding is <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>.  Returns the
@@ -884,7 +885,7 @@ loader fails, it can return None or raise an exception.</p>
 
 <dl class="function">
 <dt id="xml.etree.ElementTree.xml.etree.ElementInclude.include">
-<code class="sig-prename descclassname">xml.etree.ElementInclude.</code><code class="sig-name descname">include</code><span class="sig-paren">(</span><em class="sig-param">elem</em>, <em class="sig-param">loader=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.xml.etree.ElementInclude.include" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">xml.etree.ElementInclude.</code><code class="descname">include</code><span class="sig-paren">(</span><em>elem</em>, <em>loader=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.xml.etree.ElementInclude.include" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function expands XInclude directives.  <em>elem</em> is the root element.  <em>loader</em> is
 an optional resource loader.  If omitted, it defaults to <a class="reference internal" href="#xml.etree.ElementTree.xml.etree.ElementInclude.default_loader" title="xml.etree.ElementTree.xml.etree.ElementInclude.default_loader"><code class="xref py py-func docutils literal notranslate"><span class="pre">default_loader()</span></code></a>.
 If given, it should be a callable that implements the same interface as
@@ -899,7 +900,7 @@ raise an exception.</p>
 <span id="elementtree-element-objects"></span><h3>Element Objects<a class="headerlink" href="#element-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.Element">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param">tag</em>, <em class="sig-param">attrib={}</em>, <em class="sig-param">**extra</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">Element</code><span class="sig-paren">(</span><em>tag</em>, <em>attrib={}</em>, <em>**extra</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Element class.  This class defines the Element interface, and provides a
 reference implementation of this interface.</p>
 <p>The element name, attribute names, and attribute values can be either
@@ -908,16 +909,16 @@ an optional dictionary, containing element attributes.  <em>extra</em> contains
 additional attributes, given as keyword arguments.</p>
 <dl class="attribute">
 <dt id="xml.etree.ElementTree.Element.tag">
-<code class="sig-name descname">tag</code><a class="headerlink" href="#xml.etree.ElementTree.Element.tag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">tag</code><a class="headerlink" href="#xml.etree.ElementTree.Element.tag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string identifying what kind of data this element represents (the
 element type, in other words).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xml.etree.ElementTree.Element.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#xml.etree.ElementTree.Element.text" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">text</code><a class="headerlink" href="#xml.etree.ElementTree.Element.text" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt id="xml.etree.ElementTree.Element.tail">
-<code class="sig-name descname">tail</code><a class="headerlink" href="#xml.etree.ElementTree.Element.tail" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">tail</code><a class="headerlink" href="#xml.etree.ElementTree.Element.tail" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>These attributes can be used to hold additional data associated with
 the element.  Their values are usually strings but may be any
 application-specific object.  If the element is created from
@@ -939,7 +940,7 @@ example <code class="docutils literal notranslate"><span class="pre">&quot;&quot
 
 <dl class="attribute">
 <dt id="xml.etree.ElementTree.Element.attrib">
-<code class="sig-name descname">attrib</code><a class="headerlink" href="#xml.etree.ElementTree.Element.attrib" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">attrib</code><a class="headerlink" href="#xml.etree.ElementTree.Element.attrib" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A dictionary containing the element’s attributes.  Note that while the
 <em>attrib</em> value is always a real mutable Python dictionary, an ElementTree
 implementation may choose to use another internal representation, and
@@ -950,42 +951,42 @@ such implementations, use the dictionary methods below whenever possible.</p>
 <p>The following dictionary-like methods work on the element attributes.</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.clear" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.clear" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Resets an element.  This function removes all subelements, clears all
 attributes, and sets the text and tail attributes to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.get" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.get" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Gets the element attribute named <em>key</em>.</p>
 <p>Returns the attribute value, or <em>default</em> if the attribute was not found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.items">
-<code class="sig-name descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.items" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.items" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the element attributes as a sequence of (name, value) pairs.  The
 attributes are returned in an arbitrary order.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.keys">
-<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.keys" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.keys" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the elements attribute names as a list.  The names are returned
 in an arbitrary order.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">set</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.set" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the attribute <em>key</em> on the element to <em>value</em>.</p>
 </dd></dl>
 
 <p>The following methods work on the element’s children (subelements).</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.append">
-<code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param">subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.append" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.append" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds the element <em>subelement</em> to the end of this element’s internal list
 of subelements.  Raises <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if <em>subelement</em> is not an
 <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
@@ -993,17 +994,17 @@ of subelements.  Raises <a class="reference internal" href="exceptions.html#Type
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.extend">
-<code class="sig-name descname">extend</code><span class="sig-paren">(</span><em class="sig-param">subelements</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.extend" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">extend</code><span class="sig-paren">(</span><em>subelements</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.extend" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Appends <em>subelements</em> from a sequence object with zero or more elements.
 Raises <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if a subelement is not an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.find" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">find</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.find" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finds the first subelement matching <em>match</em>.  <em>match</em> may be a tag name
 or a <a class="reference internal" href="#elementtree-xpath"><span class="std std-ref">path</span></a>.  Returns an element instance
 or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  <em>namespaces</em> is an optional mapping from namespace prefix
@@ -1013,7 +1014,7 @@ in the expression into the given namespace.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.findall">
-<code class="sig-name descname">findall</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.findall" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">findall</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.findall" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finds all matching subelements, by tag name or
 <a class="reference internal" href="#elementtree-xpath"><span class="std std-ref">path</span></a>.  Returns a list containing all matching
 elements in document order.  <em>namespaces</em> is an optional mapping from
@@ -1023,7 +1024,7 @@ unprefixed tag names in the expression into the given namespace.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.findtext">
-<code class="sig-name descname">findtext</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">default=None</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.findtext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">findtext</code><span class="sig-paren">(</span><em>match</em>, <em>default=None</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.findtext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finds text for the first subelement matching <em>match</em>.  <em>match</em> may be
 a tag name or a <a class="reference internal" href="#elementtree-xpath"><span class="std std-ref">path</span></a>.  Returns the text content
 of the first matching element, or <em>default</em> if no element was found.
@@ -1035,7 +1036,7 @@ in the expression into the given namespace.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.getchildren">
-<code class="sig-name descname">getchildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.getchildren" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">getchildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.getchildren" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><div class="deprecated-removed">
 <p><span class="versionmodified">Deprecated since version 3.2, will be removed in version 3.9: </span>Use <code class="docutils literal notranslate"><span class="pre">list(elem)</span></code> or iteration.</p>
 </div>
@@ -1043,7 +1044,7 @@ in the expression into the given namespace.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.getiterator">
-<code class="sig-name descname">getiterator</code><span class="sig-paren">(</span><em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.getiterator" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">getiterator</code><span class="sig-paren">(</span><em>tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.getiterator" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><div class="deprecated-removed">
 <p><span class="versionmodified">Deprecated since version 3.2, will be removed in version 3.9: </span>Use method <a class="reference internal" href="#xml.etree.ElementTree.Element.iter" title="xml.etree.ElementTree.Element.iter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.iter()</span></code></a> instead.</p>
 </div>
@@ -1051,56 +1052,56 @@ in the expression into the given namespace.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.insert">
-<code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param">index</em>, <em class="sig-param">subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.insert" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>index</em>, <em>subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.insert" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Inserts <em>subelement</em> at the given position in this element.  Raises
 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if <em>subelement</em> is not an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.iter">
-<code class="sig-name descname">iter</code><span class="sig-paren">(</span><em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.iter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">iter</code><span class="sig-paren">(</span><em>tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.iter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a tree <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> with the current element as the root.
 The iterator iterates over this element and all elements below it, in
 document (depth first) order.  If <em>tag</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">'*'</span></code>, only
 elements whose tag equals <em>tag</em> are returned from the iterator.  If the
 tree structure is modified during iteration, the result is undefined.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.iterfind">
-<code class="sig-name descname">iterfind</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.iterfind" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">iterfind</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.iterfind" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finds all matching subelements, by tag name or
 <a class="reference internal" href="#elementtree-xpath"><span class="std std-ref">path</span></a>.  Returns an iterable yielding all
 matching elements in document order. <em>namespaces</em> is an optional mapping
 from namespace prefix to full name.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.itertext">
-<code class="sig-name descname">itertext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.itertext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">itertext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.itertext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a text iterator.  The iterator loops over this element and all
 subelements, in document order, and returns all inner text.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.makeelement">
-<code class="sig-name descname">makeelement</code><span class="sig-paren">(</span><em class="sig-param">tag</em>, <em class="sig-param">attrib</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.makeelement" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">makeelement</code><span class="sig-paren">(</span><em>tag</em>, <em>attrib</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.makeelement" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a new element object of the same type as this element.  Do not
 call this method, use the <a class="reference internal" href="#xml.etree.ElementTree.SubElement" title="xml.etree.ElementTree.SubElement"><code class="xref py py-func docutils literal notranslate"><span class="pre">SubElement()</span></code></a> factory function instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.Element.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.remove" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><em>subelement</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.Element.remove" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Removes <em>subelement</em> from the element.  Unlike the find* methods this
 method compares elements based on the instance identity, not on tag value
 or contents.</p>
@@ -1156,7 +1157,7 @@ an order independently from the Element creation:</p>
 <span id="elementtree-elementtree-objects"></span><h3>ElementTree Objects<a class="headerlink" href="#elementtree-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.ElementTree">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">ElementTree</code><span class="sig-paren">(</span><em class="sig-param">element=None</em>, <em class="sig-param">file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">ElementTree</code><span class="sig-paren">(</span><em>element=None</em>, <em>file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>ElementTree wrapper class.  This class represents an entire element
 hierarchy, and adds some extra support for serialization to and from
 standard XML.</p>
@@ -1164,7 +1165,7 @@ standard XML.</p>
 of the XML <em>file</em> if given.</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree._setroot">
-<code class="sig-name descname">_setroot</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree._setroot" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">_setroot</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree._setroot" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Replaces the root element for this tree.  This discards the current
 contents of the tree, and replaces it with the given element.  Use with
 care.  <em>element</em> is an element instance.</p>
@@ -1172,25 +1173,25 @@ care.  <em>element</em> is an element instance.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.find" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">find</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.find" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#xml.etree.ElementTree.Element.find" title="xml.etree.ElementTree.Element.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.find()</span></code></a>, starting at the root of the tree.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.findall">
-<code class="sig-name descname">findall</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.findall" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">findall</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.findall" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#xml.etree.ElementTree.Element.findall" title="xml.etree.ElementTree.Element.findall"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.findall()</span></code></a>, starting at the root of the tree.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.findtext">
-<code class="sig-name descname">findtext</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">default=None</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.findtext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">findtext</code><span class="sig-paren">(</span><em>match</em>, <em>default=None</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.findtext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#xml.etree.ElementTree.Element.findtext" title="xml.etree.ElementTree.Element.findtext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.findtext()</span></code></a>, starting at the root of the tree.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.getiterator">
-<code class="sig-name descname">getiterator</code><span class="sig-paren">(</span><em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.getiterator" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">getiterator</code><span class="sig-paren">(</span><em>tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.getiterator" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><div class="deprecated-removed">
 <p><span class="versionmodified">Deprecated since version 3.2, will be removed in version 3.9: </span>Use method <a class="reference internal" href="#xml.etree.ElementTree.ElementTree.iter" title="xml.etree.ElementTree.ElementTree.iter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ElementTree.iter()</span></code></a> instead.</p>
 </div>
@@ -1198,13 +1199,13 @@ care.  <em>element</em> is an element instance.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.getroot">
-<code class="sig-name descname">getroot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.getroot" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">getroot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.getroot" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the root element for this tree.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.iter">
-<code class="sig-name descname">iter</code><span class="sig-paren">(</span><em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.iter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">iter</code><span class="sig-paren">(</span><em>tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.iter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates and returns a tree iterator for the root element.  The iterator
 loops over all elements in this tree, in section order.  <em>tag</em> is the tag
 to look for (default is to return all elements).</p>
@@ -1212,16 +1213,16 @@ to look for (default is to return all elements).</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.iterfind">
-<code class="sig-name descname">iterfind</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.iterfind" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">iterfind</code><span class="sig-paren">(</span><em>match</em>, <em>namespaces=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.iterfind" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#xml.etree.ElementTree.Element.iterfind" title="xml.etree.ElementTree.Element.iterfind"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.iterfind()</span></code></a>, starting at the root of the tree.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.parse">
-<code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.parse" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">parse</code><span class="sig-paren">(</span><em>source</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.parse" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Loads an external XML section into this element tree.  <em>source</em> is a file
 name or <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>.  <em>parser</em> is an optional parser instance.
 If not given, the standard <a class="reference internal" href="#xml.etree.ElementTree.XMLParser" title="xml.etree.ElementTree.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a> parser is used.  Returns the
@@ -1230,9 +1231,9 @@ section root element.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.ElementTree.write">
-<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">file</em>, <em class="sig-param">encoding=&quot;us-ascii&quot;</em>, <em class="sig-param">xml_declaration=None</em>, <em class="sig-param">default_namespace=None</em>, <em class="sig-param">method=&quot;xml&quot;</em>, <em class="sig-param">*</em>, <em class="sig-param">short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.write" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">write</code><span class="sig-paren">(</span><em>file</em>, <em>encoding=&quot;us-ascii&quot;</em>, <em>xml_declaration=None</em>, <em>default_namespace=None</em>, <em>method=&quot;xml&quot;</em>, <em>*</em>, <em>short_empty_elements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.ElementTree.write" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Writes the element tree to a file, as XML.  <em>file</em> is a file name, or a
-<a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> opened for writing.  <em>encoding</em> <a class="footnote-reference brackets" href="#id9" id="id6">1</a> is the output
+<a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> opened for writing.  <em>encoding</em> <a class="footnote-reference" href="#id9" id="id6">[1]</a> is the output
 encoding (default is US-ASCII).
 <em>xml_declaration</em> controls if an XML declaration should be added to the
 file.  Use <code class="docutils literal notranslate"><span class="pre">False</span></code> for never, <code class="docutils literal notranslate"><span class="pre">True</span></code> for always, <code class="docutils literal notranslate"><span class="pre">None</span></code>
@@ -1251,10 +1252,10 @@ this may conflict with the type of <em>file</em> if it’s an open
 <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>; make sure you do not try to write a string to a
 binary stream and vice versa.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
+<p><span class="versionmodified">Nowe w wersji 3.4: </span>The <em>short_empty_elements</em> parameter.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.ElementTree.write" title="xml.etree.ElementTree.ElementTree.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> method now preserves the attribute order specified
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <a class="reference internal" href="#xml.etree.ElementTree.ElementTree.write" title="xml.etree.ElementTree.ElementTree.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> method now preserves the attribute order specified
 by the user.</p>
 </div>
 </dd></dl>
@@ -1294,7 +1295,7 @@ by the user.</p>
 <span id="elementtree-qname-objects"></span><h3>QName Objects<a class="headerlink" href="#qname-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.QName">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">QName</code><span class="sig-paren">(</span><em class="sig-param">text_or_uri</em>, <em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.QName" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">QName</code><span class="sig-paren">(</span><em>text_or_uri</em>, <em>tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.QName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>QName wrapper.  This can be used to wrap a QName attribute value, in order
 to get proper namespace handling on output.  <em>text_or_uri</em> is a string
 containing the QName value, in the form {uri}local, or, if the tag argument
@@ -1308,7 +1309,7 @@ interpreted as a URI, and this argument is interpreted as a local name.
 <span id="elementtree-treebuilder-objects"></span><h3>TreeBuilder Objects<a class="headerlink" href="#treebuilder-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.TreeBuilder">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">TreeBuilder</code><span class="sig-paren">(</span><em class="sig-param">element_factory=None</em>, <em class="sig-param">*</em>, <em class="sig-param">comment_factory=None</em>, <em class="sig-param">pi_factory=None</em>, <em class="sig-param">insert_comments=False</em>, <em class="sig-param">insert_pis=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">TreeBuilder</code><span class="sig-paren">(</span><em>element_factory=None</em>, <em>*</em>, <em>comment_factory=None</em>, <em>pi_factory=None</em>, <em>insert_comments=False</em>, <em>insert_pis=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Generic element structure builder.  This builder converts a sequence of
 start, data, end, comment and pi method calls to a well-formed element
 structure.  You can use this class to build an element structure using
@@ -1324,49 +1325,49 @@ comments/pis will be inserted into the tree if they appear within the root
 element (but not outside of it).</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Flushes the builder buffers, and returns the toplevel document
 element.  Returns an <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.data">
-<code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.data" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.data" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds text to the current element.  <em>data</em> is a string.  This should be
 either a bytestring, or a Unicode string.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.end">
-<code class="sig-name descname">end</code><span class="sig-paren">(</span><em class="sig-param">tag</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.end" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">end</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.end" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Closes the current element.  <em>tag</em> is the element name.  Returns the
 closed element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.start">
-<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">tag</em>, <em class="sig-param">attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.start" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">start</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.start" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Opens a new element.  <em>tag</em> is the element name.  <em>attrs</em> is a dictionary
 containing element attributes.  Returns the opened element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.comment">
-<code class="sig-name descname">comment</code><span class="sig-paren">(</span><em class="sig-param">text</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.comment" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">comment</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.comment" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a comment with the given <em>text</em>.  If <code class="docutils literal notranslate"><span class="pre">insert_comments</span></code> is true,
 this will also add it to the tree.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.pi">
-<code class="sig-name descname">pi</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">text</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.pi" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">pi</code><span class="sig-paren">(</span><em>target</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.pi" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a comment with the given <em>target</em> name and <em>text</em>.  If
 <code class="docutils literal notranslate"><span class="pre">insert_pis</span></code> is true, this will also add it to the tree.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
@@ -1374,35 +1375,35 @@ this will also add it to the tree.</p>
 following methods:</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.doctype">
-<code class="sig-name descname">doctype</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">pubid</em>, <em class="sig-param">system</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.doctype" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">doctype</code><span class="sig-paren">(</span><em>name</em>, <em>pubid</em>, <em>system</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.doctype" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Handles a doctype declaration.  <em>name</em> is the doctype name.  <em>pubid</em> is
 the public identifier.  <em>system</em> is the system identifier.  This method
 does not exist on the default <a class="reference internal" href="#xml.etree.ElementTree.TreeBuilder" title="xml.etree.ElementTree.TreeBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeBuilder</span></code></a> class.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.start_ns">
-<code class="sig-name descname">start_ns</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">uri</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.start_ns" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">start_ns</code><span class="sig-paren">(</span><em>prefix</em>, <em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.start_ns" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Is called whenever the parser encounters a new namespace declaration,
 before the <code class="docutils literal notranslate"><span class="pre">start()</span></code> callback for the opening element that defines it.
 <em>prefix</em> is <code class="docutils literal notranslate"><span class="pre">''</span></code> for the default namespace and the declared
 namespace prefix name otherwise.  <em>uri</em> is the namespace URI.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.TreeBuilder.end_ns">
-<code class="sig-name descname">end_ns</code><span class="sig-paren">(</span><em class="sig-param">prefix</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.end_ns" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">end_ns</code><span class="sig-paren">(</span><em>prefix</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.TreeBuilder.end_ns" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Is called after the <code class="docutils literal notranslate"><span class="pre">end()</span></code> callback of an element that declared
 a namespace prefix mapping, with the name of the <em>prefix</em> that went
 out of scope.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
@@ -1410,13 +1411,13 @@ out of scope.</p>
 
 <dl class="class">
 <dt id="xml.etree.ElementTree.C14NWriterTarget">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">C14NWriterTarget</code><span class="sig-paren">(</span><em class="sig-param">write</em>, <em class="sig-param">*</em>, <em class="sig-param">with_comments=False</em>, <em class="sig-param">strip_text=False</em>, <em class="sig-param">rewrite_prefixes=False</em>, <em class="sig-param">qname_aware_tags=None</em>, <em class="sig-param">qname_aware_attrs=None</em>, <em class="sig-param">exclude_attrs=None</em>, <em class="sig-param">exclude_tags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.C14NWriterTarget" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">C14NWriterTarget</code><span class="sig-paren">(</span><em>write</em>, <em>*</em>, <em>with_comments=False</em>, <em>strip_text=False</em>, <em>rewrite_prefixes=False</em>, <em>qname_aware_tags=None</em>, <em>qname_aware_attrs=None</em>, <em>exclude_attrs=None</em>, <em>exclude_tags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.C14NWriterTarget" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A <a class="reference external" href="https://www.w3.org/TR/xml-c14n2/">C14N 2.0</a> writer.  Arguments are the
 same as for the <a class="reference internal" href="#xml.etree.ElementTree.canonicalize" title="xml.etree.ElementTree.canonicalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">canonicalize()</span></code></a> function.  This class does not build a
 tree but translates the callback events directly into a serialised form
 using the <em>write</em> function.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
@@ -1425,21 +1426,21 @@ using the <em>write</em> function.</p>
 <span id="elementtree-xmlparser-objects"></span><h3>XMLParser Objects<a class="headerlink" href="#xmlparser-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.XMLParser">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">XMLParser</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">target=None</em>, <em class="sig-param">encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">XMLParser</code><span class="sig-paren">(</span><em>*</em>, <em>target=None</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class is the low-level building block of the module.  It uses
 <a class="reference internal" href="pyexpat.html#module-xml.parsers.expat" title="xml.parsers.expat: An interface to the Expat non-validating XML parser."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.parsers.expat</span></code></a> for efficient, event-based parsing of XML.  It can
 be fed XML data incrementally with the <a class="reference internal" href="#xml.etree.ElementTree.XMLParser.feed" title="xml.etree.ElementTree.XMLParser.feed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">feed()</span></code></a> method, and parsing
 events are translated to a push API - by invoking callbacks on the <em>target</em>
 object.  If <em>target</em> is omitted, the standard <a class="reference internal" href="#xml.etree.ElementTree.TreeBuilder" title="xml.etree.ElementTree.TreeBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeBuilder</span></code></a> is used.
-If <em>encoding</em> <a class="footnote-reference brackets" href="#id9" id="id8">1</a> is given, the value overrides the
+If <em>encoding</em> <a class="footnote-reference" href="#id9" id="id8">[1]</a> is given, the value overrides the
 encoding specified in the XML file.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Parameters are now <a class="reference internal" href="../glossary.html#keyword-only-parameter"><span class="std std-ref">keyword-only</span></a>.
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Parameters are now <a class="reference internal" href="../glossary.html#keyword-only-parameter"><span class="std std-ref">keyword-only</span></a>.
 The <em>html</em> argument no longer supported.</p>
 </div>
 <dl class="method">
 <dt id="xml.etree.ElementTree.XMLParser.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finishes feeding data to the parser.  Returns the result of calling the
 <code class="docutils literal notranslate"><span class="pre">close()</span></code> method of the <em>target</em> passed during construction; by default,
 this is the toplevel document element.</p>
@@ -1447,7 +1448,7 @@ this is the toplevel document element.</p>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.XMLParser.feed">
-<code class="sig-name descname">feed</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser.feed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">feed</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLParser.feed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Feeds data to the parser.  <em>data</em> is encoded data.</p>
 </dd></dl>
 
@@ -1498,7 +1499,7 @@ of an XML file:</p>
 <span id="elementtree-xmlpullparser-objects"></span><h3>XMLPullParser Objects<a class="headerlink" href="#xmlpullparser-objects" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.XMLPullParser">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">XMLPullParser</code><span class="sig-paren">(</span><em class="sig-param">events=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">XMLPullParser</code><span class="sig-paren">(</span><em>events=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A pull parser suitable for non-blocking applications.  Its input-side API is
 similar to that of <a class="reference internal" href="#xml.etree.ElementTree.XMLParser" title="xml.etree.ElementTree.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a>, but instead of pushing calls to a
 callback target, <a class="reference internal" href="#xml.etree.ElementTree.XMLPullParser" title="xml.etree.ElementTree.XMLPullParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLPullParser</span></code></a> collects an internal list of parsing
@@ -1509,13 +1510,13 @@ are used to get detailed namespace information).  If <em>events</em> is omitted,
 only <code class="docutils literal notranslate"><span class="pre">&quot;end&quot;</span></code> events are reported.</p>
 <dl class="method">
 <dt id="xml.etree.ElementTree.XMLPullParser.feed">
-<code class="sig-name descname">feed</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.feed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">feed</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.feed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Feed the given bytes data to the parser.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.XMLPullParser.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Signal the parser that the data stream is terminated. Unlike
 <a class="reference internal" href="#xml.etree.ElementTree.XMLParser.close" title="xml.etree.ElementTree.XMLParser.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLParser.close()</span></code></a>, this method always returns <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.
 Any events not yet retrieved when the parser is closed can still be
@@ -1524,18 +1525,18 @@ read with <a class="reference internal" href="#xml.etree.ElementTree.XMLPullPars
 
 <dl class="method">
 <dt id="xml.etree.ElementTree.XMLPullParser.read_events">
-<code class="sig-name descname">read_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.read_events" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">read_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.etree.ElementTree.XMLPullParser.read_events" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an iterator over the events which have been encountered in the
 data fed to the
 parser.  The iterator yields <code class="docutils literal notranslate"><span class="pre">(event,</span> <span class="pre">elem)</span></code> pairs, where <em>event</em> is a
 string representing the type of event (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;end&quot;</span></code>) and <em>elem</em> is the
 encountered <a class="reference internal" href="#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> object, or other context value as follows.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>: the current Element.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">comment</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>: the current comment / processing instruction</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">start-ns</span></code>: a tuple <code class="docutils literal notranslate"><span class="pre">(prefix,</span> <span class="pre">uri)</span></code> naming the declared namespace
-mapping.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end-ns</span></code>: <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> (this may change in a future version)</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>: the current Element.</li>
+<li><code class="docutils literal notranslate"><span class="pre">comment</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>: the current comment / processing instruction</li>
+<li><code class="docutils literal notranslate"><span class="pre">start-ns</span></code>: a tuple <code class="docutils literal notranslate"><span class="pre">(prefix,</span> <span class="pre">uri)</span></code> naming the declared namespace
+mapping.</li>
+<li><code class="docutils literal notranslate"><span class="pre">end-ns</span></code>: <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> (this may change in a future version)</li>
 </ul>
 <p>Events provided in a previous call to <a class="reference internal" href="#xml.etree.ElementTree.XMLPullParser.read_events" title="xml.etree.ElementTree.XMLPullParser.read_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read_events()</span></code></a> will not be
 yielded again.  Events are consumed from the internal queue only when
@@ -1545,19 +1546,19 @@ unpredictable results.</p>
 </dd></dl>
 
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p><a class="reference internal" href="#xml.etree.ElementTree.XMLPullParser" title="xml.etree.ElementTree.XMLPullParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLPullParser</span></code></a> only guarantees that it has seen the „&gt;”
 character of a starting tag when it emits a „start” event, so the
 attributes are defined, but the contents of the text and tail attributes
 are undefined at that point.  The same applies to the element children;
 they may or may not be present.</p>
-<p>If you need a fully populated element, look for „end” events instead.</p>
+<p class="last">If you need a fully populated element, look for „end” events instead.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code> events were added.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <code class="docutils literal notranslate"><span class="pre">comment</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code> events were added.</p>
 </div>
 </dd></dl>
 
@@ -1566,35 +1567,36 @@ they may or may not be present.</p>
 <h3>Exceptions<a class="headerlink" href="#exceptions" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="xml.etree.ElementTree.ParseError">
-<em class="property">class </em><code class="sig-prename descclassname">xml.etree.ElementTree.</code><code class="sig-name descname">ParseError</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml.etree.ElementTree.</code><code class="descname">ParseError</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>XML parse error, raised by the various parsing methods in this module when
 parsing fails.  The string representation of an instance of this exception
 will contain a user-friendly error message.  In addition, it will have
 the following attributes available:</p>
 <dl class="attribute">
 <dt id="xml.etree.ElementTree.ParseError.code">
-<code class="sig-name descname">code</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError.code" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">code</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError.code" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A numeric error code from the expat parser. See the documentation of
 <a class="reference internal" href="pyexpat.html#module-xml.parsers.expat" title="xml.parsers.expat: An interface to the Expat non-validating XML parser."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.parsers.expat</span></code></a> for the list of error codes and their meanings.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xml.etree.ElementTree.ParseError.position">
-<code class="sig-name descname">position</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError.position" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">position</code><a class="headerlink" href="#xml.etree.ElementTree.ParseError.position" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A tuple of <em>line</em>, <em>column</em> numbers, specifying where the error occurred.</p>
 </dd></dl>
 
 </dd></dl>
 
 <p class="rubric">Footnotes</p>
-<dl class="footnote brackets">
-<dt class="label" id="id9"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id6">3</a>,<a href="#id8">4</a>)</span></dt>
-<dd><p>The encoding string included in XML output should conform to the
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id6">3</a>, <a class="fn-backref" href="#id8">4</a>)</em> The encoding string included in XML output should conform to the
 appropriate standards.  For example, „UTF-8” is valid, but „UTF8” is
 not.  See <a class="reference external" href="https://www.w3.org/TR/2006/REC-xml11-20060816/#NT-EncodingDecl">https://www.w3.org/TR/2006/REC-xml11-20060816/#NT-EncodingDecl</a>
-and <a class="reference external" href="https://www.iana.org/assignments/character-sets/character-sets.xhtml">https://www.iana.org/assignments/character-sets/character-sets.xhtml</a>.</p>
-</dd>
-</dl>
+and <a class="reference external" href="https://www.iana.org/assignments/character-sets/character-sets.xhtml">https://www.iana.org/assignments/character-sets/character-sets.xhtml</a>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1605,9 +1607,9 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code> — The ElementTree XML API</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code> — The ElementTree XML API</a><ul>
 <li><a class="reference internal" href="#tutorial">Tutorial</a><ul>
 <li><a class="reference internal" href="#xml-tree-and-elements">XML tree and elements</a></li>
 <li><a class="reference internal" href="#parsing-xml">Parsing XML</a></li>
@@ -1652,7 +1654,7 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
                         title="poprzedni rozdział">XML Processing Modules</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="xml.dom.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom</span></code> — The Document Object Model API</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">xml.dom</span></code> — The Document Object Model API</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -1721,11 +1723,11 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

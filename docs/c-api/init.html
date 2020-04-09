@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Initialization, Finalization, and Threads &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -109,52 +110,48 @@ be called before using any other Python/C API functions; with the exception of
 a few functions and the <a class="reference internal" href="#global-conf-vars"><span class="std std-ref">global configuration variables</span></a>.</p>
 <p>The following functions can be safely called before Python is initialized:</p>
 <ul class="simple">
-<li><p>Configuration functions:</p>
-<ul>
-<li><p><a class="reference internal" href="import.html#c.PyImport_AppendInittab" title="PyImport_AppendInittab"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_AppendInittab()</span></code></a></p></li>
-<li><p><a class="reference internal" href="import.html#c.PyImport_ExtendInittab" title="PyImport_ExtendInittab"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_ExtendInittab()</span></code></a></p></li>
-<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInitFrozenExtensions()</span></code></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_SetAllocator" title="PyMem_SetAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_SetAllocator()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_SetupDebugHooks" title="PyMem_SetupDebugHooks"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_SetupDebugHooks()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyObject_SetArenaAllocator" title="PyObject_SetArenaAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetArenaAllocator()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_SetPath" title="Py_SetPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetPath()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_SetPythonHome" title="Py_SetPythonHome"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetPythonHome()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_SetStandardStreamEncoding" title="Py_SetStandardStreamEncoding"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetStandardStreamEncoding()</span></code></a></p></li>
-<li><p><a class="reference internal" href="sys.html#c.PySys_AddWarnOption" title="PySys_AddWarnOption"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_AddWarnOption()</span></code></a></p></li>
-<li><p><a class="reference internal" href="sys.html#c.PySys_AddXOption" title="PySys_AddXOption"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_AddXOption()</span></code></a></p></li>
-<li><p><a class="reference internal" href="sys.html#c.PySys_ResetWarnOptions" title="PySys_ResetWarnOptions"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_ResetWarnOptions()</span></code></a></p></li>
+<li>Configuration functions:<ul>
+<li><a class="reference internal" href="import.html#c.PyImport_AppendInittab" title="PyImport_AppendInittab"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_AppendInittab()</span></code></a></li>
+<li><a class="reference internal" href="import.html#c.PyImport_ExtendInittab" title="PyImport_ExtendInittab"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_ExtendInittab()</span></code></a></li>
+<li><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInitFrozenExtensions()</span></code></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_SetAllocator" title="PyMem_SetAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_SetAllocator()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_SetupDebugHooks" title="PyMem_SetupDebugHooks"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_SetupDebugHooks()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyObject_SetArenaAllocator" title="PyObject_SetArenaAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetArenaAllocator()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_SetPath" title="Py_SetPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetPath()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_SetPythonHome" title="Py_SetPythonHome"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetPythonHome()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_SetStandardStreamEncoding" title="Py_SetStandardStreamEncoding"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetStandardStreamEncoding()</span></code></a></li>
+<li><a class="reference internal" href="sys.html#c.PySys_AddWarnOption" title="PySys_AddWarnOption"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_AddWarnOption()</span></code></a></li>
+<li><a class="reference internal" href="sys.html#c.PySys_AddXOption" title="PySys_AddXOption"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_AddXOption()</span></code></a></li>
+<li><a class="reference internal" href="sys.html#c.PySys_ResetWarnOptions" title="PySys_ResetWarnOptions"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_ResetWarnOptions()</span></code></a></li>
 </ul>
 </li>
-<li><p>Informative functions:</p>
-<ul>
-<li><p><a class="reference internal" href="#c.Py_IsInitialized" title="Py_IsInitialized"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_IsInitialized()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_GetAllocator" title="PyMem_GetAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_GetAllocator()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyObject_GetArenaAllocator" title="PyObject_GetArenaAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetArenaAllocator()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_GetBuildInfo" title="Py_GetBuildInfo"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetBuildInfo()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_GetCompiler" title="Py_GetCompiler"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetCompiler()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_GetCopyright" title="Py_GetCopyright"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetCopyright()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_GetPlatform" title="Py_GetPlatform"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPlatform()</span></code></a></p></li>
-<li><p><a class="reference internal" href="#c.Py_GetVersion" title="Py_GetVersion"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetVersion()</span></code></a></p></li>
+<li>Informative functions:<ul>
+<li><a class="reference internal" href="#c.Py_IsInitialized" title="Py_IsInitialized"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_IsInitialized()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_GetAllocator" title="PyMem_GetAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_GetAllocator()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyObject_GetArenaAllocator" title="PyObject_GetArenaAllocator"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetArenaAllocator()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_GetBuildInfo" title="Py_GetBuildInfo"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetBuildInfo()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_GetCompiler" title="Py_GetCompiler"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetCompiler()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_GetCopyright" title="Py_GetCopyright"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetCopyright()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_GetPlatform" title="Py_GetPlatform"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPlatform()</span></code></a></li>
+<li><a class="reference internal" href="#c.Py_GetVersion" title="Py_GetVersion"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetVersion()</span></code></a></li>
 </ul>
 </li>
-<li><p>Utilities:</p>
-<ul>
-<li><p><a class="reference internal" href="sys.html#c.Py_DecodeLocale" title="Py_DecodeLocale"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DecodeLocale()</span></code></a></p></li>
+<li>Utilities:<ul>
+<li><a class="reference internal" href="sys.html#c.Py_DecodeLocale" title="Py_DecodeLocale"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DecodeLocale()</span></code></a></li>
 </ul>
 </li>
-<li><p>Memory allocators:</p>
-<ul>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_RawMalloc" title="PyMem_RawMalloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawMalloc()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_RawRealloc" title="PyMem_RawRealloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawRealloc()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_RawCalloc" title="PyMem_RawCalloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawCalloc()</span></code></a></p></li>
-<li><p><a class="reference internal" href="memory.html#c.PyMem_RawFree" title="PyMem_RawFree"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawFree()</span></code></a></p></li>
+<li>Memory allocators:<ul>
+<li><a class="reference internal" href="memory.html#c.PyMem_RawMalloc" title="PyMem_RawMalloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawMalloc()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_RawRealloc" title="PyMem_RawRealloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawRealloc()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_RawCalloc" title="PyMem_RawCalloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawCalloc()</span></code></a></li>
+<li><a class="reference internal" href="memory.html#c.PyMem_RawFree" title="PyMem_RawFree"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawFree()</span></code></a></li>
 </ul>
 </li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>The following functions <strong>should not be called</strong> before
+<p class="first admonition-title">Informacja</p>
+<p class="last">The following functions <strong>should not be called</strong> before
 <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>: <a class="reference internal" href="sys.html#c.Py_EncodeLocale" title="Py_EncodeLocale"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_EncodeLocale()</span></code></a>, <a class="reference internal" href="#c.Py_GetPath" title="Py_GetPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPath()</span></code></a>,
 <a class="reference internal" href="#c.Py_GetPrefix" title="Py_GetPrefix"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPrefix()</span></code></a>, <a class="reference internal" href="#c.Py_GetExecPrefix" title="Py_GetExecPrefix"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetExecPrefix()</span></code></a>,
 <a class="reference internal" href="#c.Py_GetProgramFullPath" title="Py_GetProgramFullPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetProgramFullPath()</span></code></a>, <a class="reference internal" href="#c.Py_GetPythonHome" title="Py_GetPythonHome"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPythonHome()</span></code></a>,
@@ -171,7 +168,7 @@ that the option was set. For example, <code class="docutils literal notranslate"
 to 1 and <code class="docutils literal notranslate"><span class="pre">-bb</span></code> sets <a class="reference internal" href="#c.Py_BytesWarningFlag" title="Py_BytesWarningFlag"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_BytesWarningFlag</span></code></a> to 2.</p>
 <dl class="var">
 <dt id="c.Py_BytesWarningFlag">
-<code class="sig-name descname">Py_BytesWarningFlag</code><a class="headerlink" href="#c.Py_BytesWarningFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_BytesWarningFlag</code><a class="headerlink" href="#c.Py_BytesWarningFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Issue a warning when comparing <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> with
 <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> with <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.  Issue an error if greater
 or equal to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
@@ -180,7 +177,7 @@ or equal to <code class="docutils literal notranslate"><span class="pre">2</span
 
 <dl class="var">
 <dt id="c.Py_DebugFlag">
-<code class="sig-name descname">Py_DebugFlag</code><a class="headerlink" href="#c.Py_DebugFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_DebugFlag</code><a class="headerlink" href="#c.Py_DebugFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Turn on parser debugging output (for expert only, depending on compilation
 options).</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code></a> option and the <span class="target" id="index-0"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONDEBUG"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDEBUG</span></code></a> environment
@@ -189,7 +186,7 @@ variable.</p>
 
 <dl class="var">
 <dt id="c.Py_DontWriteBytecodeFlag">
-<code class="sig-name descname">Py_DontWriteBytecodeFlag</code><a class="headerlink" href="#c.Py_DontWriteBytecodeFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_DontWriteBytecodeFlag</code><a class="headerlink" href="#c.Py_DontWriteBytecodeFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If set to non-zero, Python won’t try to write <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files on the
 import of source modules.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#id1"><code class="xref std std-option docutils literal notranslate"><span class="pre">-B</span></code></a> option and the <span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDONTWRITEBYTECODE</span></code></a>
@@ -198,7 +195,7 @@ environment variable.</p>
 
 <dl class="var">
 <dt id="c.Py_FrozenFlag">
-<code class="sig-name descname">Py_FrozenFlag</code><a class="headerlink" href="#c.Py_FrozenFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_FrozenFlag</code><a class="headerlink" href="#c.Py_FrozenFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Suppress error messages when calculating the module search path in
 <a class="reference internal" href="#c.Py_GetPath" title="Py_GetPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPath()</span></code></a>.</p>
 <p>Private flag used by <code class="docutils literal notranslate"><span class="pre">_freeze_importlib</span></code> and <code class="docutils literal notranslate"><span class="pre">frozenmain</span></code> programs.</p>
@@ -206,7 +203,7 @@ environment variable.</p>
 
 <dl class="var">
 <dt id="c.Py_HashRandomizationFlag">
-<code class="sig-name descname">Py_HashRandomizationFlag</code><a class="headerlink" href="#c.Py_HashRandomizationFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_HashRandomizationFlag</code><a class="headerlink" href="#c.Py_HashRandomizationFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set to <code class="docutils literal notranslate"><span class="pre">1</span></code> if the <span class="target" id="index-2"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHASHSEED"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHASHSEED</span></code></a> environment variable is set to
 a non-empty string.</p>
 <p>If the flag is non-zero, read the <span class="target" id="index-3"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHASHSEED"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHASHSEED</span></code></a> environment
@@ -215,7 +212,7 @@ variable to initialize the secret hash seed.</p>
 
 <dl class="var">
 <dt id="c.Py_IgnoreEnvironmentFlag">
-<code class="sig-name descname">Py_IgnoreEnvironmentFlag</code><a class="headerlink" href="#c.Py_IgnoreEnvironmentFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_IgnoreEnvironmentFlag</code><a class="headerlink" href="#c.Py_IgnoreEnvironmentFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Ignore all <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON*</span></code> environment variables, e.g.
 <span class="target" id="index-5"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> and <span class="target" id="index-6"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a>, that might be set.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-e"><code class="xref std std-option docutils literal notranslate"><span class="pre">-E</span></code></a> and <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a> options.</p>
@@ -223,7 +220,7 @@ variable to initialize the secret hash seed.</p>
 
 <dl class="var">
 <dt id="c.Py_InspectFlag">
-<code class="sig-name descname">Py_InspectFlag</code><a class="headerlink" href="#c.Py_InspectFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_InspectFlag</code><a class="headerlink" href="#c.Py_InspectFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>When a script is passed as first argument or the <a class="reference internal" href="../using/cmdline.html#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> option is used,
 enter interactive mode after executing the script or the command, even when
 <a class="reference internal" href="../library/sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code></a> does not appear to be a terminal.</p>
@@ -233,24 +230,24 @@ variable.</p>
 
 <dl class="var">
 <dt id="c.Py_InteractiveFlag">
-<code class="sig-name descname">Py_InteractiveFlag</code><a class="headerlink" href="#c.Py_InteractiveFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_InteractiveFlag</code><a class="headerlink" href="#c.Py_InteractiveFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-i"><code class="xref std std-option docutils literal notranslate"><span class="pre">-i</span></code></a> option.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.Py_IsolatedFlag">
-<code class="sig-name descname">Py_IsolatedFlag</code><a class="headerlink" href="#c.Py_IsolatedFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_IsolatedFlag</code><a class="headerlink" href="#c.Py_IsolatedFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Run Python in isolated mode. In isolated mode <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> contains
 neither the script’s directory nor the user’s site-packages directory.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a> option.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.Py_LegacyWindowsFSEncodingFlag">
-<code class="sig-name descname">Py_LegacyWindowsFSEncodingFlag</code><a class="headerlink" href="#c.Py_LegacyWindowsFSEncodingFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_LegacyWindowsFSEncodingFlag</code><a class="headerlink" href="#c.Py_LegacyWindowsFSEncodingFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If the flag is non-zero, use the <code class="docutils literal notranslate"><span class="pre">mbcs</span></code> encoding instead of the UTF-8
 encoding for the filesystem encoding.</p>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">1</span></code> if the <span class="target" id="index-8"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSFSENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></code></a> environment
@@ -261,7 +258,7 @@ variable is set to a non-empty string.</p>
 
 <dl class="var">
 <dt id="c.Py_LegacyWindowsStdioFlag">
-<code class="sig-name descname">Py_LegacyWindowsStdioFlag</code><a class="headerlink" href="#c.Py_LegacyWindowsStdioFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_LegacyWindowsStdioFlag</code><a class="headerlink" href="#c.Py_LegacyWindowsStdioFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If the flag is non-zero, use <a class="reference internal" href="../library/io.html#io.FileIO" title="io.FileIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.FileIO</span></code></a> instead of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">WindowsConsoleIO</span></code> for <a class="reference internal" href="../library/sys.html#module-sys" title="sys: Access system-specific parameters and functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a> standard streams.</p>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">1</span></code> if the <span class="target" id="index-10"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSSTDIO"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSSTDIO</span></code></a> environment
@@ -272,7 +269,7 @@ variable is set to a non-empty string.</p>
 
 <dl class="var">
 <dt id="c.Py_NoSiteFlag">
-<code class="sig-name descname">Py_NoSiteFlag</code><a class="headerlink" href="#c.Py_NoSiteFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_NoSiteFlag</code><a class="headerlink" href="#c.Py_NoSiteFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Disable the import of the module <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> and the site-dependent
 manipulations of <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> that it entails.  Also disable these
 manipulations if <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> is explicitly imported later (call
@@ -282,7 +279,7 @@ manipulations if <a class="reference internal" href="../library/site.html#module
 
 <dl class="var">
 <dt id="c.Py_NoUserSiteDirectory">
-<code class="sig-name descname">Py_NoUserSiteDirectory</code><a class="headerlink" href="#c.Py_NoUserSiteDirectory" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_NoUserSiteDirectory</code><a class="headerlink" href="#c.Py_NoUserSiteDirectory" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Don’t add the <a class="reference internal" href="../library/site.html#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">site-packages</span> <span class="pre">directory</span></code></a> to
 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code></a> and <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a> options, and the
@@ -291,24 +288,24 @@ manipulations if <a class="reference internal" href="../library/site.html#module
 
 <dl class="var">
 <dt id="c.Py_OptimizeFlag">
-<code class="sig-name descname">Py_OptimizeFlag</code><a class="headerlink" href="#c.Py_OptimizeFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_OptimizeFlag</code><a class="headerlink" href="#c.Py_OptimizeFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> option and the <span class="target" id="index-13"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONOPTIMIZE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONOPTIMIZE</span></code></a> environment
 variable.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.Py_QuietFlag">
-<code class="sig-name descname">Py_QuietFlag</code><a class="headerlink" href="#c.Py_QuietFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_QuietFlag</code><a class="headerlink" href="#c.Py_QuietFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Don’t display the copyright and version messages even in interactive mode.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-q"><code class="xref std std-option docutils literal notranslate"><span class="pre">-q</span></code></a> option.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.Py_UnbufferedStdioFlag">
-<code class="sig-name descname">Py_UnbufferedStdioFlag</code><a class="headerlink" href="#c.Py_UnbufferedStdioFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_UnbufferedStdioFlag</code><a class="headerlink" href="#c.Py_UnbufferedStdioFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Force the stdout and stderr streams to be unbuffered.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-u"><code class="xref std std-option docutils literal notranslate"><span class="pre">-u</span></code></a> option and the <span class="target" id="index-14"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONUNBUFFERED"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONUNBUFFERED</span></code></a>
 environment variable.</p>
@@ -316,7 +313,7 @@ environment variable.</p>
 
 <dl class="var">
 <dt id="c.Py_VerboseFlag">
-<code class="sig-name descname">Py_VerboseFlag</code><a class="headerlink" href="#c.Py_VerboseFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_VerboseFlag</code><a class="headerlink" href="#c.Py_VerboseFlag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Print a message each time a module is initialized, showing the place
 (filename or built-in module) from which it is loaded.  If greater or equal
 to <code class="docutils literal notranslate"><span class="pre">2</span></code>, print a message for each file that is checked for when
@@ -330,7 +327,7 @@ variable.</p>
 <h2>Initializing and finalizing the interpreter<a class="headerlink" href="#initializing-and-finalizing-the-interpreter" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="c.Py_Initialize">
-void <code class="sig-name descname">Py_Initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_Initialize" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_Initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_Initialize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-16">Initialize the Python interpreter.  In an application embedding  Python,
 this should be called before using any other Python/C API functions; see
 <a class="reference internal" href="#pre-init-safe"><span class="std std-ref">Before Python Initialization</span></a> for the few exceptions.</p>
@@ -342,15 +339,15 @@ the module search path (<code class="docutils literal notranslate"><span class="
 (without calling <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> first).  There is no return value; it is a
 fatal error if the initialization fails.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>On Windows, changes the console mode from <code class="docutils literal notranslate"><span class="pre">O_TEXT</span></code> to <code class="docutils literal notranslate"><span class="pre">O_BINARY</span></code>, which will
+<p class="first admonition-title">Informacja</p>
+<p class="last">On Windows, changes the console mode from <code class="docutils literal notranslate"><span class="pre">O_TEXT</span></code> to <code class="docutils literal notranslate"><span class="pre">O_BINARY</span></code>, which will
 also affect non-Python uses of the console using the C Runtime.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_InitializeEx">
-void <code class="sig-name descname">Py_InitializeEx</code><span class="sig-paren">(</span>int<em> initsigs</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_InitializeEx" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_InitializeEx</code><span class="sig-paren">(</span>int<em>&nbsp;initsigs</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_InitializeEx" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function works like <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> if <em>initsigs</em> is <code class="docutils literal notranslate"><span class="pre">1</span></code>. If
 <em>initsigs</em> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, it skips initialization registration of signal handlers, which
 might be useful when Python is embedded.</p>
@@ -358,7 +355,7 @@ might be useful when Python is embedded.</p>
 
 <dl class="function">
 <dt id="c.Py_IsInitialized">
-int <code class="sig-name descname">Py_IsInitialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_IsInitialized" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">Py_IsInitialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_IsInitialized" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return true (nonzero) when the Python interpreter has been initialized, false
 (zero) if not.  After <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> is called, this returns false until
 <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> is called again.</p>
@@ -366,7 +363,7 @@ int <code class="sig-name descname">Py_IsInitialized</code><span class="sig-pare
 
 <dl class="function">
 <dt id="c.Py_FinalizeEx">
-int <code class="sig-name descname">Py_FinalizeEx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_FinalizeEx" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">Py_FinalizeEx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_FinalizeEx" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Undo all initializations made by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> and subsequent use of
 Python/C API functions, and destroy all sub-interpreters (see
 <a class="reference internal" href="#c.Py_NewInterpreter" title="Py_NewInterpreter"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewInterpreter()</span></code></a> below) that were created and not yet destroyed since
@@ -394,13 +391,13 @@ than once; this can happen if an application calls <a class="reference internal"
 <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> more than once.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="../library/sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">cpython._PySys_ClearAuditHooks</span></code> with no arguments.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.6.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_Finalize">
-void <code class="sig-name descname">Py_Finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_Finalize" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_Finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_Finalize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a backwards-compatible version of <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> that
 disregards the return value.</p>
 </dd></dl>
@@ -410,7 +407,7 @@ disregards the return value.</p>
 <h2>Process-wide parameters<a class="headerlink" href="#process-wide-parameters" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="c.Py_SetStandardStreamEncoding">
-int <code class="sig-name descname">Py_SetStandardStreamEncoding</code><span class="sig-paren">(</span>const char<em> *encoding</em>, const char<em> *errors</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetStandardStreamEncoding" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">Py_SetStandardStreamEncoding</code><span class="sig-paren">(</span>const char<em>&nbsp;*encoding</em>, const char<em>&nbsp;*errors</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetStandardStreamEncoding" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-17">This function should be called before <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>, if it is
 called at all. It specifies which encoding and error handling to use
 with standard IO, with the same meanings as in <a class="reference internal" href="../library/stdtypes.html#str.encode" title="str.encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">str.encode()</span></code></a>.</p>
@@ -426,13 +423,13 @@ again in order to affect subsequent calls to <a class="reference internal" href=
 <p>Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if successful, a nonzero value on error (e.g. calling after the
 interpreter has already been initialized).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_SetProgramName">
-void <code class="sig-name descname">Py_SetProgramName</code><span class="sig-paren">(</span>const wchar_t<em> *name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetProgramName" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_SetProgramName</code><span class="sig-paren">(</span>const wchar_t<em>&nbsp;*name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetProgramName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-20">This function should be called before <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> is called for
 the first time, if it is called at all.  It tells the interpreter the value
 of the <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> argument to the <code class="xref c c-func docutils literal notranslate"><span class="pre">main()</span></code> function of the program
@@ -449,7 +446,7 @@ interpreter will change the contents of this storage.</p>
 
 <dl class="function">
 <dt id="c.Py_GetProgramName">
-wchar* <code class="sig-name descname">Py_GetProgramName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetProgramName" title="Stały odnośnik do tej definicji">¶</a></dt>
+wchar* <code class="descname">Py_GetProgramName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetProgramName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-21">Return the program name set with <a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a>, or the default.
 The returned string points into static storage; the caller should not modify its
 value.</p>
@@ -457,7 +454,7 @@ value.</p>
 
 <dl class="function">
 <dt id="c.Py_GetPrefix">
-wchar_t* <code class="sig-name descname">Py_GetPrefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPrefix" title="Stały odnośnik do tej definicji">¶</a></dt>
+wchar_t* <code class="descname">Py_GetPrefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPrefix" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the <em>prefix</em> for installed platform-independent files. This is derived
 through a number of complicated rules from the program name set with
 <a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a> and some environment variables; for example, if the
@@ -471,7 +468,7 @@ It is only useful on Unix.  See also the next function.</p>
 
 <dl class="function">
 <dt id="c.Py_GetExecPrefix">
-wchar_t* <code class="sig-name descname">Py_GetExecPrefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetExecPrefix" title="Stały odnośnik do tej definicji">¶</a></dt>
+wchar_t* <code class="descname">Py_GetExecPrefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetExecPrefix" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the <em>exec-prefix</em> for installed platform-<em>dependent</em> files.  This is
 derived through a number of complicated rules from the program name set with
 <a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a> and some environment variables; for example, if the
@@ -504,7 +501,7 @@ platform.</p>
 
 <dl class="function">
 <dt id="c.Py_GetProgramFullPath">
-wchar_t* <code class="sig-name descname">Py_GetProgramFullPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetProgramFullPath" title="Stały odnośnik do tej definicji">¶</a></dt>
+wchar_t* <code class="descname">Py_GetProgramFullPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetProgramFullPath" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-22">Return the full program name of the Python executable; this is  computed as a
 side-effect of deriving the default module search path  from the program name
 (set by <a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a> above). The returned string points into
@@ -514,7 +511,7 @@ to Python code as <code class="docutils literal notranslate"><span class="pre">s
 
 <dl class="function">
 <dt id="c.Py_GetPath">
-wchar_t* <code class="sig-name descname">Py_GetPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPath" title="Stały odnośnik do tej definicji">¶</a></dt>
+wchar_t* <code class="descname">Py_GetPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPath" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-23">Return the default module search path; this is computed from the program name
 (set by <a class="reference internal" href="#c.Py_SetProgramName" title="Py_SetProgramName"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetProgramName()</span></code></a> above) and some environment variables.
 The returned string consists of a series of directory names separated by a
@@ -528,7 +525,7 @@ modules.</p>
 
 <dl class="function">
 <dt id="c.Py_SetPath">
-void <code class="sig-name descname">Py_SetPath</code><span class="sig-paren">(</span>const wchar_t<em> *</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetPath" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_SetPath</code><span class="sig-paren">(</span>const wchar_t<em>&nbsp;*</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetPath" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-24">Set the default module search path.  If this function is called before
 <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>, then <a class="reference internal" href="#c.Py_GetPath" title="Py_GetPath"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPath()</span></code></a> won’t attempt to compute a
 default search path but uses the one provided instead.  This is useful if
@@ -545,14 +542,14 @@ if required after calling <a class="reference internal" href="#c.Py_Initialize" 
 <p>The path argument is copied internally, so the caller may free it after the
 call completes.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The program full path is now used for <a class="reference internal" href="../library/sys.html#sys.executable" title="sys.executable"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.executable</span></code></a>, instead
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The program full path is now used for <a class="reference internal" href="../library/sys.html#sys.executable" title="sys.executable"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.executable</span></code></a>, instead
 of the program name.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_GetVersion">
-const char* <code class="sig-name descname">Py_GetVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetVersion" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="descname">Py_GetVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetVersion" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the version of this Python interpreter.  This is a string that looks
 something like</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;3.0a5+ (py3k:63103M, May 12 2008, 00:53:55) </span><span class="se">\n</span><span class="s">[GCC 4.2.3]&quot;</span>
@@ -566,7 +563,7 @@ modify its value.  The value is available to Python code as <a class="reference 
 
 <dl class="function">
 <dt id="c.Py_GetPlatform">
-const char* <code class="sig-name descname">Py_GetPlatform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPlatform" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="descname">Py_GetPlatform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPlatform" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-26">Return the platform identifier for the current platform.  On Unix, this is
 formed from the „official” name of the operating system, converted to lower
 case, followed by the major revision number; e.g., for Solaris 2.x, which is
@@ -578,7 +575,7 @@ to Python code as <code class="docutils literal notranslate"><span class="pre">s
 
 <dl class="function">
 <dt id="c.Py_GetCopyright">
-const char* <code class="sig-name descname">Py_GetCopyright</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetCopyright" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="descname">Py_GetCopyright</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetCopyright" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the official copyright string for the current Python version, for example</p>
 <p><code class="docutils literal notranslate"><span class="pre">'Copyright</span> <span class="pre">1991-1995</span> <span class="pre">Stichting</span> <span class="pre">Mathematisch</span> <span class="pre">Centrum,</span> <span class="pre">Amsterdam'</span></code></p>
 <p id="index-27">The returned string points into static storage; the caller should not modify its
@@ -587,7 +584,7 @@ value.  The value is available to Python code as <code class="docutils literal n
 
 <dl class="function">
 <dt id="c.Py_GetCompiler">
-const char* <code class="sig-name descname">Py_GetCompiler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetCompiler" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="descname">Py_GetCompiler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetCompiler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an indication of the compiler used to build the current Python version,
 in square brackets, for example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;[GCC 2.7.2.2]&quot;</span>
@@ -600,7 +597,7 @@ value.  The value is available to Python code as part of the variable
 
 <dl class="function">
 <dt id="c.Py_GetBuildInfo">
-const char* <code class="sig-name descname">Py_GetBuildInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetBuildInfo" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="descname">Py_GetBuildInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetBuildInfo" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return information about the sequence number and build date and time  of the
 current Python interpreter instance, for example</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;#67, Aug  1 1997, 22:34:28&quot;</span>
@@ -613,7 +610,7 @@ value.  The value is available to Python code as part of the variable
 
 <dl class="function">
 <dt id="c.PySys_SetArgvEx">
-void <code class="sig-name descname">PySys_SetArgvEx</code><span class="sig-paren">(</span>int<em> argc</em>, wchar_t<em> **argv</em>, int<em> updatepath</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_SetArgvEx" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PySys_SetArgvEx</code><span class="sig-paren">(</span>int<em>&nbsp;argc</em>, wchar_t<em>&nbsp;**argv</em>, int<em>&nbsp;updatepath</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_SetArgvEx" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-30">Set <a class="reference internal" href="../library/sys.html#sys.argv" title="sys.argv"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.argv</span></code></a> based on <em>argc</em> and <em>argv</em>.  These parameters are
 similar to those passed to the program’s <code class="xref c c-func docutils literal notranslate"><span class="pre">main()</span></code> function with the
 difference that the first entry should refer to the script file to be
@@ -625,18 +622,18 @@ condition is signalled using <a class="reference internal" href="sys.html#c.Py_F
 is non-zero, the function also modifies <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> according to the
 following algorithm:</p>
 <ul class="simple">
-<li><p>If the name of an existing script is passed in <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>, the absolute
+<li>If the name of an existing script is passed in <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>, the absolute
 path of the directory where the script is located is prepended to
-<a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p></li>
-<li><p>Otherwise (that is, if <em>argc</em> is <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> doesn’t point
+<a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</li>
+<li>Otherwise (that is, if <em>argc</em> is <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> doesn’t point
 to an existing file name), an empty string is prepended to
 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>, which is the same as prepending the current working
-directory (<code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>).</p></li>
+directory (<code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>).</li>
 </ul>
 <p>Use <a class="reference internal" href="sys.html#c.Py_DecodeLocale" title="Py_DecodeLocale"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DecodeLocale()</span></code></a> to decode a bytes string to get a
 <code class="xref c c-type docutils literal notranslate"><span class="pre">wchar_*</span></code> string.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p>It is recommended that applications embedding the Python interpreter
 for purposes other than executing a single script pass <code class="docutils literal notranslate"><span class="pre">0</span></code> as <em>updatepath</em>,
 and update <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> themselves if desired.
@@ -644,31 +641,31 @@ See <a class="reference external" href="https://cve.mitre.org/cgi-bin/cvename.cg
 <p>On versions before 3.1.3, you can achieve the same effect by manually
 popping the first <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> element after having called
 <a class="reference internal" href="#c.PySys_SetArgv" title="PySys_SetArgv"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_SetArgv()</span></code></a>, for example using:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyRun_SimpleString</span><span class="p">(</span><span class="s">&quot;import sys; sys.path.pop(0)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<div class="last highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyRun_SimpleString</span><span class="p">(</span><span class="s">&quot;import sys; sys.path.pop(0)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.1.3.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.1.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PySys_SetArgv">
-void <code class="sig-name descname">PySys_SetArgv</code><span class="sig-paren">(</span>int<em> argc</em>, wchar_t<em> **argv</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_SetArgv" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PySys_SetArgv</code><span class="sig-paren">(</span>int<em>&nbsp;argc</em>, wchar_t<em>&nbsp;**argv</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_SetArgv" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function works like <a class="reference internal" href="#c.PySys_SetArgvEx" title="PySys_SetArgvEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_SetArgvEx()</span></code></a> with <em>updatepath</em> set
 to <code class="docutils literal notranslate"><span class="pre">1</span></code> unless the <strong class="program">python</strong> interpreter was started with the
 <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a>.</p>
 <p>Use <a class="reference internal" href="sys.html#c.Py_DecodeLocale" title="Py_DecodeLocale"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DecodeLocale()</span></code></a> to decode a bytes string to get a
 <code class="xref c c-type docutils literal notranslate"><span class="pre">wchar_*</span></code> string.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>The <em>updatepath</em> value depends on <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a>.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.4: </span>The <em>updatepath</em> value depends on <a class="reference internal" href="../using/cmdline.html#id2"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_SetPythonHome">
-void <code class="sig-name descname">Py_SetPythonHome</code><span class="sig-paren">(</span>const wchar_t<em> *home</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetPythonHome" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_SetPythonHome</code><span class="sig-paren">(</span>const wchar_t<em>&nbsp;*home</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SetPythonHome" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the default „home” directory, that is, the location of the standard
 Python libraries.  See <span class="target" id="index-31"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> for the meaning of the
 argument string.</p>
@@ -682,7 +679,7 @@ this storage.</p>
 
 <dl class="function">
 <dt id="c.Py_GetPythonHome">
-w_char* <code class="sig-name descname">Py_GetPythonHome</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPythonHome" title="Stały odnośnik do tej definicji">¶</a></dt>
+w_char* <code class="descname">Py_GetPythonHome</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GetPythonHome" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the default „home”, that is, the value set by a previous call to
 <a class="reference internal" href="#c.Py_SetPythonHome" title="Py_SetPythonHome"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_SetPythonHome()</span></code></a>, or the value of the <span class="target" id="index-32"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a>
 environment variable if it is set.</p>
@@ -744,8 +741,8 @@ state in the global variable). Conversely, when acquiring the lock and restoring
 the thread state, the lock must be acquired before storing the thread state
 pointer.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Calling system I/O functions is the most common use case for releasing
+<p class="first admonition-title">Informacja</p>
+<p class="last">Calling system I/O functions is the most common use case for releasing
 the GIL, but it can also be useful before calling long-running computations
 which don’t need access to Python objects, such as compression or
 cryptographic functions operating over memory buffers.  For example, the
@@ -826,7 +823,7 @@ after.</p>
 code, or when embedding the Python interpreter:</p>
 <dl class="type">
 <dt id="c.PyInterpreterState">
-<code class="sig-name descname">PyInterpreterState</code><a class="headerlink" href="#c.PyInterpreterState" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">PyInterpreterState</code><a class="headerlink" href="#c.PyInterpreterState" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This data structure represents the state shared by a number of cooperating
 threads.  Threads belonging to the same interpreter share their module
 administration and a few other internal items. There are no public members in
@@ -839,7 +836,7 @@ interpreter they belong.</p>
 
 <dl class="type">
 <dt id="c.PyThreadState">
-<code class="sig-name descname">PyThreadState</code><a class="headerlink" href="#c.PyThreadState" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">PyThreadState</code><a class="headerlink" href="#c.PyThreadState" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This data structure represents the state of a single thread.  The only public
 data member is <a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyInterpreterState</span> <span class="pre">*</span></code></a><code class="xref py py-attr docutils literal notranslate"><span class="pre">interp</span></code>, which points to
 this thread’s interpreter state.</p>
@@ -847,35 +844,35 @@ this thread’s interpreter state.</p>
 
 <dl class="function">
 <dt id="c.PyEval_InitThreads">
-void <code class="sig-name descname">PyEval_InitThreads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_InitThreads" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_InitThreads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_InitThreads" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-38">Initialize and acquire the global interpreter lock.  It should be called in the
 main thread before creating a second thread or engaging in any other thread
 operations such as <code class="docutils literal notranslate"><span class="pre">PyEval_ReleaseThread(tstate)</span></code>. It is not needed before
 calling <a class="reference internal" href="#c.PyEval_SaveThread" title="PyEval_SaveThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_SaveThread()</span></code></a> or <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a>.</p>
 <p>This is a no-op when called for a second time.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>This function is now called by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>, so you don’t
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span>This function is now called by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>, so you don’t
 have to call it yourself anymore.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>This function cannot be called before <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> anymore.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.2: </span>This function cannot be called before <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> anymore.</p>
 </div>
 <span class="target" id="index-39"></span></dd></dl>
 
 <dl class="function">
 <dt id="c.PyEval_ThreadsInitialized">
-int <code class="sig-name descname">PyEval_ThreadsInitialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ThreadsInitialized" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyEval_ThreadsInitialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ThreadsInitialized" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a non-zero value if <a class="reference internal" href="#c.PyEval_InitThreads" title="PyEval_InitThreads"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_InitThreads()</span></code></a> has been called.  This
 function can be called without holding the GIL, and therefore can be used to
 avoid calls to the locking API when running single-threaded.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a> is now initialized by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a> is now initialized by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyEval_SaveThread">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyEval_SaveThread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SaveThread" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyEval_SaveThread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SaveThread" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Release the global interpreter lock (if it has been created) and reset the
 thread state to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, returning the previous thread state (which is not
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>).  If the lock has been created, the current thread must have
@@ -884,14 +881,14 @@ acquired it.</p>
 
 <dl class="function">
 <dt id="c.PyEval_RestoreThread">
-void <code class="sig-name descname">PyEval_RestoreThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_RestoreThread" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_RestoreThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_RestoreThread" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Acquire the global interpreter lock (if it has been created) and set the
 thread state to <em>tstate</em>, which must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  If the lock has been
 created, the current thread must not have acquired it, otherwise deadlock
 ensues.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Calling this function from a thread when the runtime is finalizing
+<p class="first admonition-title">Informacja</p>
+<p class="last">Calling this function from a thread when the runtime is finalizing
 will terminate the thread, even if the thread was not created by Python.
 You can use <code class="xref c c-func docutils literal notranslate"><span class="pre">_Py_IsFinalizing()</span></code> or <a class="reference internal" href="../library/sys.html#sys.is_finalizing" title="sys.is_finalizing"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.is_finalizing()</span></code></a> to
 check if the interpreter is in process of being finalized before calling
@@ -901,7 +898,7 @@ this function to avoid unwanted termination.</p>
 
 <dl class="function">
 <dt id="c.PyThreadState_Get">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyThreadState_Get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Get" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyThreadState_Get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Get" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current thread state.  The global interpreter lock must be held.
 When the current thread state is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, this issues a fatal error (so that
 the caller needn’t check for <code class="docutils literal notranslate"><span class="pre">NULL</span></code>).</p>
@@ -909,7 +906,7 @@ the caller needn’t check for <code class="docutils literal notranslate"><span 
 
 <dl class="function">
 <dt id="c.PyThreadState_Swap">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyThreadState_Swap</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Swap" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyThreadState_Swap</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Swap" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Swap the current thread state with the thread state given by the argument
 <em>tstate</em>, which may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  The global interpreter lock must be held
 and is not released.</p>
@@ -919,7 +916,7 @@ and is not released.</p>
 with sub-interpreters:</p>
 <dl class="function">
 <dt id="c.PyGILState_Ensure">
-PyGILState_STATE <code class="sig-name descname">PyGILState_Ensure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Ensure" title="Stały odnośnik do tej definicji">¶</a></dt>
+PyGILState_STATE <code class="descname">PyGILState_Ensure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Ensure" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Ensure that the current thread is ready to call the Python C API regardless
 of the current state of Python, or of the global interpreter lock. This may
 be called as many times as desired by a thread as long as each call is
@@ -938,8 +935,8 @@ to <a class="reference internal" href="#c.PyGILState_Release" title="PyGILState_
 <p>When the function returns, the current thread will hold the GIL and be able
 to call arbitrary Python code.  Failure is a fatal error.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Calling this function from a thread when the runtime is finalizing
+<p class="first admonition-title">Informacja</p>
+<p class="last">Calling this function from a thread when the runtime is finalizing
 will terminate the thread, even if the thread was not created by Python.
 You can use <code class="xref c c-func docutils literal notranslate"><span class="pre">_Py_IsFinalizing()</span></code> or <a class="reference internal" href="../library/sys.html#sys.is_finalizing" title="sys.is_finalizing"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.is_finalizing()</span></code></a> to
 check if the interpreter is in process of being finalized before calling
@@ -949,7 +946,7 @@ this function to avoid unwanted termination.</p>
 
 <dl class="function">
 <dt id="c.PyGILState_Release">
-void <code class="sig-name descname">PyGILState_Release</code><span class="sig-paren">(</span>PyGILState_STATE<span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Release" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyGILState_Release</code><span class="sig-paren">(</span>PyGILState_STATE<span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Release" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Release any resources previously acquired.  After this call, Python’s state will
 be the same as it was prior to the corresponding <a class="reference internal" href="#c.PyGILState_Ensure" title="PyGILState_Ensure"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyGILState_Ensure()</span></code></a> call
 (but generally this state will be unknown to the caller, hence the use of the
@@ -960,7 +957,7 @@ GILState API).</p>
 
 <dl class="function">
 <dt id="c.PyGILState_GetThisThreadState">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyGILState_GetThisThreadState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_GetThisThreadState" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyGILState_GetThisThreadState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_GetThisThreadState" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Get the current thread state for this thread.  May return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no
 GILState API has been used on the current thread.  Note that the main thread
 always has such a thread-state, even if no auto-thread-state call has been
@@ -969,7 +966,7 @@ made on the main thread.  This is mainly a helper/diagnostic function.</p>
 
 <dl class="function">
 <dt id="c.PyGILState_Check">
-int <code class="sig-name descname">PyGILState_Check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Check" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyGILState_Check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyGILState_Check" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">1</span></code> if the current thread is holding the GIL and <code class="docutils literal notranslate"><span class="pre">0</span></code> otherwise.
 This function can be called from any thread at any time.
 Only if it has had its Python thread state initialized and currently is
@@ -979,7 +976,7 @@ for example in callback contexts or memory allocation functions when
 knowing that the GIL is locked can allow the caller to perform sensitive
 actions or otherwise behave differently.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
@@ -987,7 +984,7 @@ actions or otherwise behave differently.</p>
 example usage in the Python source distribution.</p>
 <dl class="macro">
 <dt id="c.Py_BEGIN_ALLOW_THREADS">
-<code class="sig-name descname">Py_BEGIN_ALLOW_THREADS</code><a class="headerlink" href="#c.Py_BEGIN_ALLOW_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_BEGIN_ALLOW_THREADS</code><a class="headerlink" href="#c.Py_BEGIN_ALLOW_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro expands to <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">PyThreadState</span> <span class="pre">*_save;</span> <span class="pre">_save</span> <span class="pre">=</span> <span class="pre">PyEval_SaveThread();</span></code>.
 Note that it contains an opening brace; it must be matched with a following
 <a class="reference internal" href="#c.Py_END_ALLOW_THREADS" title="Py_END_ALLOW_THREADS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_END_ALLOW_THREADS</span></code></a> macro.  See above for further discussion of this
@@ -996,7 +993,7 @@ macro.</p>
 
 <dl class="macro">
 <dt id="c.Py_END_ALLOW_THREADS">
-<code class="sig-name descname">Py_END_ALLOW_THREADS</code><a class="headerlink" href="#c.Py_END_ALLOW_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_END_ALLOW_THREADS</code><a class="headerlink" href="#c.Py_END_ALLOW_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro expands to <code class="docutils literal notranslate"><span class="pre">PyEval_RestoreThread(_save);</span> <span class="pre">}</span></code>. Note that it contains
 a closing brace; it must be matched with an earlier
 <a class="reference internal" href="#c.Py_BEGIN_ALLOW_THREADS" title="Py_BEGIN_ALLOW_THREADS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_BEGIN_ALLOW_THREADS</span></code></a> macro.  See above for further discussion of
@@ -1005,14 +1002,14 @@ this macro.</p>
 
 <dl class="macro">
 <dt id="c.Py_BLOCK_THREADS">
-<code class="sig-name descname">Py_BLOCK_THREADS</code><a class="headerlink" href="#c.Py_BLOCK_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_BLOCK_THREADS</code><a class="headerlink" href="#c.Py_BLOCK_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro expands to <code class="docutils literal notranslate"><span class="pre">PyEval_RestoreThread(_save);</span></code>: it is equivalent to
 <a class="reference internal" href="#c.Py_END_ALLOW_THREADS" title="Py_END_ALLOW_THREADS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_END_ALLOW_THREADS</span></code></a> without the closing brace.</p>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_UNBLOCK_THREADS">
-<code class="sig-name descname">Py_UNBLOCK_THREADS</code><a class="headerlink" href="#c.Py_UNBLOCK_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_UNBLOCK_THREADS</code><a class="headerlink" href="#c.Py_UNBLOCK_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro expands to <code class="docutils literal notranslate"><span class="pre">_save</span> <span class="pre">=</span> <span class="pre">PyEval_SaveThread();</span></code>: it is equivalent to
 <a class="reference internal" href="#c.Py_BEGIN_ALLOW_THREADS" title="Py_BEGIN_ALLOW_THREADS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_BEGIN_ALLOW_THREADS</span></code></a> without the opening brace and variable
 declaration.</p>
@@ -1023,11 +1020,11 @@ declaration.</p>
 <h3>Low-level API<a class="headerlink" href="#low-level-api" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>All of the following functions must be called after <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span><a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> now initializes the <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a>.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span><a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> now initializes the <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a>.</p>
 </div>
 <dl class="function">
 <dt id="c.PyInterpreterState_New">
-<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="sig-name descname">PyInterpreterState_New</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_New" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="descname">PyInterpreterState_New</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_New" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Create a new interpreter state object.  The global interpreter lock need not
 be held, but may be held if it is necessary to serialize calls to this
 function.</p>
@@ -1036,7 +1033,7 @@ function.</p>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_Clear">
-void <code class="sig-name descname">PyInterpreterState_Clear</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Clear" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyInterpreterState_Clear</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Clear" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Reset all information in an interpreter state object.  The global interpreter
 lock must be held.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="../library/sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">cpython.PyInterpreterState_Clear</span></code> with no arguments.</p>
@@ -1044,7 +1041,7 @@ lock must be held.</p>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_Delete">
-void <code class="sig-name descname">PyInterpreterState_Delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Delete" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyInterpreterState_Delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Delete" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Destroy an interpreter state object.  The global interpreter lock need not be
 held.  The interpreter state must have been reset with a previous call to
 <a class="reference internal" href="#c.PyInterpreterState_Clear" title="PyInterpreterState_Clear"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInterpreterState_Clear()</span></code></a>.</p>
@@ -1052,7 +1049,7 @@ held.  The interpreter state must have been reset with a previous call to
 
 <dl class="function">
 <dt id="c.PyThreadState_New">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyThreadState_New</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_New" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyThreadState_New</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_New" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Create a new thread state object belonging to the given interpreter object.
 The global interpreter lock need not be held, but may be held if it is
 necessary to serialize calls to this function.</p>
@@ -1060,14 +1057,14 @@ necessary to serialize calls to this function.</p>
 
 <dl class="function">
 <dt id="c.PyThreadState_Clear">
-void <code class="sig-name descname">PyThreadState_Clear</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Clear" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThreadState_Clear</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Clear" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Reset all information in a thread state object.  The global interpreter lock
 must be held.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyThreadState_Delete">
-void <code class="sig-name descname">PyThreadState_Delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Delete" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThreadState_Delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Delete" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Destroy a thread state object.  The global interpreter lock need not be held.
 The thread state must have been reset with a previous call to
 <a class="reference internal" href="#c.PyThreadState_Clear" title="PyThreadState_Clear"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_Clear()</span></code></a>.</p>
@@ -1075,30 +1072,30 @@ The thread state must have been reset with a previous call to
 
 <dl class="function">
 <dt id="c.PyInterpreterState_GetID">
-PY_INT64_T <code class="sig-name descname">PyInterpreterState_GetID</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_GetID" title="Stały odnośnik do tej definicji">¶</a></dt>
+PY_INT64_T <code class="descname">PyInterpreterState_GetID</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_GetID" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the interpreter’s unique ID.  If there was any error in doing
 so then <code class="docutils literal notranslate"><span class="pre">-1</span></code> is returned and an error is set.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_GetDict">
-<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyInterpreterState_GetDict</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_GetDict" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyInterpreterState_GetDict</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_GetDict" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a dictionary in which interpreter-specific data may be stored.
 If this function returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> then no exception has been raised and
 the caller should assume no interpreter-specific dict is available.</p>
 <p>This is not a replacement for <a class="reference internal" href="module.html#c.PyModule_GetState" title="PyModule_GetState"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_GetState()</span></code></a>, which
 extensions should use to store interpreter-specific state information.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyThreadState_GetDict">
-<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyThreadState_GetDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_GetDict" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyThreadState_GetDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_GetDict" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: Borrowed reference.</em><p>Return a dictionary in which extensions can store thread-specific state
 information.  Each extension should use a unique key to use to store state in
 the dictionary.  It is okay to call this function when no current thread state
@@ -1108,7 +1105,7 @@ the caller should assume no current thread state is available.</p>
 
 <dl class="function">
 <dt id="c.PyThreadState_SetAsyncExc">
-int <code class="sig-name descname">PyThreadState_SetAsyncExc</code><span class="sig-paren">(</span>unsigned long<em> id</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *exc</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_SetAsyncExc" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThreadState_SetAsyncExc</code><span class="sig-paren">(</span>unsigned long<em>&nbsp;id</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*exc</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_SetAsyncExc" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Asynchronously raise an exception in a thread. The <em>id</em> argument is the thread
 id of the target thread; <em>exc</em> is the exception object to be raised. This
 function does not steal any references to <em>exc</em>. To prevent naive misuse, you
@@ -1117,27 +1114,27 @@ Returns the number of thread states modified; this is normally one, but will be
 zero if the thread id isn’t found.  If <em>exc</em> is <code class="xref py py-const docutils literal notranslate"><span class="pre">NULL</span></code>, the pending
 exception (if any) for the thread is cleared. This raises no exceptions.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The type of the <em>id</em> parameter changed from <code class="xref c c-type docutils literal notranslate"><span class="pre">long</span></code> to
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The type of the <em>id</em> parameter changed from <code class="xref c c-type docutils literal notranslate"><span class="pre">long</span></code> to
 <code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyEval_AcquireThread">
-void <code class="sig-name descname">PyEval_AcquireThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_AcquireThread" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_AcquireThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_AcquireThread" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Acquire the global interpreter lock and set the current thread state to
 <em>tstate</em>, which should not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  The lock must have been created earlier.
 If this thread already has the lock, deadlock ensues.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Calling this function from a thread when the runtime is finalizing
+<p class="first admonition-title">Informacja</p>
+<p class="last">Calling this function from a thread when the runtime is finalizing
 will terminate the thread, even if the thread was not created by Python.
 You can use <code class="xref c c-func docutils literal notranslate"><span class="pre">_Py_IsFinalizing()</span></code> or <a class="reference internal" href="../library/sys.html#sys.is_finalizing" title="sys.is_finalizing"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.is_finalizing()</span></code></a> to
 check if the interpreter is in process of being finalized before calling
 this function to avoid unwanted termination.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Updated to be consistent with <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a>,
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Updated to be consistent with <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a>,
 <a class="reference internal" href="#c.Py_END_ALLOW_THREADS" title="Py_END_ALLOW_THREADS"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_END_ALLOW_THREADS()</span></code></a>, and <a class="reference internal" href="#c.PyGILState_Ensure" title="PyGILState_Ensure"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyGILState_Ensure()</span></code></a>,
 and terminate the current thread if called while the interpreter is finalizing.</p>
 </div>
@@ -1147,7 +1144,7 @@ available (even when threads have not been initialized).</p>
 
 <dl class="function">
 <dt id="c.PyEval_ReleaseThread">
-void <code class="sig-name descname">PyEval_ReleaseThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ReleaseThread" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_ReleaseThread</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ReleaseThread" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Reset the current thread state to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> and release the global interpreter
 lock.  The lock must have been created earlier and must be held by the current
 thread.  The <em>tstate</em> argument, which must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, is only used to check
@@ -1159,24 +1156,24 @@ available (even when threads have not been initialized).</p>
 
 <dl class="function">
 <dt id="c.PyEval_AcquireLock">
-void <code class="sig-name descname">PyEval_AcquireLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_AcquireLock" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_AcquireLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_AcquireLock" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Acquire the global interpreter lock.  The lock must have been created earlier.
 If this thread already has the lock, a deadlock ensues.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.2: </span>This function does not update the current thread state.  Please use
+<p><span class="versionmodified">Niezalecane od wersji 3.2: </span>This function does not update the current thread state.  Please use
 <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a> or <a class="reference internal" href="#c.PyEval_AcquireThread" title="PyEval_AcquireThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_AcquireThread()</span></code></a>
 instead.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Calling this function from a thread when the runtime is finalizing
+<p class="first admonition-title">Informacja</p>
+<p class="last">Calling this function from a thread when the runtime is finalizing
 will terminate the thread, even if the thread was not created by Python.
 You can use <code class="xref c c-func docutils literal notranslate"><span class="pre">_Py_IsFinalizing()</span></code> or <a class="reference internal" href="../library/sys.html#sys.is_finalizing" title="sys.is_finalizing"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.is_finalizing()</span></code></a> to
 check if the interpreter is in process of being finalized before calling
 this function to avoid unwanted termination.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Updated to be consistent with <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a>,
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Updated to be consistent with <a class="reference internal" href="#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_RestoreThread()</span></code></a>,
 <a class="reference internal" href="#c.Py_END_ALLOW_THREADS" title="Py_END_ALLOW_THREADS"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_END_ALLOW_THREADS()</span></code></a>, and <a class="reference internal" href="#c.PyGILState_Ensure" title="PyGILState_Ensure"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyGILState_Ensure()</span></code></a>,
 and terminate the current thread if called while the interpreter is finalizing.</p>
 </div>
@@ -1184,10 +1181,10 @@ and terminate the current thread if called while the interpreter is finalizing.<
 
 <dl class="function">
 <dt id="c.PyEval_ReleaseLock">
-void <code class="sig-name descname">PyEval_ReleaseLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ReleaseLock" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_ReleaseLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_ReleaseLock" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Release the global interpreter lock.  The lock must have been created earlier.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.2: </span>This function does not update the current thread state.  Please use
+<p><span class="versionmodified">Niezalecane od wersji 3.2: </span>This function does not update the current thread state.  Please use
 <a class="reference internal" href="#c.PyEval_SaveThread" title="PyEval_SaveThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_SaveThread()</span></code></a> or <a class="reference internal" href="#c.PyEval_ReleaseThread" title="PyEval_ReleaseThread"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_ReleaseThread()</span></code></a>
 instead.</p>
 </div>
@@ -1211,7 +1208,7 @@ is usually the active interpreter during runtime finalization.  The
 function. You can create and destroy them using the following functions:</p>
 <dl class="function">
 <dt id="c.Py_NewInterpreter">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">Py_NewInterpreter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_NewInterpreter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">Py_NewInterpreter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_NewInterpreter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-40">Create a new sub-interpreter.  This is an (almost) totally separate environment
 for the execution of Python code.  In particular, the new interpreter has
 separate, independent versions of all imported modules, including the
@@ -1233,12 +1230,13 @@ other Python/C API functions, there needn’t be a current thread state on
 entry.)</p>
 <p id="index-41">Extension modules are shared between (sub-)interpreters as follows:</p>
 <ul>
-<li><p>For modules using multi-phase initialization,
+<li><p class="first">For modules using multi-phase initialization,
 e.g. <a class="reference internal" href="module.html#c.PyModule_FromDefAndSpec" title="PyModule_FromDefAndSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_FromDefAndSpec()</span></code></a>, a separate module object is
 created and initialized for each interpreter.
 Only C-level static and global variables are shared between these
-module objects.</p></li>
-<li><p>For modules using single-phase initialization,
+module objects.</p>
+</li>
+<li><p class="first">For modules using single-phase initialization,
 e.g. <a class="reference internal" href="module.html#c.PyModule_Create" title="PyModule_Create"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_Create()</span></code></a>, the first time a particular extension
 is imported, it is initialized normally, and a (shallow) copy of its
 module’s dictionary is squirreled away.
@@ -1260,7 +1258,7 @@ and global variables are shared between these modules.</p>
 
 <dl class="function">
 <dt id="c.Py_EndInterpreter">
-void <code class="sig-name descname">Py_EndInterpreter</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_EndInterpreter" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">Py_EndInterpreter</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_EndInterpreter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-43">Destroy the (sub-)interpreter represented by the given thread state. The given
 thread state must be the current thread state.  See the discussion of thread
 states below.  When the call returns, the current thread state is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  All
@@ -1303,7 +1301,7 @@ interpreter thread.  These notifications take the form of a function
 pointer and a void pointer argument.</p>
 <dl class="function">
 <dt id="c.Py_AddPendingCall">
-int <code class="sig-name descname">Py_AddPendingCall</code><span class="sig-paren">(</span>int (<em>*func</em>)(void *), void<em> *arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_AddPendingCall" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">Py_AddPendingCall</code><span class="sig-paren">(</span>int (<em>*func</em>)(void *), void<em>&nbsp;*arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_AddPendingCall" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-44">Schedule a function to be called from the main interpreter thread.  On
 success, <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned and <em>func</em> is queued for being called in the
 main thread.  On failure, <code class="docutils literal notranslate"><span class="pre">-1</span></code> is returned without setting any exception.</p>
@@ -1312,9 +1310,9 @@ main interpreter thread with the argument <em>arg</em>.  It will be called
 asynchronously with respect to normally running Python code, but with
 both these conditions met:</p>
 <ul class="simple">
-<li><p>on a <a class="reference internal" href="../glossary.html#term-bytecode"><span class="xref std std-term">bytecode</span></a> boundary;</p></li>
-<li><p>with the main thread holding the <a class="reference internal" href="../glossary.html#term-global-interpreter-lock"><span class="xref std std-term">global interpreter lock</span></a>
-(<em>func</em> can therefore use the full C API).</p></li>
+<li>on a <a class="reference internal" href="../glossary.html#term-bytecode"><span class="xref std std-term">bytecode</span></a> boundary;</li>
+<li>with the main thread holding the <a class="reference internal" href="../glossary.html#term-global-interpreter-lock"><span class="xref std std-term">global interpreter lock</span></a>
+(<em>func</em> can therefore use the full C API).</li>
 </ul>
 <p><em>func</em> must return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success, or <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure with an exception
 set.  <em>func</em> won’t be interrupted to perform another asynchronous
@@ -1323,8 +1321,8 @@ threads if the global interpreter lock is released.</p>
 <p>This function doesn’t need a current thread state to run, and it doesn’t
 need the global interpreter lock.</p>
 <div class="admonition warning">
-<p class="admonition-title">Ostrzeżenie</p>
-<p>This is a low-level function, only useful for very special cases.
+<p class="first admonition-title">Ostrzeżenie</p>
+<p class="last">This is a low-level function, only useful for very special cases.
 There is no guarantee that <em>func</em> will be called as quick as
 possible.  If the main thread is busy executing a system call,
 <em>func</em> won’t be called before the system call returns.  This
@@ -1332,7 +1330,7 @@ function is generally <strong>not</strong> suitable for calling Python code from
 arbitrary C threads.  Instead, use the <a class="reference internal" href="#gilstate"><span class="std std-ref">PyGILState API</span></a>.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
 </div>
 </dd></dl>
 
@@ -1350,7 +1348,7 @@ events reported to the trace function are the same as had been reported to the
 Python-level trace functions in previous versions.</p>
 <dl class="type">
 <dt id="c.Py_tracefunc">
-int <code class="sig-name descname">(*Py_tracefunc)</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *obj</em>, <a class="reference internal" href="veryhigh.html#c.PyFrameObject" title="PyFrameObject">PyFrameObject</a><em> *frame</em>, int<em> what</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_tracefunc" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">(*Py_tracefunc)</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*obj</em>, <a class="reference internal" href="veryhigh.html#c.PyFrameObject" title="PyFrameObject">PyFrameObject</a><em>&nbsp;*frame</em>, int<em>&nbsp;what</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_tracefunc" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The type of the trace function registered using <a class="reference internal" href="#c.PyEval_SetProfile" title="PyEval_SetProfile"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_SetProfile()</span></code></a> and
 <a class="reference internal" href="#c.PyEval_SetTrace" title="PyEval_SetTrace"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_SetTrace()</span></code></a>. The first parameter is the object passed to the
 registration function as <em>obj</em>, <em>frame</em> is the frame object to which the event
@@ -1358,42 +1356,42 @@ pertains, <em>what</em> is one of the constants <code class="xref py py-const do
 <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_EXCEPTION</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_LINE</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_RETURN</span></code>,
 <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_CALL</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_EXCEPTION</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_RETURN</span></code>,
 or <code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_OPCODE</span></code>, and <em>arg</em> depends on the value of <em>what</em>:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 43%" />
-<col style="width: 57%" />
+<col width="43%" />
+<col width="57%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Value of <em>what</em></p></th>
-<th class="head"><p>Meaning of <em>arg</em></p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value of <em>what</em></th>
+<th class="head">Meaning of <em>arg</em></th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_CALL</span></code></p></td>
-<td><p>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</p></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_CALL</span></code></td>
+<td>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_EXCEPTION</span></code></p></td>
-<td><p>Exception information as returned by
-<a class="reference internal" href="../library/sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>.</p></td>
+<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_EXCEPTION</span></code></td>
+<td>Exception information as returned by
+<a class="reference internal" href="../library/sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>.</td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_LINE</span></code></p></td>
-<td><p>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</p></td>
+<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_LINE</span></code></td>
+<td>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_RETURN</span></code></p></td>
-<td><p>Value being returned to the caller,
-or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if caused by an exception.</p></td>
+<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_RETURN</span></code></td>
+<td>Value being returned to the caller,
+or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if caused by an exception.</td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_CALL</span></code></p></td>
-<td><p>Function object being called.</p></td>
+<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_CALL</span></code></td>
+<td>Function object being called.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_EXCEPTION</span></code></p></td>
-<td><p>Function object being called.</p></td>
+<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_EXCEPTION</span></code></td>
+<td>Function object being called.</td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_RETURN</span></code></p></td>
-<td><p>Function object being called.</p></td>
+<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_C_RETURN</span></code></td>
+<td>Function object being called.</td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_OPCODE</span></code></p></td>
-<td><p>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</p></td>
+<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">PyTrace_OPCODE</span></code></td>
+<td>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_None</span></code></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1401,7 +1399,7 @@ or <code class="docutils literal notranslate"><span class="pre">NULL</span></cod
 
 <dl class="var">
 <dt id="c.PyTrace_CALL">
-int <code class="sig-name descname">PyTrace_CALL</code><a class="headerlink" href="#c.PyTrace_CALL" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_CALL</code><a class="headerlink" href="#c.PyTrace_CALL" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value of the <em>what</em> parameter to a <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> function when a new
 call to a function or method is being reported, or a new entry into a generator.
 Note that the creation of the iterator for a generator function is not reported
@@ -1411,7 +1409,7 @@ frame.</p>
 
 <dl class="var">
 <dt id="c.PyTrace_EXCEPTION">
-int <code class="sig-name descname">PyTrace_EXCEPTION</code><a class="headerlink" href="#c.PyTrace_EXCEPTION" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_EXCEPTION</code><a class="headerlink" href="#c.PyTrace_EXCEPTION" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value of the <em>what</em> parameter to a <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> function when an
 exception has been raised.  The callback function is called with this value for
 <em>what</em> when after any bytecode is processed after which the exception becomes
@@ -1423,7 +1421,7 @@ these events; they are not needed by the profiler.</p>
 
 <dl class="var">
 <dt id="c.PyTrace_LINE">
-int <code class="sig-name descname">PyTrace_LINE</code><a class="headerlink" href="#c.PyTrace_LINE" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_LINE</code><a class="headerlink" href="#c.PyTrace_LINE" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value passed as the <em>what</em> parameter to a <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> function
 (but not a profiling function) when a line-number event is being reported.
 It may be disabled for a frame by setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code> to <em>0</em> on that frame.</p>
@@ -1431,35 +1429,35 @@ It may be disabled for a frame by setting <code class="xref py py-attr docutils 
 
 <dl class="var">
 <dt id="c.PyTrace_RETURN">
-int <code class="sig-name descname">PyTrace_RETURN</code><a class="headerlink" href="#c.PyTrace_RETURN" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_RETURN</code><a class="headerlink" href="#c.PyTrace_RETURN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> functions when a
 call is about to return.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.PyTrace_C_CALL">
-int <code class="sig-name descname">PyTrace_C_CALL</code><a class="headerlink" href="#c.PyTrace_C_CALL" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_C_CALL</code><a class="headerlink" href="#c.PyTrace_C_CALL" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> functions when a C
 function is about to be called.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.PyTrace_C_EXCEPTION">
-int <code class="sig-name descname">PyTrace_C_EXCEPTION</code><a class="headerlink" href="#c.PyTrace_C_EXCEPTION" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_C_EXCEPTION</code><a class="headerlink" href="#c.PyTrace_C_EXCEPTION" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> functions when a C
 function has raised an exception.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.PyTrace_C_RETURN">
-int <code class="sig-name descname">PyTrace_C_RETURN</code><a class="headerlink" href="#c.PyTrace_C_RETURN" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_C_RETURN</code><a class="headerlink" href="#c.PyTrace_C_RETURN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> functions when a C
 function has returned.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.PyTrace_OPCODE">
-int <code class="sig-name descname">PyTrace_OPCODE</code><a class="headerlink" href="#c.PyTrace_OPCODE" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyTrace_OPCODE</code><a class="headerlink" href="#c.PyTrace_OPCODE" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tracefunc</span></code></a> functions (but not
 profiling functions) when a new opcode is about to be executed.  This event is
 not emitted by default: it must be explicitly requested by setting
@@ -1468,7 +1466,7 @@ not emitted by default: it must be explicitly requested by setting
 
 <dl class="function">
 <dt id="c.PyEval_SetProfile">
-void <code class="sig-name descname">PyEval_SetProfile</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc">Py_tracefunc</a><em> func</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *obj</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SetProfile" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_SetProfile</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc">Py_tracefunc</a><em>&nbsp;func</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*obj</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SetProfile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the profiler function to <em>func</em>.  The <em>obj</em> parameter is passed to the
 function as its first parameter, and may be any Python object, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  If
 the profile function needs to maintain state, using a different value for <em>obj</em>
@@ -1479,7 +1477,7 @@ profile function is called for all monitored events except <code class="xref py 
 
 <dl class="function">
 <dt id="c.PyEval_SetTrace">
-void <code class="sig-name descname">PyEval_SetTrace</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc">Py_tracefunc</a><em> func</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *obj</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SetTrace" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyEval_SetTrace</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc">Py_tracefunc</a><em>&nbsp;func</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*obj</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SetTrace" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the tracing function to <em>func</em>.  This is similar to
 <a class="reference internal" href="#c.PyEval_SetProfile" title="PyEval_SetProfile"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_SetProfile()</span></code></a>, except the tracing function does receive line-number
 events and per-opcode events, but does not receive any event related to C function
@@ -1494,33 +1492,33 @@ will not receive <code class="xref py py-const docutils literal notranslate"><sp
 <p>These functions are only intended to be used by advanced debugging tools.</p>
 <dl class="function">
 <dt id="c.PyInterpreterState_Head">
-<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="sig-name descname">PyInterpreterState_Head</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Head" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="descname">PyInterpreterState_Head</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Head" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the interpreter state object at the head of the list of all such objects.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_Main">
-<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="sig-name descname">PyInterpreterState_Main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Main" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="descname">PyInterpreterState_Main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Main" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the main interpreter state object.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_Next">
-<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="sig-name descname">PyInterpreterState_Next</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Next" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a>* <code class="descname">PyInterpreterState_Next</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Next" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the next interpreter state object after <em>interp</em> from the list of all
 such objects.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyInterpreterState_ThreadHead">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a> * <code class="sig-name descname">PyInterpreterState_ThreadHead</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em> *interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_ThreadHead" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a> * <code class="descname">PyInterpreterState_ThreadHead</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState">PyInterpreterState</a><em>&nbsp;*interp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_ThreadHead" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the pointer to the first <a class="reference internal" href="#c.PyThreadState" title="PyThreadState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyThreadState</span></code></a> object in the list of
 threads associated with the interpreter <em>interp</em>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyThreadState_Next">
-<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="sig-name descname">PyThreadState_Next</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em> *tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Next" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a>* <code class="descname">PyThreadState_Next</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyThreadState" title="PyThreadState">PyThreadState</a><em>&nbsp;*tstate</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_Next" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the next thread state object after <em>tstate</em> from the list of all such
 objects belonging to the same <a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyInterpreterState</span></code></a> object.</p>
 </dd></dl>
@@ -1539,8 +1537,8 @@ their own locking.</p>
 <p>Note that <code class="file docutils literal notranslate"><span class="pre">Python.h</span></code> does not include the declaration of the TLS APIs,
 you need to include <code class="file docutils literal notranslate"><span class="pre">pythread.h</span></code> to use thread-local storage.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>None of these API functions handle memory management on behalf of the
+<p class="first admonition-title">Informacja</p>
+<p class="last">None of these API functions handle memory management on behalf of the
 <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code> values.  You need to allocate and deallocate them yourself.
 If the <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code> values happen to be <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a>, these
 functions don’t do refcount operations on them either.</p>
@@ -1551,15 +1549,15 @@ functions don’t do refcount operations on them either.</p>
 CPython interpreter.  This API uses a new type <a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tss_t</span></code></a> instead of
 <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> to represent thread keys.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 <div class="admonition seealso">
-<p class="admonition-title">Zobacz także</p>
-<p>„A New C-API for Thread-Local Storage in CPython” (<span class="target" id="index-45"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0539"><strong>PEP 539</strong></a>)</p>
+<p class="first admonition-title">Zobacz także</p>
+<p class="last">„A New C-API for Thread-Local Storage in CPython” (<span class="target" id="index-45"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0539"><strong>PEP 539</strong></a>)</p>
 </div>
 <dl class="type">
 <dt id="c.Py_tss_t">
-<code class="sig-name descname">Py_tss_t</code><a class="headerlink" href="#c.Py_tss_t" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_tss_t</code><a class="headerlink" href="#c.Py_tss_t" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This data structure represents the state of a thread key, the definition of
 which may depend on the underlying TLS implementation, and it has an
 internal field representing the key’s initialization state.  There are no
@@ -1570,7 +1568,7 @@ this type by <a class="reference internal" href="#c.Py_tss_NEEDS_INIT" title="Py
 
 <dl class="macro">
 <dt id="c.Py_tss_NEEDS_INIT">
-<code class="sig-name descname">Py_tss_NEEDS_INIT</code><a class="headerlink" href="#c.Py_tss_NEEDS_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">Py_tss_NEEDS_INIT</code><a class="headerlink" href="#c.Py_tss_NEEDS_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro expands to the initializer for <a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tss_t</span></code></a> variables.
 Note that this macro won’t be defined with <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Py_LIMITED_API</span></a>.</p>
 </dd></dl>
@@ -1582,7 +1580,7 @@ built with <a class="reference internal" href="stable.html#stable"><span class="
 is not possible due to its implementation being opaque at build time.</p>
 <dl class="function">
 <dt id="c.PyThread_tss_alloc">
-<a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a>* <code class="sig-name descname">PyThread_tss_alloc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_alloc" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a>* <code class="descname">PyThread_tss_alloc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_alloc" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a value which is the same state as a value initialized with
 <a class="reference internal" href="#c.Py_tss_NEEDS_INIT" title="Py_tss_NEEDS_INIT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_tss_NEEDS_INIT</span></code></a>, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> in the case of dynamic allocation
 failure.</p>
@@ -1590,14 +1588,14 @@ failure.</p>
 
 <dl class="function">
 <dt id="c.PyThread_tss_free">
-void <code class="sig-name descname">PyThread_tss_free</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_free" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThread_tss_free</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_free" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Free the given <em>key</em> allocated by <a class="reference internal" href="#c.PyThread_tss_alloc" title="PyThread_tss_alloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_tss_alloc()</span></code></a>, after
 first calling <a class="reference internal" href="#c.PyThread_tss_delete" title="PyThread_tss_delete"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_tss_delete()</span></code></a> to ensure any associated
 thread locals have been unassigned. This is a no-op if the <em>key</em>
 argument is <cite>NULL</cite>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>A freed key becomes a dangling pointer, you should reset the key to
+<p class="first admonition-title">Informacja</p>
+<p class="last">A freed key becomes a dangling pointer, you should reset the key to
 <cite>NULL</cite>.</p>
 </div>
 </dd></dl>
@@ -1611,14 +1609,14 @@ undefined if the given <a class="reference internal" href="#c.Py_tss_t" title="P
 <a class="reference internal" href="#c.PyThread_tss_create" title="PyThread_tss_create"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_tss_create()</span></code></a>.</p>
 <dl class="function">
 <dt id="c.PyThread_tss_is_created">
-int <code class="sig-name descname">PyThread_tss_is_created</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_is_created" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThread_tss_is_created</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_is_created" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a non-zero value if the given <a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_tss_t</span></code></a> has been initialized
 by <a class="reference internal" href="#c.PyThread_tss_create" title="PyThread_tss_create"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_tss_create()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_tss_create">
-int <code class="sig-name descname">PyThread_tss_create</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_create" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThread_tss_create</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_create" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a zero value on successful initialization of a TSS key.  The behavior
 is undefined if the value pointed to by the <em>key</em> argument is not
 initialized by <a class="reference internal" href="#c.Py_tss_NEEDS_INIT" title="Py_tss_NEEDS_INIT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_tss_NEEDS_INIT</span></code></a>.  This function can be called
@@ -1628,7 +1626,7 @@ no-op and immediately returns success.</p>
 
 <dl class="function">
 <dt id="c.PyThread_tss_delete">
-void <code class="sig-name descname">PyThread_tss_delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_delete" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThread_tss_delete</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_delete" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Destroy a TSS key to forget the values associated with the key across all
 threads, and change the key’s initialization state to uninitialized.  A
 destroyed key is able to be initialized again by
@@ -1638,7 +1636,7 @@ the same key – calling it on an already destroyed key is a no-op.</p>
 
 <dl class="function">
 <dt id="c.PyThread_tss_set">
-int <code class="sig-name descname">PyThread_tss_set</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em>, void<em> *value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThread_tss_set</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em>, void<em>&nbsp;*value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_set" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a zero value to indicate successfully associating a <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code>
 value with a TSS key in the current thread.  Each thread has a distinct
 mapping of the key to a <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code> value.</p>
@@ -1646,7 +1644,7 @@ mapping of the key to a <code class="xref c c-type docutils literal notranslate"
 
 <dl class="function">
 <dt id="c.PyThread_tss_get">
-void* <code class="sig-name descname">PyThread_tss_get</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em> *key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_get" title="Stały odnośnik do tej definicji">¶</a></dt>
+void* <code class="descname">PyThread_tss_get</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tss_t" title="Py_tss_t">Py_tss_t</a><em>&nbsp;*key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_tss_get" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code> value associated with a TSS key in the current
 thread.  This returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no value is associated with the key in the
 current thread.</p>
@@ -1657,12 +1655,12 @@ current thread.</p>
 <div class="section" id="thread-local-storage-tls-api">
 <span id="thread-local-storage-api"></span><h3>Thread Local Storage (TLS) API<a class="headerlink" href="#thread-local-storage-tls-api" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.7: </span>This API is superseded by
+<p><span class="versionmodified">Niezalecane od wersji 3.7: </span>This API is superseded by
 <a class="reference internal" href="#thread-specific-storage-api"><span class="std std-ref">Thread Specific Storage (TSS) API</span></a>.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>This version of the API does not support platforms where the native TLS key
+<p class="first admonition-title">Informacja</p>
+<p class="last">This version of the API does not support platforms where the native TLS key
 is defined in a way that cannot be safely cast to <code class="docutils literal notranslate"><span class="pre">int</span></code>.  On such platforms,
 <a class="reference internal" href="#c.PyThread_create_key" title="PyThread_create_key"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_create_key()</span></code></a> will return immediately with a failure status,
 and the other TLS functions will all be no-ops on such platforms.</p>
@@ -1671,32 +1669,32 @@ and the other TLS functions will all be no-ops on such platforms.</p>
 be used in new code.</p>
 <dl class="function">
 <dt id="c.PyThread_create_key">
-int <code class="sig-name descname">PyThread_create_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_create_key" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThread_create_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_create_key" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_delete_key">
-void <code class="sig-name descname">PyThread_delete_key</code><span class="sig-paren">(</span>int<em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_delete_key" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThread_delete_key</code><span class="sig-paren">(</span>int<em>&nbsp;key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_delete_key" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_set_key_value">
-int <code class="sig-name descname">PyThread_set_key_value</code><span class="sig-paren">(</span>int<em> key</em>, void<em> *value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_set_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyThread_set_key_value</code><span class="sig-paren">(</span>int<em>&nbsp;key</em>, void<em>&nbsp;*value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_set_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_get_key_value">
-void* <code class="sig-name descname">PyThread_get_key_value</code><span class="sig-paren">(</span>int<em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_get_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
+void* <code class="descname">PyThread_get_key_value</code><span class="sig-paren">(</span>int<em>&nbsp;key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_get_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_delete_key_value">
-void <code class="sig-name descname">PyThread_delete_key_value</code><span class="sig-paren">(</span>int<em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_delete_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThread_delete_key_value</code><span class="sig-paren">(</span>int<em>&nbsp;key</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_delete_key_value" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="c.PyThread_ReInitTLS">
-void <code class="sig-name descname">PyThread_ReInitTLS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_ReInitTLS" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="descname">PyThread_ReInitTLS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThread_ReInitTLS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1709,7 +1707,7 @@ void <code class="sig-name descname">PyThread_ReInitTLS</code><span class="sig-p
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Initialization, Finalization, and Threads</a><ul>
 <li><a class="reference internal" href="#before-python-initialization">Before Python Initialization</a></li>
@@ -1817,11 +1815,11 @@ void <code class="sig-name descname">PyThread_ReInitTLS</code><span class="sig-p
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>copyreg — Register pickle support functions &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -111,14 +112,14 @@ information about object constructors which are not classes.
 Such constructors may be factory functions or class instances.</p>
 <dl class="function">
 <dt id="copyreg.constructor">
-<code class="sig-prename descclassname">copyreg.</code><code class="sig-name descname">constructor</code><span class="sig-paren">(</span><em class="sig-param">object</em><span class="sig-paren">)</span><a class="headerlink" href="#copyreg.constructor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">copyreg.</code><code class="descname">constructor</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#copyreg.constructor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Declares <em>object</em> to be a valid constructor.  If <em>object</em> is not callable (and
 hence not valid as a constructor), raises <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="copyreg.pickle">
-<code class="sig-prename descclassname">copyreg.</code><code class="sig-name descname">pickle</code><span class="sig-paren">(</span><em class="sig-param">type</em>, <em class="sig-param">function</em>, <em class="sig-param">constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#copyreg.pickle" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">copyreg.</code><code class="descname">pickle</code><span class="sig-paren">(</span><em>type</em>, <em>function</em>, <em>constructor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#copyreg.pickle" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Declares that <em>function</em> should be used as a „reduction” function for objects
 of type <em>type</em>.  <em>function</em> should return either a string or a tuple
 containing two or three elements.</p>
@@ -137,7 +138,7 @@ declaring reduction functions.</p>
 <h2>Example<a class="headerlink" href="#example" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The example below would like to show how to register a pickle function and how
 it will be used:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">copyreg</span><span class="o">,</span> <span class="nn">copy</span><span class="o">,</span> <span class="nn">pickle</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">copyreg</span><span class="o">,</span> <span class="nn">copy</span><span class="o">,</span> <span class="nn">pickle</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
@@ -148,9 +149,9 @@ it will be used:</p>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">copyreg</span><span class="o">.</span><span class="n">pickle</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">pickle_c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
 <span class="go">pickling a C instance...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
 <span class="go">pickling a C instance...</span>
 </pre></div>
 </div>
@@ -163,9 +164,9 @@ it will be used:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">copyreg</span></code> — Register <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> support functions</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">copyreg</span></code> — Register <code class="docutils literal notranslate"><span class="pre">pickle</span></code> support functions</a><ul>
 <li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -173,10 +174,10 @@ it will be used:</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="pickle.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> — Python object serialization</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">pickle</span></code> — Python object serialization</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="shelve.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -245,11 +246,11 @@ it will be used:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Dystrybucja modułów Pythona &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -100,51 +101,54 @@
             
   <div class="section" id="distributing-python-modules">
 <span id="distributing-index"></span><h1>Dystrybucja modułów Pythona<a class="headerlink" href="#distributing-python-modules" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">Email</dt>
-<dd class="field-odd"><p><a class="reference external" href="mailto:distutils-sig&#37;&#52;&#48;python&#46;org">distutils-sig<span>&#64;</span>python<span>&#46;</span>org</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:distutils-sig&#37;&#52;&#48;python&#46;org">distutils-sig<span>&#64;</span>python<span>&#46;</span>org</a></td>
+</tr>
+</tbody>
+</table>
 <p>Python, jako popularny projekt open source, cieszy się aktywnym wsparciem społeczności współtwórców i użytkowników, którzy udostępniają tworzone przez siebie oprogramowanie innym deweloperom Pythona w ramach licencji open source.</p>
 <p>Dzięki temu użytkownicy Pythona mogą efektywnie korzystać się i współpracować korzystając z rozwiązań stworzonych wcześniej w odpowiedzi na popularne problemy (a czasami bardzo rzadkie!), oraz udostępniać własne rozwiązania całej społeczności.</p>
 <p>This guide covers the distribution part of the process. For a guide to
 installing other Python projects, refer to the
 <a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">installation guide</span></a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Użytkownicy związani z korporacjami i innymi instytucjami powinni zwrócić uwagę, że wiele organizacji ma własne zasady dotyczące korzystania z oprogramowania i udziału w projektach open source. Należy brać takie zasady pod uwagę korzystając z narzędzi instalacyjnych i dystrybucyjnych Pythona.</p>
+<p class="first admonition-title">Informacja</p>
+<p class="last">Użytkownicy związani z korporacjami i innymi instytucjami powinni zwrócić uwagę, że wiele organizacji ma własne zasady dotyczące korzystania z oprogramowania i udziału w projektach open source. Należy brać takie zasady pod uwagę korzystając z narzędzi instalacyjnych i dystrybucyjnych Pythona.</p>
 </div>
 <div class="section" id="key-terms">
 <h2>Główne pojęcia<a class="headerlink" href="#key-terms" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
-<li><p>the <a class="reference external" href="https://pypi.org">Python Packaging Index</a> is a public
+<li>the <a class="reference external" href="https://pypi.org">Python Packaging Index</a> is a public
 repository of open source licensed packages made available for use by
-other Python users</p></li>
-<li><p>the <a class="reference external" href="https://www.pypa.io/">Python Packaging Authority</a> are the group of
+other Python users</li>
+<li>the <a class="reference external" href="https://www.pypa.io/">Python Packaging Authority</a> are the group of
 developers and documentation authors responsible for the maintenance and
 evolution of the standard packaging tools and the associated metadata and
 file format standards. They maintain a variety of tools, documentation
 and issue trackers on both <a class="reference external" href="https://github.com/pypa">GitHub</a> and
-<a class="reference external" href="https://bitbucket.org/pypa/">Bitbucket</a>.</p></li>
-<li><p><a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> is the original build and distribution system first added
+<a class="reference external" href="https://bitbucket.org/pypa/">Bitbucket</a>.</li>
+<li><a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> is the original build and distribution system first added
 to the Python standard library in 1998. While direct use of <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a>
 is being phased out, it still laid the foundation for the current packaging
 and distribution infrastructure, and it not only remains part of the
 standard library, but its name lives on in other ways (such as the name
 of the mailing list used to coordinate Python packaging standards
-development).</p></li>
-<li><p><a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> is a (largely) drop-in replacement for <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> first
+development).</li>
+<li><a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> is a (largely) drop-in replacement for <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> first
 published in 2004. Its most notable addition over the unmodified
 <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> tools was the ability to declare dependencies on other
 packages. It is currently recommended as a more regularly updated
 alternative to <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> that offers consistent support for more
-recent packaging standards across a wide range of Python versions.</p></li>
-<li><p><a class="reference external" href="https://wheel.readthedocs.io/">wheel</a> (in this context) is a project that adds the <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code>
+recent packaging standards across a wide range of Python versions.</li>
+<li><a class="reference external" href="https://wheel.readthedocs.io/">wheel</a> (in this context) is a project that adds the <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code>
 command to <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a>/<a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools</a>. This produces a cross platform
 binary packaging format (called „wheels” or „wheel files” and defined in
 <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a>) that allows Python libraries, even those including binary
 extensions, to be installed on a system without needing to be built
-locally.</p></li>
+locally.</li>
 </ul>
 </div>
 <div class="section" id="open-source-licensing-and-collaboration">
@@ -176,10 +180,10 @@ by invoking the <code class="docutils literal notranslate"><span class="pre">pip
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p>For POSIX users (including Mac OS X and Linux users), these instructions
 assume the use of a <a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>.</p>
-<p>For Windows users, these instructions assume that the option to
+<p class="last">For Windows users, these instructions assume that the option to
 adjust the system PATH environment variable was selected when installing
 Python.</p>
 </div>
@@ -191,9 +195,9 @@ recommended tools</a>.</p>
 <p>The Python Packaging User Guide covers the various key steps and elements
 involved in creating and publishing a project:</p>
 <ul class="simple">
-<li><p><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/">Project structure</a></p></li>
-<li><p><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/#packaging-your-project">Building and packaging the project</a></p></li>
-<li><p><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">Uploading the project to the Python Packaging Index</a></p></li>
+<li><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/">Project structure</a></li>
+<li><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/#packaging-your-project">Building and packaging the project</a></li>
+<li><a class="reference external" href=" https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">Uploading the project to the Python Packaging Index</a></li>
 </ul>
 </div>
 <div class="section" id="how-do-i">
@@ -203,13 +207,13 @@ involved in creating and publishing a project:</p>
 <h3>… choose a name for my project?<a class="headerlink" href="#choose-a-name-for-my-project" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>This isn’t an easy topic, but here are a few tips:</p>
 <ul class="simple">
-<li><p>check the Python Packaging Index to see if the name is already in use</p></li>
-<li><p>check popular hosting sites like GitHub, Bitbucket, etc to see if there
-is already a project with that name</p></li>
-<li><p>check what comes up in a web search for the name you’re considering</p></li>
-<li><p>avoid particularly common words, especially ones with multiple meanings,
+<li>check the Python Packaging Index to see if the name is already in use</li>
+<li>check popular hosting sites like GitHub, Bitbucket, etc to see if there
+is already a project with that name</li>
+<li>check what comes up in a web search for the name you’re considering</li>
+<li>avoid particularly common words, especially ones with multiple meanings,
 as they can make it difficult for users to find your software when
-searching for it</p></li>
+searching for it</li>
 </ul>
 </div>
 <div class="section" id="create-and-distribute-binary-extensions">
@@ -218,8 +222,8 @@ searching for it</p></li>
 available depending on exactly what you’re aiming to achieve. See the
 Python Packaging User Guide for more information and recommendations.</p>
 <div class="admonition seealso">
-<p class="admonition-title">Zobacz także</p>
-<p><a class="reference external" href="https://packaging.python.org/guides/packaging-binary-extensions/">Python Packaging User Guide: Binary Extensions</a></p>
+<p class="first admonition-title">Zobacz także</p>
+<p class="last"><a class="reference external" href="https://packaging.python.org/guides/packaging-binary-extensions/">Python Packaging User Guide: Binary Extensions</a></p>
 </div>
 </div>
 </div>
@@ -231,7 +235,7 @@ Python Packaging User Guide for more information and recommendations.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Dystrybucja modułów Pythona</a><ul>
 <li><a class="reference internal" href="#key-terms">Główne pojęcia</a></li>
@@ -319,11 +323,11 @@ Python Packaging User Guide for more information and recommendations.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

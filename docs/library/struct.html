@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>struct — Interpret bytes as packed binary data &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -110,8 +111,8 @@ stored in files or from network connections, among other sources.  It uses
 <a class="reference internal" href="#struct-format-strings"><span class="std std-ref">Format Strings</span></a> as compact descriptions of the layout of the C
 structs and the intended conversion to/from Python values.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>By default, the result of packing a given C struct includes pad bytes in
+<p class="first admonition-title">Informacja</p>
+<p class="last">By default, the result of packing a given C struct includes pad bytes in
 order to maintain proper alignment for the C types involved; similarly,
 alignment is taken into account when unpacking.  This behavior is chosen so
 that the bytes of a packed struct correspond exactly to the layout in memory
@@ -130,14 +131,14 @@ they can be read/filled without additional copying from a <a class="reference in
 <p>The module defines the following exception and functions:</p>
 <dl class="exception">
 <dt id="struct.error">
-<em class="property">exception </em><code class="sig-prename descclassname">struct.</code><code class="sig-name descname">error</code><a class="headerlink" href="#struct.error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">struct.</code><code class="descname">error</code><a class="headerlink" href="#struct.error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Exception raised on various occasions; argument is a string describing what
 is wrong.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="struct.pack">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">v1</em>, <em class="sig-param">v2</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.pack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">pack</code><span class="sig-paren">(</span><em>format</em>, <em>v1</em>, <em>v2</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.pack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a bytes object containing the values <em>v1</em>, <em>v2</em>, … packed according
 to the format string <em>format</em>.  The arguments must match the values required by
 the format exactly.</p>
@@ -145,7 +146,7 @@ the format exactly.</p>
 
 <dl class="function">
 <dt id="struct.pack_into">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">pack_into</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">buffer</em>, <em class="sig-param">offset</em>, <em class="sig-param">v1</em>, <em class="sig-param">v2</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.pack_into" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">pack_into</code><span class="sig-paren">(</span><em>format</em>, <em>buffer</em>, <em>offset</em>, <em>v1</em>, <em>v2</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.pack_into" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Pack the values <em>v1</em>, <em>v2</em>, … according to the format string <em>format</em> and
 write the packed bytes into the writable buffer <em>buffer</em> starting at
 position <em>offset</em>.  Note that <em>offset</em> is a required argument.</p>
@@ -153,7 +154,7 @@ position <em>offset</em>.  Note that <em>offset</em> is a required argument.</p>
 
 <dl class="function">
 <dt id="struct.unpack">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">unpack</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">unpack</code><span class="sig-paren">(</span><em>format</em>, <em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Unpack from the buffer <em>buffer</em> (presumably packed by <code class="docutils literal notranslate"><span class="pre">pack(format,</span> <span class="pre">...)</span></code>)
 according to the format string <em>format</em>.  The result is a tuple even if it
 contains exactly one item.  The buffer’s size in bytes must match the
@@ -162,7 +163,7 @@ size required by the format, as reflected by <a class="reference internal" href=
 
 <dl class="function">
 <dt id="struct.unpack_from">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">unpack_from</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">buffer</em>, <em class="sig-param">offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.unpack_from" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">unpack_from</code><span class="sig-paren">(</span><em>format</em>, <em>buffer</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.unpack_from" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Unpack from <em>buffer</em> starting at position <em>offset</em>, according to the format
 string <em>format</em>.  The result is a tuple even if it contains exactly one
 item.  The buffer’s size in bytes, starting at position <em>offset</em>, must be at
@@ -171,7 +172,7 @@ least the size required by the format, as reflected by <a class="reference inter
 
 <dl class="function">
 <dt id="struct.iter_unpack">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">iter_unpack</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.iter_unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">iter_unpack</code><span class="sig-paren">(</span><em>format</em>, <em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.iter_unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Iteratively unpack from the buffer <em>buffer</em> according to the format
 string <em>format</em>.  This function returns an iterator which will read
 equally-sized chunks from the buffer until all its contents have been
@@ -179,13 +180,13 @@ consumed.  The buffer’s size in bytes must be a multiple of the size
 required by the format, as reflected by <a class="reference internal" href="#struct.calcsize" title="struct.calcsize"><code class="xref py py-func docutils literal notranslate"><span class="pre">calcsize()</span></code></a>.</p>
 <p>Each iteration yields a tuple as specified by the format string.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="struct.calcsize">
-<code class="sig-prename descclassname">struct.</code><code class="sig-name descname">calcsize</code><span class="sig-paren">(</span><em class="sig-param">format</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.calcsize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">struct.</code><code class="descname">calcsize</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.calcsize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the size of the struct (and hence of the bytes object produced by
 <code class="docutils literal notranslate"><span class="pre">pack(format,</span> <span class="pre">...)</span></code>) corresponding to the format string <em>format</em>.</p>
 </dd></dl>
@@ -205,45 +206,45 @@ rules used by the C compiler).</p>
 <p id="index-1">Alternatively, the first character of the format string can be used to indicate
 the byte order, size and alignment of the packed data, according to the
 following table:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 43%" />
-<col style="width: 18%" />
-<col style="width: 20%" />
+<col width="20%" />
+<col width="43%" />
+<col width="18%" />
+<col width="20%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Character</p></th>
-<th class="head"><p>Byte order</p></th>
-<th class="head"><p>Size</p></th>
-<th class="head"><p>Alignment</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Character</th>
+<th class="head">Byte order</th>
+<th class="head">Size</th>
+<th class="head">Alignment</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
-<td><p>native</p></td>
-<td><p>native</p></td>
-<td><p>native</p></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></td>
+<td>native</td>
+<td>native</td>
+<td>native</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
-<td><p>native</p></td>
-<td><p>standard</p></td>
-<td><p>none</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">=</span></code></td>
+<td>native</td>
+<td>standard</td>
+<td>none</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
-<td><p>little-endian</p></td>
-<td><p>standard</p></td>
-<td><p>none</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></td>
+<td>little-endian</td>
+<td>standard</td>
+<td>none</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
-<td><p>big-endian</p></td>
-<td><p>standard</p></td>
-<td><p>none</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></td>
+<td>big-endian</td>
+<td>standard</td>
+<td>none</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
-<td><p>network (= big-endian)</p></td>
-<td><p>standard</p></td>
-<td><p>none</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">!</span></code></td>
+<td>network (= big-endian)</td>
+<td>standard</td>
+<td>none</td>
 </tr>
 </tbody>
 </table>
@@ -265,13 +266,13 @@ whether network byte order is big-endian or little-endian.</p>
 appropriate choice of <code class="docutils literal notranslate"><span class="pre">'&lt;'</span></code> or <code class="docutils literal notranslate"><span class="pre">'&gt;'</span></code>.</p>
 <p>Notes:</p>
 <ol class="arabic simple">
-<li><p>Padding is only automatically added between successive structure members.
-No padding is added at the beginning or the end of the encoded struct.</p></li>
-<li><p>No padding is added when using non-native size and alignment, e.g.
-with «&lt;», «&gt;», «=», and «!».</p></li>
-<li><p>To align the end of a structure to the alignment requirement of a
+<li>Padding is only automatically added between successive structure members.
+No padding is added at the beginning or the end of the encoded struct.</li>
+<li>No padding is added when using non-native size and alignment, e.g.
+with «&lt;», «&gt;», «=», and «!».</li>
+<li>To align the end of a structure to the alignment requirement of a
 particular type, end the format with the code for that type with a repeat
-count of zero.  See <a class="reference internal" href="#struct-examples"><span class="std std-ref">Examples</span></a>.</p></li>
+count of zero.  See <a class="reference internal" href="#struct-examples"><span class="std std-ref">Examples</span></a>.</li>
 </ol>
 </div>
 <div class="section" id="format-characters">
@@ -282,157 +283,157 @@ refers to the size of the packed value in bytes when using standard size; that
 is, when the format string starts with one of <code class="docutils literal notranslate"><span class="pre">'&lt;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&gt;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'!'</span></code> or
 <code class="docutils literal notranslate"><span class="pre">'='</span></code>.  When using native size, the size of the packed value is
 platform-dependent.</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 32%" />
-<col style="width: 24%" />
-<col style="width: 20%" />
-<col style="width: 15%" />
+<col width="10%" />
+<col width="32%" />
+<col width="24%" />
+<col width="20%" />
+<col width="15%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Format</p></th>
-<th class="head"><p>C Type</p></th>
-<th class="head"><p>Python type</p></th>
-<th class="head"><p>Standard size</p></th>
-<th class="head"><p>Notes</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">C Type</th>
+<th class="head">Python type</th>
+<th class="head">Standard size</th>
+<th class="head">Notes</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
-<td><p>pad byte</p></td>
-<td><p>no value</p></td>
-<td></td>
-<td></td>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">x</span></code></td>
+<td>pad byte</td>
+<td>no value</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">char</span></code></p></td>
-<td><p>bytes of length 1</p></td>
-<td><p>1</p></td>
-<td></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">c</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">char</span></code></td>
+<td>bytes of length 1</td>
+<td>1</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>1</p></td>
-<td><p>(1), (2)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">b</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></td>
+<td>integer</td>
+<td>1</td>
+<td>(1), (2)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">B</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>1</p></td>
-<td><p>(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">B</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></td>
+<td>integer</td>
+<td>1</td>
+<td>(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">_Bool</span></code></p></td>
-<td><p>bool</p></td>
-<td><p>1</p></td>
-<td><p>(1)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">?</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">_Bool</span></code></td>
+<td>bool</td>
+<td>1</td>
+<td>(1)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">h</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">short</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>2</p></td>
-<td><p>(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">h</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">short</span></code></td>
+<td>integer</td>
+<td>2</td>
+<td>(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">H</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>2</p></td>
-<td><p>(2)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">H</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code></td>
+<td>integer</td>
+<td>2</td>
+<td>(2)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>4</p></td>
-<td><p>(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">i</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>integer</td>
+<td>4</td>
+<td>(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">I</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>4</p></td>
-<td><p>(2)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">I</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></td>
+<td>integer</td>
+<td>4</td>
+<td>(2)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">l</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">long</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>4</p></td>
-<td><p>(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">l</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">long</span></code></td>
+<td>integer</td>
+<td>4</td>
+<td>(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>4</p></td>
-<td><p>(2)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">L</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></td>
+<td>integer</td>
+<td>4</td>
+<td>(2)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>8</p></td>
-<td><p>(2)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">q</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></td>
+<td>integer</td>
+<td>8</td>
+<td>(2)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Q</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span>
-<span class="pre">long</span></code></p></td>
-<td><p>integer</p></td>
-<td><p>8</p></td>
-<td><p>(2)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">Q</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span>
+<span class="pre">long</span></code></td>
+<td>integer</td>
+<td>8</td>
+<td>(2)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">ssize_t</span></code></p></td>
-<td><p>integer</p></td>
-<td></td>
-<td><p>(3)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">n</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">ssize_t</span></code></td>
+<td>integer</td>
+<td>&#160;</td>
+<td>(3)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">N</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">size_t</span></code></p></td>
-<td><p>integer</p></td>
-<td></td>
-<td><p>(3)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">N</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">size_t</span></code></td>
+<td>integer</td>
+<td>&#160;</td>
+<td>(3)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">e</span></code></p></td>
-<td><p>(6)</p></td>
-<td><p>float</p></td>
-<td><p>2</p></td>
-<td><p>(4)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">e</span></code></td>
+<td>(6)</td>
+<td>float</td>
+<td>2</td>
+<td>(4)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">float</span></code></p></td>
-<td><p>float</p></td>
-<td><p>4</p></td>
-<td><p>(4)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">f</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">float</span></code></td>
+<td>float</td>
+<td>4</td>
+<td>(4)</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code></p></td>
-<td><p>float</p></td>
-<td><p>8</p></td>
-<td><p>(4)</p></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">d</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code></td>
+<td>float</td>
+<td>8</td>
+<td>(4)</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">char[]</span></code></p></td>
-<td><p>bytes</p></td>
-<td></td>
-<td></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">s</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">char[]</span></code></td>
+<td>bytes</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">char[]</span></code></p></td>
-<td><p>bytes</p></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">p</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">char[]</span></code></td>
+<td>bytes</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">P</span></code></p></td>
-<td><p><code class="xref c c-type docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span></code></p></td>
-<td><p>integer</p></td>
-<td></td>
-<td><p>(5)</p></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">P</span></code></td>
+<td><code class="xref c c-type docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span></code></td>
+<td>integer</td>
+<td>&#160;</td>
+<td>(5)</td>
 </tr>
 </tbody>
 </table>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Added support for the <code class="docutils literal notranslate"><span class="pre">'n'</span></code> and <code class="docutils literal notranslate"><span class="pre">'N'</span></code> formats.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.3: </span>Added support for the <code class="docutils literal notranslate"><span class="pre">'n'</span></code> and <code class="docutils literal notranslate"><span class="pre">'N'</span></code> formats.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>Added support for the <code class="docutils literal notranslate"><span class="pre">'e'</span></code> format.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.6: </span>Added support for the <code class="docutils literal notranslate"><span class="pre">'e'</span></code> format.</p>
 </div>
 <p>Notes:</p>
 <ol class="arabic">
@@ -440,34 +441,38 @@ platform-dependent.</p>
 C99. If this type is not available, it is simulated using a <code class="xref c c-type docutils literal notranslate"><span class="pre">char</span></code>. In
 standard mode, it is always represented by one byte.</p>
 </li>
-<li><p>When attempting to pack a non-integer using any of the integer conversion
+<li><p class="first">When attempting to pack a non-integer using any of the integer conversion
 codes, if the non-integer has a <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method then that method is
 called to convert the argument to an integer before packing.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Use of the <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method for non-integers is new in 3.2.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.2: </span>Use of the <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method for non-integers is new in 3.2.</p>
 </div>
 </li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">'n'</span></code> and <code class="docutils literal notranslate"><span class="pre">'N'</span></code> conversion codes are only available for the native
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">'n'</span></code> and <code class="docutils literal notranslate"><span class="pre">'N'</span></code> conversion codes are only available for the native
 size (selected as the default or with the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code> byte order character).
 For the standard size, you can use whichever of the other integer formats
-fits your application.</p></li>
-<li><p>For the <code class="docutils literal notranslate"><span class="pre">'f'</span></code>, <code class="docutils literal notranslate"><span class="pre">'d'</span></code> and <code class="docutils literal notranslate"><span class="pre">'e'</span></code> conversion codes, the packed
+fits your application.</p>
+</li>
+<li><p class="first">For the <code class="docutils literal notranslate"><span class="pre">'f'</span></code>, <code class="docutils literal notranslate"><span class="pre">'d'</span></code> and <code class="docutils literal notranslate"><span class="pre">'e'</span></code> conversion codes, the packed
 representation uses the IEEE 754 binary32, binary64 or binary16 format (for
 <code class="docutils literal notranslate"><span class="pre">'f'</span></code>, <code class="docutils literal notranslate"><span class="pre">'d'</span></code> or <code class="docutils literal notranslate"><span class="pre">'e'</span></code> respectively), regardless of the floating-point
-format used by the platform.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">'P'</span></code> format character is only available for the native byte ordering
+format used by the platform.</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">'P'</span></code> format character is only available for the native byte ordering
 (selected as the default or with the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code> byte order character). The byte
 order character <code class="docutils literal notranslate"><span class="pre">'='</span></code> chooses to use little- or big-endian ordering based
 on the host system. The struct module does not interpret this as native
-ordering, so the <code class="docutils literal notranslate"><span class="pre">'P'</span></code> format is not available.</p></li>
-<li><p>The IEEE 754 binary16 „half precision” type was introduced in the 2008
+ordering, so the <code class="docutils literal notranslate"><span class="pre">'P'</span></code> format is not available.</p>
+</li>
+<li><p class="first">The IEEE 754 binary16 „half precision” type was introduced in the 2008
 revision of the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_floating_point#IEEE_754-2008">IEEE 754 standard</a>. It has a sign
 bit, a 5-bit exponent and 11-bit precision (with 10 bits explicitly stored),
 and can represent numbers between approximately <code class="docutils literal notranslate"><span class="pre">6.1e-05</span></code> and <code class="docutils literal notranslate"><span class="pre">6.5e+04</span></code>
 at full precision. This type is not widely supported by C compilers: on a
 typical machine, an unsigned short can be used for storage, but not for math
 operations. See the Wikipedia page on the <a class="reference external" href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format">half-precision floating-point
-format</a> for more information.</p></li>
+format</a> for more information.</p>
+</li>
 </ol>
 <p>A format character may be preceded by an integral repeat count.  For example,
 the format string <code class="docutils literal notranslate"><span class="pre">'4h'</span></code> means exactly the same as <code class="docutils literal notranslate"><span class="pre">'hhhh'</span></code>.</p>
@@ -486,7 +491,7 @@ of bytes.  As a special case, <code class="docutils literal notranslate"><span c
 <code class="docutils literal notranslate"><span class="pre">'q'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Q'</span></code>), if <code class="docutils literal notranslate"><span class="pre">x</span></code> is outside the valid range for that format
 then <a class="reference internal" href="#struct.error" title="struct.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">struct.error</span></code></a> is raised.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.1: </span>In 3.0, some of the integer formats wrapped out-of-range values and
+<p><span class="versionmodified">Zmienione w wersji 3.1: </span>In 3.0, some of the integer formats wrapped out-of-range values and
 raised <a class="reference internal" href="exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> instead of <a class="reference internal" href="#struct.error" title="struct.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">struct.error</span></code></a>.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">'p'</span></code> format character encodes a „Pascal string”, meaning a short
@@ -507,8 +512,8 @@ any non-zero value will be <code class="docutils literal notranslate"><span clas
 <div class="section" id="examples">
 <span id="struct-examples"></span><h3>Examples<a class="headerlink" href="#examples" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>All examples assume a native byte order, size, and alignment with a
+<p class="first admonition-title">Informacja</p>
+<p class="last">All examples assume a native byte order, size, and alignment with a
 big-endian machine.</p>
 </div>
 <p>A basic example of packing/unpacking three integers:</p>
@@ -553,12 +558,12 @@ longs are aligned on 4-byte boundaries:</p>
 <p>This only works when native size and alignment are in effect; standard size and
 alignment does not enforce any alignment.</p>
 <div class="admonition seealso">
-<p class="admonition-title">Zobacz także</p>
-<dl class="simple">
-<dt>Module <a class="reference internal" href="array.html#module-array" title="array: Space efficient arrays of uniformly typed numeric values."><code class="xref py py-mod docutils literal notranslate"><span class="pre">array</span></code></a></dt><dd><p>Packed binary storage of homogeneous data.</p>
-</dd>
-<dt>Module <a class="reference internal" href="xdrlib.html#module-xdrlib" title="xdrlib: Encoders and decoders for the External Data Representation (XDR)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code></a></dt><dd><p>Packing and unpacking of XDR data.</p>
-</dd>
+<p class="first admonition-title">Zobacz także</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="array.html#module-array" title="array: Space efficient arrays of uniformly typed numeric values."><code class="xref py py-mod docutils literal notranslate"><span class="pre">array</span></code></a></dt>
+<dd>Packed binary storage of homogeneous data.</dd>
+<dt>Module <a class="reference internal" href="xdrlib.html#module-xdrlib" title="xdrlib: Encoders and decoders for the External Data Representation (XDR)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code></a></dt>
+<dd>Packing and unpacking of XDR data.</dd>
 </dl>
 </div>
 </div>
@@ -568,14 +573,14 @@ alignment does not enforce any alignment.</p>
 <p>The <a class="reference internal" href="#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> module also defines the following type:</p>
 <dl class="class">
 <dt id="struct.Struct">
-<em class="property">class </em><code class="sig-prename descclassname">struct.</code><code class="sig-name descname">Struct</code><span class="sig-paren">(</span><em class="sig-param">format</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">struct.</code><code class="descname">Struct</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a new Struct object which writes and reads binary data according to
 the format string <em>format</em>.  Creating a Struct object once and calling its
 methods is more efficient than calling the <a class="reference internal" href="#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> functions with the
 same format since the format string only needs to be compiled once.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>The compiled versions of the most recent format strings passed to
+<p class="first admonition-title">Informacja</p>
+<p class="last">The compiled versions of the most recent format strings passed to
 <a class="reference internal" href="#struct.Struct" title="struct.Struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></a> and the module-level functions are cached, so programs
 that use only a few format strings needn’t worry about reusing a single
 <a class="reference internal" href="#struct.Struct" title="struct.Struct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></a> instance.</p>
@@ -583,27 +588,27 @@ that use only a few format strings needn’t worry about reusing a single
 <p>Compiled Struct objects support the following methods and attributes:</p>
 <dl class="method">
 <dt id="struct.Struct.pack">
-<code class="sig-name descname">pack</code><span class="sig-paren">(</span><em class="sig-param">v1</em>, <em class="sig-param">v2</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.pack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">pack</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.pack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#struct.pack" title="struct.pack"><code class="xref py py-func docutils literal notranslate"><span class="pre">pack()</span></code></a> function, using the compiled format.
 (<code class="docutils literal notranslate"><span class="pre">len(result)</span></code> will equal <a class="reference internal" href="#struct.Struct.size" title="struct.Struct.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code></a>.)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="struct.Struct.pack_into">
-<code class="sig-name descname">pack_into</code><span class="sig-paren">(</span><em class="sig-param">buffer</em>, <em class="sig-param">offset</em>, <em class="sig-param">v1</em>, <em class="sig-param">v2</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.pack_into" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">pack_into</code><span class="sig-paren">(</span><em>buffer</em>, <em>offset</em>, <em>v1</em>, <em>v2</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.pack_into" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#struct.pack_into" title="struct.pack_into"><code class="xref py py-func docutils literal notranslate"><span class="pre">pack_into()</span></code></a> function, using the compiled format.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="struct.Struct.unpack">
-<code class="sig-name descname">unpack</code><span class="sig-paren">(</span><em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">unpack</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#struct.unpack" title="struct.unpack"><code class="xref py py-func docutils literal notranslate"><span class="pre">unpack()</span></code></a> function, using the compiled format.
 The buffer’s size in bytes must equal <a class="reference internal" href="#struct.Struct.size" title="struct.Struct.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="struct.Struct.unpack_from">
-<code class="sig-name descname">unpack_from</code><span class="sig-paren">(</span><em class="sig-param">buffer</em>, <em class="sig-param">offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.unpack_from" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">unpack_from</code><span class="sig-paren">(</span><em>buffer</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.unpack_from" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#struct.unpack_from" title="struct.unpack_from"><code class="xref py py-func docutils literal notranslate"><span class="pre">unpack_from()</span></code></a> function, using the compiled format.
 The buffer’s size in bytes, starting at position <em>offset</em>, must be at least
 <a class="reference internal" href="#struct.Struct.size" title="struct.Struct.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code></a>.</p>
@@ -611,26 +616,26 @@ The buffer’s size in bytes, starting at position <em>offset</em>, must be at l
 
 <dl class="method">
 <dt id="struct.Struct.iter_unpack">
-<code class="sig-name descname">iter_unpack</code><span class="sig-paren">(</span><em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.iter_unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">iter_unpack</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#struct.Struct.iter_unpack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#struct.iter_unpack" title="struct.iter_unpack"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter_unpack()</span></code></a> function, using the compiled format.
 The buffer’s size in bytes must be a multiple of <a class="reference internal" href="#struct.Struct.size" title="struct.Struct.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="struct.Struct.format">
-<code class="sig-name descname">format</code><a class="headerlink" href="#struct.Struct.format" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">format</code><a class="headerlink" href="#struct.Struct.format" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The format string used to construct this Struct object.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The format string type is now <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> instead of <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The format string type is now <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> instead of <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="struct.Struct.size">
-<code class="sig-name descname">size</code><a class="headerlink" href="#struct.Struct.size" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">size</code><a class="headerlink" href="#struct.Struct.size" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The calculated size of the struct (and hence of the bytes object produced
 by the <a class="reference internal" href="#struct.pack" title="struct.pack"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pack()</span></code></a> method) corresponding to <a class="reference internal" href="functions.html#format" title="format"><code class="xref py py-attr docutils literal notranslate"><span class="pre">format</span></code></a>.</p>
 </dd></dl>
@@ -646,9 +651,9 @@ by the <a class="reference internal" href="#struct.pack" title="struct.pack"><co
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code> — Interpret bytes as packed binary data</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">struct</span></code> — Interpret bytes as packed binary data</a><ul>
 <li><a class="reference internal" href="#functions-and-exceptions">Functions and Exceptions</a></li>
 <li><a class="reference internal" href="#format-strings">Format Strings</a><ul>
 <li><a class="reference internal" href="#byte-order-size-and-alignment">Byte Order, Size, and Alignment</a></li>
@@ -666,7 +671,7 @@ by the <a class="reference internal" href="#struct.pack" title="struct.pack"><co
                         title="poprzedni rozdział">Binary Data Services</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="codecs.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code> — Codec registry and base classes</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">codecs</span></code> — Codec registry and base classes</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -735,11 +740,11 @@ by the <a class="reference internal" href="#struct.pack" title="struct.pack"><co
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>logging.config — Logging configuration &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -104,13 +105,13 @@
 <span id="logging-config-logging-configuration"></span><h1><a class="reference internal" href="#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code></a> — Logging configuration<a class="headerlink" href="#module-logging.config" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/logging/config.py">Lib/logging/config.py</a></p>
 <div class="sidebar">
-<p class="sidebar-title">Important</p>
+<p class="first sidebar-title">Important</p>
 <p>This page contains only reference information. For tutorials,
 please see</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../howto/logging.html#logging-basic-tutorial"><span class="std std-ref">Basic Tutorial</span></a></p></li>
-<li><p><a class="reference internal" href="../howto/logging.html#logging-advanced-tutorial"><span class="std std-ref">Advanced Tutorial</span></a></p></li>
-<li><p><a class="reference internal" href="../howto/logging-cookbook.html#logging-cookbook"><span class="std std-ref">Logging Cookbook</span></a></p></li>
+<ul class="last simple">
+<li><a class="reference internal" href="../howto/logging.html#logging-basic-tutorial"><span class="std std-ref">Basic Tutorial</span></a></li>
+<li><a class="reference internal" href="../howto/logging.html#logging-advanced-tutorial"><span class="std std-ref">Advanced Tutorial</span></a></li>
+<li><a class="reference internal" href="../howto/logging-cookbook.html#logging-cookbook"><span class="std std-ref">Logging Cookbook</span></a></li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -124,7 +125,7 @@ in <a class="reference internal" href="logging.html#module-logging" title="loggi
 <a class="reference internal" href="logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> or <a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a>.</p>
 <dl class="function">
 <dt id="logging.config.dictConfig">
-<code class="sig-prename descclassname">logging.config.</code><code class="sig-name descname">dictConfig</code><span class="sig-paren">(</span><em class="sig-param">config</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.dictConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">logging.config.</code><code class="descname">dictConfig</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.dictConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><blockquote>
 <div><p>Takes the logging configuration from a dictionary.  The contents of
 this dictionary are described in <a class="reference internal" href="#logging-config-dictschema"><span class="std std-ref">Configuration dictionary schema</span></a>
@@ -135,13 +136,13 @@ or <a class="reference internal" href="exceptions.html#ImportError" title="Impor
 following is a (possibly incomplete) list of conditions which will
 raise an error:</p>
 <ul class="simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">level</span></code> which is not a string or which is a string not
-corresponding to an actual logging level.</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">propagate</span></code> value which is not a boolean.</p></li>
-<li><p>An id which does not have a corresponding destination.</p></li>
-<li><p>A non-existent handler id found during an incremental call.</p></li>
-<li><p>An invalid logger name.</p></li>
-<li><p>Inability to resolve to an internal or external object.</p></li>
+<li>A <code class="docutils literal notranslate"><span class="pre">level</span></code> which is not a string or which is a string not
+corresponding to an actual logging level.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">propagate</span></code> value which is not a boolean.</li>
+<li>An id which does not have a corresponding destination.</li>
+<li>A non-existent handler id found during an incremental call.</li>
+<li>An invalid logger name.</li>
+<li>Inability to resolve to an internal or external object.</li>
 </ul>
 <p>Parsing is performed by the <code class="xref py py-class docutils literal notranslate"><span class="pre">DictConfigurator</span></code> class, whose
 constructor is passed the dictionary used for configuration, and
@@ -165,13 +166,13 @@ this new subclass, and then <a class="reference internal" href="#logging.config.
 in the default, uncustomized state.</p>
 </div></blockquote>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.config.fileConfig">
-<code class="sig-prename descclassname">logging.config.</code><code class="sig-name descname">fileConfig</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">defaults=None</em>, <em class="sig-param">disable_existing_loggers=True</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.fileConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">logging.config.</code><code class="descname">fileConfig</code><span class="sig-paren">(</span><em>fname</em>, <em>defaults=None</em>, <em>disable_existing_loggers=True</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.fileConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Reads the logging configuration from a <a class="reference internal" href="configparser.html#module-configparser" title="configparser: Configuration file parser."><code class="xref py py-mod docutils literal notranslate"><span class="pre">configparser</span></code></a>-format file. The
 format of the file should be as described in
 <a class="reference internal" href="#logging-config-fileformat"><span class="std std-ref">Configuration file format</span></a>.
@@ -179,10 +180,12 @@ This function can be called several times from an application, allowing an
 end user to select from various pre-canned configurations (if the developer
 provides a mechanism to present the choices and load the chosen
 configuration).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametry</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fname</strong> – A filename, or a file-like object, or an instance derived
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parametry:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> – A filename, or a file-like object, or an instance derived
 from <a class="reference internal" href="configparser.html#configparser.RawConfigParser" title="configparser.RawConfigParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawConfigParser</span></code></a>. If a
 <code class="docutils literal notranslate"><span class="pre">RawConfigParser</span></code>-derived instance is passed, it is used as
 is. Otherwise, a <code class="xref py py-class docutils literal notranslate"><span class="pre">Configparser</span></code> is
@@ -191,36 +194,38 @@ object passed in <code class="docutils literal notranslate"><span class="pre">fn
 method, it is assumed to be a file-like object and read using
 <a class="reference internal" href="configparser.html#configparser.ConfigParser.read_file" title="configparser.ConfigParser.read_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read_file()</span></code></a>; otherwise,
 it is assumed to be a filename and passed to
-<a class="reference internal" href="configparser.html#configparser.ConfigParser.read" title="configparser.ConfigParser.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a>.</p></li>
-<li><p><strong>defaults</strong> – Defaults to be passed to the ConfigParser can be specified
-in this argument.</p></li>
-<li><p><strong>disable_existing_loggers</strong> – If specified as <code class="docutils literal notranslate"><span class="pre">False</span></code>, loggers which
+<a class="reference internal" href="configparser.html#configparser.ConfigParser.read" title="configparser.ConfigParser.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a>.</li>
+<li><strong>defaults</strong> – Defaults to be passed to the ConfigParser can be specified
+in this argument.</li>
+<li><strong>disable_existing_loggers</strong> – If specified as <code class="docutils literal notranslate"><span class="pre">False</span></code>, loggers which
 exist when this call is made are left
 enabled. The default is <code class="docutils literal notranslate"><span class="pre">True</span></code> because this
 enables old behaviour in a
 backward-compatible way. This behaviour is to
 disable any existing non-root loggers unless
 they or their ancestors are explicitly named
-in the logging configuration.</p></li>
+in the logging configuration.</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>An instance of a subclass of <a class="reference internal" href="configparser.html#configparser.RawConfigParser" title="configparser.RawConfigParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawConfigParser</span></code></a> is
+<p><span class="versionmodified">Zmienione w wersji 3.4: </span>An instance of a subclass of <a class="reference internal" href="configparser.html#configparser.RawConfigParser" title="configparser.RawConfigParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawConfigParser</span></code></a> is
 now accepted as a value for <code class="docutils literal notranslate"><span class="pre">fname</span></code>. This facilitates:</p>
 <ul class="simple">
-<li><p>Use of a configuration file where logging configuration is just part
-of the overall application configuration.</p></li>
-<li><p>Use of a configuration read from a file, and then modified by the using
+<li>Use of a configuration file where logging configuration is just part
+of the overall application configuration.</li>
+<li>Use of a configuration read from a file, and then modified by the using
 application (e.g. based on command-line parameters or other aspects
-of the runtime environment) before being passed to <code class="docutils literal notranslate"><span class="pre">fileConfig</span></code>.</p></li>
+of the runtime environment) before being passed to <code class="docutils literal notranslate"><span class="pre">fileConfig</span></code>.</li>
 </ul>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.config.listen">
-<code class="sig-prename descclassname">logging.config.</code><code class="sig-name descname">listen</code><span class="sig-paren">(</span><em class="sig-param">port=DEFAULT_LOGGING_CONFIG_PORT</em>, <em class="sig-param">verify=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.listen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">logging.config.</code><code class="descname">listen</code><span class="sig-paren">(</span><em>port=DEFAULT_LOGGING_CONFIG_PORT</em>, <em>verify=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.listen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Starts up a socket server on the specified port, and listens for new
 configurations. If no port is specified, the module’s default
 <code class="xref py py-const docutils literal notranslate"><span class="pre">DEFAULT_LOGGING_CONFIG_PORT</span></code> is used. Logging configurations will be
@@ -243,8 +248,8 @@ be discarded. The returned bytes could be the same as the passed in bytes
 send it to the socket as a sequence of bytes preceded by a four-byte length
 string packed in binary using <code class="docutils literal notranslate"><span class="pre">struct.pack('&gt;L',</span> <span class="pre">n)</span></code>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Because portions of the configuration are passed through
+<p class="first admonition-title">Informacja</p>
+<p class="last">Because portions of the configuration are passed through
 <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>, use of this function may open its users to a security risk.
 While the function only binds to a socket on <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, and so does
 not accept connections from remote machines, there are scenarios where
@@ -261,11 +266,11 @@ different port is used). To avoid the risk of this happening, use the
 configurations from being applied.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>The <code class="docutils literal notranslate"><span class="pre">verify</span></code> argument was added.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.4: </span>The <code class="docutils literal notranslate"><span class="pre">verify</span></code> argument was added.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>If you want to send configurations to the listener which don’t
+<p class="first admonition-title">Informacja</p>
+<p class="last">If you want to send configurations to the listener which don’t
 disable existing loggers, you will need to use a JSON format for
 the configuration, which will use <a class="reference internal" href="#logging.config.dictConfig" title="logging.config.dictConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a> for configuration.
 This method allows you to specify <code class="docutils literal notranslate"><span class="pre">disable_existing_loggers</span></code> as
@@ -275,7 +280,7 @@ This method allows you to specify <code class="docutils literal notranslate"><sp
 
 <dl class="function">
 <dt id="logging.config.stopListening">
-<code class="sig-prename descclassname">logging.config.</code><code class="sig-name descname">stopListening</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.stopListening" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">logging.config.</code><code class="descname">stopListening</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.config.stopListening" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Stops the listening server which was created with a call to <a class="reference internal" href="#logging.config.listen" title="logging.config.listen"><code class="xref py py-func docutils literal notranslate"><span class="pre">listen()</span></code></a>.
 This is typically called before calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code> on the return value from
 <a class="reference internal" href="#logging.config.listen" title="logging.config.listen"><code class="xref py py-func docutils literal notranslate"><span class="pre">listen()</span></code></a>.</p>
@@ -299,10 +304,10 @@ below.</p>
 <p>The dictionary passed to <a class="reference internal" href="#logging.config.dictConfig" title="logging.config.dictConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a> must contain the following
 keys:</p>
 <ul class="simple">
-<li><p><em>version</em> - to be set to an integer value representing the schema
+<li><em>version</em> - to be set to an integer value representing the schema
 version.  The only valid value at present is 1, but having this key
 allows the schema to evolve while still preserving backwards
-compatibility.</p></li>
+compatibility.</li>
 </ul>
 <p>All other keys are optional, but if present they will be interpreted
 as described below.  In all cases below where a «configuring dict» is
@@ -311,37 +316,37 @@ custom instantiation is required.  If so, the mechanism described in
 <a class="reference internal" href="#logging-config-dict-userdef"><span class="std std-ref">User-defined objects</span></a> below is used to create an instance;
 otherwise, the context is used to determine what to instantiate.</p>
 <ul>
-<li><p><em>formatters</em> - the corresponding value will be a dict in which each
+<li><p class="first"><em>formatters</em> - the corresponding value will be a dict in which each
 key is a formatter id and each value is a dict describing how to
 configure the corresponding <a class="reference internal" href="logging.html#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> instance.</p>
 <p>The configuring dict is searched for keys <code class="docutils literal notranslate"><span class="pre">format</span></code> and <code class="docutils literal notranslate"><span class="pre">datefmt</span></code>
 (with defaults of <code class="docutils literal notranslate"><span class="pre">None</span></code>) and these are used to construct a
 <a class="reference internal" href="logging.html#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> instance.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>a <code class="docutils literal notranslate"><span class="pre">validate</span></code> key (with default of <code class="docutils literal notranslate"><span class="pre">True</span></code>) can be added into
+<p><span class="versionmodified">Zmienione w wersji 3.8: </span>a <code class="docutils literal notranslate"><span class="pre">validate</span></code> key (with default of <code class="docutils literal notranslate"><span class="pre">True</span></code>) can be added into
 the <code class="docutils literal notranslate"><span class="pre">formatters</span></code> section of the configuring dict, this is to
 validate the format.</p>
 </div>
 </li>
-<li><p><em>filters</em> - the corresponding value will be a dict in which each key
+<li><p class="first"><em>filters</em> - the corresponding value will be a dict in which each key
 is a filter id and each value is a dict describing how to configure
 the corresponding Filter instance.</p>
 <p>The configuring dict is searched for the key <code class="docutils literal notranslate"><span class="pre">name</span></code> (defaulting to the
 empty string) and this is used to construct a <a class="reference internal" href="logging.html#logging.Filter" title="logging.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Filter</span></code></a>
 instance.</p>
 </li>
-<li><p><em>handlers</em> - the corresponding value will be a dict in which each
+<li><p class="first"><em>handlers</em> - the corresponding value will be a dict in which each
 key is a handler id and each value is a dict describing how to
 configure the corresponding Handler instance.</p>
 <p>The configuring dict is searched for the following keys:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> (mandatory).  This is the fully qualified name of the
-handler class.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code> (optional).  The level of the handler.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">formatter</span></code> (optional).  The id of the formatter for this
-handler.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">filters</span></code> (optional).  A list of ids of the filters for this
-handler.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">class</span></code> (mandatory).  This is the fully qualified name of the
+handler class.</li>
+<li><code class="docutils literal notranslate"><span class="pre">level</span></code> (optional).  The level of the handler.</li>
+<li><code class="docutils literal notranslate"><span class="pre">formatter</span></code> (optional).  The id of the formatter for this
+handler.</li>
+<li><code class="docutils literal notranslate"><span class="pre">filters</span></code> (optional).  A list of ids of the filters for this
+handler.</li>
 </ul>
 <p>All <em>other</em> keys are passed through as keyword arguments to the
 handler’s constructor.  For example, given the snippet:</p>
@@ -366,25 +371,26 @@ stream.  The handler with id <code class="docutils literal notranslate"><span cl
 <a class="reference internal" href="logging.handlers.html#logging.handlers.RotatingFileHandler" title="logging.handlers.RotatingFileHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.handlers.RotatingFileHandler</span></code></a> with the keyword arguments
 <code class="docutils literal notranslate"><span class="pre">filename='logconfig.log',</span> <span class="pre">maxBytes=1024,</span> <span class="pre">backupCount=3</span></code>.</p>
 </li>
-<li><p><em>loggers</em> - the corresponding value will be a dict in which each key
+<li><p class="first"><em>loggers</em> - the corresponding value will be a dict in which each key
 is a logger name and each value is a dict describing how to
 configure the corresponding Logger instance.</p>
 <p>The configuring dict is searched for the following keys:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code> (optional).  The level of the logger.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">propagate</span></code> (optional).  The propagation setting of the logger.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">filters</span></code> (optional).  A list of ids of the filters for this
-logger.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">handlers</span></code> (optional).  A list of ids of the handlers for this
-logger.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">level</span></code> (optional).  The level of the logger.</li>
+<li><code class="docutils literal notranslate"><span class="pre">propagate</span></code> (optional).  The propagation setting of the logger.</li>
+<li><code class="docutils literal notranslate"><span class="pre">filters</span></code> (optional).  A list of ids of the filters for this
+logger.</li>
+<li><code class="docutils literal notranslate"><span class="pre">handlers</span></code> (optional).  A list of ids of the handlers for this
+logger.</li>
 </ul>
 <p>The specified loggers will be configured according to the level,
 propagation, filters and handlers specified.</p>
 </li>
-<li><p><em>root</em> - this will be the configuration for the root logger.
+<li><p class="first"><em>root</em> - this will be the configuration for the root logger.
 Processing of the configuration will be as for any logger, except
-that the <code class="docutils literal notranslate"><span class="pre">propagate</span></code> setting will not be applicable.</p></li>
-<li><p><em>incremental</em> - whether the configuration is to be interpreted as
+that the <code class="docutils literal notranslate"><span class="pre">propagate</span></code> setting will not be applicable.</p>
+</li>
+<li><p class="first"><em>incremental</em> - whether the configuration is to be interpreted as
 incremental to the existing configuration.  This value defaults to
 <code class="docutils literal notranslate"><span class="pre">False</span></code>, which means that the specified configuration replaces the
 existing configuration with the same semantics as used by the
@@ -392,10 +398,11 @@ existing <a class="reference internal" href="#logging.config.fileConfig" title="
 <p>If the specified value is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the configuration is processed
 as described in the section on <a class="reference internal" href="#logging-config-dict-incremental"><span class="std std-ref">Incremental Configuration</span></a>.</p>
 </li>
-<li><p><em>disable_existing_loggers</em> - whether any existing non-root loggers are
+<li><p class="first"><em>disable_existing_loggers</em> - whether any existing non-root loggers are
 to be disabled. This setting mirrors the parameter of the same name in
 <a class="reference internal" href="#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a>. If absent, this parameter defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.
-This value is ignored if <em>incremental</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+This value is ignored if <em>incremental</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="incremental-configuration">
@@ -675,8 +682,8 @@ called <code class="docutils literal notranslate"><span class="pre">form01</span
 specified in a section called <code class="docutils literal notranslate"><span class="pre">[formatter_form01]</span></code>. The root logger
 configuration must be specified in a section called <code class="docutils literal notranslate"><span class="pre">[logger_root]</span></code>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>The <a class="reference internal" href="#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a> API is older than the <a class="reference internal" href="#logging.config.dictConfig" title="logging.config.dictConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a> API and does
+<p class="first admonition-title">Informacja</p>
+<p class="last">The <a class="reference internal" href="#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a> API is older than the <a class="reference internal" href="#logging.config.dictConfig" title="logging.config.dictConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a> API and does
 not provide functionality to cover certain aspects of logging. For example,
 you cannot configure <a class="reference internal" href="logging.html#logging.Filter" title="logging.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filter</span></code></a> objects, which provide for
 filtering of messages beyond simple integer levels, using <a class="reference internal" href="#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a>.
@@ -823,20 +830,20 @@ separator.  An example time in this format is <code class="docutils literal notr
 <a class="reference internal" href="logging.html#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> can present exception tracebacks in an expanded or
 condensed format.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Due to the use of <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> as described above, there are
+<p class="first admonition-title">Informacja</p>
+<p class="last">Due to the use of <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> as described above, there are
 potential security risks which result from using the <a class="reference internal" href="#logging.config.listen" title="logging.config.listen"><code class="xref py py-func docutils literal notranslate"><span class="pre">listen()</span></code></a> to send
 and receive configurations via sockets. The risks are limited to where
 multiple users with no mutual trust run code on the same machine; see the
 <a class="reference internal" href="#logging.config.listen" title="logging.config.listen"><code class="xref py py-func docutils literal notranslate"><span class="pre">listen()</span></code></a> documentation for more information.</p>
 </div>
 <div class="admonition seealso">
-<p class="admonition-title">Zobacz także</p>
-<dl class="simple">
-<dt>Module <a class="reference internal" href="logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></dt><dd><p>API reference for the logging module.</p>
-</dd>
-<dt>Module <a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt><dd><p>Useful handlers included with the logging module.</p>
-</dd>
+<p class="first admonition-title">Zobacz także</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></dt>
+<dd>API reference for the logging module.</dd>
+<dt>Module <a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt>
+<dd>Useful handlers included with the logging module.</dd>
 </dl>
 </div>
 </div>
@@ -848,9 +855,9 @@ multiple users with no mutual trust run code on the same machine; see the
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code> — Logging configuration</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">logging.config</span></code> — Logging configuration</a><ul>
 <li><a class="reference internal" href="#configuration-functions">Configuration functions</a></li>
 <li><a class="reference internal" href="#configuration-dictionary-schema">Configuration dictionary schema</a><ul>
 <li><a class="reference internal" href="#dictionary-schema-details">Dictionary Schema Details</a></li>
@@ -869,10 +876,10 @@ multiple users with no mutual trust run code on the same machine; see the
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="logging.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="logging.handlers.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code> — Logging handlers</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">logging.handlers</span></code> — Logging handlers</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -941,11 +948,11 @@ multiple users with no mutual trust run code on the same machine; see the
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>5. Building C and C++ Extensions on Windows &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -100,7 +101,7 @@
           <div class="body" role="main">
             
   <div class="section" id="building-c-and-c-extensions-on-windows">
-<span id="building-on-windows"></span><h1><span class="section-number">5. </span>Building C and C++ Extensions on Windows<a class="headerlink" href="#building-c-and-c-extensions-on-windows" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<span id="building-on-windows"></span><h1>5. Building C and C++ Extensions on Windows<a class="headerlink" href="#building-c-and-c-extensions-on-windows" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>This chapter briefly explains how to create a Windows extension module for
 Python using Microsoft Visual C++, and follows with more detailed background
 information on how it works.  The explanatory material is useful for both the
@@ -112,15 +113,15 @@ extension modules, instead of the one described in this section. You will still
 need the C compiler that was used to build Python; typically Microsoft Visual
 C++.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>This chapter mentions a number of filenames that include an encoded Python
+<p class="first admonition-title">Informacja</p>
+<p class="last">This chapter mentions a number of filenames that include an encoded Python
 version number.  These filenames are represented with the version number shown
 as <code class="docutils literal notranslate"><span class="pre">XY</span></code>; in practice, <code class="docutils literal notranslate"><span class="pre">'X'</span></code> will be the major version number and <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>
 will be the minor version number of the Python release you’re working with.  For
 example, if you are using Python 2.2.1, <code class="docutils literal notranslate"><span class="pre">XY</span></code> will actually be <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p>
 </div>
 <div class="section" id="a-cookbook-approach">
-<span id="win-cookbook"></span><h2><span class="section-number">5.1. </span>A Cookbook Approach<a class="headerlink" href="#a-cookbook-approach" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="win-cookbook"></span><h2>5.1. A Cookbook Approach<a class="headerlink" href="#a-cookbook-approach" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>There are two approaches to building extension modules on Windows, just as there
 are on Unix: use the <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> package to control the build process, or
 do things manually.  The distutils approach works well for most extensions;
@@ -130,7 +131,7 @@ things manually, it may be instructive to study the project file for the
 <a class="reference external" href="https://github.com/python/cpython/tree/3.8/PCbuild/winsound.vcxproj">winsound</a> standard library module.</p>
 </div>
 <div class="section" id="differences-between-unix-and-windows">
-<span id="dynamic-linking"></span><h2><span class="section-number">5.2. </span>Differences Between Unix and Windows<a class="headerlink" href="#differences-between-unix-and-windows" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="dynamic-linking"></span><h2>5.2. Differences Between Unix and Windows<a class="headerlink" href="#differences-between-unix-and-windows" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Unix and Windows use completely different paradigms for run-time loading of
 code.  Before you try to build a module that can be dynamically loaded, be aware
 of how your system works.</p>
@@ -172,7 +173,7 @@ linking with a library is more like <code class="docutils literal notranslate"><
 separate copy.</p>
 </div>
 <div class="section" id="using-dlls-in-practice">
-<span id="win-dlls"></span><h2><span class="section-number">5.3. </span>Using DLLs in Practice<a class="headerlink" href="#using-dlls-in-practice" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="win-dlls"></span><h2>5.3. Using DLLs in Practice<a class="headerlink" href="#using-dlls-in-practice" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Windows Python is built in Microsoft Visual C++; using other compilers may or
 may not work (though Borland seems to).  The rest of this section is MSVC++
 specific.</p>
@@ -207,7 +208,7 @@ correct <code class="file docutils literal notranslate"><span class="pre">msvcrt
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">5. Building C and C++ Extensions on Windows</a><ul>
 <li><a class="reference internal" href="#a-cookbook-approach">5.1. A Cookbook Approach</a></li>
@@ -219,10 +220,10 @@ correct <code class="file docutils literal notranslate"><span class="pre">msvcrt
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="building.html"
-                        title="poprzedni rozdział"><span class="section-number">4. </span>Building C and C++ Extensions</a></p>
+                        title="poprzedni rozdział">4. Building C and C++ Extensions</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="embedding.html"
-                        title="następny rozdział"><span class="section-number">1. </span>Embedding Python in Another Application</a></p>
+                        title="następny rozdział">1. Embedding Python in Another Application</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -290,11 +291,11 @@ correct <code class="file docutils literal notranslate"><span class="pre">msvcrt
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

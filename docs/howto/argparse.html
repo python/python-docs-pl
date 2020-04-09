@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Argparse Tutorial &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -101,16 +102,19 @@
             
   <div class="section" id="argparse-tutorial">
 <h1>Argparse Tutorial<a class="headerlink" href="#argparse-tutorial" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">author</dt>
-<dd class="field-odd"><p>Tshepang Lekhonkhobe</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Tshepang Lekhonkhobe</td>
+</tr>
+</tbody>
+</table>
 <p id="id1">This tutorial is intended to be a gentle introduction to <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a>, the
 recommended command-line parsing module in the Python standard library.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>There are two other modules that fulfill the same task, namely
+<p class="first admonition-title">Informacja</p>
+<p class="last">There are two other modules that fulfill the same task, namely
 <a class="reference internal" href="../library/getopt.html#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> (an equivalent for <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> from the C
 language) and the deprecated <a class="reference internal" href="../library/optparse.html#module-optparse" title="optparse: Command-line option parsing library. (niezalecane)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a>.
 Note also that <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> is based on <a class="reference internal" href="../library/optparse.html#module-optparse" title="optparse: Command-line option parsing library. (niezalecane)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a>,
@@ -140,22 +144,22 @@ introductory tutorial by making use of the <strong class="command">ls</strong> c
 </div>
 <p>A few concepts we can learn from the four commands:</p>
 <ul class="simple">
-<li><p>The <strong class="command">ls</strong> command is useful when run without any options at all. It defaults
-to displaying the contents of the current directory.</p></li>
-<li><p>If we want beyond what it provides by default, we tell it a bit more. In
+<li>The <strong class="command">ls</strong> command is useful when run without any options at all. It defaults
+to displaying the contents of the current directory.</li>
+<li>If we want beyond what it provides by default, we tell it a bit more. In
 this case, we want it to display a different directory, <code class="docutils literal notranslate"><span class="pre">pypy</span></code>.
 What we did is specify what is known as a positional argument. It’s named so
 because the program should know what to do with the value, solely based on
 where it appears on the command line. This concept is more relevant
 to a command like <strong class="command">cp</strong>, whose most basic usage is <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">SRC</span> <span class="pre">DEST</span></code>.
 The first position is <em>what you want copied,</em> and the second
-position is <em>where you want it copied to</em>.</p></li>
-<li><p>Now, say we want to change behaviour of the program. In our example,
+position is <em>where you want it copied to</em>.</li>
+<li>Now, say we want to change behaviour of the program. In our example,
 we display more info for each file instead of just showing the file names.
-The <code class="docutils literal notranslate"><span class="pre">-l</span></code> in that case is known as an optional argument.</p></li>
-<li><p>That’s a snippet of the help text. It’s very useful in that you can
+The <code class="docutils literal notranslate"><span class="pre">-l</span></code> in that case is known as an optional argument.</li>
+<li>That’s a snippet of the help text. It’s very useful in that you can
 come across a program you have never used before, and can figure out
-how it works simply by reading its help text.</p></li>
+how it works simply by reading its help text.</li>
 </ul>
 </div>
 <div class="section" id="the-basics">
@@ -183,14 +187,14 @@ how it works simply by reading its help text.</p></li>
 </div>
 <p>Here is what is happening:</p>
 <ul class="simple">
-<li><p>Running the script without any options results in nothing displayed to
-stdout. Not so useful.</p></li>
-<li><p>The second one starts to display the usefulness of the <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a>
-module. We have done almost nothing, but already we get a nice help message.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">--help</span></code> option, which can also be shortened to <code class="docutils literal notranslate"><span class="pre">-h</span></code>, is the only
+<li>Running the script without any options results in nothing displayed to
+stdout. Not so useful.</li>
+<li>The second one starts to display the usefulness of the <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a>
+module. We have done almost nothing, but already we get a nice help message.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">--help</span></code> option, which can also be shortened to <code class="docutils literal notranslate"><span class="pre">-h</span></code>, is the only
 option we get for free (i.e. no need to specify it). Specifying anything
 else results in an error. But even then, we do get a useful usage message,
-also for free.</p></li>
+also for free.</li>
 </ul>
 </div>
 <div class="section" id="introducing-positional-arguments">
@@ -221,16 +225,16 @@ also for free.</p></li>
 </div>
 <p>Here is what’s happening:</p>
 <ul class="simple">
-<li><p>We’ve added the <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_argument()</span></code> method, which is what we use to specify
+<li>We’ve added the <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_argument()</span></code> method, which is what we use to specify
 which command-line options the program is willing to accept. In this case,
-I’ve named it <code class="docutils literal notranslate"><span class="pre">echo</span></code> so that it’s in line with its function.</p></li>
-<li><p>Calling our program now requires us to specify an option.</p></li>
-<li><p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">parse_args()</span></code> method actually returns some data from the
-options specified, in this case, <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p></li>
-<li><p>The variable is some form of «magic» that <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> performs for free
+I’ve named it <code class="docutils literal notranslate"><span class="pre">echo</span></code> so that it’s in line with its function.</li>
+<li>Calling our program now requires us to specify an option.</li>
+<li>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">parse_args()</span></code> method actually returns some data from the
+options specified, in this case, <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</li>
+<li>The variable is some form of «magic» that <a class="reference internal" href="../library/argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> performs for free
 (i.e. no need to specify which variable that value is stored in).
 You will also notice that its name matches the string argument given
-to the method, <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p></li>
+to the method, <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</li>
 </ul>
 <p>Note however that, although the help display looks nice and all, it currently
 is not as helpful as it can be. For example we see that we got <code class="docutils literal notranslate"><span class="pre">echo</span></code> as a
@@ -322,16 +326,16 @@ have a look on how to add optional ones:</p>
 </div>
 <p>Here is what is happening:</p>
 <ul class="simple">
-<li><p>The program is written so as to display something when <code class="docutils literal notranslate"><span class="pre">--verbosity</span></code> is
-specified and display nothing when not.</p></li>
-<li><p>To show that the option is actually optional, there is no error when running
+<li>The program is written so as to display something when <code class="docutils literal notranslate"><span class="pre">--verbosity</span></code> is
+specified and display nothing when not.</li>
+<li>To show that the option is actually optional, there is no error when running
 the program without it. Note that by default, if an optional argument isn’t
 used, the relevant variable, in this case <code class="xref py py-attr docutils literal notranslate"><span class="pre">args.verbosity</span></code>, is
 given <code class="docutils literal notranslate"><span class="pre">None</span></code> as a value, which is the reason it fails the truth
-test of the <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> statement.</p></li>
-<li><p>The help message is a bit different.</p></li>
-<li><p>When using the <code class="docutils literal notranslate"><span class="pre">--verbosity</span></code> option, one must also specify some value,
-any value.</p></li>
+test of the <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> statement.</li>
+<li>The help message is a bit different.</li>
+<li>When using the <code class="docutils literal notranslate"><span class="pre">--verbosity</span></code> option, one must also specify some value,
+any value.</li>
 </ul>
 <p>The above example accepts arbitrary integer values for <code class="docutils literal notranslate"><span class="pre">--verbosity</span></code>, but for
 our simple program, only two values are actually useful, <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.
@@ -361,15 +365,15 @@ Let’s modify the code accordingly:</p>
 </div>
 <p>Here is what is happening:</p>
 <ul class="simple">
-<li><p>The option is now more of a flag than something that requires a value.
+<li>The option is now more of a flag than something that requires a value.
 We even changed the name of the option to match that idea.
 Note that we now specify a new keyword, <code class="docutils literal notranslate"><span class="pre">action</span></code>, and give it the value
 <code class="docutils literal notranslate"><span class="pre">&quot;store_true&quot;</span></code>. This means that, if the option is specified,
 assign the value <code class="docutils literal notranslate"><span class="pre">True</span></code> to <code class="xref py py-data docutils literal notranslate"><span class="pre">args.verbose</span></code>.
-Not specifying it implies <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p>It complains when you specify a value, in true spirit of what flags
-actually are.</p></li>
-<li><p>Notice the different help text.</p></li>
+Not specifying it implies <code class="docutils literal notranslate"><span class="pre">False</span></code>.</li>
+<li>It complains when you specify a value, in true spirit of what flags
+actually are.</li>
+<li>Notice the different help text.</li>
 </ul>
 <div class="section" id="short-options">
 <h3>Short options<a class="headerlink" href="#short-options" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -429,8 +433,8 @@ versions of the options. It’s quite simple:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>We’ve brought back a positional argument, hence the complaint.</p></li>
-<li><p>Note that the order does not matter.</p></li>
+<li>We’ve brought back a positional argument, hence the complaint.</li>
+<li>Note that the order does not matter.</li>
 </ul>
 <p>How about we give this program of ours back the ability to have
 multiple verbosity values, and actually get to use them:</p>
@@ -546,19 +550,19 @@ to count the number of occurrences of a specific optional arguments:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Yes, it’s now more of a flag (similar to <code class="docutils literal notranslate"><span class="pre">action=&quot;store_true&quot;</span></code>) in the
-previous version of our script. That should explain the complaint.</p></li>
-<li><p>It also behaves similar to „store_true” action.</p></li>
-<li><p>Now here’s a demonstration of what the „count” action gives. You’ve probably
-seen this sort of usage before.</p></li>
-<li><p>And if you don’t specify the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, that flag is considered to have
-<code class="docutils literal notranslate"><span class="pre">None</span></code> value.</p></li>
-<li><p>As should be expected, specifying the long form of the flag, we should get
-the same output.</p></li>
-<li><p>Sadly, our help output isn’t very informative on the new ability our script
+<li>Yes, it’s now more of a flag (similar to <code class="docutils literal notranslate"><span class="pre">action=&quot;store_true&quot;</span></code>) in the
+previous version of our script. That should explain the complaint.</li>
+<li>It also behaves similar to „store_true” action.</li>
+<li>Now here’s a demonstration of what the „count” action gives. You’ve probably
+seen this sort of usage before.</li>
+<li>And if you don’t specify the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag, that flag is considered to have
+<code class="docutils literal notranslate"><span class="pre">None</span></code> value.</li>
+<li>As should be expected, specifying the long form of the flag, we should get
+the same output.</li>
+<li>Sadly, our help output isn’t very informative on the new ability our script
 has acquired, but that can always be fixed by improving the documentation for
-our script (e.g. via the <code class="docutils literal notranslate"><span class="pre">help</span></code> keyword argument).</p></li>
-<li><p>That last output exposes a bug in our program.</p></li>
+our script (e.g. via the <code class="docutils literal notranslate"><span class="pre">help</span></code> keyword argument).</li>
+<li>That last output exposes a bug in our program.</li>
 </ul>
 <p>Let’s fix:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
@@ -592,9 +596,9 @@ our script (e.g. via the <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>First output went well, and fixes the bug we had before.
-That is, we want any value &gt;= 2 to be as verbose as possible.</p></li>
-<li><p>Third output not so good.</p></li>
+<li>First output went well, and fixes the bug we had before.
+That is, we want any value &gt;= 2 to be as verbose as possible.</li>
+<li>Third output not so good.</li>
 </ul>
 <p>Let’s fix that bug:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
@@ -796,7 +800,7 @@ without feeling overwhelmed.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Argparse Tutorial</a><ul>
 <li><a class="reference internal" href="#concepts">Concepts</a></li>
@@ -889,11 +893,11 @@ without feeling overwhelmed.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

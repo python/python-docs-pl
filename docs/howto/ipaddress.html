@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>An introduction to the ipaddress module &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -101,14 +102,16 @@
             
   <div class="section" id="an-introduction-to-the-ipaddress-module">
 <span id="ipaddress-howto"></span><h1>An introduction to the ipaddress module<a class="headerlink" href="#an-introduction-to-the-ipaddress-module" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">author</dt>
-<dd class="field-odd"><p>Peter Moody</p>
-</dd>
-<dt class="field-even">author</dt>
-<dd class="field-even"><p>Nick Coghlan</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Peter Moody</td>
+</tr>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Nick Coghlan</td>
+</tr>
+</tbody>
+</table>
 <div class="topic">
 <p class="topic-title">Overview</p>
 <p>This document aims to provide a gentle introduction to the
@@ -142,7 +145,7 @@ when working with IP addressing. The simplest way to create addresses is
 to use the <a class="reference internal" href="../library/ipaddress.html#ipaddress.ip_address" title="ipaddress.ip_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">ipaddress.ip_address()</span></code></a> factory function, which automatically
 determines whether to create an IPv4 or IPv6 address based on the passed in
 value:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.0.2.1&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.0.2.1&#39;</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.0.2.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;2001:DB8::1&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;2001:db8::1&#39;)</span>
@@ -228,7 +231,7 @@ provides a set of hybrid classes that associate an address with a particular
 network. The interface for creation is identical to that for defining network
 objects, except that the address portion isn’t constrained to being a network
 address.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/24&#39;</span><span class="p">)</span>
 <span class="go">IPv4Interface(&#39;192.0.2.1/24&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_interface</span><span class="p">(</span><span class="s1">&#39;2001:db8::1/96&#39;</span><span class="p">)</span>
 <span class="go">IPv6Interface(&#39;2001:db8::1/96&#39;)</span>
@@ -286,7 +289,7 @@ tries to make doing this easy and intuitive.</p>
 </div>
 <p>Obtaining the netmask (i.e. set bits corresponding to the network prefix) or
 the hostmask (any bits that are not part of the netmask):</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net4</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net4</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net4</span><span class="o">.</span><span class="n">netmask</span>
 <span class="go">IPv4Address(&#39;255.255.255.0&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">net4</span><span class="o">.</span><span class="n">hostmask</span>
@@ -419,7 +422,7 @@ you can still write code like the following:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">An introduction to the ipaddress module</a><ul>
 <li><a class="reference internal" href="#creating-address-network-interface-objects">Creating Address/Network/Interface objects</a><ul>
@@ -511,11 +514,11 @@ you can still write code like the following:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

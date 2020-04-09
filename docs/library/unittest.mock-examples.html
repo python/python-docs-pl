@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>unittest.mock — getting started &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -103,7 +104,7 @@
   <div class="section" id="unittest-mock-getting-started">
 <h1><a class="reference internal" href="unittest.mock.html#module-unittest.mock" title="unittest.mock: Mock object library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code></a> — getting started<a class="headerlink" href="#unittest-mock-getting-started" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
 </div>
 <span class="target" id="getting-started"></span><div class="section" id="using-mock">
 <h2>Using Mock<a class="headerlink" href="#using-mock" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -111,12 +112,12 @@
 <h3>Mock Patching Methods<a class="headerlink" href="#mock-patching-methods" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Common uses for <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> objects include:</p>
 <ul class="simple">
-<li><p>Patching methods</p></li>
-<li><p>Recording method calls on objects</p></li>
+<li>Patching methods</li>
+<li>Recording method calls on objects</li>
 </ul>
 <p>You might want to replace a method on an object to check that
 it is called with the correct arguments by another part of the system:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">real</span> <span class="o">=</span> <span class="n">SomeClass</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">real</span> <span class="o">=</span> <span class="n">SomeClass</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">real</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">real</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
 <span class="go">&lt;MagicMock name=&#39;method()&#39; id=&#39;...&#39;&gt;</span>
@@ -125,8 +126,8 @@ it is called with the correct arguments by another part of the system:</p>
 <p>Once our mock has been used (<code class="docutils literal notranslate"><span class="pre">real.method</span></code> in this example) it has methods
 and attributes that allow you to make assertions about how it has been used.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>In most of these examples the <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> and <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> classes
+<p class="first admonition-title">Informacja</p>
+<p class="last">In most of these examples the <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> and <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> classes
 are interchangeable. As the <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> is the more capable class it makes
 a sensible one to use by default.</p>
 </div>
@@ -136,7 +137,7 @@ a sensible one to use by default.</p>
 the correct arguments.</p>
 <p>This example tests that calling <code class="docutils literal notranslate"><span class="pre">ProductionClass().method</span></code> results in a call to
 the <code class="docutils literal notranslate"><span class="pre">something</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">something</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">something</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -157,7 +158,7 @@ method (or some part of the system under test) and then check that it is used
 in the correct way.</p>
 <p>The simple <code class="docutils literal notranslate"><span class="pre">ProductionClass</span></code> below has a <code class="docutils literal notranslate"><span class="pre">closer</span></code> method. If it is called with
 an object then it calls <code class="docutils literal notranslate"><span class="pre">close</span></code> on it.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">closer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">something</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="n">something</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="gp">...</span>
@@ -165,7 +166,7 @@ an object then it calls <code class="docutils literal notranslate"><span class="
 </div>
 <p>So to test it we need to pass in an object with a <code class="docutils literal notranslate"><span class="pre">close</span></code> method and check
 that it was called correctly.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">real</span> <span class="o">=</span> <span class="n">ProductionClass</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">real</span> <span class="o">=</span> <span class="n">ProductionClass</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">real</span><span class="o">.</span><span class="n">closer</span><span class="p">(</span><span class="n">mock</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">()</span>
@@ -203,7 +204,7 @@ by modifying the mock <a class="reference internal" href="unittest.mock.html#uni
 <p>It can be useful to give your mocks a name. The name is shown in the repr of
 the mock and can be helpful when the mock appears in test failure messages. The
 name is also propagated to attributes or methods of the mock:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span>
 <span class="go">&lt;MagicMock name=&#39;foo&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">method</span>
@@ -216,7 +217,7 @@ name is also propagated to attributes or methods of the mock:</p>
 <p>Often you want to track more than a single call to a method. The
 <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.mock_calls" title="unittest.mock.Mock.mock_calls"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mock_calls</span></code></a> attribute records all calls
 to child attributes of the mock - and also to their children.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
 <span class="go">&lt;MagicMock name=&#39;mock.method()&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">53</span><span class="p">)</span>
@@ -231,14 +232,14 @@ as asserting that the calls you expected have been made, you are also checking
 that they were made in the right order and with no additional calls:</p>
 <p>You use the <a class="reference internal" href="unittest.mock.html#unittest.mock.call" title="unittest.mock.call"><code class="xref py py-data docutils literal notranslate"><span class="pre">call</span></code></a> object to construct lists for comparing with
 <code class="docutils literal notranslate"><span class="pre">mock_calls</span></code>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">method</span><span class="p">(),</span> <span class="n">call</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">53</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">method</span><span class="p">(),</span> <span class="n">call</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">53</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">mock_calls</span> <span class="o">==</span> <span class="n">expected</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>However, parameters to calls that return mocks are not recorded, which means it is not
 possible to track nested calls where the parameters used to create ancestors are important:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="n">important</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span><span class="p">()</span>
 <span class="go">&lt;Mock name=&#39;mock.factory().deliver()&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">mock_calls</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">call</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="n">important</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span><span class="p">()</span>
@@ -249,27 +250,27 @@ possible to track nested calls where the parameters used to create ancestors are
 <div class="section" id="setting-return-values-and-attributes">
 <h3>Setting Return Values and Attributes<a class="headerlink" href="#setting-return-values-and-attributes" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Setting the return values on a mock object is trivially easy:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
 <span class="go">3</span>
 </pre></div>
 </div>
 <p>Of course you can do the same for methods on the mock:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
 <span class="go">3</span>
 </pre></div>
 </div>
 <p>The return value can also be set in the constructor:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
 <span class="go">3</span>
 </pre></div>
 </div>
 <p>If you need an attribute setting on your mock, just do it:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">x</span>
 <span class="go">3</span>
@@ -280,7 +281,7 @@ possible to track nested calls where the parameters used to create ancestors are
 return a list, then we have to configure the result of the nested call.</p>
 <p>We can use <a class="reference internal" href="unittest.mock.html#unittest.mock.call" title="unittest.mock.call"><code class="xref py py-data docutils literal notranslate"><span class="pre">call</span></code></a> to construct the set of calls in a „chained call” like
 this for easy assertion afterwards:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cursor</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">return_value</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT 1&quot;</span><span class="p">)</span>
@@ -300,7 +301,7 @@ calls representing the chained calls.</p>
 <p>A useful attribute is <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.side_effect" title="unittest.mock.Mock.side_effect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">side_effect</span></code></a>. If you set this to an
 exception class or instance then the exception will be raised when the mock
 is called.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Boom!&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Boom!&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
@@ -315,7 +316,7 @@ is called.</p>
 times, and you want each call to return a different value. When you set
 <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> to an iterable every call to the mock returns the next value
 from the iterable:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
@@ -328,7 +329,7 @@ from the iterable:</p>
 depending on what the mock is called with, <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> can be a function.
 The function will be called with the same arguments as the mock. Whatever the
 function returns is what the call returns:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vals</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vals</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">2</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">side_effect</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">vals</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
 <span class="gp">...</span>
@@ -346,7 +347,7 @@ function returns is what the call returns:</p>
 <a class="reference internal" href="../reference/datamodel.html#async-iterators"><span class="std std-ref">Asynchronous Iterators</span></a> through <code class="docutils literal notranslate"><span class="pre">__aiter__</span></code>. The <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.return_value" title="unittest.mock.Mock.return_value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">return_value</span></code></a>
 attribute of <code class="docutils literal notranslate"><span class="pre">__aiter__</span></code> can be used to set the return values to be used for
 iteration.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>  <span class="c1"># AsyncMock also works here</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>  <span class="c1"># AsyncMock also works here</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__aiter__</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">async</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mock</span><span class="p">]</span>
@@ -362,7 +363,7 @@ iteration.</p>
 <a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">Asynchronous Context Managers</span></a> through <code class="docutils literal notranslate"><span class="pre">__aenter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__aexit__</span></code>.
 By default, <code class="docutils literal notranslate"><span class="pre">__aenter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__aexit__</span></code> are <code class="docutils literal notranslate"><span class="pre">AsyncMock</span></code> instances that
 return an async function.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">AsyncContextManager</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">AsyncContextManager</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">async</span> <span class="k">def</span> <span class="fm">__aenter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span>
 <span class="gp">... </span>    <span class="k">async</span> <span class="k">def</span> <span class="fm">__aexit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">tb</span><span class="p">):</span>
@@ -393,7 +394,7 @@ mock that don’t exist on your specification object will immediately raise an
 attribute error. If you change the implementation of your specification, then
 tests that use that class will start failing immediately without you having to
 instantiate the class in those tests.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">SomeClass</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">SomeClass</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">old_method</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
    <span class="c">...</span>
@@ -421,8 +422,8 @@ of arbitrary attributes as well as the getting of them then you can use
 <div class="section" id="patch-decorators">
 <h2>Patch Decorators<a class="headerlink" href="#patch-decorators" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>With <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> it matters that you patch objects in the namespace where
+<p class="first admonition-title">Informacja</p>
+<p class="last">With <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> it matters that you patch objects in the namespace where
 they are looked up. This is normally straightforward, but for a quick guide
 read <a class="reference internal" href="unittest.mock.html#where-to-patch"><span class="std std-ref">where to patch</span></a>.</p>
 </div>
@@ -457,7 +458,7 @@ with.</p>
 </div>
 <p>If you are patching a module (including <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a>) then use <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a>
 instead of <a class="reference internal" href="unittest.mock.html#unittest.mock.patch.object" title="unittest.mock.patch.object"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch.object()</span></code></a>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="n">sentinel</span><span class="o">.</span><span class="n">file_handle</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="n">sentinel</span><span class="o">.</span><span class="n">file_handle</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s1">&#39;builtins.open&#39;</span><span class="p">,</span> <span class="n">mock</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -475,7 +476,7 @@ instead of <a class="reference internal" href="unittest.mock.html#unittest.mock.
 </pre></div>
 </div>
 <p>A nice pattern is to actually decorate test methods themselves:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nd">@patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">SomeClass</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">sentinel</span><span class="o">.</span><span class="n">attribute</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">SomeClass</span><span class="o">.</span><span class="n">attribute</span><span class="p">,</span> <span class="n">sentinel</span><span class="o">.</span><span class="n">attribute</span><span class="p">)</span>
@@ -488,7 +489,7 @@ instead of <a class="reference internal" href="unittest.mock.html#unittest.mock.
 <p>If you want to patch with a Mock, you can use <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> with only one argument
 (or <a class="reference internal" href="unittest.mock.html#unittest.mock.patch.object" title="unittest.mock.patch.object"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch.object()</span></code></a> with two arguments). The mock will be created for you and
 passed into the test function / method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nd">@patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">SomeClass</span><span class="p">,</span> <span class="s1">&#39;static_method&#39;</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock_method</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="n">SomeClass</span><span class="o">.</span><span class="n">static_method</span><span class="p">()</span>
@@ -515,7 +516,7 @@ above the mock for <code class="docutils literal notranslate"><span class="pre">
 <p>There is also <a class="reference internal" href="unittest.mock.html#unittest.mock.patch.dict" title="unittest.mock.patch.dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch.dict()</span></code></a> for setting values in a dictionary just
 during a scope and restoring the dictionary to its original state when the test
 ends:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">original</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;newkey&#39;</span><span class="p">:</span> <span class="s1">&#39;newvalue&#39;</span><span class="p">},</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">assert</span> <span class="n">foo</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;newkey&#39;</span><span class="p">:</span> <span class="s1">&#39;newvalue&#39;</span><span class="p">}</span>
@@ -526,7 +527,7 @@ ends:</p>
 <p><code class="docutils literal notranslate"><span class="pre">patch</span></code>, <code class="docutils literal notranslate"><span class="pre">patch.object</span></code> and <code class="docutils literal notranslate"><span class="pre">patch.dict</span></code> can all be used as context managers.</p>
 <p>Where you use <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> to create a mock for you, you can get a reference to the
 mock using the „as” form of the with statement:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ProductionClass</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">pass</span>
 <span class="gp">...</span>
@@ -553,7 +554,7 @@ the first time, or you fetch its <code class="docutils literal notranslate"><spa
 new <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> is created.</p>
 <p>This means that you can see how the object returned from a call to a mocked
 object has been used by interrogating the <code class="docutils literal notranslate"><span class="pre">return_value</span></code> mock:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">&lt;Mock name=&#39;mock().foo()&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -563,7 +564,7 @@ object has been used by interrogating the <code class="docutils literal notransl
 chained calls. Of course another alternative is writing your code in a more
 testable way in the first place…</p>
 <p>So, suppose we have some code that looks a little bit like this:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Something</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Something</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">BackendProvider</span><span class="p">()</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -648,13 +649,13 @@ is discussed in <a class="reference external" href="https://williambert.online/2
 <div class="section" id="mocking-a-generator-method">
 <h3>Mocking a Generator Method<a class="headerlink" href="#mocking-a-generator-method" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>A Python generator is a function or method that uses the <a class="reference internal" href="../reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code></a> statement
-to return a series of values when iterated over <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</p>
+to return a series of values when iterated over <a class="footnote-reference" href="#id3" id="id2">[1]</a>.</p>
 <p>A generator method / function is called to return the generator object. It is
 the generator object that is then iterated over. The protocol method for
 iteration is <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, so we can
 mock this using a <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a>.</p>
 <p>Here’s an example class with an „iter” method implemented as a generator:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
 <span class="gp">... </span>            <span class="k">yield</span> <span class="n">i</span>
@@ -667,19 +668,20 @@ mock this using a <a class="reference internal" href="unittest.mock.html#unittes
 <p>How would we mock this class, and in particular its „iter” method?</p>
 <p>To configure the values returned from the iteration (implicit in the call to
 <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>), we need to configure the object returned by the call to <code class="docutils literal notranslate"><span class="pre">foo.iter()</span></code>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span><span class="o">.</span><span class="n">iter</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">mock_foo</span><span class="o">.</span><span class="n">iter</span><span class="p">())</span>
 <span class="go">[1, 2, 3]</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>There are also generator expressions and more <a class="reference external" href="http://www.dabeaz.com/coroutines/index.html">advanced uses</a> of generators, but we aren’t
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>There are also generator expressions and more <a class="reference external" href="http://www.dabeaz.com/coroutines/index.html">advanced uses</a> of generators, but we aren’t
 concerned about them here. A very good introduction to generators and how
-powerful they are is: <a class="reference external" href="http://www.dabeaz.com/generators/">Generator Tricks for Systems Programmers</a>.</p>
-</dd>
-</dl>
+powerful they are is: <a class="reference external" href="http://www.dabeaz.com/generators/">Generator Tricks for Systems Programmers</a>.</td></tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="applying-the-same-patch-to-every-test-method">
 <h3>Applying the same patch to every test method<a class="headerlink" href="#applying-the-same-patch-to-every-test-method" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -760,7 +762,7 @@ that if you use it to patch out an unbound method on a class the mocked
 function will be turned into a bound method if it is fetched from an instance.
 It will have <code class="docutils literal notranslate"><span class="pre">self</span></code> passed in as the first argument, which is exactly what I
 wanted:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 <span class="gp">...</span>
@@ -779,7 +781,7 @@ with a Mock instance instead, and isn’t called with <code class="docutils lite
 <div class="section" id="checking-multiple-calls-with-mock">
 <h3>Checking multiple calls with mock<a class="headerlink" href="#checking-multiple-calls-with-mock" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>mock has a nice API for making assertions about how your mock objects are used.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
@@ -788,7 +790,7 @@ with a Mock instance instead, and isn’t called with <code class="docutils lite
 <p>If your mock is only being called once you can use the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">assert_called_once_with()</span></code> method that also asserts that the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">call_count</span></code> is one.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">foo_bar</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -800,7 +802,7 @@ with a Mock instance instead, and isn’t called with <code class="docutils lite
 the <em>most recent</em> call. If your mock is going to be called several times, and
 you want to make assertions about <em>all</em> those calls you can use
 <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.call_args_list" title="unittest.mock.Mock.call_args_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">call_args_list</span></code></a>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">()</span>
@@ -811,7 +813,7 @@ you want to make assertions about <em>all</em> those calls you can use
 <p>The <a class="reference internal" href="unittest.mock.html#unittest.mock.call" title="unittest.mock.call"><code class="xref py py-data docutils literal notranslate"><span class="pre">call</span></code></a> helper makes it easy to make assertions about these calls. You
 can build up a list of expected calls and compare it to <code class="docutils literal notranslate"><span class="pre">call_args_list</span></code>. This
 looks remarkably similar to the repr of the <code class="docutils literal notranslate"><span class="pre">call_args_list</span></code>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">call</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">call</span><span class="p">()]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">call</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">call</span><span class="p">()]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">call_args_list</span> <span class="o">==</span> <span class="n">expected</span>
 <span class="go">True</span>
 </pre></div>
@@ -885,11 +887,11 @@ me.</p>
 mock that we do the assertion on. The <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> function makes a copy of
 the args and calls our <code class="docutils literal notranslate"><span class="pre">new_mock</span></code> with the copy.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p>If your mock is only going to be used once there is an easier way of
 checking arguments at the point they are called. You can simply do the
 checking inside a <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> function.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">side_effect</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">side_effect</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">assert</span> <span class="n">arg</span> <span class="o">==</span> <span class="p">{</span><span class="mi">6</span><span class="p">}</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="n">side_effect</span><span class="p">)</span>
@@ -904,7 +906,7 @@ checking inside a <code class="docutils literal notranslate"><span class="pre">s
 <p>An alternative approach is to create a subclass of <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> or
 <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> that copies (using <a class="reference internal" href="copy.html#copy.deepcopy" title="copy.deepcopy"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code></a>) the arguments.
 Here’s an example implementation:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">CopyingMock</span><span class="p">(</span><span class="n">MagicMock</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="n">args</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
@@ -988,7 +990,7 @@ underlying dictionary that is under our control.</p>
 the case of <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> the value too). We can also control what is returned.</p>
 <p>After the <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> has been used we can use attributes like
 <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.call_args_list" title="unittest.mock.Mock.call_args_list"><code class="xref py py-data docutils literal notranslate"><span class="pre">call_args_list</span></code></a> to assert about how the dictionary was used:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">getitem</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="gp">... </span>     <span class="k">return</span> <span class="n">my_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
 <span class="gp">...</span>
@@ -1001,10 +1003,10 @@ the case of <code class="docutils literal notranslate"><span class="pre">__setit
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
+<p class="first admonition-title">Informacja</p>
 <p>An alternative to using <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> is to use <code class="docutils literal notranslate"><span class="pre">Mock</span></code> and <em>only</em> provide
 the magic methods you specifically want:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__getitem__</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="n">getitem</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="n">setitem</span><span class="p">)</span>
 </pre></div>
@@ -1012,7 +1014,7 @@ the magic methods you specifically want:</p>
 <p>A <em>third</em> option is to use <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> but passing in <code class="docutils literal notranslate"><span class="pre">dict</span></code> as the <em>spec</em>
 (or <em>spec_set</em>) argument so that the <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> created only has
 dictionary magic methods available:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">spec_set</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">spec_set</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__getitem__</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="n">getitem</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__setitem__</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="n">setitem</span>
 </pre></div>
@@ -1021,7 +1023,7 @@ dictionary magic methods available:</p>
 <p>With these side effect functions in place, the <code class="docutils literal notranslate"><span class="pre">mock</span></code> will behave like a normal
 dictionary but recording the access. It even raises a <a class="reference internal" href="exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> if you try
 to access a key that doesn’t exist.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 <span class="go">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="go">3</span>
@@ -1039,7 +1041,7 @@ to access a key that doesn’t exist.</p>
 </div>
 <p>After it has been used you can make assertions about the access using the normal
 mock methods and attributes:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__getitem__</span><span class="o">.</span><span class="n">call_args_list</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__getitem__</span><span class="o">.</span><span class="n">call_args_list</span>
 <span class="go">[call(&#39;a&#39;), call(&#39;c&#39;), call(&#39;d&#39;), call(&#39;b&#39;), call(&#39;d&#39;)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__setitem__</span><span class="o">.</span><span class="n">call_args_list</span>
 <span class="go">[call(&#39;b&#39;, &#39;fish&#39;), call(&#39;d&#39;, &#39;eggs&#39;)]</span>
@@ -1052,7 +1054,7 @@ mock methods and attributes:</p>
 <h3>Mock subclasses and their attributes<a class="headerlink" href="#mock-subclasses-and-their-attributes" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>There are various reasons why you might want to subclass <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a>. One
 reason might be to add helper methods. Here’s a silly example:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyMock</span><span class="p">(</span><span class="n">MagicMock</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyMock</span><span class="p">(</span><span class="n">MagicMock</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">has_been_called</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">called</span>
 <span class="gp">...</span>
@@ -1069,10 +1071,10 @@ reason might be to add helper methods. Here’s a silly example:</p>
 <p>The standard behaviour for <code class="docutils literal notranslate"><span class="pre">Mock</span></code> instances is that attributes and the return
 value mocks are of the same type as the mock they are accessed on. This ensures
 that <code class="docutils literal notranslate"><span class="pre">Mock</span></code> attributes are <code class="docutils literal notranslate"><span class="pre">Mocks</span></code> and <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> attributes are <code class="docutils literal notranslate"><span class="pre">MagicMocks</span></code>
-<a class="footnote-reference brackets" href="#id5" id="id4">2</a>. So if you’re subclassing to add helper methods then they’ll also be
+<a class="footnote-reference" href="#id5" id="id4">[2]</a>. So if you’re subclassing to add helper methods then they’ll also be
 available on the attributes and return value mock of instances of your
 subclass.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mymock</span><span class="o">.</span><span class="n">foo</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mymock</span><span class="o">.</span><span class="n">foo</span>
 <span class="go">&lt;MyMock name=&#39;mock.foo&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mymock</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">has_been_called</span><span class="p">()</span>
 <span class="go">False</span>
@@ -1090,7 +1092,7 @@ these „sub-mocks” for attributes and return values. You can prevent your
 subclass being used for attributes by overriding this method. The signature is
 that it takes arbitrary keyword arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>) which are then passed
 onto the mock constructor:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Subclass</span><span class="p">(</span><span class="n">MagicMock</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Subclass</span><span class="p">(</span><span class="n">MagicMock</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">_get_child_mock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="n">MagicMock</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -1102,13 +1104,14 @@ onto the mock constructor:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mymock</span><span class="p">(),</span> <span class="n">Subclass</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
-<dd><p>An exception to this rule are the non-callable mocks. Attributes use the
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>An exception to this rule are the non-callable mocks. Attributes use the
 callable variant because otherwise non-callable mocks couldn’t have callable
-methods.</p>
-</dd>
-</dl>
+methods.</td></tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="mocking-imports-with-patch-dict">
 <h3>Mocking imports with patch.dict<a class="headerlink" href="#mocking-imports-with-patch-dict" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -1133,7 +1136,7 @@ When the patch is complete (the decorated function exits, the with statement
 body is complete or <code class="docutils literal notranslate"><span class="pre">patcher.stop()</span></code> is called) then whatever was there
 previously will be restored safely.</p>
 <p>Here’s an example that mocks out the «fooble» module.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="s1">&#39;sys.modules&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;fooble&#39;</span><span class="p">:</span> <span class="n">mock</span><span class="p">}):</span>
 <span class="gp">... </span>   <span class="kn">import</span> <span class="nn">fooble</span>
@@ -1147,7 +1150,7 @@ previously will be restored safely.</p>
 <p>As you can see the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fooble</span></code> succeeds, but on exit there is no «fooble»
 left in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>.</p>
 <p>This also works for the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">name</span></code> form:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="s1">&#39;sys.modules&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;fooble&#39;</span><span class="p">:</span> <span class="n">mock</span><span class="p">}):</span>
 <span class="gp">... </span>   <span class="kn">from</span> <span class="nn">fooble</span> <span class="kn">import</span> <span class="n">blob</span>
 <span class="gp">... </span>   <span class="n">blob</span><span class="o">.</span><span class="n">blip</span><span class="p">()</span>
@@ -1157,7 +1160,7 @@ left in <a class="reference internal" href="sys.html#sys.modules" title="sys.mod
 </pre></div>
 </div>
 <p>With slightly more work you can also mock package imports:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">modules</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;package&#39;</span><span class="p">:</span> <span class="n">mock</span><span class="p">,</span> <span class="s1">&#39;package.module&#39;</span><span class="p">:</span> <span class="n">mock</span><span class="o">.</span><span class="n">module</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="s1">&#39;sys.modules&#39;</span><span class="p">,</span> <span class="n">modules</span><span class="p">):</span>
 <span class="gp">... </span>   <span class="kn">from</span> <span class="nn">package.module</span> <span class="kn">import</span> <span class="n">fooble</span>
@@ -1178,24 +1181,24 @@ however we can use <a class="reference internal" href="unittest.mock.html#unitte
 arbitrary attribute of a mock creates a child mock, we can create our separate
 mocks from a parent one. Calls to those child mock will then all be recorded,
 in order, in the <code class="docutils literal notranslate"><span class="pre">mock_calls</span></code> of the parent:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">manager</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">manager</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">foo</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock_bar</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">bar</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span><span class="o">.</span><span class="n">something</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock_foo</span><span class="o">.</span><span class="n">something</span><span class="p">()</span>
 <span class="go">&lt;Mock name=&#39;mock.foo.something()&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock_bar</span><span class="o">.</span><span class="n">other</span><span class="o">.</span><span class="n">thing</span><span class="p">()</span>
 <span class="go">&lt;Mock name=&#39;mock.bar.other.thing()&#39; id=&#39;...&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">manager</span><span class="o">.</span><span class="n">mock_calls</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">manager</span><span class="o">.</span><span class="n">mock_calls</span>
 <span class="go">[call.foo.something(), call.bar.other.thing()]</span>
 </pre></div>
 </div>
 <p>We can then assert about the calls, including the order, by comparing with
 the <code class="docutils literal notranslate"><span class="pre">mock_calls</span></code> attribute on the manager mock:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected_calls</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">something</span><span class="p">(),</span> <span class="n">call</span><span class="o">.</span><span class="n">bar</span><span class="o">.</span><span class="n">other</span><span class="o">.</span><span class="n">thing</span><span class="p">()]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">expected_calls</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">something</span><span class="p">(),</span> <span class="n">call</span><span class="o">.</span><span class="n">bar</span><span class="o">.</span><span class="n">other</span><span class="o">.</span><span class="n">thing</span><span class="p">()]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">manager</span><span class="o">.</span><span class="n">mock_calls</span> <span class="o">==</span> <span class="n">expected_calls</span>
 <span class="go">True</span>
 </pre></div>
@@ -1224,7 +1227,7 @@ sequence of them then an alternative is to use the
 <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.assert_has_calls" title="unittest.mock.Mock.assert_has_calls"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assert_has_calls()</span></code></a> method. This takes a list of calls (constructed
 with the <a class="reference internal" href="unittest.mock.html#unittest.mock.call" title="unittest.mock.call"><code class="xref py py-data docutils literal notranslate"><span class="pre">call</span></code></a> object). If that sequence of calls are in
 <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock.mock_calls" title="unittest.mock.Mock.mock_calls"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mock_calls</span></code></a> then the assert succeeds.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">()</span><span class="o">.</span><span class="n">foo</span><span class="p">()</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span><span class="o">.</span><span class="n">baz</span><span class="p">()</span>
 <span class="go">&lt;MagicMock name=&#39;mock().foo().bar().baz()&#39; id=&#39;...&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">one</span><span class="p">()</span><span class="o">.</span><span class="n">two</span><span class="p">()</span><span class="o">.</span><span class="n">three</span><span class="p">()</span>
@@ -1238,7 +1241,7 @@ have been made to the mock, the assert still succeeds.</p>
 <p>Sometimes a mock may have several calls made to it, and you are only interested
 in asserting about <em>some</em> of those calls. You may not even care about the
 order. In this case you can pass <code class="docutils literal notranslate"><span class="pre">any_order=True</span></code> to <code class="docutils literal notranslate"><span class="pre">assert_has_calls</span></code>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">two</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">seven</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">fifty</span><span class="p">(</span><span class="s1">&#39;50&#39;</span><span class="p">)</span>
 <span class="go">(...)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">calls</span> <span class="o">=</span> <span class="p">[</span><span class="n">call</span><span class="o">.</span><span class="n">fifty</span><span class="p">(</span><span class="s1">&#39;50&#39;</span><span class="p">),</span> <span class="n">call</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">call</span><span class="o">.</span><span class="n">seven</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
@@ -1258,7 +1261,7 @@ of this object then we can create a matcher that will check these attributes
 for us.</p>
 <p>You can see in this example how a «standard» call to <code class="docutils literal notranslate"><span class="pre">assert_called_with</span></code> isn’t
 sufficient:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
 <span class="gp">...</span>
@@ -1272,7 +1275,7 @@ sufficient:</p>
 </pre></div>
 </div>
 <p>A comparison function for our <code class="docutils literal notranslate"><span class="pre">Foo</span></code> class might look something like this:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">return</span> <span class="kc">False</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span><span class="p">:</span>
@@ -1285,7 +1288,7 @@ sufficient:</p>
 </div>
 <p>And a matcher object that can use comparison functions like this for its
 equality operation would look something like this:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Matcher</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Matcher</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="n">some_obj</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">compare</span> <span class="o">=</span> <span class="n">compare</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">some_obj</span> <span class="o">=</span> <span class="n">some_obj</span>
@@ -1295,7 +1298,7 @@ equality operation would look something like this:</p>
 </pre></div>
 </div>
 <p>Putting all this together:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">match_foo</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compare</span><span class="p">,</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">match_foo</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compare</span><span class="p">,</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">match_foo</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1304,7 +1307,7 @@ we want to compare against. In <code class="docutils literal notranslate"><span 
 method will be called, which compares the object the mock was called with
 against the one we created our matcher with. If they match then
 <code class="docutils literal notranslate"><span class="pre">assert_called_with</span></code> passes, and if they don’t an <a class="reference internal" href="exceptions.html#AssertionError" title="AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a> is raised:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">match_wrong</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compare</span><span class="p">,</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">match_wrong</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compare</span><span class="p">,</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">match_wrong</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
     <span class="o">...</span>
@@ -1327,9 +1330,9 @@ that may be useful here, in the form of its equality matcher
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code> — getting started</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> — getting started</a><ul>
 <li><a class="reference internal" href="#using-mock">Using Mock</a><ul>
 <li><a class="reference internal" href="#mock-patching-methods">Mock Patching Methods</a></li>
 <li><a class="reference internal" href="#mock-for-method-calls-on-an-object">Mock for Method Calls on an Object</a></li>
@@ -1367,7 +1370,7 @@ that may be useful here, in the form of its equality matcher
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="unittest.mock.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code> — mock object library</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> — mock object library</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="2to3.html"
                         title="następny rozdział">2to3 - Automated Python 2 to 3 code translation</a></p>
@@ -1439,11 +1442,11 @@ that may be useful here, in the form of its equality matcher
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

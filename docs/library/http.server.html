@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>http.server — HTTP servers &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -106,8 +107,8 @@
 <hr class="docutils" id="index-0" />
 <p>This module defines classes for implementing HTTP servers (Web servers).</p>
 <div class="admonition warning">
-<p class="admonition-title">Ostrzeżenie</p>
-<p><a class="reference internal" href="#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code></a> is not recommended for production. It only implements
+<p class="first admonition-title">Ostrzeżenie</p>
+<p class="last"><a class="reference internal" href="#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code></a> is not recommended for production. It only implements
 basic security checks.</p>
 </div>
 <p>One class, <a class="reference internal" href="#http.server.HTTPServer" title="http.server.HTTPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPServer</span></code></a>, is a <a class="reference internal" href="socketserver.html#socketserver.TCPServer" title="socketserver.TCPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.TCPServer</span></code></a> subclass.
@@ -121,7 +122,7 @@ handler.  Code to create and run the server looks like this:</p>
 </div>
 <dl class="class">
 <dt id="http.server.HTTPServer">
-<em class="property">class </em><code class="sig-prename descclassname">http.server.</code><code class="sig-name descname">HTTPServer</code><span class="sig-paren">(</span><em class="sig-param">server_address</em>, <em class="sig-param">RequestHandlerClass</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.HTTPServer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">http.server.</code><code class="descname">HTTPServer</code><span class="sig-paren">(</span><em>server_address</em>, <em>RequestHandlerClass</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.HTTPServer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class builds on the <a class="reference internal" href="socketserver.html#socketserver.TCPServer" title="socketserver.TCPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TCPServer</span></code></a> class by storing
 the server address as instance variables named <code class="xref py py-attr docutils literal notranslate"><span class="pre">server_name</span></code> and
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">server_port</span></code>. The server is accessible by the handler, typically
@@ -130,13 +131,13 @@ through the handler’s <code class="xref py py-attr docutils literal notranslat
 
 <dl class="class">
 <dt id="http.server.ThreadingHTTPServer">
-<em class="property">class </em><code class="sig-prename descclassname">http.server.</code><code class="sig-name descname">ThreadingHTTPServer</code><span class="sig-paren">(</span><em class="sig-param">server_address</em>, <em class="sig-param">RequestHandlerClass</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.ThreadingHTTPServer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">http.server.</code><code class="descname">ThreadingHTTPServer</code><span class="sig-paren">(</span><em>server_address</em>, <em>RequestHandlerClass</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.ThreadingHTTPServer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class is identical to HTTPServer but uses threads to handle
 requests by using the <a class="reference internal" href="socketserver.html#socketserver.ThreadingMixIn" title="socketserver.ThreadingMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadingMixIn</span></code></a>. This
 is useful to handle web browsers pre-opening sockets, on which
 <a class="reference internal" href="#http.server.HTTPServer" title="http.server.HTTPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPServer</span></code></a> would wait indefinitely.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
@@ -145,7 +146,7 @@ a <em>RequestHandlerClass</em> on instantiation, of which this module
 provides three different variants:</p>
 <dl class="class">
 <dt id="http.server.BaseHTTPRequestHandler">
-<em class="property">class </em><code class="sig-prename descclassname">http.server.</code><code class="sig-name descname">BaseHTTPRequestHandler</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">client_address</em>, <em class="sig-param">server</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">http.server.</code><code class="descname">BaseHTTPRequestHandler</code><span class="sig-paren">(</span><em>request</em>, <em>client_address</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class is used to handle the HTTP requests that arrive at the server.  By
 itself, it cannot respond to any actual HTTP requests; it must be subclassed
 to handle each request method (e.g. GET or POST).
@@ -160,20 +161,20 @@ override or extend the <a class="reference internal" href="../reference/datamode
 <p><a class="reference internal" href="#http.server.BaseHTTPRequestHandler" title="http.server.BaseHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHTTPRequestHandler</span></code></a> has the following instance variables:</p>
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.client_address">
-<code class="sig-name descname">client_address</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.client_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">client_address</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.client_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains a tuple of the form <code class="docutils literal notranslate"><span class="pre">(host,</span> <span class="pre">port)</span></code> referring to the client’s
 address.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.server">
-<code class="sig-name descname">server</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.server" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">server</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.server" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the server instance.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.close_connection">
-<code class="sig-name descname">close_connection</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.close_connection" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">close_connection</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.close_connection" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Boolean that should be set before <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.handle_one_request" title="http.server.BaseHTTPRequestHandler.handle_one_request"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_one_request()</span></code></a> returns,
 indicating if another request may be expected, or if the connection should
 be shut down.</p>
@@ -181,7 +182,7 @@ be shut down.</p>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.requestline">
-<code class="sig-name descname">requestline</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.requestline" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">requestline</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.requestline" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the string representation of the HTTP request line. The
 terminating CRLF is stripped. This attribute should be set by
 <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.handle_one_request" title="http.server.BaseHTTPRequestHandler.handle_one_request"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_one_request()</span></code></a>. If no valid request line was processed, it
@@ -190,25 +191,25 @@ should be set to the empty string.</p>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.command">
-<code class="sig-name descname">command</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.command" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">command</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.command" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the command (request type). For example, <code class="docutils literal notranslate"><span class="pre">'GET'</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.path">
-<code class="sig-name descname">path</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.path" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">path</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.path" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the request path.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.request_version">
-<code class="sig-name descname">request_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.request_version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">request_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.request_version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the version string from the request. For example, <code class="docutils literal notranslate"><span class="pre">'HTTP/1.0'</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.headers">
-<code class="sig-name descname">headers</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.headers" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">headers</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.headers" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Holds an instance of the class specified by the <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.MessageClass" title="http.server.BaseHTTPRequestHandler.MessageClass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MessageClass</span></code></a> class
 variable. This instance parses and manages the headers in the HTTP
 request. The <a class="reference internal" href="http.client.html#http.client.parse_headers" title="http.client.parse_headers"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_headers()</span></code></a> function from
@@ -218,27 +219,27 @@ HTTP request provide a valid <span class="target" id="index-1"></span><a class="
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.rfile">
-<code class="sig-name descname">rfile</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.rfile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">rfile</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.rfile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An <a class="reference internal" href="io.html#io.BufferedIOBase" title="io.BufferedIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BufferedIOBase</span></code></a> input stream, ready to read from
 the start of the optional input data.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.wfile">
-<code class="sig-name descname">wfile</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.wfile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">wfile</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.wfile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the output stream for writing a response back to the
 client. Proper adherence to the HTTP protocol must be used when writing to
 this stream in order to achieve successful interoperation with HTTP
 clients.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>This is an <a class="reference internal" href="io.html#io.BufferedIOBase" title="io.BufferedIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BufferedIOBase</span></code></a> stream.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.6: </span>This is an <a class="reference internal" href="io.html#io.BufferedIOBase" title="io.BufferedIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BufferedIOBase</span></code></a> stream.</p>
 </div>
 </dd></dl>
 
 <p><a class="reference internal" href="#http.server.BaseHTTPRequestHandler" title="http.server.BaseHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHTTPRequestHandler</span></code></a> has the following attributes:</p>
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.server_version">
-<code class="sig-name descname">server_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.server_version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">server_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.server_version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Specifies the server software version.  You may want to override this. The
 format is multiple whitespace-separated strings, where each string is of
 the form name[/version]. For example, <code class="docutils literal notranslate"><span class="pre">'BaseHTTP/0.2'</span></code>.</p>
@@ -246,7 +247,7 @@ the form name[/version]. For example, <code class="docutils literal notranslate"
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.sys_version">
-<code class="sig-name descname">sys_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.sys_version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">sys_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.sys_version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains the Python system version, in a form usable by the
 <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.version_string" title="http.server.BaseHTTPRequestHandler.version_string"><code class="xref py py-attr docutils literal notranslate"><span class="pre">version_string</span></code></a> method and the <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.server_version" title="http.server.BaseHTTPRequestHandler.server_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">server_version</span></code></a> class
 variable. For example, <code class="docutils literal notranslate"><span class="pre">'Python/1.4'</span></code>.</p>
@@ -254,7 +255,7 @@ variable. For example, <code class="docutils literal notranslate"><span class="p
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.error_message_format">
-<code class="sig-name descname">error_message_format</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.error_message_format" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">error_message_format</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.error_message_format" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Specifies a format string that should be used by <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.send_error" title="http.server.BaseHTTPRequestHandler.send_error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send_error()</span></code></a> method
 for building an error response to the client. The string is filled by
 default with variables from <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.responses" title="http.server.BaseHTTPRequestHandler.responses"><code class="xref py py-attr docutils literal notranslate"><span class="pre">responses</span></code></a> based on the status code
@@ -263,14 +264,14 @@ that passed to <a class="reference internal" href="#http.server.BaseHTTPRequestH
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.error_content_type">
-<code class="sig-name descname">error_content_type</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.error_content_type" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">error_content_type</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.error_content_type" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Specifies the Content-Type HTTP header of error responses sent to the
 client.  The default value is <code class="docutils literal notranslate"><span class="pre">'text/html'</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.protocol_version">
-<code class="sig-name descname">protocol_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.protocol_version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">protocol_version</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.protocol_version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This specifies the HTTP protocol version used in responses.  If set to
 <code class="docutils literal notranslate"><span class="pre">'HTTP/1.1'</span></code>, the server will permit HTTP persistent connections;
 however, your server <em>must</em> then include an accurate <code class="docutils literal notranslate"><span class="pre">Content-Length</span></code>
@@ -280,7 +281,7 @@ For backwards compatibility, the setting defaults to <code class="docutils liter
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.MessageClass">
-<code class="sig-name descname">MessageClass</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.MessageClass" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">MessageClass</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.MessageClass" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Specifies an <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">email.message.Message</span></code></a>-like class to parse HTTP
 headers.  Typically, this is not overridden, and it defaults to
 <code class="xref py py-class docutils literal notranslate"><span class="pre">http.client.HTTPMessage</span></code>.</p>
@@ -288,7 +289,7 @@ headers.  Typically, this is not overridden, and it defaults to
 
 <dl class="attribute">
 <dt id="http.server.BaseHTTPRequestHandler.responses">
-<code class="sig-name descname">responses</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.responses" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">responses</code><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.responses" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This attribute contains a mapping of error code integers to two-element tuples
 containing a short and long message. For example, <code class="docutils literal notranslate"><span class="pre">{code:</span> <span class="pre">(shortmessage,</span>
 <span class="pre">longmessage)}</span></code>. The <em>shortmessage</em> is usually used as the <em>message</em> key in an
@@ -299,7 +300,7 @@ error response, and <em>longmessage</em> as the <em>explain</em> key.  It is use
 <p>A <a class="reference internal" href="#http.server.BaseHTTPRequestHandler" title="http.server.BaseHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHTTPRequestHandler</span></code></a> instance has the following methods:</p>
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.handle">
-<code class="sig-name descname">handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Calls <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.handle_one_request" title="http.server.BaseHTTPRequestHandler.handle_one_request"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_one_request()</span></code></a> once (or, if persistent connections are
 enabled, multiple times) to handle incoming HTTP requests. You should
 never need to override it; instead, implement appropriate <code class="xref py py-meth docutils literal notranslate"><span class="pre">do_*()</span></code>
@@ -308,14 +309,14 @@ methods.</p>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.handle_one_request">
-<code class="sig-name descname">handle_one_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle_one_request" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">handle_one_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle_one_request" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method will parse and dispatch the request to the appropriate
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">do_*()</span></code> method.  You should never need to override it.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.handle_expect_100">
-<code class="sig-name descname">handle_expect_100</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle_expect_100" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">handle_expect_100</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.handle_expect_100" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>When a HTTP/1.1 compliant server receives an <code class="docutils literal notranslate"><span class="pre">Expect:</span> <span class="pre">100-continue</span></code>
 request header it responds back with a <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">Continue</span></code> followed by <code class="docutils literal notranslate"><span class="pre">200</span>
 <span class="pre">OK</span></code> headers.
@@ -323,13 +324,13 @@ This method can be overridden to raise an error if the server does not
 want the client to continue.  For e.g. server can chose to send <code class="docutils literal notranslate"><span class="pre">417</span>
 <span class="pre">Expectation</span> <span class="pre">Failed</span></code> as a response header and <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">False</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.send_error">
-<code class="sig-name descname">send_error</code><span class="sig-paren">(</span><em class="sig-param">code</em>, <em class="sig-param">message=None</em>, <em class="sig-param">explain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">send_error</code><span class="sig-paren">(</span><em>code</em>, <em>message=None</em>, <em>explain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sends and logs a complete error reply to the client. The numeric <em>code</em>
 specifies the HTTP error code, with <em>message</em> as an optional, short, human
 readable description of the error.  The <em>explain</em> argument can be used to
@@ -342,14 +343,14 @@ for both is the string <code class="docutils literal notranslate"><span class="p
 HEAD or the response code is one of the following: <code class="docutils literal notranslate"><span class="pre">1xx</span></code>,
 <code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code>, <code class="docutils literal notranslate"><span class="pre">205</span> <span class="pre">Reset</span> <span class="pre">Content</span></code>, <code class="docutils literal notranslate"><span class="pre">304</span> <span class="pre">Not</span> <span class="pre">Modified</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>The error response includes a Content-Length header.
+<p><span class="versionmodified">Zmienione w wersji 3.4: </span>The error response includes a Content-Length header.
 Added the <em>explain</em> argument.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.send_response">
-<code class="sig-name descname">send_response</code><span class="sig-paren">(</span><em class="sig-param">code</em>, <em class="sig-param">message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_response" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">send_response</code><span class="sig-paren">(</span><em>code</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_response" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds a response header to the headers buffer and logs the accepted
 request. The HTTP response line is written to the internal buffer,
 followed by <em>Server</em> and <em>Date</em> headers. The values for these two headers
@@ -359,60 +360,60 @@ intend to send any other headers using the <a class="reference internal" href="#
 then <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.send_response" title="http.server.BaseHTTPRequestHandler.send_response"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send_response()</span></code></a> should be followed by an <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.end_headers" title="http.server.BaseHTTPRequestHandler.end_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end_headers()</span></code></a>
 call.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Headers are stored to an internal buffer and <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.end_headers" title="http.server.BaseHTTPRequestHandler.end_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end_headers()</span></code></a>
+<p><span class="versionmodified">Zmienione w wersji 3.3: </span>Headers are stored to an internal buffer and <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.end_headers" title="http.server.BaseHTTPRequestHandler.end_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end_headers()</span></code></a>
 needs to be called explicitly.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.send_header">
-<code class="sig-name descname">send_header</code><span class="sig-paren">(</span><em class="sig-param">keyword</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_header" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">send_header</code><span class="sig-paren">(</span><em>keyword</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_header" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds the HTTP header to an internal buffer which will be written to the
 output stream when either <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.end_headers" title="http.server.BaseHTTPRequestHandler.end_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end_headers()</span></code></a> or <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.flush_headers" title="http.server.BaseHTTPRequestHandler.flush_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush_headers()</span></code></a> is
 invoked. <em>keyword</em> should specify the header keyword, with <em>value</em>
 specifying its value. Note that, after the send_header calls are done,
 <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.end_headers" title="http.server.BaseHTTPRequestHandler.end_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end_headers()</span></code></a> MUST BE called in order to complete the operation.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Headers are stored in an internal buffer.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.2: </span>Headers are stored in an internal buffer.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.send_response_only">
-<code class="sig-name descname">send_response_only</code><span class="sig-paren">(</span><em class="sig-param">code</em>, <em class="sig-param">message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_response_only" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">send_response_only</code><span class="sig-paren">(</span><em>code</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.send_response_only" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sends the response header only, used for the purposes when <code class="docutils literal notranslate"><span class="pre">100</span>
 <span class="pre">Continue</span></code> response is sent by the server to the client. The headers not
 buffered and sent directly the output stream.If the <em>message</em> is not
 specified, the HTTP message corresponding the response <em>code</em>  is sent.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.end_headers">
-<code class="sig-name descname">end_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.end_headers" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">end_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.end_headers" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds a blank line
 (indicating the end of the HTTP headers in the response)
 to the headers buffer and calls <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.flush_headers" title="http.server.BaseHTTPRequestHandler.flush_headers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush_headers()</span></code></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The buffered headers are written to the output stream.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The buffered headers are written to the output stream.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.flush_headers">
-<code class="sig-name descname">flush_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.flush_headers" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">flush_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.flush_headers" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finally send the headers to the output stream and flush the internal
 headers buffer.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.log_request">
-<code class="sig-name descname">log_request</code><span class="sig-paren">(</span><em class="sig-param">code='-'</em>, <em class="sig-param">size='-'</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_request" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">log_request</code><span class="sig-paren">(</span><em>code='-'</em>, <em>size='-'</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_request" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs an accepted (successful) request. <em>code</em> should specify the numeric
 HTTP code associated with the response. If a size of the response is
 available, then it should be passed as the <em>size</em> parameter.</p>
@@ -420,7 +421,7 @@ available, then it should be passed as the <em>size</em> parameter.</p>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.log_error">
-<code class="sig-name descname">log_error</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">log_error</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs an error when a request cannot be fulfilled. By default, it passes
 the message to <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.log_message" title="http.server.BaseHTTPRequestHandler.log_message"><code class="xref py py-meth docutils literal notranslate"><span class="pre">log_message()</span></code></a>, so it takes the same arguments
 (<em>format</em> and additional values).</p>
@@ -428,7 +429,7 @@ the message to <a class="reference internal" href="#http.server.BaseHTTPRequestH
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.log_message">
-<code class="sig-name descname">log_message</code><span class="sig-paren">(</span><em class="sig-param">format</em>, <em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_message" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">log_message</code><span class="sig-paren">(</span><em>format</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_message" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs an arbitrary message to <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code>. This is typically overridden
 to create custom error logging mechanisms. The <em>format</em> argument is a
 standard printf-style format string, where the additional arguments to
@@ -438,14 +439,14 @@ ip address and current date and time are prefixed to every message logged.</p>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.version_string">
-<code class="sig-name descname">version_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.version_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">version_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.version_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the server software’s version string. This is a combination of the
 <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.server_version" title="http.server.BaseHTTPRequestHandler.server_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">server_version</span></code></a> and <a class="reference internal" href="#http.server.BaseHTTPRequestHandler.sys_version" title="http.server.BaseHTTPRequestHandler.sys_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sys_version</span></code></a> attributes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.date_time_string">
-<code class="sig-name descname">date_time_string</code><span class="sig-paren">(</span><em class="sig-param">timestamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.date_time_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">date_time_string</code><span class="sig-paren">(</span><em>timestamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.date_time_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the date and time given by <em>timestamp</em> (which must be <code class="docutils literal notranslate"><span class="pre">None</span></code> or in
 the format returned by <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a>), formatted for a message
 header. If <em>timestamp</em> is omitted, it uses the current date and time.</p>
@@ -454,16 +455,16 @@ header. If <em>timestamp</em> is omitted, it uses the current date and time.</p>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.log_date_time_string">
-<code class="sig-name descname">log_date_time_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_date_time_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">log_date_time_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.log_date_time_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the current date and time, formatted for logging.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="http.server.BaseHTTPRequestHandler.address_string">
-<code class="sig-name descname">address_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.address_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">address_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.BaseHTTPRequestHandler.address_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the client address.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Previously, a name lookup was performed. To avoid name resolution
+<p><span class="versionmodified">Zmienione w wersji 3.3: </span>Previously, a name lookup was performed. To avoid name resolution
 delays, it now always returns the IP address.</p>
 </div>
 </dd></dl>
@@ -472,7 +473,7 @@ delays, it now always returns the IP address.</p>
 
 <dl class="class">
 <dt id="http.server.SimpleHTTPRequestHandler">
-<em class="property">class </em><code class="sig-prename descclassname">http.server.</code><code class="sig-name descname">SimpleHTTPRequestHandler</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">client_address</em>, <em class="sig-param">server</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">http.server.</code><code class="descname">SimpleHTTPRequestHandler</code><span class="sig-paren">(</span><em>request</em>, <em>client_address</em>, <em>server</em>, <em>directory=None</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class serves files from the current directory and below, directly
 mapping the directory structure to HTTP requests.</p>
 <p>A lot of the work, such as parsing the request, is done by the base class
@@ -482,14 +483,14 @@ and <a class="reference internal" href="#http.server.SimpleHTTPRequestHandler.do
 <a class="reference internal" href="#http.server.SimpleHTTPRequestHandler" title="http.server.SimpleHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPRequestHandler</span></code></a>:</p>
 <dl class="attribute">
 <dt id="http.server.SimpleHTTPRequestHandler.server_version">
-<code class="sig-name descname">server_version</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.server_version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">server_version</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.server_version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This will be <code class="docutils literal notranslate"><span class="pre">&quot;SimpleHTTP/&quot;</span> <span class="pre">+</span> <span class="pre">__version__</span></code>, where <code class="docutils literal notranslate"><span class="pre">__version__</span></code> is
 defined at the module level.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="http.server.SimpleHTTPRequestHandler.extensions_map">
-<code class="sig-name descname">extensions_map</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.extensions_map" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">extensions_map</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.extensions_map" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A dictionary mapping suffixes into MIME types. The default is
 signified by an empty string, and is considered to be
 <code class="docutils literal notranslate"><span class="pre">application/octet-stream</span></code>. The mapping is used case-insensitively,
@@ -498,14 +499,14 @@ and so should contain only lower-cased keys.</p>
 
 <dl class="attribute">
 <dt id="http.server.SimpleHTTPRequestHandler.directory">
-<code class="sig-name descname">directory</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.directory" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">directory</code><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.directory" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If not specified, the directory to serve is the current working directory.</p>
 </dd></dl>
 
 <p>The <a class="reference internal" href="#http.server.SimpleHTTPRequestHandler" title="http.server.SimpleHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPRequestHandler</span></code></a> class defines the following methods:</p>
 <dl class="method">
 <dt id="http.server.SimpleHTTPRequestHandler.do_HEAD">
-<code class="sig-name descname">do_HEAD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.do_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">do_HEAD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.do_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method serves the <code class="docutils literal notranslate"><span class="pre">'HEAD'</span></code> request type: it sends the headers it
 would send for the equivalent <code class="docutils literal notranslate"><span class="pre">GET</span></code> request. See the <a class="reference internal" href="#http.server.SimpleHTTPRequestHandler.do_GET" title="http.server.SimpleHTTPRequestHandler.do_GET"><code class="xref py py-meth docutils literal notranslate"><span class="pre">do_GET()</span></code></a>
 method for a more complete explanation of the possible headers.</p>
@@ -513,7 +514,7 @@ method for a more complete explanation of the possible headers.</p>
 
 <dl class="method">
 <dt id="http.server.SimpleHTTPRequestHandler.do_GET">
-<code class="sig-name descname">do_GET</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.do_GET" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">do_GET</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.SimpleHTTPRequestHandler.do_GET" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The request is mapped to a local file by interpreting the request as a
 path relative to the current working directory.</p>
 <p>If the request was mapped to a directory, the directory is checked for a
@@ -538,7 +539,7 @@ contents of the file are output. If the file’s MIME type starts with
 <p>For example usage, see the implementation of the <a class="reference internal" href="test.html#module-test" title="test: Regression tests package containing the testing suite for Python."><code class="xref py py-func docutils literal notranslate"><span class="pre">test()</span></code></a> function
 invocation in the <a class="reference internal" href="#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code></a> module.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Support of the <code class="docutils literal notranslate"><span class="pre">'If-Modified-Since'</span></code> header.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.7: </span>Support of the <code class="docutils literal notranslate"><span class="pre">'If-Modified-Since'</span></code> header.</p>
 </div>
 </dd></dl>
 
@@ -573,10 +574,10 @@ to bind to localhost only:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4: </span><code class="docutils literal notranslate"><span class="pre">--bind</span></code> argument was introduced.</p>
+<p><span class="versionmodified">Nowe w wersji 3.4: </span><code class="docutils literal notranslate"><span class="pre">--bind</span></code> argument was introduced.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8: </span><code class="docutils literal notranslate"><span class="pre">--bind</span></code> argument enhanced to support IPv6</p>
+<p><span class="versionmodified">Nowe w wersji 3.8: </span><code class="docutils literal notranslate"><span class="pre">--bind</span></code> argument enhanced to support IPv6</p>
 </div>
 <p>By default, server uses the current directory. The option <code class="docutils literal notranslate"><span class="pre">-d/--directory</span></code>
 specifies a directory to which it should serve the files. For example,
@@ -585,17 +586,17 @@ the following command uses a specific directory:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7: </span><code class="docutils literal notranslate"><span class="pre">--directory</span></code> specify alternate directory</p>
+<p><span class="versionmodified">Nowe w wersji 3.7: </span><code class="docutils literal notranslate"><span class="pre">--directory</span></code> specify alternate directory</p>
 </div>
 <dl class="class">
 <dt id="http.server.CGIHTTPRequestHandler">
-<em class="property">class </em><code class="sig-prename descclassname">http.server.</code><code class="sig-name descname">CGIHTTPRequestHandler</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">client_address</em>, <em class="sig-param">server</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.CGIHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">http.server.</code><code class="descname">CGIHTTPRequestHandler</code><span class="sig-paren">(</span><em>request</em>, <em>client_address</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#http.server.CGIHTTPRequestHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This class is used to serve either files or output of CGI scripts from the
 current directory and below. Note that mapping HTTP hierarchic structure to
 local directory structure is exactly as in <a class="reference internal" href="#http.server.SimpleHTTPRequestHandler" title="http.server.SimpleHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPRequestHandler</span></code></a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>CGI scripts run by the <a class="reference internal" href="#http.server.CGIHTTPRequestHandler" title="http.server.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> class cannot execute
+<p class="first admonition-title">Informacja</p>
+<p class="last">CGI scripts run by the <a class="reference internal" href="#http.server.CGIHTTPRequestHandler" title="http.server.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> class cannot execute
 redirects (HTTP code 302), because code 200 (script output follows) is
 sent prior to execution of the CGI script.  This pre-empts the status
 code.</p>
@@ -610,7 +611,7 @@ somewhere below the <code class="docutils literal notranslate"><span class="pre"
 <p>The <a class="reference internal" href="#http.server.CGIHTTPRequestHandler" title="http.server.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> defines the following data member:</p>
 <dl class="attribute">
 <dt id="http.server.CGIHTTPRequestHandler.cgi_directories">
-<code class="sig-name descname">cgi_directories</code><a class="headerlink" href="#http.server.CGIHTTPRequestHandler.cgi_directories" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">cgi_directories</code><a class="headerlink" href="#http.server.CGIHTTPRequestHandler.cgi_directories" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This defaults to <code class="docutils literal notranslate"><span class="pre">['/cgi-bin',</span> <span class="pre">'/htbin']</span></code> and describes directories to
 treat as containing CGI scripts.</p>
 </dd></dl>
@@ -618,7 +619,7 @@ treat as containing CGI scripts.</p>
 <p>The <a class="reference internal" href="#http.server.CGIHTTPRequestHandler" title="http.server.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> defines the following method:</p>
 <dl class="method">
 <dt id="http.server.CGIHTTPRequestHandler.do_POST">
-<code class="sig-name descname">do_POST</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.CGIHTTPRequestHandler.do_POST" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">do_POST</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#http.server.CGIHTTPRequestHandler.do_POST" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method serves the <code class="docutils literal notranslate"><span class="pre">'POST'</span></code> request type, only allowed for CGI
 scripts.  Error 501, „Can only POST to CGI scripts”, is output when trying
 to POST to a non-CGI url.</p>
@@ -643,10 +644,10 @@ the <code class="docutils literal notranslate"><span class="pre">--cgi</span></c
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="socketserver.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socketserver</span></code> — A framework for network servers</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">socketserver</span></code> — A framework for network servers</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="http.cookies.html"
-                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code> — HTTP state management</a></p>
+                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">http.cookies</span></code> — HTTP state management</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -715,11 +716,11 @@ the <code class="docutils literal notranslate"><span class="pre">--cgi</span></c
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

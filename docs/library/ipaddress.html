@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ipaddress — IPv4/IPv6 manipulation library &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -114,7 +115,7 @@ network definition, and so on.</p>
 <p>This is the full module API reference—for an overview and introduction, see
 <a class="reference internal" href="../howto/ipaddress.html#ipaddress-howto"><span class="std std-ref">An introduction to the ipaddress module</span></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
 </div>
 <div class="section" id="convenience-factory-functions">
 <h2>Convenience factory functions<a class="headerlink" href="#convenience-factory-functions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -122,13 +123,13 @@ network definition, and so on.</p>
 IP addresses, networks and interfaces:</p>
 <dl class="function">
 <dt id="ipaddress.ip_address">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">ip_address</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">ip_address</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.IPv6Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Address</span></code></a> object depending on
 the IP address passed as argument.  Either IPv4 or IPv6 addresses may be
 supplied; integers less than 2**32 will be considered to be IPv4 by default.
 A <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>address</em> does not represent a valid IPv4
 or IPv6 address.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;2001:db8::&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;2001:db8::&#39;)</span>
@@ -138,7 +139,7 @@ or IPv6 address.</p>
 
 <dl class="function">
 <dt id="ipaddress.ip_network">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">ip_network</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_network" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">ip_network</code><span class="sig-paren">(</span><em>address</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> object depending on
 the IP address passed as argument.  <em>address</em> is a string or integer
 representing the IP network.  Either IPv4 or IPv6 networks may be supplied;
@@ -146,7 +147,7 @@ integers less than 2**32 will be considered to be IPv4 by default.  <em>strict</
 is passed to <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> constructor.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>address</em> does not represent a valid IPv4 or
 IPv6 address, or if the network has host bits set.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.0.0/28&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.0.0/28&#39;</span><span class="p">)</span>
 <span class="go">IPv4Network(&#39;192.168.0.0/28&#39;)</span>
 </pre></div>
 </div>
@@ -154,7 +155,7 @@ IPv6 address, or if the network has host bits set.</p>
 
 <dl class="function">
 <dt id="ipaddress.ip_interface">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">ip_interface</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_interface" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">ip_interface</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.ip_interface" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an <a class="reference internal" href="#ipaddress.IPv4Interface" title="ipaddress.IPv4Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Interface</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Interface" title="ipaddress.IPv6Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Interface</span></code></a> object depending
 on the IP address passed as argument.  <em>address</em> is a string or integer
 representing the IP address.  Either IPv4 or IPv6 addresses may be supplied;
@@ -181,21 +182,21 @@ write code that handles both IP versions correctly.  Address objects are
 <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>, so they can be used as keys in dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Address">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv4Address</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Address</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv4 address.  An <a class="reference internal" href="#ipaddress.AddressValueError" title="ipaddress.AddressValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AddressValueError</span></code></a> is raised if
 <em>address</em> is not a valid IPv4 address.</p>
 <p>The following constitutes a valid IPv4 address:</p>
 <ol class="arabic simple">
-<li><p>A string in decimal-dot notation, consisting of four decimal integers in
+<li>A string in decimal-dot notation, consisting of four decimal integers in
 the inclusive range 0–255, separated by dots (e.g. <code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code>). Each
 integer represents an octet (byte) in the address. Leading zeroes are
 tolerated only for values less than 8 (as there is no ambiguity
-between the decimal and octal interpretations of such strings).</p></li>
-<li><p>An integer that fits into 32 bits.</p></li>
-<li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 4 (most
-significant octet first).</p></li>
+between the decimal and octal interpretations of such strings).</li>
+<li>An integer that fits into 32 bits.</li>
+<li>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 4 (most
+significant octet first).</li>
 </ol>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="mi">3232235521</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
@@ -205,13 +206,13 @@ significant octet first).</p></li>
 </div>
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#ipaddress.IPv4Address.version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">version</code><a class="headerlink" href="#ipaddress.IPv4Address.version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The appropriate version number: <code class="docutils literal notranslate"><span class="pre">4</span></code> for IPv4, <code class="docutils literal notranslate"><span class="pre">6</span></code> for IPv6.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.max_prefixlen">
-<code class="sig-name descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Address.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Address.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The total number of bits in the address representation for this
 version: <code class="docutils literal notranslate"><span class="pre">32</span></code> for IPv4, <code class="docutils literal notranslate"><span class="pre">128</span></code> for IPv6.</p>
 <p>The prefix defines the number of leading bits in an  address that
@@ -221,12 +222,12 @@ network.</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.compressed">
-<code class="sig-name descname">compressed</code><a class="headerlink" href="#ipaddress.IPv4Address.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compressed</code><a class="headerlink" href="#ipaddress.IPv4Address.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.exploded">
-<code class="sig-name descname">exploded</code><a class="headerlink" href="#ipaddress.IPv4Address.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">exploded</code><a class="headerlink" href="#ipaddress.IPv4Address.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The string representation in dotted decimal notation. Leading zeroes
 are never included in the representation.</p>
 <p>As IPv4 does not define a shorthand notation for addresses with octets
@@ -237,7 +238,7 @@ write display code that can handle both IPv4 and IPv6 addresses.</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.packed">
-<code class="sig-name descname">packed</code><a class="headerlink" href="#ipaddress.IPv4Address.packed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">packed</code><a class="headerlink" href="#ipaddress.IPv4Address.packed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The binary representation of this address - a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of
 the appropriate length (most significant octet first). This is 4 bytes
 for IPv4 and 16 bytes for IPv6.</p>
@@ -245,7 +246,7 @@ for IPv4 and 16 bytes for IPv6.</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.reverse_pointer">
-<code class="sig-name descname">reverse_pointer</code><a class="headerlink" href="#ipaddress.IPv4Address.reverse_pointer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">reverse_pointer</code><a class="headerlink" href="#ipaddress.IPv4Address.reverse_pointer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The name of the reverse DNS PTR record for the IP address, e.g.:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_pointer</span>
 <span class="go">&#39;1.0.0.127.in-addr.arpa&#39;</span>
@@ -256,20 +257,20 @@ for IPv4 and 16 bytes for IPv6.</p>
 <p>This is the name that could be used for performing a PTR lookup, not the
 resolved hostname itself.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_multicast">
-<code class="sig-name descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv4Address.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv4Address.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is reserved for multicast use.  See
 <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3171.html"><strong>RFC 3171</strong></a> (for IPv4) or <span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2373.html"><strong>RFC 2373</strong></a> (for IPv6).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_private">
-<code class="sig-name descname">is_private</code><a class="headerlink" href="#ipaddress.IPv4Address.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_private</code><a class="headerlink" href="#ipaddress.IPv4Address.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is allocated for private networks.  See
 <a class="reference external" href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml">iana-ipv4-special-registry</a> (for IPv4) or <a class="reference external" href="https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml">iana-ipv6-special-registry</a>
 (for IPv6).</p>
@@ -277,38 +278,38 @@ resolved hostname itself.</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_global">
-<code class="sig-name descname">is_global</code><a class="headerlink" href="#ipaddress.IPv4Address.is_global" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_global</code><a class="headerlink" href="#ipaddress.IPv4Address.is_global" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is allocated for public networks.  See
 <a class="reference external" href="https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml">iana-ipv4-special-registry</a> (for IPv4) or <a class="reference external" href="https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml">iana-ipv6-special-registry</a>
 (for IPv6).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_unspecified">
-<code class="sig-name descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv4Address.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv4Address.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is unspecified.  See <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5735.html"><strong>RFC 5735</strong></a> (for IPv4)
 or <span class="target" id="index-3"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2373.html"><strong>RFC 2373</strong></a> (for IPv6).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_reserved">
-<code class="sig-name descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv4Address.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv4Address.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is otherwise IETF reserved.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_loopback">
-<code class="sig-name descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv4Address.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv4Address.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if this is a loopback address.  See <span class="target" id="index-4"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3330.html"><strong>RFC 3330</strong></a> (for IPv4)
 or <span class="target" id="index-5"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2373.html"><strong>RFC 2373</strong></a> (for IPv6).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Address.is_link_local">
-<code class="sig-name descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv4Address.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv4Address.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is reserved for link-local usage.  See
 <span class="target" id="index-6"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3927.html"><strong>RFC 3927</strong></a>.</p>
 </dd></dl>
@@ -317,28 +318,28 @@ or <span class="target" id="index-5"></span><a class="rfc reference external" hr
 
 <dl class="class">
 <dt id="ipaddress.IPv6Address">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv6Address</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv6Address</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv6 address.  An <a class="reference internal" href="#ipaddress.AddressValueError" title="ipaddress.AddressValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AddressValueError</span></code></a> is raised if
 <em>address</em> is not a valid IPv6 address.</p>
 <p>The following constitutes a valid IPv6 address:</p>
 <ol class="arabic simple">
-<li><p>A string consisting of eight groups of four hexadecimal digits, each
+<li>A string consisting of eight groups of four hexadecimal digits, each
 group representing 16 bits.  The groups are separated by colons.
 This describes an <em>exploded</em> (longhand) notation.  The string can
 also be <em>compressed</em> (shorthand notation) by various means.  See
 <span class="target" id="index-7"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc4291.html"><strong>RFC 4291</strong></a> for details.  For example,
 <code class="docutils literal notranslate"><span class="pre">&quot;0000:0000:0000:0000:0000:0abc:0007:0def&quot;</span></code> can be compressed to
-<code class="docutils literal notranslate"><span class="pre">&quot;::abc:7:def&quot;</span></code>.</p></li>
-<li><p>An integer that fits into 128 bits.</p></li>
-<li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 16, big-endian.</p></li>
+<code class="docutils literal notranslate"><span class="pre">&quot;::abc:7:def&quot;</span></code>.</li>
+<li>An integer that fits into 128 bits.</li>
+<li>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 16, big-endian.</li>
 </ol>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Address</span><span class="p">(</span><span class="s1">&#39;2001:db8::1000&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Address</span><span class="p">(</span><span class="s1">&#39;2001:db8::1000&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;2001:db8::1000&#39;)</span>
 </pre></div>
 </div>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.compressed">
-<code class="sig-name descname">compressed</code><a class="headerlink" href="#ipaddress.IPv6Address.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compressed</code><a class="headerlink" href="#ipaddress.IPv6Address.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <p>The short form of the address representation, with leading zeroes in
@@ -347,7 +348,7 @@ zeroes collapsed to a single empty group.</p>
 <p>This is also the value returned by <code class="docutils literal notranslate"><span class="pre">str(addr)</span></code> for IPv6 addresses.</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.exploded">
-<code class="sig-name descname">exploded</code><a class="headerlink" href="#ipaddress.IPv6Address.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">exploded</code><a class="headerlink" href="#ipaddress.IPv6Address.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <p>The long form of the address representation, with all leading zeroes and
@@ -356,65 +357,65 @@ groups consisting entirely of zeroes included.</p>
 <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a> class:</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.packed">
-<code class="sig-name descname">packed</code><a class="headerlink" href="#ipaddress.IPv6Address.packed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">packed</code><a class="headerlink" href="#ipaddress.IPv6Address.packed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.reverse_pointer">
-<code class="sig-name descname">reverse_pointer</code><a class="headerlink" href="#ipaddress.IPv6Address.reverse_pointer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">reverse_pointer</code><a class="headerlink" href="#ipaddress.IPv6Address.reverse_pointer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#ipaddress.IPv6Address.version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">version</code><a class="headerlink" href="#ipaddress.IPv6Address.version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.max_prefixlen">
-<code class="sig-name descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Address.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Address.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_multicast">
-<code class="sig-name descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv6Address.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv6Address.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_private">
-<code class="sig-name descname">is_private</code><a class="headerlink" href="#ipaddress.IPv6Address.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_private</code><a class="headerlink" href="#ipaddress.IPv6Address.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_global">
-<code class="sig-name descname">is_global</code><a class="headerlink" href="#ipaddress.IPv6Address.is_global" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_global</code><a class="headerlink" href="#ipaddress.IPv6Address.is_global" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_unspecified">
-<code class="sig-name descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv6Address.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv6Address.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_reserved">
-<code class="sig-name descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv6Address.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv6Address.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_loopback">
-<code class="sig-name descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv6Address.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv6Address.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_link_local">
-<code class="sig-name descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv6Address.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv6Address.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.4: </span>is_global</p>
+<p><span class="versionmodified">Nowe w wersji 3.4: </span>is_global</p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.is_site_local">
-<code class="sig-name descname">is_site_local</code><a class="headerlink" href="#ipaddress.IPv6Address.is_site_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_site_local</code><a class="headerlink" href="#ipaddress.IPv6Address.is_site_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the address is reserved for site-local usage.  Note that
 the site-local address space has been deprecated by <span class="target" id="index-8"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3879.html"><strong>RFC 3879</strong></a>. Use
 <a class="reference internal" href="#ipaddress.IPv4Address.is_private" title="ipaddress.IPv4Address.is_private"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_private</span></code></a> to test if this address is in the
@@ -423,7 +424,7 @@ space of unique local addresses as defined by <span class="target" id="index-9">
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.ipv4_mapped">
-<code class="sig-name descname">ipv4_mapped</code><a class="headerlink" href="#ipaddress.IPv6Address.ipv4_mapped" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">ipv4_mapped</code><a class="headerlink" href="#ipaddress.IPv6Address.ipv4_mapped" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>For addresses that appear to be IPv4 mapped addresses (starting with
 <code class="docutils literal notranslate"><span class="pre">::FFFF/96</span></code>), this property will report the embedded IPv4 address.
 For any other address, this property will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -431,7 +432,7 @@ For any other address, this property will be <code class="docutils literal notra
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.sixtofour">
-<code class="sig-name descname">sixtofour</code><a class="headerlink" href="#ipaddress.IPv6Address.sixtofour" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">sixtofour</code><a class="headerlink" href="#ipaddress.IPv6Address.sixtofour" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>For addresses that appear to be 6to4 addresses  (starting with
 <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>) as defined by <span class="target" id="index-10"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3056.html"><strong>RFC 3056</strong></a>, this property will report
 the embedded IPv4 address.  For any other address, this property will
@@ -440,7 +441,7 @@ be <code class="docutils literal notranslate"><span class="pre">None</span></cod
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.teredo">
-<code class="sig-name descname">teredo</code><a class="headerlink" href="#ipaddress.IPv6Address.teredo" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">teredo</code><a class="headerlink" href="#ipaddress.IPv6Address.teredo" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>For addresses that appear to be Teredo addresses (starting with
 <code class="docutils literal notranslate"><span class="pre">2001::/32</span></code>) as defined by <span class="target" id="index-11"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc4380.html"><strong>RFC 4380</strong></a>, this property will report
 the embedded <code class="docutils literal notranslate"><span class="pre">(server,</span> <span class="pre">client)</span></code> IP address pair.  For any other
@@ -530,10 +531,10 @@ Network objects are <a class="reference internal" href="../glossary.html#term-ha
 dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Network">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv4Network</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Network</code><span class="sig-paren">(</span><em>address</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv4 network definition.  <em>address</em> can be one of the following:</p>
 <ol class="arabic">
-<li><p>A string consisting of an IP address and an optional mask, separated by
+<li><p class="first">A string consisting of an IP address and an optional mask, separated by
 a slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>).  The IP address is the network address, and the mask
 can be either a single number, which means it’s a <em>prefix</em>, or a string
 representation of an IPv4 address.  If it’s the latter, the mask is
@@ -545,16 +546,19 @@ it’s considered to be <code class="docutils literal notranslate"><span class="
 <code class="docutils literal notranslate"><span class="pre">192.168.1.0/24</span></code>, <code class="docutils literal notranslate"><span class="pre">192.168.1.0/255.255.255.0</span></code> and
 <code class="docutils literal notranslate"><span class="pre">192.168.1.0/0.0.0.255</span></code>.</p>
 </li>
-<li><p>An integer that fits into 32 bits.  This is equivalent to a
+<li><p class="first">An integer that fits into 32 bits.  This is equivalent to a
 single-address network, with the network address being <em>address</em> and
-the mask being <code class="docutils literal notranslate"><span class="pre">/32</span></code>.</p></li>
-<li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 4, big-endian.
-The interpretation is similar to an integer <em>address</em>.</p></li>
-<li><p>A two-tuple of an address description and a netmask, where the address
+the mask being <code class="docutils literal notranslate"><span class="pre">/32</span></code>.</p>
+</li>
+<li><p class="first">An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 4, big-endian.
+The interpretation is similar to an integer <em>address</em>.</p>
+</li>
+<li><p class="first">A two-tuple of an address description and a netmask, where the address
 description is either a string, a 32-bits integer, a 4-bytes packed
 integer, or an existing IPv4Address object; and the netmask is either
 an integer representing the prefix length (e.g. <code class="docutils literal notranslate"><span class="pre">24</span></code>) or a string
-representing the prefix mask (e.g. <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>).</p></li>
+representing the prefix mask (e.g. <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>).</p>
+</li>
 </ol>
 <p>An <a class="reference internal" href="#ipaddress.AddressValueError" title="ipaddress.AddressValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AddressValueError</span></code></a> is raised if <em>address</em> is not a valid IPv4
 address.  A <a class="reference internal" href="#ipaddress.NetmaskValueError" title="ipaddress.NetmaskValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NetmaskValueError</span></code></a> is raised if the mask is not valid for
@@ -566,91 +570,91 @@ to determine the appropriate network address.</p>
 objects will raise <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if the argument’s IP version is
 incompatible to <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Added the two-tuple form for the <em>address</em> constructor parameter.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.5: </span>Added the two-tuple form for the <em>address</em> constructor parameter.</p>
 </div>
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#ipaddress.IPv4Network.version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">version</code><a class="headerlink" href="#ipaddress.IPv4Network.version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.max_prefixlen">
-<code class="sig-name descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Refer to the corresponding attribute documentation in
 <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_multicast">
-<code class="sig-name descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv4Network.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv4Network.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_private">
-<code class="sig-name descname">is_private</code><a class="headerlink" href="#ipaddress.IPv4Network.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_private</code><a class="headerlink" href="#ipaddress.IPv4Network.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_unspecified">
-<code class="sig-name descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv4Network.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv4Network.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_reserved">
-<code class="sig-name descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv4Network.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv4Network.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_loopback">
-<code class="sig-name descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv4Network.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv4Network.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.is_link_local">
-<code class="sig-name descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv4Network.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv4Network.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>These attributes are true for the network as a whole if they are true
 for both the network address and the broadcast address.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.network_address">
-<code class="sig-name descname">network_address</code><a class="headerlink" href="#ipaddress.IPv4Network.network_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">network_address</code><a class="headerlink" href="#ipaddress.IPv4Network.network_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The network address for the network. The network address and the
 prefix length together uniquely define a network.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.broadcast_address">
-<code class="sig-name descname">broadcast_address</code><a class="headerlink" href="#ipaddress.IPv4Network.broadcast_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">broadcast_address</code><a class="headerlink" href="#ipaddress.IPv4Network.broadcast_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The broadcast address for the network. Packets sent to the broadcast
 address should be received by every host on the network.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.hostmask">
-<code class="sig-name descname">hostmask</code><a class="headerlink" href="#ipaddress.IPv4Network.hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">hostmask</code><a class="headerlink" href="#ipaddress.IPv4Network.hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The host mask, as an <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a> object.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.netmask">
-<code class="sig-name descname">netmask</code><a class="headerlink" href="#ipaddress.IPv4Network.netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">netmask</code><a class="headerlink" href="#ipaddress.IPv4Network.netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The net mask, as an <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a> object.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.with_prefixlen">
-<code class="sig-name descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.compressed">
-<code class="sig-name descname">compressed</code><a class="headerlink" href="#ipaddress.IPv4Network.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compressed</code><a class="headerlink" href="#ipaddress.IPv4Network.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.exploded">
-<code class="sig-name descname">exploded</code><a class="headerlink" href="#ipaddress.IPv4Network.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">exploded</code><a class="headerlink" href="#ipaddress.IPv4Network.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the network, with the mask in prefix
 notation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">with_prefixlen</span></code> and <code class="docutils literal notranslate"><span class="pre">compressed</span></code> are always the same as
@@ -660,39 +664,39 @@ notation.</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.with_netmask">
-<code class="sig-name descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv4Network.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv4Network.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the network, with the mask in net mask
 notation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.with_hostmask">
-<code class="sig-name descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv4Network.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv4Network.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the network, with the mask in host mask
 notation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.num_addresses">
-<code class="sig-name descname">num_addresses</code><a class="headerlink" href="#ipaddress.IPv4Network.num_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">num_addresses</code><a class="headerlink" href="#ipaddress.IPv4Network.num_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The total number of addresses in the network.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.prefixlen">
-<code class="sig-name descname">prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Length of the network prefix, in bits.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.hosts">
-<code class="sig-name descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.hosts" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.hosts" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an iterator over the usable hosts in the network.  The usable
 hosts are all the IP addresses that belong to the network, except the
 network address itself and the network broadcast address.  For networks
 with a mask length of 31, the network address and network broadcast
 address are also included in the result.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>  <span class="c1">#doctest: +NORMALIZE_WHITESPACE</span>
 <span class="go">[IPv4Address(&#39;192.0.2.1&#39;), IPv4Address(&#39;192.0.2.2&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.3&#39;), IPv4Address(&#39;192.0.2.4&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.5&#39;), IPv4Address(&#39;192.0.2.6&#39;)]</span>
@@ -704,21 +708,21 @@ address are also included in the result.</p>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.overlaps">
-<code class="sig-name descname">overlaps</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.overlaps" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">overlaps</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.overlaps" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if this network is partly or wholly contained in <em>other</em> or
 <em>other</em> is wholly contained in this network.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.address_exclude">
-<code class="sig-name descname">address_exclude</code><span class="sig-paren">(</span><em class="sig-param">network</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.address_exclude" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">address_exclude</code><span class="sig-paren">(</span><em>network</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.address_exclude" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Computes the network definitions resulting from removing the given
 <em>network</em> from this one.  Returns an iterator of network objects.
 Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if <em>network</em> is not completely contained in
 this network.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n1</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/28&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n1</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/28&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n2</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">n1</span><span class="o">.</span><span class="n">address_exclude</span><span class="p">(</span><span class="n">n2</span><span class="p">))</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">n1</span><span class="o">.</span><span class="n">address_exclude</span><span class="p">(</span><span class="n">n2</span><span class="p">))</span>  <span class="c1">#doctest: +NORMALIZE_WHITESPACE</span>
 <span class="go">[IPv4Network(&#39;192.0.2.8/29&#39;), IPv4Network(&#39;192.0.2.4/30&#39;),</span>
 <span class="go"> IPv4Network(&#39;192.0.2.2/31&#39;), IPv4Network(&#39;192.0.2.0/32&#39;)]</span>
 </pre></div>
@@ -727,19 +731,19 @@ this network.</p>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.subnets">
-<code class="sig-name descname">subnets</code><span class="sig-paren">(</span><em class="sig-param">prefixlen_diff=1</em>, <em class="sig-param">new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.subnets" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">subnets</code><span class="sig-paren">(</span><em>prefixlen_diff=1</em>, <em>new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.subnets" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The subnets that join to make the current network definition, depending
 on the argument values.  <em>prefixlen_diff</em> is the amount our prefix
 length should be increased by.  <em>new_prefix</em> is the desired new
 prefix of the subnets; it must be larger than our prefix.  One and
 only one of <em>prefixlen_diff</em> and <em>new_prefix</em> must be set.  Returns an
 iterator of network objects.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">())</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/25&#39;), IPv4Network(&#39;192.0.2.128/25&#39;)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">prefixlen_diff</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">prefixlen_diff</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1">#doctest: +NORMALIZE_WHITESPACE</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/26&#39;), IPv4Network(&#39;192.0.2.64/26&#39;),</span>
 <span class="go"> IPv4Network(&#39;192.0.2.128/26&#39;), IPv4Network(&#39;192.0.2.192/26&#39;)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">new_prefix</span><span class="o">=</span><span class="mi">26</span><span class="p">))</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">new_prefix</span><span class="o">=</span><span class="mi">26</span><span class="p">))</span>  <span class="c1">#doctest: +NORMALIZE_WHITESPACE</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/26&#39;), IPv4Network(&#39;192.0.2.64/26&#39;),</span>
 <span class="go"> IPv4Network(&#39;192.0.2.128/26&#39;), IPv4Network(&#39;192.0.2.192/26&#39;)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">new_prefix</span><span class="o">=</span><span class="mi">23</span><span class="p">))</span>
@@ -755,14 +759,14 @@ iterator of network objects.</p>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.supernet">
-<code class="sig-name descname">supernet</code><span class="sig-paren">(</span><em class="sig-param">prefixlen_diff=1</em>, <em class="sig-param">new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.supernet" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">supernet</code><span class="sig-paren">(</span><em>prefixlen_diff=1</em>, <em>new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.supernet" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The supernet containing this network definition, depending on the
 argument values.  <em>prefixlen_diff</em> is the amount our prefix length
 should be decreased by.  <em>new_prefix</em> is the desired new prefix of
 the supernet; it must be smaller than our prefix.  One and only one
 of <em>prefixlen_diff</em> and <em>new_prefix</em> must be set.  Returns a single
 network object.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">()</span>
 <span class="go">IPv4Network(&#39;192.0.2.0/23&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">(</span><span class="n">prefixlen_diff</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">IPv4Network(&#39;192.0.0.0/22&#39;)</span>
@@ -774,41 +778,41 @@ network object.</p>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.subnet_of">
-<code class="sig-name descname">subnet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.subnet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">subnet_of</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.subnet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this network is a subnet of <em>other</em>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.128/30&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.supernet_of">
-<code class="sig-name descname">supernet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.supernet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">supernet_of</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.supernet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this network is a supernet of <em>other</em>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.128/30&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">supernet_of</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv4Network.compare_networks">
-<code class="sig-name descname">compare_networks</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.compare_networks" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compare_networks</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.compare_networks" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compare this network to <em>other</em>.  In this comparison only the network
 addresses are considered; host bits aren’t.  Returns either <code class="docutils literal notranslate"><span class="pre">-1</span></code>,
 <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.2/32&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.2/32&#39;</span><span class="p">))</span>
 <span class="go">-1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/32&#39;</span><span class="p">))</span>
 <span class="go">1</span>
@@ -817,7 +821,7 @@ addresses are considered; host bits aren’t.  Returns either <code class="docut
 </pre></div>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Niezalecane od wersji 3.7: </span>It uses the same ordering and comparison algorithm as „&lt;”, „==”, and „&gt;”</p>
+<p><span class="versionmodified">Niezalecane od wersji 3.7: </span>It uses the same ordering and comparison algorithm as „&lt;”, „==”, and „&gt;”</p>
 </div>
 </dd></dl>
 
@@ -825,10 +829,10 @@ addresses are considered; host bits aren’t.  Returns either <code class="docut
 
 <dl class="class">
 <dt id="ipaddress.IPv6Network">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv6Network</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv6Network</code><span class="sig-paren">(</span><em>address</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv6 network definition.  <em>address</em> can be one of the following:</p>
 <ol class="arabic">
-<li><p>A string consisting of an IP address and an optional prefix length,
+<li><p class="first">A string consisting of an IP address and an optional prefix length,
 separated by a slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>).  The IP address is the network address,
 and the prefix length must be a single number, the <em>prefix</em>.  If no
 prefix length is provided, it’s considered to be <code class="docutils literal notranslate"><span class="pre">/128</span></code>.</p>
@@ -836,15 +840,18 @@ prefix length is provided, it’s considered to be <code class="docutils literal
 <code class="docutils literal notranslate"><span class="pre">2001:db00::0/24</span></code> is a valid argument while <code class="docutils literal notranslate"><span class="pre">2001:db00::0/ffff:ff00::</span></code>
 not.</p>
 </li>
-<li><p>An integer that fits into 128 bits.  This is equivalent to a
+<li><p class="first">An integer that fits into 128 bits.  This is equivalent to a
 single-address network, with the network address being <em>address</em> and
-the mask being <code class="docutils literal notranslate"><span class="pre">/128</span></code>.</p></li>
-<li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 16, big-endian.
-The interpretation is similar to an integer <em>address</em>.</p></li>
-<li><p>A two-tuple of an address description and a netmask, where the address
+the mask being <code class="docutils literal notranslate"><span class="pre">/128</span></code>.</p>
+</li>
+<li><p class="first">An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 16, big-endian.
+The interpretation is similar to an integer <em>address</em>.</p>
+</li>
+<li><p class="first">A two-tuple of an address description and a netmask, where the address
 description is either a string, a 128-bits integer, a 16-bytes packed
 integer, or an existing IPv6Address object; and the netmask is an
-integer representing the prefix length.</p></li>
+integer representing the prefix length.</p>
+</li>
 </ol>
 <p>An <a class="reference internal" href="#ipaddress.AddressValueError" title="ipaddress.AddressValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AddressValueError</span></code></a> is raised if <em>address</em> is not a valid IPv6
 address.  A <a class="reference internal" href="#ipaddress.NetmaskValueError" title="ipaddress.NetmaskValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NetmaskValueError</span></code></a> is raised if the mask is not valid for
@@ -853,106 +860,106 @@ an IPv6 address.</p>
 then <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.  Otherwise, the host bits are masked out
 to determine the appropriate network address.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Added the two-tuple form for the <em>address</em> constructor parameter.</p>
+<p><span class="versionmodified">Zmienione w wersji 3.5: </span>Added the two-tuple form for the <em>address</em> constructor parameter.</p>
 </div>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.version">
-<code class="sig-name descname">version</code><a class="headerlink" href="#ipaddress.IPv6Network.version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">version</code><a class="headerlink" href="#ipaddress.IPv6Network.version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.max_prefixlen">
-<code class="sig-name descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.max_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_multicast">
-<code class="sig-name descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv6Network.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_multicast</code><a class="headerlink" href="#ipaddress.IPv6Network.is_multicast" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_private">
-<code class="sig-name descname">is_private</code><a class="headerlink" href="#ipaddress.IPv6Network.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_private</code><a class="headerlink" href="#ipaddress.IPv6Network.is_private" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_unspecified">
-<code class="sig-name descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv6Network.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_unspecified</code><a class="headerlink" href="#ipaddress.IPv6Network.is_unspecified" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_reserved">
-<code class="sig-name descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv6Network.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_reserved</code><a class="headerlink" href="#ipaddress.IPv6Network.is_reserved" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_loopback">
-<code class="sig-name descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv6Network.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_loopback</code><a class="headerlink" href="#ipaddress.IPv6Network.is_loopback" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_link_local">
-<code class="sig-name descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv6Network.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv6Network.is_link_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.network_address">
-<code class="sig-name descname">network_address</code><a class="headerlink" href="#ipaddress.IPv6Network.network_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">network_address</code><a class="headerlink" href="#ipaddress.IPv6Network.network_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.broadcast_address">
-<code class="sig-name descname">broadcast_address</code><a class="headerlink" href="#ipaddress.IPv6Network.broadcast_address" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">broadcast_address</code><a class="headerlink" href="#ipaddress.IPv6Network.broadcast_address" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.hostmask">
-<code class="sig-name descname">hostmask</code><a class="headerlink" href="#ipaddress.IPv6Network.hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">hostmask</code><a class="headerlink" href="#ipaddress.IPv6Network.hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.netmask">
-<code class="sig-name descname">netmask</code><a class="headerlink" href="#ipaddress.IPv6Network.netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">netmask</code><a class="headerlink" href="#ipaddress.IPv6Network.netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.with_prefixlen">
-<code class="sig-name descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.compressed">
-<code class="sig-name descname">compressed</code><a class="headerlink" href="#ipaddress.IPv6Network.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compressed</code><a class="headerlink" href="#ipaddress.IPv6Network.compressed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.exploded">
-<code class="sig-name descname">exploded</code><a class="headerlink" href="#ipaddress.IPv6Network.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">exploded</code><a class="headerlink" href="#ipaddress.IPv6Network.exploded" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.with_netmask">
-<code class="sig-name descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv6Network.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv6Network.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.with_hostmask">
-<code class="sig-name descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv6Network.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv6Network.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.num_addresses">
-<code class="sig-name descname">num_addresses</code><a class="headerlink" href="#ipaddress.IPv6Network.num_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">num_addresses</code><a class="headerlink" href="#ipaddress.IPv6Network.num_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.prefixlen">
-<code class="sig-name descname">prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.hosts">
-<code class="sig-name descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.hosts" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.hosts" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an iterator over the usable hosts in the network.  The usable
 hosts are all the IP addresses that belong to the network, except the
 Subnet-Router anycast address.  For networks with a mask length of 127,
@@ -961,44 +968,44 @@ the Subnet-Router anycast address is also included in the result.</p>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.overlaps">
-<code class="sig-name descname">overlaps</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.overlaps" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">overlaps</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.overlaps" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.address_exclude">
-<code class="sig-name descname">address_exclude</code><span class="sig-paren">(</span><em class="sig-param">network</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.address_exclude" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">address_exclude</code><span class="sig-paren">(</span><em>network</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.address_exclude" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.subnets">
-<code class="sig-name descname">subnets</code><span class="sig-paren">(</span><em class="sig-param">prefixlen_diff=1</em>, <em class="sig-param">new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.subnets" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">subnets</code><span class="sig-paren">(</span><em>prefixlen_diff=1</em>, <em>new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.subnets" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.supernet">
-<code class="sig-name descname">supernet</code><span class="sig-paren">(</span><em class="sig-param">prefixlen_diff=1</em>, <em class="sig-param">new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.supernet" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">supernet</code><span class="sig-paren">(</span><em>prefixlen_diff=1</em>, <em>new_prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.supernet" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.subnet_of">
-<code class="sig-name descname">subnet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.subnet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">subnet_of</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.subnet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.supernet_of">
-<code class="sig-name descname">supernet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.supernet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">supernet_of</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.supernet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.compare_networks">
-<code class="sig-name descname">compare_networks</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.compare_networks" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">compare_networks</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.compare_networks" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Refer to the corresponding attribute documentation in
 <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_site_local">
-<code class="sig-name descname">is_site_local</code><a class="headerlink" href="#ipaddress.IPv6Network.is_site_local" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">is_site_local</code><a class="headerlink" href="#ipaddress.IPv6Network.is_site_local" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>These attribute is true for the network as a whole if it is true
 for both the network address and the broadcast address.</p>
 </dd></dl>
@@ -1066,7 +1073,7 @@ example:</p>
 dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Interface">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv4Interface</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Interface" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Interface</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Interface" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv4 interface.  The meaning of <em>address</em> is as in the
 constructor of <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a>, except that arbitrary host addresses
 are always accepted.</p>
@@ -1075,9 +1082,9 @@ all the attributes from that class.  In addition, the following attributes
 are available:</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv4Interface.ip">
-<code class="sig-name descname">ip</code><a class="headerlink" href="#ipaddress.IPv4Interface.ip" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">ip</code><a class="headerlink" href="#ipaddress.IPv4Interface.ip" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The address (<a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a>) without network information.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">ip</span>
 <span class="go">IPv4Address(&#39;192.0.2.5&#39;)</span>
 </pre></div>
@@ -1086,9 +1093,9 @@ are available:</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Interface.network">
-<code class="sig-name descname">network</code><a class="headerlink" href="#ipaddress.IPv4Interface.network" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">network</code><a class="headerlink" href="#ipaddress.IPv4Interface.network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The network (<a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a>) this interface belongs to.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">network</span>
 <span class="go">IPv4Network(&#39;192.0.2.0/24&#39;)</span>
 </pre></div>
@@ -1097,9 +1104,9 @@ are available:</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Interface.with_prefixlen">
-<code class="sig-name descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the mask in prefix notation.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_prefixlen</span>
 <span class="go">&#39;192.0.2.5/24&#39;</span>
 </pre></div>
@@ -1108,9 +1115,9 @@ are available:</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Interface.with_netmask">
-<code class="sig-name descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the network as a net mask.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_netmask</span>
 <span class="go">&#39;192.0.2.5/255.255.255.0&#39;</span>
 </pre></div>
@@ -1119,9 +1126,9 @@ are available:</p>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv4Interface.with_hostmask">
-<code class="sig-name descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the network as a host mask.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_hostmask</span>
 <span class="go">&#39;192.0.2.5/0.0.0.255&#39;</span>
 </pre></div>
@@ -1132,7 +1139,7 @@ are available:</p>
 
 <dl class="class">
 <dt id="ipaddress.IPv6Interface">
-<em class="property">class </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">IPv6Interface</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Interface" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv6Interface</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Interface" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct an IPv6 interface.  The meaning of <em>address</em> is as in the
 constructor of <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a>, except that arbitrary host addresses
 are always accepted.</p>
@@ -1141,27 +1148,27 @@ all the attributes from that class.  In addition, the following attributes
 are available:</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Interface.ip">
-<code class="sig-name descname">ip</code><a class="headerlink" href="#ipaddress.IPv6Interface.ip" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">ip</code><a class="headerlink" href="#ipaddress.IPv6Interface.ip" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Interface.network">
-<code class="sig-name descname">network</code><a class="headerlink" href="#ipaddress.IPv6Interface.network" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">network</code><a class="headerlink" href="#ipaddress.IPv6Interface.network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Interface.with_prefixlen">
-<code class="sig-name descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Interface.with_netmask">
-<code class="sig-name descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Interface.with_hostmask">
-<code class="sig-name descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv6Interface.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Refer to the corresponding attribute documentation in
 <a class="reference internal" href="#ipaddress.IPv4Interface" title="ipaddress.IPv4Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Interface</span></code></a>.</p>
 </dd></dl>
@@ -1192,12 +1199,12 @@ IP addresses.</p>
 <p>The module also provides the following module level functions:</p>
 <dl class="function">
 <dt id="ipaddress.v4_int_to_packed">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">v4_int_to_packed</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.v4_int_to_packed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">v4_int_to_packed</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.v4_int_to_packed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Represent an address as 4 packed bytes in network (big-endian) order.
 <em>address</em> is an integer representation of an IPv4 IP address.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if the integer is negative or too large to be an
 IPv4 IP address.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.0.2.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">v4_int_to_packed</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
 <span class="go">b&#39;\xc0\x00\x02\x01&#39;</span>
@@ -1207,7 +1214,7 @@ IPv4 IP address.</p>
 
 <dl class="function">
 <dt id="ipaddress.v6_int_to_packed">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">v6_int_to_packed</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.v6_int_to_packed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">v6_int_to_packed</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.v6_int_to_packed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Represent an address as 16 packed bytes in network (big-endian) order.
 <em>address</em> is an integer representation of an IPv6 IP address.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if the integer is negative or too large to be an
@@ -1216,7 +1223,7 @@ IPv6 IP address.</p>
 
 <dl class="function">
 <dt id="ipaddress.summarize_address_range">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">summarize_address_range</code><span class="sig-paren">(</span><em class="sig-param">first</em>, <em class="sig-param">last</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.summarize_address_range" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">summarize_address_range</code><span class="sig-paren">(</span><em>first</em>, <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.summarize_address_range" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an iterator of the summarized network range given the first and last
 IP addresses.  <em>first</em> is the first <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a> or
 <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.IPv6Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Address</span></code></a> in the range and <em>last</em> is the last <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a>
@@ -1224,7 +1231,7 @@ or <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.
 <em>first</em> or <em>last</em> are not IP addresses or are not of the same version.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>last</em> is not greater than <em>first</em> or if
 <em>first</em> address version is not 4 or 6.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">summarize_address_range</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">summarize_address_range</span><span class="p">(</span>
 <span class="gp">... </span>   <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.0.2.0&#39;</span><span class="p">),</span>
 <span class="gp">... </span>   <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.0.2.130&#39;</span><span class="p">))]</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/25&#39;), IPv4Network(&#39;192.0.2.128/31&#39;), IPv4Network(&#39;192.0.2.130/32&#39;)]</span>
@@ -1234,12 +1241,12 @@ or <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.
 
 <dl class="function">
 <dt id="ipaddress.collapse_addresses">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">collapse_addresses</code><span class="sig-paren">(</span><em class="sig-param">addresses</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.collapse_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">collapse_addresses</code><span class="sig-paren">(</span><em>addresses</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.collapse_addresses" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an iterator of the collapsed <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or
 <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> objects.  <em>addresses</em> is an iterator of
 <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> objects.  A <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is
 raised if <em>addresses</em> contains mixed version objects.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span>
 <span class="gp">... </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">collapse_addresses</span><span class="p">([</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/25&#39;</span><span class="p">),</span>
 <span class="gp">... </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">(</span><span class="s1">&#39;192.0.2.128/25&#39;</span><span class="p">)])]</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/24&#39;)]</span>
@@ -1249,7 +1256,7 @@ raised if <em>addresses</em> contains mixed version objects.</p>
 
 <dl class="function">
 <dt id="ipaddress.get_mixed_type_key">
-<code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">get_mixed_type_key</code><span class="sig-paren">(</span><em class="sig-param">obj</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.get_mixed_type_key" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descclassname">ipaddress.</code><code class="descname">get_mixed_type_key</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.get_mixed_type_key" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a key suitable for sorting between networks and addresses.  Address
 and Network objects are not sortable by default; they’re fundamentally
 different, so the expression:</p>
@@ -1269,13 +1276,13 @@ this function as the <em>key</em> argument to <a class="reference internal" href
 module defines the following exceptions:</p>
 <dl class="exception">
 <dt id="ipaddress.AddressValueError">
-<em class="property">exception </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">AddressValueError</code><span class="sig-paren">(</span><em class="sig-param">ValueError</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.AddressValueError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">ipaddress.</code><code class="descname">AddressValueError</code><span class="sig-paren">(</span><em>ValueError</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.AddressValueError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Any value error related to the address.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="ipaddress.NetmaskValueError">
-<em class="property">exception </em><code class="sig-prename descclassname">ipaddress.</code><code class="sig-name descname">NetmaskValueError</code><span class="sig-paren">(</span><em class="sig-param">ValueError</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.NetmaskValueError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">ipaddress.</code><code class="descname">NetmaskValueError</code><span class="sig-paren">(</span><em>ValueError</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.NetmaskValueError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Any value error related to the net mask.</p>
 </dd></dl>
 
@@ -1288,9 +1295,9 @@ module defines the following exceptions:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ipaddress</span></code> — IPv4/IPv6 manipulation library</a><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ipaddress</span></code> — IPv4/IPv6 manipulation library</a><ul>
 <li><a class="reference internal" href="#convenience-factory-functions">Convenience factory functions</a></li>
 <li><a class="reference internal" href="#ip-addresses">IP Addresses</a><ul>
 <li><a class="reference internal" href="#address-objects">Address objects</a></li>
@@ -1328,7 +1335,7 @@ module defines the following exceptions:</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="xmlrpc.server.html"
-                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpc.server</span></code> — Basic XML-RPC servers</a></p>
+                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">xmlrpc.server</span></code> — Basic XML-RPC servers</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="mm.html"
                         title="następny rozdział">Multimedia Services</a></p>
@@ -1400,11 +1407,11 @@ module defines the following exceptions:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

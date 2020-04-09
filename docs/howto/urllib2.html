@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>HOWTO Fetch Internet Resources Using The urllib Package &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -101,24 +102,27 @@
             
   <div class="section" id="howto-fetch-internet-resources-using-the-urllib-package">
 <span id="urllib-howto"></span><h1>HOWTO Fetch Internet Resources Using The urllib Package<a class="headerlink" href="#howto-fetch-internet-resources-using-the-urllib-package" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">Author</dt>
-<dd class="field-odd"><p><a class="reference external" href="http://www.voidspace.org.uk/python/index.shtml">Michael Foord</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><a class="reference external" href="http://www.voidspace.org.uk/python/index.shtml">Michael Foord</a></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>There is a French translation of an earlier revision of this
+<p class="first admonition-title">Informacja</p>
+<p class="last">There is a French translation of an earlier revision of this
 HOWTO, available at <a class="reference external" href="http://www.voidspace.org.uk/python/articles/urllib2_francais.shtml">urllib2 - Le Manuel manquant</a>.</p>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="sidebar">
-<p class="sidebar-title">Related Articles</p>
+<p class="first sidebar-title">Related Articles</p>
 <p>You may also find useful the following article on fetching web resources
 with Python:</p>
-<ul>
-<li><p><a class="reference external" href="http://www.voidspace.org.uk/python/articles/authentication.shtml">Basic Authentication</a></p>
+<ul class="last">
+<li><p class="first"><a class="reference external" href="http://www.voidspace.org.uk/python/articles/authentication.shtml">Basic Authentication</a></p>
 <blockquote>
 <div><p>A tutorial on <em>Basic Authentication</em>, with examples in Python.</p>
 </div></blockquote>
@@ -254,16 +258,16 @@ the encoded values.</p>
 <h3>Headers<a class="headerlink" href="#headers" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>We’ll discuss here one particular HTTP header, to illustrate how to add headers
 to your HTTP request.</p>
-<p>Some websites <a class="footnote-reference brackets" href="#id8" id="id1">1</a> dislike being browsed by programs, or send different versions
-to different browsers <a class="footnote-reference brackets" href="#id9" id="id2">2</a>. By default urllib identifies itself as
+<p>Some websites <a class="footnote-reference" href="#id8" id="id1">[1]</a> dislike being browsed by programs, or send different versions
+to different browsers <a class="footnote-reference" href="#id9" id="id2">[2]</a>. By default urllib identifies itself as
 <code class="docutils literal notranslate"><span class="pre">Python-urllib/x.y</span></code> (where <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are the major and minor version
 numbers of the Python release,
 e.g. <code class="docutils literal notranslate"><span class="pre">Python-urllib/2.5</span></code>), which may confuse the site, or just plain
 not work. The way a browser identifies itself is through the
-<code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> header <a class="footnote-reference brackets" href="#id10" id="id3">3</a>. When you create a Request object you can
+<code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> header <a class="footnote-reference" href="#id10" id="id3">[3]</a>. When you create a Request object you can
 pass a dictionary of headers in. The following example makes the same
 request as above, but identifies itself as a version of Internet
-Explorer <a class="footnote-reference brackets" href="#id11" id="id4">4</a>.</p>
+Explorer <a class="footnote-reference" href="#id11" id="id4">[4]</a>.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.parse</span>
 <span class="kn">import</span> <span class="nn">urllib.request</span>
 
@@ -441,8 +445,8 @@ basic approaches. I prefer the second approach.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">HTTPError</span></code> <em>must</em> come first, otherwise <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">URLError</span></code>
+<p class="first admonition-title">Informacja</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">HTTPError</span></code> <em>must</em> come first, otherwise <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">URLError</span></code>
 will <em>also</em> catch an <code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPError</span></code>.</p>
 </div>
 </div>
@@ -561,8 +565,8 @@ than the URL you pass to .add_password() will also match.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>In the above example we only supplied our <code class="docutils literal notranslate"><span class="pre">HTTPBasicAuthHandler</span></code> to
+<p class="first admonition-title">Informacja</p>
+<p class="last">In the above example we only supplied our <code class="docutils literal notranslate"><span class="pre">HTTPBasicAuthHandler</span></code> to
 <code class="docutils literal notranslate"><span class="pre">build_opener</span></code>. By default openers have the handlers for normal situations
 – <code class="docutils literal notranslate"><span class="pre">ProxyHandler</span></code> (if a proxy setting such as an <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">http_proxy</span></code>
 environment variable is set), <code class="docutils literal notranslate"><span class="pre">UnknownHandler</span></code>, <code class="docutils literal notranslate"><span class="pre">HTTPHandler</span></code>,
@@ -582,7 +586,7 @@ not correct.</p>
 <p><strong>urllib</strong> will auto-detect your proxy settings and use those. This is through
 the <code class="docutils literal notranslate"><span class="pre">ProxyHandler</span></code>, which is part of the normal handler chain when a proxy
 setting is detected.  Normally that’s a good thing, but there are occasions
-when it may not be helpful <a class="footnote-reference brackets" href="#id12" id="id6">5</a>. One way to do this is to setup our own
+when it may not be helpful <a class="footnote-reference" href="#id12" id="id6">[5]</a>. One way to do this is to setup our own
 <code class="docutils literal notranslate"><span class="pre">ProxyHandler</span></code>, with no proxies defined. This is done using similar steps to
 setting up a <a class="reference external" href="http://www.voidspace.org.uk/python/articles/authentication.shtml">Basic Authentication</a> handler:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">proxy_support</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({})</span>
@@ -591,14 +595,14 @@ setting up a <a class="reference external" href="http://www.voidspace.org.uk/pyt
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>Currently <code class="docutils literal notranslate"><span class="pre">urllib.request</span></code> <em>does not</em> support fetching of <code class="docutils literal notranslate"><span class="pre">https</span></code> locations
+<p class="first admonition-title">Informacja</p>
+<p class="last">Currently <code class="docutils literal notranslate"><span class="pre">urllib.request</span></code> <em>does not</em> support fetching of <code class="docutils literal notranslate"><span class="pre">https</span></code> locations
 through a proxy.  However, this can be enabled by extending urllib.request as
-shown in the recipe <a class="footnote-reference brackets" href="#id13" id="id7">6</a>.</p>
+shown in the recipe <a class="footnote-reference" href="#id13" id="id7">[6]</a>.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p><code class="docutils literal notranslate"><span class="pre">HTTP_PROXY</span></code> will be ignored if a variable <code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> is set; see
+<p class="first admonition-title">Informacja</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">HTTP_PROXY</span></code> will be ignored if a variable <code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> is set; see
 the documentation on <a class="reference internal" href="../library/urllib.request.html#urllib.request.getproxies" title="urllib.request.getproxies"><code class="xref py py-func docutils literal notranslate"><span class="pre">getproxies()</span></code></a>.</p>
 </div>
 </div>
@@ -629,34 +633,50 @@ However, you can set the default timeout globally for all sockets using</p>
 <div class="section" id="footnotes">
 <h2>Przypisy<a class="headerlink" href="#footnotes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>This document was reviewed and revised by John Lee.</p>
-<dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Google for example.</p>
-</dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Browser sniffing is a very bad practice for website design - building
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Google for example.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Browser sniffing is a very bad practice for website design - building
 sites using web standards is much more sensible. Unfortunately a lot of
-sites still send different versions to different browsers.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>The user agent for MSIE 6 is
-<em>«Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)»</em></p>
-</dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>For details of more HTTP request headers, see
-<a class="reference external" href="http://jkorpela.fi/http.html">Quick Reference to HTTP Headers</a>.</p>
-</dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
-<dd><p>In my case I have to use a proxy to access the internet at work. If you
+sites still send different versions to different browsers.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>The user agent for MSIE 6 is
+<em>«Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)»</em></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>For details of more HTTP request headers, see
+<a class="reference external" href="http://jkorpela.fi/http.html">Quick Reference to HTTP Headers</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td>In my case I have to use a proxy to access the internet at work. If you
 attempt to fetch <em>localhost</em> URLs through this proxy it blocks them. IE
 is set to use the proxy, which urllib picks up on. In order to test
 scripts with a localhost server, I have to prevent urllib from using
-the proxy.</p>
-</dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">6</a></span></dt>
-<dd><p>urllib opener for SSL proxy (CONNECT method): <a class="reference external" href="https://code.activestate.com/recipes/456195/">ASPN Cookbook Recipe</a>.</p>
-</dd>
-</dl>
+the proxy.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>urllib opener for SSL proxy (CONNECT method): <a class="reference external" href="https://code.activestate.com/recipes/456195/">ASPN Cookbook Recipe</a>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -666,7 +686,7 @@ the proxy.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">HOWTO Fetch Internet Resources Using The urllib Package</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
@@ -771,11 +791,11 @@ the proxy.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

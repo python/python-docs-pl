@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Extending/Embedding FAQ &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -104,25 +105,24 @@
 <div class="contents topic" id="tresc">
 <p class="topic-title">Treść</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#extending-embedding-faq" id="id2">Extending/Embedding FAQ</a></p>
-<ul>
-<li><p><a class="reference internal" href="#can-i-create-my-own-functions-in-c" id="id3">Can I create my own functions in C?</a></p></li>
-<li><p><a class="reference internal" href="#id1" id="id4">Can I create my own functions in C++?</a></p></li>
-<li><p><a class="reference internal" href="#writing-c-is-hard-are-there-any-alternatives" id="id5">Writing C is hard; are there any alternatives?</a></p></li>
-<li><p><a class="reference internal" href="#how-can-i-execute-arbitrary-python-statements-from-c" id="id6">How can I execute arbitrary Python statements from C?</a></p></li>
-<li><p><a class="reference internal" href="#how-can-i-evaluate-an-arbitrary-python-expression-from-c" id="id7">How can I evaluate an arbitrary Python expression from C?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-extract-c-values-from-a-python-object" id="id8">How do I extract C values from a Python object?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-use-py-buildvalue-to-create-a-tuple-of-arbitrary-length" id="id9">How do I use Py_BuildValue() to create a tuple of arbitrary length?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-call-an-object-s-method-from-c" id="id10">How do I call an object’s method from C?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-catch-the-output-from-pyerr-print-or-anything-that-prints-to-stdout-stderr" id="id11">How do I catch the output from PyErr_Print() (or anything that prints to stdout/stderr)?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-access-a-module-written-in-python-from-c" id="id12">How do I access a module written in Python from C?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-interface-to-c-objects-from-python" id="id13">How do I interface to C++ objects from Python?</a></p></li>
-<li><p><a class="reference internal" href="#i-added-a-module-using-the-setup-file-and-the-make-fails-why" id="id14">I added a module using the Setup file and the make fails; why?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-debug-an-extension" id="id15">How do I debug an extension?</a></p></li>
-<li><p><a class="reference internal" href="#i-want-to-compile-a-python-module-on-my-linux-system-but-some-files-are-missing-why" id="id16">I want to compile a Python module on my Linux system, but some files are missing. Why?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-tell-incomplete-input-from-invalid-input" id="id17">How do I tell „incomplete input” from „invalid input”?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-find-undefined-g-symbols-builtin-new-or-pure-virtual" id="id18">How do I find undefined g++ symbols __builtin_new or __pure_virtual?</a></p></li>
-<li><p><a class="reference internal" href="#can-i-create-an-object-class-with-some-methods-implemented-in-c-and-others-in-python-e-g-through-inheritance" id="id19">Can I create an object class with some methods implemented in C and others in Python (e.g. through inheritance)?</a></p></li>
+<li><a class="reference internal" href="#extending-embedding-faq" id="id2">Extending/Embedding FAQ</a><ul>
+<li><a class="reference internal" href="#can-i-create-my-own-functions-in-c" id="id3">Can I create my own functions in C?</a></li>
+<li><a class="reference internal" href="#id1" id="id4">Can I create my own functions in C++?</a></li>
+<li><a class="reference internal" href="#writing-c-is-hard-are-there-any-alternatives" id="id5">Writing C is hard; are there any alternatives?</a></li>
+<li><a class="reference internal" href="#how-can-i-execute-arbitrary-python-statements-from-c" id="id6">How can I execute arbitrary Python statements from C?</a></li>
+<li><a class="reference internal" href="#how-can-i-evaluate-an-arbitrary-python-expression-from-c" id="id7">How can I evaluate an arbitrary Python expression from C?</a></li>
+<li><a class="reference internal" href="#how-do-i-extract-c-values-from-a-python-object" id="id8">How do I extract C values from a Python object?</a></li>
+<li><a class="reference internal" href="#how-do-i-use-py-buildvalue-to-create-a-tuple-of-arbitrary-length" id="id9">How do I use Py_BuildValue() to create a tuple of arbitrary length?</a></li>
+<li><a class="reference internal" href="#how-do-i-call-an-object-s-method-from-c" id="id10">How do I call an object’s method from C?</a></li>
+<li><a class="reference internal" href="#how-do-i-catch-the-output-from-pyerr-print-or-anything-that-prints-to-stdout-stderr" id="id11">How do I catch the output from PyErr_Print() (or anything that prints to stdout/stderr)?</a></li>
+<li><a class="reference internal" href="#how-do-i-access-a-module-written-in-python-from-c" id="id12">How do I access a module written in Python from C?</a></li>
+<li><a class="reference internal" href="#how-do-i-interface-to-c-objects-from-python" id="id13">How do I interface to C++ objects from Python?</a></li>
+<li><a class="reference internal" href="#i-added-a-module-using-the-setup-file-and-the-make-fails-why" id="id14">I added a module using the Setup file and the make fails; why?</a></li>
+<li><a class="reference internal" href="#how-do-i-debug-an-extension" id="id15">How do I debug an extension?</a></li>
+<li><a class="reference internal" href="#i-want-to-compile-a-python-module-on-my-linux-system-but-some-files-are-missing-why" id="id16">I want to compile a Python module on my Linux system, but some files are missing. Why?</a></li>
+<li><a class="reference internal" href="#how-do-i-tell-incomplete-input-from-invalid-input" id="id17">How do I tell „incomplete input” from „invalid input”?</a></li>
+<li><a class="reference internal" href="#how-do-i-find-undefined-g-symbols-builtin-new-or-pure-virtual" id="id18">How do I find undefined g++ symbols __builtin_new or __pure_virtual?</a></li>
+<li><a class="reference internal" href="#can-i-create-an-object-class-with-some-methods-implemented-in-c-and-others-in-python-e-g-through-inheritance" id="id19">Can I create an object class with some methods implemented in C and others in Python (e.g. through inheritance)?</a></li>
 </ul>
 </li>
 </ul>
@@ -505,7 +505,7 @@ class written in C++ using the BPL).</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Extending/Embedding FAQ</a><ul>
 <li><a class="reference internal" href="#can-i-create-my-own-functions-in-c">Can I create my own functions in C?</a></li>
@@ -602,11 +602,11 @@ class written in C++ using the BPL).</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

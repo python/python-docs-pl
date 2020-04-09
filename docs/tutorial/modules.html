@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>6. Modules &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -100,7 +101,7 @@
           <div class="body" role="main">
             
   <div class="section" id="modules">
-<span id="tut-modules"></span><h1><span class="section-number">6. </span>Modules<a class="headerlink" href="#modules" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<span id="tut-modules"></span><h1>6. Modules<a class="headerlink" href="#modules" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>If you quit from the Python interpreter and enter it again, the definitions you
 have made (functions and variables) are lost. Therefore, if you want to write a
 somewhat longer program, you are better off using a text editor to prepare the
@@ -160,10 +161,10 @@ the module name you can access the functions:</p>
 </pre></div>
 </div>
 <div class="section" id="more-on-modules">
-<span id="tut-moremodules"></span><h2><span class="section-number">6.1. </span>More on Modules<a class="headerlink" href="#more-on-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="tut-moremodules"></span><h2>6.1. More on Modules<a class="headerlink" href="#more-on-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>A module can contain executable statements as well as function definitions.
 These statements are intended to initialize the module. They are executed only
-the <em>first</em> time the module name is encountered in an import statement. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
+the <em>first</em> time the module name is encountered in an import statement. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
 (They are also run if the file is executed as a script.)</p>
 <p>Each module has its own private symbol table, which is used as the global symbol
 table by all functions defined in the module. Thus, the author of a module can
@@ -213,15 +214,15 @@ will do, with the only difference of it being available as <code class="docutils
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>For efficiency reasons, each module is only imported once per interpreter
+<p class="first admonition-title">Informacja</p>
+<p class="last">For efficiency reasons, each module is only imported once per interpreter
 session.  Therefore, if you change your modules, you must restart the
 interpreter – or, if it’s just one module you want to test interactively,
 use <a class="reference internal" href="../library/importlib.html#importlib.reload" title="importlib.reload"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>, e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span>
 <span class="pre">importlib.reload(modulename)</span></code>.</p>
 </div>
 <div class="section" id="executing-modules-as-scripts">
-<span id="tut-modulesasscripts"></span><h3><span class="section-number">6.1.1. </span>Executing modules as scripts<a class="headerlink" href="#executing-modules-as-scripts" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<span id="tut-modulesasscripts"></span><h3>6.1.1. Executing modules as scripts<a class="headerlink" href="#executing-modules-as-scripts" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>When you run a Python module with</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">fibo</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">arguments</span><span class="o">&gt;</span>
 </pre></div>
@@ -250,21 +251,21 @@ executed as the „main” file:</p>
 for testing purposes (running the module as a script executes a test suite).</p>
 </div>
 <div class="section" id="the-module-search-path">
-<span id="tut-searchpath"></span><h3><span class="section-number">6.1.2. </span>The Module Search Path<a class="headerlink" href="#the-module-search-path" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<span id="tut-searchpath"></span><h3>6.1.2. The Module Search Path<a class="headerlink" href="#the-module-search-path" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p id="index-0">When a module named <code class="xref py py-mod docutils literal notranslate"><span class="pre">spam</span></code> is imported, the interpreter first searches for
 a built-in module with that name. If not found, it then searches for a file
 named <code class="file docutils literal notranslate"><span class="pre">spam.py</span></code> in a list of directories given by the variable
 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.  <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> is initialized from these locations:</p>
 <ul class="simple">
-<li><p>The directory containing the input script (or the current directory when no
-file is specified).</p></li>
-<li><p><span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> (a list of directory names, with the same syntax as the
-shell variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>).</p></li>
-<li><p>The installation-dependent default.</p></li>
+<li>The directory containing the input script (or the current directory when no
+file is specified).</li>
+<li><span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> (a list of directory names, with the same syntax as the
+shell variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>).</li>
+<li>The installation-dependent default.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Informacja</p>
-<p>On file systems which support symlinks, the directory containing the input
+<p class="first admonition-title">Informacja</p>
+<p class="last">On file systems which support symlinks, the directory containing the input
 script is calculated after the symlink is followed. In other words the
 directory containing the symlink is <strong>not</strong> added to the module search path.</p>
 </div>
@@ -276,7 +277,7 @@ directory. This is an error unless the replacement is intended.  See section
 <a class="reference internal" href="#tut-standardmodules"><span class="std std-ref">Standard Modules</span></a> for more information.</p>
 </div>
 <div class="section" id="compiled-python-files">
-<h3><span class="section-number">6.1.3. </span>„Compiled” Python files<a class="headerlink" href="#compiled-python-files" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>6.1.3. „Compiled” Python files<a class="headerlink" href="#compiled-python-files" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>To speed up loading modules, Python caches the compiled version of each module
 in the <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> directory under the name <code class="file docutils literal notranslate"><span class="pre">module.</span><em><span class="pre">version</span></em><span class="pre">.pyc</span></code>,
 where the version encodes the format of the compiled file; it generally contains
@@ -296,25 +297,25 @@ compiled module must be in the source directory, and there must not be a source
 module.</p>
 <p>Some tips for experts:</p>
 <ul class="simple">
-<li><p>You can use the <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> switches on the Python command
+<li>You can use the <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> switches on the Python command
 to reduce the size of a compiled module.  The <code class="docutils literal notranslate"><span class="pre">-O</span></code> switch removes assert
 statements, the <code class="docutils literal notranslate"><span class="pre">-OO</span></code> switch removes both assert statements and __doc__
 strings.  Since some programs may rely on having these available, you should
 only use this option if you know what you’re doing.  „Optimized” modules have
 an <code class="docutils literal notranslate"><span class="pre">opt-</span></code> tag and are usually smaller.  Future releases may
-change the effects of optimization.</p></li>
-<li><p>A program doesn’t run any faster when it is read from a <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>
+change the effects of optimization.</li>
+<li>A program doesn’t run any faster when it is read from a <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>
 file than when it is read from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file; the only thing that’s faster
-about <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files is the speed with which they are loaded.</p></li>
-<li><p>The module <a class="reference internal" href="../library/compileall.html#module-compileall" title="compileall: Tools for byte-compiling all Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> can create .pyc files for all modules in a
-directory.</p></li>
-<li><p>There is more detail on this process, including a flow chart of the
-decisions, in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>.</p></li>
+about <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files is the speed with which they are loaded.</li>
+<li>The module <a class="reference internal" href="../library/compileall.html#module-compileall" title="compileall: Tools for byte-compiling all Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> can create .pyc files for all modules in a
+directory.</li>
+<li>There is more detail on this process, including a flow chart of the
+decisions, in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="standard-modules">
-<span id="tut-standardmodules"></span><h2><span class="section-number">6.2. </span>Standard Modules<a class="headerlink" href="#standard-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="tut-standardmodules"></span><h2>6.2. Standard Modules<a class="headerlink" href="#standard-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p id="index-4">Python comes with a library of standard modules, described in a separate
 document, the Python Library Reference („Library Reference” hereafter).  Some
 modules are built into the interpreter; these provide access to operations that
@@ -349,7 +350,7 @@ operations:</p>
 </div>
 </div>
 <div class="section" id="the-dir-function">
-<span id="tut-dir"></span><h2><span class="section-number">6.3. </span>The <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> Function<a class="headerlink" href="#the-dir-function" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="tut-dir"></span><h2>6.3. The <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> Function<a class="headerlink" href="#the-dir-function" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The built-in function <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> is used to find out which names a module
 defines.  It returns a sorted list of strings:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fibo</span><span class="o">,</span> <span class="nn">sys</span>
@@ -422,7 +423,7 @@ want a list of those, they are defined in the standard module
 </div>
 </div>
 <div class="section" id="packages">
-<span id="tut-packages"></span><h2><span class="section-number">6.4. </span>Packages<a class="headerlink" href="#packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="tut-packages"></span><h2>6.4. Packages<a class="headerlink" href="#packages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Packages are a way of structuring Python’s module namespace by using „dotted
 module names”.  For example, the module name <code class="xref py py-mod docutils literal notranslate"><span class="pre">A.B</span></code> designates a submodule
 named <code class="docutils literal notranslate"><span class="pre">B</span></code> in a package named <code class="docutils literal notranslate"><span class="pre">A</span></code>.  Just like the use of modules saves the
@@ -512,7 +513,7 @@ except for the last must be a package; the last item can be a module or a
 package but can’t be a class or function or variable defined in the previous
 item.</p>
 <div class="section" id="importing-from-a-package">
-<span id="tut-pkg-import-star"></span><h3><span class="section-number">6.4.1. </span>Importing * From a Package<a class="headerlink" href="#importing-from-a-package" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<span id="tut-pkg-import-star"></span><h3>6.4.1. Importing * From a Package<a class="headerlink" href="#importing-from-a-package" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p id="index-8">Now what happens when the user writes <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sound.effects</span> <span class="pre">import</span> <span class="pre">*</span></code>?  Ideally,
 one would hope that this somehow goes out to the filesystem, finds which
 submodules are present in the package, and imports them all.  This could take a
@@ -558,7 +559,7 @@ importing module needs to use submodules with the same name from different
 packages.</p>
 </div>
 <div class="section" id="intra-package-references">
-<h3><span class="section-number">6.4.2. </span>Intra-package References<a class="headerlink" href="#intra-package-references" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>6.4.2. Intra-package References<a class="headerlink" href="#intra-package-references" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>When packages are structured into subpackages (as with the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sound</span></code> package
 in the example), you can use absolute imports to refer to submodules of siblings
 packages.  For example, if the module <code class="xref py py-mod docutils literal notranslate"><span class="pre">sound.filters.vocoder</span></code> needs to use
@@ -578,7 +579,7 @@ the name of the main module is always <code class="docutils literal notranslate"
 as the main module of a Python application must always use absolute imports.</p>
 </div>
 <div class="section" id="packages-in-multiple-directories">
-<h3><span class="section-number">6.4.3. </span>Packages in Multiple Directories<a class="headerlink" href="#packages-in-multiple-directories" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>6.4.3. Packages in Multiple Directories<a class="headerlink" href="#packages-in-multiple-directories" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Packages support one more special attribute, <a class="reference internal" href="../reference/import.html#__path__" title="__path__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code></a>.  This is
 initialized to be a list containing the name of the directory holding the
 package’s <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> before the code in that file is executed.  This
@@ -587,13 +588,14 @@ subpackages contained in the package.</p>
 <p>While this feature is not often needed, it can be used to extend the set of
 modules found in a package.</p>
 <p class="rubric">Przypisy</p>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>In fact function definitions are also «statements» that are «executed»; the
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In fact function definitions are also «statements» that are «executed»; the
 execution of a module-level function definition enters the function name in
-the module’s global symbol table.</p>
-</dd>
-</dl>
+the module’s global symbol table.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -604,7 +606,7 @@ the module’s global symbol table.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">6. Modules</a><ul>
 <li><a class="reference internal" href="#more-on-modules">6.1. More on Modules</a><ul>
@@ -614,7 +616,7 @@ the module’s global symbol table.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#standard-modules">6.2. Standard Modules</a></li>
-<li><a class="reference internal" href="#the-dir-function">6.3. The <code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code> Function</a></li>
+<li><a class="reference internal" href="#the-dir-function">6.3. The <code class="docutils literal notranslate"><span class="pre">dir()</span></code> Function</a></li>
 <li><a class="reference internal" href="#packages">6.4. Packages</a><ul>
 <li><a class="reference internal" href="#importing-from-a-package">6.4.1. Importing * From a Package</a></li>
 <li><a class="reference internal" href="#intra-package-references">6.4.2. Intra-package References</a></li>
@@ -627,10 +629,10 @@ the module’s global symbol table.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="datastructures.html"
-                        title="poprzedni rozdział"><span class="section-number">5. </span>Data Structures</a></p>
+                        title="poprzedni rozdział">5. Data Structures</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="inputoutput.html"
-                        title="następny rozdział"><span class="section-number">7. </span>Input and Output</a></p>
+                        title="następny rozdział">7. Input and Output</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -698,11 +700,11 @@ the module’s global symbol table.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

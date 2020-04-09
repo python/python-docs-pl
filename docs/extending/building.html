@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>4. Building C and C++ Extensions &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -100,7 +101,7 @@
           <div class="body" role="main">
             
   <div class="section" id="building-c-and-c-extensions">
-<span id="building"></span><h1><span class="section-number">4. </span>Building C and C++ Extensions<a class="headerlink" href="#building-c-and-c-extensions" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<span id="building"></span><h1>4. Building C and C++ Extensions<a class="headerlink" href="#building-c-and-c-extensions" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>A C extension for CPython is a shared library (e.g. a <code class="docutils literal notranslate"><span class="pre">.so</span></code> file on Linux,
 <code class="docutils literal notranslate"><span class="pre">.pyd</span></code> on Windows), which exports an <em>initialization function</em>.</p>
 <p>To be importable, the shared library must be available on <span class="target" id="index-0"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a>,
@@ -109,7 +110,7 @@ When using distutils, the correct filename is generated automatically.</p>
 <p>The initialization function has the signature:</p>
 <dl class="function">
 <dt id="c.PyInit_modulename">
-<a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyInit_modulename</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.PyInit_modulename" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyInit_modulename</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.PyInit_modulename" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 <p>It returns either a fully-initialized module, or a <a class="reference internal" href="../c-api/module.html#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a>
@@ -134,7 +135,7 @@ using symbolic links or a custom importer, because by default only the
 function corresponding to the filename is found.
 See the <em>„Multiple modules in one library”</em> section in <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0489"><strong>PEP 489</strong></a> for details.</p>
 <div class="section" id="building-c-and-c-extensions-with-distutils">
-<h2><span class="section-number">4.1. </span>Building C and C++ Extensions with distutils<a class="headerlink" href="#building-c-and-c-extensions-with-distutils" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>4.1. Building C and C++ Extensions with distutils<a class="headerlink" href="#building-c-and-c-extensions-with-distutils" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Extension modules can be built using distutils,  which is included in Python.
 Since distutils also supports creation of binary packages, users don’t
 necessarily need a compiler and distutils to install the extension.</p>
@@ -215,7 +216,7 @@ result in the compilation commands</p>
 that distutils gets the invocations right.</p>
 </div>
 <div class="section" id="distributing-your-extension-modules">
-<span id="distributing"></span><h2><span class="section-number">4.2. </span>Distributing your extension modules<a class="headerlink" href="#distributing-your-extension-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<span id="distributing"></span><h2>4.2. Distributing your extension modules<a class="headerlink" href="#distributing-your-extension-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>When an extension has been successfully built, there are three ways to use it.</p>
 <p>End-users will typically want to install the module, they do so by running</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span>
@@ -244,7 +245,7 @@ commands can be used to do so.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Spis treści</a></h3>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Building C and C++ Extensions</a><ul>
 <li><a class="reference internal" href="#building-c-and-c-extensions-with-distutils">4.1. Building C and C++ Extensions with distutils</a></li>
@@ -255,10 +256,10 @@ commands can be used to do so.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="newtypes.html"
-                        title="poprzedni rozdział"><span class="section-number">3. </span>Defining Extension Types: Assorted Topics</a></p>
+                        title="poprzedni rozdział">3. Defining Extension Types: Assorted Topics</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="windows.html"
-                        title="następny rozdział"><span class="section-number">5. </span>Building C and C++ Extensions on Windows</a></p>
+                        title="następny rozdział">5. Building C and C++ Extensions on Windows</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
@@ -326,11 +327,11 @@ commands can be used to do so.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>

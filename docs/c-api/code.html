@@ -1,21 +1,22 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Code Objects &#8212; Python 3.8.2 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     
-    <script src="../_static/sidebar.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
           title="Szukaj pośród Python 3.8.2 - dokumentacja"
@@ -107,33 +108,33 @@ Each one represents a chunk of executable code that hasn’t yet been
 bound into a function.</p>
 <dl class="type">
 <dt id="c.PyCodeObject">
-<code class="sig-name descname">PyCodeObject</code><a class="headerlink" href="#c.PyCodeObject" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="descname">PyCodeObject</code><a class="headerlink" href="#c.PyCodeObject" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The C structure of the objects used to describe code objects.  The
 fields of this type are subject to change at any time.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="c.PyCode_Type">
-<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a> <code class="sig-name descname">PyCode_Type</code><a class="headerlink" href="#c.PyCode_Type" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a> <code class="descname">PyCode_Type</code><a class="headerlink" href="#c.PyCode_Type" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is an instance of <a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> representing the Python
 <a class="reference internal" href="../library/code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-class docutils literal notranslate"><span class="pre">code</span></code></a> type.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCode_Check">
-int <code class="sig-name descname">PyCode_Check</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *co</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_Check" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyCode_Check</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*co</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_Check" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return true if <em>co</em> is a <a class="reference internal" href="../library/code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-class docutils literal notranslate"><span class="pre">code</span></code></a> object.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCode_GetNumFree">
-int <code class="sig-name descname">PyCode_GetNumFree</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a><em> *co</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_GetNumFree" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="descname">PyCode_GetNumFree</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a><em>&nbsp;*co</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_GetNumFree" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the number of free variables in <em>co</em>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCode_New">
-<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="sig-name descname">PyCode_New</code><span class="sig-paren">(</span>int<em> argcount</em>, int<em> kwonlyargcount</em>, int<em> nlocals</em>, int<em> stacksize</em>, int<em> flags</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *code</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *consts</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *names</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *varnames</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *freevars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *cellvars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *filename</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *name</em>, int<em> firstlineno</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *lnotab</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_New" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="descname">PyCode_New</code><span class="sig-paren">(</span>int<em>&nbsp;argcount</em>, int<em>&nbsp;kwonlyargcount</em>, int<em>&nbsp;nlocals</em>, int<em>&nbsp;stacksize</em>, int<em>&nbsp;flags</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*code</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*consts</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*names</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*varnames</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*freevars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*cellvars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*filename</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*name</em>, int<em>&nbsp;firstlineno</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*lnotab</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_New" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Return a new code object.  If you need a dummy code object to create a frame,
 use <a class="reference internal" href="#c.PyCode_NewEmpty" title="PyCode_NewEmpty"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_NewEmpty()</span></code></a> instead.  Calling <a class="reference internal" href="#c.PyCode_New" title="PyCode_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_New()</span></code></a> directly
 can bind you to a precise Python version since the definition of the bytecode
@@ -142,16 +143,16 @@ changes often.</p>
 
 <dl class="function">
 <dt id="c.PyCode_NewWithPosOnlyArgs">
-<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="sig-name descname">PyCode_NewWithPosOnlyArgs</code><span class="sig-paren">(</span>int<em> argcount</em>, int<em> posonlyargcount</em>, int<em> kwonlyargcount</em>, int<em> nlocals</em>, int<em> stacksize</em>, int<em> flags</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *code</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *consts</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *names</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *varnames</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *freevars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *cellvars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *filename</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *name</em>, int<em> firstlineno</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *lnotab</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_NewWithPosOnlyArgs" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="descname">PyCode_NewWithPosOnlyArgs</code><span class="sig-paren">(</span>int<em>&nbsp;argcount</em>, int<em>&nbsp;posonlyargcount</em>, int<em>&nbsp;kwonlyargcount</em>, int<em>&nbsp;nlocals</em>, int<em>&nbsp;stacksize</em>, int<em>&nbsp;flags</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*code</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*consts</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*names</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*varnames</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*freevars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*cellvars</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*filename</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*name</em>, int<em>&nbsp;firstlineno</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*lnotab</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_NewWithPosOnlyArgs" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Similar to <a class="reference internal" href="#c.PyCode_New" title="PyCode_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_New()</span></code></a>, but with an extra „posonlyargcount” for positional-only arguments.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCode_NewEmpty">
-<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="sig-name descname">PyCode_NewEmpty</code><span class="sig-paren">(</span>const char<em> *filename</em>, const char<em> *funcname</em>, int<em> firstlineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_NewEmpty" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyCodeObject" title="PyCodeObject">PyCodeObject</a>* <code class="descname">PyCode_NewEmpty</code><span class="sig-paren">(</span>const char<em>&nbsp;*filename</em>, const char<em>&nbsp;*funcname</em>, int<em>&nbsp;firstlineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCode_NewEmpty" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Return a new empty code object with the specified filename,
 function name, and first line number.  It is illegal to
 <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> or <a class="reference internal" href="../library/functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> the resulting code object.</p>
@@ -239,11 +240,11 @@ function name, and first line number.  It is illegal to
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 05, 2020.
+    Ostatnia modyfikacja kwi 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
 
   </body>
