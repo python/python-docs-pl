@@ -509,7 +509,8 @@ interactive interpreter. For example:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">p</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">Process PoolWorker-1:</span>
 <span class="go">Process PoolWorker-2:</span>
 <span class="go">Process PoolWorker-3:</span>
@@ -2242,6 +2243,16 @@ of a context object.  In both cases <em>context</em> is set
 appropriately.</p>
 <p>Note that the methods of the pool object should only be called by
 the process which created the pool.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Ostrzeżenie</p>
+<p><a class="reference internal" href="#module-multiprocessing.pool" title="multiprocessing.pool: Create pools of processes."><code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.pool</span></code></a> objects have internal resources that need to be
+properly managed (like any other resource) by using the pool as a context manager
+or by calling <a class="reference internal" href="#multiprocessing.pool.Pool.close" title="multiprocessing.pool.Pool.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> and <a class="reference internal" href="#multiprocessing.pool.Pool.terminate" title="multiprocessing.pool.Pool.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">terminate()</span></code></a> manually. Failure to do this
+can lead to the process hanging on finalization.</p>
+<p class="last">Note that is <strong>not correct</strong> to rely on the garbage colletor to destroy the pool
+as CPython does not assure that the finalizer of the pool will be called
+(see <a class="reference internal" href="../reference/datamodel.html#object.__del__" title="object.__del__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__del__()</span></code></a> for more information).</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified">Nowe w wersji 3.2: </span><em>maxtasksperchild</em></p>
 </div>
@@ -3431,7 +3442,7 @@ processes and collect the results:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 11, 2020.
+    Ostatnia modyfikacja kwi 12, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
