@@ -167,6 +167,9 @@ the interpreter session on macOS.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://bugs.python.org/issue40196">bpo-40196</a>: Fix a bug in the <a class="reference internal" href="../library/symtable.html#module-symtable" title="symtable: Interface to the compiler's internal symbol tables."><code class="xref py py-mod docutils literal notranslate"><span class="pre">symtable</span></code></a> module that was causing
 incorrectly report global variables as local. Patch by Pablo Galindo.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue40126">bpo-40126</a>: Fixed reverting multiple patches in unittest.mock. Patcher’s
+<code class="docutils literal notranslate"><span class="pre">__exit__()</span></code> is now never called if its <code class="docutils literal notranslate"><span class="pre">__enter__()</span></code> is failed.
+Returning true from <code class="docutils literal notranslate"><span class="pre">__exit__()</span></code> silences now the exception.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40089">bpo-40089</a>: Fix threading._after_fork(): if fork was not called by a thread
 spawned by threading.Thread, threading._after_fork() now creates a
 _MainThread instance for _main_thread, instead of a _DummyThread instance.</li>
@@ -232,6 +235,8 @@ raised.</li>
 <a class="reference internal" href="../library/sys.html#sys.set_asyncgen_hooks" title="sys.set_asyncgen_hooks"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.set_asyncgen_hooks()</span></code></a>. Based on patch by Zackery Spytz.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue36541">bpo-36541</a>: lib2to3 now recognizes named assignment expressions (the walrus
 operator, <code class="docutils literal notranslate"><span class="pre">:=</span></code>)</li>
+<li><a class="reference external" href="https://bugs.python.org/issue31758">bpo-31758</a>: Prevent crashes when using an uninitialized
+<code class="docutils literal notranslate"><span class="pre">_elementtree.XMLParser</span></code> object. Patch by Oren Milman.</li>
 </ul>
 </div>
 <div class="section" id="documentation">
@@ -18891,7 +18896,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 12, 2020.
+    Ostatnia modyfikacja kwi 13, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
