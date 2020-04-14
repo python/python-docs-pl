@@ -1088,9 +1088,9 @@ empty dictionary pre-sized to hold <em>count</em> items.</p>
 <dl class="opcode">
 <dt id="opcode-BUILD_CONST_KEY_MAP">
 <code class="descname">BUILD_CONST_KEY_MAP</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_CONST_KEY_MAP" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>The version of <a class="reference internal" href="#opcode-BUILD_MAP"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_MAP</span></code></a> specialized for constant keys.  <em>count</em>
-values are consumed from the stack.  The top element on the stack contains
-a tuple of keys.</p>
+<dd><p>The version of <a class="reference internal" href="#opcode-BUILD_MAP"><code class="xref std std-opcode docutils literal notranslate"><span class="pre">BUILD_MAP</span></code></a> specialized for constant keys. Pops the
+top element on the stack which contains a tuple of keys, then starting from
+<code class="docutils literal notranslate"><span class="pre">TOS1</span></code>, pops <em>count</em> values to form values in the built dictionary.</p>
 <div class="versionadded">
 <p><span class="versionmodified">Nowe w wersji 3.6.</span></p>
 </div>
@@ -1678,7 +1678,7 @@ scopes or names in outer scopes that are referenced from this scope.  It does
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 13, 2020.
+    Ostatnia modyfikacja kwi 14, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
