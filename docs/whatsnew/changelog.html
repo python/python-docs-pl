@@ -165,6 +165,8 @@ the interpreter session on macOS.</p>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40260">bpo-40260</a>: Ensure <a class="reference internal" href="../library/modulefinder.html#module-modulefinder" title="modulefinder: Find modules used by a script."><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code></a> uses <a class="reference internal" href="../library/io.html#io.open_code" title="io.open_code"><code class="xref py py-func docutils literal notranslate"><span class="pre">io.open_code()</span></code></a> and
+respects coding comments.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40196">bpo-40196</a>: Fix a bug in the <a class="reference internal" href="../library/symtable.html#module-symtable" title="symtable: Interface to the compiler's internal symbol tables."><code class="xref py py-mod docutils literal notranslate"><span class="pre">symtable</span></code></a> module that was causing
 incorrectly report global variables as local. Patch by Pablo Galindo.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40126">bpo-40126</a>: Fixed reverting multiple patches in unittest.mock. Patcher’s
@@ -267,6 +269,12 @@ debug information because the Python binary is optimized.</li>
 of <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> contains a <code class="docutils literal notranslate"><span class="pre">.pth</span></code> file.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue1812">bpo-1812</a>: Fix newline handling in doctest.testfile when loading from a
 package whose loader has a get_data method. Patch by Peter Donis.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue37957">bpo-37957</a>: test.regrtest now can receive a list of test patterns to ignore
+(using the -i/–ignore argument) or a file with a list of patterns to
+ignore (using the –ignore-file argument). Patch by Pablo Galindo.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue38502">bpo-38502</a>: test.regrtest now uses process groups in the multiprocessing
+mode (-jN command line option) if process groups are available: if
+<a class="reference internal" href="../library/os.html#os.setsid" title="os.setsid"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.setsid()</span></code></a> and <a class="reference internal" href="../library/os.html#os.killpg" title="os.killpg"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.killpg()</span></code></a> functions are available.</li>
 </ul>
 </div>
 <div class="section" id="build">
@@ -18896,7 +18904,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 14, 2020.
+    Ostatnia modyfikacja kwi 15, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
