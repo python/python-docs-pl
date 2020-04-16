@@ -226,6 +226,11 @@ Python 3.5.</li>
 Task</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30566">bpo-30566</a>: Fix <a class="reference internal" href="../library/exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> when trying to decode an invalid string
 with punycode codec.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue39667">bpo-39667</a>: Correct performance degradation in <code class="docutils literal notranslate"><span class="pre">zipfile.Path</span></code> as found in
+zipp 3.0. While retaining compatibility, this change discourages the use
+of <code class="docutils literal notranslate"><span class="pre">zipfile.Path.open</span></code> due to the signature change in Python 3.9. For
+compatibility across Python 3.8 and later versions, consider using
+<code class="docutils literal notranslate"><span class="pre">zipp.Path</span></code> on Python 3.8.x and earlier.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue39548">bpo-39548</a>: Fix handling of header in
 <a class="reference internal" href="../library/urllib.request.html#urllib.request.AbstractDigestAuthHandler" title="urllib.request.AbstractDigestAuthHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.request.AbstractDigestAuthHandler</span></code></a> when the optional
 <code class="docutils literal notranslate"><span class="pre">qop</span></code> parameter is not present.</li>
@@ -18904,7 +18909,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 15, 2020.
+    Ostatnia modyfikacja kwi 16, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
