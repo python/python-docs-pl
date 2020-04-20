@@ -628,8 +628,10 @@ must match:</p>
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>As with other methods, case-sensitivity is observed:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;b.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;*.PY&#39;</span><span class="p">)</span>
+<p>As with other methods, case-sensitivity follows platform defaults:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PurePosixPath</span><span class="p">(</span><span class="s1">&#39;b.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;*.PY&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;b.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;*.PY&#39;</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -1465,7 +1467,7 @@ considering them equivalent.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 19, 2020.
+    Ostatnia modyfikacja kwi 20, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
