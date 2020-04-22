@@ -486,28 +486,27 @@ sequence when the compatible seeder is given the same seed.</li>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">trial</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">choices</span><span class="p">(</span><span class="s1">&#39;HT&#39;</span><span class="p">,</span> <span class="n">cum_weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">trial</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">trial</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10_000</span>
 <span class="go">0.4169</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Probability of the median of 5 samples being in middle two quartiles</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">trial</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="mi">2500</span> <span class="o">&lt;=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">7500</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="mi">2_500</span> <span class="o">&lt;=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">7_500</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">trial</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">trial</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10_000</span>
 <span class="go">0.7958</span>
 </pre></div>
 </div>
 <p>Example of <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">statistical bootstrapping</a> using resampling
-with replacement to estimate a confidence interval for the mean of a sample of
-size five:</p>
+with replacement to estimate a confidence interval for the mean of a sample:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># http://statistics.about.com/od/Applications/a/Example-Of-Bootstrapping.htm</span>
 <span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">fmean</span> <span class="k">as</span> <span class="n">mean</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choices</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span>
-<span class="n">means</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">41</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">95</span><span class="p">]</span>
+<span class="n">means</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sample mean of </span><span class="si">{</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> has a 90% confidence &#39;</span>
-      <span class="sa">f</span><span class="s1">&#39;interval from </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="sa">f</span><span class="s1">&#39;interval from </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">means</span><span class="p">[</span><span class="mi">94</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Resampling_(statistics)#Permutation_tests">resampling permutation test</a>
@@ -521,7 +520,7 @@ between the effects of a drug versus a placebo:</p>
 <span class="n">placebo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">54</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">46</span><span class="p">]</span>
 <span class="n">observed_diff</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">drug</span><span class="p">)</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">placebo</span><span class="p">)</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10_000</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">combined</span> <span class="o">=</span> <span class="n">drug</span> <span class="o">+</span> <span class="n">placebo</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -535,31 +534,28 @@ between the effects of a drug versus a placebo:</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hypothesis that there is no difference between the drug and the placebo.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Simulation of arrival times and service deliveries in a single server queue:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">expovariate</span><span class="p">,</span> <span class="n">gauss</span>
+<p>Simulation of arrival times and service deliveries for a multiserver queue:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">heappush</span><span class="p">,</span> <span class="n">heappop</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">expovariate</span><span class="p">,</span> <span class="n">gauss</span>
 <span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">stdev</span>
 
 <span class="n">average_arrival_interval</span> <span class="o">=</span> <span class="mf">5.6</span>
-<span class="n">average_service_time</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="n">stdev_service_time</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">average_service_time</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="n">stdev_service_time</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">num_servers</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="n">num_waiting</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">arrivals</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">starts</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">arrival</span> <span class="o">=</span> <span class="n">service_end</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20000</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">arrival</span> <span class="o">&lt;=</span> <span class="n">service_end</span><span class="p">:</span>
-        <span class="n">num_waiting</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">arrival</span> <span class="o">+=</span> <span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">average_arrival_interval</span><span class="p">)</span>
-        <span class="n">arrivals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arrival</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">num_waiting</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">service_start</span> <span class="o">=</span> <span class="n">service_end</span> <span class="k">if</span> <span class="n">num_waiting</span> <span class="k">else</span> <span class="n">arrival</span>
-        <span class="n">service_time</span> <span class="o">=</span> <span class="n">gauss</span><span class="p">(</span><span class="n">average_service_time</span><span class="p">,</span> <span class="n">stdev_service_time</span><span class="p">)</span>
-        <span class="n">service_end</span> <span class="o">=</span> <span class="n">service_start</span> <span class="o">+</span> <span class="n">service_time</span>
-        <span class="n">starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">service_start</span><span class="p">)</span>
+<span class="n">waits</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arrival_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_servers</span>  <span class="c1"># time when each server becomes available</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">):</span>
+    <span class="n">arrival_time</span> <span class="o">+=</span> <span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">average_arrival_interval</span><span class="p">)</span>
+    <span class="n">next_server_available</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">servers</span><span class="p">)</span>
+    <span class="n">wait</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">next_server_available</span> <span class="o">-</span> <span class="n">arrival_time</span><span class="p">)</span>
+    <span class="n">waits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+    <span class="n">service_duration</span> <span class="o">=</span> <span class="n">gauss</span><span class="p">(</span><span class="n">average_service_time</span><span class="p">,</span> <span class="n">stdev_service_time</span><span class="p">)</span>
+    <span class="n">service_completed</span> <span class="o">=</span> <span class="n">arrival_time</span> <span class="o">+</span> <span class="n">wait</span> <span class="o">+</span> <span class="n">service_duration</span>
+    <span class="n">heappush</span><span class="p">(</span><span class="n">servers</span><span class="p">,</span> <span class="n">service_completed</span><span class="p">)</span>
 
-<span class="n">waits</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="n">arrival</span> <span class="k">for</span> <span class="n">arrival</span><span class="p">,</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arrivals</span><span class="p">,</span> <span class="n">starts</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean wait: </span><span class="si">{</span><span class="n">mean</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.  Stdev wait: </span><span class="si">{</span><span class="n">stdev</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median wait: </span><span class="si">{</span><span class="n">median</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.  Max wait: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">waits</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -678,7 +674,7 @@ how to perform data analysis using Python.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 21, 2020.
+    Ostatnia modyfikacja kwi 22, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
