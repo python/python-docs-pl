@@ -165,6 +165,9 @@ the interpreter session on macOS.</p>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40138">bpo-40138</a>: Fix the Windows implementation of <a class="reference internal" href="../library/os.html#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.waitpid()</span></code></a> for exit
+code larger than <code class="docutils literal notranslate"><span class="pre">INT_MAX</span> <span class="pre">&gt;&gt;</span> <span class="pre">8</span></code>. The exit status is now interpreted as
+an unsigned number.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue39942">bpo-39942</a>: Set „__main__” as the default module name when „__name__” is
 missing in <a class="reference internal" href="../library/typing.html#typing.TypeVar" title="typing.TypeVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypeVar</span></code></a>. Patch by Weipeng Hong.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40330">bpo-40330</a>: In <code class="xref py py-meth docutils literal notranslate"><span class="pre">ShareableList.__setitem__()</span></code>, check the size of a new
@@ -294,6 +297,7 @@ mode (-jN command line option) if process groups are available: if
 <div class="section" id="build">
 <h3>Build<a class="headerlink" href="#build" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue38360">bpo-38360</a>: Support single-argument form of macOS -isysroot flag.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40204">bpo-40204</a>: Pin Sphinx version to 1.8.2 in <code class="docutils literal notranslate"><span class="pre">Doc/Makefile</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40158">bpo-40158</a>: Fix CPython MSBuild Properties in NuGet Package
 (build/native/python.props)</li>
@@ -325,6 +329,7 @@ bundled icon image.</li>
 <div class="section" id="macos">
 <h3>macOS<a class="headerlink" href="#macos" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40164">bpo-40164</a>: Update macOS installer builds to use OpenSSL 1.1.1g.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue38380">bpo-38380</a>: Update macOS builds to use SQLite 3.31.1</li>
 </ul>
 </div>
@@ -338,6 +343,9 @@ any text selection should be and now is cleared.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue39852">bpo-39852</a>: Edit „Go to line” now clears any selection, preventing
 accidental deletion. It also updates Ln and Col on the status bar.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue39781">bpo-39781</a>: Selecting code context lines no longer causes a jump.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue38439">bpo-38439</a>: Add a 256×256 pixel IDLE icon to support more modern
+environments. Created by Andrew Clover. Delete the unused macOS idle.icns
+icon file.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue38689">bpo-38689</a>: IDLE will no longer freeze when inspect.signature fails when
 fetching a calltip.</li>
 </ul>
@@ -18919,7 +18927,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 22, 2020.
+    Ostatnia modyfikacja kwi 24, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
