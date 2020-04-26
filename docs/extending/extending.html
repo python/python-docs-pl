@@ -439,18 +439,26 @@ optionally followed by an import of the module:</p>
     <span class="p">}</span>
 
     <span class="cm">/* Add a built-in module, before Py_Initialize */</span>
-    <span class="n">PyImport_AppendInittab</span><span class="p">(</span><span class="s">&quot;spam&quot;</span><span class="p">,</span> <span class="n">PyInit_spam</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">PyImport_AppendInittab</span><span class="p">(</span><span class="s">&quot;spam&quot;</span><span class="p">,</span> <span class="n">PyInit_spam</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error: could not extend in-built modules table</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="cm">/* Pass argv[0] to the Python interpreter */</span>
     <span class="n">Py_SetProgramName</span><span class="p">(</span><span class="n">program</span><span class="p">);</span>
 
-    <span class="cm">/* Initialize the Python interpreter.  Required. */</span>
+    <span class="cm">/* Initialize the Python interpreter.  Required.</span>
+<span class="cm">       If this step fails, it will be a fatal error. */</span>
     <span class="n">Py_Initialize</span><span class="p">();</span>
 
     <span class="cm">/* Optionally import the module; alternatively,</span>
 <span class="cm">       import can be deferred until the embedded script</span>
 <span class="cm">       imports it. */</span>
-    <span class="n">PyImport_ImportModule</span><span class="p">(</span><span class="s">&quot;spam&quot;</span><span class="p">);</span>
+    <span class="n">pmodule</span> <span class="o">=</span> <span class="n">PyImport_ImportModule</span><span class="p">(</span><span class="s">&quot;spam&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pmodule</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">PyErr_Print</span><span class="p">();</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error: could not import module &#39;spam&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="p">...</span>
 
@@ -1417,7 +1425,7 @@ this is still found in much existing code.</td></tr>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 25, 2020.
+    Ostatnia modyfikacja kwi 26, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
