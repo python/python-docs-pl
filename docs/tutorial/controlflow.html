@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Więcej narzędzi kontroli przepływu &#8212; Python 3.8.2 - dokumentacja</title>
+    <title>4. Więcej narzędzi kontroli przepływu &#8212; Python 3.8.3rc1 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.2 - dokumentacja"
+          title="Szukaj pośród Python 3.8.3rc1 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +73,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.2 Documentation</a> &#187;
+      <a href="../index.html">3.8.3rc1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Tutorial</a> &#187;</li>
@@ -192,33 +192,22 @@
 <span class="go">range(0, 10)</span>
 </pre></div>
 </div>
-<p>In many ways the object returned by <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a> behaves as if it is a list,
-but in fact it isn’t. It is an object which returns the successive items of
-the desired sequence when you iterate over it, but it doesn’t really make
-the list, thus saving space.</p>
-<p>We say such an object is <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>, that is, suitable as a target for
-functions and constructs that expect something from which they can
-obtain successive items until the supply is exhausted.  We have seen that
-the <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> statement is such a construct, while an example of a function
-that takes an iterable is <a class="reference internal" href="../library/functions.html#sum" title="sum"><code class="xref py py-func docutils literal notranslate"><span class="pre">sum()</span></code></a>:</p>
+<p>Pod wieloma względami obiekt zwracany przez <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a> zachowuje się, jakby był listą, ale w rzeczywistości nią nie jest. Jest obiektem, który zwraca kolejne elementy żądanej sekwencji w trakcie twojego iterowania po nim, lecz naprawdę nie tworzy listy, tak więc oszczędza miejsce w pamięci komputera.</p>
+<p>Mówimy, że taki obiekt to <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>, to znaczy odpowiedni jako cel dla funkcji i konstrukcji, które spodziewają się czegoś, z czego można pobierać kolejne elementy aż do wyczerpania zapasu. Widzieliśmy, że instrukcja <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> jest takim konstruktem, podczas gdy przykładem funkcji, która spodziewa się obiektu iterable jest <a class="reference internal" href="../library/functions.html#sum" title="sum"><code class="xref py py-func docutils literal notranslate"><span class="pre">sum()</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># 0 + 1 + 2 + 3</span>
 <span class="go">6</span>
 </pre></div>
 </div>
-<p>Later we will see more functions that return iterables and take iterables as
-arguments.  Lastly, maybe you are curious about how to get a list from a range.
-Here is the solution:</p>
+<p>Później obejrzymy więcej funkcji, które zwracają iterable i biorą iterable jako argumenty. Może jesteś ciekawy(-a) jak uzyskać listę z zakresu. Tutaj jest rozwiązanie:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="go">[0, 1, 2, 3]</span>
 </pre></div>
 </div>
-<p>In chapter <a class="reference internal" href="datastructures.html#tut-structures"><span class="std std-ref">Data Structures</span></a>, we will discuss in more detail about
-<a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a>.</p>
+<p>W rozdziale <a class="reference internal" href="datastructures.html#tut-structures"><span class="std std-ref">Data Structures</span></a> omówimy bardziej szczegółowo <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a>.</p>
 </div>
 <div class="section" id="break-and-continue-statements-and-else-clauses-on-loops">
 <span id="tut-break"></span><h2>4.4. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code> i <code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code> oraz klauzula <code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code> w pętlach<a class="headerlink" href="#break-and-continue-statements-and-else-clauses-on-loops" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>The <a class="reference internal" href="../reference/simple_stmts.html#break"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code></a> statement, like in C, breaks out of the innermost enclosing
-<a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> or <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> loop.</p>
+<p>Instrukcja <a class="reference internal" href="../reference/simple_stmts.html#break"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code></a>, tak jak w C, wychodzi z najbardziej wewnętrznej pętli <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> lub <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> zawierającej tę instrukcję.</p>
 <p>Loop statements may have an <code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code> clause; it is executed when the loop
 terminates through exhaustion of the iterable (with <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a>) or when the
 condition becomes false (with <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a>), but not when the loop is
@@ -988,7 +977,7 @@ callee makes to it (items inserted into a list).</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.2 Documentation</a> &#187;
+      <a href="../index.html">3.8.3rc1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Tutorial</a> &#187;</li>
@@ -1018,7 +1007,7 @@ callee makes to it (items inserted into a list).</td></tr>
 <br />
     <br />
 
-    Ostatnia modyfikacja kwi 28, 2020.
+    Ostatnia modyfikacja maj 12, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
