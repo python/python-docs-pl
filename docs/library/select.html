@@ -212,7 +212,7 @@ by polling objects.</p>
 <dt id="select.select">
 <code class="descclassname">select.</code><code class="descname">select</code><span class="sig-paren">(</span><em>rlist</em>, <em>wlist</em>, <em>xlist</em><span class="optional">[</span>, <em>timeout</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#select.select" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a straightforward interface to the Unix <code class="xref c c-func docutils literal notranslate"><span class="pre">select()</span></code> system call.
-The first three arguments are sequences of «waitable objects»: either
+The first three arguments are iterables of «waitable objects»: either
 integers representing file descriptors or objects with a parameterless method
 named <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IOBase.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a> returning such an integer:</p>
 <ul class="simple">
@@ -221,7 +221,7 @@ named <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IO
 <li><em>xlist</em>: wait for an „exceptional condition” (see the manual page for what
 your system considers such a condition)</li>
 </ul>
-<p>Empty sequences are allowed, but acceptance of three empty sequences is
+<p>Empty iterables are allowed, but acceptance of three empty iterables is
 platform-dependent. (It is known to work on Unix but not on Windows.)  The
 optional <em>timeout</em> argument specifies a time-out as a floating point number
 in seconds.  When the <em>timeout</em> argument is omitted the function blocks until
@@ -230,7 +230,7 @@ poll and never blocks.</p>
 <p>The return value is a triple of lists of objects that are ready: subsets of the
 first three arguments.  When the time-out is reached without a file descriptor
 becoming ready, three empty lists are returned.</p>
-<p id="index-1">Among the acceptable object types in the sequences are Python <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file
+<p id="index-1">Among the acceptable object types in the iterables are Python <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file
 objects</span></a> (e.g. <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code>, or objects returned by
 <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> or <a class="reference internal" href="os.html#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code></a>), socket objects returned by
 <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-func docutils literal notranslate"><span class="pre">socket.socket()</span></code></a>.  You may also define a <em class="dfn">wrapper</em> class yourself,
@@ -968,7 +968,7 @@ delivered to the process</td>
 <br />
     <br />
 
-    Ostatnia modyfikacja maj 26, 2020.
+    Ostatnia modyfikacja maj 27, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
