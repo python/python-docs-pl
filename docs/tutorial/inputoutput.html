@@ -252,7 +252,7 @@ are referred to by using the name of the argument.</p>
 <p>If you have a really long format string that you don’t want to split up, it
 would be nice if you could reference the variables to be formatted by name
 instead of by position.  This can be done by simply passing the dict and using
-square brackets <code class="docutils literal notranslate"><span class="pre">'[]'</span></code> to access the keys</p>
+square brackets <code class="docutils literal notranslate"><span class="pre">'[]'</span></code> to access the keys.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">8637678</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jack: </span><span class="si">{0[Jack]:d}</span><span class="s1">; Sjoerd: </span><span class="si">{0[Sjoerd]:d}</span><span class="s1">; &#39;</span>
 <span class="gp">... </span>      <span class="s1">&#39;Dcab: </span><span class="si">{0[Dcab]:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
@@ -331,10 +331,10 @@ left with zeros.  It understands about plus and minus signs:</p>
 </div>
 <div class="section" id="old-string-formatting">
 <h3>7.1.4. Old string formatting<a class="headerlink" href="#old-string-formatting" title="Stały odnośnik do tego nagłówka">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">%</span></code> operator can also be used for string formatting. It interprets the
-left argument much like a <code class="xref c c-func docutils literal notranslate"><span class="pre">sprintf()</span></code>-style format string to be applied
-to the right argument, and returns the string resulting from this formatting
-operation. For example:</p>
+<p>The % operator (modulo) can also be used for string formatting. Given <code class="docutils literal notranslate"><span class="pre">'string'</span>
+<span class="pre">%</span> <span class="pre">values</span></code>, instances of <code class="docutils literal notranslate"><span class="pre">%</span></code> in <code class="docutils literal notranslate"><span class="pre">string</span></code> are replaced with zero or more
+elements of <code class="docutils literal notranslate"><span class="pre">values</span></code>. This operation is commonly known as string
+interpolation. For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The value of pi is approximately </span><span class="si">%5.3f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">The value of pi is approximately 3.142.</span>
@@ -644,7 +644,7 @@ arbitrary code, if the data was crafted by a skilled attacker.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja maj 28, 2020.
+    Ostatnia modyfikacja maj 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

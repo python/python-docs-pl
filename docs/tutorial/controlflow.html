@@ -229,14 +229,8 @@
 </pre></div>
 </div>
 <p>(Tak, to poprawny kod. Przyjrzyj się: klauzula <code class="docutils literal notranslate"><span class="pre">else</span></code> należy do pętli <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a>, <strong>nie</strong> do instrukcji <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>.)</p>
-<p>When used with a loop, the <code class="docutils literal notranslate"><span class="pre">else</span></code> clause has more in common with the
-<code class="docutils literal notranslate"><span class="pre">else</span></code> clause of a <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> statement than it does with that of
-<a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> statements: a <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> statement’s <code class="docutils literal notranslate"><span class="pre">else</span></code> clause runs
-when no exception occurs, and a loop’s <code class="docutils literal notranslate"><span class="pre">else</span></code> clause runs when no <code class="docutils literal notranslate"><span class="pre">break</span></code>
-occurs. For more on the <code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code> statement and exceptions, see
-<a class="reference internal" href="errors.html#tut-handling"><span class="std std-ref">Handling Exceptions</span></a>.</p>
-<p>The <a class="reference internal" href="../reference/simple_stmts.html#continue"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code></a> statement, also borrowed from C, continues with the next
-iteration of the loop:</p>
+<p>Gdy używasz jej z pętlą, klauzula <code class="docutils literal notranslate"><span class="pre">else</span></code> ma więcej wspólnego z klauzulą <code class="docutils literal notranslate"><span class="pre">else</span></code> instrukcji <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> niż z tą z instrukcji <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>: klauzula <code class="docutils literal notranslate"><span class="pre">else</span></code> instrukcji <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> jest uruchamiana, gdy nie zostanie zgłoszony wyjątek, a klauzula <code class="docutils literal notranslate"><span class="pre">else</span></code> pętli jest uruchamiana, gdy nie wystąpi <code class="docutils literal notranslate"><span class="pre">break</span></code>. Więcej informacji na temat instrukcji <code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code> i wyjątków znajdziesz w <a class="reference internal" href="errors.html#tut-handling"><span class="std std-ref">Handling Exceptions</span></a>.</p>
+<p>Instrukcja <a class="reference internal" href="../reference/simple_stmts.html#continue"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code></a>, również pożyczona z C, kontynuuje następną iterację pętli:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found an even number&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
@@ -255,14 +249,13 @@ iteration of the loop:</p>
 </div>
 <div class="section" id="pass-statements">
 <span id="tut-pass"></span><h2>4.5. Instrukcje <code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#pass-statements" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>The <a class="reference internal" href="../reference/simple_stmts.html#pass"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a> statement does nothing. It can be used when a statement is
-required syntactically but the program requires no action. For example:</p>
+<p>Instrukcja <a class="reference internal" href="../reference/simple_stmts.html#pass"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a> nie robi nic. Można jej użyć, gdy składnia wymaga instrukcji a program nie wymaga działania. Na przykład:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>  <span class="c1"># Busy-wait for keyboard interrupt (Ctrl+C)</span>
 <span class="gp">...</span>
 </pre></div>
 </div>
-<p>This is commonly used for creating minimal classes:</p>
+<p>Często jej się używa do tworzenia minimalnych klas:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyEmptyClass</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 <span class="gp">...</span>
@@ -1002,7 +995,7 @@ callee makes to it (items inserted into a list).</td></tr>
 <br />
     <br />
 
-    Ostatnia modyfikacja maj 28, 2020.
+    Ostatnia modyfikacja maj 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

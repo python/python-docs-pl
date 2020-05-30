@@ -127,6 +127,8 @@ but required (e.g: <code class="docutils literal notranslate"><span class="pre">
 a callback or if a ctypes callback function raises an exception,
 sys.unraisablehook is now called with an exception set. Previously, the
 error was logged into stderr by <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Print" title="PyErr_Print"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Print()</span></code></a>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue25872">bpo-25872</a>: <a class="reference internal" href="../library/linecache.html#module-linecache" title="linecache: Provides random access to individual lines from text files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> could crash with a <a class="reference internal" href="../library/exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> when
+accessed from multiple threads. Fix by Michael Graczyk.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40597">bpo-40597</a>: If text content lines are longer than policy.max_line_length,
 always use a content-encoding to make sure they are wrapped.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40515">bpo-40515</a>: The <a class="reference internal" href="../library/ssl.html#module-ssl" title="ssl: TLS/SSL wrapper for socket objects"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ssl</span></code></a> and <a class="reference internal" href="../library/hashlib.html#module-hashlib" title="hashlib: Secure hash and message digest algorithms."><code class="xref py py-mod docutils literal notranslate"><span class="pre">hashlib</span></code></a> modules now actively check
@@ -142,6 +144,8 @@ module.</li>
 members. Patch by Ethan Onstott.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue39244">bpo-39244</a>: Fixed <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.context.get_all_start_methods</span></code> to
 properly return the default method first on macOS.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue39040">bpo-39040</a>: Fix parsing of invalid mime headers parameters by collapsing
+whitespace between encoded words in a bare-quote-string.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue35714">bpo-35714</a>: <a class="reference internal" href="../library/struct.html#struct.error" title="struct.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">struct.error</span></code></a> is now raised if there is a null character
 in a <a class="reference internal" href="../library/struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> format string.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue36290">bpo-36290</a>: AST nodes are now raising <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> on conflicting
@@ -179,6 +183,8 @@ families to ValueError as it’s not coming from Windows API.</li>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue39885">bpo-39885</a>: Make context menu Cut and Copy work again when right-clicking
+within a selection.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40723">bpo-40723</a>: Make test_idle pass when run after import.</li>
 </ul>
 </div>
@@ -19091,7 +19097,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja maj 28, 2020.
+    Ostatnia modyfikacja maj 30, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
