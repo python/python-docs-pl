@@ -127,6 +127,8 @@ but required (e.g: <code class="docutils literal notranslate"><span class="pre">
 a callback or if a ctypes callback function raises an exception,
 sys.unraisablehook is now called with an exception set. Previously, the
 error was logged into stderr by <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Print" title="PyErr_Print"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Print()</span></code></a>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue30008">bpo-30008</a>: Fix <a class="reference internal" href="../library/ssl.html#module-ssl" title="ssl: TLS/SSL wrapper for socket objects"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ssl</span></code></a> code to be compatible with OpenSSL 1.1.x builds
+that use <code class="docutils literal notranslate"><span class="pre">no-deprecated</span></code> and <code class="docutils literal notranslate"><span class="pre">--api=1.1.0</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25872">bpo-25872</a>: <a class="reference internal" href="../library/linecache.html#module-linecache" title="linecache: Provides random access to individual lines from text files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> could crash with a <a class="reference internal" href="../library/exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> when
 accessed from multiple threads. Fix by Michael Graczyk.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40597">bpo-40597</a>: If text content lines are longer than policy.max_line_length,
@@ -19097,7 +19099,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 01, 2020.
+    Ostatnia modyfikacja cze 02, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
