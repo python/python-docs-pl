@@ -116,6 +116,9 @@ guard against header injection attacks.</li>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40826">bpo-40826</a>: Fix GIL usage in <code class="xref c c-func docutils literal notranslate"><span class="pre">PyOS_Readline()</span></code>: lock the GIL to set
+an exception and pass the Python thread state when checking if there is a
+pending signal.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40663">bpo-40663</a>: Correctly generate annotations where parentheses are omitted
 but required (e.g: <code class="docutils literal notranslate"><span class="pre">Type[(str,</span> <span class="pre">int,</span> <span class="pre">*other))]</span></code>.</li>
 </ul>
@@ -123,6 +126,9 @@ but required (e.g: <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40767">bpo-40767</a>: <a class="reference internal" href="../library/webbrowser.html#module-webbrowser" title="webbrowser: Easy-to-use controller for Web browsers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">webbrowser</span></code></a> now properly finds the default browser in
+pure Wayland systems by checking the WAYLAND_DISPLAY environment variable.
+Patch contributed by Jérémy Attali.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40795">bpo-40795</a>: <a class="reference internal" href="../library/ctypes.html#module-ctypes" title="ctypes: A foreign function library for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code></a> module: If ctypes fails to convert the result of
 a callback or if a ctypes callback function raises an exception,
 sys.unraisablehook is now called with an exception set. Previously, the
@@ -19099,7 +19105,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 03, 2020.
+    Ostatnia modyfikacja cze 04, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
