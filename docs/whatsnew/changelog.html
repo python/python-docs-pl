@@ -116,6 +116,9 @@ guard against header injection attacks.</li>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40870">bpo-40870</a>: Raise <a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> when validating custom AST’s where the
+constants <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">None</span></code> are used within a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ast.Name</span></code> node.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40826">bpo-40826</a>: Fix GIL usage in <code class="xref c c-func docutils literal notranslate"><span class="pre">PyOS_Readline()</span></code>: lock the GIL to set
 an exception and pass the Python thread state when checking if there is a
 pending signal.</li>
@@ -126,6 +129,8 @@ but required (e.g: <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40807">bpo-40807</a>: Stop codeop._maybe_compile, used by code.InteractiveInterpreter
+(and IDLE). from from emitting each warning three times.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40767">bpo-40767</a>: <a class="reference internal" href="../library/webbrowser.html#module-webbrowser" title="webbrowser: Easy-to-use controller for Web browsers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">webbrowser</span></code></a> now properly finds the default browser in
 pure Wayland systems by checking the WAYLAND_DISPLAY environment variable.
 Patch contributed by Jérémy Attali.</li>
@@ -135,6 +140,8 @@ sys.unraisablehook is now called with an exception set. Previously, the
 error was logged into stderr by <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Print" title="PyErr_Print"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Print()</span></code></a>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30008">bpo-30008</a>: Fix <a class="reference internal" href="../library/ssl.html#module-ssl" title="ssl: TLS/SSL wrapper for socket objects"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ssl</span></code></a> code to be compatible with OpenSSL 1.1.x builds
 that use <code class="docutils literal notranslate"><span class="pre">no-deprecated</span></code> and <code class="docutils literal notranslate"><span class="pre">--api=1.1.0</span></code>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue40614">bpo-40614</a>: <a class="reference internal" href="../library/ast.html#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a> will not parse self documenting expressions
+in f-strings when passed <code class="docutils literal notranslate"><span class="pre">feature_version</span></code> is less than <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">8)</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25872">bpo-25872</a>: <a class="reference internal" href="../library/linecache.html#module-linecache" title="linecache: Provides random access to individual lines from text files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> could crash with a <a class="reference internal" href="../library/exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> when
 accessed from multiple threads. Fix by Michael Graczyk.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40597">bpo-40597</a>: If text content lines are longer than policy.max_line_length,
@@ -19105,7 +19112,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 06, 2020.
+    Ostatnia modyfikacja cze 07, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
