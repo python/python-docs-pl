@@ -624,11 +624,13 @@ any format-specific extension. <em>format</em> is the archive format: one of
 <a class="reference internal" href="zlib.html#module-zlib" title="zlib: Low-level interface to compression and decompression routines compatible with gzip."><code class="xref py py-mod docutils literal notranslate"><span class="pre">zlib</span></code></a> module is available), „bztar” (if the <a class="reference internal" href="bz2.html#module-bz2" title="bz2: Interfaces for bzip2 compression and decompression."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code></a> module is
 available), or „xztar” (if the <a class="reference internal" href="lzma.html#module-lzma" title="lzma: A Python wrapper for the liblzma compression library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">lzma</span></code></a> module is available).</p>
 <p><em>root_dir</em> is a directory that will be the root directory of the
-archive; for example, we typically chdir into <em>root_dir</em> before creating the
-archive.</p>
+archive, all paths in the archive will be relative to it; for example,
+we typically chdir into <em>root_dir</em> before creating the archive.</p>
 <p><em>base_dir</em> is the directory where we start archiving from;
 i.e. <em>base_dir</em> will be the common prefix of all files and
-directories in the archive.</p>
+directories in the archive.  <em>base_dir</em> must be given relative
+to <em>root_dir</em>.  See <a class="reference internal" href="#shutil-archiving-example-with-basedir"><span class="std std-ref">Archiving example with base_dir</span></a> for how to
+use <em>base_dir</em> and <em>root_dir</em> together.</p>
 <p><em>root_dir</em> and <em>base_dir</em> both default to the current directory.</p>
 <p>If <em>dry_run</em> is true, no archive is created, but the operations that would be
 executed are logged to <em>logger</em>.</p>
@@ -765,6 +767,41 @@ found in the <code class="file docutils literal notranslate"><span class="pre">.
 </pre></div>
 </div>
 </div>
+<div class="section" id="archiving-example-with-base-dir">
+<span id="shutil-archiving-example-with-basedir"></span><h3>Archiving example with <em>base_dir</em><a class="headerlink" href="#archiving-example-with-base-dir" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>In this example, similar to the <a class="reference internal" href="#shutil-archiving-example">one above</a>,
+we show how to use <a class="reference internal" href="#shutil.make_archive" title="shutil.make_archive"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_archive()</span></code></a>, but this time with the usage of
+<em>base_dir</em>.  We now have the following directory structure:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> tree tmp
+<span class="go">tmp</span>
+<span class="go">└── root</span>
+<span class="go">    └── structure</span>
+<span class="go">        ├── content</span>
+<span class="go">            └── please_add.txt</span>
+<span class="go">        └── do_not_add.txt</span>
+</pre></div>
+</div>
+<p>In the final archive, <code class="file docutils literal notranslate"><span class="pre">please_add.txt</span></code> should be included, but
+<code class="file docutils literal notranslate"><span class="pre">do_not_add.txt</span></code> should not.  Therefore we use the following:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">make_archive</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">archive_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;myarchive&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">make_archive</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">archive_name</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;tar&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">root_dir</span><span class="o">=</span><span class="s1">&#39;tmp/root&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">base_dir</span><span class="o">=</span><span class="s1">&#39;structure/content&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">&#39;/Users/tarek/my_archive.tar&#39;</span>
+</pre></div>
+</div>
+<p>Listing the files in the resulting archive gives us:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m tarfile -l /Users/tarek/myarchive.tar
+<span class="go">structure/content/</span>
+<span class="go">structure/content/please_add.txt</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="querying-the-size-of-the-output-terminal">
 <h2>Querying the size of the output terminal<a class="headerlink" href="#querying-the-size-of-the-output-terminal" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -811,6 +848,7 @@ size used by many terminal emulators.</p>
 </li>
 <li><a class="reference internal" href="#archiving-operations">Archiving operations</a><ul>
 <li><a class="reference internal" href="#archiving-example">Archiving example</a></li>
+<li><a class="reference internal" href="#archiving-example-with-base-dir">Archiving example with <em>base_dir</em></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#querying-the-size-of-the-output-terminal">Querying the size of the output terminal</a></li>
@@ -892,7 +930,7 @@ size used by many terminal emulators.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 08, 2020.
+    Ostatnia modyfikacja cze 09, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
