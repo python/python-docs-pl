@@ -142,6 +142,9 @@ error was logged into stderr by <a class="reference internal" href="../c-api/exc
 that use <code class="docutils literal notranslate"><span class="pre">no-deprecated</span></code> and <code class="docutils literal notranslate"><span class="pre">--api=1.1.0</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40614">bpo-40614</a>: <a class="reference internal" href="../library/ast.html#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a> will not parse self documenting expressions
 in f-strings when passed <code class="docutils literal notranslate"><span class="pre">feature_version</span></code> is less than <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">8)</span></code>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue40626">bpo-40626</a>: Add h5 file extension as MIME Type application/x-hdf5, as per
+HDF Group recommendation for HDF5 formatted data files. Patch contributed
+by Mark Schwab.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25872">bpo-25872</a>: <a class="reference internal" href="../library/linecache.html#module-linecache" title="linecache: Provides random access to individual lines from text files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> could crash with a <a class="reference internal" href="../library/exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> when
 accessed from multiple threads. Fix by Michael Graczyk.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40597">bpo-40597</a>: If text content lines are longer than policy.max_line_length,
@@ -165,6 +168,10 @@ whitespace between encoded words in a bare-quote-string.</li>
 in a <a class="reference internal" href="../library/struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> format string.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue36290">bpo-36290</a>: AST nodes are now raising <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> on conflicting
 keyword arguments. Patch contributed by Rémi Lapeyre.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue29620">bpo-29620</a>: <a class="reference internal" href="../library/unittest.html#unittest.TestCase.assertWarns" title="unittest.TestCase.assertWarns"><code class="xref py py-func docutils literal notranslate"><span class="pre">assertWarns()</span></code></a> no longer raises a
+<code class="docutils literal notranslate"><span class="pre">RuntimeException</span></code> when accessing a module’s <code class="docutils literal notranslate"><span class="pre">__warningregistry__</span></code>
+causes importation of a new module, or when a new module is imported in
+another thread. Patch by Kernc.</li>
 </ul>
 </div>
 <div class="section" id="tests">
@@ -173,6 +180,7 @@ keyword arguments. Patch contributed by Rémi Lapeyre.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40055">bpo-40055</a>: distutils.tests now saves/restores warnings filters to leave
 them unchanged. Importing tests imports docutils which imports
 pkg_resources which adds a warnings filter.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue34401">bpo-34401</a>: Make test_gdb properly run on HP-UX. Patch by Michael Osipov.</li>
 </ul>
 </div>
 <div class="section" id="build">
@@ -19119,7 +19127,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 11, 2020.
+    Ostatnia modyfikacja cze 12, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
