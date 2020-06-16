@@ -33,7 +33,7 @@ def fetch():
     if os.getenv('GITHUB_ACTIONS'):
         call(f'tx pull -l {lang} --minimum-perc=1 --force', shell=True)
     else:
-        call(f'tx pull -l {lang} --minimum-perc=25', shell=True)
+        call(f'tx pull -l {lang} --minimum-perc=1', shell=True)
     for root, _, po_files in os.walk('.'):
         for po_file in po_files:
             if not po_file.endswith(".po"):
