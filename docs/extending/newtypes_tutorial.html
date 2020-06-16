@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. Defining Extension Types: Tutorial &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>2. Defining Extension Types: Tutorial &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -123,8 +122,8 @@ object.</p>
 complete, module that defines a new type named <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> inside a C
 extension module <code class="xref py py-mod docutils literal notranslate"><span class="pre">custom</span></code>:</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">What we’re showing here is the traditional way of defining <em>static</em>
+<p class="admonition-title">Informacja</p>
+<p>What we’re showing here is the traditional way of defining <em>static</em>
 extension types.  It should be adequate for most uses.  The C API also
 allows defining heap-allocated extension types using the
 <a class="reference internal" href="../c-api/type.html#c.PyType_FromSpec" title="PyType_FromSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromSpec()</span></code></a> function, which isn’t covered in this tutorial.</p>
@@ -179,13 +178,13 @@ allows defining heap-allocated extension types using the
 <p>Now that’s quite a bit to take in at once, but hopefully bits will seem familiar
 from the previous chapter.  This file defines three things:</p>
 <ol class="arabic simple">
-<li>What a <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> <strong>object</strong> contains: this is the <code class="docutils literal notranslate"><span class="pre">CustomObject</span></code>
-struct, which is allocated once for each <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> instance.</li>
-<li>How the <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> <strong>type</strong> behaves: this is the <code class="docutils literal notranslate"><span class="pre">CustomType</span></code> struct,
+<li><p>What a <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> <strong>object</strong> contains: this is the <code class="docutils literal notranslate"><span class="pre">CustomObject</span></code>
+struct, which is allocated once for each <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> instance.</p></li>
+<li><p>How the <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> <strong>type</strong> behaves: this is the <code class="docutils literal notranslate"><span class="pre">CustomType</span></code> struct,
 which defines a set of flags and function pointers that the interpreter
-inspects when specific operations are requested.</li>
-<li>How to initialize the <code class="xref py py-mod docutils literal notranslate"><span class="pre">custom</span></code> module: this is the <code class="docutils literal notranslate"><span class="pre">PyInit_custom</span></code>
-function and the associated <code class="docutils literal notranslate"><span class="pre">custommodule</span></code> struct.</li>
+inspects when specific operations are requested.</p></li>
+<li><p>How to initialize the <code class="xref py py-mod docutils literal notranslate"><span class="pre">custom</span></code> module: this is the <code class="docutils literal notranslate"><span class="pre">PyInit_custom</span></code>
+function and the associated <code class="docutils literal notranslate"><span class="pre">custommodule</span></code> struct.</p></li>
 </ol>
 <p>The first bit is:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
@@ -200,8 +199,8 @@ reference count (these can be accessed using the macros <a class="reference inte
 and <a class="reference internal" href="../c-api/structures.html#c.Py_TYPE" title="Py_TYPE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TYPE</span></code></a> respectively).  The reason for the macro is to
 abstract away the layout and to enable additional fields in debug builds.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">There is no semicolon above after the <a class="reference internal" href="../c-api/structures.html#c.PyObject_HEAD" title="PyObject_HEAD"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyObject_HEAD</span></code></a> macro.
+<p class="admonition-title">Informacja</p>
+<p>There is no semicolon above after the <a class="reference internal" href="../c-api/structures.html#c.PyObject_HEAD" title="PyObject_HEAD"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyObject_HEAD</span></code></a> macro.
 Be wary of adding one by accident: some compilers will complain.</p>
 </div>
 <p>Of course, objects generally store additional data besides the standard
@@ -226,8 +225,8 @@ standard Python floats:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">We recommend using C99-style designated initializers as above, to
+<p class="admonition-title">Informacja</p>
+<p>We recommend using C99-style designated initializers as above, to
 avoid listing all the <a class="reference internal" href="../c-api/type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> fields that you don’t care
 about and also to avoid caring about the fields» declaration order.</p>
 </div>
@@ -265,8 +264,8 @@ with the <a class="reference internal" href="../library/pydoc.html#module-pydoc"
 new <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> instances.  <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_itemsize" title="PyTypeObject.tp_itemsize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_itemsize</span></code></a> is
 only used for variable-sized objects and should otherwise be zero.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">If you want your type to be subclassable from Python, and your type has the same
+<p class="admonition-title">Informacja</p>
+<p>If you want your type to be subclassable from Python, and your type has the same
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_basicsize" title="PyTypeObject.tp_basicsize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_basicsize</span></code></a> as its base type, you may have problems with multiple
 inheritance.  A Python subclass of your type will have to list your type first
 in its <a class="reference internal" href="../library/stdtypes.html#class.__bases__" title="class.__bases__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__bases__</span></code></a>, or else it will not be able to call your type’s
@@ -335,8 +334,8 @@ play around with Custom objects.</p>
 <p>Of course, the current Custom type is pretty uninteresting. It has no data and
 doesn’t do anything. It can’t even be subclassed.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">While this documentation showcases the standard <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> module
+<p class="admonition-title">Informacja</p>
+<p>While this documentation showcases the standard <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> module
 for building C extensions, it is recommended in real-world use cases to
 use the newer and better-maintained <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> library.  Documentation
 on how to do this is out of scope for this document and can be found in
@@ -530,8 +529,8 @@ calls the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObje
 the object’s type might not be <code class="xref py py-class docutils literal notranslate"><span class="pre">CustomType</span></code>, because the object may
 be an instance of a subclass.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">The explicit cast to <code class="docutils literal notranslate"><span class="pre">destructor</span></code> above is needed because we defined
+<p class="admonition-title">Informacja</p>
+<p>The explicit cast to <code class="docutils literal notranslate"><span class="pre">destructor</span></code> above is needed because we defined
 <code class="docutils literal notranslate"><span class="pre">Custom_dealloc</span></code> to take a <code class="docutils literal notranslate"><span class="pre">CustomObject</span> <span class="pre">*</span></code> argument, but the <code class="docutils literal notranslate"><span class="pre">tp_dealloc</span></code>
 function pointer expects to receive a <code class="docutils literal notranslate"><span class="pre">PyObject</span> <span class="pre">*</span></code> argument.  Otherwise,
 the compiler will emit a warning.  This is object-oriented polymorphism,
@@ -579,8 +578,8 @@ always accept positional and keyword arguments, but they often ignore the
 arguments, leaving the argument handling to initializer (a.k.a. <code class="docutils literal notranslate"><span class="pre">tp_init</span></code>
 in C or <code class="docutils literal notranslate"><span class="pre">__init__</span></code> in Python) methods.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">tp_new</span></code> shouldn’t call <code class="docutils literal notranslate"><span class="pre">tp_init</span></code> explicitly, as the interpreter
+<p class="admonition-title">Informacja</p>
+<p><code class="docutils literal notranslate"><span class="pre">tp_new</span></code> shouldn’t call <code class="docutils literal notranslate"><span class="pre">tp_init</span></code> explicitly, as the interpreter
 will do it itself.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">tp_new</span></code> implementation calls the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a>
@@ -591,15 +590,15 @@ slot to allocate memory:</p>
 <p>Since memory allocation may fail, we must check the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a>
 result against <code class="docutils literal notranslate"><span class="pre">NULL</span></code> before proceeding.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">We didn’t fill the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a> slot ourselves. Rather
+<p class="admonition-title">Informacja</p>
+<p>We didn’t fill the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a> slot ourselves. Rather
 <a class="reference internal" href="../c-api/type.html#c.PyType_Ready" title="PyType_Ready"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_Ready()</span></code></a> fills it for us by inheriting it from our base class,
 which is <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> by default.  Most types use the default allocation
 strategy.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">If you are creating a co-operative <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> (one
+<p class="admonition-title">Informacja</p>
+<p>If you are creating a co-operative <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> (one
 that calls a base type’s <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__new__" title="object.__new__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a>),
 you must <em>not</em> try to determine what method to call using method resolution
 order at runtime.  Always statically determine what type you are going to
@@ -670,11 +669,11 @@ threads that accesses and modifies our object.</p>
 always reassign members before decrementing their reference counts.  When
 don’t we have to do this?</p>
 <ul class="simple">
-<li>when we absolutely know that the reference count is greater than 1;</li>
-<li>when we know that deallocation of the object <a class="footnote-reference" href="#id5" id="id1">[1]</a> will neither release
-the <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a> nor cause any calls back into our type’s code;</li>
-<li>when decrementing a reference count in a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>
-handler on a type which doesn’t support cyclic garbage collection <a class="footnote-reference" href="#id6" id="id2">[2]</a>.</li>
+<li><p>when we absolutely know that the reference count is greater than 1;</p></li>
+<li><p>when we know that deallocation of the object <a class="footnote-reference brackets" href="#id5" id="id1">1</a> will neither release
+the <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a> nor cause any calls back into our type’s code;</p></li>
+<li><p>when decrementing a reference count in a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>
+handler on a type which doesn’t support cyclic garbage collection <a class="footnote-reference brackets" href="#id6" id="id2">2</a>.</p></li>
 </ul>
 <p>We want to expose our instance variables as attributes. There are a
 number of ways to do that. The simplest way is to define member definitions:</p>
@@ -1033,7 +1032,7 @@ above.  In this case, we aren’t using a closure, so we just pass <code class="
 </pre></div>
 </div>
 <p>We also need to update the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_init" title="PyTypeObject.tp_init"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_init</span></code></a> handler to only
-allow strings <a class="footnote-reference" href="#id7" id="id3">[3]</a> to be passed:</p>
+allow strings <a class="footnote-reference brackets" href="#id7" id="id3">3</a> to be passed:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span>
 <span class="nf">Custom_init</span><span class="p">(</span><span class="n">CustomObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1086,7 +1085,7 @@ still has a reference from itself. Its reference count doesn’t drop to zero.
 Fortunately, Python’s cyclic garbage collector will eventually figure out that
 the list is garbage and free it.</p>
 <p>In the second version of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> example, we allowed any kind of
-object to be stored in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">first</span></code> or <code class="xref py py-attr docutils literal notranslate"><span class="pre">last</span></code> attributes <a class="footnote-reference" href="#id8" id="id4">[4]</a>.
+object to be stored in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">first</span></code> or <code class="xref py py-attr docutils literal notranslate"><span class="pre">last</span></code> attributes <a class="footnote-reference brackets" href="#id8" id="id4">4</a>.
 Besides, in the second and third versions, we allowed subclassing
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code>, and subclasses may add arbitrary attributes.  For any of
 those two reasons, <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> objects can participate in cycles:</p>
@@ -1343,8 +1342,8 @@ in <code class="docutils literal notranslate"><span class="pre">Custom_traverse<
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">The <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> implementation must name its
+<p class="admonition-title">Informacja</p>
+<p>The <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> implementation must name its
 arguments exactly <em>visit</em> and <em>arg</em> in order to use <a class="reference internal" href="../c-api/gcsupport.html#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a>.</p>
 </div>
 <p>Second, we need to provide a method for clearing any subobjects that can
@@ -1365,7 +1364,7 @@ on the attribute before setting it to <code class="docutils literal notranslate"
 that the attribute’s destructor would call back into code that reads the
 attribute again (<em>especially</em> if there is a reference cycle).</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>You could emulate <a class="reference internal" href="../c-api/refcounting.html#c.Py_CLEAR" title="Py_CLEAR"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_CLEAR()</span></code></a> by writing:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 <span class="n">tmp</span> <span class="o">=</span> <span class="n">self</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span>
@@ -1373,7 +1372,7 @@ attribute again (<em>especially</em> if there is a reference cycle).</p>
 <span class="n">Py_XDECREF</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
 </pre></div>
 </div>
-<p class="last">Nevertheless, it is much easier and less error-prone to always
+<p>Nevertheless, it is much easier and less error-prone to always
 use <a class="reference internal" href="../c-api/refcounting.html#c.Py_CLEAR" title="Py_CLEAR"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_CLEAR()</span></code></a> when deleting an attribute.  Don’t
 try to micro-optimize at the expense of robustness!</p>
 </div>
@@ -1558,38 +1557,28 @@ type will be inherited.</p>
 <p>After that, calling <a class="reference internal" href="../c-api/type.html#c.PyType_Ready" title="PyType_Ready"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_Ready()</span></code></a> and adding the type object to the
 module is the same as with the basic <code class="xref py py-class docutils literal notranslate"><span class="pre">Custom</span></code> examples.</p>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This is true when we know that the object is a basic type, like a string or a
-float.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>We relied on this in the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> handler
-in this example, because our type doesn’t support garbage collection.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>We now know that the first and last members are strings, so perhaps we
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This is true when we know that the object is a basic type, like a string or a
+float.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>We relied on this in the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> handler
+in this example, because our type doesn’t support garbage collection.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>We now know that the first and last members are strings, so perhaps we
 could be less careful about decrementing their reference counts, however,
 we accept instances of string subclasses.  Even though deallocating normal
 strings won’t call back into our objects, we can’t guarantee that deallocating
-an instance of a string subclass won’t call back into our objects.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Also, even with our attributes restricted to strings instances, the user
+an instance of a string subclass won’t call back into our objects.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Also, even with our attributes restricted to strings instances, the user
 could pass arbitrary <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> subclasses and therefore still create
-reference cycles.</td></tr>
-</tbody>
-</table>
+reference cycles.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -1599,7 +1588,7 @@ reference cycles.</td></tr>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">2. Defining Extension Types: Tutorial</a><ul>
 <li><a class="reference internal" href="#the-basics">2.1. The Basics</a></li>
@@ -1622,7 +1611,7 @@ reference cycles.</td></tr>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/extending/newtypes_tutorial.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/extending/newtypes_tutorial.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1654,7 +1643,7 @@ reference cycles.</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -1688,7 +1677,7 @@ reference cycles.</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

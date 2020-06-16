@@ -489,16 +489,20 @@ Path objects are traversable using the ``/`` operator.
 
    The final path component.
 
-.. method:: Path.open(*, **)
+.. method:: Path.open(mode='r', *, pwd, **)
 
-   Invoke :meth:`ZipFile.open` on the current path. Accepts
-   the same arguments as :meth:`ZipFile.open`.
+   Invoke :meth:`ZipFile.open` on the current path.
+   Allows opening for read or write, text or binary
+   through supported modes: 'r', 'w', 'rb', 'wb'.
+   Positional and keyword arguments are passed through to
+   :class:`io.TextIOWrapper` when opened as text and
+   ignored otherwise.
+   ``pwd`` is the ``pwd`` parameter to
+   :meth:`ZipFile.open`.
 
-   .. caution::
-
-      The signature on this function changes in an incompatible way
-      in Python 3.9. For a future-compatible version, consider using
-      the third-party zipp.Path package (3.0 or later).
+   .. versionchanged:: 3.9
+      Added support for text and binary modes for open. Default
+      mode is now text.
 
 .. method:: Path.iterdir()
 

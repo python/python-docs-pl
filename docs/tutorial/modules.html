@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Modules &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>6. Modules &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Tutorial</a> &#187;</li>
@@ -164,7 +163,7 @@ the module name you can access the functions:</p>
 <span id="tut-moremodules"></span><h2>6.1. More on Modules<a class="headerlink" href="#more-on-modules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>A module can contain executable statements as well as function definitions.
 These statements are intended to initialize the module. They are executed only
-the <em>first</em> time the module name is encountered in an import statement. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+the <em>first</em> time the module name is encountered in an import statement. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
 (They are also run if the file is executed as a script.)</p>
 <p>Each module has its own private symbol table, which is used as the global symbol
 table by all functions defined in the module. Thus, the author of a module can
@@ -214,8 +213,8 @@ will do, with the only difference of it being available as <code class="docutils
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">For efficiency reasons, each module is only imported once per interpreter
+<p class="admonition-title">Informacja</p>
+<p>For efficiency reasons, each module is only imported once per interpreter
 session.  Therefore, if you change your modules, you must restart the
 interpreter – or, if it’s just one module you want to test interactively,
 use <a class="reference internal" href="../library/importlib.html#importlib.reload" title="importlib.reload"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>, e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span>
@@ -257,15 +256,15 @@ a built-in module with that name. If not found, it then searches for a file
 named <code class="file docutils literal notranslate"><span class="pre">spam.py</span></code> in a list of directories given by the variable
 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.  <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> is initialized from these locations:</p>
 <ul class="simple">
-<li>The directory containing the input script (or the current directory when no
-file is specified).</li>
-<li><span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> (a list of directory names, with the same syntax as the
-shell variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>).</li>
-<li>The installation-dependent default.</li>
+<li><p>The directory containing the input script (or the current directory when no
+file is specified).</p></li>
+<li><p><span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> (a list of directory names, with the same syntax as the
+shell variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>).</p></li>
+<li><p>The installation-dependent default.</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">On file systems which support symlinks, the directory containing the input
+<p class="admonition-title">Informacja</p>
+<p>On file systems which support symlinks, the directory containing the input
 script is calculated after the symlink is followed. In other words the
 directory containing the symlink is <strong>not</strong> added to the module search path.</p>
 </div>
@@ -297,20 +296,20 @@ compiled module must be in the source directory, and there must not be a source
 module.</p>
 <p>Some tips for experts:</p>
 <ul class="simple">
-<li>You can use the <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> switches on the Python command
+<li><p>You can use the <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> switches on the Python command
 to reduce the size of a compiled module.  The <code class="docutils literal notranslate"><span class="pre">-O</span></code> switch removes assert
 statements, the <code class="docutils literal notranslate"><span class="pre">-OO</span></code> switch removes both assert statements and __doc__
 strings.  Since some programs may rely on having these available, you should
 only use this option if you know what you’re doing.  „Optimized” modules have
 an <code class="docutils literal notranslate"><span class="pre">opt-</span></code> tag and are usually smaller.  Future releases may
-change the effects of optimization.</li>
-<li>A program doesn’t run any faster when it is read from a <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>
+change the effects of optimization.</p></li>
+<li><p>A program doesn’t run any faster when it is read from a <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>
 file than when it is read from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file; the only thing that’s faster
-about <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files is the speed with which they are loaded.</li>
-<li>The module <a class="reference internal" href="../library/compileall.html#module-compileall" title="compileall: Tools for byte-compiling all Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> can create .pyc files for all modules in a
-directory.</li>
-<li>There is more detail on this process, including a flow chart of the
-decisions, in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>.</li>
+about <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files is the speed with which they are loaded.</p></li>
+<li><p>The module <a class="reference internal" href="../library/compileall.html#module-compileall" title="compileall: Tools for byte-compiling all Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> can create .pyc files for all modules in a
+directory.</p></li>
+<li><p>There is more detail on this process, including a flow chart of the
+decisions, in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>.</p></li>
 </ul>
 </div>
 </div>
@@ -357,23 +356,27 @@ defines.  It returns a sorted list of strings:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">fibo</span><span class="p">)</span>
 <span class="go">[&#39;__name__&#39;, &#39;fib&#39;, &#39;fib2&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>  
-<span class="go">[&#39;__displayhook__&#39;, &#39;__doc__&#39;, &#39;__excepthook__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;,</span>
-<span class="go"> &#39;__package__&#39;, &#39;__stderr__&#39;, &#39;__stdin__&#39;, &#39;__stdout__&#39;,</span>
-<span class="go"> &#39;_clear_type_cache&#39;, &#39;_current_frames&#39;, &#39;_debugmallocstats&#39;, &#39;_getframe&#39;,</span>
-<span class="go"> &#39;_home&#39;, &#39;_mercurial&#39;, &#39;_xoptions&#39;, &#39;abiflags&#39;, &#39;api_version&#39;, &#39;argv&#39;,</span>
-<span class="go"> &#39;base_exec_prefix&#39;, &#39;base_prefix&#39;, &#39;builtin_module_names&#39;, &#39;byteorder&#39;,</span>
-<span class="go"> &#39;call_tracing&#39;, &#39;callstats&#39;, &#39;copyright&#39;, &#39;displayhook&#39;,</span>
-<span class="go"> &#39;dont_write_bytecode&#39;, &#39;exc_info&#39;, &#39;excepthook&#39;, &#39;exec_prefix&#39;,</span>
-<span class="go"> &#39;executable&#39;, &#39;exit&#39;, &#39;flags&#39;, &#39;float_info&#39;, &#39;float_repr_style&#39;,</span>
-<span class="go"> &#39;getcheckinterval&#39;, &#39;getdefaultencoding&#39;, &#39;getdlopenflags&#39;,</span>
-<span class="go"> &#39;getfilesystemencoding&#39;, &#39;getobjects&#39;, &#39;getprofile&#39;, &#39;getrecursionlimit&#39;,</span>
-<span class="go"> &#39;getrefcount&#39;, &#39;getsizeof&#39;, &#39;getswitchinterval&#39;, &#39;gettotalrefcount&#39;,</span>
+<span class="go">[&#39;__breakpointhook__&#39;, &#39;__displayhook__&#39;, &#39;__doc__&#39;, &#39;__excepthook__&#39;,</span>
+<span class="go"> &#39;__interactivehook__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;,</span>
+<span class="go"> &#39;__stderr__&#39;, &#39;__stdin__&#39;, &#39;__stdout__&#39;, &#39;__unraisablehook__&#39;,</span>
+<span class="go"> &#39;_clear_type_cache&#39;, &#39;_current_frames&#39;, &#39;_debugmallocstats&#39;, &#39;_framework&#39;,</span>
+<span class="go"> &#39;_getframe&#39;, &#39;_git&#39;, &#39;_home&#39;, &#39;_xoptions&#39;, &#39;abiflags&#39;, &#39;addaudithook&#39;,</span>
+<span class="go"> &#39;api_version&#39;, &#39;argv&#39;, &#39;audit&#39;, &#39;base_exec_prefix&#39;, &#39;base_prefix&#39;,</span>
+<span class="go"> &#39;breakpointhook&#39;, &#39;builtin_module_names&#39;, &#39;byteorder&#39;, &#39;call_tracing&#39;,</span>
+<span class="go"> &#39;callstats&#39;, &#39;copyright&#39;, &#39;displayhook&#39;, &#39;dont_write_bytecode&#39;, &#39;exc_info&#39;,</span>
+<span class="go"> &#39;excepthook&#39;, &#39;exec_prefix&#39;, &#39;executable&#39;, &#39;exit&#39;, &#39;flags&#39;, &#39;float_info&#39;,</span>
+<span class="go"> &#39;float_repr_style&#39;, &#39;get_asyncgen_hooks&#39;, &#39;get_coroutine_origin_tracking_depth&#39;,</span>
+<span class="go"> &#39;getallocatedblocks&#39;, &#39;getdefaultencoding&#39;, &#39;getdlopenflags&#39;,</span>
+<span class="go"> &#39;getfilesystemencodeerrors&#39;, &#39;getfilesystemencoding&#39;, &#39;getprofile&#39;,</span>
+<span class="go"> &#39;getrecursionlimit&#39;, &#39;getrefcount&#39;, &#39;getsizeof&#39;, &#39;getswitchinterval&#39;,</span>
 <span class="go"> &#39;gettrace&#39;, &#39;hash_info&#39;, &#39;hexversion&#39;, &#39;implementation&#39;, &#39;int_info&#39;,</span>
-<span class="go"> &#39;intern&#39;, &#39;maxsize&#39;, &#39;maxunicode&#39;, &#39;meta_path&#39;, &#39;modules&#39;, &#39;path&#39;,</span>
-<span class="go"> &#39;path_hooks&#39;, &#39;path_importer_cache&#39;, &#39;platform&#39;, &#39;prefix&#39;, &#39;ps1&#39;,</span>
-<span class="go"> &#39;setcheckinterval&#39;, &#39;setdlopenflags&#39;, &#39;setprofile&#39;, &#39;setrecursionlimit&#39;,</span>
-<span class="go"> &#39;setswitchinterval&#39;, &#39;settrace&#39;, &#39;stderr&#39;, &#39;stdin&#39;, &#39;stdout&#39;,</span>
-<span class="go"> &#39;thread_info&#39;, &#39;version&#39;, &#39;version_info&#39;, &#39;warnoptions&#39;]</span>
+<span class="go"> &#39;intern&#39;, &#39;is_finalizing&#39;, &#39;last_traceback&#39;, &#39;last_type&#39;, &#39;last_value&#39;,</span>
+<span class="go"> &#39;maxsize&#39;, &#39;maxunicode&#39;, &#39;meta_path&#39;, &#39;modules&#39;, &#39;path&#39;, &#39;path_hooks&#39;,</span>
+<span class="go"> &#39;path_importer_cache&#39;, &#39;platform&#39;, &#39;prefix&#39;, &#39;ps1&#39;, &#39;ps2&#39;, &#39;pycache_prefix&#39;,</span>
+<span class="go"> &#39;set_asyncgen_hooks&#39;, &#39;set_coroutine_origin_tracking_depth&#39;, &#39;setdlopenflags&#39;,</span>
+<span class="go"> &#39;setprofile&#39;, &#39;setrecursionlimit&#39;, &#39;setswitchinterval&#39;, &#39;settrace&#39;, &#39;stderr&#39;,</span>
+<span class="go"> &#39;stdin&#39;, &#39;stdout&#39;, &#39;thread_info&#39;, &#39;unraisablehook&#39;, &#39;version&#39;, &#39;version_info&#39;,</span>
+<span class="go"> &#39;warnoptions&#39;]</span>
 </pre></div>
 </div>
 <p>Without arguments, <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> lists the names you have defined currently:</p>
@@ -588,14 +591,13 @@ subpackages contained in the package.</p>
 <p>While this feature is not often needed, it can be used to extend the set of
 modules found in a package.</p>
 <p class="rubric">Przypisy</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In fact function definitions are also «statements» that are «executed»; the
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>In fact function definitions are also «statements» that are «executed»; the
 execution of a module-level function definition enters the function name in
-the module’s global symbol table.</td></tr>
-</tbody>
-</table>
+the module’s global symbol table.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -606,7 +608,7 @@ the module’s global symbol table.</td></tr>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">6. Modules</a><ul>
 <li><a class="reference internal" href="#more-on-modules">6.1. More on Modules</a><ul>
@@ -616,7 +618,7 @@ the module’s global symbol table.</td></tr>
 </ul>
 </li>
 <li><a class="reference internal" href="#standard-modules">6.2. Standard Modules</a></li>
-<li><a class="reference internal" href="#the-dir-function">6.3. The <code class="docutils literal notranslate"><span class="pre">dir()</span></code> Function</a></li>
+<li><a class="reference internal" href="#the-dir-function">6.3. The <code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code> Function</a></li>
 <li><a class="reference internal" href="#packages">6.4. Packages</a><ul>
 <li><a class="reference internal" href="#importing-from-a-package">6.4.1. Importing * From a Package</a></li>
 <li><a class="reference internal" href="#intra-package-references">6.4.2. Intra-package References</a></li>
@@ -638,7 +640,7 @@ the module’s global symbol table.</td></tr>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/tutorial/modules.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/modules.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -670,7 +672,7 @@ the module’s global symbol table.</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Tutorial</a> &#187;</li>
@@ -704,7 +706,7 @@ the module’s global symbol table.</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

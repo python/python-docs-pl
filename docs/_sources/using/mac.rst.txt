@@ -25,7 +25,7 @@ there.
 
 What you get after installing is a number of things:
 
-* A :file:`Python 3.8` folder in your :file:`Applications` folder. In here
+* A :file:`Python 3.9` folder in your :file:`Applications` folder. In here
   you find IDLE, the development environment that is a standard part of official
   Python distributions; and PythonLauncher, which handles double-clicking Python
   scripts from the Finder.
@@ -92,7 +92,7 @@ aware of: programs that talk to the Aqua window manager (in other words,
 anything that has a GUI) need to be run in a special way. Use :program:`pythonw`
 instead of :program:`python` to start such scripts.
 
-With Python 3.8, you can use either :program:`python` or :program:`pythonw`.
+With Python 3.9, you can use either :program:`python` or :program:`pythonw`.
 
 
 Configuration

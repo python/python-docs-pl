@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Reference Counting &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Reference Counting &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
@@ -106,28 +105,28 @@
 objects.</p>
 <dl class="function">
 <dt id="c.Py_INCREF">
-void <code class="descname">Py_INCREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_INCREF" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="sig-name descname">Py_INCREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_INCREF" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Increment the reference count for object <em>o</em>.  The object must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>; if
 you aren’t sure that it isn’t <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, use <a class="reference internal" href="#c.Py_XINCREF" title="Py_XINCREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_XINCREF()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_XINCREF">
-void <code class="descname">Py_XINCREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_XINCREF" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="sig-name descname">Py_XINCREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_XINCREF" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Increment the reference count for object <em>o</em>.  The object may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, in
 which case the macro has no effect.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.Py_DECREF">
-void <code class="descname">Py_DECREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_DECREF" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="sig-name descname">Py_DECREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_DECREF" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Decrement the reference count for object <em>o</em>.  The object must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>; if
 you aren’t sure that it isn’t <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, use <a class="reference internal" href="#c.Py_XDECREF" title="Py_XDECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_XDECREF()</span></code></a>.  If the reference
 count reaches zero, the object’s type’s deallocation function (which must not be
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>) is invoked.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Ostrzeżenie</p>
-<p class="last">The deallocation function can cause arbitrary Python code to be invoked (e.g.
+<p class="admonition-title">Ostrzeżenie</p>
+<p>The deallocation function can cause arbitrary Python code to be invoked (e.g.
 when a class instance with a <a class="reference internal" href="../reference/datamodel.html#object.__del__" title="object.__del__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code></a> method is deallocated).  While
 exceptions in such code are not propagated, the executed code has free access to
 all Python global variables.  This means that any object that is reachable from
@@ -140,7 +139,7 @@ structure, and then call <a class="reference internal" href="#c.Py_DECREF" title
 
 <dl class="function">
 <dt id="c.Py_XDECREF">
-void <code class="descname">Py_XDECREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_XDECREF" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="sig-name descname">Py_XDECREF</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_XDECREF" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Decrement the reference count for object <em>o</em>.  The object may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, in
 which case the macro has no effect; otherwise the effect is the same as for
 <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>, and the same warning applies.</p>
@@ -148,7 +147,7 @@ which case the macro has no effect; otherwise the effect is the same as for
 
 <dl class="function">
 <dt id="c.Py_CLEAR">
-void <code class="descname">Py_CLEAR</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_CLEAR" title="Stały odnośnik do tej definicji">¶</a></dt>
+void <code class="sig-name descname">Py_CLEAR</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_CLEAR" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Decrement the reference count for object <em>o</em>.  The object may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, in
 which case the macro has no effect; otherwise the effect is the same as for
 <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>, except that the argument is also set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  The warning
@@ -185,7 +184,7 @@ as well as the global variable <code class="xref c c-data docutils literal notra
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/refcounting.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/refcounting.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -217,7 +216,7 @@ as well as the global variable <code class="xref c c-data docutils literal notra
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -251,7 +250,7 @@ as well as the global variable <code class="xref c c-data docutils literal notra
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

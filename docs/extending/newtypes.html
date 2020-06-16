@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>3. Defining Extension Types: Assorted Topics &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>3. Defining Extension Types: Assorted Topics &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -258,7 +257,7 @@ done.  This can be done using the <a class="reference internal" href="../c-api/e
         <span class="cm">/* This saves the current exception state */</span>
         <span class="n">PyErr_Fetch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">err_type</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">err_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">err_traceback</span><span class="p">);</span>
 
-        <span class="n">cbresult</span> <span class="o">=</span> <span class="n">PyObject_CallObject</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+        <span class="n">cbresult</span> <span class="o">=</span> <span class="n">PyObject_CallNoArgs</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">cbresult</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
             <span class="n">PyErr_WriteUnraisable</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">my_callback</span><span class="p">);</span>
         <span class="k">else</span>
@@ -274,7 +273,7 @@ done.  This can be done using the <a class="reference internal" href="../c-api/e
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>There are limitations to what you can safely do in a deallocator function.
 First, if your type supports garbage collection (using <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a>
 and/or <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a>), some of the object’s members can have been
@@ -286,9 +285,9 @@ double free and a crash.</p>
 <p>Starting with Python 3.4, it is recommended not to put any complex
 finalization code in <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>, and instead use the new
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> type method.</p>
-<div class="last admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0442"><strong>PEP 442</strong></a> explains the new finalization scheme.</p>
+<div class="admonition seealso">
+<p class="admonition-title">Zobacz także</p>
+<p><span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0442"><strong>PEP 442</strong></a> explains the new finalization scheme.</p>
 </div>
 </div>
 </div>
@@ -361,10 +360,10 @@ not been updated to use some of the new generic mechanism that is available.</p>
 <p>Most extension types only use <em>simple</em> attributes.  So, what makes the
 attributes simple?  There are only a couple of conditions that must be met:</p>
 <ol class="arabic simple">
-<li>The name of the attributes must be known when <a class="reference internal" href="../c-api/type.html#c.PyType_Ready" title="PyType_Ready"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_Ready()</span></code></a> is
-called.</li>
-<li>No special processing is needed to record that an attribute was looked up or
-set, nor do actions need to be taken based on the value.</li>
+<li><p>The name of the attributes must be known when <a class="reference internal" href="../c-api/type.html#c.PyType_Ready" title="PyType_Ready"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_Ready()</span></code></a> is
+called.</p></li>
+<li><p>No special processing is needed to record that an attribute was looked up or
+set, nor do actions need to be taken based on the value.</p></li>
 </ol>
 <p>Note that this list does not place any restrictions on the values of the
 attributes, when the values are computed, or how relevant data is stored.</p>
@@ -416,28 +415,28 @@ convert Python values to and from C values.  The <code class="xref py py-attr do
 store flags which control how the attribute can be accessed.</p>
 <p>The following flag constants are defined in <code class="file docutils literal notranslate"><span class="pre">structmember.h</span></code>; they may be
 combined using bitwise-OR.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="37%" />
-<col width="63%" />
+<col style="width: 37%" />
+<col style="width: 63%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Constant</th>
-<th class="head">Meaning</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Constant</p></th>
+<th class="head"><p>Meaning</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">READONLY</span></code></td>
-<td>Never writable.</td>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">READONLY</span></code></p></td>
+<td><p>Never writable.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">READ_RESTRICTED</span></code></td>
-<td>Not readable in restricted mode.</td>
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">READ_RESTRICTED</span></code></p></td>
+<td><p>Not readable in restricted mode.</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">WRITE_RESTRICTED</span></code></td>
-<td>Not writable in restricted mode.</td>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">WRITE_RESTRICTED</span></code></p></td>
+<td><p>Not writable in restricted mode.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">RESTRICTED</span></code></td>
-<td>Not readable or writable in restricted mode.</td>
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">RESTRICTED</span></code></p></td>
+<td><p>Not readable or writable in restricted mode.</p></td>
 </tr>
 </tbody>
 </table>
@@ -590,15 +589,15 @@ example, if <code class="docutils literal notranslate"><span class="pre">obj1</s
 contains <code class="docutils literal notranslate"><span class="pre">obj1('hello')</span></code>, the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_call" title="PyTypeObject.tp_call"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_call</span></code></a> handler is invoked.</p>
 <p>This function takes three arguments:</p>
 <ol class="arabic simple">
-<li><em>self</em> is the instance of the data type which is the subject of the call.
-If the call is <code class="docutils literal notranslate"><span class="pre">obj1('hello')</span></code>, then <em>self</em> is <code class="docutils literal notranslate"><span class="pre">obj1</span></code>.</li>
-<li><em>args</em> is a tuple containing the arguments to the call.  You can use
-<a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a> to extract the arguments.</li>
-<li><em>kwds</em> is a dictionary of keyword arguments that were passed. If this is
+<li><p><em>self</em> is the instance of the data type which is the subject of the call.
+If the call is <code class="docutils literal notranslate"><span class="pre">obj1('hello')</span></code>, then <em>self</em> is <code class="docutils literal notranslate"><span class="pre">obj1</span></code>.</p></li>
+<li><p><em>args</em> is a tuple containing the arguments to the call.  You can use
+<a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a> to extract the arguments.</p></li>
+<li><p><em>kwds</em> is a dictionary of keyword arguments that were passed. If this is
 non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code> and you support keyword arguments, use
 <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTupleAndKeywords" title="PyArg_ParseTupleAndKeywords"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTupleAndKeywords()</span></code></a> to extract the arguments.  If you
 do not want to support keyword arguments and this is non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, raise a
-<a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> with a message saying that keyword arguments are not supported.</li>
+<a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> with a message saying that keyword arguments are not supported.</p></li>
 </ol>
 <p>Here is a toy <code class="docutils literal notranslate"><span class="pre">tp_call</span></code> implementation:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
@@ -635,13 +634,13 @@ corresponds to the Python <a class="reference internal" href="../library/stdtype
 handler, which must return an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> object.  Here the same guidelines
 apply as for Python classes:</p>
 <ul class="simple">
-<li>For collections (such as lists and tuples) which can support multiple
+<li><p>For collections (such as lists and tuples) which can support multiple
 independent iterators, a new iterator should be created and returned by
-each call to <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>.</li>
-<li>Objects which can only be iterated over once (usually due to side effects of
+each call to <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>.</p></li>
+<li><p>Objects which can only be iterated over once (usually due to side effects of
 iteration, such as file objects) can implement <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>
 by returning a new reference to themselves – and should also therefore
-implement the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a>  handler.</li>
+implement the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a>  handler.</p></li>
 </ul>
 <p>Any <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> object should implement both <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>
 and <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a>.  An iterator’s
@@ -661,18 +660,18 @@ and return <code class="docutils literal notranslate"><span class="pre">NULL</sp
 to participate in the weak reference mechanism without incurring the overhead on
 performance-critical objects (such as numbers).</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last">Documentation for the <a class="reference internal" href="../library/weakref.html#module-weakref" title="weakref: Support for weak references and weak dictionaries."><code class="xref py py-mod docutils literal notranslate"><span class="pre">weakref</span></code></a> module.</p>
+<p class="admonition-title">Zobacz także</p>
+<p>Documentation for the <a class="reference internal" href="../library/weakref.html#module-weakref" title="weakref: Support for weak references and weak dictionaries."><code class="xref py py-mod docutils literal notranslate"><span class="pre">weakref</span></code></a> module.</p>
 </div>
 <p>For an object to be weakly referencable, the extension type must do two things:</p>
 <ol class="arabic simple">
-<li>Include a <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> field in the C object structure dedicated to
+<li><p>Include a <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> field in the C object structure dedicated to
 the weak reference mechanism.  The object’s constructor should leave it
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (which is automatic when using the default
-<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a>).</li>
-<li>Set the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_weaklistoffset" title="PyTypeObject.tp_weaklistoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_weaklistoffset</span></code></a> type member
+<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a>).</p></li>
+<li><p>Set the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_weaklistoffset" title="PyTypeObject.tp_weaklistoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_weaklistoffset</span></code></a> type member
 to the offset of the aforementioned field in the C object structure,
-so that the interpreter knows how to access and modify that field.</li>
+so that the interpreter knows how to access and modify that field.</p></li>
 </ol>
 <p>Concretely, here is how a trivial object structure would be augmented
 with the required field:</p>
@@ -722,12 +721,12 @@ its use might be something like the following:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="last docutils">
-<dt>Download CPython source releases.</dt>
-<dd><a class="reference external" href="https://www.python.org/downloads/source/">https://www.python.org/downloads/source/</a></dd>
-<dt>The CPython project on GitHub, where the CPython source code is developed.</dt>
-<dd><a class="reference external" href="https://github.com/python/cpython">https://github.com/python/cpython</a></dd>
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Download CPython source releases.</dt><dd><p><a class="reference external" href="https://www.python.org/downloads/source/">https://www.python.org/downloads/source/</a></p>
+</dd>
+<dt>The CPython project on GitHub, where the CPython source code is developed.</dt><dd><p><a class="reference external" href="https://github.com/python/cpython">https://github.com/python/cpython</a></p>
+</dd>
 </dl>
 </div>
 </div>
@@ -739,7 +738,7 @@ its use might be something like the following:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">3. Defining Extension Types: Assorted Topics</a><ul>
 <li><a class="reference internal" href="#finalization-and-de-allocation">3.1. Finalization and De-allocation</a></li>
@@ -768,7 +767,7 @@ its use might be something like the following:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/extending/newtypes.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/extending/newtypes.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -800,7 +799,7 @@ its use might be something like the following:</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -834,7 +833,7 @@ its use might be something like the following:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

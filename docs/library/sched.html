@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>sched — Event scheduler &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>sched — Event scheduler &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,13 +102,13 @@
             
   <div class="section" id="module-sched">
 <span id="sched-event-scheduler"></span><h1><a class="reference internal" href="#module-sched" title="sched: General purpose event scheduler."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sched</span></code></a> — Event scheduler<a class="headerlink" href="#module-sched" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/sched.py">Lib/sched.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/sched.py">Lib/sched.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>The <a class="reference internal" href="#module-sched" title="sched: General purpose event scheduler."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sched</span></code></a> module defines a class which implements a general purpose event
 scheduler:</p>
 <dl class="class">
 <dt id="sched.scheduler">
-<em class="property">class </em><code class="descclassname">sched.</code><code class="descname">scheduler</code><span class="sig-paren">(</span><em>timefunc=time.monotonic</em>, <em>delayfunc=time.sleep</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sched.</code><code class="sig-name descname">scheduler</code><span class="sig-paren">(</span><em class="sig-param">timefunc=time.monotonic</em>, <em class="sig-param">delayfunc=time.sleep</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#sched.scheduler" title="sched.scheduler"><code class="xref py py-class docutils literal notranslate"><span class="pre">scheduler</span></code></a> class defines a generic interface to scheduling events.
 It needs two functions to actually deal with the „outside world” — <em>timefunc</em>
 should be callable without arguments, and return  a number (the „time”, in any
@@ -119,10 +118,10 @@ time units. <em>delayfunc</em> will also be called with the argument <code class
 event is run to allow other threads an opportunity to run in multi-threaded
 applications.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>timefunc</em> and <em>delayfunc</em> parameters are optional.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>timefunc</em> and <em>delayfunc</em> parameters are optional.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><a class="reference internal" href="#sched.scheduler" title="sched.scheduler"><code class="xref py py-class docutils literal notranslate"><span class="pre">scheduler</span></code></a> class can be safely used in multi-threaded
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><a class="reference internal" href="#sched.scheduler" title="sched.scheduler"><code class="xref py py-class docutils literal notranslate"><span class="pre">scheduler</span></code></a> class can be safely used in multi-threaded
 environments.</p>
 </div>
 </dd></dl>
@@ -154,7 +153,7 @@ environments.</p>
 <p><a class="reference internal" href="#sched.scheduler" title="sched.scheduler"><code class="xref py py-class docutils literal notranslate"><span class="pre">scheduler</span></code></a> instances have the following methods and attributes:</p>
 <dl class="method">
 <dt id="sched.scheduler.enterabs">
-<code class="descclassname">scheduler.</code><code class="descname">enterabs</code><span class="sig-paren">(</span><em>time</em>, <em>priority</em>, <em>action</em>, <em>argument=()</em>, <em>kwargs={}</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.enterabs" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">enterabs</code><span class="sig-paren">(</span><em class="sig-param">time</em>, <em class="sig-param">priority</em>, <em class="sig-param">action</em>, <em class="sig-param">argument=()</em>, <em class="sig-param">kwargs={}</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.enterabs" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Schedule a new event. The <em>time</em> argument should be a numeric type compatible
 with the return value of the <em>timefunc</em> function passed  to the constructor.
 Events scheduled for the same <em>time</em> will be executed in the order of their
@@ -165,43 +164,43 @@ Events scheduled for the same <em>time</em> will be executed in the order of the
 <p>Return value is an event which may be used for later cancellation of the event
 (see <a class="reference internal" href="#sched.scheduler.cancel" title="sched.scheduler.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>).</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>argument</em> parameter is optional.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>argument</em> parameter is optional.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>kwargs</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>kwargs</em> parameter was added.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="sched.scheduler.enter">
-<code class="descclassname">scheduler.</code><code class="descname">enter</code><span class="sig-paren">(</span><em>delay</em>, <em>priority</em>, <em>action</em>, <em>argument=()</em>, <em>kwargs={}</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.enter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">enter</code><span class="sig-paren">(</span><em class="sig-param">delay</em>, <em class="sig-param">priority</em>, <em class="sig-param">action</em>, <em class="sig-param">argument=()</em>, <em class="sig-param">kwargs={}</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.enter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Schedule an event for <em>delay</em> more time units. Other than the relative time, the
 other arguments, the effect and the return value are the same as those for
 <a class="reference internal" href="#sched.scheduler.enterabs" title="sched.scheduler.enterabs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">enterabs()</span></code></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>argument</em> parameter is optional.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>argument</em> parameter is optional.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>kwargs</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>kwargs</em> parameter was added.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="sched.scheduler.cancel">
-<code class="descclassname">scheduler.</code><code class="descname">cancel</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Remove the event from the queue. If <em>event</em> is not an event currently in the
 queue, this method will raise a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="sched.scheduler.empty">
-<code class="descclassname">scheduler.</code><code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.empty" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.empty" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the event queue is empty.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="sched.scheduler.run">
-<code class="descclassname">scheduler.</code><code class="descname">run</code><span class="sig-paren">(</span><em>blocking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.run" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">blocking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#sched.scheduler.run" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Run all scheduled events. This method will wait  (using the <code class="xref py py-func docutils literal notranslate"><span class="pre">delayfunc()</span></code>
 function passed to the constructor) for the next event, then execute it and so
 on until there are no more scheduled events.</p>
@@ -217,13 +216,13 @@ next event, the scheduler will simply fall behind.  No events will be dropped;
 the calling code is responsible for canceling  events which are no longer
 pertinent.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><em>blocking</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><em>blocking</em> parameter was added.</p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="sched.scheduler.queue">
-<code class="descclassname">scheduler.</code><code class="descname">queue</code><a class="headerlink" href="#sched.scheduler.queue" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">scheduler.</code><code class="sig-name descname">queue</code><a class="headerlink" href="#sched.scheduler.queue" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Read-only attribute returning a list of upcoming events in the order they
 will be run.  Each event is shown as a <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> with the
 following fields:  time, priority, action, argument, kwargs.</p>
@@ -238,9 +237,9 @@ following fields:  time, priority, action, argument, kwargs.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">sched</span></code> — Event scheduler</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sched</span></code> — Event scheduler</a><ul>
 <li><a class="reference internal" href="#scheduler-objects">Scheduler Objects</a></li>
 </ul>
 </li>
@@ -248,16 +247,16 @@ following fields:  time, priority, action, argument, kwargs.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="subprocess.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="queue.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">queue</span></code> — A synchronized queue class</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">queue</span></code> — A synchronized queue class</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/sched.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/sched.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -289,7 +288,7 @@ following fields:  time, priority, action, argument, kwargs.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -324,7 +323,7 @@ following fields:  time, priority, action, argument, kwargs.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

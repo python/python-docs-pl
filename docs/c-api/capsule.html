@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Capsules &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Capsules &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -105,11 +104,11 @@
 <span id="id1"></span><h1>Capsules<a class="headerlink" href="#capsules" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p id="index-0">Refer to <a class="reference internal" href="../extending/extending.html#using-capsules"><span class="std std-ref">Providing a C API for an Extension Module</span></a> for more information on using these objects.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
 </div>
 <dl class="type">
 <dt id="c.PyCapsule">
-<code class="descname">PyCapsule</code><a class="headerlink" href="#c.PyCapsule" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyCapsule</code><a class="headerlink" href="#c.PyCapsule" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This subtype of <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> represents an opaque value, useful for C
 extension modules who need to pass an opaque value (as a <code class="xref c c-type docutils literal notranslate"><span class="pre">void*</span></code>
 pointer) through Python code to other C code.  It is often used to make a C
@@ -120,7 +119,7 @@ loaded modules.</p>
 
 <dl class="type">
 <dt id="c.PyCapsule_Destructor">
-<code class="descname">PyCapsule_Destructor</code><a class="headerlink" href="#c.PyCapsule_Destructor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyCapsule_Destructor</code><a class="headerlink" href="#c.PyCapsule_Destructor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The type of a destructor callback for a capsule.  Defined as:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">PyCapsule_Destructor</span><span class="p">)(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">);</span>
 </pre></div>
@@ -131,13 +130,13 @@ callbacks.</p>
 
 <dl class="function">
 <dt id="c.PyCapsule_CheckExact">
-int <code class="descname">PyCapsule_CheckExact</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_CheckExact" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_CheckExact</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_CheckExact" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return true if its argument is a <a class="reference internal" href="#c.PyCapsule" title="PyCapsule"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCapsule</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCapsule_New">
-<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyCapsule_New</code><span class="sig-paren">(</span>void<em>&nbsp;*pointer</em>, const char<em>&nbsp;*name</em>, <a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a><em>&nbsp;destructor</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_New" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyCapsule_New</code><span class="sig-paren">(</span>void<em> *pointer</em>, const char<em> *name</em>, <a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a><em> destructor</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_New" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Create a <a class="reference internal" href="#c.PyCapsule" title="PyCapsule"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCapsule</span></code></a> encapsulating the <em>pointer</em>.  The <em>pointer</em>
 argument may not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>On failure, set an exception and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
@@ -153,7 +152,7 @@ to import the capsule using <a class="reference internal" href="#c.PyCapsule_Imp
 
 <dl class="function">
 <dt id="c.PyCapsule_GetPointer">
-void* <code class="descname">PyCapsule_GetPointer</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, const char<em>&nbsp;*name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetPointer" title="Stały odnośnik do tej definicji">¶</a></dt>
+void* <code class="sig-name descname">PyCapsule_GetPointer</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, const char<em> *name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetPointer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Retrieve the <em>pointer</em> stored in the capsule.  On failure, set an exception
 and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>The <em>name</em> parameter must compare exactly to the name stored in the capsule.
@@ -164,7 +163,7 @@ names.</p>
 
 <dl class="function">
 <dt id="c.PyCapsule_GetDestructor">
-<a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a> <code class="descname">PyCapsule_GetDestructor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetDestructor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a> <code class="sig-name descname">PyCapsule_GetDestructor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetDestructor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current destructor stored in the capsule.  On failure, set an
 exception and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>It is legal for a capsule to have a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> destructor.  This makes a <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
@@ -174,7 +173,7 @@ return code somewhat ambiguous; use <a class="reference internal" href="#c.PyCap
 
 <dl class="function">
 <dt id="c.PyCapsule_GetContext">
-void* <code class="descname">PyCapsule_GetContext</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetContext" title="Stały odnośnik do tej definicji">¶</a></dt>
+void* <code class="sig-name descname">PyCapsule_GetContext</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetContext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current context stored in the capsule.  On failure, set an
 exception and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>It is legal for a capsule to have a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> context.  This makes a <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
@@ -184,7 +183,7 @@ return code somewhat ambiguous; use <a class="reference internal" href="#c.PyCap
 
 <dl class="function">
 <dt id="c.PyCapsule_GetName">
-const char* <code class="descname">PyCapsule_GetName</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetName" title="Stały odnośnik do tej definicji">¶</a></dt>
+const char* <code class="sig-name descname">PyCapsule_GetName</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_GetName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current name stored in the capsule.  On failure, set an exception
 and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>It is legal for a capsule to have a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> name.  This makes a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> return
@@ -194,7 +193,7 @@ code somewhat ambiguous; use <a class="reference internal" href="#c.PyCapsule_Is
 
 <dl class="function">
 <dt id="c.PyCapsule_Import">
-void* <code class="descname">PyCapsule_Import</code><span class="sig-paren">(</span>const char<em>&nbsp;*name</em>, int<em>&nbsp;no_block</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_Import" title="Stały odnośnik do tej definicji">¶</a></dt>
+void* <code class="sig-name descname">PyCapsule_Import</code><span class="sig-paren">(</span>const char<em> *name</em>, int<em> no_block</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_Import" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Import a pointer to a C object from a capsule attribute in a module.  The
 <em>name</em> parameter should specify the full name to the attribute, as in
 <code class="docutils literal notranslate"><span class="pre">module.attribute</span></code>.  The <em>name</em> stored in the capsule must match this
@@ -207,7 +206,7 @@ exception and return <code class="docutils literal notranslate"><span class="pre
 
 <dl class="function">
 <dt id="c.PyCapsule_IsValid">
-int <code class="descname">PyCapsule_IsValid</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, const char<em>&nbsp;*name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_IsValid" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_IsValid</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, const char<em> *name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_IsValid" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Determines whether or not <em>capsule</em> is a valid capsule.  A valid capsule is
 non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, passes <a class="reference internal" href="#c.PyCapsule_CheckExact" title="PyCapsule_CheckExact"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCapsule_CheckExact()</span></code></a>, has a non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointer
 stored in it, and its internal name matches the <em>name</em> parameter.  (See
@@ -222,21 +221,21 @@ Return <code class="docutils literal notranslate"><span class="pre">0</span></co
 
 <dl class="function">
 <dt id="c.PyCapsule_SetContext">
-int <code class="descname">PyCapsule_SetContext</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, void<em>&nbsp;*context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetContext" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_SetContext</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, void<em> *context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetContext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the context pointer inside <em>capsule</em> to <em>context</em>.</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.  Return nonzero and set an exception on failure.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCapsule_SetDestructor">
-int <code class="descname">PyCapsule_SetDestructor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, <a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a><em>&nbsp;destructor</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetDestructor" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_SetDestructor</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, <a class="reference internal" href="#c.PyCapsule_Destructor" title="PyCapsule_Destructor">PyCapsule_Destructor</a><em> destructor</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetDestructor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the destructor inside <em>capsule</em> to <em>destructor</em>.</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.  Return nonzero and set an exception on failure.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyCapsule_SetName">
-int <code class="descname">PyCapsule_SetName</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, const char<em>&nbsp;*name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetName" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_SetName</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, const char<em> *name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the name inside <em>capsule</em> to <em>name</em>.  If non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, the name must
 outlive the capsule.  If the previous <em>name</em> stored in the capsule was not
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, no attempt is made to free it.</p>
@@ -245,7 +244,7 @@ outlive the capsule.  If the previous <em>name</em> stored in the capsule was no
 
 <dl class="function">
 <dt id="c.PyCapsule_SetPointer">
-int <code class="descname">PyCapsule_SetPointer</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*capsule</em>, void<em>&nbsp;*pointer</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetPointer" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyCapsule_SetPointer</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *capsule</em>, void<em> *pointer</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyCapsule_SetPointer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the void pointer inside <em>capsule</em> to <em>pointer</em>.  The pointer may not be
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.  Return nonzero and set an exception on failure.</p>
@@ -270,7 +269,7 @@ int <code class="descname">PyCapsule_SetPointer</code><span class="sig-paren">(<
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/capsule.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/capsule.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -302,7 +301,7 @@ int <code class="descname">PyCapsule_SetPointer</code><span class="sig-paren">(<
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -337,7 +336,7 @@ int <code class="descname">PyCapsule_SetPointer</code><span class="sig-paren">(<
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

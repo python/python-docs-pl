@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Argument Clinic How-To &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Argument Clinic How-To &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -102,14 +101,11 @@
             
   <div class="section" id="argument-clinic-how-to">
 <h1>Argument Clinic How-To<a class="headerlink" href="#argument-clinic-how-to" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Larry Hastings</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">author</dt>
+<dd class="field-odd"><p>Larry Hastings</p>
+</dd>
+</dl>
 <div class="topic">
 <p class="topic-title">Abstract</p>
 <p>Argument Clinic is a preprocessor for CPython C files.
@@ -211,15 +207,15 @@ checksum—to detect if someone changed the output, as these edits would be lost
 the next time Argument Clinic writes out fresh output.)</p>
 <p>For the sake of clarity, here’s the terminology we’ll use with Argument Clinic:</p>
 <ul class="simple">
-<li>The first line of the comment (<code class="docutils literal notranslate"><span class="pre">/*[clinic</span> <span class="pre">input]</span></code>) is the <em>start line</em>.</li>
-<li>The last line of the initial comment (<code class="docutils literal notranslate"><span class="pre">[clinic</span> <span class="pre">start</span> <span class="pre">generated</span> <span class="pre">code]*/</span></code>) is the <em>end line</em>.</li>
-<li>The last line (<code class="docutils literal notranslate"><span class="pre">/*[clinic</span> <span class="pre">end</span> <span class="pre">generated</span> <span class="pre">code:</span> <span class="pre">checksum=...]*/</span></code>) is the <em>checksum line</em>.</li>
-<li>In between the start line and the end line is the <em>input</em>.</li>
-<li>In between the end line and the checksum line is the <em>output</em>.</li>
-<li>All the text collectively, from the start line to the checksum line inclusively,
+<li><p>The first line of the comment (<code class="docutils literal notranslate"><span class="pre">/*[clinic</span> <span class="pre">input]</span></code>) is the <em>start line</em>.</p></li>
+<li><p>The last line of the initial comment (<code class="docutils literal notranslate"><span class="pre">[clinic</span> <span class="pre">start</span> <span class="pre">generated</span> <span class="pre">code]*/</span></code>) is the <em>end line</em>.</p></li>
+<li><p>The last line (<code class="docutils literal notranslate"><span class="pre">/*[clinic</span> <span class="pre">end</span> <span class="pre">generated</span> <span class="pre">code:</span> <span class="pre">checksum=...]*/</span></code>) is the <em>checksum line</em>.</p></li>
+<li><p>In between the start line and the end line is the <em>input</em>.</p></li>
+<li><p>In between the end line and the checksum line is the <em>output</em>.</p></li>
+<li><p>All the text collectively, from the start line to the checksum line inclusively,
 is the <em>block</em>.  (A block that hasn’t been successfully processed by Argument
 Clinic yet doesn’t have output or a checksum line, but it’s still considered
-a block.)</li>
+a block.)</p></li>
 </ul>
 </div>
 <div class="section" id="converting-your-first-function">
@@ -234,15 +230,13 @@ the document (like „return converters” and „self converters”).
 But we’ll keep it simple for this walkthrough so you can learn.</p>
 <p>Let’s dive in!</p>
 <ol class="arabic" start="0">
-<li><p class="first">Make sure you’re working with a freshly updated checkout
-of the CPython trunk.</p>
-</li>
-<li><p class="first">Find a Python builtin that calls either <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>
+<li><p>Make sure you’re working with a freshly updated checkout
+of the CPython trunk.</p></li>
+<li><p>Find a Python builtin that calls either <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>
 or <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTupleAndKeywords" title="PyArg_ParseTupleAndKeywords"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTupleAndKeywords()</span></code></a>, and hasn’t been converted
 to work with Argument Clinic yet.
-For my example I’m using <code class="docutils literal notranslate"><span class="pre">_pickle.Pickler.dump()</span></code>.</p>
-</li>
-<li><p class="first">If the call to the <code class="docutils literal notranslate"><span class="pre">PyArg_Parse</span></code> function uses any of the
+For my example I’m using <code class="docutils literal notranslate"><span class="pre">_pickle.Pickler.dump()</span></code>.</p></li>
+<li><p>If the call to the <code class="docutils literal notranslate"><span class="pre">PyArg_Parse</span></code> function uses any of the
 following format units:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>O&amp;
 O!
@@ -263,13 +257,13 @@ PyArg_Parse functions to parse its arguments, it probably
 isn’t suitable for conversion to Argument Clinic.  Argument Clinic
 doesn’t support generic functions or polymorphic parameters.</p>
 </li>
-<li><p class="first">Add the following boilerplate above the function, creating our block:</p>
+<li><p>Add the following boilerplate above the function, creating our block:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*[clinic input]</span>
 <span class="cm">[clinic start generated code]*/</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Cut the docstring and paste it in between the <code class="docutils literal notranslate"><span class="pre">[clinic]</span></code> lines,
+<li><p>Cut the docstring and paste it in between the <code class="docutils literal notranslate"><span class="pre">[clinic]</span></code> lines,
 removing all the junk that makes it a properly quoted C string.
 When you’re done you should have just the text, based at the left
 margin, with no line wider than 80 characters.
@@ -286,14 +280,14 @@ signature.)</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">If your docstring doesn’t have a „summary” line, Argument Clinic will
+<li><p>If your docstring doesn’t have a „summary” line, Argument Clinic will
 complain.  So let’s make sure it has one.  The „summary” line should
 be a paragraph consisting of a single 80-column line
 at the beginning of the docstring.</p>
 <p>(Our example docstring consists solely of a summary line, so the sample
 code doesn’t have to change for this step.)</p>
 </li>
-<li><p class="first">Above the docstring, enter the name of the function, followed
+<li><p>Above the docstring, enter the name of the function, followed
 by a blank line.  This should be the Python name of the function,
 and should be the full dotted path
 to the function—it should start with the name of the module,
@@ -308,7 +302,7 @@ a class it should include the class name too.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">If this is the first time that module or class has been used with Argument
+<li><p>If this is the first time that module or class has been used with Argument
 Clinic in this C file,
 you must declare the module and/or class.  Proper Argument Clinic hygiene
 prefers declaring these in a separate block somewhere near the
@@ -335,7 +329,7 @@ this class, and a pointer to the <a class="reference internal" href="../c-api/ty
 </pre></div>
 </div>
 </li>
-<li><p class="first">Declare each of the parameters to the function.  Each parameter
+<li><p>Declare each of the parameters to the function.  Each parameter
 should get its own line.  All the parameter lines should be
 indented from the function name and the docstring.</p>
 <p>The general form of these parameter lines is as follows:</p>
@@ -383,7 +377,7 @@ entire two-or-three character string.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">If your function has <code class="docutils literal notranslate"><span class="pre">|</span></code> in the format string, meaning some
+<li><p>If your function has <code class="docutils literal notranslate"><span class="pre">|</span></code> in the format string, meaning some
 parameters have default values, you can ignore it.  Argument
 Clinic infers which parameters are optional based on whether
 or not they have default values.</p>
@@ -393,7 +387,7 @@ itself before the first keyword-only argument, indented the
 same as the parameter lines.</p>
 <p>(<code class="docutils literal notranslate"><span class="pre">_pickle.Pickler.dump</span></code> has neither, so our sample is unchanged.)</p>
 </li>
-<li><p class="first">If the existing C function calls <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>
+<li><p>If the existing C function calls <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>
 (as opposed to <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTupleAndKeywords" title="PyArg_ParseTupleAndKeywords"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTupleAndKeywords()</span></code></a>), then all its
 arguments are positional-only.</p>
 <p>To mark all parameters as positional-only in Argument Clinic,
@@ -419,7 +413,7 @@ Clinic may relax this restriction.)</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">It’s helpful to write a per-parameter docstring for each parameter.
+<li><p>It’s helpful to write a per-parameter docstring for each parameter.
 But per-parameter docstrings are optional; you can skip this step
 if you prefer.</p>
 <p>Here’s how to add a per-parameter docstring.  The first line
@@ -446,7 +440,7 @@ text as you like, across multiple lines if you wish.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Save and close the file, then run <code class="docutils literal notranslate"><span class="pre">Tools/clinic/clinic.py</span></code> on
+<li><p>Save and close the file, then run <code class="docutils literal notranslate"><span class="pre">Tools/clinic/clinic.py</span></code> on
 it.  With luck everything worked—your block now has output, and
 a <code class="docutils literal notranslate"><span class="pre">.c.h</span></code> file has been generated! Reopen the file in your
 text editor to see:</p>
@@ -475,7 +469,7 @@ typically right after the clinic module block:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Double-check that the argument-parsing code Argument Clinic generated
+<li><p>Double-check that the argument-parsing code Argument Clinic generated
 looks basically the same as the existing code.</p>
 <p>First, ensure both places use the same argument-parsing function.
 The existing code must call either
@@ -507,7 +501,7 @@ this builtin:</p>
 adjust your Argument Clinic function specification and rerun
 <code class="docutils literal notranslate"><span class="pre">Tools/clinic/clinic.py</span></code> until they <em>are</em> the same.</p>
 </li>
-<li><p class="first">Notice that the last line of its output is the declaration
+<li><p>Notice that the last line of its output is the declaration
 of your „impl” function.  This is where the builtin’s implementation goes.
 Delete the existing prototype of the function you’re modifying, but leave
 the opening curly brace.  Now delete its argument parsing code and the
@@ -568,7 +562,7 @@ function, and the implementation inside.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Remember the macro with the <a class="reference internal" href="../c-api/structures.html#c.PyMethodDef" title="PyMethodDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMethodDef</span></code></a> structure for this
+<li><p>Remember the macro with the <a class="reference internal" href="../c-api/structures.html#c.PyMethodDef" title="PyMethodDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMethodDef</span></code></a> structure for this
 function?  Find the existing <a class="reference internal" href="../c-api/structures.html#c.PyMethodDef" title="PyMethodDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMethodDef</span></code></a> structure for this
 function and replace it with a reference to the macro.  (If the builtin
 is at module scope, this will probably be very near the end of the file;
@@ -586,7 +580,7 @@ replace the existing static <a class="reference internal" href="../c-api/structu
 </pre></div>
 </div>
 </li>
-<li><p class="first">Compile, then run the relevant portions of the regression-test suite.
+<li><p>Compile, then run the relevant portions of the regression-test suite.
 This change should not introduce any new compile-time warnings or errors,
 and there should be no externally-visible change to Python’s behavior.</p>
 <p>Well, except for one difference: <code class="docutils literal notranslate"><span class="pre">inspect.signature()</span></code> run on your function
@@ -604,11 +598,11 @@ for some advanced topics.</p>
 <p>The default value you provide for a parameter can’t be any arbitrary
 expression.  Currently the following are explicitly supported:</p>
 <ul class="simple">
-<li>Numeric constants (integer and float)</li>
-<li>String constants</li>
-<li><code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
-<li>Simple symbolic constants like <code class="docutils literal notranslate"><span class="pre">sys.maxsize</span></code>, which must
-start with the name of the module</li>
+<li><p>Numeric constants (integer and float)</p></li>
+<li><p>String constants</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>Simple symbolic constants like <code class="docutils literal notranslate"><span class="pre">sys.maxsize</span></code>, which must
+start with the name of the module</p></li>
 </ul>
 <p>In case you’re curious, this is implemented in  <code class="docutils literal notranslate"><span class="pre">from_builtin()</span></code>
 in <code class="docutils literal notranslate"><span class="pre">Lib/inspect.py</span></code>.</p>
@@ -689,8 +683,8 @@ Optional groups are groups of arguments that must all be passed in together.
 They can be to the left or the right of the required arguments.  They
 can <em>only</em> be used with positional-only parameters.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">Optional groups are <em>only</em> intended for use when converting
+<p class="admonition-title">Informacja</p>
+<p>Optional groups are <em>only</em> intended for use when converting
 functions that make multiple calls to <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>!
 Functions that use <em>any</em> other approach for parsing arguments
 should <em>almost never</em> be converted to Argument Clinic using
@@ -729,7 +723,7 @@ parameter optional:</p>
 </div>
 <p>Notes:</p>
 <ul class="simple">
-<li>For every optional group, one additional parameter will be passed into the
+<li><p>For every optional group, one additional parameter will be passed into the
 impl function representing the group.  The parameter will be an int named
 <code class="docutils literal notranslate"><span class="pre">group_{direction}_{number}</span></code>,
 where <code class="docutils literal notranslate"><span class="pre">{direction}</span></code> is either <code class="docutils literal notranslate"><span class="pre">right</span></code> or <code class="docutils literal notranslate"><span class="pre">left</span></code> depending on whether the group
@@ -738,14 +732,14 @@ increasing number (starting at 1) indicating how far away the group is from
 the required parameters.  When the impl is called, this parameter will be set
 to zero if this group was unused, and set to non-zero if this group was used.
 (By used or unused, I mean whether or not the parameters received arguments
-in this invocation.)</li>
-<li>If there are no required arguments, the optional groups will behave
-as if they’re to the right of the required arguments.</li>
-<li>In the case of ambiguity, the argument parsing code
-favors parameters on the left (before the required parameters).</li>
-<li>Optional groups can only contain positional-only parameters.</li>
-<li>Optional groups are <em>only</em> intended for legacy code.  Please do not
-use optional groups for new code.</li>
+in this invocation.)</p></li>
+<li><p>If there are no required arguments, the optional groups will behave
+as if they’re to the right of the required arguments.</p></li>
+<li><p>In the case of ambiguity, the argument parsing code
+favors parameters on the left (before the required parameters).</p></li>
+<li><p>Optional groups can only contain positional-only parameters.</p></li>
+<li><p>Optional groups are <em>only</em> intended for legacy code.  Please do not
+use optional groups for new code.</p></li>
 </ul>
 </div>
 <div class="section" id="using-real-argument-clinic-converters-instead-of-legacy-converters">
@@ -760,13 +754,13 @@ Python 3.4.</p>
 use Argument Clinic’s real syntax for converters.  Why?  A couple
 reasons:</p>
 <ul class="simple">
-<li>The proper converters are far easier to read and clearer in their intent.</li>
-<li>There are some format units that are unsupported as „legacy converters”,
+<li><p>The proper converters are far easier to read and clearer in their intent.</p></li>
+<li><p>There are some format units that are unsupported as „legacy converters”,
 because they require arguments, and the legacy converter syntax doesn’t
-support specifying arguments.</li>
-<li>In the future we may have a new argument parsing library that isn’t
+support specifying arguments.</p></li>
+<li><p>In the future we may have a new argument parsing library that isn’t
 restricted to what <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a> supports; this flexibility
-won’t be available to parameters using legacy converters.</li>
+won’t be available to parameters using legacy converters.</p></li>
 </ul>
 <p>Therefore, if you don’t mind a little extra effort, please use the normal
 converters instead of legacy converters.</p>
@@ -778,53 +772,52 @@ the same converters.</p>
 <p>All arguments to Argument Clinic converters are keyword-only.
 All Argument Clinic converters accept the following arguments:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">c_default</span></code></dt>
-<dd>The default value for this parameter when defined in C.
+<div><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">c_default</span></code></dt><dd><p>The default value for this parameter when defined in C.
 Specifically, this will be the initializer for the variable declared
 in the „parse function”.  See <a class="reference internal" href="#default-values"><span class="std std-ref">the section on default values</span></a>
 for how to use this.
-Specified as a string.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">annotation</span></code></dt>
-<dd>The annotation value for this parameter.  Not currently supported,
+Specified as a string.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">annotation</span></code></dt><dd><p>The annotation value for this parameter.  Not currently supported,
 because <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a> mandates that the Python library may not use
-annotations.</dd>
+annotations.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>In addition, some converters accept additional arguments.  Here is a list
 of these arguments, along with their meanings:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">accept</span></code></dt>
-<dd><p class="first">A set of Python types (and possibly pseudo-types);
+<div><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">accept</span></code></dt><dd><p>A set of Python types (and possibly pseudo-types);
 this restricts the allowable Python argument to values of these types.
 (This is not a general-purpose facility; as a rule it only supports
 specific lists of types as shown in the legacy converter table.)</p>
-<p class="last">To accept <code class="docutils literal notranslate"><span class="pre">None</span></code>, add <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> to this set.</p>
+<p>To accept <code class="docutils literal notranslate"><span class="pre">None</span></code>, add <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> to this set.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">bitwise</span></code></dt>
-<dd>Only supported for unsigned integers.  The native integer value of this
+<dt><code class="docutils literal notranslate"><span class="pre">bitwise</span></code></dt><dd><p>Only supported for unsigned integers.  The native integer value of this
 Python argument will be written to the parameter without any range checking,
-even for negative values.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">converter</span></code></dt>
-<dd>Only supported by the <code class="docutils literal notranslate"><span class="pre">object</span></code> converter.  Specifies the name of a
+even for negative values.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">converter</span></code></dt><dd><p>Only supported by the <code class="docutils literal notranslate"><span class="pre">object</span></code> converter.  Specifies the name of a
 <a class="reference internal" href="../c-api/arg.html#o-ampersand"><span class="std std-ref">C „converter function”</span></a>
-to use to convert this object to a native type.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">encoding</span></code></dt>
-<dd>Only supported for strings.  Specifies the encoding to use when converting
-this string from a Python str (Unicode) value into a C <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span></code> value.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">subclass_of</span></code></dt>
-<dd>Only supported for the <code class="docutils literal notranslate"><span class="pre">object</span></code> converter.  Requires that the Python
-value be a subclass of a Python type, as expressed in C.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt>
-<dd>Only supported for the <code class="docutils literal notranslate"><span class="pre">object</span></code> and <code class="docutils literal notranslate"><span class="pre">self</span></code> converters.  Specifies
+to use to convert this object to a native type.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">encoding</span></code></dt><dd><p>Only supported for strings.  Specifies the encoding to use when converting
+this string from a Python str (Unicode) value into a C <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span></code> value.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">subclass_of</span></code></dt><dd><p>Only supported for the <code class="docutils literal notranslate"><span class="pre">object</span></code> converter.  Requires that the Python
+value be a subclass of a Python type, as expressed in C.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt><dd><p>Only supported for the <code class="docutils literal notranslate"><span class="pre">object</span></code> and <code class="docutils literal notranslate"><span class="pre">self</span></code> converters.  Specifies
 the C type that will be used to declare the variable.  Default value is
-<code class="docutils literal notranslate"><span class="pre">&quot;PyObject</span> <span class="pre">*&quot;</span></code>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">zeroes</span></code></dt>
-<dd>Only supported for strings.  If true, embedded NUL bytes (<code class="docutils literal notranslate"><span class="pre">'\\0'</span></code>) are
+<code class="docutils literal notranslate"><span class="pre">&quot;PyObject</span> <span class="pre">*&quot;</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">zeroes</span></code></dt><dd><p>Only supported for strings.  If true, embedded NUL bytes (<code class="docutils literal notranslate"><span class="pre">'\\0'</span></code>) are
 permitted inside the value.  The length of the string will be passed in
 to the impl function, just after the string parameter, as a parameter named
-<code class="docutils literal notranslate"><span class="pre">&lt;parameter_name&gt;_length</span></code>.</dd>
+<code class="docutils literal notranslate"><span class="pre">&lt;parameter_name&gt;_length</span></code>.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>Please note, not every possible combination of arguments will work.
@@ -837,134 +830,134 @@ least, not yet.)</p>
 <p>Below is a table showing the mapping of legacy converters into real
 Argument Clinic converters.  On the left is the legacy converter,
 on the right is the text you’d replace it with.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'B'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_char(bitwise=True)</span></code></td>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'B'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_char(bitwise=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'b'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_char</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'b'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_char</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'c'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">char</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'c'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'C'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">int(accept={str})</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'C'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int(accept={str})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'d'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">double</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'d'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'D'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_complex</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'D'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_complex</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'es'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding')</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'es'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding')</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'es#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">zeroes=True)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'es#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'et'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">accept={bytes,</span> <span class="pre">bytearray,</span> <span class="pre">str})</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'et'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">accept={bytes,</span> <span class="pre">bytearray,</span> <span class="pre">str})</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'et#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">accept={bytes,</span> <span class="pre">bytearray,</span> <span class="pre">str},</span> <span class="pre">zeroes=True)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'et#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(encoding='name_of_encoding',</span> <span class="pre">accept={bytes,</span> <span class="pre">bytearray,</span> <span class="pre">str},</span> <span class="pre">zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'f'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'f'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'h'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">short</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'h'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'H'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_short(bitwise=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'H'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_short(bitwise=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'i'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'i'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'I'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_int(bitwise=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'I'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_int(bitwise=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'k'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_long(bitwise=True)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'k'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_long(bitwise=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'K'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unsigned_long_long(bitwise=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'K'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned_long_long(bitwise=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'l'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">long</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'l'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'L'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'L'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'n'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_ssize_t</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'n'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_ssize_t</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'O'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">object</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'O'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'O!'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">object(subclass_of='&amp;PySomething_Type')</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'O!'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">object(subclass_of='&amp;PySomething_Type')</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'O&amp;'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">object(converter='name_of_c_function')</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'O&amp;'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">object(converter='name_of_c_function')</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'p'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">bool</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'p'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'S'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">PyBytesObject</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'S'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PyBytesObject</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'s'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'s'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'s#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(zeroes=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'s#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'s*'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={buffer,</span> <span class="pre">str})</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'s*'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={buffer,</span> <span class="pre">str})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'U'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">unicode</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'U'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unicode</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'u'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'u'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'u#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(zeroes=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'u#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'w*'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={rwbuffer})</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'w*'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={rwbuffer})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'Y'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">PyByteArrayObject</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'Y'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PyByteArrayObject</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'y'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(accept={bytes})</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'y'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(accept={bytes})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'y#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(accept={robuffer},</span> <span class="pre">zeroes=True)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'y#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(accept={robuffer},</span> <span class="pre">zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'y*'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_buffer</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'y*'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_buffer</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'Z'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(accept={str,</span> <span class="pre">NoneType})</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'Z'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(accept={str,</span> <span class="pre">NoneType})</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'Z#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(accept={str,</span> <span class="pre">NoneType},</span> <span class="pre">zeroes=True)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'Z#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE(accept={str,</span> <span class="pre">NoneType},</span> <span class="pre">zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'z'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(accept={str,</span> <span class="pre">NoneType})</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'z'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(accept={str,</span> <span class="pre">NoneType})</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'z#'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">str(accept={str,</span> <span class="pre">NoneType},</span> <span class="pre">zeroes=True)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'z#'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(accept={str,</span> <span class="pre">NoneType},</span> <span class="pre">zeroes=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'z*'</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={buffer,</span> <span class="pre">str,</span> <span class="pre">NoneType})</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'z*'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Py_buffer(accept={buffer,</span> <span class="pre">str,</span> <span class="pre">NoneType})</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1089,11 +1082,11 @@ specify values that are guaranteed to be valid at runtime!</p>
 are many restrictions on legal expressions.  Here’s a list of Python features
 you’re not permitted to use:</p>
 <ul class="simple">
-<li>Function calls.</li>
-<li>Inline if statements (<code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">if</span> <span class="pre">foo</span> <span class="pre">else</span> <span class="pre">5</span></code>).</li>
-<li>Automatic sequence unpacking (<code class="docutils literal notranslate"><span class="pre">*[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>).</li>
-<li>List/set/dict comprehensions and generator expressions.</li>
-<li>Tuple/list/set/dict literals.</li>
+<li><p>Function calls.</p></li>
+<li><p>Inline if statements (<code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">if</span> <span class="pre">foo</span> <span class="pre">else</span> <span class="pre">5</span></code>).</p></li>
+<li><p>Automatic sequence unpacking (<code class="docutils literal notranslate"><span class="pre">*[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>).</p></li>
+<li><p>List/set/dict comprehensions and generator expressions.</p></li>
+<li><p>Tuple/list/set/dict literals.</p></li>
 </ul>
 </div>
 <div class="section" id="using-a-return-converter">
@@ -1151,16 +1144,17 @@ just run <code class="docutils literal notranslate"><span class="pre">Tools/clin
 use Clinic’s „clone” feature.  When you clone an existing function,
 you reuse:</p>
 <ul class="simple">
-<li>its parameters, including<ul>
-<li>their names,</li>
-<li>their converters, with all parameters,</li>
-<li>their default values,</li>
-<li>their per-parameter docstrings,</li>
-<li>their <em>kind</em> (whether they’re positional only,
-positional or keyword, or keyword only), and</li>
+<li><p>its parameters, including</p>
+<ul>
+<li><p>their names,</p></li>
+<li><p>their converters, with all parameters,</p></li>
+<li><p>their default values,</p></li>
+<li><p>their per-parameter docstrings,</p></li>
+<li><p>their <em>kind</em> (whether they’re positional only,
+positional or keyword, or keyword only), and</p></li>
 </ul>
 </li>
-<li>its return converter.</li>
+<li><p>its return converter.</p></li>
 </ul>
 <p>The only thing not copied from the original function is its docstring;
 the syntax allows you to specify a new docstring.</p>
@@ -1274,24 +1268,23 @@ the converter in Argument Clinic will be passed along to your
 <code class="docutils literal notranslate"><span class="pre">converter_init()</span></code>.</p>
 <p>There are some additional members of <code class="docutils literal notranslate"><span class="pre">CConverter</span></code> you may wish
 to specify in your subclass.  Here’s the current list:</p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt>
-<dd>The C type to use for this variable.
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt><dd><p>The C type to use for this variable.
 <code class="docutils literal notranslate"><span class="pre">type</span></code> should be a Python string specifying the type, e.g. <code class="docutils literal notranslate"><span class="pre">int</span></code>.
-If this is a pointer type, the type string should end with <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">*'</span></code>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">default</span></code></dt>
-<dd>The Python default value for this parameter, as a Python value.
-Or the magic value <code class="docutils literal notranslate"><span class="pre">unspecified</span></code> if there is no default.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">py_default</span></code></dt>
-<dd><code class="docutils literal notranslate"><span class="pre">default</span></code> as it should appear in Python code,
+If this is a pointer type, the type string should end with <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">*'</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">default</span></code></dt><dd><p>The Python default value for this parameter, as a Python value.
+Or the magic value <code class="docutils literal notranslate"><span class="pre">unspecified</span></code> if there is no default.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">py_default</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">default</span></code> as it should appear in Python code,
 as a string.
-Or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no default.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">c_default</span></code></dt>
-<dd><code class="docutils literal notranslate"><span class="pre">default</span></code> as it should appear in C code,
+Or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no default.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">c_default</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">default</span></code> as it should appear in C code,
 as a string.
-Or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no default.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">c_ignored_default</span></code></dt>
-<dd>The default value used to initialize the C variable when
+Or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no default.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">c_ignored_default</span></code></dt><dd><p>The default value used to initialize the C variable when
 there is no default, but not specifying a default may
 result in an „uninitialized variable” warning.  This can
 easily happen when using option groups—although
@@ -1299,17 +1292,18 @@ properly-written code will never actually use this value,
 the variable does get passed in to the impl, and the
 C compiler will complain about the „use” of the
 uninitialized value.  This value should always be a
-non-empty string.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">converter</span></code></dt>
-<dd>The name of the C converter function, as a string.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">impl_by_reference</span></code></dt>
-<dd>A boolean value.  If true,
+non-empty string.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">converter</span></code></dt><dd><p>The name of the C converter function, as a string.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">impl_by_reference</span></code></dt><dd><p>A boolean value.  If true,
 Argument Clinic will add a <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in front of the name of
-the variable when passing it into the impl function.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">parse_by_reference</span></code></dt>
-<dd>A boolean value.  If true,
+the variable when passing it into the impl function.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">parse_by_reference</span></code></dt><dd><p>A boolean value.  If true,
 Argument Clinic will add a <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in front of the name of
-the variable when passing it into <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>.</dd>
+the variable when passing it into <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>.</p>
+</dd>
 </dl>
 <p>Here’s the simplest example of a custom converter, from <code class="docutils literal notranslate"><span class="pre">Modules/zlibmodule.c</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*[python input]</span>
@@ -1367,17 +1361,17 @@ a <code class="docutils literal notranslate"><span class="pre">type</span></code
 <p>You can convert <code class="docutils literal notranslate"><span class="pre">tp_new</span></code> and <code class="docutils literal notranslate"><span class="pre">tp_init</span></code> functions.  Just name
 them <code class="docutils literal notranslate"><span class="pre">__new__</span></code> or <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as appropriate.  Notes:</p>
 <ul class="simple">
-<li>The function name generated for <code class="docutils literal notranslate"><span class="pre">__new__</span></code> doesn’t end in <code class="docutils literal notranslate"><span class="pre">__new__</span></code>
+<li><p>The function name generated for <code class="docutils literal notranslate"><span class="pre">__new__</span></code> doesn’t end in <code class="docutils literal notranslate"><span class="pre">__new__</span></code>
 like it would by default.  It’s just the name of the class, converted
-into a valid C identifier.</li>
-<li>No <code class="docutils literal notranslate"><span class="pre">PyMethodDef</span></code> <code class="docutils literal notranslate"><span class="pre">#define</span></code> is generated for these functions.</li>
-<li><code class="docutils literal notranslate"><span class="pre">__init__</span></code> functions return <code class="docutils literal notranslate"><span class="pre">int</span></code>, not <code class="docutils literal notranslate"><span class="pre">PyObject</span> <span class="pre">*</span></code>.</li>
-<li>Use the docstring as the class docstring.</li>
-<li>Although <code class="docutils literal notranslate"><span class="pre">__new__</span></code> and <code class="docutils literal notranslate"><span class="pre">__init__</span></code> functions must always
+into a valid C identifier.</p></li>
+<li><p>No <code class="docutils literal notranslate"><span class="pre">PyMethodDef</span></code> <code class="docutils literal notranslate"><span class="pre">#define</span></code> is generated for these functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> functions return <code class="docutils literal notranslate"><span class="pre">int</span></code>, not <code class="docutils literal notranslate"><span class="pre">PyObject</span> <span class="pre">*</span></code>.</p></li>
+<li><p>Use the docstring as the class docstring.</p></li>
+<li><p>Although <code class="docutils literal notranslate"><span class="pre">__new__</span></code> and <code class="docutils literal notranslate"><span class="pre">__init__</span></code> functions must always
 accept both the <code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> objects, when converting
 you may specify any signature for these functions that you like.
 (If your function doesn’t support keywords, the parsing function
-generated will throw an exception if it receives any.)</li>
+generated will throw an exception if it receives any.)</p></li>
 </ul>
 </div>
 <div class="section" id="changing-and-redirecting-clinic-s-output">
@@ -1396,9 +1390,8 @@ of Clinic is to output everything into the current block; while many people
 consider this hampers readability, it will never require rearranging your
 code to fix definition-before-use problems.)</p>
 <p>Let’s start with defining some terminology:</p>
-<dl class="docutils">
-<dt><em>field</em></dt>
-<dd><p class="first">A field, in this context, is a subsection of Clinic’s output.
+<dl>
+<dt><em>field</em></dt><dd><p>A field, in this context, is a subsection of Clinic’s output.
 For example, the <code class="docutils literal notranslate"><span class="pre">#define</span></code> for the <code class="docutils literal notranslate"><span class="pre">PyMethodDef</span></code> structure
 is a field, called <code class="docutils literal notranslate"><span class="pre">methoddef_define</span></code>.  Clinic has seven
 different fields it can output per function definition:</p>
@@ -1411,7 +1404,7 @@ parser_definition
 impl_definition
 </pre></div>
 </div>
-<p class="last">All the names are of the form <code class="docutils literal notranslate"><span class="pre">&quot;&lt;a&gt;_&lt;b&gt;&quot;</span></code>,
+<p>All the names are of the form <code class="docutils literal notranslate"><span class="pre">&quot;&lt;a&gt;_&lt;b&gt;&quot;</span></code>,
 where <code class="docutils literal notranslate"><span class="pre">&quot;&lt;a&gt;&quot;</span></code> is the semantic object represented (the parsing function,
 the impl function, the docstring, or the methoddef structure) and <code class="docutils literal notranslate"><span class="pre">&quot;&lt;b&gt;&quot;</span></code>
 represents what kind of statement the field is.  Field names that end in
@@ -1422,34 +1415,32 @@ definition of the thing, with the body/data of the thing.  (<code class="docutil
 is special, it’s the only one that ends with <code class="docutils literal notranslate"><span class="pre">&quot;_define&quot;</span></code>, representing that
 it’s a preprocessor #define.)</p>
 </dd>
-<dt><em>destination</em></dt>
-<dd><p class="first">A destination is a place Clinic can write output to.  There are
+<dt><em>destination</em></dt><dd><p>A destination is a place Clinic can write output to.  There are
 five built-in destinations:</p>
-<dl class="last docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt>
-<dd>The default destination: printed in the output section of
-the current Clinic block.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt>
-<dd>A text buffer where you can save text for later.  Text sent
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt><dd><p>The default destination: printed in the output section of
+the current Clinic block.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt><dd><p>A text buffer where you can save text for later.  Text sent
 here is appended to the end of any existing text.  It’s an
 error to have any text left in the buffer when Clinic finishes
-processing a file.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt>
-<dd><p class="first">A separate „clinic file” that will be created automatically by Clinic.
+processing a file.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt><dd><p>A separate „clinic file” that will be created automatically by Clinic.
 The filename chosen for the file is <code class="docutils literal notranslate"><span class="pre">{basename}.clinic{extension}</span></code>,
 where <code class="docutils literal notranslate"><span class="pre">basename</span></code> and <code class="docutils literal notranslate"><span class="pre">extension</span></code> were assigned the output
 from <code class="docutils literal notranslate"><span class="pre">os.path.splitext()</span></code> run on the current file.  (Example:
 the <code class="docutils literal notranslate"><span class="pre">file</span></code> destination for <code class="docutils literal notranslate"><span class="pre">_pickle.c</span></code> would be written to
 <code class="docutils literal notranslate"><span class="pre">_pickle.clinic.c</span></code>.)</p>
-<p class="last"><strong>Important: When using a</strong> <code class="docutils literal notranslate"><span class="pre">file</span></code> <strong>destination, you</strong>
+<p><strong>Important: When using a</strong> <code class="docutils literal notranslate"><span class="pre">file</span></code> <strong>destination, you</strong>
 <em>must check in</em> <strong>the generated file!</strong></p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt>
-<dd>A buffer like <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.  However, a two-pass buffer can only
+<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt><dd><p>A buffer like <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.  However, a two-pass buffer can only
 be dumped once, and it prints out all text sent to it during
-all processing, even from Clinic blocks <em>after</em> the dumping point.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">suppress</span></code></dt>
-<dd>The text is suppressed—thrown away.</dd>
+all processing, even from Clinic blocks <em>after</em> the dumping point.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">suppress</span></code></dt><dd><p>The text is suppressed—thrown away.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -1484,15 +1475,13 @@ previous configuration.</p>
 <p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">preset</span></code> sets Clinic’s output to one of several built-in
 preset configurations, as follows:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt>
-<dd><p class="first">Clinic’s original starting configuration.  Writes everything
+<div><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt><dd><p>Clinic’s original starting configuration.  Writes everything
 immediately after the input block.</p>
-<p class="last">Suppress the <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code>
+<p>Suppress the <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code>
 and <code class="docutils literal notranslate"><span class="pre">docstring_prototype</span></code>, write everything else to <code class="docutils literal notranslate"><span class="pre">block</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt>
-<dd><p class="first">Designed to write everything to the „clinic file” that it can.
+<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt><dd><p>Designed to write everything to the „clinic file” that it can.
 You then <code class="docutils literal notranslate"><span class="pre">#include</span></code> this file near the top of your file.
 You may need to rearrange your file to make this work, though
 usually this just means creating forward declarations for various
@@ -1500,10 +1489,9 @@ usually this just means creating forward declarations for various
 <p>Suppress the <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code>
 and <code class="docutils literal notranslate"><span class="pre">docstring_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">impl_definition</span></code> to
 <code class="docutils literal notranslate"><span class="pre">block</span></code>, and write everything else to <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
-<p class="last">The default filename is <code class="docutils literal notranslate"><span class="pre">&quot;{dirname}/clinic/{basename}.h&quot;</span></code>.</p>
+<p>The default filename is <code class="docutils literal notranslate"><span class="pre">&quot;{dirname}/clinic/{basename}.h&quot;</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt>
-<dd><p class="first">Save up most of the output from Clinic, to be written into
+<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt><dd><p>Save up most of the output from Clinic, to be written into
 your file near the end.  For Python files implementing modules
 or builtin types, it’s recommended that you dump the buffer
 just above the static structures for your module or
@@ -1511,30 +1499,28 @@ builtin type; these are normally very near the end.  Using
 <code class="docutils literal notranslate"><span class="pre">buffer</span></code> may require even more editing than <code class="docutils literal notranslate"><span class="pre">file</span></code>, if
 your file has static <code class="docutils literal notranslate"><span class="pre">PyMethodDef</span></code> arrays defined in the
 middle of the file.</p>
-<p class="last">Suppress the <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code>, <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>,
+<p>Suppress the <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code>, <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">docstring_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">impl_definition</span></code> to
 <code class="docutils literal notranslate"><span class="pre">block</span></code>, and write everything else to <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt>
-<dd><p class="first">Similar to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset, but writes forward declarations to
+<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt><dd><p>Similar to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset, but writes forward declarations to
 the <code class="docutils literal notranslate"><span class="pre">two-pass</span></code> buffer, and definitions to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.
 This is similar to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset, but may require
 less editing than <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.  Dump the <code class="docutils literal notranslate"><span class="pre">two-pass</span></code> buffer
 near the top of your file, and dump the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> near
 the end just like you would when using the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset.</p>
-<p class="last">Suppresses the <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">impl_definition</span></code>
+<p>Suppresses the <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">impl_definition</span></code>
 to <code class="docutils literal notranslate"><span class="pre">block</span></code>, write <code class="docutils literal notranslate"><span class="pre">docstring_prototype</span></code>, <code class="docutils literal notranslate"><span class="pre">methoddef_define</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">parser_prototype</span></code> to <code class="docutils literal notranslate"><span class="pre">two-pass</span></code>, write everything else
 to <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">partial-buffer</span></code></dt>
-<dd><p class="first">Similar to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset, but writes more things to <code class="docutils literal notranslate"><span class="pre">block</span></code>,
+<dt><code class="docutils literal notranslate"><span class="pre">partial-buffer</span></code></dt><dd><p>Similar to the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset, but writes more things to <code class="docutils literal notranslate"><span class="pre">block</span></code>,
 only writing the really big chunks of generated code to <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.
 This avoids the definition-before-use problem of <code class="docutils literal notranslate"><span class="pre">buffer</span></code> completely,
 at the small cost of having slightly more stuff in the block’s output.
 Dump the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> near the end, just like you would when using
 the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> preset.</p>
-<p class="last">Suppresses the <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">docstring_definition</span></code>
+<p>Suppresses the <code class="docutils literal notranslate"><span class="pre">impl_prototype</span></code>, write the <code class="docutils literal notranslate"><span class="pre">docstring_definition</span></code>
 and <code class="docutils literal notranslate"><span class="pre">parser_definition</span></code> to <code class="docutils literal notranslate"><span class="pre">buffer</span></code>, write everything else to <code class="docutils literal notranslate"><span class="pre">block</span></code>.</p>
 </dd>
 </dl>
@@ -1552,43 +1538,43 @@ and <code class="docutils literal notranslate"><span class="pre">parser_definiti
 <p>This creates a new destination with name <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> and type <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code>.</p>
 <p>There are five destination types:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">suppress</span></code></dt>
-<dd>Throws the text away.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt>
-<dd>Writes the text to the current block.  This is what Clinic
-originally did.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt>
-<dd>A simple text buffer, like the „buffer” builtin destination above.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt>
-<dd><p class="first">A text file.  The file destination takes an extra argument,
+<div><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">suppress</span></code></dt><dd><p>Throws the text away.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">block</span></code></dt><dd><p>Writes the text to the current block.  This is what Clinic
+originally did.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">buffer</span></code></dt><dd><p>A simple text buffer, like the „buffer” builtin destination above.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">file</span></code></dt><dd><p>A text file.  The file destination takes an extra argument,
 a template to use for building the filename, like so:</p>
 <blockquote>
-<div>destination &lt;name&gt; new &lt;type&gt; &lt;file_template&gt;</div></blockquote>
+<div><p>destination &lt;name&gt; new &lt;type&gt; &lt;file_template&gt;</p>
+</div></blockquote>
 <p>The template can use three strings internally that will be replaced
 by bits of the filename:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>{path}</dt>
-<dd>The full path to the file, including directory and full filename.</dd>
-<dt>{dirname}</dt>
-<dd>The name of the directory the file is in.</dd>
-<dt>{basename}</dt>
-<dd>Just the name of the file, not including the directory.</dd>
-<dt>{basename_root}</dt>
-<dd>Basename with the extension clipped off
-(everything up to but not including the last «.»).</dd>
-<dt>{basename_extension}</dt>
-<dd>The last «.» and everything after it.  If the basename
-does not contain a period, this will be the empty string.</dd>
+<div><dl class="simple">
+<dt>{path}</dt><dd><p>The full path to the file, including directory and full filename.</p>
+</dd>
+<dt>{dirname}</dt><dd><p>The name of the directory the file is in.</p>
+</dd>
+<dt>{basename}</dt><dd><p>Just the name of the file, not including the directory.</p>
+</dd>
+<dt>{basename_root}</dt><dd><p>Basename with the extension clipped off
+(everything up to but not including the last «.»).</p>
+</dd>
+<dt>{basename_extension}</dt><dd><p>The last «.» and everything after it.  If the basename
+does not contain a period, this will be the empty string.</p>
+</dd>
 </dl>
 </div></blockquote>
-<p class="last">If there are no periods in the filename, {basename} and {filename}
+<p>If there are no periods in the filename, {basename} and {filename}
 are the same, and {extension} is empty.  „{basename}{extension}”
 is always exactly the same as „{filename}”.”</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt>
-<dd>A two-pass buffer, like the „two-pass” builtin destination above.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">two-pass</span></code></dt><dd><p>A two-pass buffer, like the „two-pass” builtin destination above.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>The <code class="docutils literal notranslate"><span class="pre">clear</span></code> subcommand works like this:</p>
@@ -1608,11 +1594,11 @@ set line_suffix &quot;string&quot;
 <code class="docutils literal notranslate"><span class="pre">line_suffix</span></code> is a string that will be appended to every line of Clinic’s output.</p>
 <p>Both of these support two format strings:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">{block</span> <span class="pre">comment</span> <span class="pre">start}</span></code></dt>
-<dd>Turns into the string <code class="docutils literal notranslate"><span class="pre">/*</span></code>, the start-comment text sequence for C files.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">{block</span> <span class="pre">comment</span> <span class="pre">end}</span></code></dt>
-<dd>Turns into the string <code class="docutils literal notranslate"><span class="pre">*/</span></code>, the end-comment text sequence for C files.</dd>
+<div><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{block</span> <span class="pre">comment</span> <span class="pre">start}</span></code></dt><dd><p>Turns into the string <code class="docutils literal notranslate"><span class="pre">/*</span></code>, the start-comment text sequence for C files.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">{block</span> <span class="pre">comment</span> <span class="pre">end}</span></code></dt><dd><p>Turns into the string <code class="docutils literal notranslate"><span class="pre">*/</span></code>, the end-comment text sequence for C files.</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>The final new directive is one you shouldn’t need to use directly,
@@ -1719,7 +1705,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Argument Clinic How-To</a><ul>
 <li><a class="reference internal" href="#the-goals-of-argument-clinic">The Goals Of Argument Clinic</a></li>
@@ -1764,7 +1750,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/clinic.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/howto/clinic.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1796,7 +1782,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -1830,7 +1816,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

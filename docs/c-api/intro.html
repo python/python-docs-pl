@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Introduction &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
@@ -141,11 +140,11 @@ included in your code by the following line:</p>
 <code class="docutils literal notranslate"><span class="pre">&lt;string.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;limits.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;assert.h&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code>
 (if available).</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>Since Python may define some pre-processor definitions which affect the standard
 headers on some systems, you <em>must</em> include <code class="file docutils literal notranslate"><span class="pre">Python.h</span></code> before any standard
 headers are included.</p>
-<p class="last">It is recommended to always define <code class="docutils literal notranslate"><span class="pre">PY_SSIZE_T_CLEAN</span></code> before including
+<p>It is recommended to always define <code class="docutils literal notranslate"><span class="pre">PY_SSIZE_T_CLEAN</span></code> before including
 <code class="docutils literal notranslate"><span class="pre">Python.h</span></code>.  See <a class="reference internal" href="arg.html#arg-parsing"><span class="std std-ref">Parsing arguments and building values</span></a> for a description of this macro.</p>
 </div>
 <p>All user visible names defined by Python.h (except those defined by the included
@@ -153,8 +152,8 @@ standard headers) have one of the prefixes <code class="docutils literal notrans
 with <code class="docutils literal notranslate"><span class="pre">_Py</span></code> are for internal use by the Python implementation and should not be
 used by extension writers. Structure member names do not have a reserved prefix.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">User code should never define names that begin with <code class="docutils literal notranslate"><span class="pre">Py</span></code> or <code class="docutils literal notranslate"><span class="pre">_Py</span></code>. This
+<p class="admonition-title">Informacja</p>
+<p>User code should never define names that begin with <code class="docutils literal notranslate"><span class="pre">Py</span></code> or <code class="docutils literal notranslate"><span class="pre">_Py</span></code>. This
 confuses the reader, and jeopardizes the portability of the user code to
 future Python versions, which may define additional names beginning with one
 of these prefixes.</p>
@@ -185,89 +184,99 @@ Others of a more general utility are defined here.  This is not necessarily a
 complete listing.</p>
 <dl class="macro">
 <dt id="c.Py_UNREACHABLE">
-<code class="descname">Py_UNREACHABLE</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_UNREACHABLE" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Use this when you have a code path that you do not expect to be reached.
+<code class="sig-name descname">Py_UNREACHABLE</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_UNREACHABLE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Use this when you have a code path that cannot be reached by design.
 For example, in the <code class="docutils literal notranslate"><span class="pre">default:</span></code> clause in a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement for which
 all possible values are covered in <code class="docutils literal notranslate"><span class="pre">case</span></code> statements.  Use this in places
 where you might be tempted to put an <code class="docutils literal notranslate"><span class="pre">assert(0)</span></code> or <code class="docutils literal notranslate"><span class="pre">abort()</span></code> call.</p>
+<p>In release mode, the macro helps the compiler to optimize the code, and
+avoids a warning about unreachable code.  For example, the macro is
+implemented with <code class="docutils literal notranslate"><span class="pre">__builtin_unreachable()</span></code> on GCC in release mode.</p>
+<p>A use for <code class="docutils literal notranslate"><span class="pre">Py_UNREACHABLE()</span></code> is following a call a function that
+never returns but that is not declared <code class="xref c c-macro docutils literal notranslate"><span class="pre">_Py_NO_RETURN</span></code>.</p>
+<p>If a code path is very unlikely code but can be reached under exceptional
+case, this macro must not be used.  For example, under low memory condition
+or if a system call returns a value out of the expected range.  In this
+case, it’s better to report the error to the caller.  If the error cannot
+be reported to caller, <a class="reference internal" href="sys.html#c.Py_FatalError" title="Py_FatalError"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FatalError()</span></code></a> can be used.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_ABS">
-<code class="descname">Py_ABS</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_ABS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_ABS</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_ABS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the absolute value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_MIN">
-<code class="descname">Py_MIN</code><span class="sig-paren">(</span>x, y<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MIN" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_MIN</code><span class="sig-paren">(</span>x, y<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MIN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the minimum value between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_MAX">
-<code class="descname">Py_MAX</code><span class="sig-paren">(</span>x, y<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MAX" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_MAX</code><span class="sig-paren">(</span>x, y<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MAX" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the maximum value between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_STRINGIFY">
-<code class="descname">Py_STRINGIFY</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_STRINGIFY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_STRINGIFY</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_STRINGIFY" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert <code class="docutils literal notranslate"><span class="pre">x</span></code> to a C string.  E.g. <code class="docutils literal notranslate"><span class="pre">Py_STRINGIFY(123)</span></code> returns
 <code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_MEMBER_SIZE">
-<code class="descname">Py_MEMBER_SIZE</code><span class="sig-paren">(</span>type, member<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MEMBER_SIZE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_MEMBER_SIZE</code><span class="sig-paren">(</span>type, member<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MEMBER_SIZE" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the size of a structure (<code class="docutils literal notranslate"><span class="pre">type</span></code>) <code class="docutils literal notranslate"><span class="pre">member</span></code> in bytes.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.6.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_CHARMASK">
-<code class="descname">Py_CHARMASK</code><span class="sig-paren">(</span>c<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_CHARMASK" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_CHARMASK</code><span class="sig-paren">(</span>c<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_CHARMASK" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Argument must be a character or an integer in the range [-128, 127] or [0,
 255].  This macro returns <code class="docutils literal notranslate"><span class="pre">c</span></code> cast to an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>.</p>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_GETENV">
-<code class="descname">Py_GETENV</code><span class="sig-paren">(</span>s<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GETENV" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_GETENV</code><span class="sig-paren">(</span>s<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_GETENV" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Like <code class="docutils literal notranslate"><span class="pre">getenv(s)</span></code>, but returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if <a class="reference internal" href="../using/cmdline.html#cmdoption-e"><code class="xref std std-option docutils literal notranslate"><span class="pre">-E</span></code></a> was passed on the
 command line (i.e. if <code class="docutils literal notranslate"><span class="pre">Py_IgnoreEnvironmentFlag</span></code> is set).</p>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_UNUSED">
-<code class="descname">Py_UNUSED</code><span class="sig-paren">(</span>arg<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_UNUSED" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_UNUSED</code><span class="sig-paren">(</span>arg<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_UNUSED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Use this for unused arguments in a function definition to silence compiler
 warnings. Example: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">func(int</span> <span class="pre">a,</span> <span class="pre">int</span> <span class="pre">Py_UNUSED(b))</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">a;</span> <span class="pre">}</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.4.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.4.</span></p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.Py_DEPRECATED">
-<code class="descname">Py_DEPRECATED</code><span class="sig-paren">(</span>version<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_DEPRECATED" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_DEPRECATED</code><span class="sig-paren">(</span>version<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_DEPRECATED" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Use this for deprecated declarations.  The macro must be placed before the
 symbol name.</p>
 <p>Example:</p>
@@ -275,13 +284,13 @@ symbol name.</p>
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>MSVC support was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>MSVC support was added.</p>
 </div>
 </dd></dl>
 
 <dl class="macro">
 <dt id="c.PyDoc_STRVAR">
-<code class="descname">PyDoc_STRVAR</code><span class="sig-paren">(</span>name, str<span class="sig-paren">)</span><a class="headerlink" href="#c.PyDoc_STRVAR" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyDoc_STRVAR</code><span class="sig-paren">(</span>name, str<span class="sig-paren">)</span><a class="headerlink" href="#c.PyDoc_STRVAR" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a variable with name <code class="docutils literal notranslate"><span class="pre">name</span></code> that can be used in docstrings.
 If Python is built without docstrings, the value will be empty.</p>
 <p>Use <a class="reference internal" href="#c.PyDoc_STRVAR" title="PyDoc_STRVAR"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDoc_STRVAR</span></code></a> for docstrings to support building
@@ -300,7 +309,7 @@ Python without docstrings, as specified in <span class="target" id="index-6"></s
 
 <dl class="macro">
 <dt id="c.PyDoc_STR">
-<code class="descname">PyDoc_STR</code><span class="sig-paren">(</span>str<span class="sig-paren">)</span><a class="headerlink" href="#c.PyDoc_STR" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyDoc_STR</code><span class="sig-paren">(</span>str<span class="sig-paren">)</span><a class="headerlink" href="#c.PyDoc_STR" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a docstring for the given input string or an empty string
 if docstrings are disabled.</p>
 <p>Use <a class="reference internal" href="#c.PyDoc_STR" title="PyDoc_STR"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDoc_STR</span></code></a> in specifying docstrings to support
@@ -734,18 +743,18 @@ in the Unix build, compiler optimization is disabled.</p>
 <p>In addition to the reference count debugging described below, the following
 extra checks are performed:</p>
 <ul class="simple">
-<li>Extra checks are added to the object allocator.</li>
-<li>Extra checks are added to the parser and compiler.</li>
-<li>Downcasts from wide types to narrow types are checked for loss of information.</li>
-<li>A number of assertions are added to the dictionary and set implementations.
-In addition, the set object acquires a <code class="xref py py-meth docutils literal notranslate"><span class="pre">test_c_api()</span></code> method.</li>
-<li>Sanity checks of the input arguments are added to frame creation.</li>
-<li>The storage for ints is initialized with a known invalid pattern to catch
-reference to uninitialized digits.</li>
-<li>Low-level tracing and extra exception checking are added to the runtime
-virtual machine.</li>
-<li>Extra checks are added to the memory arena implementation.</li>
-<li>Extra debugging is added to the thread module.</li>
+<li><p>Extra checks are added to the object allocator.</p></li>
+<li><p>Extra checks are added to the parser and compiler.</p></li>
+<li><p>Downcasts from wide types to narrow types are checked for loss of information.</p></li>
+<li><p>A number of assertions are added to the dictionary and set implementations.
+In addition, the set object acquires a <code class="xref py py-meth docutils literal notranslate"><span class="pre">test_c_api()</span></code> method.</p></li>
+<li><p>Sanity checks of the input arguments are added to frame creation.</p></li>
+<li><p>The storage for ints is initialized with a known invalid pattern to catch
+reference to uninitialized digits.</p></li>
+<li><p>Low-level tracing and extra exception checking are added to the runtime
+virtual machine.</p></li>
+<li><p>Extra checks are added to the memory arena implementation.</p></li>
+<li><p>Extra debugging is added to the thread module.</p></li>
 </ul>
 <p>There may be additional checks not mentioned here.</p>
 <p>Defining <code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TRACE_REFS</span></code> enables reference tracing.  When defined, a
@@ -764,7 +773,7 @@ for more detailed information.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#coding-standards">Coding standards</a></li>
@@ -796,7 +805,7 @@ for more detailed information.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/intro.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/intro.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -828,7 +837,7 @@ for more detailed information.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -862,7 +871,7 @@ for more detailed information.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

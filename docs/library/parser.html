@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>parser — Access Python parse trees &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>parser — Access Python parse trees &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -110,11 +109,11 @@ code to edit the parse tree of a Python expression and create executable code
 from this.  This is better than trying to parse and modify an arbitrary Python
 code fragment as a string because parsing is performed in a manner identical to
 the code forming the application.  It is also faster.</p>
-<div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">From Python 2.5 onward, it’s much more convenient to cut in at the Abstract
-Syntax Tree (AST) generation and compilation stage, using the <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a>
-module.</p>
+<div class="admonition warning">
+<p class="admonition-title">Ostrzeżenie</p>
+<p>The parser module is deprecated and will be removed in future versions of
+Python. For the majority of use cases you can leverage the Abstract Syntax
+Tree (AST) generation and compilation stage, using the <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> module.</p>
 </div>
 <p>There are a few things to note about this module which are important to making
 use of the data structures created.  This is not a tutorial on editing the parse
@@ -171,13 +170,13 @@ other representations such as parse trees and compiled code objects, but there
 are also functions which serve to query the type of parse tree represented by an
 ST object.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="last docutils">
-<dt>Module <a class="reference internal" href="symbol.html#module-symbol" title="symbol: Constants representing internal nodes of the parse tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">symbol</span></code></a></dt>
-<dd>Useful constants representing internal nodes of the parse tree.</dd>
-<dt>Module <a class="reference internal" href="token.html#module-token" title="token: Constants representing terminal nodes of the parse tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code></a></dt>
-<dd>Useful constants representing leaf nodes of the parse tree and functions for
-testing node values.</dd>
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="symbol.html#module-symbol" title="symbol: Constants representing internal nodes of the parse tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">symbol</span></code></a></dt><dd><p>Useful constants representing internal nodes of the parse tree.</p>
+</dd>
+<dt>Module <a class="reference internal" href="token.html#module-token" title="token: Constants representing terminal nodes of the parse tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code></a></dt><dd><p>Useful constants representing leaf nodes of the parse tree and functions for
+testing node values.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="creating-st-objects">
@@ -187,7 +186,7 @@ an ST object from source, different functions are used to create the <code class
 and <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> forms.</p>
 <dl class="function">
 <dt id="parser.expr">
-<code class="descclassname">parser.</code><code class="descname">expr</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.expr" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">expr</code><span class="sig-paren">(</span><em class="sig-param">source</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.expr" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#parser.expr" title="parser.expr"><code class="xref py py-func docutils literal notranslate"><span class="pre">expr()</span></code></a> function parses the parameter <em>source</em> as if it were an input
 to <code class="docutils literal notranslate"><span class="pre">compile(source,</span> <span class="pre">'file.py',</span> <span class="pre">'eval')</span></code>.  If the parse succeeds, an ST object
 is created to hold the internal parse tree representation, otherwise an
@@ -196,7 +195,7 @@ appropriate exception is raised.</p>
 
 <dl class="function">
 <dt id="parser.suite">
-<code class="descclassname">parser.</code><code class="descname">suite</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.suite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">suite</code><span class="sig-paren">(</span><em class="sig-param">source</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.suite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#parser.suite" title="parser.suite"><code class="xref py py-func docutils literal notranslate"><span class="pre">suite()</span></code></a> function parses the parameter <em>source</em> as if it were an input
 to <code class="docutils literal notranslate"><span class="pre">compile(source,</span> <span class="pre">'file.py',</span> <span class="pre">'exec')</span></code>.  If the parse succeeds, an ST object
 is created to hold the internal parse tree representation, otherwise an
@@ -205,7 +204,7 @@ appropriate exception is raised.</p>
 
 <dl class="function">
 <dt id="parser.sequence2st">
-<code class="descclassname">parser.</code><code class="descname">sequence2st</code><span class="sig-paren">(</span><em>sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.sequence2st" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">sequence2st</code><span class="sig-paren">(</span><em class="sig-param">sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.sequence2st" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function accepts a parse tree represented as a sequence and builds an
 internal representation if possible.  If it can validate that the tree conforms
 to the Python grammar and all nodes are valid node types in the host version of
@@ -227,7 +226,7 @@ symbols in the input tree.</p>
 
 <dl class="function">
 <dt id="parser.tuple2st">
-<code class="descclassname">parser.</code><code class="descname">tuple2st</code><span class="sig-paren">(</span><em>sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.tuple2st" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">tuple2st</code><span class="sig-paren">(</span><em class="sig-param">sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.tuple2st" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is the same function as <a class="reference internal" href="#parser.sequence2st" title="parser.sequence2st"><code class="xref py py-func docutils literal notranslate"><span class="pre">sequence2st()</span></code></a>.  This entry point is
 maintained for backward compatibility.</p>
 </dd></dl>
@@ -241,7 +240,7 @@ executable code objects.  Parse trees may be extracted with or without line
 numbering information.</p>
 <dl class="function">
 <dt id="parser.st2list">
-<code class="descclassname">parser.</code><code class="descname">st2list</code><span class="sig-paren">(</span><em>st</em>, <em>line_info=False</em>, <em>col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.st2list" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">st2list</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">line_info=False</em>, <em class="sig-param">col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.st2list" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function accepts an ST object from the caller in <em>st</em> and returns a
 Python list representing the equivalent parse tree.  The resulting list
 representation can be used for inspection or the creation of a new parse tree in
@@ -259,7 +258,7 @@ This information is omitted if the flag is false or omitted.</p>
 
 <dl class="function">
 <dt id="parser.st2tuple">
-<code class="descclassname">parser.</code><code class="descname">st2tuple</code><span class="sig-paren">(</span><em>st</em>, <em>line_info=False</em>, <em>col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.st2tuple" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">st2tuple</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">line_info=False</em>, <em class="sig-param">col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.st2tuple" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function accepts an ST object from the caller in <em>st</em> and returns a
 Python tuple representing the equivalent parse tree.  Other than returning a
 tuple instead of a list, this function is identical to <a class="reference internal" href="#parser.st2list" title="parser.st2list"><code class="xref py py-func docutils literal notranslate"><span class="pre">st2list()</span></code></a>.</p>
@@ -270,7 +269,7 @@ information is omitted if the flag is false or omitted.</p>
 
 <dl class="function">
 <dt id="parser.compilest">
-<code class="descclassname">parser.</code><code class="descname">compilest</code><span class="sig-paren">(</span><em>st</em>, <em>filename='&lt;syntax-tree&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.compilest" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">compilest</code><span class="sig-paren">(</span><em class="sig-param">st</em>, <em class="sig-param">filename='&lt;syntax-tree&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.compilest" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-1">The Python byte compiler can be invoked on an ST object to produce code objects
 which can be used as part of a call to the built-in <a class="reference internal" href="functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> or <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>
 functions. This function provides the interface to the compiler, passing the
@@ -296,7 +295,7 @@ determine if an ST was created from source code via <a class="reference internal
 <a class="reference internal" href="#parser.suite" title="parser.suite"><code class="xref py py-func docutils literal notranslate"><span class="pre">suite()</span></code></a> or from a parse tree via <a class="reference internal" href="#parser.sequence2st" title="parser.sequence2st"><code class="xref py py-func docutils literal notranslate"><span class="pre">sequence2st()</span></code></a>.</p>
 <dl class="function">
 <dt id="parser.isexpr">
-<code class="descclassname">parser.</code><code class="descname">isexpr</code><span class="sig-paren">(</span><em>st</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.isexpr" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">isexpr</code><span class="sig-paren">(</span><em class="sig-param">st</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.isexpr" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-2">When <em>st</em> represents an <code class="docutils literal notranslate"><span class="pre">'eval'</span></code> form, this function returns <code class="docutils literal notranslate"><span class="pre">True</span></code>, otherwise
 it returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.  This is useful, since code objects normally cannot be queried
 for this information using existing built-in functions.  Note that the code
@@ -306,7 +305,7 @@ are identical to those created by the built-in <a class="reference internal" hre
 
 <dl class="function">
 <dt id="parser.issuite">
-<code class="descclassname">parser.</code><code class="descname">issuite</code><span class="sig-paren">(</span><em>st</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.issuite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">issuite</code><span class="sig-paren">(</span><em class="sig-param">st</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.issuite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function mirrors <a class="reference internal" href="#parser.isexpr" title="parser.isexpr"><code class="xref py py-func docutils literal notranslate"><span class="pre">isexpr()</span></code></a> in that it reports whether an ST object
 represents an <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> form, commonly known as a „suite.”  It is not safe to
 assume that this function is equivalent to <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">isexpr(st)</span></code>, as additional
@@ -321,7 +320,7 @@ exceptions from other portions of the Python runtime environment.  See each
 function for information about the exceptions it can raise.</p>
 <dl class="exception">
 <dt id="parser.ParserError">
-<em class="property">exception </em><code class="descclassname">parser.</code><code class="descname">ParserError</code><a class="headerlink" href="#parser.ParserError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">parser.</code><code class="sig-name descname">ParserError</code><a class="headerlink" href="#parser.ParserError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Exception raised when a failure occurs within the parser module.  This is
 generally produced for validation failures rather than the built-in
 <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> raised during normal parsing. The exception argument is
@@ -345,7 +344,7 @@ Refer to the descriptions of each function for detailed information.</p>
 ST objects (using the <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> module) is also supported.</p>
 <dl class="data">
 <dt id="parser.STType">
-<code class="descclassname">parser.</code><code class="descname">STType</code><a class="headerlink" href="#parser.STType" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">parser.</code><code class="sig-name descname">STType</code><a class="headerlink" href="#parser.STType" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The type of the objects returned by <a class="reference internal" href="#parser.expr" title="parser.expr"><code class="xref py py-func docutils literal notranslate"><span class="pre">expr()</span></code></a>, <a class="reference internal" href="#parser.suite" title="parser.suite"><code class="xref py py-func docutils literal notranslate"><span class="pre">suite()</span></code></a> and
 <a class="reference internal" href="#parser.sequence2st" title="parser.sequence2st"><code class="xref py py-func docutils literal notranslate"><span class="pre">sequence2st()</span></code></a>.</p>
 </dd></dl>
@@ -353,31 +352,31 @@ ST objects (using the <a class="reference internal" href="pickle.html#module-pic
 <p>ST objects have the following methods:</p>
 <dl class="method">
 <dt id="parser.ST.compile">
-<code class="descclassname">ST.</code><code class="descname">compile</code><span class="sig-paren">(</span><em>filename='&lt;syntax-tree&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.compile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ST.</code><code class="sig-name descname">compile</code><span class="sig-paren">(</span><em class="sig-param">filename='&lt;syntax-tree&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.compile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">compilest(st,</span> <span class="pre">filename)</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="parser.ST.isexpr">
-<code class="descclassname">ST.</code><code class="descname">isexpr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.isexpr" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ST.</code><code class="sig-name descname">isexpr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.isexpr" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">isexpr(st)</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="parser.ST.issuite">
-<code class="descclassname">ST.</code><code class="descname">issuite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.issuite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ST.</code><code class="sig-name descname">issuite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.issuite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">issuite(st)</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="parser.ST.tolist">
-<code class="descclassname">ST.</code><code class="descname">tolist</code><span class="sig-paren">(</span><em>line_info=False</em>, <em>col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.tolist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ST.</code><code class="sig-name descname">tolist</code><span class="sig-paren">(</span><em class="sig-param">line_info=False</em>, <em class="sig-param">col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.tolist" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">st2list(st,</span> <span class="pre">line_info,</span> <span class="pre">col_info)</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="parser.ST.totuple">
-<code class="descclassname">ST.</code><code class="descname">totuple</code><span class="sig-paren">(</span><em>line_info=False</em>, <em>col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.totuple" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ST.</code><code class="sig-name descname">totuple</code><span class="sig-paren">(</span><em class="sig-param">line_info=False</em>, <em class="sig-param">col_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#parser.ST.totuple" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <code class="docutils literal notranslate"><span class="pre">st2tuple(st,</span> <span class="pre">line_info,</span> <span class="pre">col_info)</span></code>.</p>
 </dd></dl>
 
@@ -426,15 +425,15 @@ readily available functions:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">parser</span></code> — Access Python parse trees</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code> — Access Python parse trees</a><ul>
 <li><a class="reference internal" href="#creating-st-objects">Creating ST Objects</a></li>
 <li><a class="reference internal" href="#converting-st-objects">Converting ST Objects</a></li>
 <li><a class="reference internal" href="#queries-on-st-objects">Queries on ST Objects</a></li>
 <li><a class="reference internal" href="#exceptions-and-error-handling">Exceptions and Error Handling</a></li>
 <li><a class="reference internal" href="#st-objects">ST Objects</a></li>
-<li><a class="reference internal" href="#example-emulation-of-compile">Example: Emulation of <code class="docutils literal notranslate"><span class="pre">compile()</span></code></a></li>
+<li><a class="reference internal" href="#example-emulation-of-compile">Example: Emulation of <code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -444,13 +443,13 @@ readily available functions:</p>
                         title="poprzedni rozdział">Python Language Services</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="ast.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">ast</span></code> — Abstract Syntax Trees</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code> — Abstract Syntax Trees</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/parser.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/parser.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -482,7 +481,7 @@ readily available functions:</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -517,7 +516,7 @@ readily available functions:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

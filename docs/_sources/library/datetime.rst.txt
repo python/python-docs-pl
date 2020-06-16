@@ -671,7 +671,8 @@ Instance methods:
 
 .. method:: date.isocalendar()
 
-   Return a 3-tuple, (ISO year, ISO week number, ISO weekday).
+   Return a :term:`named tuple` object with three components: ``year``,
+   ``week`` and ``weekday``.
 
    The ISO calendar is a widely used variant of the Gregorian calendar. [#]_
 
@@ -683,11 +684,14 @@ Instance methods:
    For example, 2004 begins on a Thursday, so the first week of ISO year 2004
    begins on Monday, 29 Dec 2003 and ends on Sunday, 4 Jan 2004::
 
-       >>> from datetime import date
-       >>> date(2003, 12, 29).isocalendar()
-       (2004, 1, 1)
-       >>> date(2004, 1, 4).isocalendar()
-       (2004, 1, 7)
+        >>> from datetime import date
+        >>> date(2003, 12, 29).isocalendar()
+        datetime.IsoCalendarDate(year=2004, week=1, weekday=1)
+        >>> date(2004, 1, 4).isocalendar()
+        datetime.IsoCalendarDate(year=2004, week=1, weekday=7)
+
+   .. versionchanged:: 3.9
+      Result changed from a tuple to a :term:`named tuple`.
 
 .. method:: date.isoformat()
 
@@ -1398,8 +1402,8 @@ Instance methods:
 
 .. method:: datetime.isocalendar()
 
-   Return a 3-tuple, (ISO year, ISO week number, ISO weekday). The same as
-   ``self.date().isocalendar()``.
+   Return a :term:`named tuple` with three components: ``year``, ``week``
+   and ``weekday``. The same as ``self.date().isocalendar()``.
 
 
 .. method:: datetime.isoformat(sep='T', timespec='auto')
@@ -2361,7 +2365,7 @@ requires, and these work on all platforms with a standard C implementation.
 |           | string if the object is        | +063415,               |       |
 |           | naive).                        | -030712.345216         |       |
 +-----------+--------------------------------+------------------------+-------+
-| ``%Z``    | Time zone name (empty string   | (empty), UTC, EST, CST |       |
+| ``%Z``    | Time zone name (empty string   | (empty), UTC, GMT      | \(6)  |
 |           | if the object is naive).       |                        |       |
 +-----------+--------------------------------+------------------------+-------+
 | ``%j``    | Day of the year as a           | 001, 002, ..., 366     | \(9)  |
@@ -2532,9 +2536,18 @@ Notes:
       In addition, providing ``'Z'`` is identical to ``'+00:00'``.
 
    ``%Z``
-      If :meth:`tzname` returns ``None``, ``%Z`` is replaced by an empty
-      string. Otherwise ``%Z`` is replaced by the returned value, which must
-      be a string.
+      In :meth:`strftime`, ``%Z`` is replaced by an empty string if
+      :meth:`tzname` returns ``None``; otherwise ``%Z`` is replaced by the
+      returned value, which must be a string.
+
+      :meth:`strptime` only accepts certain values for ``%Z``:
+
+      1. any value in ``time.tzname`` for your machine's locale
+      2. the hard-coded values ``UTC`` and ``GMT``
+
+      So someone living in Japan may have ``JST``, ``UTC``, and ``GMT`` as
+      valid values, but probably not ``EST``. It will raise ``ValueError`` for
+      invalid values.
 
    .. versionchanged:: 3.2
       When the ``%z`` directive is provided to the :meth:`strptime` method, an

@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>logging — Logging facility for Python &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>logging — Logging facility for Python &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,15 +102,15 @@
             
   <div class="section" id="module-logging">
 <span id="logging-logging-facility-for-python"></span><h1><a class="reference internal" href="#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> — Logging facility for Python<a class="headerlink" href="#module-logging" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/logging/__init__.py">Lib/logging/__init__.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/logging/__init__.py">Lib/logging/__init__.py</a></p>
 <div class="sidebar" id="index-0">
-<p class="first sidebar-title">Important</p>
+<p class="sidebar-title">Important</p>
 <p>This page contains the API reference information. For tutorial
 information and discussion of more advanced topics, see</p>
-<ul class="last simple">
-<li><a class="reference internal" href="../howto/logging.html#logging-basic-tutorial"><span class="std std-ref">Basic Tutorial</span></a></li>
-<li><a class="reference internal" href="../howto/logging.html#logging-advanced-tutorial"><span class="std std-ref">Advanced Tutorial</span></a></li>
-<li><a class="reference internal" href="../howto/logging-cookbook.html#logging-cookbook"><span class="std std-ref">Logging Cookbook</span></a></li>
+<ul class="simple">
+<li><p><a class="reference internal" href="../howto/logging.html#logging-basic-tutorial"><span class="std std-ref">Basic Tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="../howto/logging.html#logging-advanced-tutorial"><span class="std std-ref">Advanced Tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="../howto/logging-cookbook.html#logging-cookbook"><span class="std std-ref">Logging Cookbook</span></a></p></li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -127,12 +126,12 @@ tutorials (see the links on the right).</p>
 <p>The basic classes defined by the module, together with their functions, are
 listed below.</p>
 <ul class="simple">
-<li>Loggers expose the interface that application code directly uses.</li>
-<li>Handlers send the log records (created by loggers) to the appropriate
-destination.</li>
-<li>Filters provide a finer grained facility for determining which log records
-to output.</li>
-<li>Formatters specify the layout of log records in the final output.</li>
+<li><p>Loggers expose the interface that application code directly uses.</p></li>
+<li><p>Handlers send the log records (created by loggers) to the appropriate
+destination.</p></li>
+<li><p>Filters provide a finer grained facility for determining which log records
+to output.</p></li>
+<li><p>Formatters specify the layout of log records in the final output.</p></li>
 </ul>
 <div class="section" id="logger-objects">
 <span id="logger"></span><h2>Logger Objects<a class="headerlink" href="#logger-objects" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -152,10 +151,10 @@ per-module basis using the recommended construction
 is the module’s name in the Python package namespace.</p>
 <dl class="class">
 <dt id="logging.Logger">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">Logger</code><a class="headerlink" href="#logging.Logger" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Logger</code><a class="headerlink" href="#logging.Logger" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><dl class="attribute">
 <dt id="logging.Logger.propagate">
-<code class="descname">propagate</code><a class="headerlink" href="#logging.Logger.propagate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">propagate</code><a class="headerlink" href="#logging.Logger.propagate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If this attribute evaluates to true, events logged to this logger will be
 passed to the handlers of higher level (ancestor) loggers, in addition to
 any handlers attached to this logger. Messages are passed directly to the
@@ -165,8 +164,8 @@ loggers in question are considered.</p>
 of ancestor loggers.</p>
 <p>The constructor sets this attribute to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">If you attach a handler to a logger <em>and</em> one or more of its
+<p class="admonition-title">Informacja</p>
+<p>If you attach a handler to a logger <em>and</em> one or more of its
 ancestors, it may emit the same record multiple times. In general, you
 should not need to attach a handler to more than one logger - if you just
 attach it to the appropriate logger which is highest in the logger
@@ -179,7 +178,7 @@ propagation take care of the rest.</p>
 
 <dl class="method">
 <dt id="logging.Logger.setLevel">
-<code class="descname">setLevel</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.setLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">setLevel</code><span class="sig-paren">(</span><em class="sig-param">level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.setLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sets the threshold for this logger to <em>level</em>. Logging messages which are less
 severe than <em>level</em> will be ignored; logging messages which have severity <em>level</em>
 or higher will be emitted by whichever handler or handlers service this logger,
@@ -198,7 +197,7 @@ began, and is used to determine how a logging event is handled.</p>
 processed. Otherwise, the root’s level will be used as the effective level.</p>
 <p>See <a class="reference internal" href="#levels"><span class="std std-ref">Logging Levels</span></a> for a list of levels.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>level</em> parameter now accepts a string representation of the
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>level</em> parameter now accepts a string representation of the
 level such as «INFO» as an alternative to the integer constants
 such as <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code>. Note, however, that levels are internally stored
 as integers, and methods such as e.g. <a class="reference internal" href="#logging.Logger.getEffectiveLevel" title="logging.Logger.getEffectiveLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getEffectiveLevel()</span></code></a> and
@@ -208,7 +207,7 @@ as integers, and methods such as e.g. <a class="reference internal" href="#loggi
 
 <dl class="method">
 <dt id="logging.Logger.isEnabledFor">
-<code class="descname">isEnabledFor</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.isEnabledFor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">isEnabledFor</code><span class="sig-paren">(</span><em class="sig-param">level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.isEnabledFor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Indicates if a message of severity <em>level</em> would be processed by this logger.
 This method checks first the module-level level set by
 <code class="docutils literal notranslate"><span class="pre">logging.disable(level)</span></code> and then the logger’s effective level as determined
@@ -217,7 +216,7 @@ by <a class="reference internal" href="#logging.Logger.getEffectiveLevel" title=
 
 <dl class="method">
 <dt id="logging.Logger.getEffectiveLevel">
-<code class="descname">getEffectiveLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.getEffectiveLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">getEffectiveLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.getEffectiveLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Indicates the effective level for this logger. If a value other than
 <code class="xref py py-const docutils literal notranslate"><span class="pre">NOTSET</span></code> has been set using <a class="reference internal" href="#logging.Logger.setLevel" title="logging.Logger.setLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevel()</span></code></a>, it is returned. Otherwise,
 the hierarchy is traversed towards the root until a value other than
@@ -228,20 +227,20 @@ etc.</p>
 
 <dl class="method">
 <dt id="logging.Logger.getChild">
-<code class="descname">getChild</code><span class="sig-paren">(</span><em>suffix</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.getChild" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">getChild</code><span class="sig-paren">(</span><em class="sig-param">suffix</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.getChild" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a logger which is a descendant to this logger, as determined by the suffix.
 Thus, <code class="docutils literal notranslate"><span class="pre">logging.getLogger('abc').getChild('def.ghi')</span></code> would return the same
 logger as would be returned by <code class="docutils literal notranslate"><span class="pre">logging.getLogger('abc.def.ghi')</span></code>. This is a
 convenience method, useful when the parent logger is named using e.g. <code class="docutils literal notranslate"><span class="pre">__name__</span></code>
 rather than a literal string.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.debug">
-<code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.debug" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.debug" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">DEBUG</span></code> on this logger. The <em>msg</em> is the
 message format string, and the <em>args</em> are the arguments which are merged into
 <em>msg</em> using the string formatting operator. (Note that this means that you can
@@ -308,31 +307,31 @@ context (such as remote client IP address and authenticated user name, in the
 above example). In such circumstances, it is likely that specialized
 <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a>s would be used with particular <a class="reference internal" href="#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a>s.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>stack_info</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>stack_info</em> parameter was added.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>The <em>exc_info</em> parameter can now accept exception instances.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>The <em>exc_info</em> parameter can now accept exception instances.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <em>stacklevel</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <em>stacklevel</em> parameter was added.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.info">
-<code class="descname">info</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.info" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.info" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code> on this logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.warning">
-<code class="descname">warning</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.warning" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">warning</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.warning" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">WARNING</span></code> on this logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">There is an obsolete method <code class="docutils literal notranslate"><span class="pre">warn</span></code> which is functionally
+<p class="admonition-title">Informacja</p>
+<p>There is an obsolete method <code class="docutils literal notranslate"><span class="pre">warn</span></code> which is functionally
 identical to <code class="docutils literal notranslate"><span class="pre">warning</span></code>. As <code class="docutils literal notranslate"><span class="pre">warn</span></code> is deprecated, please do not use
 it - use <code class="docutils literal notranslate"><span class="pre">warning</span></code> instead.</p>
 </div>
@@ -340,28 +339,28 @@ it - use <code class="docutils literal notranslate"><span class="pre">warning</s
 
 <dl class="method">
 <dt id="logging.Logger.error">
-<code class="descname">error</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code> on this logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.critical">
-<code class="descname">critical</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.critical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">critical</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.critical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">CRITICAL</span></code> on this logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.log">
-<code class="descname">log</code><span class="sig-paren">(</span><em>level</em>, <em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.log" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.log" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with integer level <em>level</em> on this logger. The other arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.exception">
-<code class="descname">exception</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">exception</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code> on this logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">debug()</span></code></a>. Exception info is added to the logging
 message. This method should only be called from an exception handler.</p>
@@ -369,19 +368,19 @@ message. This method should only be called from an exception handler.</p>
 
 <dl class="method">
 <dt id="logging.Logger.addFilter">
-<code class="descname">addFilter</code><span class="sig-paren">(</span><em>filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.addFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">addFilter</code><span class="sig-paren">(</span><em class="sig-param">filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.addFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds the specified filter <em>filter</em> to this logger.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.removeFilter">
-<code class="descname">removeFilter</code><span class="sig-paren">(</span><em>filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.removeFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">removeFilter</code><span class="sig-paren">(</span><em class="sig-param">filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.removeFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Removes the specified filter <em>filter</em> from this logger.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Apply this logger’s filters to the record and return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the
 record is to be processed. The filters are consulted in turn, until one of
 them returns a false value. If none of them return a false value, the record
@@ -391,19 +390,19 @@ further processing of the record occurs.</p>
 
 <dl class="method">
 <dt id="logging.Logger.addHandler">
-<code class="descname">addHandler</code><span class="sig-paren">(</span><em>hdlr</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.addHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">addHandler</code><span class="sig-paren">(</span><em class="sig-param">hdlr</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.addHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds the specified handler <em>hdlr</em> to this logger.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.removeHandler">
-<code class="descname">removeHandler</code><span class="sig-paren">(</span><em>hdlr</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.removeHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">removeHandler</code><span class="sig-paren">(</span><em class="sig-param">hdlr</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.removeHandler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Removes the specified handler <em>hdlr</em> from this logger.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.findCaller">
-<code class="descname">findCaller</code><span class="sig-paren">(</span><em>stack_info=False</em>, <em>stacklevel=1</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.findCaller" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">findCaller</code><span class="sig-paren">(</span><em class="sig-param">stack_info=False</em>, <em class="sig-param">stacklevel=1</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.findCaller" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Finds the caller’s source filename and line number. Returns the filename, line
 number, function name and stack information as a 4-element tuple. The stack
 information is returned as <code class="docutils literal notranslate"><span class="pre">None</span></code> unless <em>stack_info</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
@@ -417,7 +416,7 @@ calls it.</p>
 
 <dl class="method">
 <dt id="logging.Logger.handle">
-<code class="descname">handle</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Handles a record by passing it to all handlers associated with this logger and
 its ancestors (until a false value of <em>propagate</em> is found). This method is used
 for unpickled records received from a socket, as well as those created locally.
@@ -426,14 +425,14 @@ Logger-level filtering is applied using <a class="reference internal" href="#log
 
 <dl class="method">
 <dt id="logging.Logger.makeRecord">
-<code class="descname">makeRecord</code><span class="sig-paren">(</span><em>name</em>, <em>level</em>, <em>fn</em>, <em>lno</em>, <em>msg</em>, <em>args</em>, <em>exc_info</em>, <em>func=None</em>, <em>extra=None</em>, <em>sinfo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.makeRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">makeRecord</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">level</em>, <em class="sig-param">fn</em>, <em class="sig-param">lno</em>, <em class="sig-param">msg</em>, <em class="sig-param">args</em>, <em class="sig-param">exc_info</em>, <em class="sig-param">func=None</em>, <em class="sig-param">extra=None</em>, <em class="sig-param">sinfo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.makeRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a factory method which can be overridden in subclasses to create
 specialized <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> instances.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Logger.hasHandlers">
-<code class="descname">hasHandlers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.hasHandlers" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">hasHandlers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Logger.hasHandlers" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Checks to see if this logger has any handlers configured. This is done by
 looking for handlers in this logger and its parents in the logger hierarchy.
 Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a handler was found, else <code class="docutils literal notranslate"><span class="pre">False</span></code>. The method stops searching
@@ -441,12 +440,12 @@ up the hierarchy whenever a logger with the «propagate» attribute set to
 false is found - that will be the last logger which is checked for the
 existence of handlers.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>Loggers can now be pickled and unpickled.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Loggers can now be pickled and unpickled.</p>
 </div>
 </dd></dl>
 
@@ -458,34 +457,34 @@ primarily of interest if you want to define your own levels, and need them to
 have specific values relative to the predefined levels. If you define a level
 with the same numeric value, it overwrites the predefined value; the predefined
 name is lost.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="48%" />
-<col width="52%" />
+<col style="width: 48%" />
+<col style="width: 52%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Level</th>
-<th class="head">Numeric value</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Level</p></th>
+<th class="head"><p>Numeric value</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></td>
-<td>50</td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></p></td>
+<td><p>50</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ERROR</span></code></td>
-<td>40</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code></p></td>
+<td><p>40</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">WARNING</span></code></td>
-<td>30</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARNING</span></code></p></td>
+<td><p>30</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">INFO</span></code></td>
-<td>20</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p>20</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></td>
-<td>10</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></p></td>
+<td><p>10</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">NOTSET</span></code></td>
-<td>0</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NOTSET</span></code></p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
@@ -498,10 +497,10 @@ subclasses. However, the <a class="reference internal" href="../reference/datamo
 <a class="reference internal" href="#logging.Handler.__init__" title="logging.Handler.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Handler.__init__()</span></code></a>.</p>
 <dl class="class">
 <dt id="logging.Handler">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">Handler</code><a class="headerlink" href="#logging.Handler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Handler</code><a class="headerlink" href="#logging.Handler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><dl class="method">
 <dt id="logging.Handler.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>level=NOTSET</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.__init__" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">level=NOTSET</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.__init__" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Initializes the <a class="reference internal" href="#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a> instance by setting its level, setting the list
 of filters to the empty list and creating a lock (using <a class="reference internal" href="#logging.Handler.createLock" title="logging.Handler.createLock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createLock()</span></code></a>) for
 serializing access to an I/O mechanism.</p>
@@ -509,33 +508,33 @@ serializing access to an I/O mechanism.</p>
 
 <dl class="method">
 <dt id="logging.Handler.createLock">
-<code class="descname">createLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.createLock" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">createLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.createLock" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Initializes a thread lock which can be used to serialize access to underlying
 I/O functionality which may not be threadsafe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.acquire">
-<code class="descname">acquire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.acquire" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">acquire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.acquire" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Acquires the thread lock created with <a class="reference internal" href="#logging.Handler.createLock" title="logging.Handler.createLock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createLock()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.release">
-<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.release" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.release" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Releases the thread lock acquired with <a class="reference internal" href="#logging.Handler.acquire" title="logging.Handler.acquire"><code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.setLevel">
-<code class="descname">setLevel</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.setLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">setLevel</code><span class="sig-paren">(</span><em class="sig-param">level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.setLevel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sets the threshold for this handler to <em>level</em>. Logging messages which are
 less severe than <em>level</em> will be ignored. When a handler is created, the
 level is set to <code class="xref py py-const docutils literal notranslate"><span class="pre">NOTSET</span></code> (which causes all messages to be
 processed).</p>
 <p>See <a class="reference internal" href="#levels"><span class="std std-ref">Logging Levels</span></a> for a list of levels.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>level</em> parameter now accepts a string representation of the
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>level</em> parameter now accepts a string representation of the
 level such as «INFO» as an alternative to the integer constants
 such as <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code>.</p>
 </div>
@@ -543,25 +542,25 @@ such as <code class="xref py py-const docutils literal notranslate"><span class=
 
 <dl class="method">
 <dt id="logging.Handler.setFormatter">
-<code class="descname">setFormatter</code><span class="sig-paren">(</span><em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.setFormatter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">setFormatter</code><span class="sig-paren">(</span><em class="sig-param">fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.setFormatter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sets the <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> for this handler to <em>fmt</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.addFilter">
-<code class="descname">addFilter</code><span class="sig-paren">(</span><em>filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.addFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">addFilter</code><span class="sig-paren">(</span><em class="sig-param">filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.addFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Adds the specified filter <em>filter</em> to this handler.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.removeFilter">
-<code class="descname">removeFilter</code><span class="sig-paren">(</span><em>filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.removeFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">removeFilter</code><span class="sig-paren">(</span><em class="sig-param">filter</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.removeFilter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Removes the specified filter <em>filter</em> from this handler.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Apply this handler’s filters to the record and return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the
 record is to be processed. The filters are consulted in turn, until one of
 them returns a false value. If none of them return a false value, the record
@@ -571,14 +570,14 @@ record.</p>
 
 <dl class="method">
 <dt id="logging.Handler.flush">
-<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.flush" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.flush" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Ensure all logging output has been flushed. This version does nothing and is
 intended to be implemented by subclasses.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Tidy up any resources used by the handler. This version does no output but
 removes the handler from an internal list of handlers which is closed when
 <a class="reference internal" href="#logging.shutdown" title="logging.shutdown"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutdown()</span></code></a> is called. Subclasses should ensure that this gets called
@@ -587,7 +586,7 @@ from overridden <a class="reference internal" href="#logging.Handler.close" titl
 
 <dl class="method">
 <dt id="logging.Handler.handle">
-<code class="descname">handle</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.handle" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Conditionally emits the specified logging record, depending on filters which may
 have been added to the handler. Wraps the actual emission of the record with
 acquisition/release of the I/O thread lock.</p>
@@ -595,7 +594,7 @@ acquisition/release of the I/O thread lock.</p>
 
 <dl class="method">
 <dt id="logging.Handler.handleError">
-<code class="descname">handleError</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.handleError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">handleError</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.handleError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method should be called from handlers when an exception is encountered
 during an <a class="reference internal" href="#logging.Handler.emit" title="logging.Handler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a> call. If the module-level attribute
 <code class="docutils literal notranslate"><span class="pre">raiseExceptions</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, exceptions get silently ignored. This is
@@ -609,14 +608,14 @@ more useful during development).</p>
 
 <dl class="method">
 <dt id="logging.Handler.format">
-<code class="descname">format</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.format" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.format" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Do formatting for a record - if a formatter is set, use it. Otherwise, use the
 default formatter for the module.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Handler.emit">
-<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.emit" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">emit</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Handler.emit" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Do whatever it takes to actually log the specified logging record. This version
 is intended to be implemented by subclasses and so raises a
 <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
@@ -645,7 +644,7 @@ for more information on string formatting.</p>
 <a class="reference internal" href="#logrecord-attributes"><span class="std std-ref">LogRecord attributes</span></a>.</p>
 <dl class="class">
 <dt id="logging.Formatter">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">Formatter</code><span class="sig-paren">(</span><em>fmt=None</em>, <em>datefmt=None</em>, <em>style='%'</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Formatter</code><span class="sig-paren">(</span><em class="sig-param">fmt=None</em>, <em class="sig-param">datefmt=None</em>, <em class="sig-param">style='%'</em>, <em class="sig-param">validate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a new instance of the <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> class.  The instance is
 initialized with a format string for the message as a whole, as well as a
 format string for the date/time portion of a message.  If no <em>fmt</em> is
@@ -653,19 +652,22 @@ specified, <code class="docutils literal notranslate"><span class="pre">'%(messa
 is used which is described in the <a class="reference internal" href="#logging.Formatter.formatTime" title="logging.Formatter.formatTime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">formatTime()</span></code></a> documentation.</p>
 <p>The <em>style</em> parameter can be one of «%», «{« or «$» and determines how
 the format string will be merged with its data: using one of %-formatting,
-<a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or <a class="reference internal" href="string.html#string.Template" title="string.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a>. See <a class="reference internal" href="../howto/logging-cookbook.html#formatting-styles"><span class="std std-ref">Using particular formatting styles throughout your application</span></a>
-for more information on using {- and $-formatting for log messages.</p>
+<a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or <a class="reference internal" href="string.html#string.Template" title="string.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a>. This only applies to the
+format string <em>fmt</em> (e.g. <code class="docutils literal notranslate"><span class="pre">'%(message)s'</span></code> or <code class="docutils literal notranslate"><span class="pre">{message}</span></code>), not to the
+actual log messages passed to <code class="docutils literal notranslate"><span class="pre">Logger.debug</span></code> etc; see
+<a class="reference internal" href="../howto/logging-cookbook.html#formatting-styles"><span class="std std-ref">Using particular formatting styles throughout your application</span></a> for more information on using {- and $-formatting
+for log messages.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>style</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>style</em> parameter was added.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <em>validate</em> parameter was added. Incorrect or mismatched style and fmt
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <em>validate</em> parameter was added. Incorrect or mismatched style and fmt
 will raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.
 For example: <code class="docutils literal notranslate"><span class="pre">logging.Formatter('%(asctime)s</span> <span class="pre">-</span> <span class="pre">%(message)s',</span> <span class="pre">style='{')</span></code>.</p>
 </div>
 <dl class="method">
 <dt id="logging.Formatter.format">
-<code class="descname">format</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.format" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.format" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The record’s attribute dictionary is used as the operand to a string
 formatting operation. Returns the resulting string. Before formatting the
 dictionary, a couple of preparatory steps are carried out. The <em>message</em>
@@ -687,7 +689,7 @@ information, using <a class="reference internal" href="#logging.Formatter.format
 
 <dl class="method">
 <dt id="logging.Formatter.formatTime">
-<code class="descname">formatTime</code><span class="sig-paren">(</span><em>record</em>, <em>datefmt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatTime" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">formatTime</code><span class="sig-paren">(</span><em class="sig-param">record</em>, <em class="sig-param">datefmt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatTime" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method should be called from <a class="reference internal" href="functions.html#format" title="format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code></a> by a formatter which
 wants to make use of a formatted time. This method can be overridden in
 formatters to provide for any specific requirement, but the basic behavior
@@ -705,7 +707,7 @@ to a function with the same signature as <a class="reference internal" href="tim
 want all logging times to be shown in GMT, set the <code class="docutils literal notranslate"><span class="pre">converter</span></code>
 attribute in the <code class="docutils literal notranslate"><span class="pre">Formatter</span></code> class.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span>Previously, the default format was hard-coded as in this example:
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>Previously, the default format was hard-coded as in this example:
 <code class="docutils literal notranslate"><span class="pre">2010-09-06</span> <span class="pre">22:38:15,292</span></code> where the part before the comma is
 handled by a strptime format string (<code class="docutils literal notranslate"><span class="pre">'%Y-%m-%d</span> <span class="pre">%H:%M:%S'</span></code>), and the
 part after the comma is a millisecond value. Because strptime does not
@@ -717,11 +719,14 @@ overridden at the instance level when desired. The names of the
 attributes are <code class="docutils literal notranslate"><span class="pre">default_time_format</span></code> (for the strptime format string)
 and <code class="docutils literal notranslate"><span class="pre">default_msec_format</span></code> (for appending the millisecond value).</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <code class="docutils literal notranslate"><span class="pre">default_msec_format</span></code> can be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="logging.Formatter.formatException">
-<code class="descname">formatException</code><span class="sig-paren">(</span><em>exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatException" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">formatException</code><span class="sig-paren">(</span><em class="sig-param">exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatException" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Formats the specified exception information (a standard exception tuple as
 returned by <a class="reference internal" href="sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>) as a string. This default implementation
 just uses <a class="reference internal" href="traceback.html#traceback.print_exception" title="traceback.print_exception"><code class="xref py py-func docutils literal notranslate"><span class="pre">traceback.print_exception()</span></code></a>. The resulting string is
@@ -730,7 +735,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="logging.Formatter.formatStack">
-<code class="descname">formatStack</code><span class="sig-paren">(</span><em>stack_info</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatStack" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">formatStack</code><span class="sig-paren">(</span><em class="sig-param">stack_info</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Formatter.formatStack" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Formats the specified stack information (a string as returned by
 <a class="reference internal" href="traceback.html#traceback.print_stack" title="traceback.print_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">traceback.print_stack()</span></code></a>, but with the last newline removed) as a
 string. This default implementation just returns the input value.</p>
@@ -749,13 +754,13 @@ initialized with «A.B» will allow events logged by loggers «A.B», «A.B.C»,
 empty string, all events are passed.</p>
 <dl class="class">
 <dt id="logging.Filter">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">Filter</code><span class="sig-paren">(</span><em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Filter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">Filter</code><span class="sig-paren">(</span><em class="sig-param">name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Filter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an instance of the <a class="reference internal" href="#logging.Filter" title="logging.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filter</span></code></a> class. If <em>name</em> is specified, it
 names a logger which, together with its children, will have its events allowed
 through the filter. If <em>name</em> is the empty string, allows every event.</p>
 <dl class="method">
 <dt id="logging.Filter.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Filter.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param">record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.Filter.filter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Is the specified record to be logged? Returns zero for no, nonzero for
 yes. If deemed appropriate, the record may be modified in-place by this
 method.</p>
@@ -772,7 +777,7 @@ setting, unless the filter has also been applied to those descendant loggers.</p
 <p>You don’t actually need to subclass <code class="docutils literal notranslate"><span class="pre">Filter</span></code>: you can pass any instance
 which has a <code class="docutils literal notranslate"><span class="pre">filter</span></code> method with the same semantics.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>You don’t need to create specialized <code class="docutils literal notranslate"><span class="pre">Filter</span></code> classes, or use other
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>You don’t need to create specialized <code class="docutils literal notranslate"><span class="pre">Filter</span></code> classes, or use other
 classes with a <code class="docutils literal notranslate"><span class="pre">filter</span></code> method: you can use a function (or other
 callable) as a filter. The filtering logic will check to see if the filter
 object has a <code class="docutils literal notranslate"><span class="pre">filter</span></code> attribute: if it does, it’s assumed to be a
@@ -798,46 +803,42 @@ every time something is logged, and can be created manually via
 wire).</p>
 <dl class="class">
 <dt id="logging.LogRecord">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">LogRecord</code><span class="sig-paren">(</span><em>name</em>, <em>level</em>, <em>pathname</em>, <em>lineno</em>, <em>msg</em>, <em>args</em>, <em>exc_info</em>, <em>func=None</em>, <em>sinfo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LogRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">LogRecord</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">level</em>, <em class="sig-param">pathname</em>, <em class="sig-param">lineno</em>, <em class="sig-param">msg</em>, <em class="sig-param">args</em>, <em class="sig-param">exc_info</em>, <em class="sig-param">func=None</em>, <em class="sig-param">sinfo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LogRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Contains all the information pertinent to the event being logged.</p>
 <p>The primary information is passed in <code class="xref py py-attr docutils literal notranslate"><span class="pre">msg</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">args</span></code>, which
 are combined using <code class="docutils literal notranslate"><span class="pre">msg</span> <span class="pre">%</span> <span class="pre">args</span></code> to create the <code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code> field of the
 record.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parametry:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> – The name of the logger used to log the event represented by
+<dl class="field-list simple">
+<dt class="field-odd">Parametry</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the logger used to log the event represented by
 this LogRecord. Note that this name will always have this
 value, even though it may be emitted by a handler attached to
-a different (ancestor) logger.</li>
-<li><strong>level</strong> – The numeric level of the logging event (one of DEBUG, INFO etc.)
+a different (ancestor) logger.</p></li>
+<li><p><strong>level</strong> – The numeric level of the logging event (one of DEBUG, INFO etc.)
 Note that this is converted to <em>two</em> attributes of the LogRecord:
 <code class="docutils literal notranslate"><span class="pre">levelno</span></code> for the numeric value and <code class="docutils literal notranslate"><span class="pre">levelname</span></code> for the
-corresponding level name.</li>
-<li><strong>pathname</strong> – The full pathname of the source file where the logging call
-was made.</li>
-<li><strong>lineno</strong> – The line number in the source file where the logging call was
-made.</li>
-<li><strong>msg</strong> – The event description message, possibly a format string with
-placeholders for variable data.</li>
-<li><strong>args</strong> – Variable data to merge into the <em>msg</em> argument to obtain the
-event description.</li>
-<li><strong>exc_info</strong> – An exception tuple with the current exception information,
-or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no exception information is available.</li>
-<li><strong>func</strong> – The name of the function or method from which the logging call
-was invoked.</li>
-<li><strong>sinfo</strong> – A text string representing stack information from the base of
-the stack in the current thread, up to the logging call.</li>
+corresponding level name.</p></li>
+<li><p><strong>pathname</strong> – The full pathname of the source file where the logging call
+was made.</p></li>
+<li><p><strong>lineno</strong> – The line number in the source file where the logging call was
+made.</p></li>
+<li><p><strong>msg</strong> – The event description message, possibly a format string with
+placeholders for variable data.</p></li>
+<li><p><strong>args</strong> – Variable data to merge into the <em>msg</em> argument to obtain the
+event description.</p></li>
+<li><p><strong>exc_info</strong> – An exception tuple with the current exception information,
+or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no exception information is available.</p></li>
+<li><p><strong>func</strong> – The name of the function or method from which the logging call
+was invoked.</p></li>
+<li><p><strong>sinfo</strong> – A text string representing stack information from the base of
+the stack in the current thread, up to the logging call.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="method">
 <dt id="logging.LogRecord.getMessage">
-<code class="descname">getMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.LogRecord.getMessage" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">getMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.LogRecord.getMessage" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the message for this <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> instance after merging any
 user-supplied arguments with the message. If the user-supplied message
 argument to the logging call is not a string, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> is called on it to
@@ -847,7 +848,7 @@ be used.</p>
 </dd></dl>
 
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The creation of a <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> has been made more configurable by
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The creation of a <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> has been made more configurable by
 providing a factory which is used to create the record. The factory can be
 set using <a class="reference internal" href="#logging.getLogRecordFactory" title="logging.getLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogRecordFactory()</span></code></a> and <a class="reference internal" href="#logging.setLogRecordFactory" title="logging.setLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLogRecordFactory()</span></code></a>
 (see this for the factory’s signature).</p>
@@ -890,139 +891,139 @@ after the attribute name, separated from it with a colon. For example: a
 placeholder of <code class="docutils literal notranslate"><span class="pre">{msecs:03d}</span></code> would format a millisecond value of <code class="docutils literal notranslate"><span class="pre">4</span></code> as
 <code class="docutils literal notranslate"><span class="pre">004</span></code>. Refer to the <a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> documentation for full details on
 the options available to you.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="18%" />
-<col width="28%" />
-<col width="53%" />
+<col style="width: 18%" />
+<col style="width: 28%" />
+<col style="width: 53%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute name</th>
-<th class="head">Format</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute name</p></th>
+<th class="head"><p>Format</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>args</td>
-<td>You shouldn’t need to
-format this yourself.</td>
-<td>The tuple of arguments merged into <code class="docutils literal notranslate"><span class="pre">msg</span></code> to
+<tbody>
+<tr class="row-even"><td><p>args</p></td>
+<td><p>You shouldn’t need to
+format this yourself.</p></td>
+<td><p>The tuple of arguments merged into <code class="docutils literal notranslate"><span class="pre">msg</span></code> to
 produce <code class="docutils literal notranslate"><span class="pre">message</span></code>, or a dict whose values
 are used for the merge (when there is only one
-argument, and it is a dictionary).</td>
+argument, and it is a dictionary).</p></td>
 </tr>
-<tr class="row-odd"><td>asctime</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(asctime)s</span></code></td>
-<td>Human-readable time when the
+<tr class="row-odd"><td><p>asctime</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(asctime)s</span></code></p></td>
+<td><p>Human-readable time when the
 <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> was created.  By default
 this is of the form «2003-07-08 16:49:45,896»
 (the numbers after the comma are millisecond
-portion of the time).</td>
+portion of the time).</p></td>
 </tr>
-<tr class="row-even"><td>created</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(created)f</span></code></td>
-<td>Time when the <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> was created
-(as returned by <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a>).</td>
+<tr class="row-even"><td><p>created</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(created)f</span></code></p></td>
+<td><p>Time when the <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> was created
+(as returned by <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a>).</p></td>
 </tr>
-<tr class="row-odd"><td>exc_info</td>
-<td>You shouldn’t need to
-format this yourself.</td>
-<td>Exception tuple (à la <code class="docutils literal notranslate"><span class="pre">sys.exc_info</span></code>) or,
-if no exception has occurred, <code class="docutils literal notranslate"><span class="pre">None</span></code>.</td>
+<tr class="row-odd"><td><p>exc_info</p></td>
+<td><p>You shouldn’t need to
+format this yourself.</p></td>
+<td><p>Exception tuple (à la <code class="docutils literal notranslate"><span class="pre">sys.exc_info</span></code>) or,
+if no exception has occurred, <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td>filename</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(filename)s</span></code></td>
-<td>Filename portion of <code class="docutils literal notranslate"><span class="pre">pathname</span></code>.</td>
+<tr class="row-even"><td><p>filename</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(filename)s</span></code></p></td>
+<td><p>Filename portion of <code class="docutils literal notranslate"><span class="pre">pathname</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td>funcName</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(funcName)s</span></code></td>
-<td>Name of function containing the logging call.</td>
+<tr class="row-odd"><td><p>funcName</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(funcName)s</span></code></p></td>
+<td><p>Name of function containing the logging call.</p></td>
 </tr>
-<tr class="row-even"><td>levelname</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(levelname)s</span></code></td>
-<td>Text logging level for the message
+<tr class="row-even"><td><p>levelname</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(levelname)s</span></code></p></td>
+<td><p>Text logging level for the message
 (<code class="docutils literal notranslate"><span class="pre">'DEBUG'</span></code>, <code class="docutils literal notranslate"><span class="pre">'INFO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'WARNING'</span></code>,
-<code class="docutils literal notranslate"><span class="pre">'ERROR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CRITICAL'</span></code>).</td>
+<code class="docutils literal notranslate"><span class="pre">'ERROR'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CRITICAL'</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td>levelno</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(levelno)s</span></code></td>
-<td>Numeric logging level for the message
+<tr class="row-odd"><td><p>levelno</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(levelno)s</span></code></p></td>
+<td><p>Numeric logging level for the message
 (<code class="xref py py-const docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code>,
 <code class="xref py py-const docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code>,
-<code class="xref py py-const docutils literal notranslate"><span class="pre">CRITICAL</span></code>).</td>
+<code class="xref py py-const docutils literal notranslate"><span class="pre">CRITICAL</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td>lineno</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(lineno)d</span></code></td>
-<td>Source line number where the logging call was
-issued (if available).</td>
+<tr class="row-even"><td><p>lineno</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(lineno)d</span></code></p></td>
+<td><p>Source line number where the logging call was
+issued (if available).</p></td>
 </tr>
-<tr class="row-odd"><td>message</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(message)s</span></code></td>
-<td>The logged message, computed as <code class="docutils literal notranslate"><span class="pre">msg</span> <span class="pre">%</span>
+<tr class="row-odd"><td><p>message</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(message)s</span></code></p></td>
+<td><p>The logged message, computed as <code class="docutils literal notranslate"><span class="pre">msg</span> <span class="pre">%</span>
 <span class="pre">args</span></code>. This is set when
-<a class="reference internal" href="#logging.Formatter.format" title="logging.Formatter.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Formatter.format()</span></code></a> is invoked.</td>
+<a class="reference internal" href="#logging.Formatter.format" title="logging.Formatter.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Formatter.format()</span></code></a> is invoked.</p></td>
 </tr>
-<tr class="row-even"><td>module</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(module)s</span></code></td>
-<td>Module (name portion of <code class="docutils literal notranslate"><span class="pre">filename</span></code>).</td>
+<tr class="row-even"><td><p>module</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(module)s</span></code></p></td>
+<td><p>Module (name portion of <code class="docutils literal notranslate"><span class="pre">filename</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td>msecs</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(msecs)d</span></code></td>
-<td>Millisecond portion of the time when the
-<a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> was created.</td>
+<tr class="row-odd"><td><p>msecs</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(msecs)d</span></code></p></td>
+<td><p>Millisecond portion of the time when the
+<a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> was created.</p></td>
 </tr>
-<tr class="row-even"><td>msg</td>
-<td>You shouldn’t need to
-format this yourself.</td>
-<td>The format string passed in the original
+<tr class="row-even"><td><p>msg</p></td>
+<td><p>You shouldn’t need to
+format this yourself.</p></td>
+<td><p>The format string passed in the original
 logging call. Merged with <code class="docutils literal notranslate"><span class="pre">args</span></code> to
 produce <code class="docutils literal notranslate"><span class="pre">message</span></code>, or an arbitrary object
-(see <a class="reference internal" href="../howto/logging.html#arbitrary-object-messages"><span class="std std-ref">Using arbitrary objects as messages</span></a>).</td>
+(see <a class="reference internal" href="../howto/logging.html#arbitrary-object-messages"><span class="std std-ref">Using arbitrary objects as messages</span></a>).</p></td>
 </tr>
-<tr class="row-odd"><td>name</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(name)s</span></code></td>
-<td>Name of the logger used to log the call.</td>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(name)s</span></code></p></td>
+<td><p>Name of the logger used to log the call.</p></td>
 </tr>
-<tr class="row-even"><td>pathname</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(pathname)s</span></code></td>
-<td>Full pathname of the source file where the
-logging call was issued (if available).</td>
+<tr class="row-even"><td><p>pathname</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(pathname)s</span></code></p></td>
+<td><p>Full pathname of the source file where the
+logging call was issued (if available).</p></td>
 </tr>
-<tr class="row-odd"><td>process</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(process)d</span></code></td>
-<td>Process ID (if available).</td>
+<tr class="row-odd"><td><p>process</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(process)d</span></code></p></td>
+<td><p>Process ID (if available).</p></td>
 </tr>
-<tr class="row-even"><td>processName</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(processName)s</span></code></td>
-<td>Process name (if available).</td>
+<tr class="row-even"><td><p>processName</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(processName)s</span></code></p></td>
+<td><p>Process name (if available).</p></td>
 </tr>
-<tr class="row-odd"><td>relativeCreated</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(relativeCreated)d</span></code></td>
-<td>Time in milliseconds when the LogRecord was
+<tr class="row-odd"><td><p>relativeCreated</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(relativeCreated)d</span></code></p></td>
+<td><p>Time in milliseconds when the LogRecord was
 created, relative to the time the logging
-module was loaded.</td>
+module was loaded.</p></td>
 </tr>
-<tr class="row-even"><td>stack_info</td>
-<td>You shouldn’t need to
-format this yourself.</td>
-<td>Stack frame information (where available)
+<tr class="row-even"><td><p>stack_info</p></td>
+<td><p>You shouldn’t need to
+format this yourself.</p></td>
+<td><p>Stack frame information (where available)
 from the bottom of the stack in the current
 thread, up to and including the stack frame
 of the logging call which resulted in the
-creation of this record.</td>
+creation of this record.</p></td>
 </tr>
-<tr class="row-odd"><td>thread</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(thread)d</span></code></td>
-<td>Thread ID (if available).</td>
+<tr class="row-odd"><td><p>thread</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(thread)d</span></code></p></td>
+<td><p>Thread ID (if available).</p></td>
 </tr>
-<tr class="row-even"><td>threadName</td>
-<td><code class="docutils literal notranslate"><span class="pre">%(threadName)s</span></code></td>
-<td>Thread name (if available).</td>
+<tr class="row-even"><td><p>threadName</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%(threadName)s</span></code></p></td>
+<td><p>Thread name (if available).</p></td>
 </tr>
 </tbody>
 </table>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.1: </span><em>processName</em> was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.1: </span><em>processName</em> was added.</p>
 </div>
 </div>
 <div class="section" id="loggeradapter-objects">
@@ -1032,12 +1033,12 @@ information into logging calls. For a usage example, see the section on
 <a class="reference internal" href="../howto/logging-cookbook.html#context-info"><span class="std std-ref">adding contextual information to your logging output</span></a>.</p>
 <dl class="class">
 <dt id="logging.LoggerAdapter">
-<em class="property">class </em><code class="descclassname">logging.</code><code class="descname">LoggerAdapter</code><span class="sig-paren">(</span><em>logger</em>, <em>extra</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LoggerAdapter" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">logging.</code><code class="sig-name descname">LoggerAdapter</code><span class="sig-paren">(</span><em class="sig-param">logger</em>, <em class="sig-param">extra</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LoggerAdapter" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an instance of <a class="reference internal" href="#logging.LoggerAdapter" title="logging.LoggerAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerAdapter</span></code></a> initialized with an
 underlying <a class="reference internal" href="#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> instance and a dict-like object.</p>
 <dl class="method">
 <dt id="logging.LoggerAdapter.process">
-<code class="descname">process</code><span class="sig-paren">(</span><em>msg</em>, <em>kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LoggerAdapter.process" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.LoggerAdapter.process" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Modifies the message and/or keyword arguments passed to a logging call in
 order to insert contextual information. This implementation takes the object
 passed as <em>extra</em> to the constructor and adds it to <em>kwargs</em> using key
@@ -1056,7 +1057,7 @@ methods of <a class="reference internal" href="#logging.Logger" title="logging.L
 counterparts in <a class="reference internal" href="#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a>, so you can use the two types of instances
 interchangeably.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <a class="reference internal" href="#logging.Logger.isEnabledFor" title="logging.Logger.isEnabledFor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isEnabledFor()</span></code></a>, <a class="reference internal" href="#logging.Logger.getEffectiveLevel" title="logging.Logger.getEffectiveLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getEffectiveLevel()</span></code></a>,
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <a class="reference internal" href="#logging.Logger.isEnabledFor" title="logging.Logger.isEnabledFor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isEnabledFor()</span></code></a>, <a class="reference internal" href="#logging.Logger.getEffectiveLevel" title="logging.Logger.getEffectiveLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getEffectiveLevel()</span></code></a>,
 <a class="reference internal" href="#logging.Logger.setLevel" title="logging.Logger.setLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevel()</span></code></a> and <a class="reference internal" href="#logging.Logger.hasHandlers" title="logging.Logger.hasHandlers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hasHandlers()</span></code></a> methods were added
 to <a class="reference internal" href="#logging.LoggerAdapter" title="logging.LoggerAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerAdapter</span></code></a>.  These methods delegate to the underlying logger.</p>
 </div>
@@ -1078,7 +1079,7 @@ re-entrant, and so cannot be invoked from such signal handlers.</p>
 functions.</p>
 <dl class="function">
 <dt id="logging.getLogger">
-<code class="descclassname">logging.</code><code class="descname">getLogger</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLogger" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">getLogger</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLogger" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a logger with the specified name or, if name is <code class="docutils literal notranslate"><span class="pre">None</span></code>, return a
 logger which is the root logger of the hierarchy. If specified, the name is
 typically a dot-separated hierarchical name like <em>«a»</em>, <em>«a.b»</em> or <em>«a.b.c.d»</em>.
@@ -1090,7 +1091,7 @@ of an application.</p>
 
 <dl class="function">
 <dt id="logging.getLoggerClass">
-<code class="descclassname">logging.</code><code class="descname">getLoggerClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLoggerClass" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">getLoggerClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLoggerClass" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return either the standard <a class="reference internal" href="#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> class, or the last class passed to
 <a class="reference internal" href="#logging.setLoggerClass" title="logging.setLoggerClass"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLoggerClass()</span></code></a>. This function may be called from within a new class
 definition, to ensure that installing a customized <a class="reference internal" href="#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> class will
@@ -1103,10 +1104,10 @@ not undo customizations already applied by other code. For example:</p>
 
 <dl class="function">
 <dt id="logging.getLogRecordFactory">
-<code class="descclassname">logging.</code><code class="descname">getLogRecordFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLogRecordFactory" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">getLogRecordFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLogRecordFactory" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a callable which is used to create a <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2: </span>This function has been provided, along with <a class="reference internal" href="#logging.setLogRecordFactory" title="logging.setLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLogRecordFactory()</span></code></a>,
+<p><span class="versionmodified added">Nowe w wersji 3.2: </span>This function has been provided, along with <a class="reference internal" href="#logging.setLogRecordFactory" title="logging.setLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLogRecordFactory()</span></code></a>,
 to allow developers more control over how the <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>
 representing a logging event is constructed.</p>
 </div>
@@ -1116,7 +1117,7 @@ factory is called.</p>
 
 <dl class="function">
 <dt id="logging.debug">
-<code class="descclassname">logging.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.debug" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.debug" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">DEBUG</span></code> on the root logger. The <em>msg</em> is the
 message format string, and the <em>args</em> are the arguments which are merged into
 <em>msg</em> using the string formatting operator. (Note that this means that you can
@@ -1173,25 +1174,25 @@ context (such as remote client IP address and authenticated user name, in the
 above example). In such circumstances, it is likely that specialized
 <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a>s would be used with particular <a class="reference internal" href="#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a>s.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>stack_info</em> parameter was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>stack_info</em> parameter was added.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.info">
-<code class="descclassname">logging.</code><code class="descname">info</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.info" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.info" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code> on the root logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.warning">
-<code class="descclassname">logging.</code><code class="descname">warning</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.warning" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">warning</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.warning" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">WARNING</span></code> on the root logger. The arguments
 are interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">There is an obsolete function <code class="docutils literal notranslate"><span class="pre">warn</span></code> which is functionally
+<p class="admonition-title">Informacja</p>
+<p>There is an obsolete function <code class="docutils literal notranslate"><span class="pre">warn</span></code> which is functionally
 identical to <code class="docutils literal notranslate"><span class="pre">warning</span></code>. As <code class="docutils literal notranslate"><span class="pre">warn</span></code> is deprecated, please do not use
 it - use <code class="docutils literal notranslate"><span class="pre">warning</span></code> instead.</p>
 </div>
@@ -1199,21 +1200,21 @@ it - use <code class="docutils literal notranslate"><span class="pre">warning</s
 
 <dl class="function">
 <dt id="logging.error">
-<code class="descclassname">logging.</code><code class="descname">error</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code> on the root logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.critical">
-<code class="descclassname">logging.</code><code class="descname">critical</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.critical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">critical</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.critical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">CRITICAL</span></code> on the root logger. The arguments
 are interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.exception">
-<code class="descclassname">logging.</code><code class="descname">exception</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">exception</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code> on the root logger. The arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>. Exception info is added to the logging
 message. This function should only be called from an exception handler.</p>
@@ -1221,12 +1222,12 @@ message. This function should only be called from an exception handler.</p>
 
 <dl class="function">
 <dt id="logging.log">
-<code class="descclassname">logging.</code><code class="descname">log</code><span class="sig-paren">(</span><em>level</em>, <em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.log" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.log" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Logs a message with level <em>level</em> on the root logger. The other arguments are
 interpreted as for <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">The above module-level convenience functions, which delegate to the
+<p class="admonition-title">Informacja</p>
+<p>The above module-level convenience functions, which delegate to the
 root logger, call <a class="reference internal" href="#logging.basicConfig" title="logging.basicConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">basicConfig()</span></code></a> to ensure that at least one handler
 is available. Because of this, they should <em>not</em> be used in threads,
 in versions of Python earlier than 2.7.1 and 3.2, unless at least one
@@ -1240,7 +1241,7 @@ lead to multiple messages for the same event.</p>
 
 <dl class="function">
 <dt id="logging.disable">
-<code class="descclassname">logging.</code><code class="descname">disable</code><span class="sig-paren">(</span><em>level=CRITICAL</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.disable" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">disable</code><span class="sig-paren">(</span><em class="sig-param">level=CRITICAL</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.disable" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Provides an overriding level <em>level</em> for all loggers which takes precedence over
 the logger’s own level. When the need arises to temporarily throttle logging
 output down across the whole application, this function can be useful. Its
@@ -1256,14 +1257,14 @@ levels of individual loggers.</p>
 default value for the <em>level</em> parameter, but will have to explicitly supply a
 suitable value.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The <em>level</em> parameter was defaulted to level <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>. See Issue
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The <em>level</em> parameter was defaulted to level <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>. See Issue
 #28524 for more information about this change.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.addLevelName">
-<code class="descclassname">logging.</code><code class="descname">addLevelName</code><span class="sig-paren">(</span><em>level</em>, <em>levelName</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.addLevelName" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">addLevelName</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">levelName</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.addLevelName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Associates level <em>level</em> with text <em>levelName</em> in an internal dictionary, which is
 used to map numeric levels to a textual representation, for example when a
 <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> formats a message. This function can also be used to define
@@ -1271,15 +1272,15 @@ your own levels. The only constraints are that all levels used must be
 registered using this function, levels should be positive integers and they
 should increase in increasing order of severity.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">If you are thinking of defining your own levels, please see the
+<p class="admonition-title">Informacja</p>
+<p>If you are thinking of defining your own levels, please see the
 section on <a class="reference internal" href="../howto/logging.html#custom-levels"><span class="std std-ref">Custom Levels</span></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.getLevelName">
-<code class="descclassname">logging.</code><code class="descname">getLevelName</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLevelName" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">getLevelName</code><span class="sig-paren">(</span><em class="sig-param">level</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.getLevelName" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the textual representation of logging level <em>level</em>. If the level is one
 of the predefined levels <code class="xref py py-const docutils literal notranslate"><span class="pre">CRITICAL</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">WARNING</span></code>,
 <code class="xref py py-const docutils literal notranslate"><span class="pre">INFO</span></code> or <code class="xref py py-const docutils literal notranslate"><span class="pre">DEBUG</span></code> then you get the corresponding string. If you
@@ -1288,14 +1289,14 @@ have associated with <em>level</em> is returned. If a numeric value correspondin
 of the defined levels is passed in, the corresponding string representation is
 returned. Otherwise, the string «Level %s» % level is returned.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">Levels are internally integers (as they need to be compared in the
+<p class="admonition-title">Informacja</p>
+<p>Levels are internally integers (as they need to be compared in the
 logging logic). This function is used to convert between an integer level
 and the level name displayed in the formatted log output by means of the
 <code class="docutils literal notranslate"><span class="pre">%(levelname)s</span></code> format specifier (see <a class="reference internal" href="#logrecord-attributes"><span class="std std-ref">LogRecord attributes</span></a>).</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.4: </span>In Python versions earlier than 3.4, this function could also be passed a
+<p><span class="versionmodified changed">Zmienione w wersji 3.4: </span>In Python versions earlier than 3.4, this function could also be passed a
 text level, and would return the corresponding numeric value of the level.
 This undocumented behaviour was considered a mistake, and was removed in
 Python 3.4, but reinstated in 3.4.2 due to retain backward compatibility.</p>
@@ -1304,7 +1305,7 @@ Python 3.4, but reinstated in 3.4.2 due to retain backward compatibility.</p>
 
 <dl class="function">
 <dt id="logging.makeLogRecord">
-<code class="descclassname">logging.</code><code class="descname">makeLogRecord</code><span class="sig-paren">(</span><em>attrdict</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.makeLogRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">makeLogRecord</code><span class="sig-paren">(</span><em class="sig-param">attrdict</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.makeLogRecord" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates and returns a new <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> instance whose attributes are
 defined by <em>attrdict</em>. This function is useful for taking a pickled
 <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> attribute dictionary, sent over a socket, and reconstituting
@@ -1313,7 +1314,7 @@ it as a <a class="reference internal" href="#logging.LogRecord" title="logging.L
 
 <dl class="function">
 <dt id="logging.basicConfig">
-<code class="descclassname">logging.</code><code class="descname">basicConfig</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.basicConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">basicConfig</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.basicConfig" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Does basic configuration for the logging system by creating a
 <a class="reference internal" href="logging.handlers.html#logging.StreamHandler" title="logging.StreamHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamHandler</span></code></a> with a default <a class="reference internal" href="#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> and adding it to the
 root logger. The functions <a class="reference internal" href="#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>, <a class="reference internal" href="#logging.info" title="logging.info"><code class="xref py py-func docutils literal notranslate"><span class="pre">info()</span></code></a>, <a class="reference internal" href="#logging.warning" title="logging.warning"><code class="xref py py-func docutils literal notranslate"><span class="pre">warning()</span></code></a>,
@@ -1322,8 +1323,8 @@ if no handlers are defined for the root logger.</p>
 <p>This function does nothing if the root logger already has handlers
 configured, unless the keyword argument <em>force</em> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">This function should be called from the main thread
+<p class="admonition-title">Informacja</p>
+<p>This function should be called from the main thread
 before other threads are started. In versions of Python prior to
 2.7.1 and 3.2, if this function is called from multiple threads,
 it is possible (in rare circumstances) that a handler will be added
@@ -1331,89 +1332,109 @@ to the root logger more than once, leading to unexpected results
 such as messages being duplicated in the log.</p>
 </div>
 <p>The following keyword arguments are supported.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="24%" />
-<col width="76%" />
+<col style="width: 24%" />
+<col style="width: 76%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Format</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><em>filename</em></td>
-<td>Specifies that a FileHandler be created,
+<tbody>
+<tr class="row-even"><td><p><em>filename</em></p></td>
+<td><p>Specifies that a FileHandler be created,
 using the specified filename, rather than a
-StreamHandler.</td>
+StreamHandler.</p></td>
 </tr>
-<tr class="row-odd"><td><em>filemode</em></td>
-<td>If <em>filename</em> is specified, open the file
+<tr class="row-odd"><td><p><em>filemode</em></p></td>
+<td><p>If <em>filename</em> is specified, open the file
 in this <a class="reference internal" href="functions.html#filemodes"><span class="std std-ref">mode</span></a>. Defaults
-to <code class="docutils literal notranslate"><span class="pre">'a'</span></code>.</td>
+to <code class="docutils literal notranslate"><span class="pre">'a'</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><em>format</em></td>
-<td>Use the specified format string for the
-handler.</td>
+<tr class="row-even"><td><p><em>format</em></p></td>
+<td><p>Use the specified format string for the
+handler.</p></td>
 </tr>
-<tr class="row-odd"><td><em>datefmt</em></td>
-<td>Use the specified date/time format, as
-accepted by <a class="reference internal" href="time.html#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.strftime()</span></code></a>.</td>
+<tr class="row-odd"><td><p><em>datefmt</em></p></td>
+<td><p>Use the specified date/time format, as
+accepted by <a class="reference internal" href="time.html#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.strftime()</span></code></a>.</p></td>
 </tr>
-<tr class="row-even"><td><em>style</em></td>
-<td>If <em>format</em> is specified, use this style
+<tr class="row-even"><td><p><em>style</em></p></td>
+<td><p>If <em>format</em> is specified, use this style
 for the format string. One of <code class="docutils literal notranslate"><span class="pre">'%'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'{'</span></code> or <code class="docutils literal notranslate"><span class="pre">'$'</span></code> for <a class="reference internal" href="stdtypes.html#old-string-formatting"><span class="std std-ref">printf-style</span></a>,
 <a class="reference internal" href="stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or
 <a class="reference internal" href="string.html#string.Template" title="string.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a> respectively.
-Defaults to <code class="docutils literal notranslate"><span class="pre">'%'</span></code>.</td>
+Defaults to <code class="docutils literal notranslate"><span class="pre">'%'</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><em>level</em></td>
-<td>Set the root logger level to the specified
-<a class="reference internal" href="#levels"><span class="std std-ref">level</span></a>.</td>
+<tr class="row-odd"><td><p><em>level</em></p></td>
+<td><p>Set the root logger level to the specified
+<a class="reference internal" href="#levels"><span class="std std-ref">level</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><em>stream</em></td>
-<td>Use the specified stream to initialize the
+<tr class="row-even"><td><p><em>stream</em></p></td>
+<td><p>Use the specified stream to initialize the
 StreamHandler. Note that this argument is
 incompatible with <em>filename</em> - if both
-are present, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</td>
+are present, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p></td>
 </tr>
-<tr class="row-odd"><td><em>handlers</em></td>
-<td>If specified, this should be an iterable of
+<tr class="row-odd"><td><p><em>handlers</em></p></td>
+<td><p>If specified, this should be an iterable of
 already created handlers to add to the root
 logger. Any handlers which don’t already
 have a formatter set will be assigned the
 default formatter created in this function.
 Note that this argument is incompatible
 with <em>filename</em> or <em>stream</em> - if both
-are present, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</td>
+are present, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p></td>
 </tr>
-<tr class="row-even"><td><em>force</em></td>
-<td>If this keyword argument is specified as
+<tr class="row-even"><td><p><em>force</em></p></td>
+<td><p>If this keyword argument is specified as
 true, any existing handlers attached to the
 root logger are removed and closed, before
 carrying out the configuration as specified
-by the other arguments.</td>
+by the other arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>encoding</em></p></td>
+<td><p>If this keyword argument is specified along
+with <em>filename</em>, its value is used when the
+FileHandler is created, and thus used when
+opening the output file.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>errors</em></p></td>
+<td><p>If this keyword argument is specified along
+with <em>filename</em>, its value is used when the
+FileHandler is created, and thus used when
+opening the output file. If not specified,
+the value «backslashreplace» is used. Note
+that if <code class="docutils literal notranslate"><span class="pre">None</span></code> is specified, it will be
+passed as such to func:<cite>open</cite>, which means
+that it will be treated the same as passing
+«errors».</p></td>
 </tr>
 </tbody>
 </table>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The <em>style</em> argument was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The <em>style</em> argument was added.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span>The <em>handlers</em> argument was added. Additional checks were added to
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>The <em>handlers</em> argument was added. Additional checks were added to
 catch situations where incompatible arguments are specified (e.g.
 <em>handlers</em> together with <em>stream</em> or <em>filename</em>, or <em>stream</em>
 together with <em>filename</em>).</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>The <em>force</em> argument was added.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>The <em>force</em> argument was added.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>The <em>encoding</em> and <em>errors</em> arguments were added.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="logging.shutdown">
-<code class="descclassname">logging.</code><code class="descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.shutdown" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#logging.shutdown" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Informs the logging system to perform an orderly shutdown by flushing and
 closing all handlers. This should be called at application exit and no
 further use of the logging system should be made after this call.</p>
@@ -1424,7 +1445,7 @@ manually.</p>
 
 <dl class="function">
 <dt id="logging.setLoggerClass">
-<code class="descclassname">logging.</code><code class="descname">setLoggerClass</code><span class="sig-paren">(</span><em>klass</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.setLoggerClass" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">setLoggerClass</code><span class="sig-paren">(</span><em class="sig-param">klass</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.setLoggerClass" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Tells the logging system to use the class <em>klass</em> when instantiating a logger.
 The class should define <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> such that only a name argument is
 required, and the <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> should call <code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.__init__()</span></code>. This
@@ -1436,52 +1457,55 @@ the <a class="reference internal" href="#logging.getLogger" title="logging.getLo
 
 <dl class="function">
 <dt id="logging.setLogRecordFactory">
-<code class="descclassname">logging.</code><code class="descname">setLogRecordFactory</code><span class="sig-paren">(</span><em>factory</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.setLogRecordFactory" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">setLogRecordFactory</code><span class="sig-paren">(</span><em class="sig-param">factory</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.setLogRecordFactory" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set a callable which is used to create a <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parametry:</th><td class="field-body"><strong>factory</strong> – The factory callable to be used to instantiate a log record.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry</dt>
+<dd class="field-odd"><p><strong>factory</strong> – The factory callable to be used to instantiate a log record.</p>
+</dd>
+</dl>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2: </span>This function has been provided, along with <a class="reference internal" href="#logging.getLogRecordFactory" title="logging.getLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogRecordFactory()</span></code></a>, to
+<p><span class="versionmodified added">Nowe w wersji 3.2: </span>This function has been provided, along with <a class="reference internal" href="#logging.getLogRecordFactory" title="logging.getLogRecordFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogRecordFactory()</span></code></a>, to
 allow developers more control over how the <a class="reference internal" href="#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> representing
 a logging event is constructed.</p>
 </div>
 <p>The factory has the following signature:</p>
 <p><code class="docutils literal notranslate"><span class="pre">factory(name,</span> <span class="pre">level,</span> <span class="pre">fn,</span> <span class="pre">lno,</span> <span class="pre">msg,</span> <span class="pre">args,</span> <span class="pre">exc_info,</span> <span class="pre">func=None,</span> <span class="pre">sinfo=None,</span> <span class="pre">**kwargs)</span></code></p>
 <blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">The logger name.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">level:</th><td class="field-body">The logging level (numeric).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">fn:</th><td class="field-body">The full pathname of the file where the logging call was made.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lno:</th><td class="field-body">The line number in the file where the logging call was made.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">msg:</th><td class="field-body">The logging message.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">args:</th><td class="field-body">The arguments for the logging message.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">exc_info:</th><td class="field-body">An exception tuple, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">func:</th><td class="field-body">The name of the function or method which invoked the logging
-call.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">sinfo:</th><td class="field-body">A stack traceback such as is provided by
-<a class="reference internal" href="traceback.html#traceback.print_stack" title="traceback.print_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">traceback.print_stack()</span></code></a>, showing the call hierarchy.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">kwargs:</th><td class="field-body">Additional keyword arguments.</td>
-</tr>
-</tbody>
-</table>
+<div><dl class="field-list simple">
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>The logger name.</p>
+</dd>
+<dt class="field-even">level</dt>
+<dd class="field-even"><p>The logging level (numeric).</p>
+</dd>
+<dt class="field-odd">fn</dt>
+<dd class="field-odd"><p>The full pathname of the file where the logging call was made.</p>
+</dd>
+<dt class="field-even">lno</dt>
+<dd class="field-even"><p>The line number in the file where the logging call was made.</p>
+</dd>
+<dt class="field-odd">msg</dt>
+<dd class="field-odd"><p>The logging message.</p>
+</dd>
+<dt class="field-even">args</dt>
+<dd class="field-even"><p>The arguments for the logging message.</p>
+</dd>
+<dt class="field-odd">exc_info</dt>
+<dd class="field-odd"><p>An exception tuple, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">func</dt>
+<dd class="field-even"><p>The name of the function or method which invoked the logging
+call.</p>
+</dd>
+<dt class="field-odd">sinfo</dt>
+<dd class="field-odd"><p>A stack traceback such as is provided by
+<a class="reference internal" href="traceback.html#traceback.print_stack" title="traceback.print_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">traceback.print_stack()</span></code></a>, showing the call hierarchy.</p>
+</dd>
+<dt class="field-even">kwargs</dt>
+<dd class="field-even"><p>Additional keyword arguments.</p>
+</dd>
+</dl>
 </div></blockquote>
 </dd></dl>
 
@@ -1490,7 +1514,7 @@ call.</td>
 <h2>Module-Level Attributes<a class="headerlink" href="#module-level-attributes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="attribute">
 <dt id="logging.lastResort">
-<code class="descclassname">logging.</code><code class="descname">lastResort</code><a class="headerlink" href="#logging.lastResort" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">lastResort</code><a class="headerlink" href="#logging.lastResort" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A „handler of last resort” is available through this attribute. This
 is a <a class="reference internal" href="logging.handlers.html#logging.StreamHandler" title="logging.StreamHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamHandler</span></code></a> writing to <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code> with a level of
 <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, and is used to handle logging events in the absence of any
@@ -1499,7 +1523,7 @@ logging configuration. The end result is to just print the message to
 „no handlers could be found for logger XYZ”. If you need the earlier
 behaviour for some reason, <code class="docutils literal notranslate"><span class="pre">lastResort</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
@@ -1510,7 +1534,7 @@ behaviour for some reason, <code class="docutils literal notranslate"><span clas
 with the <a class="reference internal" href="warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code></a> module.</p>
 <dl class="function">
 <dt id="logging.captureWarnings">
-<code class="descclassname">logging.</code><code class="descname">captureWarnings</code><span class="sig-paren">(</span><em>capture</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.captureWarnings" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">logging.</code><code class="sig-name descname">captureWarnings</code><span class="sig-paren">(</span><em class="sig-param">capture</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.captureWarnings" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function is used to turn the capture of warnings by logging on and
 off.</p>
 <p>If <em>capture</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, warnings issued by the <a class="reference internal" href="warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code></a> module will
@@ -1523,20 +1547,20 @@ will stop, and warnings will be redirected to their original destinations
 </dd></dl>
 
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="last docutils">
-<dt>Module <a class="reference internal" href="logging.config.html#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code></a></dt>
-<dd>Configuration API for the logging module.</dd>
-<dt>Module <a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt>
-<dd>Useful handlers included with the logging module.</dd>
-<dt><span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0282"><strong>PEP 282</strong></a> - A Logging System</dt>
-<dd>The proposal which described this feature for inclusion in the Python standard
-library.</dd>
-<dt><a class="reference external" href="https://www.red-dove.com/python_logging.html">Original Python logging package</a></dt>
-<dd>This is the original source for the <a class="reference internal" href="#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> package.  The version of the
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="logging.config.html#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code></a></dt><dd><p>Configuration API for the logging module.</p>
+</dd>
+<dt>Module <a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt><dd><p>Useful handlers included with the logging module.</p>
+</dd>
+<dt><span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0282"><strong>PEP 282</strong></a> - A Logging System</dt><dd><p>The proposal which described this feature for inclusion in the Python standard
+library.</p>
+</dd>
+<dt><a class="reference external" href="https://www.red-dove.com/python_logging.html">Original Python logging package</a></dt><dd><p>This is the original source for the <a class="reference internal" href="#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> package.  The version of the
 package available from this site is suitable for use with Python 1.5.2, 2.1.x
 and 2.2.x, which do not include the <a class="reference internal" href="#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> package in the standard
-library.</dd>
+library.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1548,9 +1572,9 @@ library.</dd>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a><ul>
 <li><a class="reference internal" href="#logger-objects">Logger Objects</a></li>
 <li><a class="reference internal" href="#logging-levels">Logging Levels</a></li>
 <li><a class="reference internal" href="#handler-objects">Handler Objects</a></li>
@@ -1569,16 +1593,16 @@ library.</dd>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="getopt.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">getopt</span></code> — C-style parser for command line options</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code> — C-style parser for command line options</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="logging.config.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">logging.config</span></code> — Logging configuration</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code> — Logging configuration</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/logging.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/logging.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1610,7 +1634,7 @@ library.</dd>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1645,7 +1669,7 @@ library.</dd>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

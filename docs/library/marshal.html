@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>marshal — Internal Python object serialization &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>marshal — Internal Python object serialization &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -109,7 +108,7 @@ format.  The format is specific to Python, but independent of machine
 architecture issues (e.g., you can write a Python value to a file on a PC,
 transport the file to a Sun, and read it back there).  Details of the format are
 undocumented on purpose; it may change between Python versions (although it
-rarely does). <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+rarely does). <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
 <p id="index-0">This is not a general „persistence” module.  For general persistence and
 transfer of Python objects through RPC calls, see the modules <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> and
 <a class="reference internal" href="shelve.html#module-shelve" title="shelve: Python object persistence."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code></a>.  The <a class="reference internal" href="#module-marshal" title="marshal: Convert Python objects to streams of bytes and back (with different constraints)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code></a> module exists mainly to support reading and
@@ -120,8 +119,8 @@ de-serializing Python objects, use the <a class="reference internal" href="pickl
 performance is comparable, version independence is guaranteed, and pickle
 supports a substantially wider range of objects than marshal.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Ostrzeżenie</p>
-<p class="last">The <a class="reference internal" href="#module-marshal" title="marshal: Convert Python objects to streams of bytes and back (with different constraints)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code></a> module is not intended to be secure against erroneous or
+<p class="admonition-title">Ostrzeżenie</p>
+<p>The <a class="reference internal" href="#module-marshal" title="marshal: Convert Python objects to streams of bytes and back (with different constraints)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code></a> module is not intended to be secure against erroneous or
 maliciously constructed data.  Never unmarshal data received from an
 untrusted or unauthenticated source.</p>
 </div>
@@ -141,7 +140,7 @@ bytes-like objects.</p>
 <p>The module defines these functions:</p>
 <dl class="function">
 <dt id="marshal.dump">
-<code class="descclassname">marshal.</code><code class="descname">dump</code><span class="sig-paren">(</span><em>value</em>, <em>file</em><span class="optional">[</span>, <em>version</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#marshal.dump" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">marshal.</code><code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">file</em><span class="optional">[</span>, <em class="sig-param">version</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#marshal.dump" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Write the value on the open file.  The value must be a supported type.  The
 file must be a writeable <a class="reference internal" href="../glossary.html#term-binary-file"><span class="xref std std-term">binary file</span></a>.</p>
 <p>If the value has (or contains an object that has) an unsupported type, a
@@ -153,21 +152,21 @@ to the file.  The object will not be properly read back by <a class="reference i
 
 <dl class="function">
 <dt id="marshal.load">
-<code class="descclassname">marshal.</code><code class="descname">load</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#marshal.load" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">marshal.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">file</em><span class="sig-paren">)</span><a class="headerlink" href="#marshal.load" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Read one value from the open file and return it.  If no valid value is read
 (e.g. because the data has a different Python version’s incompatible marshal
 format), raise <a class="reference internal" href="exceptions.html#EOFError" title="EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>, <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> or <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.  The
 file must be a readable <a class="reference internal" href="../glossary.html#term-binary-file"><span class="xref std std-term">binary file</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">If an object containing an unsupported type was marshalled with <a class="reference internal" href="#marshal.dump" title="marshal.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump()</span></code></a>,
+<p class="admonition-title">Informacja</p>
+<p>If an object containing an unsupported type was marshalled with <a class="reference internal" href="#marshal.dump" title="marshal.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump()</span></code></a>,
 <a class="reference internal" href="#marshal.load" title="marshal.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code></a> will substitute <code class="docutils literal notranslate"><span class="pre">None</span></code> for the unmarshallable type.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="marshal.dumps">
-<code class="descclassname">marshal.</code><code class="descname">dumps</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>version</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#marshal.dumps" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">marshal.</code><code class="sig-name descname">dumps</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="optional">[</span>, <em class="sig-param">version</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#marshal.dumps" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the bytes object that would be written to a file by <code class="docutils literal notranslate"><span class="pre">dump(value,</span> <span class="pre">file)</span></code>.  The
 value must be a supported type.  Raise a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception if value
 has (or contains an object that has) an unsupported type.</p>
@@ -177,7 +176,7 @@ has (or contains an object that has) an unsupported type.</p>
 
 <dl class="function">
 <dt id="marshal.loads">
-<code class="descclassname">marshal.</code><code class="descname">loads</code><span class="sig-paren">(</span><em>bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#marshal.loads" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">marshal.</code><code class="sig-name descname">loads</code><span class="sig-paren">(</span><em class="sig-param">bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#marshal.loads" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> to a value.  If no valid value is found, raise
 <a class="reference internal" href="exceptions.html#EOFError" title="EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>, <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> or <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.  Extra bytes in the
 input are ignored.</p>
@@ -186,7 +185,7 @@ input are ignored.</p>
 <p>In addition, the following constants are defined:</p>
 <dl class="data">
 <dt id="marshal.version">
-<code class="descclassname">marshal.</code><code class="descname">version</code><a class="headerlink" href="#marshal.version" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">marshal.</code><code class="sig-name descname">version</code><a class="headerlink" href="#marshal.version" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Indicates the format that the module uses. Version 0 is the historical
 format, version 1 shares interned strings and version 2 uses a binary format
 for floating point numbers.
@@ -195,16 +194,15 @@ The current version is 4.</p>
 </dd></dl>
 
 <p class="rubric">Przypisy</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The name of this module stems from a bit of terminology used by the designers of
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The name of this module stems from a bit of terminology used by the designers of
 Modula-3 (amongst others), who use the term „marshalling” for shipping of data
 around in a self-contained form. Strictly speaking, „to marshal” means to
 convert some data from internal to external form (in an RPC buffer for instance)
-and „unmarshalling” for the reverse process.</td></tr>
-</tbody>
-</table>
+and „unmarshalling” for the reverse process.</p>
+</dd>
+</dl>
 </div>
 
 
@@ -215,16 +213,16 @@ and „unmarshalling” for the reverse process.</td></tr>
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="shelve.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="dbm.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">dbm</span></code> — Interfaces to Unix „databases”</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm</span></code> — Interfaces to Unix „databases”</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/marshal.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/marshal.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -256,7 +254,7 @@ and „unmarshalling” for the reverse process.</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -291,7 +289,7 @@ and „unmarshalling” for the reverse process.</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

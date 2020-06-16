@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Więcej narzędzi kontroli przepływu &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>4. Więcej narzędzi kontroli przepływu &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Tutorial</a> &#187;</li>
@@ -310,7 +309,7 @@ referenced.</p>
 <p>The actual parameters (arguments) to a function call are introduced in the local
 symbol table of the called function when it is called; thus, arguments are
 passed using <em>call by value</em> (where the <em>value</em> is always an object <em>reference</em>,
-not the value of the object). <a class="footnote-reference" href="#id2" id="id1">[1]</a> When a function calls another function, a new
+not the value of the object). <a class="footnote-reference brackets" href="#id2" id="id1">1</a> When a function calls another function, a new
 local symbol table is created for that call.</p>
 <p>A function definition introduces the function name in the current symbol table.
 The value of the function name has a type that is recognized by the interpreter
@@ -353,10 +352,10 @@ Fibonacci series, instead of printing it:</p>
 </div>
 <p>This example, as usual, demonstrates some new Python features:</p>
 <ul class="simple">
-<li>The <a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> statement returns with a value from a function.
+<li><p>The <a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> statement returns with a value from a function.
 <code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code> without an expression argument returns <code class="docutils literal notranslate"><span class="pre">None</span></code>. Falling off
-the end of a function also returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</li>
-<li>The statement <code class="docutils literal notranslate"><span class="pre">result.append(a)</span></code> calls a <em>method</em> of the list object
+the end of a function also returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p>The statement <code class="docutils literal notranslate"><span class="pre">result.append(a)</span></code> calls a <em>method</em> of the list object
 <code class="docutils literal notranslate"><span class="pre">result</span></code>.  A method is a function that «belongs» to an object and is named
 <code class="docutils literal notranslate"><span class="pre">obj.methodname</span></code>, where <code class="docutils literal notranslate"><span class="pre">obj</span></code> is some object (this may be an expression),
 and <code class="docutils literal notranslate"><span class="pre">methodname</span></code> is the name of a method that is defined by the object’s type.
@@ -365,7 +364,7 @@ the same name without causing ambiguity.  (It is possible to define your own
 object types and methods, using <em>classes</em>, see <a class="reference internal" href="classes.html#tut-classes"><span class="std std-ref">Classes</span></a>)
 The method <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> shown in the example is defined for list objects; it
 adds a new element at the end of the list.  In this example it is equivalent to
-<code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">result</span> <span class="pre">+</span> <span class="pre">[a]</span></code>, but more efficient.</li>
+<code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">result</span> <span class="pre">+</span> <span class="pre">[a]</span></code>, but more efficient.</p></li>
 </ul>
 </div>
 <div class="section" id="more-on-defining-functions">
@@ -392,12 +391,12 @@ defined to allow.  For example:</p>
 </div>
 <p>This function can be called in several ways:</p>
 <ul class="simple">
-<li>giving only the mandatory argument:
-<code class="docutils literal notranslate"><span class="pre">ask_ok('Do</span> <span class="pre">you</span> <span class="pre">really</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">quit?')</span></code></li>
-<li>giving one of the optional arguments:
-<code class="docutils literal notranslate"><span class="pre">ask_ok('OK</span> <span class="pre">to</span> <span class="pre">overwrite</span> <span class="pre">the</span> <span class="pre">file?',</span> <span class="pre">2)</span></code></li>
-<li>or even giving all arguments:
-<code class="docutils literal notranslate"><span class="pre">ask_ok('OK</span> <span class="pre">to</span> <span class="pre">overwrite</span> <span class="pre">the</span> <span class="pre">file?',</span> <span class="pre">2,</span> <span class="pre">'Come</span> <span class="pre">on,</span> <span class="pre">only</span> <span class="pre">yes</span> <span class="pre">or</span> <span class="pre">no!')</span></code></li>
+<li><p>giving only the mandatory argument:
+<code class="docutils literal notranslate"><span class="pre">ask_ok('Do</span> <span class="pre">you</span> <span class="pre">really</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">quit?')</span></code></p></li>
+<li><p>giving one of the optional arguments:
+<code class="docutils literal notranslate"><span class="pre">ask_ok('OK</span> <span class="pre">to</span> <span class="pre">overwrite</span> <span class="pre">the</span> <span class="pre">file?',</span> <span class="pre">2)</span></code></p></li>
+<li><p>or even giving all arguments:
+<code class="docutils literal notranslate"><span class="pre">ask_ok('OK</span> <span class="pre">to</span> <span class="pre">overwrite</span> <span class="pre">the</span> <span class="pre">file?',</span> <span class="pre">2,</span> <span class="pre">'Come</span> <span class="pre">on,</span> <span class="pre">only</span> <span class="pre">yes</span> <span class="pre">or</span> <span class="pre">no!')</span></code></p></li>
 </ul>
 <p>This example also introduces the <a class="reference internal" href="../reference/expressions.html#in"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">in</span></code></a> keyword. This tests whether or
 not a sequence contains a certain value.</p>
@@ -668,16 +667,16 @@ will always to bind to the first parameter. For example:</p>
 </div>
 <p>As guidance:</p>
 <ul class="simple">
-<li>Use positional-only if you want the name of the parameters to not be
+<li><p>Use positional-only if you want the name of the parameters to not be
 available to the user. This is useful when parameter names have no real
 meaning, if you want to enforce the order of the arguments when the function
 is called or if you need to take some positional parameters and arbitrary
-keywords.</li>
-<li>Use keyword-only when names have meaning and the function definition is
+keywords.</p></li>
+<li><p>Use keyword-only when names have meaning and the function definition is
 more understandable by being explicit with names or you want to prevent
-users relying on the position of the argument being passed.</li>
-<li>For an API, use positional-only to prevent breaking API changes
-if the parameter’s name is modified in the future.</li>
+users relying on the position of the argument being passed.</p></li>
+<li><p>For an API, use positional-only to prevent breaking API changes
+if the parameter’s name is modified in the future.</p></li>
 </ul>
 </div>
 </div>
@@ -839,48 +838,40 @@ it promotes a very readable and eye-pleasing coding style.  Every Python
 developer should read it at some point; here are the most important points
 extracted for you:</p>
 <ul>
-<li><p class="first">Use 4-space indentation, and no tabs.</p>
+<li><p>Use 4-space indentation, and no tabs.</p>
 <p>4 spaces are a good compromise between small indentation (allows greater
 nesting depth) and large indentation (easier to read).  Tabs introduce
 confusion, and are best left out.</p>
 </li>
-<li><p class="first">Wrap lines so that they don’t exceed 79 characters.</p>
+<li><p>Wrap lines so that they don’t exceed 79 characters.</p>
 <p>This helps users with small displays and makes it possible to have several
 code files side-by-side on larger displays.</p>
 </li>
-<li><p class="first">Use blank lines to separate functions and classes, and larger blocks of
-code inside functions.</p>
-</li>
-<li><p class="first">When possible, put comments on a line of their own.</p>
-</li>
-<li><p class="first">Use docstrings.</p>
-</li>
-<li><p class="first">Use spaces around operators and after commas, but not directly inside
-bracketing constructs: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">f(1,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">g(3,</span> <span class="pre">4)</span></code>.</p>
-</li>
-<li><p class="first">Name your classes and functions consistently; the convention is to use
+<li><p>Use blank lines to separate functions and classes, and larger blocks of
+code inside functions.</p></li>
+<li><p>When possible, put comments on a line of their own.</p></li>
+<li><p>Use docstrings.</p></li>
+<li><p>Use spaces around operators and after commas, but not directly inside
+bracketing constructs: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">f(1,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">g(3,</span> <span class="pre">4)</span></code>.</p></li>
+<li><p>Name your classes and functions consistently; the convention is to use
 <code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code> for classes and <code class="docutils literal notranslate"><span class="pre">lowercase_with_underscores</span></code> for functions
 and methods.  Always use <code class="docutils literal notranslate"><span class="pre">self</span></code> as the name for the first method argument
-(see <a class="reference internal" href="classes.html#tut-firstclasses"><span class="std std-ref">A First Look at Classes</span></a> for more on classes and methods).</p>
-</li>
-<li><p class="first">Don’t use fancy encodings if your code is meant to be used in international
+(see <a class="reference internal" href="classes.html#tut-firstclasses"><span class="std std-ref">A First Look at Classes</span></a> for more on classes and methods).</p></li>
+<li><p>Don’t use fancy encodings if your code is meant to be used in international
 environments.  Python’s default, UTF-8, or even plain ASCII work best in any
-case.</p>
-</li>
-<li><p class="first">Likewise, don’t use non-ASCII characters in identifiers if there is only the
+case.</p></li>
+<li><p>Likewise, don’t use non-ASCII characters in identifiers if there is only the
 slightest chance people speaking a different language will read or maintain
-the code.</p>
-</li>
+the code.</p></li>
 </ul>
 <p class="rubric">Przypisy</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Actually, <em>call by object reference</em> would be a better description,
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Actually, <em>call by object reference</em> would be a better description,
 since if a mutable object is passed, the caller will see any changes the
-callee makes to it (items inserted into a list).</td></tr>
-</tbody>
-</table>
+callee makes to it (items inserted into a list).</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -890,12 +881,12 @@ callee makes to it (items inserted into a list).</td></tr>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Więcej narzędzi kontroli przepływu</a><ul>
 <li><a class="reference internal" href="#if-statements">4.1. Instrukcje <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a></li>
 <li><a class="reference internal" href="#for-statements">4.2. Instrukcje <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a></li>
-<li><a class="reference internal" href="#the-range-function">4.3. Funkcja <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li><a class="reference internal" href="#the-range-function">4.3. Funkcja <code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a></li>
 <li><a class="reference internal" href="#break-and-continue-statements-and-else-clauses-on-loops">4.4. <code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code> i <code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code> oraz klauzula <code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code> w pętlach</a></li>
 <li><a class="reference internal" href="#pass-statements">4.5. Instrukcje <code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a></li>
 <li><a class="reference internal" href="#defining-functions">4.6. Definiowanie funkcji</a></li>
@@ -933,7 +924,7 @@ callee makes to it (items inserted into a list).</td></tr>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/tutorial/controlflow.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/controlflow.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -965,7 +956,7 @@ callee makes to it (items inserted into a list).</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Tutorial</a> &#187;</li>
@@ -999,7 +990,7 @@ callee makes to it (items inserted into a list).</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

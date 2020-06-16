@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unicode HOWTO &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Unicode HOWTO &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -102,14 +101,11 @@
             
   <div class="section" id="unicode-howto">
 <span id="id1"></span><h1>Unicode HOWTO<a class="headerlink" href="#unicode-howto" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Release:</th><td class="field-body">1.12</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Release</dt>
+<dd class="field-odd"><p>1.12</p>
+</dd>
+</dl>
 <p>This HOWTO discusses Python’s support for the Unicode specification
 for representing textual data, and explains various problems that
 people commonly encounter when trying to work with Unicode.</p>
@@ -138,8 +134,9 @@ separate from the uppercase letter «I».  They’ll usually look the same,
 but these are two different characters that have different meanings.</p>
 <p>The Unicode standard describes how characters are represented by
 <strong>code points</strong>.  A code point value is an integer in the range 0 to
-0x10FFFF (about 1.1 million values, with some 110 thousand assigned so
-far).  In the standard and in this document, a code point is written
+0x10FFFF (about 1.1 million values, the
+<a class="reference external" href="https://www.unicode.org/versions/latest/#Summary">actual number assigned</a>
+is less than that). In the standard and in this document, a code point is written
 using the notation <code class="docutils literal notranslate"><span class="pre">U+265E</span></code> to mean the character with value
 <code class="docutils literal notranslate"><span class="pre">0x265e</span></code> (9,822 in decimal).</p>
 <p>The Unicode standard contains a lot of tables listing characters and
@@ -194,16 +191,16 @@ In this representation, the string „Python” might look like this:</p>
 <p>This representation is straightforward but using it presents a number of
 problems.</p>
 <ol class="arabic simple">
-<li>It’s not portable; different processors order the bytes differently.</li>
-<li>It’s very wasteful of space.  In most texts, the majority of the code points
+<li><p>It’s not portable; different processors order the bytes differently.</p></li>
+<li><p>It’s very wasteful of space.  In most texts, the majority of the code points
 are less than 127, or less than 255, so a lot of space is occupied by <code class="docutils literal notranslate"><span class="pre">0x00</span></code>
 bytes.  The above string takes 24 bytes compared to the 6 bytes needed for an
 ASCII representation.  Increased RAM usage doesn’t matter too much (desktop
 computers have gigabytes of RAM, and strings aren’t usually that large), but
 expanding our usage of disk and network bandwidth by a factor of 4 is
-intolerable.</li>
-<li>It’s not compatible with existing C functions such as <code class="docutils literal notranslate"><span class="pre">strlen()</span></code>, so a new
-family of wide string functions would need to be used.</li>
+intolerable.</p></li>
+<li><p>It’s not compatible with existing C functions such as <code class="docutils literal notranslate"><span class="pre">strlen()</span></code>, so a new
+family of wide string functions would need to be used.</p></li>
 </ol>
 <p>Therefore this encoding isn’t used very much, and people instead choose other
 encodings that are more efficient and convenient, such as UTF-8.</p>
@@ -213,36 +210,36 @@ and the «8» means that 8-bit values are used in the encoding.  (There
 are also UTF-16 and UTF-32 encodings, but they are less frequently
 used than UTF-8.)  UTF-8 uses the following rules:</p>
 <ol class="arabic simple">
-<li>If the code point is &lt; 128, it’s represented by the corresponding byte value.</li>
-<li>If the code point is &gt;= 128, it’s turned into a sequence of two, three, or
-four bytes, where each byte of the sequence is between 128 and 255.</li>
+<li><p>If the code point is &lt; 128, it’s represented by the corresponding byte value.</p></li>
+<li><p>If the code point is &gt;= 128, it’s turned into a sequence of two, three, or
+four bytes, where each byte of the sequence is between 128 and 255.</p></li>
 </ol>
 <p>UTF-8 has several convenient properties:</p>
 <ol class="arabic simple">
-<li>It can handle any Unicode code point.</li>
-<li>A Unicode string is turned into a sequence of bytes that contains embedded
+<li><p>It can handle any Unicode code point.</p></li>
+<li><p>A Unicode string is turned into a sequence of bytes that contains embedded
 zero bytes only where they represent the null character (U+0000). This means
 that UTF-8 strings can be processed by C functions such as <code class="docutils literal notranslate"><span class="pre">strcpy()</span></code> and sent
 through protocols that can’t handle zero bytes for anything other than
-end-of-string markers.</li>
-<li>A string of ASCII text is also valid UTF-8 text.</li>
-<li>UTF-8 is fairly compact; the majority of commonly used characters can be
-represented with one or two bytes.</li>
-<li>If bytes are corrupted or lost, it’s possible to determine the start of the
+end-of-string markers.</p></li>
+<li><p>A string of ASCII text is also valid UTF-8 text.</p></li>
+<li><p>UTF-8 is fairly compact; the majority of commonly used characters can be
+represented with one or two bytes.</p></li>
+<li><p>If bytes are corrupted or lost, it’s possible to determine the start of the
 next UTF-8-encoded code point and resynchronize.  It’s also unlikely that
-random 8-bit data will look like valid UTF-8.</li>
-<li>UTF-8 is a byte oriented encoding. The encoding specifies that each
+random 8-bit data will look like valid UTF-8.</p></li>
+<li><p>UTF-8 is a byte oriented encoding. The encoding specifies that each
 character is represented by a specific sequence of one or more bytes. This
 avoids the byte-ordering issues that can occur with integer and word oriented
 encodings, like UTF-16 and UTF-32, where the sequence of bytes varies depending
-on the hardware on which the string was encoded.</li>
+on the hardware on which the string was encoded.</p></li>
 </ol>
 </div>
 <div class="section" id="references">
 <h3>References<a class="headerlink" href="#references" title="Stały odnośnik do tego nagłówka">¶</a></h3>
-<p>The <a class="reference external" href="http://www.unicode.org">Unicode Consortium site</a> has character charts, a
+<p>The <a class="reference external" href="https://www.unicode.org">Unicode Consortium site</a> has character charts, a
 glossary, and PDF versions of the Unicode specification.  Be prepared for some
-difficult reading.  <a class="reference external" href="http://www.unicode.org/history/">A chronology</a> of the
+difficult reading.  <a class="reference external" href="https://www.unicode.org/history/">A chronology</a> of the
 origin and development of Unicode is also available on the site.</p>
 <p>On the Computerphile Youtube channel, Tom Scott briefly
 <a class="reference external" href="https://www.youtube.com/watch?v=MijmeoH9LT4">discusses the history of Unicode and UTF-8</a>
@@ -453,7 +450,7 @@ These are grouped into categories such as „Letter”, „Number”, „Punctua
 from the above output, <code class="docutils literal notranslate"><span class="pre">'Ll'</span></code> means «Letter, lowercase», <code class="docutils literal notranslate"><span class="pre">'No'</span></code> means
 „Number, other”, <code class="docutils literal notranslate"><span class="pre">'Mn'</span></code> is „Mark, nonspacing”, and <code class="docutils literal notranslate"><span class="pre">'So'</span></code> is „Symbol,
 other”.  See
-<a class="reference external" href="http://www.unicode.org/reports/tr44/#General_Category_Values">the General Category Values section of the Unicode Character Database documentation</a> for a
+<a class="reference external" href="https://www.unicode.org/reports/tr44/#General_Category_Values">the General Category Values section of the Unicode Character Database documentation</a> for a
 list of category codes.</p>
 </div>
 <div class="section" id="comparing-strings">
@@ -558,8 +555,8 @@ and <code class="docutils literal notranslate"><span class="pre">\s</span></code
 <h3>References<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Some good alternative discussions of Python’s Unicode support are:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://python-notes.curiousefficiency.org/en/latest/python3/text_file_processing.html">Processing Text Files in Python 3</a>, by Nick Coghlan.</li>
-<li><a class="reference external" href="https://nedbatchelder.com/text/unipain.html">Pragmatic Unicode</a>, a PyCon 2012 presentation by Ned Batchelder.</li>
+<li><p><a class="reference external" href="http://python-notes.curiousefficiency.org/en/latest/python3/text_file_processing.html">Processing Text Files in Python 3</a>, by Nick Coghlan.</p></li>
+<li><p><a class="reference external" href="https://nedbatchelder.com/text/unipain.html">Pragmatic Unicode</a>, a PyCon 2012 presentation by Ned Batchelder.</p></li>
 </ul>
 <p>The <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type is described in the Python library reference at
 <a class="reference internal" href="../library/stdtypes.html#textseq"><span class="std std-ref">Text Sequence Type — str</span></a>.</p>
@@ -688,8 +685,9 @@ pretty much only Unix systems now.</p>
 Unicode.</p>
 <p>The most important tip is:</p>
 <blockquote>
-<div>Software should only work with Unicode strings internally, decoding the input
-data as soon as possible and encoding the output only at the end.</div></blockquote>
+<div><p>Software should only work with Unicode strings internally, decoding the input
+data as soon as possible and encoding the output only at the end.</p>
+</div></blockquote>
 <p>If you attempt to write processing functions that accept both Unicode and byte
 strings, you will find your program vulnerable to bugs wherever you combine the
 two different kinds of strings.  There is no automatic encoding or decoding: if
@@ -775,7 +773,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Unicode HOWTO</a><ul>
 <li><a class="reference internal" href="#introduction-to-unicode">Introduction to Unicode</a><ul>
@@ -820,7 +818,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/unicode.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/howto/unicode.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -852,7 +850,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -886,7 +884,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

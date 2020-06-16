@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Logging Cookbook &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Logging Cookbook &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -102,14 +101,11 @@
             
   <div class="section" id="logging-cookbook">
 <span id="id1"></span><h1>Logging Cookbook<a class="headerlink" href="#logging-cookbook" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Vinay Sajip &lt;vinay_sajip at red-dove dot com&gt;</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Vinay Sajip &lt;vinay_sajip at red-dove dot com&gt;</p>
+</dd>
+</dl>
 <p>This page contains a number of recipes related to logging, which have been found
 useful in the past.</p>
 <div class="section" id="using-logging-in-multiple-modules">
@@ -466,7 +462,7 @@ classes, which would eat up one thread per handler for no particular benefit.</p
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>Prior to Python 3.5, the <a class="reference internal" href="../library/logging.handlers.html#logging.handlers.QueueListener" title="logging.handlers.QueueListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueListener</span></code></a> always passed every message
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Prior to Python 3.5, the <a class="reference internal" href="../library/logging.handlers.html#logging.handlers.QueueListener" title="logging.handlers.QueueListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueListener</span></code></a> always passed every message
 received from the queue to every handler it was initialized with. (This was
 because it was assumed that level filtering was all done on the other side,
 where the queue is filled.) From 3.5 onwards, this behaviour can be changed
@@ -1239,24 +1235,24 @@ then passed to the handlers for that logger (and its ancestors, up to and
 including the logger where further propagation up the hierarchy is disabled).
 Before Python 3.2, there were only two places where this creation was done:</p>
 <ul class="simple">
-<li><a class="reference internal" href="../library/logging.html#logging.Logger.makeRecord" title="logging.Logger.makeRecord"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.makeRecord()</span></code></a>, which is called in the normal process of
+<li><p><a class="reference internal" href="../library/logging.html#logging.Logger.makeRecord" title="logging.Logger.makeRecord"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.makeRecord()</span></code></a>, which is called in the normal process of
 logging an event. This invoked <a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> directly to create an
-instance.</li>
-<li><a class="reference internal" href="../library/logging.html#logging.makeLogRecord" title="logging.makeLogRecord"><code class="xref py py-func docutils literal notranslate"><span class="pre">makeLogRecord()</span></code></a>, which is called with a dictionary containing
+instance.</p></li>
+<li><p><a class="reference internal" href="../library/logging.html#logging.makeLogRecord" title="logging.makeLogRecord"><code class="xref py py-func docutils literal notranslate"><span class="pre">makeLogRecord()</span></code></a>, which is called with a dictionary containing
 attributes to be added to the LogRecord. This is typically invoked when a
 suitable dictionary has been received over the network (e.g. in pickle form
 via a <a class="reference internal" href="../library/logging.handlers.html#logging.handlers.SocketHandler" title="logging.handlers.SocketHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SocketHandler</span></code></a>, or in JSON form via an
-<a class="reference internal" href="../library/logging.handlers.html#logging.handlers.HTTPHandler" title="logging.handlers.HTTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPHandler</span></code></a>).</li>
+<a class="reference internal" href="../library/logging.handlers.html#logging.handlers.HTTPHandler" title="logging.handlers.HTTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPHandler</span></code></a>).</p></li>
 </ul>
 <p>This has usually meant that if you need to do anything special with a
 <a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>, you’ve had to do one of the following.</p>
 <ul class="simple">
-<li>Create your own <a class="reference internal" href="../library/logging.html#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> subclass, which overrides
+<li><p>Create your own <a class="reference internal" href="../library/logging.html#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> subclass, which overrides
 <a class="reference internal" href="../library/logging.html#logging.Logger.makeRecord" title="logging.Logger.makeRecord"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.makeRecord()</span></code></a>, and set it using <a class="reference internal" href="../library/logging.html#logging.setLoggerClass" title="logging.setLoggerClass"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLoggerClass()</span></code></a>
-before any loggers that you care about are instantiated.</li>
-<li>Add a <a class="reference internal" href="../library/logging.html#logging.Filter" title="logging.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filter</span></code></a> to a logger or handler, which does the
+before any loggers that you care about are instantiated.</p></li>
+<li><p>Add a <a class="reference internal" href="../library/logging.html#logging.Filter" title="logging.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Filter</span></code></a> to a logger or handler, which does the
 necessary special manipulation you need when its
-<a class="reference internal" href="../library/logging.html#logging.Filter.filter" title="logging.Filter.filter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code></a> method is called.</li>
+<a class="reference internal" href="../library/logging.html#logging.Filter.filter" title="logging.Filter.filter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code></a> method is called.</p></li>
 </ul>
 <p>The first approach would be a little unwieldy in the scenario where (say)
 several different libraries wanted to do different things. Each would attempt
@@ -1356,17 +1352,17 @@ of queues, for example a ZeroMQ «subscribe» socket. Here’s an example:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="docutils">
-<dt>Module <a class="reference internal" href="../library/logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></dt>
-<dd>API reference for the logging module.</dd>
-<dt>Module <a class="reference internal" href="../library/logging.config.html#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code></a></dt>
-<dd>Configuration API for the logging module.</dd>
-<dt>Module <a class="reference internal" href="../library/logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt>
-<dd>Useful handlers included with the logging module.</dd>
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="../library/logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></dt><dd><p>API reference for the logging module.</p>
+</dd>
+<dt>Module <a class="reference internal" href="../library/logging.config.html#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.config</span></code></a></dt><dd><p>Configuration API for the logging module.</p>
+</dd>
+<dt>Module <a class="reference internal" href="../library/logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging.handlers</span></code></a></dt><dd><p>Useful handlers included with the logging module.</p>
+</dd>
 </dl>
 <p><a class="reference internal" href="logging.html#logging-basic-tutorial"><span class="std std-ref">A basic logging tutorial</span></a></p>
-<p class="last"><a class="reference internal" href="logging.html#logging-advanced-tutorial"><span class="std std-ref">A more advanced logging tutorial</span></a></p>
+<p><a class="reference internal" href="logging.html#logging-advanced-tutorial"><span class="std std-ref">A more advanced logging tutorial</span></a></p>
 </div>
 </div>
 <div class="section" id="an-example-dictionary-based-configuration">
@@ -1699,7 +1695,7 @@ want to produce <span class="target" id="index-2"></span><a class="rfc reference
 pure-ASCII sequence before it and arbitrary Unicode after it, encoded using
 UTF-8, then you need to do the following:</p>
 <ol class="arabic">
-<li><p class="first">Attach a <a class="reference internal" href="../library/logging.html#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> instance to your
+<li><p>Attach a <a class="reference internal" href="../library/logging.html#logging.Formatter" title="logging.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a> instance to your
 <a class="reference internal" href="../library/logging.handlers.html#logging.handlers.SysLogHandler" title="logging.handlers.SysLogHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SysLogHandler</span></code></a> instance, with a format string
 such as:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ASCII section</span><span class="se">\ufeff</span><span class="s1">Unicode section&#39;</span>
@@ -1708,14 +1704,12 @@ such as:</p>
 <p>The Unicode code point U+FEFF, when encoded using UTF-8, will be
 encoded as a UTF-8 BOM – the byte-string <code class="docutils literal notranslate"><span class="pre">b'\xef\xbb\xbf'</span></code>.</p>
 </li>
-<li><p class="first">Replace the ASCII section with whatever placeholders you like, but make sure
+<li><p>Replace the ASCII section with whatever placeholders you like, but make sure
 that the data that appears in there after substitution is always ASCII (that
-way, it will remain unchanged after UTF-8 encoding).</p>
-</li>
-<li><p class="first">Replace the Unicode section with whatever placeholders you like; if the data
+way, it will remain unchanged after UTF-8 encoding).</p></li>
+<li><p>Replace the Unicode section with whatever placeholders you like; if the data
 which appears there after substitution contains characters outside the ASCII
-range, that’s fine – it will be encoded using UTF-8.</p>
-</li>
+range, that’s fine – it will be encoded using UTF-8.</p></li>
 </ol>
 <p>The formatted message <em>will</em> be encoded using UTF-8 encoding by
 <code class="docutils literal notranslate"><span class="pre">SysLogHandler</span></code>. If you follow the above rules, you should be able to produce
@@ -2099,16 +2093,16 @@ script will print:</p>
 <p>which shows that the filter is working as configured.</p>
 <p>A couple of extra points to note:</p>
 <ul class="simple">
-<li>If you can’t refer to the callable directly in the configuration (e.g. if it
+<li><p>If you can’t refer to the callable directly in the configuration (e.g. if it
 lives in a different module, and you can’t import it directly where the
 configuration dictionary is), you can use the form <code class="docutils literal notranslate"><span class="pre">ext://...</span></code> as described
 in <a class="reference internal" href="../library/logging.config.html#logging-config-dict-externalobj"><span class="std std-ref">Access to external objects</span></a>. For example, you could have used
 the text <code class="docutils literal notranslate"><span class="pre">'ext://__main__.MyFilter'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">MyFilter</span></code> in the above
-example.</li>
-<li>As well as for filters, this technique can also be used to configure custom
+example.</p></li>
+<li><p>As well as for filters, this technique can also be used to configure custom
 handlers and formatters. See <a class="reference internal" href="../library/logging.config.html#logging-config-dict-userdef"><span class="std std-ref">User-defined objects</span></a> for more
 information on how logging supports using user-defined objects in its
-configuration, and see the other cookbook recipe <a class="reference internal" href="#custom-handlers"><span class="std std-ref">Customizing handlers with dictConfig()</span></a> above.</li>
+configuration, and see the other cookbook recipe <a class="reference internal" href="#custom-handlers"><span class="std std-ref">Customizing handlers with dictConfig()</span></a> above.</p></li>
 </ul>
 </div>
 <div class="section" id="customized-exception-formatting">
@@ -2503,10 +2497,10 @@ as Python 3.</p>
 <span id="starter-template"></span><h2>A CLI application starter template<a class="headerlink" href="#a-cli-application-starter-template" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Here’s an example which shows how you can:</p>
 <ul class="simple">
-<li>Use a logging level based on command-line arguments</li>
-<li>Dispatch to multiple subcommands in separate files, all logging at the same
-level in a consistent way</li>
-<li>Make use of simple, minimal configuration</li>
+<li><p>Use a logging level based on command-line arguments</p></li>
+<li><p>Dispatch to multiple subcommands in separate files, all logging at the same
+level in a consistent way</p></li>
+<li><p>Make use of simple, minimal configuration</p></li>
 </ul>
 <p>Suppose we have a command-line application whose job is to stop, start or
 restart some services. This could be organised for the purposes of illustration
@@ -2883,7 +2877,7 @@ refer to the comments in the code snippet for more detailed information.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Logging Cookbook</a><ul>
 <li><a class="reference internal" href="#using-logging-in-multiple-modules">Using logging in multiple modules</a></li>
@@ -2915,13 +2909,13 @@ refer to the comments in the code snippet for more detailed information.</p>
 <li><a class="reference internal" href="#a-more-elaborate-multiprocessing-example">A more elaborate multiprocessing example</a></li>
 <li><a class="reference internal" href="#inserting-a-bom-into-messages-sent-to-a-sysloghandler">Inserting a BOM into messages sent to a SysLogHandler</a></li>
 <li><a class="reference internal" href="#implementing-structured-logging">Implementing structured logging</a></li>
-<li><a class="reference internal" href="#customizing-handlers-with-dictconfig">Customizing handlers with <code class="docutils literal notranslate"><span class="pre">dictConfig()</span></code></a></li>
+<li><a class="reference internal" href="#customizing-handlers-with-dictconfig">Customizing handlers with <code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a></li>
 <li><a class="reference internal" href="#using-particular-formatting-styles-throughout-your-application">Using particular formatting styles throughout your application</a><ul>
 <li><a class="reference internal" href="#using-logrecord-factories">Using LogRecord factories</a></li>
 <li><a class="reference internal" href="#using-custom-message-objects">Using custom message objects</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configuring-filters-with-dictconfig">Configuring filters with <code class="docutils literal notranslate"><span class="pre">dictConfig()</span></code></a></li>
+<li><a class="reference internal" href="#configuring-filters-with-dictconfig">Configuring filters with <code class="xref py py-func docutils literal notranslate"><span class="pre">dictConfig()</span></code></a></li>
 <li><a class="reference internal" href="#customized-exception-formatting">Customized exception formatting</a></li>
 <li><a class="reference internal" href="#speaking-logging-messages">Speaking logging messages</a></li>
 <li><a class="reference internal" href="#buffering-logging-messages-and-outputting-them-conditionally">Buffering logging messages and outputting them conditionally</a></li>
@@ -2944,7 +2938,7 @@ refer to the comments in the code snippet for more detailed information.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/logging-cookbook.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/howto/logging-cookbook.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -2976,7 +2970,7 @@ refer to the comments in the code snippet for more detailed information.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -3010,7 +3004,7 @@ refer to the comments in the code snippet for more detailed information.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

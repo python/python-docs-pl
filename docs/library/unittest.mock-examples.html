@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>unittest.mock — getting started &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>unittest.mock — getting started &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -104,7 +103,7 @@
   <div class="section" id="unittest-mock-getting-started">
 <h1><a class="reference internal" href="unittest.mock.html#module-unittest.mock" title="unittest.mock: Mock object library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code></a> — getting started<a class="headerlink" href="#unittest-mock-getting-started" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 <span class="target" id="getting-started"></span><div class="section" id="using-mock">
 <h2>Using Mock<a class="headerlink" href="#using-mock" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -112,8 +111,8 @@
 <h3>Mock Patching Methods<a class="headerlink" href="#mock-patching-methods" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Common uses for <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> objects include:</p>
 <ul class="simple">
-<li>Patching methods</li>
-<li>Recording method calls on objects</li>
+<li><p>Patching methods</p></li>
+<li><p>Recording method calls on objects</p></li>
 </ul>
 <p>You might want to replace a method on an object to check that
 it is called with the correct arguments by another part of the system:</p>
@@ -126,8 +125,8 @@ it is called with the correct arguments by another part of the system:</p>
 <p>Once our mock has been used (<code class="docutils literal notranslate"><span class="pre">real.method</span></code> in this example) it has methods
 and attributes that allow you to make assertions about how it has been used.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">In most of these examples the <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> and <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> classes
+<p class="admonition-title">Informacja</p>
+<p>In most of these examples the <a class="reference internal" href="unittest.mock.html#unittest.mock.Mock" title="unittest.mock.Mock"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> and <a class="reference internal" href="unittest.mock.html#unittest.mock.MagicMock" title="unittest.mock.MagicMock"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> classes
 are interchangeable. As the <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> is the more capable class it makes
 a sensible one to use by default.</p>
 </div>
@@ -422,8 +421,8 @@ of arbitrary attributes as well as the getting of them then you can use
 <div class="section" id="patch-decorators">
 <h2>Patch Decorators<a class="headerlink" href="#patch-decorators" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">With <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> it matters that you patch objects in the namespace where
+<p class="admonition-title">Informacja</p>
+<p>With <a class="reference internal" href="unittest.mock.html#unittest.mock.patch" title="unittest.mock.patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">patch()</span></code></a> it matters that you patch objects in the namespace where
 they are looked up. This is normally straightforward, but for a quick guide
 read <a class="reference internal" href="unittest.mock.html#where-to-patch"><span class="std std-ref">where to patch</span></a>.</p>
 </div>
@@ -649,7 +648,7 @@ is discussed in <a class="reference external" href="https://williambert.online/2
 <div class="section" id="mocking-a-generator-method">
 <h3>Mocking a Generator Method<a class="headerlink" href="#mocking-a-generator-method" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>A Python generator is a function or method that uses the <a class="reference internal" href="../reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code></a> statement
-to return a series of values when iterated over <a class="footnote-reference" href="#id3" id="id2">[1]</a>.</p>
+to return a series of values when iterated over <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</p>
 <p>A generator method / function is called to return the generator object. It is
 the generator object that is then iterated over. The protocol method for
 iteration is <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, so we can
@@ -674,14 +673,13 @@ mock this using a <a class="reference internal" href="unittest.mock.html#unittes
 <span class="go">[1, 2, 3]</span>
 </pre></div>
 </div>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>There are also generator expressions and more <a class="reference external" href="http://www.dabeaz.com/coroutines/index.html">advanced uses</a> of generators, but we aren’t
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>There are also generator expressions and more <a class="reference external" href="http://www.dabeaz.com/coroutines/index.html">advanced uses</a> of generators, but we aren’t
 concerned about them here. A very good introduction to generators and how
-powerful they are is: <a class="reference external" href="http://www.dabeaz.com/generators/">Generator Tricks for Systems Programmers</a>.</td></tr>
-</tbody>
-</table>
+powerful they are is: <a class="reference external" href="http://www.dabeaz.com/generators/">Generator Tricks for Systems Programmers</a>.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="applying-the-same-patch-to-every-test-method">
 <h3>Applying the same patch to every test method<a class="headerlink" href="#applying-the-same-patch-to-every-test-method" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -887,11 +885,11 @@ me.</p>
 mock that we do the assertion on. The <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> function makes a copy of
 the args and calls our <code class="docutils literal notranslate"><span class="pre">new_mock</span></code> with the copy.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>If your mock is only going to be used once there is an easier way of
 checking arguments at the point they are called. You can simply do the
 checking inside a <code class="docutils literal notranslate"><span class="pre">side_effect</span></code> function.</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">side_effect</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">side_effect</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">assert</span> <span class="n">arg</span> <span class="o">==</span> <span class="p">{</span><span class="mi">6</span><span class="p">}</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="n">side_effect</span><span class="p">)</span>
@@ -1003,7 +1001,7 @@ the case of <code class="docutils literal notranslate"><span class="pre">__setit
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>An alternative to using <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> is to use <code class="docutils literal notranslate"><span class="pre">Mock</span></code> and <em>only</em> provide
 the magic methods you specifically want:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
@@ -1014,7 +1012,7 @@ the magic methods you specifically want:</p>
 <p>A <em>third</em> option is to use <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> but passing in <code class="docutils literal notranslate"><span class="pre">dict</span></code> as the <em>spec</em>
 (or <em>spec_set</em>) argument so that the <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> created only has
 dictionary magic methods available:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">spec_set</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">spec_set</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__getitem__</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="n">getitem</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mock</span><span class="o">.</span><span class="fm">__setitem__</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="n">setitem</span>
 </pre></div>
@@ -1071,7 +1069,7 @@ reason might be to add helper methods. Here’s a silly example:</p>
 <p>The standard behaviour for <code class="docutils literal notranslate"><span class="pre">Mock</span></code> instances is that attributes and the return
 value mocks are of the same type as the mock they are accessed on. This ensures
 that <code class="docutils literal notranslate"><span class="pre">Mock</span></code> attributes are <code class="docutils literal notranslate"><span class="pre">Mocks</span></code> and <code class="docutils literal notranslate"><span class="pre">MagicMock</span></code> attributes are <code class="docutils literal notranslate"><span class="pre">MagicMocks</span></code>
-<a class="footnote-reference" href="#id5" id="id4">[2]</a>. So if you’re subclassing to add helper methods then they’ll also be
+<a class="footnote-reference brackets" href="#id5" id="id4">2</a>. So if you’re subclassing to add helper methods then they’ll also be
 available on the attributes and return value mock of instances of your
 subclass.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mymock</span><span class="o">.</span><span class="n">foo</span>
@@ -1104,14 +1102,13 @@ onto the mock constructor:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mymock</span><span class="p">(),</span> <span class="n">Subclass</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>An exception to this rule are the non-callable mocks. Attributes use the
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>An exception to this rule are the non-callable mocks. Attributes use the
 callable variant because otherwise non-callable mocks couldn’t have callable
-methods.</td></tr>
-</tbody>
-</table>
+methods.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="mocking-imports-with-patch-dict">
 <h3>Mocking imports with patch.dict<a class="headerlink" href="#mocking-imports-with-patch-dict" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -1330,9 +1327,9 @@ that may be useful here, in the form of its equality matcher
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> — getting started</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code> — getting started</a><ul>
 <li><a class="reference internal" href="#using-mock">Using Mock</a><ul>
 <li><a class="reference internal" href="#mock-patching-methods">Mock Patching Methods</a></li>
 <li><a class="reference internal" href="#mock-for-method-calls-on-an-object">Mock for Method Calls on an Object</a></li>
@@ -1370,7 +1367,7 @@ that may be useful here, in the form of its equality matcher
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="unittest.mock.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> — mock object library</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code> — mock object library</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="2to3.html"
                         title="następny rozdział">2to3 - Automated Python 2 to 3 code translation</a></p>
@@ -1379,7 +1376,7 @@ that may be useful here, in the form of its equality matcher
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/unittest.mock-examples.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/unittest.mock-examples.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1411,7 +1408,7 @@ that may be useful here, in the form of its equality matcher
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -1446,7 +1443,7 @@ that may be useful here, in the form of its equality matcher
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

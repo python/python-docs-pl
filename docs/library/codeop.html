@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>codeop — Compile Python code &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>codeop — Compile Python code &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,7 +102,7 @@
             
   <div class="section" id="module-codeop">
 <span id="codeop-compile-python-code"></span><h1><a class="reference internal" href="#module-codeop" title="codeop: Compile (possibly incomplete) Python code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codeop</span></code></a> — Compile Python code<a class="headerlink" href="#module-codeop" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/codeop.py">Lib/codeop.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/codeop.py">Lib/codeop.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-codeop" title="codeop: Compile (possibly incomplete) Python code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codeop</span></code></a> module provides utilities upon which the Python
 read-eval-print loop can be emulated, as is done in the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code></a> module.  As
@@ -112,17 +111,17 @@ include such a loop in your program you probably want to use the <a class="refer
 module instead.</p>
 <p>There are two parts to this job:</p>
 <ol class="arabic simple">
-<li>Being able to tell if a line of input completes a Python  statement: in
-short, telling whether to print «<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>» or «<code class="docutils literal notranslate"><span class="pre">...</span></code>» next.</li>
-<li>Remembering which future statements the user has entered, so  subsequent
-input can be compiled with these in effect.</li>
+<li><p>Being able to tell if a line of input completes a Python  statement: in
+short, telling whether to print «<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>» or «<code class="docutils literal notranslate"><span class="pre">...</span></code>» next.</p></li>
+<li><p>Remembering which future statements the user has entered, so  subsequent
+input can be compiled with these in effect.</p></li>
 </ol>
 <p>The <a class="reference internal" href="#module-codeop" title="codeop: Compile (possibly incomplete) Python code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codeop</span></code></a> module provides a way of doing each of these things, and a way
 of doing them both.</p>
 <p>To do just the former:</p>
 <dl class="function">
 <dt id="codeop.compile_command">
-<code class="descclassname">codeop.</code><code class="descname">compile_command</code><span class="sig-paren">(</span><em>source</em>, <em>filename=&quot;&lt;input&gt;&quot;</em>, <em>symbol=&quot;single&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#codeop.compile_command" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">codeop.</code><code class="sig-name descname">compile_command</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">filename=&quot;&lt;input&gt;&quot;</em>, <em class="sig-param">symbol=&quot;single&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#codeop.compile_command" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Tries to compile <em>source</em>, which should be a string of Python code and return a
 code object if <em>source</em> is valid Python code. In that case, the filename
 attribute of the code object will be <em>filename</em>, which defaults to
@@ -136,8 +135,8 @@ prefix of valid Python code.</p>
 as an <a class="reference internal" href="../glossary.html#term-expression"><span class="xref std std-term">expression</span></a> (<code class="docutils literal notranslate"><span class="pre">'eval'</span></code>).  Any other value will
 cause <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> to  be raised.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">It is possible (but not likely) that the parser stops parsing with a
+<p class="admonition-title">Informacja</p>
+<p>It is possible (but not likely) that the parser stops parsing with a
 successful outcome before reaching the end of the source; in this case,
 trailing symbols may be ignored instead of causing an error.  For example,
 a backslash followed by two newlines may be followed by arbitrary garbage.
@@ -147,7 +146,7 @@ This will be fixed once the API for the parser is better.</p>
 
 <dl class="class">
 <dt id="codeop.Compile">
-<em class="property">class </em><code class="descclassname">codeop.</code><code class="descname">Compile</code><a class="headerlink" href="#codeop.Compile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">codeop.</code><code class="sig-name descname">Compile</code><a class="headerlink" href="#codeop.Compile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Instances of this class have <a class="reference internal" href="../reference/datamodel.html#object.__call__" title="object.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> methods identical in signature to
 the built-in function <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>, but with the difference that if the
 instance compiles program text containing a <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a> statement, the
@@ -157,7 +156,7 @@ statement in force.</p>
 
 <dl class="class">
 <dt id="codeop.CommandCompiler">
-<em class="property">class </em><code class="descclassname">codeop.</code><code class="descname">CommandCompiler</code><a class="headerlink" href="#codeop.CommandCompiler" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">codeop.</code><code class="sig-name descname">CommandCompiler</code><a class="headerlink" href="#codeop.CommandCompiler" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Instances of this class have <a class="reference internal" href="../reference/datamodel.html#object.__call__" title="object.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> methods identical in signature to
 <a class="reference internal" href="#codeop.compile_command" title="codeop.compile_command"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile_command()</span></code></a>; the difference is that if the instance compiles program
 text containing a <code class="docutils literal notranslate"><span class="pre">__future__</span></code> statement, the instance «remembers» and
@@ -174,7 +173,7 @@ compiles all subsequent program texts with the statement in force.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="code.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">code</span></code> — Interpreter base classes</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code> — Interpreter base classes</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="modules.html"
                         title="następny rozdział">Importing Modules</a></p>
@@ -183,7 +182,7 @@ compiles all subsequent program texts with the statement in force.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/codeop.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/codeop.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -215,7 +214,7 @@ compiles all subsequent program texts with the statement in force.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -250,7 +249,7 @@ compiles all subsequent program texts with the statement in force.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

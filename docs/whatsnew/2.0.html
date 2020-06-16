@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What’s New in Python 2.0 &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>What’s New in Python 2.0 &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Co nowego w Pythonie</a> &#187;</li>
@@ -102,14 +101,11 @@
             
   <div class="section" id="what-s-new-in-python-2-0">
 <h1>What’s New in Python 2.0<a class="headerlink" href="#what-s-new-in-python-2-0" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">A.M. Kuchling and Moshe Zadka</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>A.M. Kuchling and Moshe Zadka</p>
+</dd>
+</dl>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>A new release of Python, version 2.0, was released on October 16, 2000. This
@@ -248,22 +244,22 @@ ASCII encoding; the result of <code class="docutils literal notranslate"><span c
 <p>New built-in functions have been added, and existing built-ins modified to
 support Unicode:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">unichr(ch)</span></code> returns a Unicode string 1 character long, containing the
-character <em>ch</em>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ord(u)</span></code>, where <em>u</em> is a 1-character regular or Unicode string, returns the
-number of the character as an integer.</li>
-<li><code class="docutils literal notranslate"><span class="pre">unicode(string</span> <span class="pre">[,</span> <span class="pre">encoding]</span>&#160; <span class="pre">[,</span> <span class="pre">errors]</span> <span class="pre">)</span></code> creates a Unicode string
+<li><p><code class="docutils literal notranslate"><span class="pre">unichr(ch)</span></code> returns a Unicode string 1 character long, containing the
+character <em>ch</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ord(u)</span></code>, where <em>u</em> is a 1-character regular or Unicode string, returns the
+number of the character as an integer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unicode(string</span> <span class="pre">[,</span> <span class="pre">encoding]</span>&#160; <span class="pre">[,</span> <span class="pre">errors]</span> <span class="pre">)</span></code> creates a Unicode string
 from an 8-bit string.  <code class="docutils literal notranslate"><span class="pre">encoding</span></code> is a string naming the encoding to use. The
 <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter specifies the treatment of characters that are invalid for
 the current encoding; passing <code class="docutils literal notranslate"><span class="pre">'strict'</span></code> as the value causes an exception to
 be raised on any encoding error, while <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code> causes errors to be silently
 ignored and <code class="docutils literal notranslate"><span class="pre">'replace'</span></code> uses U+FFFD, the official replacement character, in
-case of any problems.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">exec</span></code> statement, and various built-ins such as <code class="docutils literal notranslate"><span class="pre">eval()</span></code>,
+case of any problems.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">exec</span></code> statement, and various built-ins such as <code class="docutils literal notranslate"><span class="pre">eval()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">getattr()</span></code>, and <code class="docutils literal notranslate"><span class="pre">setattr()</span></code> will also accept Unicode strings as well as
 regular strings.  (It’s possible that the process of fixing this missed some
 built-ins; if you find a built-in function that accepts strings but doesn’t
-accept Unicode strings at all, please report it as a bug.)</li>
+accept Unicode strings at all, please report it as a bug.)</p></li>
 </ul>
 <p>A new module, <a class="reference internal" href="../library/unicodedata.html#module-unicodedata" title="unicodedata: Access the Unicode Database."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a>, provides an interface to Unicode character
 properties.  For example, <code class="docutils literal notranslate"><span class="pre">unicodedata.category(u'A')</span></code> returns the 2-character
@@ -275,22 +271,22 @@ register new ones.  Unless you want to implement a new encoding, you’ll most
 often use the <code class="docutils literal notranslate"><span class="pre">codecs.lookup(encoding)</span></code> function, which returns a
 4-element tuple: <code class="docutils literal notranslate"><span class="pre">(encode_func,</span> <span class="pre">decode_func,</span> <span class="pre">stream_reader,</span> <span class="pre">stream_writer)</span></code>.</p>
 <ul class="simple">
-<li><em>encode_func</em> is a function that takes a Unicode string, and returns a 2-tuple
+<li><p><em>encode_func</em> is a function that takes a Unicode string, and returns a 2-tuple
 <code class="docutils literal notranslate"><span class="pre">(string,</span> <span class="pre">length)</span></code>.  <em>string</em> is an 8-bit string containing a portion (perhaps
 all) of the Unicode string converted into the given encoding, and <em>length</em> tells
-you how much of the Unicode string was converted.</li>
-<li><em>decode_func</em> is the opposite of <em>encode_func</em>, taking an 8-bit string and
+you how much of the Unicode string was converted.</p></li>
+<li><p><em>decode_func</em> is the opposite of <em>encode_func</em>, taking an 8-bit string and
 returning a 2-tuple <code class="docutils literal notranslate"><span class="pre">(ustring,</span> <span class="pre">length)</span></code>, consisting of the resulting Unicode
 string <em>ustring</em> and the integer <em>length</em> telling how much of the 8-bit string
-was consumed.</li>
-<li><em>stream_reader</em> is a class that supports decoding input from a stream.
+was consumed.</p></li>
+<li><p><em>stream_reader</em> is a class that supports decoding input from a stream.
 <em>stream_reader(file_obj)</em> returns an object that supports the <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code>,
 <a class="reference internal" href="../library/readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a>, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">readlines()</span></code> methods.  These methods will all
-translate from the given encoding and return Unicode strings.</li>
-<li><em>stream_writer</em>, similarly, is a class that supports encoding output to a
+translate from the given encoding and return Unicode strings.</p></li>
+<li><p><em>stream_writer</em>, similarly, is a class that supports encoding output to a
 stream.  <em>stream_writer(file_obj)</em> returns an object that supports the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">writelines()</span></code> methods.  These methods expect Unicode
-strings, translating them to the given encoding on output.</li>
+strings, translating them to the given encoding on output.</p></li>
 </ul>
 <p>For example, the following code writes a Unicode string into a file,  encoding
 it as UTF-8:</p>
@@ -970,9 +966,9 @@ be installed.  When installed, PyXML versions 0.6.0 or greater will replace the
 standard package, adding a bunch of additional features.  Some of the additional
 features in PyXML include:</p>
 <ul class="simple">
-<li>4DOM, a full DOM implementation from FourThought, Inc.</li>
-<li>The xmlproc validating parser, written by Lars Marius Garshol.</li>
-<li>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sgmlop</span></code> parser accelerator module, written by Fredrik Lundh.</li>
+<li><p>4DOM, a full DOM implementation from FourThought, Inc.</p></li>
+<li><p>The xmlproc validating parser, written by Lars Marius Garshol.</p></li>
+<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sgmlop</span></code> parser accelerator module, written by Fredrik Lundh.</p></li>
 </ul>
 </div>
 </div>
@@ -1018,58 +1014,58 @@ strings and Unicode strings.</p>
 descriptions; consult the 2.0 documentation for the details of a particular
 module.</p>
 <ul class="simple">
-<li><a class="reference internal" href="../library/atexit.html#module-atexit" title="atexit: Register and execute cleanup functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a>:  For registering functions to be called before the Python
+<li><p><a class="reference internal" href="../library/atexit.html#module-atexit" title="atexit: Register and execute cleanup functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a>:  For registering functions to be called before the Python
 interpreter exits. Code that currently sets <code class="docutils literal notranslate"><span class="pre">sys.exitfunc</span></code> directly should be
 changed to  use the <a class="reference internal" href="../library/atexit.html#module-atexit" title="atexit: Register and execute cleanup functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a> module instead, importing <a class="reference internal" href="../library/atexit.html#module-atexit" title="atexit: Register and execute cleanup functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a> and
 calling <a class="reference internal" href="../library/atexit.html#atexit.register" title="atexit.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">atexit.register()</span></code></a> with  the function to be called on exit.
-(Contributed by Skip Montanaro.)</li>
-<li><a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">encodings</span></code>, <a class="reference internal" href="../library/unicodedata.html#module-unicodedata" title="unicodedata: Access the Unicode Database."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a>:  Added as part of the new
-Unicode support.</li>
-<li><a class="reference internal" href="../library/filecmp.html#module-filecmp" title="filecmp: Compare files efficiently."><code class="xref py py-mod docutils literal notranslate"><span class="pre">filecmp</span></code></a>: Supersedes the old <code class="xref py py-mod docutils literal notranslate"><span class="pre">cmp</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">cmpcache</span></code> and
+(Contributed by Skip Montanaro.)</p></li>
+<li><p><a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">encodings</span></code>, <a class="reference internal" href="../library/unicodedata.html#module-unicodedata" title="unicodedata: Access the Unicode Database."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a>:  Added as part of the new
+Unicode support.</p></li>
+<li><p><a class="reference internal" href="../library/filecmp.html#module-filecmp" title="filecmp: Compare files efficiently."><code class="xref py py-mod docutils literal notranslate"><span class="pre">filecmp</span></code></a>: Supersedes the old <code class="xref py py-mod docutils literal notranslate"><span class="pre">cmp</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">cmpcache</span></code> and
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">dircmp</span></code> modules, which have now become deprecated. (Contributed by Gordon
-MacMillan and Moshe Zadka.)</li>
-<li><a class="reference internal" href="../library/gettext.html#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code></a>: This module provides internationalization (I18N) and
+MacMillan and Moshe Zadka.)</p></li>
+<li><p><a class="reference internal" href="../library/gettext.html#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code></a>: This module provides internationalization (I18N) and
 localization (L10N) support for Python programs by providing an interface to the
 GNU gettext message catalog library. (Integrated by Barry Warsaw, from separate
-contributions by Martin  von Löwis, Peter Funk, and James Henstridge.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxaudiodev</span></code>: Support for the <code class="file docutils literal notranslate"><span class="pre">/dev/audio</span></code> device on Linux, a
+contributions by Martin  von Löwis, Peter Funk, and James Henstridge.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxaudiodev</span></code>: Support for the <code class="file docutils literal notranslate"><span class="pre">/dev/audio</span></code> device on Linux, a
 twin to the existing <code class="xref py py-mod docutils literal notranslate"><span class="pre">sunaudiodev</span></code> module. (Contributed by Peter Bosch,
-with fixes by Jeremy Hylton.)</li>
-<li><a class="reference internal" href="../library/mmap.html#module-mmap" title="mmap: Interface to memory-mapped files for Unix and Windows."><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmap</span></code></a>: An interface to memory-mapped files on both Windows and Unix.  A
+with fixes by Jeremy Hylton.)</p></li>
+<li><p><a class="reference internal" href="../library/mmap.html#module-mmap" title="mmap: Interface to memory-mapped files for Unix and Windows."><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmap</span></code></a>: An interface to memory-mapped files on both Windows and Unix.  A
 file’s contents can be mapped directly into memory, at which point it behaves
 like a mutable string, so its contents can be read and modified.  They can even
 be passed to functions that expect ordinary strings, such as the <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a>
-module. (Contributed by Sam Rushing, with some extensions by A.M. Kuchling.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyexpat</span></code>: An interface to the Expat XML parser. (Contributed by Paul
-Prescod.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">robotparser</span></code>: Parse a <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> file, which is used for writing
+module. (Contributed by Sam Rushing, with some extensions by A.M. Kuchling.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyexpat</span></code>: An interface to the Expat XML parser. (Contributed by Paul
+Prescod.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">robotparser</span></code>: Parse a <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> file, which is used for writing
 Web spiders that politely avoid certain areas of a Web site.  The parser accepts
 the contents of a <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> file, builds a set of rules from it, and
 can then answer questions about the fetchability of a given URL.  (Contributed
-by Skip Montanaro.)</li>
-<li><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a>: A module/script to  check Python source code for ambiguous
-indentation. (Contributed by Tim Peters.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">UserString</span></code>: A base class useful for deriving objects that behave like
-strings.</li>
-<li><a class="reference internal" href="../library/webbrowser.html#module-webbrowser" title="webbrowser: Easy-to-use controller for Web browsers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">webbrowser</span></code></a>: A module that provides a platform independent way to launch
+by Skip Montanaro.)</p></li>
+<li><p><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a>: A module/script to  check Python source code for ambiguous
+indentation. (Contributed by Tim Peters.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">UserString</span></code>: A base class useful for deriving objects that behave like
+strings.</p></li>
+<li><p><a class="reference internal" href="../library/webbrowser.html#module-webbrowser" title="webbrowser: Easy-to-use controller for Web browsers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">webbrowser</span></code></a>: A module that provides a platform independent way to launch
 a web browser on a specific URL. For each platform, various browsers are tried
 in a specific order. The user can alter which browser is launched by setting the
 <em>BROWSER</em> environment variable.  (Originally inspired by Eric S. Raymond’s patch
 to <a class="reference internal" href="../library/urllib.html#module-urllib" title="urllib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib</span></code></a> which added similar functionality, but the final module comes
 from code originally  implemented by Fred Drake as
 <code class="file docutils literal notranslate"><span class="pre">Tools/idle/BrowserControl.py</span></code>, and adapted for the standard library by
-Fred.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code>: An interface to the Windows registry.  <code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code> is an
+Fred.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code>: An interface to the Windows registry.  <code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code> is an
 adaptation of functions that have been part of PythonWin since 1995, but has now
 been added to the core  distribution, and enhanced to support Unicode.
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code> was written by Bill Tutt and Mark Hammond.</li>
-<li><a class="reference internal" href="../library/zipfile.html#module-zipfile" title="zipfile: Read and write ZIP-format archive files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code></a>: A module for reading and writing ZIP-format archives.  These
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">_winreg</span></code> was written by Bill Tutt and Mark Hammond.</p></li>
+<li><p><a class="reference internal" href="../library/zipfile.html#module-zipfile" title="zipfile: Read and write ZIP-format archive files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code></a>: A module for reading and writing ZIP-format archives.  These
 are archives produced by <strong class="program">PKZIP</strong> on DOS/Windows or <strong class="program">zip</strong> on
 Unix, not to be confused with <strong class="program">gzip</strong>-format files (which are
-supported by the <a class="reference internal" href="../library/gzip.html#module-gzip" title="gzip: Interfaces for gzip compression and decompression using file objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code></a> module) (Contributed by James C. Ahlstrom.)</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">imputil</span></code>: A module that provides a simpler way for writing customized
+supported by the <a class="reference internal" href="../library/gzip.html#module-gzip" title="gzip: Interfaces for gzip compression and decompression using file objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code></a> module) (Contributed by James C. Ahlstrom.)</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">imputil</span></code>: A module that provides a simpler way for writing customized
 import hooks, in comparison to the existing <code class="xref py py-mod docutils literal notranslate"><span class="pre">ihooks</span></code> module.  (Implemented
-by Greg Stein, with much discussion on python-dev along the way.)</li>
+by Greg Stein, with much discussion on python-dev along the way.)</p></li>
 </ul>
 </div>
 <div class="section" id="idle-improvements">
@@ -1078,21 +1074,21 @@ by Greg Stein, with much discussion on python-dev along the way.)</li>
 2.0 includes IDLE 0.6, which adds a number of new features and improvements.  A
 partial list:</p>
 <ul class="simple">
-<li>UI improvements and optimizations, especially in the area of syntax
-highlighting and auto-indentation.</li>
-<li>The class browser now shows more information, such as the top level functions
-in a module.</li>
-<li>Tab width is now a user settable option. When opening an existing Python file,
-IDLE automatically detects the indentation conventions, and adapts.</li>
-<li>There is now support for calling browsers on various platforms, used to open
-the Python documentation in a browser.</li>
-<li>IDLE now has a command line, which is largely similar to  the vanilla Python
-interpreter.</li>
-<li>Call tips were added in many places.</li>
-<li>IDLE can now be installed as a package.</li>
-<li>In the editor window, there is now a line/column bar at the bottom.</li>
-<li>Three new keystroke commands: Check module (<kbd class="kbd docutils literal notranslate">Alt-F5</kbd>), Import module (<kbd class="kbd docutils literal notranslate">F5</kbd>) and
-Run script (<kbd class="kbd docutils literal notranslate">Ctrl-F5</kbd>).</li>
+<li><p>UI improvements and optimizations, especially in the area of syntax
+highlighting and auto-indentation.</p></li>
+<li><p>The class browser now shows more information, such as the top level functions
+in a module.</p></li>
+<li><p>Tab width is now a user settable option. When opening an existing Python file,
+IDLE automatically detects the indentation conventions, and adapts.</p></li>
+<li><p>There is now support for calling browsers on various platforms, used to open
+the Python documentation in a browser.</p></li>
+<li><p>IDLE now has a command line, which is largely similar to  the vanilla Python
+interpreter.</p></li>
+<li><p>Call tips were added in many places.</p></li>
+<li><p>IDLE can now be installed as a package.</p></li>
+<li><p>In the editor window, there is now a line/column bar at the bottom.</p></li>
+<li><p>Three new keystroke commands: Check module (<kbd class="kbd docutils literal notranslate">Alt-F5</kbd>), Import module (<kbd class="kbd docutils literal notranslate">F5</kbd>) and
+Run script (<kbd class="kbd docutils literal notranslate">Ctrl-F5</kbd>).</p></li>
 </ul>
 </div>
 <div class="section" id="deleted-and-deprecated-modules">
@@ -1122,7 +1118,7 @@ Marangozov, Tobias Polzin, Guido van Rossum, Neil Schemenauer, and Russ Schmidt.
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">What’s New in Python 2.0</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
@@ -1167,7 +1163,7 @@ Marangozov, Tobias Polzin, Guido van Rossum, Neil Schemenauer, and Russ Schmidt.
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/whatsnew/2.0.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/2.0.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1199,7 +1195,7 @@ Marangozov, Tobias Polzin, Guido van Rossum, Neil Schemenauer, and Russ Schmidt.
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Co nowego w Pythonie</a> &#187;</li>
@@ -1233,7 +1229,7 @@ Marangozov, Tobias Polzin, Guido van Rossum, Neil Schemenauer, and Russ Schmidt.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

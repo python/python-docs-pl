@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Curses Programming with Python &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Curses Programming with Python &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -102,16 +101,14 @@
             
   <div class="section" id="curses-programming-with-python">
 <span id="curses-howto"></span><h1>Curses Programming with Python<a class="headerlink" href="#curses-programming-with-python" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">A.M. Kuchling, Eric S. Raymond</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Release:</th><td class="field-body">2.04</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>A.M. Kuchling, Eric S. Raymond</p>
+</dd>
+<dt class="field-even">Release</dt>
+<dd class="field-even"><p>2.04</p>
+</dd>
+</dl>
 <div class="topic">
 <p class="topic-title">Abstract</p>
 <p>This document describes how to use the <a class="reference internal" href="../library/curses.html#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses</span></code></a> extension
@@ -331,11 +328,11 @@ efficient way to update the screen and prevent annoying screen flicker
 as each part of the screen gets updated.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">refresh()</span></code> actually
 does two things:</p>
 <ol class="arabic simple">
-<li>Calls the <a class="reference internal" href="../library/curses.html#curses.window.noutrefresh" title="curses.window.noutrefresh"><code class="xref py py-meth docutils literal notranslate"><span class="pre">noutrefresh()</span></code></a> method of each window
+<li><p>Calls the <a class="reference internal" href="../library/curses.html#curses.window.noutrefresh" title="curses.window.noutrefresh"><code class="xref py py-meth docutils literal notranslate"><span class="pre">noutrefresh()</span></code></a> method of each window
 to update an underlying data structure representing the desired
-state of the screen.</li>
-<li>Calls the function <a class="reference internal" href="../library/curses.html#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal notranslate"><span class="pre">doupdate()</span></code></a> function to change the
-physical screen to match the desired state recorded in the data structure.</li>
+state of the screen.</p></li>
+<li><p>Calls the function <a class="reference internal" href="../library/curses.html#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal notranslate"><span class="pre">doupdate()</span></code></a> function to change the
+physical screen to match the desired state recorded in the data structure.</p></li>
 </ol>
 <p>Instead you can call <code class="xref py py-meth docutils literal notranslate"><span class="pre">noutrefresh()</span></code> on a number of windows to
 update the data structure, and then call <code class="xref py py-func docutils literal notranslate"><span class="pre">doupdate()</span></code> to update
@@ -355,33 +352,33 @@ a window and a coordinate.</p>
 is a window object like any other, and methods such as
 <a class="reference internal" href="../library/curses.html#curses.window.addstr" title="curses.window.addstr"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addstr()</span></code></a> accept multiple argument forms.  Usually there
 are four different forms.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="41%" />
-<col width="59%" />
+<col style="width: 41%" />
+<col style="width: 59%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Form</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Form</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><em>str</em> or <em>ch</em></td>
-<td>Display the string <em>str</em> or character <em>ch</em> at
-the current position</td>
+<tbody>
+<tr class="row-even"><td><p><em>str</em> or <em>ch</em></p></td>
+<td><p>Display the string <em>str</em> or character <em>ch</em> at
+the current position</p></td>
 </tr>
-<tr class="row-odd"><td><em>str</em> or <em>ch</em>, <em>attr</em></td>
-<td>Display the string <em>str</em> or character <em>ch</em>,
+<tr class="row-odd"><td><p><em>str</em> or <em>ch</em>, <em>attr</em></p></td>
+<td><p>Display the string <em>str</em> or character <em>ch</em>,
 using attribute <em>attr</em> at the current
-position</td>
+position</p></td>
 </tr>
-<tr class="row-even"><td><em>y</em>, <em>x</em>, <em>str</em> or <em>ch</em></td>
-<td>Move to position <em>y,x</em> within the window, and
-display <em>str</em> or <em>ch</em></td>
+<tr class="row-even"><td><p><em>y</em>, <em>x</em>, <em>str</em> or <em>ch</em></p></td>
+<td><p>Move to position <em>y,x</em> within the window, and
+display <em>str</em> or <em>ch</em></p></td>
 </tr>
-<tr class="row-odd"><td><em>y</em>, <em>x</em>, <em>str</em> or <em>ch</em>, <em>attr</em></td>
-<td>Move to position <em>y,x</em> within the window, and
-display <em>str</em> or <em>ch</em>, using attribute <em>attr</em></td>
+<tr class="row-odd"><td><p><em>y</em>, <em>x</em>, <em>str</em> or <em>ch</em>, <em>attr</em></p></td>
+<td><p>Move to position <em>y,x</em> within the window, and
+display <em>str</em> or <em>ch</em>, using attribute <em>attr</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -426,34 +423,34 @@ set, but curses doesn’t guarantee that all the possible combinations
 are available, or that they’re all visually distinct.  That depends on
 the ability of the terminal being used, so it’s safest to stick to the
 most commonly available attributes, listed here.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="37%" />
-<col width="63%" />
+<col style="width: 37%" />
+<col style="width: 63%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribute</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_BLINK</span></code></td>
-<td>Blinking text</td>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_BLINK</span></code></p></td>
+<td><p>Blinking text</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_BOLD</span></code></td>
-<td>Extra bright or bold text</td>
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_BOLD</span></code></p></td>
+<td><p>Extra bright or bold text</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_DIM</span></code></td>
-<td>Half bright text</td>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_DIM</span></code></p></td>
+<td><p>Half bright text</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_REVERSE</span></code></td>
-<td>Reverse-video text</td>
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_REVERSE</span></code></p></td>
+<td><p>Reverse-video text</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_STANDOUT</span></code></td>
-<td>The best highlighting mode available</td>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_STANDOUT</span></code></p></td>
+<td><p>The best highlighting mode available</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">A_UNDERLINE</span></code></td>
-<td>Underlined text</td>
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">A_UNDERLINE</span></code></p></td>
+<td><p>Underlined text</p></td>
 </tr>
 </tbody>
 </table>
@@ -525,14 +522,14 @@ such as <a class="reference external" href="https://pypi.org/project/urwid/">Urw
 collections of widgets.)</p>
 <p>There are two methods for getting input from a window:</p>
 <ul class="simple">
-<li><a class="reference internal" href="../library/curses.html#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getch()</span></code></a> refreshes the screen and then waits for
+<li><p><a class="reference internal" href="../library/curses.html#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getch()</span></code></a> refreshes the screen and then waits for
 the user to hit a key, displaying the key if <a class="reference internal" href="../library/curses.html#curses.echo" title="curses.echo"><code class="xref py py-func docutils literal notranslate"><span class="pre">echo()</span></code></a> has been
 called earlier.  You can optionally specify a coordinate to which
-the cursor should be moved before pausing.</li>
-<li><a class="reference internal" href="../library/curses.html#curses.window.getkey" title="curses.window.getkey"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getkey()</span></code></a> does the same thing but converts the
+the cursor should be moved before pausing.</p></li>
+<li><p><a class="reference internal" href="../library/curses.html#curses.window.getkey" title="curses.window.getkey"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getkey()</span></code></a> does the same thing but converts the
 integer to a string.  Individual characters are returned as
 1-character strings, and special keys such as function keys return
-longer strings containing a key name such as <code class="docutils literal notranslate"><span class="pre">KEY_UP</span></code> or <code class="docutils literal notranslate"><span class="pre">^G</span></code>.</li>
+longer strings containing a key name such as <code class="docutils literal notranslate"><span class="pre">KEY_UP</span></code> or <code class="docutils literal notranslate"><span class="pre">^G</span></code>.</p></li>
 </ul>
 <p>It’s possible to not wait for the user using the
 <a class="reference internal" href="../library/curses.html#curses.window.nodelay" title="curses.window.nodelay"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nodelay()</span></code></a> window method. After <code class="docutils literal notranslate"><span class="pre">nodelay(True)</span></code>,
@@ -622,15 +619,15 @@ Patches adding support for these would be welcome; see
 <a class="reference external" href="https://devguide.python.org/">the Python Developer’s Guide</a> to
 learn more about submitting patches to Python.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://invisible-island.net/ncurses/ncurses-intro.html">Writing Programs with NCURSES</a>:
-a lengthy tutorial for C programmers.</li>
-<li><a class="reference external" href="https://linux.die.net/man/3/ncurses">The ncurses man page</a></li>
-<li><a class="reference external" href="http://invisible-island.net/ncurses/ncurses.faq.html">The ncurses FAQ</a></li>
-<li><a class="reference external" href="https://www.youtube.com/watch?v=eN1eZtjLEnU">„Use curses… don’t swear”</a>:
-video of a PyCon 2013 talk on controlling terminals using curses or Urwid.</li>
-<li><a class="reference external" href="http://www.pyvideo.org/video/1568/console-applications-with-urwid">„Console Applications with Urwid”</a>:
+<li><p><a class="reference external" href="http://invisible-island.net/ncurses/ncurses-intro.html">Writing Programs with NCURSES</a>:
+a lengthy tutorial for C programmers.</p></li>
+<li><p><a class="reference external" href="https://linux.die.net/man/3/ncurses">The ncurses man page</a></p></li>
+<li><p><a class="reference external" href="http://invisible-island.net/ncurses/ncurses.faq.html">The ncurses FAQ</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=eN1eZtjLEnU">„Use curses… don’t swear”</a>:
+video of a PyCon 2013 talk on controlling terminals using curses or Urwid.</p></li>
+<li><p><a class="reference external" href="http://www.pyvideo.org/video/1568/console-applications-with-urwid">„Console Applications with Urwid”</a>:
 video of a PyCon CA 2012 talk demonstrating some applications written using
-Urwid.</li>
+Urwid.</p></li>
 </ul>
 </div>
 </div>
@@ -641,7 +638,7 @@ Urwid.</li>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Curses Programming with Python</a><ul>
 <li><a class="reference internal" href="#what-is-curses">What is curses?</a><ul>
@@ -671,7 +668,7 @@ Urwid.</li>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/curses.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/howto/curses.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -703,7 +700,7 @@ Urwid.</li>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -737,7 +734,7 @@ Urwid.</li>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

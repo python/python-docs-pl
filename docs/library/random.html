@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>random — Generate pseudo-random numbers &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>random — Generate pseudo-random numbers &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,7 +102,7 @@
             
   <div class="section" id="module-random">
 <span id="random-generate-pseudo-random-numbers"></span><h1><a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> — Generate pseudo-random numbers<a class="headerlink" href="#module-random" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/random.py">Lib/random.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/random.py">Lib/random.py</a></p>
 <hr class="docutils" />
 <p>This module implements pseudo-random number generators for various
 distributions.</p>
@@ -134,17 +133,17 @@ allows <a class="reference internal" href="#random.randrange" title="random.rand
 uses the system function <a class="reference internal" href="os.html#os.urandom" title="os.urandom"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.urandom()</span></code></a> to generate random numbers
 from sources provided by the operating system.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Ostrzeżenie</p>
-<p class="last">The pseudo-random generators of this module should not be used for
+<p class="admonition-title">Ostrzeżenie</p>
+<p>The pseudo-random generators of this module should not be used for
 security purposes.  For security or cryptographic uses, see the
 <a class="reference internal" href="secrets.html#module-secrets" title="secrets: Generate secure random numbers for managing secrets."><code class="xref py py-mod docutils literal notranslate"><span class="pre">secrets</span></code></a> module.</p>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
+<p class="admonition-title">Zobacz także</p>
 <p>M. Matsumoto and T. Nishimura, „Mersenne Twister: A 623-dimensionally
 equidistributed uniform pseudorandom number generator”, ACM Transactions on
 Modeling and Computer Simulation Vol. 8, No. 1, January pp.3–30 1998.</p>
-<p class="last"><a class="reference external" href="https://code.activestate.com/recipes/576707/">Complementary-Multiply-with-Carry recipe</a> for a compatible alternative
+<p><a class="reference external" href="https://code.activestate.com/recipes/576707/">Complementary-Multiply-with-Carry recipe</a> for a compatible alternative
 random number generator with a long period and comparatively simple update
 operations.</p>
 </div>
@@ -152,7 +151,7 @@ operations.</p>
 <h2>Bookkeeping functions<a class="headerlink" href="#bookkeeping-functions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="random.seed">
-<code class="descclassname">random.</code><code class="descname">seed</code><span class="sig-paren">(</span><em>a=None</em>, <em>version=2</em><span class="sig-paren">)</span><a class="headerlink" href="#random.seed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">seed</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">version=2</em><span class="sig-paren">)</span><a class="headerlink" href="#random.seed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Initialize the random number generator.</p>
 <p>If <em>a</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, the current system time is used.  If
 randomness sources are provided by the operating system, they are used
@@ -165,32 +164,42 @@ object gets converted to an <a class="reference internal" href="functions.html#i
 of Python), the algorithm for <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> and <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> generates a
 narrower range of seeds.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>Moved to the version 2 scheme which uses all of the bits in a string seed.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Moved to the version 2 scheme which uses all of the bits in a string seed.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>In the future, the <em>seed</em> must be one of the following types:
+<em>NoneType</em>, <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
+<a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.getstate">
-<code class="descclassname">random.</code><code class="descname">getstate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.getstate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">getstate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.getstate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return an object capturing the current internal state of the generator.  This
 object can be passed to <a class="reference internal" href="#random.setstate" title="random.setstate"><code class="xref py py-func docutils literal notranslate"><span class="pre">setstate()</span></code></a> to restore the state.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.setstate">
-<code class="descclassname">random.</code><code class="descname">setstate</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#random.setstate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">setstate</code><span class="sig-paren">(</span><em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#random.setstate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><em>state</em> should have been obtained from a previous call to <a class="reference internal" href="#random.getstate" title="random.getstate"><code class="xref py py-func docutils literal notranslate"><span class="pre">getstate()</span></code></a>, and
 <a class="reference internal" href="#random.setstate" title="random.setstate"><code class="xref py py-func docutils literal notranslate"><span class="pre">setstate()</span></code></a> restores the internal state of the generator to what it was at
 the time <a class="reference internal" href="#random.getstate" title="random.getstate"><code class="xref py py-func docutils literal notranslate"><span class="pre">getstate()</span></code></a> was called.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="functions-for-bytes">
+<h2>Functions for bytes<a class="headerlink" href="#functions-for-bytes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
-<dt id="random.getrandbits">
-<code class="descclassname">random.</code><code class="descname">getrandbits</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#random.getrandbits" title="Stały odnośnik do tej definicji">¶</a></dt>
-<dd><p>Returns a Python integer with <em>k</em> random bits. This method is supplied with
-the Mersenne Twister generator and some other generators may also provide it
-as an optional part of the API. When available, <a class="reference internal" href="#random.getrandbits" title="random.getrandbits"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getrandbits()</span></code></a> enables
-<a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-meth docutils literal notranslate"><span class="pre">randrange()</span></code></a> to handle arbitrarily large ranges.</p>
+<dt id="random.randbytes">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randbytes</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randbytes" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Generate <em>n</em> random bytes.</p>
+<p>This method should not be used for generating security tokens.
+Use <a class="reference internal" href="secrets.html#secrets.token_bytes" title="secrets.token_bytes"><code class="xref py py-func docutils literal notranslate"><span class="pre">secrets.token_bytes()</span></code></a> instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -198,16 +207,16 @@ as an optional part of the API. When available, <a class="reference internal" hr
 <h2>Functions for integers<a class="headerlink" href="#functions-for-integers" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="random.randrange">
-<code class="descclassname">random.</code><code class="descname">randrange</code><span class="sig-paren">(</span><em>stop</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randrange" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randrange</code><span class="sig-paren">(</span><em class="sig-param">stop</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randrange" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dt>
-<code class="descclassname">random.</code><code class="descname">randrange</code><span class="sig-paren">(</span><em>start</em>, <em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randrange</code><span class="sig-paren">(</span><em class="sig-param">start</em>, <em class="sig-param">stop</em><span class="optional">[</span>, <em class="sig-param">step</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
 <dd><p>Return a randomly selected element from <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.  This is
 equivalent to <code class="docutils literal notranslate"><span class="pre">choice(range(start,</span> <span class="pre">stop,</span> <span class="pre">step))</span></code>, but doesn’t actually build a
 range object.</p>
 <p>The positional argument pattern matches that of <a class="reference internal" href="stdtypes.html#range" title="range"><code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a>.  Keyword arguments
 should not be used because the function may use them in unexpected ways.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span><a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-meth docutils literal notranslate"><span class="pre">randrange()</span></code></a> is more sophisticated about producing equally distributed
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span><a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-meth docutils literal notranslate"><span class="pre">randrange()</span></code></a> is more sophisticated about producing equally distributed
 values.  Formerly it used a style like <code class="docutils literal notranslate"><span class="pre">int(random()*n)</span></code> which could produce
 slightly uneven distributions.</p>
 </div>
@@ -215,9 +224,21 @@ slightly uneven distributions.</p>
 
 <dl class="function">
 <dt id="random.randint">
-<code class="descclassname">random.</code><code class="descname">randint</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randint" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randint</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randint" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a random integer <em>N</em> such that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>.  Alias for
 <code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b+1)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.getrandbits">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">getrandbits</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="sig-paren">)</span><a class="headerlink" href="#random.getrandbits" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Returns a Python integer with <em>k</em> random bits. This method is supplied with
+the MersenneTwister generator and some other generators may also provide it
+as an optional part of the API. When available, <a class="reference internal" href="#random.getrandbits" title="random.getrandbits"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getrandbits()</span></code></a> enables
+<a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-meth docutils literal notranslate"><span class="pre">randrange()</span></code></a> to handle arbitrarily large ranges.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>This method now accepts zero for <em>k</em>.</p>
+</div>
 </dd></dl>
 
 </div>
@@ -225,14 +246,14 @@ slightly uneven distributions.</p>
 <h2>Functions for sequences<a class="headerlink" href="#functions-for-sequences" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="random.choice">
-<code class="descclassname">random.</code><code class="descname">choice</code><span class="sig-paren">(</span><em>seq</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choice" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">choice</code><span class="sig-paren">(</span><em class="sig-param">seq</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choice" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a random element from the non-empty sequence <em>seq</em>. If <em>seq</em> is empty,
 raises <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.choices">
-<code class="descclassname">random.</code><code class="descname">choices</code><span class="sig-paren">(</span><em>population</em>, <em>weights=None</em>, <em>*</em>, <em>cum_weights=None</em>, <em>k=1</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choices" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">choices</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">*</em>, <em class="sig-param">cum_weights=None</em>, <em class="sig-param">k=1</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choices" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a <em>k</em> sized list of elements chosen from the <em>population</em> with replacement.
 If the <em>population</em> is empty, raises <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a>.</p>
 <p>If a <em>weights</em> sequence is specified, selections are made according to the
@@ -249,8 +270,9 @@ the same length as the <em>population</em> sequence.  It is a <a class="referenc
 to specify both <em>weights</em> and <em>cum_weights</em>.</p>
 <p>The <em>weights</em> or <em>cum_weights</em> can use any numeric type that interoperates
 with the <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> values returned by <a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-func docutils literal notranslate"><span class="pre">random()</span></code></a> (that includes
-integers, floats, and fractions but excludes decimals).  Weights are
-assumed to be non-negative.</p>
+integers, floats, and fractions but excludes decimals).  Behavior is
+undefined if any weight is negative.  A <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if all
+weights are zero.</p>
 <p>For a given seed, the <a class="reference internal" href="#random.choices" title="random.choices"><code class="xref py py-func docutils literal notranslate"><span class="pre">choices()</span></code></a> function with equal weighting
 typically produces a different sequence than repeated calls to
 <a class="reference internal" href="#random.choice" title="random.choice"><code class="xref py py-func docutils literal notranslate"><span class="pre">choice()</span></code></a>.  The algorithm used by <a class="reference internal" href="#random.choices" title="random.choices"><code class="xref py py-func docutils literal notranslate"><span class="pre">choices()</span></code></a> uses floating
@@ -258,13 +280,16 @@ point arithmetic for internal consistency and speed.  The algorithm used
 by <a class="reference internal" href="#random.choice" title="random.choice"><code class="xref py py-func docutils literal notranslate"><span class="pre">choice()</span></code></a> defaults to integer arithmetic with repeated selections
 to avoid small biases from round-off error.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.6.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Raises a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if all weights are zero.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.shuffle">
-<code class="descclassname">random.</code><code class="descname">shuffle</code><span class="sig-paren">(</span><em>x</em><span class="optional">[</span>, <em>random</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.shuffle" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">shuffle</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="optional">[</span>, <em class="sig-param">random</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.shuffle" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Shuffle the sequence <em>x</em> in place.</p>
 <p>The optional argument <em>random</em> is a 0-argument function returning a random
 float in [0.0, 1.0); by default, this is the function <a class="reference internal" href="#random.random" title="random.random"><code class="xref py py-func docutils literal notranslate"><span class="pre">random()</span></code></a>.</p>
@@ -275,11 +300,14 @@ can quickly grow larger than the period of most random number generators.
 This implies that most permutations of a long sequence can never be
 generated.  For example, a sequence of length 2080 is the largest that
 can fit within the period of the Mersenne Twister random number generator.</p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.9, will be removed in version 3.11: </span>The optional parameter <em>random</em>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.sample">
-<code class="descclassname">random.</code><code class="descname">sample</code><span class="sig-paren">(</span><em>population</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#random.sample" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">k</em>, <em class="sig-param">*</em>, <em class="sig-param">counts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#random.sample" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a <em>k</em> length list of unique elements chosen from the population sequence
 or set. Used for random sampling without replacement.</p>
 <p>Returns a new list containing elements from the population while leaving the
@@ -289,11 +317,24 @@ all sub-slices will also be valid random samples.  This allows raffle winners
 subslices).</p>
 <p>Members of the population need not be <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a> or unique.  If the population
 contains repeats, then each occurrence is a possible selection in the sample.</p>
+<p>Repeated elements can be specified one at a time or with the optional
+keyword-only <em>counts</em> parameter.  For example, <code class="docutils literal notranslate"><span class="pre">sample(['red',</span> <span class="pre">'blue'],</span>
+<span class="pre">counts=[4,</span> <span class="pre">2],</span> <span class="pre">k=5)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">sample(['red',</span> <span class="pre">'red',</span> <span class="pre">'red',</span> <span class="pre">'red',</span>
+<span class="pre">'blue',</span> <span class="pre">'blue'],</span> <span class="pre">k=5)</span></code>.</p>
 <p>To choose a sample from a range of integers, use a <a class="reference internal" href="stdtypes.html#range" title="range"><code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a> object as an
 argument.  This is especially fast and space efficient for sampling from a large
 population:  <code class="docutils literal notranslate"><span class="pre">sample(range(10000000),</span> <span class="pre">k=60)</span></code>.</p>
 <p>If the sample size is larger than the population size, a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>
 is raised.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added the <em>counts</em> parameter.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>In the future, the <em>population</em> must be a sequence.  Instances of
+<a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> are no longer supported.  The set must first be converted
+to a <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or <a class="reference internal" href="stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, preferably in a deterministic
+order so that the sample is reproducible.</p>
+</div>
 </dd></dl>
 
 </div>
@@ -305,13 +346,13 @@ equation, as used in common mathematical practice; most of these equations can
 be found in any statistics text.</p>
 <dl class="function">
 <dt id="random.random">
-<code class="descclassname">random.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.random" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.random" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the next random floating point number in the range [0.0, 1.0).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.uniform">
-<code class="descclassname">random.</code><code class="descname">uniform</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.uniform" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">uniform</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.uniform" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a random floating point number <em>N</em> such that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> for
 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">a</span></code> for <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code>.</p>
 <p>The end-point value <code class="docutils literal notranslate"><span class="pre">b</span></code> may or may not be included in the range
@@ -320,7 +361,7 @@ depending on floating-point rounding in the equation <code class="docutils liter
 
 <dl class="function">
 <dt id="random.triangular">
-<code class="descclassname">random.</code><code class="descname">triangular</code><span class="sig-paren">(</span><em>low</em>, <em>high</em>, <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#random.triangular" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">triangular</code><span class="sig-paren">(</span><em class="sig-param">low</em>, <em class="sig-param">high</em>, <em class="sig-param">mode</em><span class="sig-paren">)</span><a class="headerlink" href="#random.triangular" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a random floating point number <em>N</em> such that <code class="docutils literal notranslate"><span class="pre">low</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">high</span></code> and
 with the specified <em>mode</em> between those bounds.  The <em>low</em> and <em>high</em> bounds
 default to zero and one.  The <em>mode</em> argument defaults to the midpoint
@@ -329,14 +370,14 @@ between the bounds, giving a symmetric distribution.</p>
 
 <dl class="function">
 <dt id="random.betavariate">
-<code class="descclassname">random.</code><code class="descname">betavariate</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.betavariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">betavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.betavariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Beta distribution.  Conditions on the parameters are <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> and
 <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. Returned values range between 0 and 1.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.expovariate">
-<code class="descclassname">random.</code><code class="descname">expovariate</code><span class="sig-paren">(</span><em>lambd</em><span class="sig-paren">)</span><a class="headerlink" href="#random.expovariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">expovariate</code><span class="sig-paren">(</span><em class="sig-param">lambd</em><span class="sig-paren">)</span><a class="headerlink" href="#random.expovariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Exponential distribution.  <em>lambd</em> is 1.0 divided by the desired
 mean.  It should be nonzero.  (The parameter would be called
 „lambda”, but that is a reserved word in Python.)  Returned values
@@ -346,7 +387,7 @@ negative infinity to 0 if <em>lambd</em> is negative.</p>
 
 <dl class="function">
 <dt id="random.gammavariate">
-<code class="descclassname">random.</code><code class="descname">gammavariate</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gammavariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">gammavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gammavariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Gamma distribution.  (<em>Not</em> the gamma function!)  Conditions on the
 parameters are <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p>
 <p>The probability distribution function is:</p>
@@ -359,7 +400,7 @@ parameters are <code class="docutils literal notranslate"><span class="pre">alph
 
 <dl class="function">
 <dt id="random.gauss">
-<code class="descclassname">random.</code><code class="descname">gauss</code><span class="sig-paren">(</span><em>mu</em>, <em>sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gauss" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gauss" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Gaussian distribution.  <em>mu</em> is the mean, and <em>sigma</em> is the standard
 deviation.  This is slightly faster than the <a class="reference internal" href="#random.normalvariate" title="random.normalvariate"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalvariate()</span></code></a> function
 defined below.</p>
@@ -367,7 +408,7 @@ defined below.</p>
 
 <dl class="function">
 <dt id="random.lognormvariate">
-<code class="descclassname">random.</code><code class="descname">lognormvariate</code><span class="sig-paren">(</span><em>mu</em>, <em>sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.lognormvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">lognormvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.lognormvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Log normal distribution.  If you take the natural logarithm of this
 distribution, you’ll get a normal distribution with mean <em>mu</em> and standard
 deviation <em>sigma</em>.  <em>mu</em> can have any value, and <em>sigma</em> must be greater than
@@ -376,13 +417,13 @@ zero.</p>
 
 <dl class="function">
 <dt id="random.normalvariate">
-<code class="descclassname">random.</code><code class="descname">normalvariate</code><span class="sig-paren">(</span><em>mu</em>, <em>sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.normalvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">normalvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.normalvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Normal distribution.  <em>mu</em> is the mean, and <em>sigma</em> is the standard deviation.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.vonmisesvariate">
-<code class="descclassname">random.</code><code class="descname">vonmisesvariate</code><span class="sig-paren">(</span><em>mu</em>, <em>kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#random.vonmisesvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">vonmisesvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#random.vonmisesvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><em>mu</em> is the mean angle, expressed in radians between 0 and 2*<em>pi</em>, and <em>kappa</em>
 is the concentration parameter, which must be greater than or equal to zero.  If
 <em>kappa</em> is equal to zero, this distribution reduces to a uniform random angle
@@ -391,13 +432,13 @@ over the range 0 to 2*<em>pi</em>.</p>
 
 <dl class="function">
 <dt id="random.paretovariate">
-<code class="descclassname">random.</code><code class="descname">paretovariate</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#random.paretovariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">paretovariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#random.paretovariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Pareto distribution.  <em>alpha</em> is the shape parameter.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="random.weibullvariate">
-<code class="descclassname">random.</code><code class="descname">weibullvariate</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.weibullvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">weibullvariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.weibullvariate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Weibull distribution.  <em>alpha</em> is the scale parameter and <em>beta</em> is the shape
 parameter.</p>
 </dd></dl>
@@ -407,14 +448,19 @@ parameter.</p>
 <h2>Alternative Generator<a class="headerlink" href="#alternative-generator" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="class">
 <dt id="random.Random">
-<em class="property">class </em><code class="descclassname">random.</code><code class="descname">Random</code><span class="sig-paren">(</span><span class="optional">[</span><em>seed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.Random" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">random.</code><code class="sig-name descname">Random</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">seed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.Random" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Class that implements the default pseudo-random number generator used by the
 <a class="reference internal" href="#module-random" title="random: Generate pseudo-random numbers with various common distributions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> module.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9: </span>In the future, the <em>seed</em> must be one of the following types:
+<code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code>, <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
+<a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="random.SystemRandom">
-<em class="property">class </em><code class="descclassname">random.</code><code class="descname">SystemRandom</code><span class="sig-paren">(</span><span class="optional">[</span><em>seed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.SystemRandom" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">random.</code><code class="sig-name descname">SystemRandom</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">seed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#random.SystemRandom" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Class that uses the <a class="reference internal" href="os.html#os.urandom" title="os.urandom"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.urandom()</span></code></a> function for generating random numbers
 from sources provided by the operating system. Not available on all systems.
 Does not rely on software state, and sequences are not reproducible. Accordingly,
@@ -426,16 +472,16 @@ The <a class="reference internal" href="#random.getstate" title="random.getstate
 </div>
 <div class="section" id="notes-on-reproducibility">
 <h2>Notes on Reproducibility<a class="headerlink" href="#notes-on-reproducibility" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>Sometimes it is useful to be able to reproduce the sequences given by a pseudo
-random number generator.  By re-using a seed value, the same sequence should be
+<p>Sometimes it is useful to be able to reproduce the sequences given by a
+pseudo-random number generator.  By re-using a seed value, the same sequence should be
 reproducible from run to run as long as multiple threads are not running.</p>
 <p>Most of the random module’s algorithms and seeding functions are subject to
 change across Python versions, but two aspects are guaranteed not to change:</p>
 <ul class="simple">
-<li>If a new seeding method is added, then a backward compatible seeder will be
-offered.</li>
-<li>The generator’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">random()</span></code> method will continue to produce the same
-sequence when the compatible seeder is given the same seed.</li>
+<li><p>If a new seeding method is added, then a backward compatible seeder will be
+offered.</p></li>
+<li><p>The generator’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">random()</span></code> method will continue to produce the same
+sequence when the compatible seeder is given the same seed.</p></li>
 </ul>
 </div>
 <div class="section" id="examples-and-recipes">
@@ -473,12 +519,11 @@ sequence when the compatible seeder is given the same seed.</li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">choices</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="go">[&#39;red&#39;, &#39;green&#39;, &#39;black&#39;, &#39;black&#39;, &#39;red&#39;, &#39;black&#39;]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Deal 20 cards without replacement from a deck of 52 playing cards</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># and determine the proportion of cards with a ten-value</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># (a ten, jack, queen, or king).</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">deck</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">tens</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">low_cards</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">seen</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">deck</span><span class="o">.</span><span class="n">elements</span><span class="p">()),</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">seen</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;tens&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Deal 20 cards without replacement from a deck</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># of 52 playing cards, and determine the proportion of cards</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># with a ten-value:  ten, jack, queen, or king.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dealt</span> <span class="o">=</span> <span class="n">sample</span><span class="p">([</span><span class="s1">&#39;tens&#39;</span><span class="p">,</span> <span class="s1">&#39;low cards&#39;</span><span class="p">],</span> <span class="n">counts</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">36</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dealt</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;tens&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">20</span>
 <span class="go">0.15</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Estimate the probability of getting 5 or more heads from 7 spins</span>
@@ -561,7 +606,7 @@ between the effects of a drug versus a placebo:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
+<p class="admonition-title">Zobacz także</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=Iq9DzN6mvYA">Statistics for Hackers</a>
 a video tutorial by
 <a class="reference external" href="https://us.pycon.org/2016/speaker/profile/295/">Jake Vanderplas</a>
@@ -572,7 +617,7 @@ a simulation of a marketplace by
 <a class="reference external" href="http://norvig.com/bio.html">Peter Norvig</a> that shows effective
 use of many of the tools and distributions provided by this module
 (gauss, uniform, sample, betavariate, choice, triangular, and randrange).</p>
-<p class="last"><a class="reference external" href="http://nbviewer.jupyter.org/url/norvig.com/ipython/Probability.ipynb">A Concrete Introduction to Probability (using Python)</a>
+<p><a class="reference external" href="http://nbviewer.jupyter.org/url/norvig.com/ipython/Probability.ipynb">A Concrete Introduction to Probability (using Python)</a>
 a tutorial by <a class="reference external" href="http://norvig.com/bio.html">Peter Norvig</a> covering
 the basics of probability theory, how to write simulations, and
 how to perform data analysis using Python.</p>
@@ -586,10 +631,11 @@ how to perform data analysis using Python.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">random</span></code> — Generate pseudo-random numbers</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code> — Generate pseudo-random numbers</a><ul>
 <li><a class="reference internal" href="#bookkeeping-functions">Bookkeeping functions</a></li>
+<li><a class="reference internal" href="#functions-for-bytes">Functions for bytes</a></li>
 <li><a class="reference internal" href="#functions-for-integers">Functions for integers</a></li>
 <li><a class="reference internal" href="#functions-for-sequences">Functions for sequences</a></li>
 <li><a class="reference internal" href="#real-valued-distributions">Real-valued distributions</a></li>
@@ -602,16 +648,16 @@ how to perform data analysis using Python.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="fractions.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">fractions</span></code> — Rational numbers</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fractions</span></code> — Rational numbers</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="statistics.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">statistics</span></code> — Mathematical statistics functions</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">statistics</span></code> — Mathematical statistics functions</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/random.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/random.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -643,7 +689,7 @@ how to perform data analysis using Python.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -678,7 +724,7 @@ how to perform data analysis using Python.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

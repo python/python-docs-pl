@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>getopt — C-style parser for command line options &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>getopt — C-style parser for command line options &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,10 +102,10 @@
             
   <div class="section" id="module-getopt">
 <span id="getopt-c-style-parser-for-command-line-options"></span><h1><a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> — C-style parser for command line options<a class="headerlink" href="#module-getopt" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/getopt.py">Lib/getopt.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/getopt.py">Lib/getopt.py</a></p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> module is a parser for command line options whose API is
+<p class="admonition-title">Informacja</p>
+<p>The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> module is a parser for command line options whose API is
 designed to be familiar to users of the C <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function. Users who
 are unfamiliar with the C <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function or who would like to write
 less code and get better help and error messages should consider using the
@@ -122,15 +121,15 @@ optional third argument.</p>
 exception:</p>
 <dl class="function">
 <dt id="getopt.getopt">
-<code class="descclassname">getopt.</code><code class="descname">getopt</code><span class="sig-paren">(</span><em>args</em>, <em>shortopts</em>, <em>longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.getopt" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">getopt</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">shortopts</em>, <em class="sig-param">longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.getopt" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Parses command line options and parameter list.  <em>args</em> is the argument list to
 be parsed, without the leading reference to the running program. Typically, this
 means <code class="docutils literal notranslate"><span class="pre">sys.argv[1:]</span></code>. <em>shortopts</em> is the string of option letters that the
 script wants to recognize, with options that require an argument followed by a
 colon (<code class="docutils literal notranslate"><span class="pre">':'</span></code>; i.e., the same format that Unix <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> uses).</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">Unlike GNU <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code>, after a non-option argument, all further
+<p class="admonition-title">Informacja</p>
+<p>Unlike GNU <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code>, after a non-option argument, all further
 arguments are considered also non-options. This is similar to the way
 non-GNU Unix systems work.</p>
 </div>
@@ -157,7 +156,7 @@ allowing multiple occurrences.  Long and short options may be mixed.</p>
 
 <dl class="function">
 <dt id="getopt.gnu_getopt">
-<code class="descclassname">getopt.</code><code class="descname">gnu_getopt</code><span class="sig-paren">(</span><em>args</em>, <em>shortopts</em>, <em>longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.gnu_getopt" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">gnu_getopt</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">shortopts</em>, <em class="sig-param">longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.gnu_getopt" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function works like <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-func docutils literal notranslate"><span class="pre">getopt()</span></code></a>, except that GNU style scanning mode is
 used by default. This means that option and non-option arguments may be
 intermixed. The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-func docutils literal notranslate"><span class="pre">getopt()</span></code></a> function stops processing options as soon as a
@@ -169,7 +168,7 @@ soon as a non-option argument is encountered.</p>
 
 <dl class="exception">
 <dt id="getopt.GetoptError">
-<em class="property">exception </em><code class="descclassname">getopt.</code><code class="descname">GetoptError</code><a class="headerlink" href="#getopt.GetoptError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">GetoptError</code><a class="headerlink" href="#getopt.GetoptError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is raised when an unrecognized option is found in the argument list or when
 an option requiring an argument is given none. The argument to the exception is
 a string indicating the cause of the error.  For long options, an argument given
@@ -181,7 +180,7 @@ related option; if there is no specific option to which the exception relates,
 
 <dl class="exception">
 <dt id="getopt.error">
-<em class="property">exception </em><code class="descclassname">getopt.</code><code class="descname">error</code><a class="headerlink" href="#getopt.error" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">error</code><a class="headerlink" href="#getopt.error" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Alias for <a class="reference internal" href="#getopt.GetoptError" title="getopt.GetoptError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GetoptError</span></code></a>; for backward compatibility.</p>
 </dd></dl>
 
@@ -253,10 +252,10 @@ and more informative help and error messages by using the <a class="reference in
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="last docutils">
-<dt>Module <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a></dt>
-<dd>Alternative command line option and argument parsing library.</dd>
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a></dt><dd><p>Alternative command line option and argument parsing library.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -269,16 +268,16 @@ and more informative help and error messages by using the <a class="reference in
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="argparse.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">argparse</span></code> — Parser for command-line options, arguments and sub-commands</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code> — Parser for command-line options, arguments and sub-commands</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="logging.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/getopt.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/getopt.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -310,7 +309,7 @@ and more informative help and error messages by using the <a class="reference in
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -345,7 +344,7 @@ and more informative help and error messages by using the <a class="reference in
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

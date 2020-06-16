@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>String conversion and formatting &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>String conversion and formatting &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -106,14 +105,14 @@
 <p>Functions for number conversion and formatted string output.</p>
 <dl class="function">
 <dt id="c.PyOS_snprintf">
-int <code class="descname">PyOS_snprintf</code><span class="sig-paren">(</span>char<em>&nbsp;*str</em>, size_t<em>&nbsp;size</em>, const char<em>&nbsp;*format</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_snprintf" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyOS_snprintf</code><span class="sig-paren">(</span>char<em> *str</em>, size_t<em> size</em>, const char<em> *format</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_snprintf" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Output not more than <em>size</em> bytes to <em>str</em> according to the format string
 <em>format</em> and the extra arguments. See the Unix man page <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/snprintf(2)">snprintf(2)</a></em>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyOS_vsnprintf">
-int <code class="descname">PyOS_vsnprintf</code><span class="sig-paren">(</span>char<em>&nbsp;*str</em>, size_t<em>&nbsp;size</em>, const char<em>&nbsp;*format</em>, va_list<em>&nbsp;va</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_vsnprintf" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyOS_vsnprintf</code><span class="sig-paren">(</span>char<em> *str</em>, size_t<em> size</em>, const char<em> *format</em>, va_list<em> va</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_vsnprintf" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Output not more than <em>size</em> bytes to <em>str</em> according to the format string
 <em>format</em> and the variable argument list <em>va</em>. Unix man page
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/vsnprintf(2)">vsnprintf(2)</a></em>.</p>
@@ -132,20 +131,20 @@ avoid truncation exceeds <em>size</em> by more than 512 bytes, Python aborts wit
 <a class="reference internal" href="sys.html#c.Py_FatalError" title="Py_FatalError"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FatalError()</span></code></a>.</p>
 <p>The return value (<em>rv</em>) for these functions should be interpreted as follows:</p>
 <ul class="simple">
-<li>When <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">rv</span> <span class="pre">&lt;</span> <span class="pre">size</span></code>, the output conversion was successful and <em>rv</em>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">rv</span> <span class="pre">&lt;</span> <span class="pre">size</span></code>, the output conversion was successful and <em>rv</em>
 characters were written to <em>str</em> (excluding the trailing <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> byte at
-<em>str*[*rv</em>]).</li>
-<li>When <code class="docutils literal notranslate"><span class="pre">rv</span> <span class="pre">&gt;=</span> <span class="pre">size</span></code>, the output conversion was truncated and a buffer with
+<em>str*[*rv</em>]).</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">rv</span> <span class="pre">&gt;=</span> <span class="pre">size</span></code>, the output conversion was truncated and a buffer with
 <code class="docutils literal notranslate"><span class="pre">rv</span> <span class="pre">+</span> <span class="pre">1</span></code> bytes would have been needed to succeed. <em>str*[*size</em>-1] is <code class="docutils literal notranslate"><span class="pre">'\0'</span></code>
-in this case.</li>
-<li>When <code class="docutils literal notranslate"><span class="pre">rv</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, „something bad happened.” <em>str*[*size</em>-1] is <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> in
+in this case.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">rv</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, „something bad happened.” <em>str*[*size</em>-1] is <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> in
 this case too, but the rest of <em>str</em> is undefined. The exact cause of the error
-depends on the underlying platform.</li>
+depends on the underlying platform.</p></li>
 </ul>
 <p>The following functions provide locale-independent string to number conversions.</p>
 <dl class="function">
 <dt id="c.PyOS_string_to_double">
-double <code class="descname">PyOS_string_to_double</code><span class="sig-paren">(</span>const char<em>&nbsp;*s</em>, char<em>&nbsp;**endptr</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*overflow_exception</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_string_to_double" title="Stały odnośnik do tej definicji">¶</a></dt>
+double <code class="sig-name descname">PyOS_string_to_double</code><span class="sig-paren">(</span>const char<em> *s</em>, char<em> **endptr</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *overflow_exception</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_string_to_double" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert a string <code class="docutils literal notranslate"><span class="pre">s</span></code> to a <code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code>, raising a Python
 exception on failure.  The set of accepted strings corresponds to
 the set of strings accepted by Python’s <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-func docutils literal notranslate"><span class="pre">float()</span></code></a> constructor,
@@ -171,13 +170,13 @@ raise that exception and return <code class="docutils literal notranslate"><span
 out-of-memory error), set the appropriate Python exception and
 return <code class="docutils literal notranslate"><span class="pre">-1.0</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyOS_double_to_string">
-char* <code class="descname">PyOS_double_to_string</code><span class="sig-paren">(</span>double<em>&nbsp;val</em>, char<em>&nbsp;format_code</em>, int<em>&nbsp;precision</em>, int<em>&nbsp;flags</em>, int<em>&nbsp;*ptype</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_double_to_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+char* <code class="sig-name descname">PyOS_double_to_string</code><span class="sig-paren">(</span>double<em> val</em>, char<em> format_code</em>, int<em> precision</em>, int<em> flags</em>, int<em> *ptype</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_double_to_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert a <code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code> <em>val</em> to a string using supplied
 <em>format_code</em>, <em>precision</em>, and <em>flags</em>.</p>
 <p><em>format_code</em> must be one of <code class="docutils literal notranslate"><span class="pre">'e'</span></code>, <code class="docutils literal notranslate"><span class="pre">'E'</span></code>, <code class="docutils literal notranslate"><span class="pre">'f'</span></code>, <code class="docutils literal notranslate"><span class="pre">'F'</span></code>,
@@ -187,13 +186,13 @@ standard <a class="reference internal" href="../library/functions.html#repr" tit
 <p><em>flags</em> can be zero or more of the values <code class="docutils literal notranslate"><span class="pre">Py_DTSF_SIGN</span></code>,
 <code class="docutils literal notranslate"><span class="pre">Py_DTSF_ADD_DOT_0</span></code>, or <code class="docutils literal notranslate"><span class="pre">Py_DTSF_ALT</span></code>, or-ed together:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Py_DTSF_SIGN</span></code> means to always precede the returned string with a sign
-character, even if <em>val</em> is non-negative.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Py_DTSF_ADD_DOT_0</span></code> means to ensure that the returned string will not look
-like an integer.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Py_DTSF_ALT</span></code> means to apply „alternate” formatting rules.  See the
+<li><p><code class="docutils literal notranslate"><span class="pre">Py_DTSF_SIGN</span></code> means to always precede the returned string with a sign
+character, even if <em>val</em> is non-negative.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Py_DTSF_ADD_DOT_0</span></code> means to ensure that the returned string will not look
+like an integer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Py_DTSF_ALT</span></code> means to apply „alternate” formatting rules.  See the
 documentation for the <a class="reference internal" href="#c.PyOS_snprintf" title="PyOS_snprintf"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyOS_snprintf()</span></code></a> <code class="docutils literal notranslate"><span class="pre">'#'</span></code> specifier for
-details.</li>
+details.</p></li>
 </ul>
 <p>If <em>ptype</em> is non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, then the value it points to will be set to one of
 <code class="docutils literal notranslate"><span class="pre">Py_DTST_FINITE</span></code>, <code class="docutils literal notranslate"><span class="pre">Py_DTST_INFINITE</span></code>, or <code class="docutils literal notranslate"><span class="pre">Py_DTST_NAN</span></code>, signifying that
@@ -202,20 +201,20 @@ details.</li>
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the conversion failed. The caller is responsible for freeing the
 returned string by calling <a class="reference internal" href="memory.html#c.PyMem_Free" title="PyMem_Free"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_Free()</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyOS_stricmp">
-int <code class="descname">PyOS_stricmp</code><span class="sig-paren">(</span>const char<em>&nbsp;*s1</em>, const char<em>&nbsp;*s2</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_stricmp" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyOS_stricmp</code><span class="sig-paren">(</span>const char<em> *s1</em>, const char<em> *s2</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_stricmp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Case insensitive comparison of strings. The function works almost
 identically to <code class="xref c c-func docutils literal notranslate"><span class="pre">strcmp()</span></code> except that it ignores the case.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.PyOS_strnicmp">
-int <code class="descname">PyOS_strnicmp</code><span class="sig-paren">(</span>const char<em>&nbsp;*s1</em>, const char<em>&nbsp;*s2</em>, Py_ssize_t <em>&nbsp;size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_strnicmp" title="Stały odnośnik do tej definicji">¶</a></dt>
+int <code class="sig-name descname">PyOS_strnicmp</code><span class="sig-paren">(</span>const char<em> *s1</em>, const char<em> *s2</em>, Py_ssize_t <em> size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyOS_strnicmp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Case insensitive comparison of strings. The function works almost
 identically to <code class="xref c c-func docutils literal notranslate"><span class="pre">strncmp()</span></code> except that it ignores the case.</p>
 </dd></dl>
@@ -239,7 +238,7 @@ identically to <code class="xref c c-func docutils literal notranslate"><span cl
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/conversion.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/conversion.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -271,7 +270,7 @@ identically to <code class="xref c c-func docutils literal notranslate"><span cl
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -306,7 +305,7 @@ identically to <code class="xref c c-func docutils literal notranslate"><span cl
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

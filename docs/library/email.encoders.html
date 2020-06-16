@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>email.encoders: Encoders &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>email.encoders: Encoders &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,12 +72,12 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="email.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
     <li class="right">
         
 
@@ -104,7 +103,7 @@
             
   <div class="section" id="module-email.encoders">
 <span id="email-encoders-encoders"></span><h1><a class="reference internal" href="#module-email.encoders" title="email.encoders: Encoders for email message payloads."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.encoders</span></code></a>: Encoders<a class="headerlink" href="#module-email.encoders" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/email/encoders.py">Lib/email/encoders.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/email/encoders.py">Lib/email/encoders.py</a></p>
 <hr class="docutils" />
 <p>This module is part of the legacy (<code class="docutils literal notranslate"><span class="pre">Compat32</span></code>) email API.  In the
 new API the functionality is provided by the <em>cte</em> parameter of
@@ -112,7 +111,7 @@ the <a class="reference internal" href="email.message.html#email.message.EmailMe
 <p>This module is deprecated in Python 3.  The functions provided here
 should not be called explicitly since the <a class="reference internal" href="email.mime.html#email.mime.text.MIMEText" title="email.mime.text.MIMEText"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEText</span></code></a>
 class sets the content type and CTE header using the <em>_subtype</em> and <em>_charset</em>
-values passed during the instaniation of that class.</p>
+values passed during the instantiation of that class.</p>
 <p>The remaining text in this section is the original documentation of the module.</p>
 <p>When creating <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects from scratch, you often
 need to encode the payloads for transport through compliant mail servers. This
@@ -131,16 +130,16 @@ must be applied to individual subparts instead, and will raise a
 <p>Here are the encoding functions provided:</p>
 <dl class="function">
 <dt id="email.encoders.encode_quopri">
-<code class="descclassname">email.encoders.</code><code class="descname">encode_quopri</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_quopri" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">email.encoders.</code><code class="sig-name descname">encode_quopri</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_quopri" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Encodes the payload into quoted-printable form and sets the
-<em class="mailheader">Content-Transfer-Encoding</em> header to <code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code> <a class="footnote-reference" href="#id2" id="id1">[1]</a>.
+<em class="mailheader">Content-Transfer-Encoding</em> header to <code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code> <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
 This is a good encoding to use when most of your payload is normal printable
 data, but contains a few unprintable characters.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="email.encoders.encode_base64">
-<code class="descclassname">email.encoders.</code><code class="descname">encode_base64</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_base64" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">email.encoders.</code><code class="sig-name descname">encode_base64</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_base64" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Encodes the payload into base64 form and sets the
 <em class="mailheader">Content-Transfer-Encoding</em> header to <code class="docutils literal notranslate"><span class="pre">base64</span></code>.  This is a good
 encoding to use when most of your payload is unprintable data since it is a more
@@ -150,7 +149,7 @@ renders the text non-human readable.</p>
 
 <dl class="function">
 <dt id="email.encoders.encode_7or8bit">
-<code class="descclassname">email.encoders.</code><code class="descname">encode_7or8bit</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_7or8bit" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">email.encoders.</code><code class="sig-name descname">encode_7or8bit</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_7or8bit" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This doesn’t actually modify the message’s payload, but it does set the
 <em class="mailheader">Content-Transfer-Encoding</em> header to either <code class="docutils literal notranslate"><span class="pre">7bit</span></code> or <code class="docutils literal notranslate"><span class="pre">8bit</span></code> as
 appropriate, based on the payload data.</p>
@@ -158,19 +157,18 @@ appropriate, based on the payload data.</p>
 
 <dl class="function">
 <dt id="email.encoders.encode_noop">
-<code class="descclassname">email.encoders.</code><code class="descname">encode_noop</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_noop" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">email.encoders.</code><code class="sig-name descname">encode_noop</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#email.encoders.encode_noop" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This does nothing; it doesn’t even set the
 <em class="mailheader">Content-Transfer-Encoding</em> header.</p>
 </dd></dl>
 
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Note that encoding with <a class="reference internal" href="#email.encoders.encode_quopri" title="email.encoders.encode_quopri"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encode_quopri()</span></code></a> also encodes all tabs and space
-characters in the data.</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Note that encoding with <a class="reference internal" href="#email.encoders.encode_quopri" title="email.encoders.encode_quopri"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encode_quopri()</span></code></a> also encodes all tabs and space
+characters in the data.</p>
+</dd>
+</dl>
 </div>
 
 
@@ -181,16 +179,16 @@ characters in the data.</td></tr>
         <div class="sphinxsidebarwrapper">
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="email.charset.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">email.charset</span></code>: Representing character sets</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.charset</span></code>: Representing character sets</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="email.utils.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">email.utils</span></code>: Miscellaneous utilities</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.utils</span></code>: Miscellaneous utilities</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/email.encoders.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/email.encoders.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -222,12 +220,12 @@ characters in the data.</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="email.html" ><code class="docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
     <li class="right">
         
 
@@ -258,7 +256,7 @@ characters in the data.</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

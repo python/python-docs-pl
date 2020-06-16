@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Common Object Structures &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Common Object Structures &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -106,6 +105,8 @@
 <p>There are a large number of structures which are used in the definition of
 object types for Python.  This section describes these structures and how they
 are used.</p>
+<div class="section" id="base-object-types-and-macros">
+<h2>Base object types and macros<a class="headerlink" href="#base-object-types-and-macros" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>All Python objects ultimately share a small number of fields at the beginning
 of the object’s representation in memory.  These are represented by the
 <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> and <a class="reference internal" href="#c.PyVarObject" title="PyVarObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyVarObject</span></code></a> types, which are defined, in turn,
@@ -113,7 +114,7 @@ by the expansions of some macros also used, whether directly or indirectly, in
 the definition of all other Python objects.</p>
 <dl class="type">
 <dt id="c.PyObject">
-<code class="descname">PyObject</code><a class="headerlink" href="#c.PyObject" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyObject</code><a class="headerlink" href="#c.PyObject" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>All object types are extensions of this type.  This is a type which
 contains the information Python needs to treat a pointer to an object as an
 object.  In a normal „release” build, it contains only the object’s
@@ -126,7 +127,7 @@ members must be done by using the macros <a class="reference internal" href="#c.
 
 <dl class="type">
 <dt id="c.PyVarObject">
-<code class="descname">PyVarObject</code><a class="headerlink" href="#c.PyVarObject" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyVarObject</code><a class="headerlink" href="#c.PyVarObject" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is an extension of <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> that adds the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_size</span></code>
 field.  This is only used for objects that have some notion of <em>length</em>.
 This type does not often appear in the Python/C API.
@@ -136,7 +137,7 @@ Access to the members must be done by using the macros
 
 <dl class="macro">
 <dt id="c.PyObject_HEAD">
-<code class="descname">PyObject_HEAD</code><a class="headerlink" href="#c.PyObject_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyObject_HEAD</code><a class="headerlink" href="#c.PyObject_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a macro used when declaring new types which represent objects
 without a varying length.  The PyObject_HEAD macro expands to:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="n">ob_base</span><span class="p">;</span>
@@ -147,7 +148,7 @@ without a varying length.  The PyObject_HEAD macro expands to:</p>
 
 <dl class="macro">
 <dt id="c.PyObject_VAR_HEAD">
-<code class="descname">PyObject_VAR_HEAD</code><a class="headerlink" href="#c.PyObject_VAR_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyObject_VAR_HEAD</code><a class="headerlink" href="#c.PyObject_VAR_HEAD" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a macro used when declaring new types which represent objects
 with a length that varies from instance to instance.
 The PyObject_VAR_HEAD macro expands to:</p>
@@ -159,7 +160,7 @@ The PyObject_VAR_HEAD macro expands to:</p>
 
 <dl class="macro">
 <dt id="c.Py_TYPE">
-<code class="descname">Py_TYPE</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_TYPE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_TYPE</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_TYPE" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro is used to access the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_type</span></code> member of a Python object.
 It expands to:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)(</span><span class="n">o</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="p">)</span>
@@ -167,9 +168,28 @@ It expands to:</p>
 </div>
 </dd></dl>
 
+<dl class="function">
+<dt id="c.Py_IS_TYPE">
+int <code class="sig-name descname">Py_IS_TYPE</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyObject" title="PyObject">PyObject</a><em> *o</em>, <a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em> *type</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_IS_TYPE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Return non-zero if the object <em>o</em> type is <em>type</em>. Return zero otherwise.
+Equivalent to: <code class="docutils literal notranslate"><span class="pre">Py_TYPE(o)</span> <span class="pre">==</span> <span class="pre">type</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.Py_SET_TYPE">
+void <code class="sig-name descname">Py_SET_TYPE</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyObject" title="PyObject">PyObject</a><em> *o</em>, <a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em> *type</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SET_TYPE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Set the object <em>o</em> type to <em>type</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
+</dd></dl>
+
 <dl class="macro">
 <dt id="c.Py_REFCNT">
-<code class="descname">Py_REFCNT</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_REFCNT" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_REFCNT</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_REFCNT" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro is used to access the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_refcnt</span></code> member of a Python
 object.
 It expands to:</p>
@@ -178,9 +198,18 @@ It expands to:</p>
 </div>
 </dd></dl>
 
+<dl class="function">
+<dt id="c.Py_SET_REFCNT">
+void <code class="sig-name descname">Py_SET_REFCNT</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyObject" title="PyObject">PyObject</a><em> *o</em>, Py_ssize_t<em> refcnt</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SET_REFCNT" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Set the object <em>o</em> reference counter to <em>refcnt</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
+</dd></dl>
+
 <dl class="macro">
 <dt id="c.Py_SIZE">
-<code class="descname">Py_SIZE</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SIZE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Py_SIZE</code><span class="sig-paren">(</span>o<span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SIZE" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This macro is used to access the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_size</span></code> member of a Python object.
 It expands to:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(((</span><span class="n">PyVarObject</span><span class="o">*</span><span class="p">)(</span><span class="n">o</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">ob_size</span><span class="p">)</span>
@@ -188,9 +217,18 @@ It expands to:</p>
 </div>
 </dd></dl>
 
+<dl class="function">
+<dt id="c.Py_SET_SIZE">
+void <code class="sig-name descname">Py_SET_SIZE</code><span class="sig-paren">(</span><a class="reference internal" href="#c.PyVarObject" title="PyVarObject">PyVarObject</a><em> *o</em>, Py_ssize_t<em> size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_SET_SIZE" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Set the object <em>o</em> size to <em>size</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
+</dd></dl>
+
 <dl class="macro">
 <dt id="c.PyObject_HEAD_INIT">
-<code class="descname">PyObject_HEAD_INIT</code><span class="sig-paren">(</span>type<span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_HEAD_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyObject_HEAD_INIT</code><span class="sig-paren">(</span>type<span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_HEAD_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a macro which expands to initialization values for a new
 <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> type.  This macro expands to:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">_PyObject_EXTRA_INIT</span>
@@ -201,7 +239,7 @@ It expands to:</p>
 
 <dl class="macro">
 <dt id="c.PyVarObject_HEAD_INIT">
-<code class="descname">PyVarObject_HEAD_INIT</code><span class="sig-paren">(</span>type, size<span class="sig-paren">)</span><a class="headerlink" href="#c.PyVarObject_HEAD_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyVarObject_HEAD_INIT</code><span class="sig-paren">(</span>type, size<span class="sig-paren">)</span><a class="headerlink" href="#c.PyVarObject_HEAD_INIT" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a macro which expands to initialization values for a new
 <a class="reference internal" href="#c.PyVarObject" title="PyVarObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyVarObject</span></code></a> type, including the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_size</span></code> field.
 This macro expands to:</p>
@@ -211,74 +249,119 @@ This macro expands to:</p>
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="implementing-functions-and-methods">
+<h2>Implementing functions and methods<a class="headerlink" href="#implementing-functions-and-methods" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="type">
 <dt id="c.PyCFunction">
-<code class="descname">PyCFunction</code><a class="headerlink" href="#c.PyCFunction" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyCFunction</code><a class="headerlink" href="#c.PyCFunction" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Type of the functions used to implement most Python callables in C.
 Functions of this type take two <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> parameters and return
 one such value.  If the return value is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, an exception shall have
 been set.  If not <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, the return value is interpreted as the return
 value of the function as exposed in Python.  The function must return a new
 reference.</p>
+<p>The function signature is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="nf">PyCFunction</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span>
+                      <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="type">
 <dt id="c.PyCFunctionWithKeywords">
-<code class="descname">PyCFunctionWithKeywords</code><a class="headerlink" href="#c.PyCFunctionWithKeywords" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyCFunctionWithKeywords</code><a class="headerlink" href="#c.PyCFunctionWithKeywords" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Type of the functions used to implement Python callables in C
-with signature <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_VARARGS</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>.</p>
+with signature <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_VARARGS</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>.
+The function signature is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="nf">PyCFunctionWithKeywords</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span>
+                                  <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                                  <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="type">
 <dt id="c._PyCFunctionFast">
-<code class="descname">_PyCFunctionFast</code><a class="headerlink" href="#c._PyCFunctionFast" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">_PyCFunctionFast</code><a class="headerlink" href="#c._PyCFunctionFast" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Type of the functions used to implement Python callables in C
-with signature <a class="reference internal" href="#METH_FASTCALL" title="METH_FASTCALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span></code></a>.</p>
+with signature <a class="reference internal" href="#METH_FASTCALL" title="METH_FASTCALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span></code></a>.
+The function signature is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="nf">_PyCFunctionFast</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span>
+                           <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                           <span class="n">Py_ssize_t</span> <span class="n">nargs</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="type">
 <dt id="c._PyCFunctionFastWithKeywords">
-<code class="descname">_PyCFunctionFastWithKeywords</code><a class="headerlink" href="#c._PyCFunctionFastWithKeywords" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">_PyCFunctionFastWithKeywords</code><a class="headerlink" href="#c._PyCFunctionFastWithKeywords" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Type of the functions used to implement Python callables in C
-with signature <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>.</p>
+with signature <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>.
+The function signature is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="nf">_PyCFunctionFastWithKeywords</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span>
+                                       <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                                       <span class="n">Py_ssize_t</span> <span class="n">nargs</span><span class="p">,</span>
+                                       <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PyCMethod">
+<code class="sig-name descname">PyCMethod</code><a class="headerlink" href="#c.PyCMethod" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Type of the functions used to implement Python callables in C
+with signature <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_METHOD</span> <span class="pre">|</span> <span class="pre">METH_FASTCALL</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>.
+The function signature is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="n">PyCMethod</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span>
+                    <span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">defining_class</span><span class="p">,</span>
+                    <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                    <span class="n">Py_ssize_t</span> <span class="n">nargs</span><span class="p">,</span>
+                    <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
+</div>
 </dd></dl>
 
 <dl class="type">
 <dt id="c.PyMethodDef">
-<code class="descname">PyMethodDef</code><a class="headerlink" href="#c.PyMethodDef" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyMethodDef</code><a class="headerlink" href="#c.PyMethodDef" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Structure used to describe a method of an extension type.  This structure has
 four fields:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="28%" />
-<col width="23%" />
-<col width="48%" />
+<col style="width: 28%" />
+<col style="width: 23%" />
+<col style="width: 48%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Field</th>
-<th class="head">C Type</th>
-<th class="head">Meaning</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>C Type</p></th>
+<th class="head"><p>Meaning</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_name</span></code></td>
-<td>const char *</td>
-<td>name of the method</td>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_name</span></code></p></td>
+<td><p>const char *</p></td>
+<td><p>name of the method</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_meth</span></code></td>
-<td>PyCFunction</td>
-<td>pointer to the C
-implementation</td>
+<tr class="row-odd"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_meth</span></code></p></td>
+<td><p>PyCFunction</p></td>
+<td><p>pointer to the C
+implementation</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_flags</span></code></td>
-<td>int</td>
-<td>flag bits indicating how the
-call should be constructed</td>
+<tr class="row-even"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_flags</span></code></p></td>
+<td><p>int</p></td>
+<td><p>flag bits indicating how the
+call should be constructed</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_doc</span></code></td>
-<td>const char *</td>
-<td>points to the contents of the
-docstring</td>
+<tr class="row-odd"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_doc</span></code></p></td>
+<td><p>const char *</p></td>
+<td><p>points to the contents of the
+docstring</p></td>
 </tr>
 </tbody>
 </table>
@@ -293,12 +376,10 @@ specific C type of the <em>self</em> object.</p>
 <p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_flags</span></code> field is a bitfield which can include the following flags.
 The individual flags indicate either a calling convention or a binding
 convention.</p>
-<p>There are four basic calling conventions for positional arguments
-and two of them can be combined with <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_KEYWORDS</span></code> to support
-also keyword arguments.  So there are a total of 6 calling conventions:</p>
+<p>There are these calling conventions:</p>
 <dl class="data">
 <dt id="METH_VARARGS">
-<code class="descname">METH_VARARGS</code><a class="headerlink" href="#METH_VARARGS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_VARARGS</code><a class="headerlink" href="#METH_VARARGS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is the typical calling convention, where the methods have the type
 <a class="reference internal" href="#c.PyCFunction" title="PyCFunction"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunction</span></code></a>. The function expects two <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> values.
 The first one is the <em>self</em> object for methods; for module functions, it is
@@ -309,7 +390,7 @@ using <a class="reference internal" href="arg.html#c.PyArg_ParseTuple" title="Py
 
 <dl class="data">
 <dt>
-<code class="descname">METH_VARARGS | METH_KEYWORDS</code></dt>
+<code class="sig-name descname">METH_VARARGS | METH_KEYWORDS</code></dt>
 <dd><p>Methods with these flags must be of type <a class="reference internal" href="#c.PyCFunctionWithKeywords" title="PyCFunctionWithKeywords"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunctionWithKeywords</span></code></a>.
 The function expects three parameters: <em>self</em>, <em>args</em>, <em>kwargs</em> where
 <em>kwargs</em> is a dictionary of all the keyword arguments or possibly <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
@@ -319,7 +400,7 @@ using <a class="reference internal" href="arg.html#c.PyArg_ParseTupleAndKeywords
 
 <dl class="data">
 <dt id="METH_FASTCALL">
-<code class="descname">METH_FASTCALL</code><a class="headerlink" href="#METH_FASTCALL" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_FASTCALL</code><a class="headerlink" href="#METH_FASTCALL" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fast calling convention supporting only positional arguments.
 The methods have the type <a class="reference internal" href="#c._PyCFunctionFast" title="_PyCFunctionFast"><code class="xref c c-type docutils literal notranslate"><span class="pre">_PyCFunctionFast</span></code></a>.
 The first parameter is <em>self</em>, the second parameter is a C array
@@ -327,29 +408,45 @@ of <a class="reference internal" href="#c.PyObject" title="PyObject"><code class
 parameter is the number of arguments (the length of the array).</p>
 <p>This is not part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">limited API</span></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="data">
 <dt>
-<code class="descname">METH_FASTCALL | METH_KEYWORDS</code></dt>
+<code class="sig-name descname">METH_FASTCALL | METH_KEYWORDS</code></dt>
 <dd><p>Extension of <a class="reference internal" href="#METH_FASTCALL" title="METH_FASTCALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span></code></a> supporting also keyword arguments,
 with methods of type <a class="reference internal" href="#c._PyCFunctionFastWithKeywords" title="_PyCFunctionFastWithKeywords"><code class="xref c c-type docutils literal notranslate"><span class="pre">_PyCFunctionFastWithKeywords</span></code></a>.
-Keyword arguments are passed the same way as in the vectorcall protocol:
+Keyword arguments are passed the same way as in the
+<a class="reference internal" href="call.html#vectorcall"><span class="std std-ref">vectorcall protocol</span></a>:
 there is an additional fourth <a class="reference internal" href="#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> parameter
 which is a tuple representing the names of the keyword arguments
+(which are guaranteed to be strings)
 or possibly <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there are no keywords.  The values of the keyword
 arguments are stored in the <em>args</em> array, after the positional arguments.</p>
 <p>This is not part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">limited API</span></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="sig-name descname">METH_METHOD | METH_FASTCALL | METH_KEYWORDS</code></dt>
+<dd><p>Extension of <code class="xref py py-const docutils literal notranslate"><span class="pre">METH_FASTCALL</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code> supporting the <em>defining
+class</em>, that is, the class that contains the method in question.
+The defining class might be a superclass of <code class="docutils literal notranslate"><span class="pre">Py_TYPE(self)</span></code>.</p>
+<p>The method needs to be of type <a class="reference internal" href="#c.PyCMethod" title="PyCMethod"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCMethod</span></code></a>, the same as for
+<code class="docutils literal notranslate"><span class="pre">METH_FASTCALL</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code> with <code class="docutils literal notranslate"><span class="pre">defining_class</span></code> argument added after
+<code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
 </div>
 </dd></dl>
 
 <dl class="data">
 <dt id="METH_NOARGS">
-<code class="descname">METH_NOARGS</code><a class="headerlink" href="#METH_NOARGS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_NOARGS</code><a class="headerlink" href="#METH_NOARGS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Methods without parameters don’t need to check whether arguments are given if
 they are listed with the <a class="reference internal" href="#METH_NOARGS" title="METH_NOARGS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_NOARGS</span></code></a> flag.  They need to be of type
 <a class="reference internal" href="#c.PyCFunction" title="PyCFunction"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunction</span></code></a>.  The first parameter is typically named <em>self</em> and will
@@ -359,7 +456,7 @@ parameter will be <code class="docutils literal notranslate"><span class="pre">N
 
 <dl class="data">
 <dt id="METH_O">
-<code class="descname">METH_O</code><a class="headerlink" href="#METH_O" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_O</code><a class="headerlink" href="#METH_O" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Methods with a single object argument can be listed with the <a class="reference internal" href="#METH_O" title="METH_O"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_O</span></code></a>
 flag, instead of invoking <a class="reference internal" href="arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a> with a <code class="docutils literal notranslate"><span class="pre">&quot;O&quot;</span></code> argument.
 They have the type <a class="reference internal" href="#c.PyCFunction" title="PyCFunction"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyCFunction</span></code></a>, with the <em>self</em> parameter, and a
@@ -372,7 +469,7 @@ defined for modules.  At most one of these flags may be set for any given
 method.</p>
 <dl class="data">
 <dt id="METH_CLASS">
-<code class="descname">METH_CLASS</code><a class="headerlink" href="#METH_CLASS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_CLASS</code><a class="headerlink" href="#METH_CLASS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-0">The method will be passed the type object as the first parameter rather
 than an instance of the type.  This is used to create <em>class methods</em>,
 similar to what is created when using the <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">classmethod()</span></code></a> built-in
@@ -381,7 +478,7 @@ function.</p>
 
 <dl class="data">
 <dt id="METH_STATIC">
-<code class="descname">METH_STATIC</code><a class="headerlink" href="#METH_STATIC" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_STATIC</code><a class="headerlink" href="#METH_STATIC" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p id="index-1">The method will be passed <code class="docutils literal notranslate"><span class="pre">NULL</span></code> as the first parameter rather than an
 instance of the type.  This is used to create <em>static methods</em>, similar to
 what is created when using the <a class="reference internal" href="../library/functions.html#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a> built-in function.</p>
@@ -391,7 +488,7 @@ what is created when using the <a class="reference internal" href="../library/fu
 definition with the same method name.</p>
 <dl class="data">
 <dt id="METH_COEXIST">
-<code class="descname">METH_COEXIST</code><a class="headerlink" href="#METH_COEXIST" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">METH_COEXIST</code><a class="headerlink" href="#METH_COEXIST" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The method will be loaded in place of existing definitions.  Without
 <em>METH_COEXIST</em>, the default is to skip repeated definitions.  Since slot
 wrappers are loaded before the method table, the existence of a
@@ -403,119 +500,122 @@ slot.  This is helpful because calls to PyCFunctions are optimized more
 than wrapper object calls.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="accessing-attributes-of-extension-types">
+<h2>Accessing attributes of extension types<a class="headerlink" href="#accessing-attributes-of-extension-types" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="type">
 <dt id="c.PyMemberDef">
-<code class="descname">PyMemberDef</code><a class="headerlink" href="#c.PyMemberDef" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyMemberDef</code><a class="headerlink" href="#c.PyMemberDef" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Structure which describes an attribute of a type which corresponds to a C
 struct member.  Its fields are:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="28%" />
-<col width="23%" />
-<col width="48%" />
+<col style="width: 28%" />
+<col style="width: 23%" />
+<col style="width: 48%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Field</th>
-<th class="head">C Type</th>
-<th class="head">Meaning</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>C Type</p></th>
+<th class="head"><p>Meaning</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></td>
-<td>const char *</td>
-<td>name of the member</td>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>const char *</p></td>
+<td><p>name of the member</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code></td>
-<td>int</td>
-<td>the type of the member in the
-C struct</td>
+<tr class="row-odd"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>int</p></td>
+<td><p>the type of the member in the
+C struct</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">offset</span></code></td>
-<td>Py_ssize_t</td>
-<td>the offset in bytes that the
+<tr class="row-even"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">offset</span></code></p></td>
+<td><p>Py_ssize_t</p></td>
+<td><p>the offset in bytes that the
 member is located on the
-type’s object struct</td>
+type’s object struct</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">flags</span></code></td>
-<td>int</td>
-<td>flag bits indicating if the
+<tr class="row-odd"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">flags</span></code></p></td>
+<td><p>int</p></td>
+<td><p>flag bits indicating if the
 field should be read-only or
-writable</td>
+writable</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">doc</span></code></td>
-<td>const char *</td>
-<td>points to the contents of the
-docstring</td>
+<tr class="row-even"><td><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">doc</span></code></p></td>
+<td><p>const char *</p></td>
+<td><p>points to the contents of the
+docstring</p></td>
 </tr>
 </tbody>
 </table>
 <p><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code> can be one of many <code class="docutils literal notranslate"><span class="pre">T_</span></code> macros corresponding to various C
 types.  When the member is accessed in Python, it will be converted to the
 equivalent Python type.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col style="width: 45%" />
+<col style="width: 55%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Macro name</th>
-<th class="head">C type</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Macro name</p></th>
+<th class="head"><p>C type</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>T_SHORT</td>
-<td>short</td>
+<tbody>
+<tr class="row-even"><td><p>T_SHORT</p></td>
+<td><p>short</p></td>
 </tr>
-<tr class="row-odd"><td>T_INT</td>
-<td>int</td>
+<tr class="row-odd"><td><p>T_INT</p></td>
+<td><p>int</p></td>
 </tr>
-<tr class="row-even"><td>T_LONG</td>
-<td>long</td>
+<tr class="row-even"><td><p>T_LONG</p></td>
+<td><p>long</p></td>
 </tr>
-<tr class="row-odd"><td>T_FLOAT</td>
-<td>float</td>
+<tr class="row-odd"><td><p>T_FLOAT</p></td>
+<td><p>float</p></td>
 </tr>
-<tr class="row-even"><td>T_DOUBLE</td>
-<td>double</td>
+<tr class="row-even"><td><p>T_DOUBLE</p></td>
+<td><p>double</p></td>
 </tr>
-<tr class="row-odd"><td>T_STRING</td>
-<td>const char *</td>
+<tr class="row-odd"><td><p>T_STRING</p></td>
+<td><p>const char *</p></td>
 </tr>
-<tr class="row-even"><td>T_OBJECT</td>
-<td>PyObject *</td>
+<tr class="row-even"><td><p>T_OBJECT</p></td>
+<td><p>PyObject *</p></td>
 </tr>
-<tr class="row-odd"><td>T_OBJECT_EX</td>
-<td>PyObject *</td>
+<tr class="row-odd"><td><p>T_OBJECT_EX</p></td>
+<td><p>PyObject *</p></td>
 </tr>
-<tr class="row-even"><td>T_CHAR</td>
-<td>char</td>
+<tr class="row-even"><td><p>T_CHAR</p></td>
+<td><p>char</p></td>
 </tr>
-<tr class="row-odd"><td>T_BYTE</td>
-<td>char</td>
+<tr class="row-odd"><td><p>T_BYTE</p></td>
+<td><p>char</p></td>
 </tr>
-<tr class="row-even"><td>T_UBYTE</td>
-<td>unsigned char</td>
+<tr class="row-even"><td><p>T_UBYTE</p></td>
+<td><p>unsigned char</p></td>
 </tr>
-<tr class="row-odd"><td>T_UINT</td>
-<td>unsigned int</td>
+<tr class="row-odd"><td><p>T_UINT</p></td>
+<td><p>unsigned int</p></td>
 </tr>
-<tr class="row-even"><td>T_USHORT</td>
-<td>unsigned short</td>
+<tr class="row-even"><td><p>T_USHORT</p></td>
+<td><p>unsigned short</p></td>
 </tr>
-<tr class="row-odd"><td>T_ULONG</td>
-<td>unsigned long</td>
+<tr class="row-odd"><td><p>T_ULONG</p></td>
+<td><p>unsigned long</p></td>
 </tr>
-<tr class="row-even"><td>T_BOOL</td>
-<td>char</td>
+<tr class="row-even"><td><p>T_BOOL</p></td>
+<td><p>char</p></td>
 </tr>
-<tr class="row-odd"><td>T_LONGLONG</td>
-<td>long long</td>
+<tr class="row-odd"><td><p>T_LONGLONG</p></td>
+<td><p>long long</p></td>
 </tr>
-<tr class="row-even"><td>T_ULONGLONG</td>
-<td>unsigned long long</td>
+<tr class="row-even"><td><p>T_ULONGLONG</p></td>
+<td><p>unsigned long long</p></td>
 </tr>
-<tr class="row-odd"><td>T_PYSSIZET</td>
-<td>Py_ssize_t</td>
+<tr class="row-odd"><td><p>T_PYSSIZET</p></td>
+<td><p>Py_ssize_t</p></td>
 </tr>
 </tbody>
 </table>
@@ -530,49 +630,63 @@ read-only access.  Using <code class="xref c c-macro docutils literal notranslat
 <code class="xref c c-macro docutils literal notranslate"><span class="pre">READONLY</span></code>.  <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_STRING</span></code> data is interpreted as UTF-8.
 Only <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_OBJECT</span></code> and <code class="xref c c-macro docutils literal notranslate"><span class="pre">T_OBJECT_EX</span></code>
 members can be deleted.  (They are set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>).</p>
+<p id="pymemberdef-offsets">Heap allocated types (created using <a class="reference internal" href="type.html#c.PyType_FromSpec" title="PyType_FromSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromSpec()</span></code></a> or similar),
+<code class="docutils literal notranslate"><span class="pre">PyMemberDef</span></code> may contain definitions for the special members
+<code class="docutils literal notranslate"><span class="pre">__dictoffset__</span></code>, <code class="docutils literal notranslate"><span class="pre">__weaklistoffset__</span></code> and <code class="docutils literal notranslate"><span class="pre">__vectorcalloffset__</span></code>,
+corresponding to
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dictoffset" title="PyTypeObject.tp_dictoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dictoffset</span></code></a>,
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_weaklistoffset" title="PyTypeObject.tp_weaklistoffset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_weaklistoffset</span></code></a> and
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_vectorcall_offset" title="PyTypeObject.tp_vectorcall_offset"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_vectorcall_offset</span></code></a> in type objects.
+These must be defined with <code class="docutils literal notranslate"><span class="pre">T_PYSSIZET</span></code> and <code class="docutils literal notranslate"><span class="pre">READONLY</span></code>, for example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">PyMemberDef</span> <span class="n">spam_type_members</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">&quot;__dictoffset__&quot;</span><span class="p">,</span> <span class="n">T_PYSSIZET</span><span class="p">,</span> <span class="n">offsetof</span><span class="p">(</span><span class="n">Spam_object</span><span class="p">,</span> <span class="n">dict</span><span class="p">),</span> <span class="n">READONLY</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">}</span>  <span class="cm">/* Sentinel */</span>
+<span class="p">};</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="type">
 <dt id="c.PyGetSetDef">
-<code class="descname">PyGetSetDef</code><a class="headerlink" href="#c.PyGetSetDef" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">PyGetSetDef</code><a class="headerlink" href="#c.PyGetSetDef" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Structure to define property-like access for a type. See also description of
 the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_getset" title="PyTypeObject.tp_getset"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyTypeObject.tp_getset</span></code></a> slot.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="20%" />
-<col width="27%" />
-<col width="53%" />
+<col style="width: 20%" />
+<col style="width: 27%" />
+<col style="width: 53%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Field</th>
-<th class="head">C Type</th>
-<th class="head">Meaning</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>C Type</p></th>
+<th class="head"><p>Meaning</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>name</td>
-<td>const char *</td>
-<td>attribute name</td>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>const char *</p></td>
+<td><p>attribute name</p></td>
 </tr>
-<tr class="row-odd"><td>get</td>
-<td>getter</td>
-<td>C Function to get the attribute</td>
+<tr class="row-odd"><td><p>get</p></td>
+<td><p>getter</p></td>
+<td><p>C Function to get the attribute</p></td>
 </tr>
-<tr class="row-even"><td>set</td>
-<td>setter</td>
-<td>optional C function to set or
+<tr class="row-even"><td><p>set</p></td>
+<td><p>setter</p></td>
+<td><p>optional C function to set or
 delete the attribute, if omitted
-the attribute is readonly</td>
+the attribute is readonly</p></td>
 </tr>
-<tr class="row-odd"><td>doc</td>
-<td>const char *</td>
-<td>optional docstring</td>
+<tr class="row-odd"><td><p>doc</p></td>
+<td><p>const char *</p></td>
+<td><p>optional docstring</p></td>
 </tr>
-<tr class="row-even"><td>closure</td>
-<td>void *</td>
-<td>optional function pointer,
+<tr class="row-even"><td><p>closure</p></td>
+<td><p>void *</p></td>
+<td><p>optional function pointer,
 providing additional data for
-getter and setter</td>
+getter and setter</p></td>
 </tr>
 </tbody>
 </table>
@@ -593,6 +707,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -600,6 +715,16 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Spis treści</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Common Object Structures</a><ul>
+<li><a class="reference internal" href="#base-object-types-and-macros">Base object types and macros</a></li>
+<li><a class="reference internal" href="#implementing-functions-and-methods">Implementing functions and methods</a></li>
+<li><a class="reference internal" href="#accessing-attributes-of-extension-types">Accessing attributes of extension types</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="allocation.html"
                         title="poprzedni rozdział">Allocating Objects on the Heap</a></p>
@@ -611,7 +736,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/c-api/structures.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/c-api/structures.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -643,7 +768,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -678,7 +803,7 @@ Should return <code class="docutils literal notranslate"><span class="pre">0</sp
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

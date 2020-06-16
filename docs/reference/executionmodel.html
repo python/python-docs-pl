@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Execution model &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>4. Execution model &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Language Reference</a> &#187;</li>
@@ -110,7 +109,9 @@ The following are blocks: a module, a function body, and a class definition.
 Each command typed interactively is a block.  A script file (a file given as
 standard input to the interpreter or specified as a command line argument to the
 interpreter) is a code block.  A script command (a command specified on the
-interpreter command line with the <a class="reference internal" href="../using/cmdline.html#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> option) is a code block.  The string
+interpreter command line with the <a class="reference internal" href="../using/cmdline.html#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> option) is a code block.
+A module run as a top level script (as module <code class="docutils literal notranslate"><span class="pre">__main__</span></code>) from the command
+line using a <a class="reference internal" href="../using/cmdline.html#cmdoption-m"><code class="xref std std-option docutils literal notranslate"><span class="pre">-m</span></code></a> argument is also a code block. The string
 argument passed to the built-in functions <a class="reference internal" href="../library/functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> and <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> is a
 code block.</p>
 <p id="index-2">A code block is executed in an <em class="dfn">execution frame</em>.  A frame contains some
@@ -227,7 +228,7 @@ This means that the following code will print 42:</p>
 <p>The <a class="reference internal" href="../library/functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> and <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> functions do not have access to the full
 environment for resolving names.  Names may be resolved in the local and global
 namespaces of the caller.  Free variables are not resolved in the nearest
-enclosing namespace, but in the global namespace.  <a class="footnote-reference" href="#id3" id="id1">[1]</a> The <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> and
+enclosing namespace, but in the global namespace.  <a class="footnote-reference brackets" href="#id3" id="id1">1</a> The <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> and
 <a class="reference internal" href="../library/functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> functions have optional arguments to override the global and local
 namespace.  If only one namespace is specified, it is used for both.</p>
 </div>
@@ -258,21 +259,20 @@ selected depending on the class of the instance: it must reference the class of
 the instance or a base class thereof.  The instance can be received by the
 handler and can carry additional information about the exceptional condition.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">Exception messages are not part of the Python API.  Their contents may change
+<p class="admonition-title">Informacja</p>
+<p>Exception messages are not part of the Python API.  Their contents may change
 from one version of Python to the next without warning and should not be
 relied on by code which will run under multiple versions of the interpreter.</p>
 </div>
 <p>See also the description of the <a class="reference internal" href="compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> statement in section <a class="reference internal" href="compound_stmts.html#try"><span class="std std-ref">The try statement</span></a>
 and <a class="reference internal" href="simple_stmts.html#raise"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> statement in section <a class="reference internal" href="simple_stmts.html#raise"><span class="std std-ref">The raise statement</span></a>.</p>
 <p class="rubric">Przypisy</p>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This limitation occurs because the code that is executed by these operations
-is not available at the time the module is compiled.</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This limitation occurs because the code that is executed by these operations
+is not available at the time the module is compiled.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -282,7 +282,7 @@ is not available at the time the module is compiled.</td></tr>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Execution model</a><ul>
 <li><a class="reference internal" href="#structure-of-a-program">4.1. Structure of a program</a></li>
@@ -309,7 +309,7 @@ is not available at the time the module is compiled.</td></tr>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/reference/executionmodel.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/reference/executionmodel.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -341,7 +341,7 @@ is not available at the time the module is compiled.</td></tr>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Language Reference</a> &#187;</li>
@@ -375,7 +375,7 @@ is not available at the time the module is compiled.</td></tr>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

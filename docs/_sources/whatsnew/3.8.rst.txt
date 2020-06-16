@@ -47,8 +47,6 @@
 This article explains the new features in Python 3.8, compared to 3.7.
 For full details, see the :ref:`changelog <changelog>`.
 
-Python 3.8 was released on October 14th, 2019.
-
 .. testsetup::
 
    from datetime import date
@@ -348,20 +346,20 @@ See :pep:`587` for a full description.
 (Contributed by Victor Stinner in :issue:`36763`.)
 
 
-Vectorcall: a fast calling protocol for CPython
------------------------------------------------
+PEP 590: Vectorcall: a fast calling protocol for CPython
+--------------------------------------------------------
 
-The "vectorcall" protocol is added to the Python/C API.
+:ref:`vectorcall` is added to the Python/C API.
 It is meant to formalize existing optimizations which were already done
 for various classes.
-Any extension type implementing a callable can use this protocol.
+Any static type implementing a callable can use this protocol.
 
 This is currently provisional.
 The aim is to make it fully public in Python 3.9.
 
 See :pep:`590` for a full description.
 
-(Contributed by Jeroen Demeyer and Mark Shannon in :issue:`36974`.)
+(Contributed by Jeroen Demeyer, Mark Shannon and Petr Viktorin in :issue:`36974`.)
 
 
 Pickle protocol 5 with out-of-band data buffers
@@ -430,8 +428,8 @@ Other Language Changes
             lastname, *members = family.split()
             return lastname.upper(), *members
 
-    >>> parse('simpsons homer marge bart lisa sally')
-    ('SIMPSONS', 'homer', 'marge', 'bart', 'lisa', 'sally')
+    >>> parse('simpsons homer marge bart lisa maggie')
+    ('SIMPSONS', 'homer', 'marge', 'bart', 'lisa', 'maggie')
 
   (Contributed by David Cuthbert and Jordan Chapman in :issue:`32117`.)
 
@@ -2227,18 +2225,3 @@ because of the behavior of the socket option ``SO_REUSEADDR`` in UDP. For more
 details, see the documentation for ``loop.create_datagram_endpoint()``.
 (Contributed by Kyle Stanley, Antoine Pitrou, and Yury Selivanov in
 :issue:`37228`.)
-
-Notable changes in Python 3.8.2
-===============================
-
-Fixed a regression with the ``ignore`` callback of :func:`shutil.copytree`.
-The argument types are now str and List[str] again.
-(Contributed by Manuel Barkhau and Giampaolo Rodola in :issue:`39390`.)
-
-Notable changes in Python 3.8.3
-===============================
-
-The constant values of future flags in the :mod:`__future__` module
-are updated in order to prevent collision with compiler flags. Previously
-``PyCF_ALLOW_TOP_LEVEL_AWAIT`` was clashing with ``CO_FUTURE_DIVISION``.
-(Contributed by Batuhan Taskaya in :issue:`39562`)

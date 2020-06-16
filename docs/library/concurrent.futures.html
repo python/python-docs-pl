@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>concurrent.futures — Launching parallel tasks &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>concurrent.futures — Launching parallel tasks &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -104,10 +103,10 @@
   <div class="section" id="module-concurrent.futures">
 <span id="concurrent-futures-launching-parallel-tasks"></span><h1><a class="reference internal" href="#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a> — Launching parallel tasks<a class="headerlink" href="#module-concurrent.futures" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/concurrent/futures/thread.py">Lib/concurrent/futures/thread.py</a>
-and <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/concurrent/futures/process.py">Lib/concurrent/futures/process.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/concurrent/futures/thread.py">Lib/concurrent/futures/thread.py</a>
+and <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/concurrent/futures/process.py">Lib/concurrent/futures/process.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a> module provides a high-level interface for
 asynchronously executing callables.</p>
@@ -119,13 +118,13 @@ defined by the abstract <a class="reference internal" href="#concurrent.futures.
 <h2>Executor Objects<a class="headerlink" href="#executor-objects" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="class">
 <dt id="concurrent.futures.Executor">
-<em class="property">class </em><code class="descclassname">concurrent.futures.</code><code class="descname">Executor</code><a class="headerlink" href="#concurrent.futures.Executor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">Executor</code><a class="headerlink" href="#concurrent.futures.Executor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An abstract class that provides methods to execute calls asynchronously.  It
 should not be used directly, but through its concrete subclasses.</p>
 <blockquote>
 <div><dl class="method">
 <dt id="concurrent.futures.Executor.submit">
-<code class="descname">submit</code><span class="sig-paren">(</span><em>fn</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.submit" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">submit</code><span class="sig-paren">(</span><em class="sig-param">fn</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.submit" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Schedules the callable, <em>fn</em>, to be executed as <code class="docutils literal notranslate"><span class="pre">fn(*args</span> <span class="pre">**kwargs)</span></code>
 and returns a <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> object representing the execution of the
 callable.</p>
@@ -138,12 +137,12 @@ callable.</p>
 
 <dl class="method">
 <dt id="concurrent.futures.Executor.map">
-<code class="descname">map</code><span class="sig-paren">(</span><em>func</em>, <em>*iterables</em>, <em>timeout=None</em>, <em>chunksize=1</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.map" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">map</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">*iterables</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">chunksize=1</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.map" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map(func,</span> <span class="pre">*iterables)</span></code></a> except:</p>
 <ul class="simple">
-<li>the <em>iterables</em> are collected immediately rather than lazily;</li>
-<li><em>func</em> is executed asynchronously and several calls to
-<em>func</em> may be made concurrently.</li>
+<li><p>the <em>iterables</em> are collected immediately rather than lazily;</p></li>
+<li><p><em>func</em> is executed asynchronously and several calls to
+<em>func</em> may be made concurrently.</p></li>
 </ul>
 <p>The returned iterator raises a <a class="reference internal" href="#concurrent.futures.TimeoutError" title="concurrent.futures.TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">concurrent.futures.TimeoutError</span></code></a>
 if <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> is called and the result isn’t available
@@ -160,13 +159,13 @@ using a large value for <em>chunksize</em> can significantly improve
 performance compared to the default size of 1.  With
 <a class="reference internal" href="#concurrent.futures.ThreadPoolExecutor" title="concurrent.futures.ThreadPoolExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code></a>, <em>chunksize</em> has no effect.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>Added the <em>chunksize</em> argument.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>Added the <em>chunksize</em> argument.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="concurrent.futures.Executor.shutdown">
-<code class="descname">shutdown</code><span class="sig-paren">(</span><em>wait=True</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.shutdown" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><em class="sig-param">wait=True</em>, <em class="sig-param">*</em>, <em class="sig-param">cancel_futures=False</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.shutdown" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Signal the executor that it should free any resources that it is using
 when the currently pending futures are done executing.  Calls to
 <a class="reference internal" href="#concurrent.futures.Executor.submit" title="concurrent.futures.Executor.submit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.submit()</span></code></a> and <a class="reference internal" href="#concurrent.futures.Executor.map" title="concurrent.futures.Executor.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.map()</span></code></a> made after shutdown will
@@ -178,6 +177,13 @@ return immediately and the resources associated with the executor will be
 freed when all pending futures are done executing.  Regardless of the
 value of <em>wait</em>, the entire Python program will not exit until all
 pending futures are done executing.</p>
+<p>If <em>cancel_futures</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, this method will cancel all pending
+futures that the executor has not started running. Any futures that
+are completed or running won’t be cancelled, regardless of the value
+of <em>cancel_futures</em>.</p>
+<p>If both <em>cancel_futures</em> and <em>wait</em> are <code class="docutils literal notranslate"><span class="pre">True</span></code>, all futures that the
+executor has started running will be completed prior to this method
+returning. The remaining futures are cancelled.</p>
 <p>You can avoid having to call this method explicitly if you use the
 <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement, which will shutdown the <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a>
 (waiting as if <a class="reference internal" href="#concurrent.futures.Executor.shutdown" title="concurrent.futures.Executor.shutdown"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.shutdown()</span></code></a> were called with <em>wait</em> set to
@@ -189,6 +195,9 @@ pending futures are done executing.</p>
     <span class="n">e</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">,</span> <span class="s1">&#39;src3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;dest3.txt&#39;</span><span class="p">)</span>
     <span class="n">e</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">,</span> <span class="s1">&#39;src4.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;dest4.txt&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>Added <em>cancel_futures</em>.</p>
 </div>
 </dd></dl>
 
@@ -232,7 +241,7 @@ the results of another <a class="reference internal" href="#concurrent.futures.F
 </div>
 <dl class="class">
 <dt id="concurrent.futures.ThreadPoolExecutor">
-<em class="property">class </em><code class="descclassname">concurrent.futures.</code><code class="descname">ThreadPoolExecutor</code><span class="sig-paren">(</span><em>max_workers=None</em>, <em>thread_name_prefix=''</em>, <em>initializer=None</em>, <em>initargs=()</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ThreadPoolExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">ThreadPoolExecutor</code><span class="sig-paren">(</span><em class="sig-param">max_workers=None</em>, <em class="sig-param">thread_name_prefix=''</em>, <em class="sig-param">initializer=None</em>, <em class="sig-param">initargs=()</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ThreadPoolExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> subclass that uses a pool of at most <em>max_workers</em>
 threads to execute calls asynchronously.</p>
 <p><em>initializer</em> is an optional callable that is called at the start of
@@ -241,7 +250,7 @@ initializer.  Should <em>initializer</em> raise an exception, all currently
 pending jobs will raise a <a class="reference internal" href="#concurrent.futures.thread.BrokenThreadPool" title="concurrent.futures.thread.BrokenThreadPool"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenThreadPool</span></code></a>,
 as well as any attempt to submit more jobs to the pool.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>If <em>max_workers</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> or
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>If <em>max_workers</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> or
 not given, it will default to the number of processors on the machine,
 multiplied by <code class="docutils literal notranslate"><span class="pre">5</span></code>, assuming that <a class="reference internal" href="#concurrent.futures.ThreadPoolExecutor" title="concurrent.futures.ThreadPoolExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code></a> is often
 used to overlap I/O instead of CPU work and the number of workers
@@ -249,15 +258,15 @@ should be higher than the number of workers
 for <a class="reference internal" href="#concurrent.futures.ProcessPoolExecutor" title="concurrent.futures.ProcessPoolExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code></a>.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.6: </span>The <em>thread_name_prefix</em> argument was added to allow users to
+<p><span class="versionmodified added">Nowe w wersji 3.6: </span>The <em>thread_name_prefix</em> argument was added to allow users to
 control the <a class="reference internal" href="threading.html#threading.Thread" title="threading.Thread"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a> names for worker threads created by
 the pool for easier debugging.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>Added the <em>initializer</em> and <em>initargs</em> arguments.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>Added the <em>initializer</em> and <em>initargs</em> arguments.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Default value of <em>max_workers</em> is changed to <code class="docutils literal notranslate"><span class="pre">min(32,</span> <span class="pre">os.cpu_count()</span> <span class="pre">+</span> <span class="pre">4)</span></code>.
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Default value of <em>max_workers</em> is changed to <code class="docutils literal notranslate"><span class="pre">min(32,</span> <span class="pre">os.cpu_count()</span> <span class="pre">+</span> <span class="pre">4)</span></code>.
 This default value preserves at least 5 workers for I/O bound tasks.
 It utilizes at most 32 CPU cores for CPU bound tasks which release the GIL.
 And it avoids using very large resources implicitly on many-core machines.</p>
@@ -311,7 +320,7 @@ that <a class="reference internal" href="#concurrent.futures.ProcessPoolExecutor
 to a <a class="reference internal" href="#concurrent.futures.ProcessPoolExecutor" title="concurrent.futures.ProcessPoolExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code></a> will result in deadlock.</p>
 <dl class="class">
 <dt id="concurrent.futures.ProcessPoolExecutor">
-<em class="property">class </em><code class="descclassname">concurrent.futures.</code><code class="descname">ProcessPoolExecutor</code><span class="sig-paren">(</span><em>max_workers=None</em>, <em>mp_context=None</em>, <em>initializer=None</em>, <em>initargs=()</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ProcessPoolExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">ProcessPoolExecutor</code><span class="sig-paren">(</span><em class="sig-param">max_workers=None</em>, <em class="sig-param">mp_context=None</em>, <em class="sig-param">initializer=None</em>, <em class="sig-param">initargs=()</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ProcessPoolExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> subclass that executes calls asynchronously using a pool
 of at most <em>max_workers</em> processes.  If <em>max_workers</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> or not
 given, it will default to the number of processors on the machine.
@@ -330,13 +339,13 @@ initializer.  Should <em>initializer</em> raise an exception, all currently
 pending jobs will raise a <a class="reference internal" href="#concurrent.futures.process.BrokenProcessPool" title="concurrent.futures.process.BrokenProcessPool"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenProcessPool</span></code></a>,
 as well any attempt to submit more jobs to the pool.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span>When one of the worker processes terminates abruptly, a
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>When one of the worker processes terminates abruptly, a
 <code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenProcessPool</span></code> error is now raised.  Previously, behaviour
 was undefined but operations on the executor or its futures would often
 freeze or deadlock.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The <em>mp_context</em> argument was added to allow users to control the
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The <em>mp_context</em> argument was added to allow users to control the
 start_method for worker processes created by the pool.</p>
 <p>Added the <em>initializer</em> and <em>initargs</em> arguments.</p>
 </div>
@@ -386,14 +395,14 @@ start_method for worker processes created by the pool.</p>
 <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> instances are created by <a class="reference internal" href="#concurrent.futures.Executor.submit" title="concurrent.futures.Executor.submit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.submit()</span></code></a>.</p>
 <dl class="class">
 <dt id="concurrent.futures.Future">
-<em class="property">class </em><code class="descclassname">concurrent.futures.</code><code class="descname">Future</code><a class="headerlink" href="#concurrent.futures.Future" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">Future</code><a class="headerlink" href="#concurrent.futures.Future" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Encapsulates the asynchronous execution of a callable.  <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>
 instances are created by <a class="reference internal" href="#concurrent.futures.Executor.submit" title="concurrent.futures.Executor.submit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.submit()</span></code></a> and should not be created
 directly except for testing.</p>
 <blockquote>
 <div><dl class="method">
 <dt id="concurrent.futures.Future.cancel">
-<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Attempt to cancel the call.  If the call is currently being executed or
 finished running and cannot be cancelled then the method will return
 <code class="docutils literal notranslate"><span class="pre">False</span></code>, otherwise the call will be cancelled and the method will
@@ -402,27 +411,27 @@ return <code class="docutils literal notranslate"><span class="pre">True</span><
 
 <dl class="method">
 <dt id="concurrent.futures.Future.cancelled">
-<code class="descname">cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancelled" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancelled" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.running">
-<code class="descname">running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.running" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.running" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call is currently being executed and cannot be
 cancelled.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.done">
-<code class="descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.done" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.done" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled or finished
 running.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.result">
-<code class="descname">result</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.result" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">result</code><span class="sig-paren">(</span><em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.result" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the value returned by the call. If the call hasn’t yet completed
 then this method will wait up to <em>timeout</em> seconds.  If the call hasn’t
 completed in <em>timeout</em> seconds, then a
@@ -436,7 +445,7 @@ will be raised.</p>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.exception">
-<code class="descname">exception</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">exception</code><span class="sig-paren">(</span><em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.exception" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the exception raised by the call.  If the call hasn’t yet
 completed then this method will wait up to <em>timeout</em> seconds.  If the
 call hasn’t completed in <em>timeout</em> seconds, then a
@@ -450,7 +459,7 @@ will be raised.</p>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.add_done_callback">
-<code class="descname">add_done_callback</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.add_done_callback" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">add_done_callback</code><span class="sig-paren">(</span><em class="sig-param">fn</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.add_done_callback" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Attaches the callable <em>fn</em> to the future.  <em>fn</em> will be called, with the
 future as its only argument, when the future is cancelled or finishes
 running.</p>
@@ -469,7 +478,7 @@ called immediately.</p>
 <blockquote>
 <div><dl class="method">
 <dt id="concurrent.futures.Future.set_running_or_notify_cancel">
-<code class="descname">set_running_or_notify_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_running_or_notify_cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">set_running_or_notify_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_running_or_notify_cancel" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This method should only be called by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations
 before executing the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> and by unit
 tests.</p>
@@ -487,13 +496,13 @@ called.</p>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.set_result">
-<code class="descname">set_result</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_result" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param">result</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_result" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to
 <em>result</em>.</p>
 <p>This method should only be used by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations and
 unit tests.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>This method raises
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>This method raises
 <a class="reference internal" href="#concurrent.futures.InvalidStateError" title="concurrent.futures.InvalidStateError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">concurrent.futures.InvalidStateError</span></code></a> if the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> is
 already done.</p>
 </div>
@@ -501,13 +510,13 @@ already done.</p>
 
 <dl class="method">
 <dt id="concurrent.futures.Future.set_exception">
-<code class="descname">set_exception</code><span class="sig-paren">(</span><em>exception</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_exception" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">set_exception</code><span class="sig-paren">(</span><em class="sig-param">exception</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_exception" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to the
 <a class="reference internal" href="exceptions.html#Exception" title="Exception"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> <em>exception</em>.</p>
 <p>This method should only be used by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations and
 unit tests.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>This method raises
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>This method raises
 <a class="reference internal" href="#concurrent.futures.InvalidStateError" title="concurrent.futures.InvalidStateError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">concurrent.futures.InvalidStateError</span></code></a> if the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> is
 already done.</p>
 </div>
@@ -521,7 +530,7 @@ already done.</p>
 <h2>Module Functions<a class="headerlink" href="#module-functions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="concurrent.futures.wait">
-<code class="descclassname">concurrent.futures.</code><code class="descname">wait</code><span class="sig-paren">(</span><em>fs</em>, <em>timeout=None</em>, <em>return_when=ALL_COMPLETED</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.wait" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">fs</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">return_when=ALL_COMPLETED</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.wait" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Wait for the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> instances (possibly created by different
 <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> instances) given by <em>fs</em> to complete.  Returns a named
 2-tuple of sets.  The first set, named <code class="docutils literal notranslate"><span class="pre">done</span></code>, contains the futures that
@@ -533,31 +542,31 @@ returning.  <em>timeout</em> can be an int or float.  If <em>timeout</em> is not
 or <code class="docutils literal notranslate"><span class="pre">None</span></code>, there is no limit to the wait time.</p>
 <p><em>return_when</em> indicates when this function should return.  It must be one of
 the following constants:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="42%" />
-<col width="58%" />
+<col style="width: 42%" />
+<col style="width: 58%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Constant</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Constant</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">FIRST_COMPLETED</span></code></td>
-<td>The function will return when any
-future finishes or is cancelled.</td>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">FIRST_COMPLETED</span></code></p></td>
+<td><p>The function will return when any
+future finishes or is cancelled.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">FIRST_EXCEPTION</span></code></td>
-<td>The function will return when any
+<tr class="row-odd"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">FIRST_EXCEPTION</span></code></p></td>
+<td><p>The function will return when any
 future finishes by raising an
 exception.  If no future raises an
 exception then it is equivalent to
-<code class="xref py py-const docutils literal notranslate"><span class="pre">ALL_COMPLETED</span></code>.</td>
+<code class="xref py py-const docutils literal notranslate"><span class="pre">ALL_COMPLETED</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-const docutils literal notranslate"><span class="pre">ALL_COMPLETED</span></code></td>
-<td>The function will return when all
-futures finish or are cancelled.</td>
+<tr class="row-even"><td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">ALL_COMPLETED</span></code></p></td>
+<td><p>The function will return when all
+futures finish or are cancelled.</p></td>
 </tr>
 </tbody>
 </table>
@@ -565,7 +574,7 @@ futures finish or are cancelled.</td>
 
 <dl class="function">
 <dt id="concurrent.futures.as_completed">
-<code class="descclassname">concurrent.futures.</code><code class="descname">as_completed</code><span class="sig-paren">(</span><em>fs</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.as_completed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">as_completed</code><span class="sig-paren">(</span><em class="sig-param">fs</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.as_completed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an iterator over the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> instances (possibly created by
 different <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> instances) given by <em>fs</em> that yields futures as
 they complete (finished or cancelled futures). Any futures given by <em>fs</em> that
@@ -578,11 +587,11 @@ original call to <a class="reference internal" href="#concurrent.futures.as_comp
 </dd></dl>
 
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<dl class="last docutils">
-<dt><span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3148"><strong>PEP 3148</strong></a> – futures - execute computations asynchronously</dt>
-<dd>The proposal which described this feature for inclusion in the Python
-standard library.</dd>
+<p class="admonition-title">Zobacz także</p>
+<dl class="simple">
+<dt><span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3148"><strong>PEP 3148</strong></a> – futures - execute computations asynchronously</dt><dd><p>The proposal which described this feature for inclusion in the Python
+standard library.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -590,57 +599,57 @@ standard library.</dd>
 <h2>Exception classes<a class="headerlink" href="#exception-classes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="exception">
 <dt id="concurrent.futures.CancelledError">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.</code><code class="descname">CancelledError</code><a class="headerlink" href="#concurrent.futures.CancelledError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">CancelledError</code><a class="headerlink" href="#concurrent.futures.CancelledError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Raised when a future is cancelled.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="concurrent.futures.TimeoutError">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.</code><code class="descname">TimeoutError</code><a class="headerlink" href="#concurrent.futures.TimeoutError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">TimeoutError</code><a class="headerlink" href="#concurrent.futures.TimeoutError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Raised when a future operation exceeds the given timeout.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="concurrent.futures.BrokenExecutor">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.</code><code class="descname">BrokenExecutor</code><a class="headerlink" href="#concurrent.futures.BrokenExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">BrokenExecutor</code><a class="headerlink" href="#concurrent.futures.BrokenExecutor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Derived from <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>, this exception class is raised
 when an executor is broken for some reason, and cannot be used
 to submit or execute new tasks.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="exception">
 <dt id="concurrent.futures.InvalidStateError">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.</code><code class="descname">InvalidStateError</code><a class="headerlink" href="#concurrent.futures.InvalidStateError" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.</code><code class="sig-name descname">InvalidStateError</code><a class="headerlink" href="#concurrent.futures.InvalidStateError" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Raised when an operation is performed on a future that is not allowed
 in the current state.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
 <dl class="exception">
 <dt id="concurrent.futures.thread.BrokenThreadPool">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.thread.</code><code class="descname">BrokenThreadPool</code><a class="headerlink" href="#concurrent.futures.thread.BrokenThreadPool" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.thread.</code><code class="sig-name descname">BrokenThreadPool</code><a class="headerlink" href="#concurrent.futures.thread.BrokenThreadPool" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Derived from <a class="reference internal" href="#concurrent.futures.BrokenExecutor" title="concurrent.futures.BrokenExecutor"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenExecutor</span></code></a>, this exception
 class is raised when one of the workers of a <code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code>
 has failed initializing.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="exception">
 <dt id="concurrent.futures.process.BrokenProcessPool">
-<em class="property">exception </em><code class="descclassname">concurrent.futures.process.</code><code class="descname">BrokenProcessPool</code><a class="headerlink" href="#concurrent.futures.process.BrokenProcessPool" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">concurrent.futures.process.</code><code class="sig-name descname">BrokenProcessPool</code><a class="headerlink" href="#concurrent.futures.process.BrokenProcessPool" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Derived from <a class="reference internal" href="#concurrent.futures.BrokenExecutor" title="concurrent.futures.BrokenExecutor"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenExecutor</span></code></a> (formerly
 <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>), this exception class is raised when one of the
 workers of a <code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code> has terminated in a non-clean
 fashion (for example, if it was killed from the outside).</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
@@ -653,9 +662,9 @@ fashion (for example, if it was killed from the outside).</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code> — Launching parallel tasks</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code> — Launching parallel tasks</a><ul>
 <li><a class="reference internal" href="#executor-objects">Executor Objects</a></li>
 <li><a class="reference internal" href="#threadpoolexecutor">ThreadPoolExecutor</a><ul>
 <li><a class="reference internal" href="#threadpoolexecutor-example">ThreadPoolExecutor Example</a></li>
@@ -674,16 +683,16 @@ fashion (for example, if it was killed from the outside).</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="concurrent.html"
-                        title="poprzedni rozdział">The <code class="docutils literal notranslate"><span class="pre">concurrent</span></code> package</a></p>
+                        title="poprzedni rozdział">The <code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent</span></code> package</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="subprocess.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/concurrent.futures.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/concurrent.futures.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -715,7 +724,7 @@ fashion (for example, if it was killed from the outside).</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -750,7 +759,7 @@ fashion (for example, if it was killed from the outside).</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

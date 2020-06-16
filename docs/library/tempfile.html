@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>tempfile — Generate temporary files and directories &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>tempfile — Generate temporary files and directories &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,7 +102,7 @@
             
   <div class="section" id="module-tempfile">
 <span id="tempfile-generate-temporary-files-and-directories"></span><h1><a class="reference internal" href="#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a> — Generate temporary files and directories<a class="headerlink" href="#module-tempfile" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/tempfile.py">Lib/tempfile.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/tempfile.py">Lib/tempfile.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>This module creates temporary files and directories.  It works on all
 supported platforms. <a class="reference internal" href="#tempfile.TemporaryFile" title="tempfile.TemporaryFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">TemporaryFile</span></code></a>, <a class="reference internal" href="#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTemporaryFile</span></code></a>,
@@ -121,7 +120,7 @@ is recommended to use keyword arguments for clarity.</p>
 <p>The module defines the following user-callable items:</p>
 <dl class="function">
 <dt id="tempfile.TemporaryFile">
-<code class="descclassname">tempfile.</code><code class="descname">TemporaryFile</code><span class="sig-paren">(</span><em>mode='w+b'</em>, <em>buffering=None</em>, <em>encoding=None</em>, <em>newline=None</em>, <em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em>, <em>*</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.TemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">TemporaryFile</code><span class="sig-paren">(</span><em class="sig-param">mode='w+b'</em>, <em class="sig-param">buffering=None</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">newline=None</em>, <em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em>, <em class="sig-param">*</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.TemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a <a class="reference internal" href="../glossary.html#term-file-like-object"><span class="xref std std-term">file-like object</span></a> that can be used as a temporary storage area.
 The file is created securely, using the same rules as <a class="reference internal" href="#tempfile.mkstemp" title="tempfile.mkstemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkstemp()</span></code></a>. It will be destroyed as soon
 as it is closed (including an implicit close when the object is garbage
@@ -147,16 +146,16 @@ underlying true file object.</p>
 (Linux-specific, requires Linux kernel 3.11 or later).</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">tempfile.mkstemp</span></code> with argument <code class="docutils literal notranslate"><span class="pre">fullpath</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>The <a class="reference internal" href="os.html#os.O_TMPFILE" title="os.O_TMPFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.O_TMPFILE</span></code></a> flag is now used if available.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>The <a class="reference internal" href="os.html#os.O_TMPFILE" title="os.O_TMPFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.O_TMPFILE</span></code></a> flag is now used if available.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.NamedTemporaryFile">
-<code class="descclassname">tempfile.</code><code class="descname">NamedTemporaryFile</code><span class="sig-paren">(</span><em>mode='w+b'</em>, <em>buffering=None</em>, <em>encoding=None</em>, <em>newline=None</em>, <em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em>, <em>delete=True</em>, <em>*</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.NamedTemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">NamedTemporaryFile</code><span class="sig-paren">(</span><em class="sig-param">mode='w+b'</em>, <em class="sig-param">buffering=None</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">newline=None</em>, <em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em>, <em class="sig-param">delete=True</em>, <em class="sig-param">*</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.NamedTemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function operates exactly as <a class="reference internal" href="#tempfile.TemporaryFile" title="tempfile.TemporaryFile"><code class="xref py py-func docutils literal notranslate"><span class="pre">TemporaryFile()</span></code></a> does, except that
 the file is guaranteed to have a visible name in the file system (on
 Unix, the directory entry is not unlinked).  That name can be retrieved
@@ -171,13 +170,13 @@ attribute is the underlying true file object. This file-like object can
 be used in a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement, just like a normal file.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">tempfile.mkstemp</span></code> with argument <code class="docutils literal notranslate"><span class="pre">fullpath</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.SpooledTemporaryFile">
-<code class="descclassname">tempfile.</code><code class="descname">SpooledTemporaryFile</code><span class="sig-paren">(</span><em>max_size=0</em>, <em>mode='w+b'</em>, <em>buffering=None</em>, <em>encoding=None</em>, <em>newline=None</em>, <em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em>, <em>*</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.SpooledTemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">SpooledTemporaryFile</code><span class="sig-paren">(</span><em class="sig-param">max_size=0</em>, <em class="sig-param">mode='w+b'</em>, <em class="sig-param">buffering=None</em>, <em class="sig-param">encoding=None</em>, <em class="sig-param">newline=None</em>, <em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em>, <em class="sig-param">*</em>, <em class="sig-param">errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.SpooledTemporaryFile" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function operates exactly as <a class="reference internal" href="#tempfile.TemporaryFile" title="tempfile.TemporaryFile"><code class="xref py py-func docutils literal notranslate"><span class="pre">TemporaryFile()</span></code></a> does, except that
 data is spooled in memory until the file size exceeds <em>max_size</em>, or
 until the file’s <code class="xref py py-func docutils literal notranslate"><span class="pre">fileno()</span></code> method is called, at which point the
@@ -192,16 +191,16 @@ object, depending on whether <code class="xref py py-func docutils literal notra
 file-like object can be used in a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement, just like
 a normal file.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span>the truncate method now accepts a <code class="docutils literal notranslate"><span class="pre">size</span></code> argument.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>the truncate method now accepts a <code class="docutils literal notranslate"><span class="pre">size</span></code> argument.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.8: </span>Added <em>errors</em> parameter.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.TemporaryDirectory">
-<code class="descclassname">tempfile.</code><code class="descname">TemporaryDirectory</code><span class="sig-paren">(</span><em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.TemporaryDirectory" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">TemporaryDirectory</code><span class="sig-paren">(</span><em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.TemporaryDirectory" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This function securely creates a temporary directory using the same rules as <a class="reference internal" href="#tempfile.mkdtemp" title="tempfile.mkdtemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkdtemp()</span></code></a>.
 The resulting object can be used as a context manager (see
 <a class="reference internal" href="#tempfile-examples"><span class="std std-ref">Examples</span></a>).  On completion of the context or destruction
@@ -215,13 +214,13 @@ the <a class="reference internal" href="../reference/compound_stmts.html#with"><
 <code class="xref py py-func docutils literal notranslate"><span class="pre">cleanup()</span></code> method.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">tempfile.mkdtemp</span></code> with argument <code class="docutils literal notranslate"><span class="pre">fullpath</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.mkstemp">
-<code class="descclassname">tempfile.</code><code class="descname">mkstemp</code><span class="sig-paren">(</span><em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em>, <em>text=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mkstemp" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">mkstemp</code><span class="sig-paren">(</span><em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em>, <em class="sig-param">text=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mkstemp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a temporary file in the most secure manner possible.  There are
 no race conditions in the file’s creation, assuming that the platform
 properly implements the <a class="reference internal" href="os.html#os.O_EXCL" title="os.O_EXCL"><code class="xref py py-const docutils literal notranslate"><span class="pre">os.O_EXCL</span></code></a> flag for <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a>.  The
@@ -258,19 +257,19 @@ file (as would be returned by <a class="reference internal" href="os.html#os.ope
 of that file, in that order.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">tempfile.mkstemp</span></code> with argument <code class="docutils literal notranslate"><span class="pre">fullpath</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span><em>suffix</em>, <em>prefix</em>, and <em>dir</em> may now be supplied in bytes in order to
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span><em>suffix</em>, <em>prefix</em>, and <em>dir</em> may now be supplied in bytes in order to
 obtain a bytes return value.  Prior to this, only str was allowed.
 <em>suffix</em> and <em>prefix</em> now accept and default to <code class="docutils literal notranslate"><span class="pre">None</span></code> to cause
 an appropriate default value to be used.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.6: </span>The <em>dir</em> parameter now accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>The <em>dir</em> parameter now accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.mkdtemp">
-<code class="descclassname">tempfile.</code><code class="descname">mkdtemp</code><span class="sig-paren">(</span><em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mkdtemp" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">mkdtemp</code><span class="sig-paren">(</span><em class="sig-param">suffix=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mkdtemp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a temporary directory in the most secure manner possible. There
 are no race conditions in the directory’s creation.  The directory is
 readable, writable, and searchable only by the creating user ID.</p>
@@ -281,36 +280,37 @@ directory and its contents when done with it.</p>
 <p><a class="reference internal" href="#tempfile.mkdtemp" title="tempfile.mkdtemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkdtemp()</span></code></a> returns the absolute pathname of the new directory.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">tempfile.mkdtemp</span></code> with argument <code class="docutils literal notranslate"><span class="pre">fullpath</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span><em>suffix</em>, <em>prefix</em>, and <em>dir</em> may now be supplied in bytes in order to
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span><em>suffix</em>, <em>prefix</em>, and <em>dir</em> may now be supplied in bytes in order to
 obtain a bytes return value.  Prior to this, only str was allowed.
 <em>suffix</em> and <em>prefix</em> now accept and default to <code class="docutils literal notranslate"><span class="pre">None</span></code> to cause
 an appropriate default value to be used.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.6: </span>The <em>dir</em> parameter now accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>The <em>dir</em> parameter now accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.gettempdir">
-<code class="descclassname">tempfile.</code><code class="descname">gettempdir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempdir" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">gettempdir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempdir" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the name of the directory used for temporary files. This
 defines the default value for the <em>dir</em> argument to all functions
 in this module.</p>
 <p>Python searches a standard list of directories to find one which
 the calling user can create files in.  The list is:</p>
 <ol class="arabic simple">
-<li>The directory named by the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMPDIR</span></code> environment variable.</li>
-<li>The directory named by the <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TEMP</span></code> environment variable.</li>
-<li>The directory named by the <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMP</span></code> environment variable.</li>
-<li>A platform-specific location:<ul>
-<li>On Windows, the directories <code class="file docutils literal notranslate"><span class="pre">C:\TEMP</span></code>, <code class="file docutils literal notranslate"><span class="pre">C:\TMP</span></code>,
-<code class="file docutils literal notranslate"><span class="pre">\TEMP</span></code>, and <code class="file docutils literal notranslate"><span class="pre">\TMP</span></code>, in that order.</li>
-<li>On all other platforms, the directories <code class="file docutils literal notranslate"><span class="pre">/tmp</span></code>, <code class="file docutils literal notranslate"><span class="pre">/var/tmp</span></code>, and
-<code class="file docutils literal notranslate"><span class="pre">/usr/tmp</span></code>, in that order.</li>
+<li><p>The directory named by the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMPDIR</span></code> environment variable.</p></li>
+<li><p>The directory named by the <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TEMP</span></code> environment variable.</p></li>
+<li><p>The directory named by the <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TMP</span></code> environment variable.</p></li>
+<li><p>A platform-specific location:</p>
+<ul class="simple">
+<li><p>On Windows, the directories <code class="file docutils literal notranslate"><span class="pre">C:\TEMP</span></code>, <code class="file docutils literal notranslate"><span class="pre">C:\TMP</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">\TEMP</span></code>, and <code class="file docutils literal notranslate"><span class="pre">\TMP</span></code>, in that order.</p></li>
+<li><p>On all other platforms, the directories <code class="file docutils literal notranslate"><span class="pre">/tmp</span></code>, <code class="file docutils literal notranslate"><span class="pre">/var/tmp</span></code>, and
+<code class="file docutils literal notranslate"><span class="pre">/usr/tmp</span></code>, in that order.</p></li>
 </ul>
 </li>
-<li>As a last resort, the current working directory.</li>
+<li><p>As a last resort, the current working directory.</p></li>
 </ol>
 <p>The result of this search is cached, see the description of
 <a class="reference internal" href="#tempfile.tempdir" title="tempfile.tempdir"><code class="xref py py-data docutils literal notranslate"><span class="pre">tempdir</span></code></a> below.</p>
@@ -318,26 +318,26 @@ the calling user can create files in.  The list is:</p>
 
 <dl class="function">
 <dt id="tempfile.gettempdirb">
-<code class="descclassname">tempfile.</code><code class="descname">gettempdirb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempdirb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">gettempdirb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempdirb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#tempfile.gettempdir" title="tempfile.gettempdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">gettempdir()</span></code></a> but the return value is in bytes.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.5.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.gettempprefix">
-<code class="descclassname">tempfile.</code><code class="descname">gettempprefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempprefix" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">gettempprefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempprefix" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the filename prefix used to create temporary files.  This does not
 contain the directory component.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="tempfile.gettempprefixb">
-<code class="descclassname">tempfile.</code><code class="descname">gettempprefixb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempprefixb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">gettempprefixb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.gettempprefixb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Same as <a class="reference internal" href="#tempfile.gettempprefix" title="tempfile.gettempprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">gettempprefix()</span></code></a> but the return value is in bytes.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.5.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.5.</span></p>
 </div>
 </dd></dl>
 
@@ -348,7 +348,7 @@ All functions in this module take a <em>dir</em> argument which can be used
 to specify the directory and this is the recommended approach.</p>
 <dl class="data">
 <dt id="tempfile.tempdir">
-<code class="descclassname">tempfile.</code><code class="descname">tempdir</code><a class="headerlink" href="#tempfile.tempdir" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">tempdir</code><a class="headerlink" href="#tempfile.tempdir" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>When set to a value other than <code class="docutils literal notranslate"><span class="pre">None</span></code>, this variable defines the
 default value for the <em>dir</em> argument to the functions defined in this
 module.</p>
@@ -401,22 +401,22 @@ file immediately. This approach is used by <a class="reference internal" href="#
 other functions described above.</p>
 <dl class="function">
 <dt id="tempfile.mktemp">
-<code class="descclassname">tempfile.</code><code class="descname">mktemp</code><span class="sig-paren">(</span><em>suffix=''</em>, <em>prefix='tmp'</em>, <em>dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mktemp" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">tempfile.</code><code class="sig-name descname">mktemp</code><span class="sig-paren">(</span><em class="sig-param">suffix=''</em>, <em class="sig-param">prefix='tmp'</em>, <em class="sig-param">dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.mktemp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified">Niezalecane od wersji 2.3: </span>Use <a class="reference internal" href="#tempfile.mkstemp" title="tempfile.mkstemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkstemp()</span></code></a> instead.</p>
+<p><span class="versionmodified deprecated">Niezalecane od wersji 2.3: </span>Use <a class="reference internal" href="#tempfile.mkstemp" title="tempfile.mkstemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkstemp()</span></code></a> instead.</p>
 </div>
 <p>Return an absolute pathname of a file that did not exist at the time the
 call is made.  The <em>prefix</em>, <em>suffix</em>, and <em>dir</em> arguments are similar
 to those of <a class="reference internal" href="#tempfile.mkstemp" title="tempfile.mkstemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkstemp()</span></code></a>, except that bytes file names, <code class="docutils literal notranslate"><span class="pre">suffix=None</span></code>
 and <code class="docutils literal notranslate"><span class="pre">prefix=None</span></code> are not supported.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Ostrzeżenie</p>
+<p class="admonition-title">Ostrzeżenie</p>
 <p>Use of this function may introduce a security hole in your program.  By
 the time you get around to doing anything with the file name it returns,
 someone else may have beaten you to the punch.  <a class="reference internal" href="#tempfile.mktemp" title="tempfile.mktemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mktemp()</span></code></a> usage can
 be replaced easily with <a class="reference internal" href="#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile"><code class="xref py py-func docutils literal notranslate"><span class="pre">NamedTemporaryFile()</span></code></a>, passing it the
 <code class="docutils literal notranslate"><span class="pre">delete=False</span></code> parameter:</p>
-<div class="last highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">name</span>
 <span class="go">&#39;/tmp/tmptjujjt&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello World!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -439,9 +439,9 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">tempfile</span></code> — Generate temporary files and directories</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code> — Generate temporary files and directories</a><ul>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#deprecated-functions-and-variables">Deprecated functions and variables</a></li>
 </ul>
@@ -450,16 +450,16 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="filecmp.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">filecmp</span></code> — File and Directory Comparisons</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">filecmp</span></code> — File and Directory Comparisons</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="glob.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">glob</span></code> — Unix style pathname pattern expansion</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code> — Unix style pathname pattern expansion</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/tempfile.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/tempfile.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -491,7 +491,7 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -526,7 +526,7 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

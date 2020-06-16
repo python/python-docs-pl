@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Transports and Protocols &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Transports and Protocols &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,12 +72,12 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="ipc.html" >Networking and Interprocess Communication</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="asyncio.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> — Asynchronous I/O</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="asyncio.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> — Asynchronous I/O</a> &#187;</li>
     <li class="right">
         
 
@@ -136,19 +135,19 @@ Such methods usually return a tuple of <code class="docutils literal notranslate
 <p class="rubric">Contents</p>
 <p>This documentation page contains the following sections:</p>
 <ul class="simple">
-<li>The <a class="reference internal" href="#transports">Transports</a> section documents asyncio <a class="reference internal" href="#asyncio.BaseTransport" title="asyncio.BaseTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTransport</span></code></a>,
+<li><p>The <a class="reference internal" href="#transports">Transports</a> section documents asyncio <a class="reference internal" href="#asyncio.BaseTransport" title="asyncio.BaseTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTransport</span></code></a>,
 <a class="reference internal" href="#asyncio.ReadTransport" title="asyncio.ReadTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadTransport</span></code></a>, <a class="reference internal" href="#asyncio.WriteTransport" title="asyncio.WriteTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">WriteTransport</span></code></a>, <a class="reference internal" href="#asyncio.Transport" title="asyncio.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transport</span></code></a>,
 <a class="reference internal" href="#asyncio.DatagramTransport" title="asyncio.DatagramTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">DatagramTransport</span></code></a>, and <a class="reference internal" href="#asyncio.SubprocessTransport" title="asyncio.SubprocessTransport"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubprocessTransport</span></code></a>
-classes.</li>
-<li>The <a class="reference internal" href="#protocols">Protocols</a> section documents asyncio <a class="reference internal" href="#asyncio.BaseProtocol" title="asyncio.BaseProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseProtocol</span></code></a>,
+classes.</p></li>
+<li><p>The <a class="reference internal" href="#protocols">Protocols</a> section documents asyncio <a class="reference internal" href="#asyncio.BaseProtocol" title="asyncio.BaseProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseProtocol</span></code></a>,
 <a class="reference internal" href="#asyncio.Protocol" title="asyncio.Protocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></a>, <a class="reference internal" href="#asyncio.BufferedProtocol" title="asyncio.BufferedProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">BufferedProtocol</span></code></a>,
-<a class="reference internal" href="#asyncio.DatagramProtocol" title="asyncio.DatagramProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DatagramProtocol</span></code></a>, and <a class="reference internal" href="#asyncio.SubprocessProtocol" title="asyncio.SubprocessProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubprocessProtocol</span></code></a> classes.</li>
-<li>The <a class="reference internal" href="#examples">Examples</a> section showcases how to work with transports,
-protocols, and low-level event loop APIs.</li>
+<a class="reference internal" href="#asyncio.DatagramProtocol" title="asyncio.DatagramProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">DatagramProtocol</span></code></a>, and <a class="reference internal" href="#asyncio.SubprocessProtocol" title="asyncio.SubprocessProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubprocessProtocol</span></code></a> classes.</p></li>
+<li><p>The <a class="reference internal" href="#examples">Examples</a> section showcases how to work with transports,
+protocols, and low-level event loop APIs.</p></li>
 </ul>
 <div class="section" id="transports">
 <span id="asyncio-transport"></span><h2>Transports<a class="headerlink" href="#transports" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/asyncio/transports.py">Lib/asyncio/transports.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/asyncio/transports.py">Lib/asyncio/transports.py</a></p>
 <hr class="docutils" />
 <p>Transports are classes provided by <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> in order to abstract
 various kinds of communication channels.</p>
@@ -161,14 +160,14 @@ The methods available on a transport depend on the transport’s kind.</p>
 <h3>Transports Hierarchy<a class="headerlink" href="#transports-hierarchy" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="asyncio.BaseTransport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">BaseTransport</code><a class="headerlink" href="#asyncio.BaseTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">BaseTransport</code><a class="headerlink" href="#asyncio.BaseTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Base class for all transports.  Contains methods that all
 asyncio transports share.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.WriteTransport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">WriteTransport</code><span class="sig-paren">(</span><em>BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">WriteTransport</code><span class="sig-paren">(</span><em class="sig-param">BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A base transport for write-only connections.</p>
 <p>Instances of the <em>WriteTransport</em> class are returned from
 the <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.connect_write_pipe" title="asyncio.loop.connect_write_pipe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.connect_write_pipe()</span></code></a> event loop method and
@@ -178,7 +177,7 @@ are also used by subprocess-related methods like
 
 <dl class="class">
 <dt id="asyncio.ReadTransport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">ReadTransport</code><span class="sig-paren">(</span><em>BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">ReadTransport</code><span class="sig-paren">(</span><em class="sig-param">BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A base transport for read-only connections.</p>
 <p>Instances of the <em>ReadTransport</em> class are returned from
 the <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.connect_read_pipe" title="asyncio.loop.connect_read_pipe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.connect_read_pipe()</span></code></a> event loop method and
@@ -188,7 +187,7 @@ are also used by subprocess-related methods like
 
 <dl class="class">
 <dt id="asyncio.Transport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">Transport</code><span class="sig-paren">(</span><em>WriteTransport</em>, <em>ReadTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Transport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">Transport</code><span class="sig-paren">(</span><em class="sig-param">WriteTransport</em>, <em class="sig-param">ReadTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Transport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Interface representing a bidirectional transport, such as a
 TCP connection.</p>
 <p>The user does not instantiate a transport directly; they call a
@@ -202,7 +201,7 @@ event loop methods like <a class="reference internal" href="asyncio-eventloop.ht
 
 <dl class="class">
 <dt id="asyncio.DatagramTransport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">DatagramTransport</code><span class="sig-paren">(</span><em>BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">DatagramTransport</code><span class="sig-paren">(</span><em class="sig-param">BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A transport for datagram (UDP) connections.</p>
 <p>Instances of the <em>DatagramTransport</em> class are returned from
 the <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.create_datagram_endpoint" title="asyncio.loop.create_datagram_endpoint"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.create_datagram_endpoint()</span></code></a> event loop method.</p>
@@ -210,7 +209,7 @@ the <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.crea
 
 <dl class="class">
 <dt id="asyncio.SubprocessTransport">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">SubprocessTransport</code><span class="sig-paren">(</span><em>BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">SubprocessTransport</code><span class="sig-paren">(</span><em class="sig-param">BaseTransport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An abstraction to represent a connection between a parent and its
 child OS process.</p>
 <p>Instances of the <em>SubprocessTransport</em> class are returned from
@@ -223,7 +222,7 @@ event loop methods <a class="reference internal" href="asyncio-eventloop.html#as
 <h3>Base Transport<a class="headerlink" href="#base-transport" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.BaseTransport.close">
-<code class="descclassname">BaseTransport.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseTransport.</code><code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Close the transport.</p>
 <p>If the transport has a buffer for outgoing
 data, buffered data will be flushed asynchronously.  No more data
@@ -234,13 +233,13 @@ protocol’s <a class="reference internal" href="#asyncio.BaseProtocol.connectio
 
 <dl class="method">
 <dt id="asyncio.BaseTransport.is_closing">
-<code class="descclassname">BaseTransport.</code><code class="descname">is_closing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.is_closing" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseTransport.</code><code class="sig-name descname">is_closing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.is_closing" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the transport is closing or is closed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.BaseTransport.get_extra_info">
-<code class="descclassname">BaseTransport.</code><code class="descname">get_extra_info</code><span class="sig-paren">(</span><em>name</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.get_extra_info" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseTransport.</code><code class="sig-name descname">get_extra_info</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.get_extra_info" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return information about the transport or underlying resources
 it uses.</p>
 <p><em>name</em> is a string representing the piece of transport-specific
@@ -258,36 +257,40 @@ socket object of the transport:</p>
 </div>
 <p>Categories of information that can be queried on some transports:</p>
 <ul class="simple">
-<li>socket:<ul>
-<li><code class="docutils literal notranslate"><span class="pre">'peername'</span></code>: the remote address to which the socket is
+<li><p>socket:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'peername'</span></code>: the remote address to which the socket is
 connected, result of <a class="reference internal" href="socket.html#socket.socket.getpeername" title="socket.socket.getpeername"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socket.socket.getpeername()</span></code></a>
-(<code class="docutils literal notranslate"><span class="pre">None</span></code> on error)</li>
-<li><code class="docutils literal notranslate"><span class="pre">'socket'</span></code>: <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">socket.socket</span></code></a> instance</li>
-<li><code class="docutils literal notranslate"><span class="pre">'sockname'</span></code>: the socket’s own address,
-result of <a class="reference internal" href="socket.html#socket.socket.getsockname" title="socket.socket.getsockname"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socket.socket.getsockname()</span></code></a></li>
+(<code class="docutils literal notranslate"><span class="pre">None</span></code> on error)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'socket'</span></code>: <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">socket.socket</span></code></a> instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'sockname'</span></code>: the socket’s own address,
+result of <a class="reference internal" href="socket.html#socket.socket.getsockname" title="socket.socket.getsockname"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socket.socket.getsockname()</span></code></a></p></li>
 </ul>
 </li>
-<li>SSL socket:<ul>
-<li><code class="docutils literal notranslate"><span class="pre">'compression'</span></code>: the compression algorithm being used as a
+<li><p>SSL socket:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'compression'</span></code>: the compression algorithm being used as a
 string, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the connection isn’t compressed; result
-of <a class="reference internal" href="ssl.html#ssl.SSLSocket.compression" title="ssl.SSLSocket.compression"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.compression()</span></code></a></li>
-<li><code class="docutils literal notranslate"><span class="pre">'cipher'</span></code>: a three-value tuple containing the name of the
+of <a class="reference internal" href="ssl.html#ssl.SSLSocket.compression" title="ssl.SSLSocket.compression"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.compression()</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'cipher'</span></code>: a three-value tuple containing the name of the
 cipher being used, the version of the SSL protocol that defines
 its use, and the number of secret bits being used; result of
-<a class="reference internal" href="ssl.html#ssl.SSLSocket.cipher" title="ssl.SSLSocket.cipher"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.cipher()</span></code></a></li>
-<li><code class="docutils literal notranslate"><span class="pre">'peercert'</span></code>: peer certificate; result of
-<a class="reference internal" href="ssl.html#ssl.SSLSocket.getpeercert" title="ssl.SSLSocket.getpeercert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.getpeercert()</span></code></a></li>
-<li><code class="docutils literal notranslate"><span class="pre">'sslcontext'</span></code>: <a class="reference internal" href="ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> instance</li>
-<li><code class="docutils literal notranslate"><span class="pre">'ssl_object'</span></code>: <a class="reference internal" href="ssl.html#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLObject</span></code></a> or
-<a class="reference internal" href="ssl.html#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLSocket</span></code></a> instance</li>
+<a class="reference internal" href="ssl.html#ssl.SSLSocket.cipher" title="ssl.SSLSocket.cipher"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.cipher()</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'peercert'</span></code>: peer certificate; result of
+<a class="reference internal" href="ssl.html#ssl.SSLSocket.getpeercert" title="ssl.SSLSocket.getpeercert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLSocket.getpeercert()</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'sslcontext'</span></code>: <a class="reference internal" href="ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> instance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'ssl_object'</span></code>: <a class="reference internal" href="ssl.html#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLObject</span></code></a> or
+<a class="reference internal" href="ssl.html#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLSocket</span></code></a> instance</p></li>
 </ul>
 </li>
-<li>pipe:<ul>
-<li><code class="docutils literal notranslate"><span class="pre">'pipe'</span></code>: pipe object</li>
+<li><p>pipe:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pipe'</span></code>: pipe object</p></li>
 </ul>
 </li>
-<li>subprocess:<ul>
-<li><code class="docutils literal notranslate"><span class="pre">'subprocess'</span></code>: <a class="reference internal" href="subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> instance</li>
+<li><p>subprocess:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'subprocess'</span></code>: <a class="reference internal" href="subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> instance</p></li>
 </ul>
 </li>
 </ul>
@@ -295,7 +298,7 @@ its use, and the number of secret bits being used; result of
 
 <dl class="method">
 <dt id="asyncio.BaseTransport.set_protocol">
-<code class="descclassname">BaseTransport.</code><code class="descname">set_protocol</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.set_protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseTransport.</code><code class="sig-name descname">set_protocol</code><span class="sig-paren">(</span><em class="sig-param">protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.set_protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set a new protocol.</p>
 <p>Switching protocol should only be done when both
 protocols are documented to support the switch.</p>
@@ -303,7 +306,7 @@ protocols are documented to support the switch.</p>
 
 <dl class="method">
 <dt id="asyncio.BaseTransport.get_protocol">
-<code class="descclassname">BaseTransport.</code><code class="descname">get_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.get_protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseTransport.</code><code class="sig-name descname">get_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseTransport.get_protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current protocol.</p>
 </dd></dl>
 
@@ -312,33 +315,33 @@ protocols are documented to support the switch.</p>
 <h3>Read-only Transports<a class="headerlink" href="#read-only-transports" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.ReadTransport.is_reading">
-<code class="descclassname">ReadTransport.</code><code class="descname">is_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.is_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ReadTransport.</code><code class="sig-name descname">is_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.is_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the transport is receiving new data.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.ReadTransport.pause_reading">
-<code class="descclassname">ReadTransport.</code><code class="descname">pause_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.pause_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ReadTransport.</code><code class="sig-name descname">pause_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.pause_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Pause the receiving end of the transport.  No data will be passed to
 the protocol’s <a class="reference internal" href="#asyncio.Protocol.data_received" title="asyncio.Protocol.data_received"><code class="xref py py-meth docutils literal notranslate"><span class="pre">protocol.data_received()</span></code></a>
 method until <a class="reference internal" href="#asyncio.ReadTransport.resume_reading" title="asyncio.ReadTransport.resume_reading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">resume_reading()</span></code></a> is called.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The method is idempotent, i.e. it can be called when the
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The method is idempotent, i.e. it can be called when the
 transport is already paused or closed.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.ReadTransport.resume_reading">
-<code class="descclassname">ReadTransport.</code><code class="descname">resume_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.resume_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">ReadTransport.</code><code class="sig-name descname">resume_reading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.ReadTransport.resume_reading" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Resume the receiving end.  The protocol’s
 <a class="reference internal" href="#asyncio.Protocol.data_received" title="asyncio.Protocol.data_received"><code class="xref py py-meth docutils literal notranslate"><span class="pre">protocol.data_received()</span></code></a> method
 will be called once again if some data is available for reading.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.7: </span>The method is idempotent, i.e. it can be called when the
+<p><span class="versionmodified changed">Zmienione w wersji 3.7: </span>The method is idempotent, i.e. it can be called when the
 transport is already reading.</p>
 </div>
 </dd></dl>
@@ -348,7 +351,7 @@ transport is already reading.</p>
 <h3>Write-only Transports<a class="headerlink" href="#write-only-transports" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.WriteTransport.abort">
-<code class="descclassname">WriteTransport.</code><code class="descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.abort" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.abort" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Close the transport immediately, without waiting for pending operations
 to complete.  Buffered data will be lost.  No more data will be received.
 The protocol’s <a class="reference internal" href="#asyncio.BaseProtocol.connection_lost" title="asyncio.BaseProtocol.connection_lost"><code class="xref py py-meth docutils literal notranslate"><span class="pre">protocol.connection_lost()</span></code></a> method will eventually be
@@ -357,32 +360,32 @@ called with <a class="reference internal" href="constants.html#None" title="None
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.can_write_eof">
-<code class="descclassname">WriteTransport.</code><code class="descname">can_write_eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.can_write_eof" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">can_write_eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.can_write_eof" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the transport supports
 <a class="reference internal" href="#asyncio.WriteTransport.write_eof" title="asyncio.WriteTransport.write_eof"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_eof()</span></code></a>, <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> if not.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.get_write_buffer_size">
-<code class="descclassname">WriteTransport.</code><code class="descname">get_write_buffer_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.get_write_buffer_size" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">get_write_buffer_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.get_write_buffer_size" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current size of the output buffer used by the transport.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.get_write_buffer_limits">
-<code class="descclassname">WriteTransport.</code><code class="descname">get_write_buffer_limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.get_write_buffer_limits" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">get_write_buffer_limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.get_write_buffer_limits" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Get the <em>high</em> and <em>low</em> watermarks for write flow control. Return a
 tuple <code class="docutils literal notranslate"><span class="pre">(low,</span> <span class="pre">high)</span></code> where <em>low</em> and <em>high</em> are positive number of
 bytes.</p>
 <p>Use <a class="reference internal" href="#asyncio.WriteTransport.set_write_buffer_limits" title="asyncio.WriteTransport.set_write_buffer_limits"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_write_buffer_limits()</span></code></a> to set the limits.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.4.2.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.4.2.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.set_write_buffer_limits">
-<code class="descclassname">WriteTransport.</code><code class="descname">set_write_buffer_limits</code><span class="sig-paren">(</span><em>high=None</em>, <em>low=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.set_write_buffer_limits" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">set_write_buffer_limits</code><span class="sig-paren">(</span><em class="sig-param">high=None</em>, <em class="sig-param">low=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.set_write_buffer_limits" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the <em>high</em> and <em>low</em> watermarks for write flow control.</p>
 <p>These two values (measured in number of
 bytes) control when the protocol’s
@@ -411,7 +414,7 @@ to get the limits.</p>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.write">
-<code class="descclassname">WriteTransport.</code><code class="descname">write</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.write" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.write" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Write some <em>data</em> bytes to the transport.</p>
 <p>This method does not block; it buffers the data and arranges for it
 to be sent out asynchronously.</p>
@@ -419,7 +422,7 @@ to be sent out asynchronously.</p>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.writelines">
-<code class="descclassname">WriteTransport.</code><code class="descname">writelines</code><span class="sig-paren">(</span><em>list_of_data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.writelines" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">writelines</code><span class="sig-paren">(</span><em class="sig-param">list_of_data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.writelines" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Write a list (or any iterable) of data bytes to the transport.
 This is functionally equivalent to calling <a class="reference internal" href="#asyncio.WriteTransport.write" title="asyncio.WriteTransport.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> on each
 element yielded by the iterable, but may be implemented more
@@ -428,7 +431,7 @@ efficiently.</p>
 
 <dl class="method">
 <dt id="asyncio.WriteTransport.write_eof">
-<code class="descclassname">WriteTransport.</code><code class="descname">write_eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.write_eof" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">WriteTransport.</code><code class="sig-name descname">write_eof</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.WriteTransport.write_eof" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Close the write end of the transport after flushing all buffered data.
 Data may still be received.</p>
 <p>This method can raise <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> if the transport
@@ -440,7 +443,7 @@ Data may still be received.</p>
 <h3>Datagram Transports<a class="headerlink" href="#datagram-transports" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.DatagramTransport.sendto">
-<code class="descclassname">DatagramTransport.</code><code class="descname">sendto</code><span class="sig-paren">(</span><em>data</em>, <em>addr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport.sendto" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">DatagramTransport.</code><code class="sig-name descname">sendto</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">addr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport.sendto" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Send the <em>data</em> bytes to the remote peer given by <em>addr</em> (a
 transport-dependent target address).  If <em>addr</em> is <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>,
 the data is sent to the target address given on transport
@@ -451,7 +454,7 @@ for it to be sent out asynchronously.</p>
 
 <dl class="method">
 <dt id="asyncio.DatagramTransport.abort">
-<code class="descclassname">DatagramTransport.</code><code class="descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport.abort" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">DatagramTransport.</code><code class="sig-name descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramTransport.abort" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Close the transport immediately, without waiting for pending
 operations to complete.  Buffered data will be lost.
 No more data will be received.  The protocol’s
@@ -464,29 +467,29 @@ method will eventually be called with <a class="reference internal" href="consta
 <span id="asyncio-subprocess-transports"></span><h3>Subprocess Transports<a class="headerlink" href="#subprocess-transports" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.get_pid">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">get_pid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_pid" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">get_pid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_pid" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the subprocess process id as an integer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.get_pipe_transport">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">get_pipe_transport</code><span class="sig-paren">(</span><em>fd</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_pipe_transport" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">get_pipe_transport</code><span class="sig-paren">(</span><em class="sig-param">fd</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_pipe_transport" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the transport for the communication pipe corresponding to the
 integer file descriptor <em>fd</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">0</span></code>: readable streaming transport of the standard input (<em>stdin</em>),
-or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stdin=PIPE</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">1</span></code>: writable streaming transport of the standard output (<em>stdout</em>),
-or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stdout=PIPE</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">2</span></code>: writable streaming transport of the standard error (<em>stderr</em>),
-or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stderr=PIPE</span></code></li>
-<li>other <em>fd</em>: <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: readable streaming transport of the standard input (<em>stdin</em>),
+or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stdin=PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: writable streaming transport of the standard output (<em>stdout</em>),
+or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stdout=PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>: writable streaming transport of the standard error (<em>stderr</em>),
+or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if the subprocess was not created with <code class="docutils literal notranslate"><span class="pre">stderr=PIPE</span></code></p></li>
+<li><p>other <em>fd</em>: <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a></p></li>
 </ul>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.get_returncode">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">get_returncode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_returncode" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">get_returncode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.get_returncode" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the subprocess return code as an integer or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>
 if it hasn’t returned, which is similar to the
 <a class="reference internal" href="subprocess.html#subprocess.Popen.returncode" title="subprocess.Popen.returncode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">subprocess.Popen.returncode</span></code></a> attribute.</p>
@@ -494,7 +497,7 @@ if it hasn’t returned, which is similar to the
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.kill">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.kill" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.kill" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Kill the subprocess.</p>
 <p>On POSIX systems, the function sends SIGKILL to the subprocess.
 On Windows, this method is an alias for <a class="reference internal" href="#asyncio.SubprocessTransport.terminate" title="asyncio.SubprocessTransport.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">terminate()</span></code></a>.</p>
@@ -503,14 +506,14 @@ On Windows, this method is an alias for <a class="reference internal" href="#asy
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.send_signal">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">send_signal</code><span class="sig-paren">(</span><em>signal</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.send_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">send_signal</code><span class="sig-paren">(</span><em class="sig-param">signal</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.send_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Send the <em>signal</em> number to the subprocess, as in
 <a class="reference internal" href="subprocess.html#subprocess.Popen.send_signal" title="subprocess.Popen.send_signal"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subprocess.Popen.send_signal()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.terminate">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.terminate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.terminate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Stop the subprocess.</p>
 <p>On POSIX systems, this method sends SIGTERM to the subprocess.
 On Windows, the Windows API function TerminateProcess() is called to
@@ -520,7 +523,7 @@ stop the subprocess.</p>
 
 <dl class="method">
 <dt id="asyncio.SubprocessTransport.close">
-<code class="descclassname">SubprocessTransport.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.close" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessTransport.</code><code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessTransport.close" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Kill the subprocess by calling the <a class="reference internal" href="#asyncio.SubprocessTransport.kill" title="asyncio.SubprocessTransport.kill"><code class="xref py py-meth docutils literal notranslate"><span class="pre">kill()</span></code></a> method.</p>
 <p>If the subprocess hasn’t returned yet, and close transports of
 <em>stdin</em>, <em>stdout</em>, and <em>stderr</em> pipes.</p>
@@ -530,7 +533,7 @@ stop the subprocess.</p>
 </div>
 <div class="section" id="protocols">
 <span id="asyncio-protocol"></span><h2>Protocols<a class="headerlink" href="#protocols" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/asyncio/protocols.py">Lib/asyncio/protocols.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/asyncio/protocols.py">Lib/asyncio/protocols.py</a></p>
 <hr class="docutils" />
 <p>asyncio provides a set of abstract base classes that should be used
 to implement network protocols.  Those classes are meant to be used
@@ -543,33 +546,33 @@ A base protocol method should be called by the corresponding transport.</p>
 <h3>Base Protocols<a class="headerlink" href="#base-protocols" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <dl class="class">
 <dt id="asyncio.BaseProtocol">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">BaseProtocol</code><a class="headerlink" href="#asyncio.BaseProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">BaseProtocol</code><a class="headerlink" href="#asyncio.BaseProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Base protocol with methods that all protocols share.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.Protocol">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">Protocol</code><span class="sig-paren">(</span><em>BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">Protocol</code><span class="sig-paren">(</span><em class="sig-param">BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The base class for implementing streaming protocols
 (TCP, Unix sockets, etc).</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.BufferedProtocol">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">BufferedProtocol</code><span class="sig-paren">(</span><em>BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">BufferedProtocol</code><span class="sig-paren">(</span><em class="sig-param">BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A base class for implementing streaming protocols with manual
 control of the receive buffer.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.DatagramProtocol">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">DatagramProtocol</code><span class="sig-paren">(</span><em>BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">DatagramProtocol</code><span class="sig-paren">(</span><em class="sig-param">BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The base class for implementing datagram (UDP) protocols.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.SubprocessProtocol">
-<em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">SubprocessProtocol</code><span class="sig-paren">(</span><em>BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">asyncio.</code><code class="sig-name descname">SubprocessProtocol</code><span class="sig-paren">(</span><em class="sig-param">BaseProtocol</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The base class for implementing protocols communicating with child
 processes (unidirectional pipes).</p>
 </dd></dl>
@@ -584,7 +587,7 @@ a successful connection.  All other protocol callbacks can only be
 called between those two methods.</p>
 <dl class="method">
 <dt id="asyncio.BaseProtocol.connection_made">
-<code class="descclassname">BaseProtocol.</code><code class="descname">connection_made</code><span class="sig-paren">(</span><em>transport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.connection_made" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseProtocol.</code><code class="sig-name descname">connection_made</code><span class="sig-paren">(</span><em class="sig-param">transport</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.connection_made" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when a connection is made.</p>
 <p>The <em>transport</em> argument is the transport representing the
 connection.  The protocol is responsible for storing the reference
@@ -593,7 +596,7 @@ to its transport.</p>
 
 <dl class="method">
 <dt id="asyncio.BaseProtocol.connection_lost">
-<code class="descclassname">BaseProtocol.</code><code class="descname">connection_lost</code><span class="sig-paren">(</span><em>exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.connection_lost" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseProtocol.</code><code class="sig-name descname">connection_lost</code><span class="sig-paren">(</span><em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.connection_lost" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the connection is lost or closed.</p>
 <p>The argument is either an exception object or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.
 The latter means a regular EOF is received, or the connection was
@@ -607,13 +610,13 @@ resume writing performed by the protocol.</p>
 method for more details.</p>
 <dl class="method">
 <dt id="asyncio.BaseProtocol.pause_writing">
-<code class="descclassname">BaseProtocol.</code><code class="descname">pause_writing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.pause_writing" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseProtocol.</code><code class="sig-name descname">pause_writing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.pause_writing" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the transport’s buffer goes over the high watermark.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.BaseProtocol.resume_writing">
-<code class="descclassname">BaseProtocol.</code><code class="descname">resume_writing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.resume_writing" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BaseProtocol.</code><code class="sig-name descname">resume_writing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BaseProtocol.resume_writing" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the transport’s buffer drains below the low watermark.</p>
 </dd></dl>
 
@@ -634,7 +637,7 @@ either mark is zero.</p>
 accept factories that return streaming protocols.</p>
 <dl class="method">
 <dt id="asyncio.Protocol.data_received">
-<code class="descclassname">Protocol.</code><code class="descname">data_received</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol.data_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">Protocol.</code><code class="sig-name descname">data_received</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol.data_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when some data is received.  <em>data</em> is a non-empty bytes
 object containing the incoming data.</p>
 <p>Whether the data is buffered, chunked or reassembled depends on
@@ -650,7 +653,7 @@ is called at most once.  Once <cite>eof_received()</cite> is called,
 
 <dl class="method">
 <dt id="asyncio.Protocol.eof_received">
-<code class="descclassname">Protocol.</code><code class="descname">eof_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol.eof_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">Protocol.</code><code class="sig-name descname">eof_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Protocol.eof_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the other end signals it won’t send any more data
 (for example by calling <a class="reference internal" href="#asyncio.WriteTransport.write_eof" title="asyncio.WriteTransport.write_eof"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transport.write_eof()</span></code></a>, if the other end also uses
 asyncio).</p>
@@ -675,9 +678,7 @@ being closed.</p>
 <div class="section" id="buffered-streaming-protocols">
 <h3>Buffered Streaming Protocols<a class="headerlink" href="#buffered-streaming-protocols" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7: </span><strong>Important:</strong> this has been added to asyncio in Python 3.7
-<em>on a provisional basis</em>!  This is as an experimental API that
-might be changed or removed completely in Python 3.8.</p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 <p>Buffered Protocols can be used with any event loop method
 that supports <a class="reference internal" href="#streaming-protocols">Streaming Protocols</a>.</p>
@@ -691,7 +692,7 @@ can significantly reduce the number of buffer allocations.</p>
 instances:</p>
 <dl class="method">
 <dt id="asyncio.BufferedProtocol.get_buffer">
-<code class="descclassname">BufferedProtocol.</code><code class="descname">get_buffer</code><span class="sig-paren">(</span><em>sizehint</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.get_buffer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BufferedProtocol.</code><code class="sig-name descname">get_buffer</code><span class="sig-paren">(</span><em class="sig-param">sizehint</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.get_buffer" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called to allocate a new receive buffer.</p>
 <p><em>sizehint</em> is the recommended minimum size for the returned
 buffer.  It is acceptable to return smaller or larger buffers
@@ -703,14 +704,14 @@ can be arbitrary. It is an error to return a buffer with a zero size.</p>
 
 <dl class="method">
 <dt id="asyncio.BufferedProtocol.buffer_updated">
-<code class="descclassname">BufferedProtocol.</code><code class="descname">buffer_updated</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.buffer_updated" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BufferedProtocol.</code><code class="sig-name descname">buffer_updated</code><span class="sig-paren">(</span><em class="sig-param">nbytes</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.buffer_updated" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the buffer was updated with the received data.</p>
 <p><em>nbytes</em> is the total number of bytes that were written to the buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.BufferedProtocol.eof_received">
-<code class="descclassname">BufferedProtocol.</code><code class="descname">eof_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.eof_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">BufferedProtocol.</code><code class="sig-name descname">eof_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.BufferedProtocol.eof_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>See the documentation of the <a class="reference internal" href="#asyncio.Protocol.eof_received" title="asyncio.Protocol.eof_received"><code class="xref py py-meth docutils literal notranslate"><span class="pre">protocol.eof_received()</span></code></a> method.</p>
 </dd></dl>
 
@@ -734,7 +735,7 @@ and, if called, <a class="reference internal" href="#asyncio.BufferedProtocol.ge
 factories passed to the <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.create_datagram_endpoint" title="asyncio.loop.create_datagram_endpoint"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.create_datagram_endpoint()</span></code></a> method.</p>
 <dl class="method">
 <dt id="asyncio.DatagramProtocol.datagram_received">
-<code class="descclassname">DatagramProtocol.</code><code class="descname">datagram_received</code><span class="sig-paren">(</span><em>data</em>, <em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol.datagram_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">DatagramProtocol.</code><code class="sig-name descname">datagram_received</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">addr</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol.datagram_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when a datagram is received.  <em>data</em> is a bytes object containing
 the incoming data.  <em>addr</em> is the address of the peer sending the data;
 the exact format depends on the transport.</p>
@@ -742,7 +743,7 @@ the exact format depends on the transport.</p>
 
 <dl class="method">
 <dt id="asyncio.DatagramProtocol.error_received">
-<code class="descclassname">DatagramProtocol.</code><code class="descname">error_received</code><span class="sig-paren">(</span><em>exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol.error_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">DatagramProtocol.</code><code class="sig-name descname">error_received</code><span class="sig-paren">(</span><em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.DatagramProtocol.error_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when a previous send or receive operation raises an
 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></a>.  <em>exc</em> is the <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></a> instance.</p>
 <p>This method is called in rare conditions, when the transport (e.g. UDP)
@@ -752,11 +753,11 @@ dropped.</p>
 </dd></dl>
 
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>On BSD systems (macOS, FreeBSD, etc.) flow control is not supported
 for datagram protocols, because there is no reliable way to detect send
 failures caused by writing too many packets.</p>
-<p class="last">The socket always appears «ready» and excess packets are dropped. An
+<p>The socket always appears «ready» and excess packets are dropped. An
 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></a> with <code class="docutils literal notranslate"><span class="pre">errno</span></code> set to <a class="reference internal" href="errno.html#errno.ENOBUFS" title="errno.ENOBUFS"><code class="xref py py-const docutils literal notranslate"><span class="pre">errno.ENOBUFS</span></code></a> may
 or may not be raised; if it is raised, it will be reported to
 <a class="reference internal" href="#asyncio.DatagramProtocol.error_received" title="asyncio.DatagramProtocol.error_received"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DatagramProtocol.error_received()</span></code></a> but otherwise ignored.</p>
@@ -769,7 +770,7 @@ factories passed to the <a class="reference internal" href="asyncio-eventloop.ht
 <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.subprocess_shell" title="asyncio.loop.subprocess_shell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.subprocess_shell()</span></code></a> methods.</p>
 <dl class="method">
 <dt id="asyncio.SubprocessProtocol.pipe_data_received">
-<code class="descclassname">SubprocessProtocol.</code><code class="descname">pipe_data_received</code><span class="sig-paren">(</span><em>fd</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.pipe_data_received" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessProtocol.</code><code class="sig-name descname">pipe_data_received</code><span class="sig-paren">(</span><em class="sig-param">fd</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.pipe_data_received" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the child process writes data into its stdout or stderr
 pipe.</p>
 <p><em>fd</em> is the integer file descriptor of the pipe.</p>
@@ -778,7 +779,7 @@ pipe.</p>
 
 <dl class="method">
 <dt id="asyncio.SubprocessProtocol.pipe_connection_lost">
-<code class="descclassname">SubprocessProtocol.</code><code class="descname">pipe_connection_lost</code><span class="sig-paren">(</span><em>fd</em>, <em>exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.pipe_connection_lost" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessProtocol.</code><code class="sig-name descname">pipe_connection_lost</code><span class="sig-paren">(</span><em class="sig-param">fd</em>, <em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.pipe_connection_lost" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when one of the pipes communicating with the child process
 is closed.</p>
 <p><em>fd</em> is the integer file descriptor that was closed.</p>
@@ -786,7 +787,7 @@ is closed.</p>
 
 <dl class="method">
 <dt id="asyncio.SubprocessProtocol.process_exited">
-<code class="descclassname">SubprocessProtocol.</code><code class="descname">process_exited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.process_exited" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">SubprocessProtocol.</code><code class="sig-name descname">process_exited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.SubprocessProtocol.process_exited" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Called when the child process has exited.</p>
 </dd></dl>
 
@@ -835,8 +836,8 @@ received data, and close the connection:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last">The <a class="reference internal" href="asyncio-stream.html#asyncio-tcp-echo-server-streams"><span class="std std-ref">TCP echo server using streams</span></a>
+<p class="admonition-title">Zobacz także</p>
+<p>The <a class="reference internal" href="asyncio-stream.html#asyncio-tcp-echo-server-streams"><span class="std std-ref">TCP echo server using streams</span></a>
 example uses the high-level <a class="reference internal" href="asyncio-stream.html#asyncio.start_server" title="asyncio.start_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.start_server()</span></code></a> function.</p>
 </div>
 </div>
@@ -888,8 +889,8 @@ data, and waits until the connection is closed:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last">The <a class="reference internal" href="asyncio-stream.html#asyncio-tcp-echo-client-streams"><span class="std std-ref">TCP echo client using streams</span></a>
+<p class="admonition-title">Zobacz także</p>
+<p>The <a class="reference internal" href="asyncio-stream.html#asyncio-tcp-echo-client-streams"><span class="std std-ref">TCP echo client using streams</span></a>
 example uses the high-level <a class="reference internal" href="asyncio-stream.html#asyncio.open_connection" title="asyncio.open_connection"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.open_connection()</span></code></a> function.</p>
 </div>
 </div>
@@ -1043,10 +1044,10 @@ method, sends data and closes the transport when it receives the answer:</p>
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
+<p class="admonition-title">Zobacz także</p>
 <p>The <a class="reference internal" href="asyncio-eventloop.html#asyncio-example-watch-fd"><span class="std std-ref">watch a file descriptor for read events</span></a> example uses the low-level
 <a class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_reader" title="asyncio.loop.add_reader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_reader()</span></code></a> method to register an FD.</p>
-<p class="last">The <a class="reference internal" href="asyncio-stream.html#asyncio-example-create-connection-streams"><span class="std std-ref">register an open socket to wait for data using streams</span></a> example uses high-level streams
+<p>The <a class="reference internal" href="asyncio-stream.html#asyncio-example-create-connection-streams"><span class="std std-ref">register an open socket to wait for data using streams</span></a> example uses high-level streams
 created by the <a class="reference internal" href="asyncio-stream.html#asyncio.open_connection" title="asyncio.open_connection"><code class="xref py py-func docutils literal notranslate"><span class="pre">open_connection()</span></code></a> function in a coroutine.</p>
 </div>
 </div>
@@ -1112,7 +1113,7 @@ written using high-level APIs.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Transports and Protocols</a><ul>
 <li><a class="reference internal" href="#transports">Transports</a><ul>
@@ -1157,7 +1158,7 @@ written using high-level APIs.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/asyncio-protocol.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/asyncio-protocol.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -1189,12 +1190,12 @@ written using high-level APIs.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="ipc.html" >Networking and Interprocess Communication</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="asyncio.html" ><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> — Asynchronous I/O</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="asyncio.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> — Asynchronous I/O</a> &#187;</li>
     <li class="right">
         
 
@@ -1225,7 +1226,7 @@ written using high-level APIs.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

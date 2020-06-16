@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Instalacja modułów Pythona &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Instalacja modułów Pythona &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
     <li class="right">
@@ -101,51 +100,48 @@
             
   <div class="section" id="installing-python-modules">
 <span id="installing-index"></span><h1>Instalacja modułów Pythona<a class="headerlink" href="#installing-python-modules" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:distutils-sig&#37;&#52;&#48;python&#46;org">distutils-sig<span>&#64;</span>python<span>&#46;</span>org</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Email</dt>
+<dd class="field-odd"><p><a class="reference external" href="mailto:distutils-sig&#37;&#52;&#48;python&#46;org">distutils-sig<span>&#64;</span>python<span>&#46;</span>org</a></p>
+</dd>
+</dl>
 <p>Python, jako popularny projekt open source, cieszy się aktywnym wsparciem społeczności współtwórców i użytkowników, którzy udostępniają tworzone przez siebie oprogramowanie innym deweloperom Pythona w ramach licencji open source.</p>
 <p>Dzięki temu użytkownicy Pythpa mogą efektywnie korzystać się i współpracować korzystając z rozwiązań stworzonych wcześniej w odpowiedzi na popularne problemy (a czasami bardzo rzadkie!), oraz udostępniać własne rozwiązania całej społeczności.</p>
 <p>Ta część przewodnika dotyczy procesu instalacji. O tworzeniu i dzieleniu się własnymi projektami w Pythonie przeczytasz więcej w <a class="reference internal" href="../distributing/index.html#distributing-index"><span class="std std-ref">Przewodniku dystrybucji</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">Użytkownicy związani z korporacjami i innymi instytucjami powinni zwrócić uwagę, że wiele organizacji ma własne zasady dotyczące korzystania z oprogramowania i udziału w projektach open source. Należy brać takie zasady pod uwagę korzystając z narzędzi instalacyjnych i dystrybucyjnych Pythona.</p>
+<p class="admonition-title">Informacja</p>
+<p>Użytkownicy związani z korporacjami i innymi instytucjami powinni zwrócić uwagę, że wiele organizacji ma własne zasady dotyczące korzystania z oprogramowania i udziału w projektach open source. Należy brać takie zasady pod uwagę korzystając z narzędzi instalacyjnych i dystrybucyjnych Pythona.</p>
 </div>
 <div class="section" id="key-terms">
 <h2>Główne pojęcia<a class="headerlink" href="#key-terms" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">pip</span></code> jest preferowanym instalatorem. Od wersji Pythona 3.4 jest domyślnie dołączony do instalatorów binarnych.</li>
-<li><em>Środowisko wirtualne</em> jest częściowo wyizolowanym środowiskiem Pythona instalowanym na potrzeby poszczególnych aplikacji a nie całego sytemu.</li>
-<li><code class="docutils literal notranslate"><span class="pre">venv</span></code> jest strandardowym narzędziem do tworzenia środowisk wirtualnych. Jest częścią Pythona od wersji 3.3, a od 3.4 domyślnie instaluje <code class="docutils literal notranslate"><span class="pre">pip</span></code> we wszystkich tworzonych środowiskach wirtualnych.</li>
-<li><code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> to zewnętrzne (i starsze) rozwiązania alternatywne wobec <code class="docutils literal notranslate"><span class="pre">venv</span></code>. Pozwala korzystać ze środowisk wirtualnych w wesjach Pythona wcześniejszych niż 3.4, które albo nie zapewniają <code class="docutils literal notranslate"><span class="pre">venv</span></code>, albo nie są w stanie automatycznie zainstalować <code class="docutils literal notranslate"><span class="pre">pip</span></code> w tworzonych środowiskach.</li>
-<li>The <a class="reference external" href="https://pypi.org">Python Packaging Index</a> is a public
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> jest preferowanym instalatorem. Od wersji Pythona 3.4 jest domyślnie dołączony do instalatorów binarnych.</p></li>
+<li><p><em>Środowisko wirtualne</em> jest częściowo wyizolowanym środowiskiem Pythona instalowanym na potrzeby poszczególnych aplikacji a nie całego sytemu.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venv</span></code> jest strandardowym narzędziem do tworzenia środowisk wirtualnych. Jest częścią Pythona od wersji 3.3, a od 3.4 domyślnie instaluje <code class="docutils literal notranslate"><span class="pre">pip</span></code> we wszystkich tworzonych środowiskach wirtualnych.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> to zewnętrzne (i starsze) rozwiązania alternatywne wobec <code class="docutils literal notranslate"><span class="pre">venv</span></code>. Pozwala korzystać ze środowisk wirtualnych w wesjach Pythona wcześniejszych niż 3.4, które albo nie zapewniają <code class="docutils literal notranslate"><span class="pre">venv</span></code>, albo nie są w stanie automatycznie zainstalować <code class="docutils literal notranslate"><span class="pre">pip</span></code> w tworzonych środowiskach.</p></li>
+<li><p>The <a class="reference external" href="https://pypi.org">Python Packaging Index</a> is a public
 repository of open source licensed packages made available for use by
-other Python users.</li>
-<li>the <a class="reference external" href="https://www.pypa.io/">Python Packaging Authority</a> is the group of
+other Python users.</p></li>
+<li><p>the <a class="reference external" href="https://www.pypa.io/">Python Packaging Authority</a> is the group of
 developers and documentation authors responsible for the maintenance and
 evolution of the standard packaging tools and the associated metadata and
 file format standards. They maintain a variety of tools, documentation,
 and issue trackers on both <a class="reference external" href="https://github.com/pypa">GitHub</a> and
-<a class="reference external" href="https://bitbucket.org/pypa/">Bitbucket</a>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">distutils</span></code> is the original build and distribution system first added to
+<a class="reference external" href="https://bitbucket.org/pypa/">Bitbucket</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distutils</span></code> is the original build and distribution system first added to
 the Python standard library in 1998. While direct use of <code class="docutils literal notranslate"><span class="pre">distutils</span></code> is
 being phased out, it still laid the foundation for the current packaging
 and distribution infrastructure, and it not only remains part of the
 standard library, but its name lives on in other ways (such as the name
 of the mailing list used to coordinate Python packaging standards
-development).</li>
+development).</p></li>
 </ul>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.5: </span>The use of <code class="docutils literal notranslate"><span class="pre">venv</span></code> is now recommended for creating virtual environments.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.5: </span>The use of <code class="docutils literal notranslate"><span class="pre">venv</span></code> is now recommended for creating virtual environments.</p>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><a class="reference external" href="https://packaging.python.org/installing/#creating-virtual-environments">Python Packaging User Guide: Creating and using virtual environments</a></p>
+<p class="admonition-title">Zobacz także</p>
+<p><a class="reference external" href="https://packaging.python.org/installing/#creating-virtual-environments">Python Packaging User Guide: Creating and using virtual environments</a></p>
 </div>
 </div>
 <div class="section" id="basic-usage">
@@ -158,10 +154,10 @@ dependencies from the Python Packaging Index:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
+<p class="admonition-title">Informacja</p>
 <p>For POSIX users (including Mac OS X and Linux users), the examples in
 this guide assume the use of a <a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>.</p>
-<p class="last">For Windows users, the examples in this guide assume that the option to
+<p>For Windows users, the examples in this guide assume that the option to
 adjust the system PATH environment variable was selected when installing
 Python.</p>
 </div>
@@ -185,8 +181,8 @@ found in the <a class="reference external" href="https://packaging.python.org">P
 Installing packages into an active virtual environment uses the commands shown
 above.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><a class="reference external" href="https://packaging.python.org/installing/">Python Packaging User Guide: Installing Python Distribution Packages</a></p>
+<p class="admonition-title">Zobacz także</p>
+<p><a class="reference external" href="https://packaging.python.org/installing/">Python Packaging User Guide: Installing Python Distribution Packages</a></p>
 </div>
 </div>
 <div class="section" id="how-do-i">
@@ -198,8 +194,8 @@ above.</p>
 <code class="docutils literal notranslate"><span class="pre">pip</span></code> needs to be „bootstrapped” as described in the Python Packaging
 User Guide.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><a class="reference external" href="https://packaging.python.org/installing/#requirements-for-installing-packages">Python Packaging User Guide: Requirements for Installing Packages</a></p>
+<p class="admonition-title">Zobacz także</p>
+<p><a class="reference external" href="https://packaging.python.org/installing/#requirements-for-installing-packages">Python Packaging User Guide: Requirements for Installing Packages</a></p>
 </div>
 </div>
 <div class="section" id="install-packages-just-for-the-current-user">
@@ -215,8 +211,8 @@ time, it will often be easier for users to install these packages by
 <a class="reference external" href="https://packaging.python.org/science/">other means</a>
 rather than attempting to install them with <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><a class="reference external" href="https://packaging.python.org/science/">Python Packaging User Guide: Installing Scientific Packages</a></p>
+<p class="admonition-title">Zobacz także</p>
+<p><a class="reference external" href="https://packaging.python.org/science/">Python Packaging User Guide: Installing Scientific Packages</a></p>
 </div>
 </div>
 <div class="section" id="work-with-multiple-versions-of-python-installed-in-parallel">
@@ -275,8 +271,8 @@ than needing to build them themselves.</p>
 that are not yet available as pre-built <code class="docutils literal notranslate"><span class="pre">wheel</span></code> files may also help with
 obtaining other binary extensions without needing to build them locally.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<p class="last"><a class="reference external" href="https://packaging.python.org/extensions/">Python Packaging User Guide: Binary Extensions</a></p>
+<p class="admonition-title">Zobacz także</p>
+<p><a class="reference external" href="https://packaging.python.org/extensions/">Python Packaging User Guide: Binary Extensions</a></p>
 </div>
 </div>
 </div>
@@ -288,7 +284,7 @@ obtaining other binary extensions without needing to build them locally.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Instalacja modułów Pythona</a><ul>
 <li><a class="reference internal" href="#key-terms">Główne pojęcia</a></li>
@@ -321,7 +317,7 @@ obtaining other binary extensions without needing to build them locally.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/installing/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/installing/index.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -353,7 +349,7 @@ obtaining other binary extensions without needing to build them locally.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
     <li class="right">
@@ -386,7 +382,7 @@ obtaining other binary extensions without needing to build them locally.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

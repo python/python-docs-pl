@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Instrumenting CPython with DTrace and SystemTap &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>Instrumenting CPython with DTrace and SystemTap &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -102,24 +101,22 @@
             
   <div class="section" id="instrumenting-cpython-with-dtrace-and-systemtap">
 <span id="instrumentation"></span><h1>Instrumenting CPython with DTrace and SystemTap<a class="headerlink" href="#instrumenting-cpython-with-dtrace-and-systemtap" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">David Malcolm</td>
-</tr>
-<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">Łukasz Langa</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">author</dt>
+<dd class="field-odd"><p>David Malcolm</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>Łukasz Langa</p>
+</dd>
+</dl>
 <p>DTrace and SystemTap are monitoring tools, each providing a way to inspect
 what the processes on a computer system are doing.  They both use
 domain-specific languages allowing a user to write scripts which:</p>
 <blockquote>
 <div><ul class="simple">
-<li>filter which processes are to be observed</li>
-<li>gather data from the processes of interest</li>
-<li>generate reports on the data</li>
+<li><p>filter which processes are to be observed</p></li>
+<li><p>gather data from the processes of interest</p></li>
+<li><p>generate reports on the data</p></li>
 </ul>
 </div></blockquote>
 <p>As of Python 3.6, CPython can be built with embedded „markers”, also
@@ -328,9 +325,9 @@ probe process(&quot;python&quot;).mark(&quot;function__return&quot;) {
 <p>where the columns are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>time in microseconds since start of script</li>
-<li>name of executable</li>
-<li>PID of process</li>
+<li><p>time in microseconds since start of script</p></li>
+<li><p>name of executable</p></li>
+<li><p>PID of process</p></li>
 </ul>
 </div></blockquote>
 <p>and the remainder indicates the call/return hierarchy as the script executes.</p>
@@ -350,7 +347,7 @@ example, this line from the above example:</p>
 <h2>Available static markers<a class="headerlink" href="#available-static-markers" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="function">
 <dt id="c.function__entry">
-<code class="descname">function__entry</code><span class="sig-paren">(</span>str<em>&nbsp;filename</em>, str<em>&nbsp;funcname</em>, int<em>&nbsp;lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.function__entry" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">function__entry</code><span class="sig-paren">(</span>str<em> filename</em>, str<em> funcname</em>, int<em> lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.function__entry" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This marker indicates that execution of a Python function has begun.
 It is only triggered for pure-Python (bytecode) functions.</p>
 <p>The filename, function name, and line number are provided back to the
@@ -358,17 +355,17 @@ tracing script as positional arguments, which must be accessed using
 <code class="docutils literal notranslate"><span class="pre">$arg1</span></code>, <code class="docutils literal notranslate"><span class="pre">$arg2</span></code>, <code class="docutils literal notranslate"><span class="pre">$arg3</span></code>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">$arg1</span></code> : <code class="docutils literal notranslate"><span class="pre">(const</span> <span class="pre">char</span> <span class="pre">*)</span></code> filename, accessible using <code class="docutils literal notranslate"><span class="pre">user_string($arg1)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">$arg2</span></code> : <code class="docutils literal notranslate"><span class="pre">(const</span> <span class="pre">char</span> <span class="pre">*)</span></code> function name, accessible using
-<code class="docutils literal notranslate"><span class="pre">user_string($arg2)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">$arg3</span></code> : <code class="docutils literal notranslate"><span class="pre">int</span></code> line number</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$arg1</span></code> : <code class="docutils literal notranslate"><span class="pre">(const</span> <span class="pre">char</span> <span class="pre">*)</span></code> filename, accessible using <code class="docutils literal notranslate"><span class="pre">user_string($arg1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$arg2</span></code> : <code class="docutils literal notranslate"><span class="pre">(const</span> <span class="pre">char</span> <span class="pre">*)</span></code> function name, accessible using
+<code class="docutils literal notranslate"><span class="pre">user_string($arg2)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$arg3</span></code> : <code class="docutils literal notranslate"><span class="pre">int</span></code> line number</p></li>
 </ul>
 </div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.function__return">
-<code class="descname">function__return</code><span class="sig-paren">(</span>str<em>&nbsp;filename</em>, str<em>&nbsp;funcname</em>, int<em>&nbsp;lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.function__return" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">function__return</code><span class="sig-paren">(</span>str<em> filename</em>, str<em> funcname</em>, int<em> lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.function__return" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This marker is the converse of <a class="reference internal" href="#c.function__entry" title="function__entry"><code class="xref c c-func docutils literal notranslate"><span class="pre">function__entry()</span></code></a>, and indicates that
 execution of a Python function has ended (either via <code class="docutils literal notranslate"><span class="pre">return</span></code>, or via an
 exception).  It is only triggered for pure-Python (bytecode) functions.</p>
@@ -377,7 +374,7 @@ exception).  It is only triggered for pure-Python (bytecode) functions.</p>
 
 <dl class="function">
 <dt id="c.line">
-<code class="descname">line</code><span class="sig-paren">(</span>str<em>&nbsp;filename</em>, str<em>&nbsp;funcname</em>, int<em>&nbsp;lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.line" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">line</code><span class="sig-paren">(</span>str<em> filename</em>, str<em> funcname</em>, int<em> lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#c.line" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This marker indicates a Python line is about to be executed.  It is
 the equivalent of line-by-line tracing with a Python profiler.  It is
 not triggered within C functions.</p>
@@ -386,47 +383,47 @@ not triggered within C functions.</p>
 
 <dl class="function">
 <dt id="c.gc__start">
-<code class="descname">gc__start</code><span class="sig-paren">(</span>int<em>&nbsp;generation</em><span class="sig-paren">)</span><a class="headerlink" href="#c.gc__start" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">gc__start</code><span class="sig-paren">(</span>int<em> generation</em><span class="sig-paren">)</span><a class="headerlink" href="#c.gc__start" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fires when the Python interpreter starts a garbage collection cycle.
 <code class="docutils literal notranslate"><span class="pre">arg0</span></code> is the generation to scan, like <a class="reference internal" href="../library/gc.html#gc.collect" title="gc.collect"><code class="xref py py-func docutils literal notranslate"><span class="pre">gc.collect()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.gc__done">
-<code class="descname">gc__done</code><span class="sig-paren">(</span>long<em>&nbsp;collected</em><span class="sig-paren">)</span><a class="headerlink" href="#c.gc__done" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">gc__done</code><span class="sig-paren">(</span>long<em> collected</em><span class="sig-paren">)</span><a class="headerlink" href="#c.gc__done" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fires when the Python interpreter finishes a garbage collection
 cycle. <code class="docutils literal notranslate"><span class="pre">arg0</span></code> is the number of collected objects.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.import__find__load__start">
-<code class="descname">import__find__load__start</code><span class="sig-paren">(</span>str<em>&nbsp;modulename</em><span class="sig-paren">)</span><a class="headerlink" href="#c.import__find__load__start" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">import__find__load__start</code><span class="sig-paren">(</span>str<em> modulename</em><span class="sig-paren">)</span><a class="headerlink" href="#c.import__find__load__start" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fires before <a class="reference internal" href="../library/importlib.html#module-importlib" title="importlib: The implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> attempts to find and load the module.
 <code class="docutils literal notranslate"><span class="pre">arg0</span></code> is the module name.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.import__find__load__done">
-<code class="descname">import__find__load__done</code><span class="sig-paren">(</span>str<em>&nbsp;modulename</em>, int<em>&nbsp;found</em><span class="sig-paren">)</span><a class="headerlink" href="#c.import__find__load__done" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">import__find__load__done</code><span class="sig-paren">(</span>str<em> modulename</em>, int<em> found</em><span class="sig-paren">)</span><a class="headerlink" href="#c.import__find__load__done" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fires after <a class="reference internal" href="../library/importlib.html#module-importlib" title="importlib: The implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a>’s find_and_load function is called.
 <code class="docutils literal notranslate"><span class="pre">arg0</span></code> is the module name, <code class="docutils literal notranslate"><span class="pre">arg1</span></code> indicates if module was
 successfully loaded.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.7.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.7.</span></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.audit">
-<code class="descname">audit</code><span class="sig-paren">(</span>str<em>&nbsp;event</em>, void<em>&nbsp;*tuple</em><span class="sig-paren">)</span><a class="headerlink" href="#c.audit" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">audit</code><span class="sig-paren">(</span>str<em> event</em>, void<em> *tuple</em><span class="sig-paren">)</span><a class="headerlink" href="#c.audit" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fires when <a class="reference internal" href="../library/sys.html#sys.audit" title="sys.audit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.audit()</span></code></a> or <a class="reference internal" href="../c-api/sys.html#c.PySys_Audit" title="PySys_Audit"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_Audit()</span></code></a> is called.
 <code class="docutils literal notranslate"><span class="pre">arg0</span></code> is the event name as C string, <code class="docutils literal notranslate"><span class="pre">arg1</span></code> is a <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a>
 pointer to a tuple object.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.8.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.8.</span></p>
 </div>
 </dd></dl>
 
@@ -462,14 +459,14 @@ probe python.function.return = process(&quot;python&quot;).mark(&quot;function__
 available:</p>
 <dl class="function">
 <dt id="c.python.function.entry">
-<code class="descname">python.function.entry</code><span class="sig-paren">(</span>str<em>&nbsp;filename</em>, str<em>&nbsp;funcname</em>, int<em>&nbsp;lineno</em>, frameptr<span class="sig-paren">)</span><a class="headerlink" href="#c.python.function.entry" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">python.function.entry</code><span class="sig-paren">(</span>str<em> filename</em>, str<em> funcname</em>, int<em> lineno</em>, frameptr<span class="sig-paren">)</span><a class="headerlink" href="#c.python.function.entry" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This probe point indicates that execution of a Python function has begun.
 It is only triggered for pure-Python (bytecode) functions.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="c.python.function.return">
-<code class="descname">python.function.return</code><span class="sig-paren">(</span>str<em>&nbsp;filename</em>, str<em>&nbsp;funcname</em>, int<em>&nbsp;lineno</em>, frameptr<span class="sig-paren">)</span><a class="headerlink" href="#c.python.function.return" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">python.function.return</code><span class="sig-paren">(</span>str<em> filename</em>, str<em> funcname</em>, int<em> lineno</em>, frameptr<span class="sig-paren">)</span><a class="headerlink" href="#c.python.function.return" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This probe point is the converse of <a class="reference internal" href="#c.python.function.return" title="python.function.return"><code class="xref c c-func docutils literal notranslate"><span class="pre">python.function.return()</span></code></a>, and
 indicates that execution of a Python function has ended (either via
 <code class="docutils literal notranslate"><span class="pre">return</span></code>, or via an exception).  It is only triggered for pure-Python
@@ -527,7 +524,7 @@ probe timer.ms(1000) {
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Instrumenting CPython with DTrace and SystemTap</a><ul>
 <li><a class="reference internal" href="#enabling-the-static-markers">Enabling the static markers</a></li>
@@ -551,7 +548,7 @@ probe timer.ms(1000) {
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/howto/instrumentation.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/howto/instrumentation.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -583,7 +580,7 @@ probe timer.ms(1000) {
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Pythonowe „Jak to zrobić?”</a> &#187;</li>
@@ -617,7 +614,7 @@ probe timer.ms(1000) {
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>

@@ -1,12 +1,10 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>decimal — Decimal fixed point and floating point arithmetic &#8212; Python 3.8.3 - dokumentacja</title>
+    <meta charset="utf-8" />
+    <title>decimal — Decimal fixed point and floating point arithmetic &#8212; Python 3.9.0b3 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -14,12 +12,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Szukaj pośród Python 3.8.3 - dokumentacja"
+          title="Szukaj pośród Python 3.9.0b3 - dokumentacja"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="O tych dokumentach" href="../about.html" />
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -73,7 +72,7 @@
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -103,37 +102,33 @@
             
   <div class="section" id="module-decimal">
 <span id="decimal-decimal-fixed-point-and-floating-point-arithmetic"></span><h1><a class="reference internal" href="#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code></a> — Decimal fixed point and floating point arithmetic<a class="headerlink" href="#module-decimal" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.8/Lib/decimal.py">Lib/decimal.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.9/Lib/decimal.py">Lib/decimal.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code></a> module provides support for fast correctly-rounded
 decimal floating point arithmetic. It offers several advantages over the
 <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> datatype:</p>
 <ul>
-<li><p class="first">Decimal „is based on a floating-point model which was designed with people
+<li><p>Decimal „is based on a floating-point model which was designed with people
 in mind, and necessarily has a paramount guiding principle – computers must
 provide an arithmetic that works in the same way as the arithmetic that
-people learn at school.” – excerpt from the decimal arithmetic specification.</p>
-</li>
-<li><p class="first">Decimal numbers can be represented exactly.  In contrast, numbers like
+people learn at school.” – excerpt from the decimal arithmetic specification.</p></li>
+<li><p>Decimal numbers can be represented exactly.  In contrast, numbers like
 <code class="xref py py-const docutils literal notranslate"><span class="pre">1.1</span></code> and <code class="xref py py-const docutils literal notranslate"><span class="pre">2.2</span></code> do not have exact representations in binary
 floating point. End users typically would not expect <code class="docutils literal notranslate"><span class="pre">1.1</span> <span class="pre">+</span> <span class="pre">2.2</span></code> to display
-as <code class="xref py py-const docutils literal notranslate"><span class="pre">3.3000000000000003</span></code> as it does with binary floating point.</p>
-</li>
-<li><p class="first">The exactness carries over into arithmetic.  In decimal floating point, <code class="docutils literal notranslate"><span class="pre">0.1</span>
+as <code class="xref py py-const docutils literal notranslate"><span class="pre">3.3000000000000003</span></code> as it does with binary floating point.</p></li>
+<li><p>The exactness carries over into arithmetic.  In decimal floating point, <code class="docutils literal notranslate"><span class="pre">0.1</span>
 <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">-</span> <span class="pre">0.3</span></code> is exactly equal to zero.  In binary floating point, the result
 is <code class="xref py py-const docutils literal notranslate"><span class="pre">5.5511151231257827e-017</span></code>.  While near to zero, the differences
 prevent reliable equality testing and differences can accumulate. For this
 reason, decimal is preferred in accounting applications which have strict
-equality invariants.</p>
-</li>
-<li><p class="first">The decimal module incorporates a notion of significant places so that <code class="docutils literal notranslate"><span class="pre">1.30</span>
+equality invariants.</p></li>
+<li><p>The decimal module incorporates a notion of significant places so that <code class="docutils literal notranslate"><span class="pre">1.30</span>
 <span class="pre">+</span> <span class="pre">1.20</span></code> is <code class="xref py py-const docutils literal notranslate"><span class="pre">2.50</span></code>.  The trailing zero is kept to indicate significance.
 This is the customary presentation for monetary applications. For
 multiplication, the „schoolbook” approach uses all the figures in the
 multiplicands.  For instance, <code class="docutils literal notranslate"><span class="pre">1.3</span> <span class="pre">*</span> <span class="pre">1.2</span></code> gives <code class="xref py py-const docutils literal notranslate"><span class="pre">1.56</span></code> while <code class="docutils literal notranslate"><span class="pre">1.30</span> <span class="pre">*</span>
-<span class="pre">1.20</span></code> gives <code class="xref py py-const docutils literal notranslate"><span class="pre">1.5600</span></code>.</p>
-</li>
-<li><p class="first">Unlike hardware based binary floating point, the decimal module has a user
+<span class="pre">1.20</span></code> gives <code class="xref py py-const docutils literal notranslate"><span class="pre">1.5600</span></code>.</p></li>
+<li><p>Unlike hardware based binary floating point, the decimal module has a user
 alterable precision (defaulting to 28 places) which can be as large as needed for
 a given problem:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
@@ -146,18 +141,16 @@ a given problem:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Both binary and decimal floating point are implemented in terms of published
+<li><p>Both binary and decimal floating point are implemented in terms of published
 standards.  While the built-in float type exposes only a modest portion of its
 capabilities, the decimal module exposes all required parts of the standard.
 When needed, the programmer has full control over rounding and signal handling.
 This includes an option to enforce exact arithmetic by using exceptions
-to block any inexact operations.</p>
-</li>
-<li><p class="first">The decimal module was designed to support „without prejudice, both exact
+to block any inexact operations.</p></li>
+<li><p>The decimal module was designed to support „without prejudice, both exact
 unrounded decimal arithmetic (sometimes called fixed-point arithmetic)
 and rounded floating-point arithmetic.”  – excerpt from the decimal
-arithmetic specification.</p>
-</li>
+arithmetic specification.</p></li>
 </ul>
 <p>The module design is centered around three concepts:  the decimal number, the
 context for arithmetic, and signals.</p>
@@ -183,10 +176,10 @@ encountered, its flag is set to one, then, if the trap enabler is
 set to one, an exception is raised.  Flags are sticky, so the user needs to
 reset them before monitoring a calculation.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">Zobacz także</p>
-<ul class="last simple">
-<li>IBM’s General Decimal Arithmetic Specification, <a class="reference external" href="http://speleotrove.com/decimal/decarith.html">The General Decimal Arithmetic
-Specification</a>.</li>
+<p class="admonition-title">Zobacz także</p>
+<ul class="simple">
+<li><p>IBM’s General Decimal Arithmetic Specification, <a class="reference external" href="http://speleotrove.com/decimal/decarith.html">The General Decimal Arithmetic
+Specification</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="quick-start-tutorial">
@@ -245,12 +238,12 @@ an exception:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 <p>The significance of a new Decimal is determined solely by the number of digits
 input.  Context precision and rounding only come into play during arithmetic
 operations.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;3.0&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.1415926535&#39;</span><span class="p">)</span>
@@ -271,11 +264,11 @@ a decimal raises <a class="reference internal" href="#decimal.InvalidOperation" 
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3.</span></p>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3.</span></p>
 </div>
 <p>Decimals interact well with much of the rest of Python.  Here is a small decimal
 floating point flying circus:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">Decimal</span><span class="p">,</span> <span class="s1">&#39;1.34 1.87 3.45 2.35 1.00 0.03 9.25&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">Decimal</span><span class="p">,</span> <span class="s1">&#39;1.34 1.87 3.45 2.35 1.00 0.03 9.25&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="go">Decimal(&#39;9.25&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -333,7 +326,7 @@ function.</p>
 use standard contexts, <a class="reference internal" href="#decimal.BasicContext" title="decimal.BasicContext"><code class="xref py py-const docutils literal notranslate"><span class="pre">BasicContext</span></code></a> and <a class="reference internal" href="#decimal.ExtendedContext" title="decimal.ExtendedContext"><code class="xref py py-const docutils literal notranslate"><span class="pre">ExtendedContext</span></code></a>. The
 former is especially useful for debugging because many of the traps are
 enabled:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myothercontext</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_DOWN</span><span class="p">)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myothercontext</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_DOWN</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">myothercontext</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="go">Decimal(&#39;0.142857142857142857142857142857142857142857142857142857142857&#39;)</span>
@@ -373,7 +366,7 @@ rounded (digits beyond the context precision were thrown away) and that the
 result is inexact (some of the discarded digits were non-zero).</p>
 <p>Individual traps are set using the dictionary in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">traps</span></code> field of a
 context:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">ExtendedContext</span><span class="p">)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">ExtendedContext</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">Decimal(&#39;Infinity&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">DivisionByZero</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -394,7 +387,7 @@ types.</p>
 <span id="decimal-decimal"></span><h2>Decimal objects<a class="headerlink" href="#decimal-objects" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="class">
 <dt id="decimal.Decimal">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Decimal</code><span class="sig-paren">(</span><em>value=&quot;0&quot;</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Decimal</code><span class="sig-paren">(</span><em class="sig-param">value=&quot;0&quot;</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Construct a new <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> object based from <em>value</em>.</p>
 <p><em>value</em> can be an integer, string, tuple, <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, or another <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a>
 object. If no <em>value</em> is given, returns <code class="docutils literal notranslate"><span class="pre">Decimal('0')</span></code>.  If <em>value</em> is a
@@ -435,15 +428,15 @@ is raised; otherwise, the constructor returns a new Decimal with the value of
 <code class="xref py py-const docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <p>Once constructed, <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> objects are immutable.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>The argument to the constructor is now permitted to be a <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>The argument to the constructor is now permitted to be a <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>
 instance.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span><a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> arguments raise an exception if the <a class="reference internal" href="#decimal.FloatOperation" title="decimal.FloatOperation"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FloatOperation</span></code></a>
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span><a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> arguments raise an exception if the <a class="reference internal" href="#decimal.FloatOperation" title="decimal.FloatOperation"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FloatOperation</span></code></a>
 trap is set. By default the trap is off.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.6: </span>Underscores are allowed for grouping, as with integral and floating-point
+<p><span class="versionmodified changed">Zmienione w wersji 3.6: </span>Underscores are allowed for grouping, as with integral and floating-point
 literals in code.</p>
 </div>
 <p>Decimal floating point objects share many properties with the other built-in
@@ -482,14 +475,14 @@ use Python’s comparison operators to compare a <a class="reference internal" h
 instance <code class="docutils literal notranslate"><span class="pre">x</span></code> with another number <code class="docutils literal notranslate"><span class="pre">y</span></code>.  This avoids confusing results
 when doing equality comparisons between numbers of different types.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.2: </span>Mixed-type comparisons between <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instances and other
+<p><span class="versionmodified changed">Zmienione w wersji 3.2: </span>Mixed-type comparisons between <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instances and other
 numeric types are now fully supported.</p>
 </div>
 <p>In addition to the standard numeric properties, decimal floating point
 objects also have a number of specialized methods:</p>
 <dl class="method">
 <dt id="decimal.Decimal.adjusted">
-<code class="descname">adjusted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.adjusted" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">adjusted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.adjusted" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the adjusted exponent after shifting out the coefficient’s
 rightmost digits until only the lead digit remains:
 <code class="docutils literal notranslate"><span class="pre">Decimal('321e+5').adjusted()</span></code> returns seven.  Used for determining the
@@ -498,7 +491,7 @@ position of the most significant digit with respect to the decimal point.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.as_integer_ratio">
-<code class="descname">as_integer_ratio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.as_integer_ratio" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">as_integer_ratio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.as_integer_ratio" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a pair <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">d)</span></code> of integers that represent the given
 <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance as a fraction, in lowest terms and
 with a positive denominator:</p>
@@ -511,18 +504,18 @@ on NaNs.</p>
 </dd></dl>
 
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.6.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.6.</span></p>
 </div>
 <dl class="method">
 <dt id="decimal.Decimal.as_tuple">
-<code class="descname">as_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.as_tuple" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">as_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.as_tuple" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> representation of the number:
 <code class="docutils literal notranslate"><span class="pre">DecimalTuple(sign,</span> <span class="pre">digits,</span> <span class="pre">exponent)</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.canonical">
-<code class="descname">canonical</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">canonical</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the canonical encoding of the argument.  Currently, the encoding of
 a <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance is always canonical, so this operation returns
 its argument unchanged.</p>
@@ -530,7 +523,7 @@ its argument unchanged.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.compare">
-<code class="descname">compare</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compare the values of two Decimal instances.  <a class="reference internal" href="#decimal.Decimal.compare" title="decimal.Decimal.compare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compare()</span></code></a> returns a
 Decimal instance, and if either operand is a NaN then the result is a
 NaN:</p>
@@ -544,7 +537,7 @@ NaN:</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.compare_signal">
-<code class="descname">compare_signal</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_signal</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This operation is identical to the <a class="reference internal" href="#decimal.Decimal.compare" title="decimal.Decimal.compare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compare()</span></code></a> method, except that all
 NaNs signal.  That is, if neither operand is a signaling NaN then any
 quiet NaN operand is treated as though it were a signaling NaN.</p>
@@ -552,7 +545,7 @@ quiet NaN operand is treated as though it were a signaling NaN.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.compare_total">
-<code class="descname">compare_total</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_total" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_total</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_total" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compare two operands using their abstract representation rather than their
 numerical value.  Similar to the <a class="reference internal" href="#decimal.Decimal.compare" title="decimal.Decimal.compare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compare()</span></code></a> method, but the result
 gives a total ordering on <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instances.  Two
@@ -575,7 +568,7 @@ InvalidOperation if the second operand cannot be converted exactly.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.compare_total_mag">
-<code class="descname">compare_total_mag</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_total_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_total_mag</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.compare_total_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compare two operands using their abstract representation rather than their
 value as in <a class="reference internal" href="#decimal.Decimal.compare_total" title="decimal.Decimal.compare_total"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compare_total()</span></code></a>, but ignoring the sign of each operand.
 <code class="docutils literal notranslate"><span class="pre">x.compare_total_mag(y)</span></code> is equivalent to
@@ -587,14 +580,14 @@ InvalidOperation if the second operand cannot be converted exactly.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.conjugate">
-<code class="descname">conjugate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.conjugate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">conjugate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.conjugate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Just returns self, this method is only to comply with the Decimal
 Specification.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.copy_abs">
-<code class="descname">copy_abs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_abs" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_abs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_abs" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the absolute value of the argument.  This operation is unaffected
 by the context and is quiet: no flags are changed and no rounding is
 performed.</p>
@@ -602,14 +595,14 @@ performed.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.copy_negate">
-<code class="descname">copy_negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_negate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_negate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the negation of the argument.  This operation is unaffected by the
 context and is quiet: no flags are changed and no rounding is performed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.copy_sign">
-<code class="descname">copy_sign</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_sign" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_sign</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.copy_sign" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a copy of the first operand with the sign set to be the same as the
 sign of the second operand.  For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy_sign</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;-1.5&#39;</span><span class="p">))</span>
@@ -623,7 +616,7 @@ InvalidOperation if the second operand cannot be converted exactly.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.exp">
-<code class="descname">exp</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.exp" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">exp</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.exp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the value of the (natural) exponential function <code class="docutils literal notranslate"><span class="pre">e**x</span></code> at the
 given number.  The result is correctly rounded using the
 <a class="reference internal" href="#decimal.ROUND_HALF_EVEN" title="decimal.ROUND_HALF_EVEN"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_EVEN</span></code></a> rounding mode.</p>
@@ -637,7 +630,7 @@ given number.  The result is correctly rounded using the
 
 <dl class="method">
 <dt id="decimal.Decimal.from_float">
-<code class="descname">from_float</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.from_float" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">from_float</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.from_float" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Classmethod that converts a float to a decimal number, exactly.</p>
 <p>Note <cite>Decimal.from_float(0.1)</cite> is not the same as <cite>Decimal(«0.1»)</cite>.
 Since 0.1 is not exactly representable in binary floating point, the
@@ -645,11 +638,11 @@ value is stored as the nearest representable value which is
 <cite>0x1.999999999999ap-4</cite>.  That equivalent value in decimal is
 <cite>0.1000000000000000055511151231257827021181583404541015625</cite>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Informacja</p>
-<p class="last">From Python 3.2 onwards, a <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance
+<p class="admonition-title">Informacja</p>
+<p>From Python 3.2 onwards, a <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance
 can also be constructed directly from a <a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>.</p>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="o">.</span><span class="n">from_float</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="o">.</span><span class="n">from_float</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="go">Decimal(&#39;0.1000000000000000055511151231257827021181583404541015625&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="o">.</span><span class="n">from_float</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">))</span>
 <span class="go">Decimal(&#39;NaN&#39;)</span>
@@ -660,13 +653,13 @@ can also be constructed directly from a <a class="reference internal" href="func
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.fma">
-<code class="descname">fma</code><span class="sig-paren">(</span><em>other</em>, <em>third</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.fma" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">fma</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">third</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.fma" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Fused multiply-add.  Return self*other+third with no rounding of the
 intermediate product self*other.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -677,7 +670,7 @@ intermediate product self*other.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_canonical">
-<code class="descname">is_canonical</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_canonical</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is canonical and <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a>
 otherwise.  Currently, a <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance is always canonical, so
 this operation always returns <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
@@ -685,84 +678,84 @@ this operation always returns <a class="reference internal" href="constants.html
 
 <dl class="method">
 <dt id="decimal.Decimal.is_finite">
-<code class="descname">is_finite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_finite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_finite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_finite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a finite number, and
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> if the argument is an infinity or a NaN.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_infinite">
-<code class="descname">is_infinite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_infinite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_infinite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_infinite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is either positive or negative
 infinity and <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_nan">
-<code class="descname">is_nan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_nan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_nan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_nan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a (quiet or signaling) NaN and
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_normal">
-<code class="descname">is_normal</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_normal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_normal</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_normal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a <em>normal</em> finite number.  Return
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> if the argument is zero, subnormal, infinite or a NaN.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_qnan">
-<code class="descname">is_qnan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_qnan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_qnan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_qnan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a quiet NaN, and
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_signed">
-<code class="descname">is_signed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_signed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_signed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_signed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument has a negative sign and
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.  Note that zeros and NaNs can both carry signs.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_snan">
-<code class="descname">is_snan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_snan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_snan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_snan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a signaling NaN and <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a>
 otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_subnormal">
-<code class="descname">is_subnormal</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_subnormal</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is subnormal, and <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a>
 otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.is_zero">
-<code class="descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_zero" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.is_zero" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> if the argument is a (positive or negative) zero and
 <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.ln">
-<code class="descname">ln</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.ln" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">ln</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.ln" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the natural (base e) logarithm of the operand.  The result is
 correctly rounded using the <a class="reference internal" href="#decimal.ROUND_HALF_EVEN" title="decimal.ROUND_HALF_EVEN"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_EVEN</span></code></a> rounding mode.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.log10">
-<code class="descname">log10</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.log10" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">log10</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.log10" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the base ten logarithm of the operand.  The result is correctly
 rounded using the <a class="reference internal" href="#decimal.ROUND_HALF_EVEN" title="decimal.ROUND_HALF_EVEN"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_EVEN</span></code></a> rounding mode.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.logb">
-<code class="descname">logb</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logb</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>For a nonzero number, return the adjusted exponent of its operand as a
 <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> instance.  If the operand is a zero then
 <code class="docutils literal notranslate"><span class="pre">Decimal('-Infinity')</span></code> is returned and the <a class="reference internal" href="#decimal.DivisionByZero" title="decimal.DivisionByZero"><code class="xref py py-const docutils literal notranslate"><span class="pre">DivisionByZero</span></code></a> flag
@@ -772,7 +765,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.logical_and">
-<code class="descname">logical_and</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_and" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_and</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_and" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><a class="reference internal" href="#decimal.Decimal.logical_and" title="decimal.Decimal.logical_and"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logical_and()</span></code></a> is a logical operation which takes two <em>logical
 operands</em> (see <a class="reference internal" href="#logical-operands-label"><span class="std std-ref">Logical operands</span></a>).  The result is the
 digit-wise <code class="docutils literal notranslate"><span class="pre">and</span></code> of the two operands.</p>
@@ -780,14 +773,14 @@ digit-wise <code class="docutils literal notranslate"><span class="pre">and</spa
 
 <dl class="method">
 <dt id="decimal.Decimal.logical_invert">
-<code class="descname">logical_invert</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_invert" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_invert</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_invert" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><a class="reference internal" href="#decimal.Decimal.logical_invert" title="decimal.Decimal.logical_invert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logical_invert()</span></code></a> is a logical operation.  The
 result is the digit-wise inversion of the operand.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.logical_or">
-<code class="descname">logical_or</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_or" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_or</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_or" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><a class="reference internal" href="#decimal.Decimal.logical_or" title="decimal.Decimal.logical_or"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logical_or()</span></code></a> is a logical operation which takes two <em>logical
 operands</em> (see <a class="reference internal" href="#logical-operands-label"><span class="std std-ref">Logical operands</span></a>).  The result is the
 digit-wise <code class="docutils literal notranslate"><span class="pre">or</span></code> of the two operands.</p>
@@ -795,7 +788,7 @@ digit-wise <code class="docutils literal notranslate"><span class="pre">or</span
 
 <dl class="method">
 <dt id="decimal.Decimal.logical_xor">
-<code class="descname">logical_xor</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_xor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_xor</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.logical_xor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p><a class="reference internal" href="#decimal.Decimal.logical_xor" title="decimal.Decimal.logical_xor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logical_xor()</span></code></a> is a logical operation which takes two <em>logical
 operands</em> (see <a class="reference internal" href="#logical-operands-label"><span class="std std-ref">Logical operands</span></a>).  The result is the
 digit-wise exclusive or of the two operands.</p>
@@ -803,7 +796,7 @@ digit-wise exclusive or of the two operands.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.max">
-<code class="descname">max</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.max" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">max</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.max" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Like <code class="docutils literal notranslate"><span class="pre">max(self,</span> <span class="pre">other)</span></code> except that the context rounding rule is applied
 before returning and that <code class="xref py py-const docutils literal notranslate"><span class="pre">NaN</span></code> values are either signaled or
 ignored (depending on the context and whether they are signaling or
@@ -812,14 +805,14 @@ quiet).</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.max_mag">
-<code class="descname">max_mag</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.max_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">max_mag</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.max_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Similar to the <a class="reference internal" href="#decimal.Decimal.max" title="decimal.Decimal.max"><code class="xref py py-meth docutils literal notranslate"><span class="pre">max()</span></code></a> method, but the comparison is done using the
 absolute values of the operands.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.min">
-<code class="descname">min</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.min" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">min</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.min" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Like <code class="docutils literal notranslate"><span class="pre">min(self,</span> <span class="pre">other)</span></code> except that the context rounding rule is applied
 before returning and that <code class="xref py py-const docutils literal notranslate"><span class="pre">NaN</span></code> values are either signaled or
 ignored (depending on the context and whether they are signaling or
@@ -828,14 +821,14 @@ quiet).</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.min_mag">
-<code class="descname">min_mag</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.min_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">min_mag</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.min_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Similar to the <a class="reference internal" href="#decimal.Decimal.min" title="decimal.Decimal.min"><code class="xref py py-meth docutils literal notranslate"><span class="pre">min()</span></code></a> method, but the comparison is done using the
 absolute values of the operands.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.next_minus">
-<code class="descname">next_minus</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_minus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_minus</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_minus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the largest number representable in the given context (or in the
 current thread’s context if no context is given) that is smaller than the
 given operand.</p>
@@ -843,7 +836,7 @@ given operand.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.next_plus">
-<code class="descname">next_plus</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_plus</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the smallest number representable in the given context (or in the
 current thread’s context if no context is given) that is larger than the
 given operand.</p>
@@ -851,7 +844,7 @@ given operand.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.next_toward">
-<code class="descname">next_toward</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_toward" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_toward</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.next_toward" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>If the two operands are unequal, return the number closest to the first
 operand in the direction of the second operand.  If both operands are
 numerically equal, return a copy of the first operand with the sign set to
@@ -860,7 +853,7 @@ be the same as the sign of the second operand.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.normalize">
-<code class="descname">normalize</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.normalize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.normalize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Normalize the number by stripping the rightmost trailing zeros and
 converting any result equal to <code class="xref py py-const docutils literal notranslate"><span class="pre">Decimal('0')</span></code> to
 <code class="xref py py-const docutils literal notranslate"><span class="pre">Decimal('0e0')</span></code>. Used for producing canonical values for attributes
@@ -871,26 +864,26 @@ of an equivalence class. For example, <code class="docutils literal notranslate"
 
 <dl class="method">
 <dt id="decimal.Decimal.number_class">
-<code class="descname">number_class</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.number_class" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">number_class</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.number_class" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a string describing the <em>class</em> of the operand.  The returned value
 is one of the following ten strings.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">&quot;-Infinity&quot;</span></code>, indicating that the operand is negative infinity.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;-Normal&quot;</span></code>, indicating that the operand is a negative normal number.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;-Subnormal&quot;</span></code>, indicating that the operand is negative and subnormal.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;-Zero&quot;</span></code>, indicating that the operand is a negative zero.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;+Zero&quot;</span></code>, indicating that the operand is a positive zero.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;+Subnormal&quot;</span></code>, indicating that the operand is positive and subnormal.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;+Normal&quot;</span></code>, indicating that the operand is a positive normal number.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;+Infinity&quot;</span></code>, indicating that the operand is positive infinity.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;NaN&quot;</span></code>, indicating that the operand is a quiet NaN (Not a Number).</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;sNaN&quot;</span></code>, indicating that the operand is a signaling NaN.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-Infinity&quot;</span></code>, indicating that the operand is negative infinity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-Normal&quot;</span></code>, indicating that the operand is a negative normal number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-Subnormal&quot;</span></code>, indicating that the operand is negative and subnormal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;-Zero&quot;</span></code>, indicating that the operand is a negative zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;+Zero&quot;</span></code>, indicating that the operand is a positive zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;+Subnormal&quot;</span></code>, indicating that the operand is positive and subnormal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;+Normal&quot;</span></code>, indicating that the operand is a positive normal number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;+Infinity&quot;</span></code>, indicating that the operand is positive infinity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;NaN&quot;</span></code>, indicating that the operand is a quiet NaN (Not a Number).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;sNaN&quot;</span></code>, indicating that the operand is a signaling NaN.</p></li>
 </ul>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.quantize">
-<code class="descname">quantize</code><span class="sig-paren">(</span><em>exp</em>, <em>rounding=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.quantize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">quantize</code><span class="sig-paren">(</span><em class="sig-param">exp</em>, <em class="sig-param">rounding=None</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.quantize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a value equal to the first operand after rounding and having the
 exponent of the second operand.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.41421356&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.000&#39;</span><span class="p">))</span>
@@ -915,7 +908,7 @@ the current thread’s context is used.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.radix">
-<code class="descname">radix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.radix" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">radix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.radix" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">Decimal(10)</span></code>, the radix (base) in which the <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a>
 class does all its arithmetic.  Included for compatibility with the
 specification.</p>
@@ -923,7 +916,7 @@ specification.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.remainder_near">
-<code class="descname">remainder_near</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.remainder_near" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">remainder_near</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.remainder_near" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the remainder from dividing <em>self</em> by <em>other</em>.  This differs from
 <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">%</span> <span class="pre">other</span></code> in that the sign of the remainder is chosen so as to
 minimize its absolute value.  More precisely, the return value is
@@ -943,7 +936,7 @@ even one is chosen.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.rotate">
-<code class="descname">rotate</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.rotate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.rotate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the result of rotating the digits of the first operand by an amount
 specified by the second operand.  The second operand must be an integer in
 the range -precision through precision.  The absolute value of the second
@@ -956,7 +949,7 @@ are unchanged.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.same_quantum">
-<code class="descname">same_quantum</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.same_quantum" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">same_quantum</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.same_quantum" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Test whether self and other have the same exponent or whether both are
 <code class="xref py py-const docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <p>This operation is unaffected by context and is quiet: no flags are changed
@@ -966,7 +959,7 @@ InvalidOperation if the second operand cannot be converted exactly.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.scaleb">
-<code class="descname">scaleb</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.scaleb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">scaleb</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.scaleb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the first operand with exponent adjusted by the second.
 Equivalently, return the first operand multiplied by <code class="docutils literal notranslate"><span class="pre">10**other</span></code>.  The
 second operand must be an integer.</p>
@@ -974,7 +967,7 @@ second operand must be an integer.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.shift">
-<code class="descname">shift</code><span class="sig-paren">(</span><em>other</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.shift" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">shift</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.shift" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the result of shifting the digits of the first operand by an amount
 specified by the second operand.  The second operand must be an integer in
 the range -precision through precision.  The absolute value of the second
@@ -986,13 +979,13 @@ exponent of the first operand are unchanged.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.sqrt">
-<code class="descname">sqrt</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.sqrt" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">sqrt</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.sqrt" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the square root of the argument to full precision.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.to_eng_string">
-<code class="descname">to_eng_string</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_eng_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_eng_string</code><span class="sig-paren">(</span><em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_eng_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert to a string, using engineering notation if an exponent is needed.</p>
 <p>Engineering notation has an exponent which is a multiple of 3.  This
 can leave up to 3 digits to the left of the decimal place and may
@@ -1002,14 +995,14 @@ require the addition of either one or two trailing zeros.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.to_integral">
-<code class="descname">to_integral</code><span class="sig-paren">(</span><em>rounding=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_integral</code><span class="sig-paren">(</span><em class="sig-param">rounding=None</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#decimal.Decimal.to_integral_value" title="decimal.Decimal.to_integral_value"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_integral_value()</span></code></a> method.  The <code class="docutils literal notranslate"><span class="pre">to_integral</span></code>
 name has been kept for compatibility with older versions.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Decimal.to_integral_exact">
-<code class="descname">to_integral_exact</code><span class="sig-paren">(</span><em>rounding=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral_exact" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_integral_exact</code><span class="sig-paren">(</span><em class="sig-param">rounding=None</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral_exact" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round to the nearest integer, signaling <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-const docutils literal notranslate"><span class="pre">Inexact</span></code></a> or
 <a class="reference internal" href="#decimal.Rounded" title="decimal.Rounded"><code class="xref py py-const docutils literal notranslate"><span class="pre">Rounded</span></code></a> as appropriate if rounding occurs.  The rounding mode is
 determined by the <code class="docutils literal notranslate"><span class="pre">rounding</span></code> parameter if given, else by the given
@@ -1019,7 +1012,7 @@ current context is used.</p>
 
 <dl class="method">
 <dt id="decimal.Decimal.to_integral_value">
-<code class="descname">to_integral_value</code><span class="sig-paren">(</span><em>rounding=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral_value" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_integral_value</code><span class="sig-paren">(</span><em class="sig-param">rounding=None</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Decimal.to_integral_value" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round to the nearest integer without signaling <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-const docutils literal notranslate"><span class="pre">Inexact</span></code></a> or
 <a class="reference internal" href="#decimal.Rounded" title="decimal.Rounded"><code class="xref py py-const docutils literal notranslate"><span class="pre">Rounded</span></code></a>.  If given, applies <em>rounding</em>; otherwise, uses the
 rounding method in either the supplied <em>context</em> or the current context.</p>
@@ -1045,13 +1038,13 @@ the range for exponents.</p>
 <a class="reference internal" href="#decimal.getcontext" title="decimal.getcontext"><code class="xref py py-func docutils literal notranslate"><span class="pre">getcontext()</span></code></a> and <a class="reference internal" href="#decimal.setcontext" title="decimal.setcontext"><code class="xref py py-func docutils literal notranslate"><span class="pre">setcontext()</span></code></a> functions:</p>
 <dl class="function">
 <dt id="decimal.getcontext">
-<code class="descclassname">decimal.</code><code class="descname">getcontext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.getcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">getcontext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.getcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the current context for the active thread.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="decimal.setcontext">
-<code class="descclassname">decimal.</code><code class="descname">setcontext</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.setcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">setcontext</code><span class="sig-paren">(</span><em class="sig-param">c</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.setcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Set the current context for the active thread to <em>c</em>.</p>
 </dd></dl>
 
@@ -1059,7 +1052,7 @@ the range for exponents.</p>
 function to temporarily change the active context.</p>
 <dl class="function">
 <dt id="decimal.localcontext">
-<code class="descclassname">decimal.</code><code class="descname">localcontext</code><span class="sig-paren">(</span><em>ctx=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.localcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">localcontext</code><span class="sig-paren">(</span><em class="sig-param">ctx=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.localcontext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a context manager that will set the current context for the active thread
 to a copy of <em>ctx</em> on entry to the with-statement and restore the previous context
 when exiting the with-statement. If no context is specified, a copy of the
@@ -1080,7 +1073,7 @@ performs a calculation, and then automatically restores the previous context:</p
 described below. In addition, the module provides three pre-made contexts:</p>
 <dl class="class">
 <dt id="decimal.BasicContext">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">BasicContext</code><a class="headerlink" href="#decimal.BasicContext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">BasicContext</code><a class="headerlink" href="#decimal.BasicContext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a standard context defined by the General Decimal Arithmetic
 Specification.  Precision is set to nine.  Rounding is set to
 <a class="reference internal" href="#decimal.ROUND_HALF_UP" title="decimal.ROUND_HALF_UP"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_UP</span></code></a>.  All flags are cleared.  All traps are enabled (treated
@@ -1091,7 +1084,7 @@ as exceptions) except <a class="reference internal" href="#decimal.Inexact" titl
 
 <dl class="class">
 <dt id="decimal.ExtendedContext">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">ExtendedContext</code><a class="headerlink" href="#decimal.ExtendedContext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ExtendedContext</code><a class="headerlink" href="#decimal.ExtendedContext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This is a standard context defined by the General Decimal Arithmetic
 Specification.  Precision is set to nine.  Rounding is set to
 <a class="reference internal" href="#decimal.ROUND_HALF_EVEN" title="decimal.ROUND_HALF_EVEN"><code class="xref py py-const docutils literal notranslate"><span class="pre">ROUND_HALF_EVEN</span></code></a>.  All flags are cleared.  No traps are enabled (so that
@@ -1104,7 +1097,7 @@ presence of conditions that would otherwise halt the program.</p>
 
 <dl class="class">
 <dt id="decimal.DefaultContext">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">DefaultContext</code><a class="headerlink" href="#decimal.DefaultContext" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">DefaultContext</code><a class="headerlink" href="#decimal.DefaultContext" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>This context is used by the <a class="reference internal" href="#decimal.Context" title="decimal.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> constructor as a prototype for new
 contexts.  Changing a field (such a precision) has the effect of changing the
 default for new contexts created by the <a class="reference internal" href="#decimal.Context" title="decimal.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> constructor.</p>
@@ -1124,7 +1117,7 @@ and enabled traps for <a class="reference internal" href="#decimal.Overflow" tit
 <a class="reference internal" href="#decimal.Context" title="decimal.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> constructor.</p>
 <dl class="class">
 <dt id="decimal.Context">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Context</code><span class="sig-paren">(</span><em>prec=None</em>, <em>rounding=None</em>, <em>Emin=None</em>, <em>Emax=None</em>, <em>capitals=None</em>, <em>clamp=None</em>, <em>flags=None</em>, <em>traps=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Context</code><span class="sig-paren">(</span><em class="sig-param">prec=None</em>, <em class="sig-param">rounding=None</em>, <em class="sig-param">Emin=None</em>, <em class="sig-param">Emax=None</em>, <em class="sig-param">capitals=None</em>, <em class="sig-param">clamp=None</em>, <em class="sig-param">flags=None</em>, <em class="sig-param">traps=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a new context.  If a field is not specified or is <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, the
 default values are copied from the <a class="reference internal" href="#decimal.DefaultContext" title="decimal.DefaultContext"><code class="xref py py-const docutils literal notranslate"><span class="pre">DefaultContext</span></code></a>.  If the <em>flags</em>
 field is not specified or is <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, all flags are cleared.</p>
@@ -1168,34 +1161,34 @@ Python integer (an instance of <a class="reference internal" href="functions.htm
 Decimal instance is accepted.</p>
 <dl class="method">
 <dt id="decimal.Context.clear_flags">
-<code class="descname">clear_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.clear_flags" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">clear_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.clear_flags" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Resets all of the flags to <code class="xref py py-const docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.clear_traps">
-<code class="descname">clear_traps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.clear_traps" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">clear_traps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.clear_traps" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Resets all of the traps to <code class="xref py py-const docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a duplicate of the context.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.copy_decimal">
-<code class="descname">copy_decimal</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_decimal</code><span class="sig-paren">(</span><em class="sig-param">num</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return a copy of the Decimal instance num.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.create_decimal">
-<code class="descname">create_decimal</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.create_decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">create_decimal</code><span class="sig-paren">(</span><em class="sig-param">num</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.create_decimal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a new Decimal instance from <em>num</em> but using <em>self</em> as
 context. Unlike the <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> constructor, the context precision,
 rounding method, flags, and traps are applied to the conversion.</p>
@@ -1204,7 +1197,7 @@ than is needed by the application.  Another benefit is that rounding
 immediately eliminates unintended effects from digits beyond the current
 precision. In the following example, using unrounded inputs means that
 adding zero to a sum can change the result:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.4445&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.0023&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;4.45&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.4445&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.0023&#39;</span><span class="p">)</span>
@@ -1218,12 +1211,12 @@ underscores are permitted.</p>
 
 <dl class="method">
 <dt id="decimal.Context.create_decimal_from_float">
-<code class="descname">create_decimal_from_float</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.create_decimal_from_float" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">create_decimal_from_float</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.create_decimal_from_float" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Creates a new Decimal instance from a float <em>f</em> but rounding using <em>self</em>
 as the context.  Unlike the <a class="reference internal" href="#decimal.Decimal.from_float" title="decimal.Decimal.from_float"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Decimal.from_float()</span></code></a> class method,
 the context precision, rounding method, flags, and traps are applied to
 the conversion.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_DOWN</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">create_decimal_from_float</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">Decimal(&#39;3.1415&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">traps</span><span class="o">=</span><span class="p">[</span><span class="n">Inexact</span><span class="p">])</span>
@@ -1234,13 +1227,13 @@ the conversion.</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.1.</span></p>
+<p><span class="versionmodified added">Nowe w wersji 3.1.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.Etiny">
-<code class="descname">Etiny</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.Etiny" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Etiny</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.Etiny" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a value equal to <code class="docutils literal notranslate"><span class="pre">Emin</span> <span class="pre">-</span> <span class="pre">prec</span> <span class="pre">+</span> <span class="pre">1</span></code> which is the minimum exponent
 value for subnormal results.  When underflow occurs, the exponent is set
 to <a class="reference internal" href="#decimal.Context.Etiny" title="decimal.Context.Etiny"><code class="xref py py-const docutils literal notranslate"><span class="pre">Etiny</span></code></a>.</p>
@@ -1248,7 +1241,7 @@ to <a class="reference internal" href="#decimal.Context.Etiny" title="decimal.Co
 
 <dl class="method">
 <dt id="decimal.Context.Etop">
-<code class="descname">Etop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.Etop" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">Etop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.Etop" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a value equal to <code class="docutils literal notranslate"><span class="pre">Emax</span> <span class="pre">-</span> <span class="pre">prec</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
 </dd></dl>
 
@@ -1260,265 +1253,265 @@ similar to those for the <a class="reference internal" href="#decimal.Decimal" t
 recounted here.</p>
 <dl class="method">
 <dt id="decimal.Context.abs">
-<code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.abs" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">abs</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.abs" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the absolute value of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.add" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.add" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the sum of <em>x</em> and <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.canonical">
-<code class="descname">canonical</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">canonical</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the same Decimal object <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.compare">
-<code class="descname">compare</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares <em>x</em> and <em>y</em> numerically.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.compare_signal">
-<code class="descname">compare_signal</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_signal</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_signal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares the values of the two operands numerically.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.compare_total">
-<code class="descname">compare_total</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_total" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_total</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_total" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares two operands using their abstract representation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.compare_total_mag">
-<code class="descname">compare_total_mag</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_total_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">compare_total_mag</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.compare_total_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares two operands using their abstract representation, ignoring sign.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.copy_abs">
-<code class="descname">copy_abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_abs" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_abs</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_abs" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a copy of <em>x</em> with the sign set to 0.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.copy_negate">
-<code class="descname">copy_negate</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_negate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_negate</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_negate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a copy of <em>x</em> with the sign inverted.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.copy_sign">
-<code class="descname">copy_sign</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_sign" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">copy_sign</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.copy_sign" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Copies the sign from <em>y</em> to <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.divide">
-<code class="descname">divide</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divide" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">divide</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divide" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <em>x</em> divided by <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.divide_int">
-<code class="descname">divide_int</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divide_int" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">divide_int</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divide_int" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <em>x</em> divided by <em>y</em>, truncated to an integer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.divmod">
-<code class="descname">divmod</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divmod" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">divmod</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.divmod" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Divides two numbers and returns the integer part of the result.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.exp">
-<code class="descname">exp</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.exp" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">exp</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.exp" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <cite>e ** x</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.fma">
-<code class="descname">fma</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.fma" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">fma</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.fma" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <em>x</em> multiplied by <em>y</em>, plus <em>z</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_canonical">
-<code class="descname">is_canonical</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_canonical</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_canonical" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is canonical; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_finite">
-<code class="descname">is_finite</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_finite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_finite</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_finite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is finite; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_infinite">
-<code class="descname">is_infinite</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_infinite" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_infinite</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_infinite" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is infinite; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_nan">
-<code class="descname">is_nan</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_nan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_nan</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_nan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is a qNaN or sNaN; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_normal">
-<code class="descname">is_normal</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_normal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_normal</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_normal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is a normal number; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_qnan">
-<code class="descname">is_qnan</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_qnan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_qnan</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_qnan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is a quiet NaN; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_signed">
-<code class="descname">is_signed</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_signed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_signed</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_signed" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is negative; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_snan">
-<code class="descname">is_snan</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_snan" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_snan</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_snan" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is a signaling NaN; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_subnormal">
-<code class="descname">is_subnormal</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_subnormal</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is subnormal; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.is_zero">
-<code class="descname">is_zero</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_zero" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">is_zero</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.is_zero" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>x</em> is a zero; otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.ln">
-<code class="descname">ln</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.ln" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">ln</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.ln" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the natural (base e) logarithm of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.log10">
-<code class="descname">log10</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.log10" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">log10</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.log10" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the base 10 logarithm of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.logb">
-<code class="descname">logb</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logb</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the exponent of the magnitude of the operand’s MSD.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.logical_and">
-<code class="descname">logical_and</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_and" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_and</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_and" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Applies the logical operation <em>and</em> between each operand’s digits.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.logical_invert">
-<code class="descname">logical_invert</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_invert" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_invert</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_invert" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Invert all the digits in <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.logical_or">
-<code class="descname">logical_or</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_or" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_or</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_or" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Applies the logical operation <em>or</em> between each operand’s digits.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.logical_xor">
-<code class="descname">logical_xor</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_xor" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">logical_xor</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.logical_xor" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Applies the logical operation <em>xor</em> between each operand’s digits.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.max">
-<code class="descname">max</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.max" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">max</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.max" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares two values numerically and returns the maximum.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.max_mag">
-<code class="descname">max_mag</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.max_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">max_mag</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.max_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares the values numerically with their sign ignored.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.min">
-<code class="descname">min</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.min" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">min</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.min" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares two values numerically and returns the minimum.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.min_mag">
-<code class="descname">min_mag</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.min_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">min_mag</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.min_mag" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Compares the values numerically with their sign ignored.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.minus">
-<code class="descname">minus</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.minus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">minus</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.minus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Minus corresponds to the unary prefix minus operator in Python.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.multiply">
-<code class="descname">multiply</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.multiply" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">multiply</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.multiply" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the product of <em>x</em> and <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.next_minus">
-<code class="descname">next_minus</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_minus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_minus</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_minus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the largest representable number smaller than <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.next_plus">
-<code class="descname">next_plus</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_plus</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_plus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the smallest representable number larger than <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.next_toward">
-<code class="descname">next_toward</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_toward" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">next_toward</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.next_toward" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the number closest to <em>x</em>, in direction towards <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.normalize">
-<code class="descname">normalize</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.normalize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.normalize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Reduces <em>x</em> to its simplest form.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.number_class">
-<code class="descname">number_class</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.number_class" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">number_class</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.number_class" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns an indication of the class of <em>x</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.plus">
-<code class="descname">plus</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.plus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">plus</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.plus" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Plus corresponds to the unary prefix plus operator in Python.  This
 operation applies the context precision and rounding, so it is <em>not</em> an
 identity operation.</p>
@@ -1526,7 +1519,7 @@ identity operation.</p>
 
 <dl class="method">
 <dt id="decimal.Context.power">
-<code class="descname">power</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>modulo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.power" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">power</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">modulo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.power" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">x</span></code> to the power of <code class="docutils literal notranslate"><span class="pre">y</span></code>, reduced modulo <code class="docutils literal notranslate"><span class="pre">modulo</span></code> if given.</p>
 <p>With two arguments, compute <code class="docutils literal notranslate"><span class="pre">x**y</span></code>.  If <code class="docutils literal notranslate"><span class="pre">x</span></code> is negative then <code class="docutils literal notranslate"><span class="pre">y</span></code>
 must be integral.  The result will be inexact unless <code class="docutils literal notranslate"><span class="pre">y</span></code> is integral and
@@ -1534,7 +1527,7 @@ the result is finite and can be expressed exactly in «precision» digits.
 The rounding mode of the context is used. Results are always correctly-rounded
 in the Python version.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">Zmienione w wersji 3.3: </span>The C module computes <a class="reference internal" href="#decimal.Context.power" title="decimal.Context.power"><code class="xref py py-meth docutils literal notranslate"><span class="pre">power()</span></code></a> in terms of the correctly-rounded
+<p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>The C module computes <a class="reference internal" href="#decimal.Context.power" title="decimal.Context.power"><code class="xref py py-meth docutils literal notranslate"><span class="pre">power()</span></code></a> in terms of the correctly-rounded
 <a class="reference internal" href="#decimal.Context.exp" title="decimal.Context.exp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exp()</span></code></a> and <a class="reference internal" href="#decimal.Context.ln" title="decimal.Context.ln"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ln()</span></code></a> functions. The result is well-defined but
 only „almost always correctly-rounded”.</p>
 </div>
@@ -1542,10 +1535,10 @@ only „almost always correctly-rounded”.</p>
 form, the following restrictions on the arguments hold:</p>
 <blockquote>
 <div><ul class="simple">
-<li>all three arguments must be integral</li>
-<li><code class="docutils literal notranslate"><span class="pre">y</span></code> must be nonnegative</li>
-<li>at least one of <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> must be nonzero</li>
-<li><code class="docutils literal notranslate"><span class="pre">modulo</span></code> must be nonzero and have at most «precision» digits</li>
+<li><p>all three arguments must be integral</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> must be nonnegative</p></li>
+<li><p>at least one of <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> must be nonzero</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modulo</span></code> must be nonzero and have at most «precision» digits</p></li>
 </ul>
 </div></blockquote>
 <p>The value resulting from <code class="docutils literal notranslate"><span class="pre">Context.power(x,</span> <span class="pre">y,</span> <span class="pre">modulo)</span></code> is
@@ -1558,19 +1551,19 @@ always exact.</p>
 
 <dl class="method">
 <dt id="decimal.Context.quantize">
-<code class="descname">quantize</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.quantize" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">quantize</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.quantize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a value equal to <em>x</em> (rounded), having the exponent of <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.radix">
-<code class="descname">radix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.radix" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">radix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.radix" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Just returns 10, as this is Decimal, :)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.remainder">
-<code class="descname">remainder</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.remainder" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">remainder</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.remainder" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the remainder from integer division.</p>
 <p>The sign of the result, if non-zero, is the same as that of the original
 dividend.</p>
@@ -1578,50 +1571,50 @@ dividend.</p>
 
 <dl class="method">
 <dt id="decimal.Context.remainder_near">
-<code class="descname">remainder_near</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.remainder_near" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">remainder_near</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.remainder_near" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span> <span class="pre">*</span> <span class="pre">n</span></code>, where <em>n</em> is the integer nearest the exact value
 of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> (if the result is 0 then its sign will be the sign of <em>x</em>).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.rotate">
-<code class="descname">rotate</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.rotate" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.rotate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a rotated copy of <em>x</em>, <em>y</em> times.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.same_quantum">
-<code class="descname">same_quantum</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.same_quantum" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">same_quantum</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.same_quantum" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the two operands have the same exponent.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.scaleb">
-<code class="descname">scaleb</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.scaleb" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">scaleb</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.scaleb" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns the first operand after adding the second value its exp.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.shift">
-<code class="descname">shift</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.shift" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">shift</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.shift" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Returns a shifted copy of <em>x</em>, <em>y</em> times.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.sqrt">
-<code class="descname">sqrt</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.sqrt" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">sqrt</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.sqrt" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Square root of a non-negative number to context precision.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.subtract">
-<code class="descname">subtract</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.subtract" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">subtract</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.subtract" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the difference between <em>x</em> and <em>y</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.to_eng_string">
-<code class="descname">to_eng_string</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_eng_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_eng_string</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_eng_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Convert to a string, using engineering notation if an exponent is needed.</p>
 <p>Engineering notation has an exponent which is a multiple of 3.  This
 can leave up to 3 digits to the left of the decimal place and may
@@ -1630,13 +1623,13 @@ require the addition of either one or two trailing zeros.</p>
 
 <dl class="method">
 <dt id="decimal.Context.to_integral_exact">
-<code class="descname">to_integral_exact</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_integral_exact" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_integral_exact</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_integral_exact" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Rounds to an integer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="decimal.Context.to_sci_string">
-<code class="descname">to_sci_string</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_sci_string" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-name descname">to_sci_string</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#decimal.Context.to_sci_string" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Converts a number to a string using scientific notation.</p>
 </dd></dl>
 
@@ -1647,125 +1640,125 @@ require the addition of either one or two trailing zeros.</p>
 <span id="decimal-rounding-modes"></span><h2>Constants<a class="headerlink" href="#constants" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>The constants in this section are only relevant for the C module. They
 are also included in the pure Python version for compatibility.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="29%" />
-<col width="29%" />
-<col width="42%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 42%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">32-bit</th>
-<th class="head">64-bit</th>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>32-bit</p></th>
+<th class="head"><p>64-bit</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><dl class="first last data">
+<tbody>
+<tr class="row-even"><td><dl class="data">
 <dt id="decimal.MAX_PREC">
-<code class="descclassname">decimal.</code><code class="descname">MAX_PREC</code><a class="headerlink" href="#decimal.MAX_PREC" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">MAX_PREC</code><a class="headerlink" href="#decimal.MAX_PREC" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 </td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">425000000</span></code></td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">999999999999999999</span></code></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">425000000</span></code></p></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">999999999999999999</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><dl class="first last data">
+<tr class="row-odd"><td><dl class="data">
 <dt id="decimal.MAX_EMAX">
-<code class="descclassname">decimal.</code><code class="descname">MAX_EMAX</code><a class="headerlink" href="#decimal.MAX_EMAX" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">MAX_EMAX</code><a class="headerlink" href="#decimal.MAX_EMAX" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 </td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">425000000</span></code></td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">999999999999999999</span></code></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">425000000</span></code></p></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">999999999999999999</span></code></p></td>
 </tr>
-<tr class="row-even"><td><dl class="first last data">
+<tr class="row-even"><td><dl class="data">
 <dt id="decimal.MIN_EMIN">
-<code class="descclassname">decimal.</code><code class="descname">MIN_EMIN</code><a class="headerlink" href="#decimal.MIN_EMIN" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">MIN_EMIN</code><a class="headerlink" href="#decimal.MIN_EMIN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 </td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">-425000000</span></code></td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">-999999999999999999</span></code></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">-425000000</span></code></p></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">-999999999999999999</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><dl class="first last data">
+<tr class="row-odd"><td><dl class="data">
 <dt id="decimal.MIN_ETINY">
-<code class="descclassname">decimal.</code><code class="descname">MIN_ETINY</code><a class="headerlink" href="#decimal.MIN_ETINY" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">MIN_ETINY</code><a class="headerlink" href="#decimal.MIN_ETINY" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd></dd></dl>
 
 </td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">-849999999</span></code></td>
-<td><code class="xref py py-const docutils literal notranslate"><span class="pre">-1999999999999999997</span></code></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">-849999999</span></code></p></td>
+<td><p><code class="xref py py-const docutils literal notranslate"><span class="pre">-1999999999999999997</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="data">
 <dt id="decimal.HAVE_THREADS">
-<code class="descclassname">decimal.</code><code class="descname">HAVE_THREADS</code><a class="headerlink" href="#decimal.HAVE_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">HAVE_THREADS</code><a class="headerlink" href="#decimal.HAVE_THREADS" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The value is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Deprecated, because Python now always has threads.</p>
 </dd></dl>
 
 <div class="deprecated">
-<p><span class="versionmodified">Niezalecane od wersji 3.9.</span></p>
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.9.</span></p>
 </div>
 <dl class="data">
 <dt id="decimal.HAVE_CONTEXTVAR">
-<code class="descclassname">decimal.</code><code class="descname">HAVE_CONTEXTVAR</code><a class="headerlink" href="#decimal.HAVE_CONTEXTVAR" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">HAVE_CONTEXTVAR</code><a class="headerlink" href="#decimal.HAVE_CONTEXTVAR" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If Python is compiled <code class="docutils literal notranslate"><span class="pre">--without-decimal-contextvar</span></code>,
 the C version uses a thread-local rather than a coroutine-local context and the value
 is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  This is slightly faster in some nested context scenarios.</p>
 </dd></dl>
 
 <div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.9: </span>backported to 3.7 and 3.8</p>
+<p><span class="versionmodified added">Nowe w wersji 3.9: </span>backported to 3.7 and 3.8.</p>
 </div>
 </div>
 <div class="section" id="rounding-modes">
 <h2>Rounding modes<a class="headerlink" href="#rounding-modes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <dl class="data">
 <dt id="decimal.ROUND_CEILING">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_CEILING</code><a class="headerlink" href="#decimal.ROUND_CEILING" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_CEILING</code><a class="headerlink" href="#decimal.ROUND_CEILING" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round towards <code class="xref py py-const docutils literal notranslate"><span class="pre">Infinity</span></code>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_DOWN">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_DOWN</code><a class="headerlink" href="#decimal.ROUND_DOWN" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_DOWN</code><a class="headerlink" href="#decimal.ROUND_DOWN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round towards zero.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_FLOOR">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_FLOOR</code><a class="headerlink" href="#decimal.ROUND_FLOOR" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_FLOOR</code><a class="headerlink" href="#decimal.ROUND_FLOOR" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round towards <code class="xref py py-const docutils literal notranslate"><span class="pre">-Infinity</span></code>.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_HALF_DOWN">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_HALF_DOWN</code><a class="headerlink" href="#decimal.ROUND_HALF_DOWN" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_HALF_DOWN</code><a class="headerlink" href="#decimal.ROUND_HALF_DOWN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round to nearest with ties going towards zero.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_HALF_EVEN">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_HALF_EVEN</code><a class="headerlink" href="#decimal.ROUND_HALF_EVEN" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_HALF_EVEN</code><a class="headerlink" href="#decimal.ROUND_HALF_EVEN" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round to nearest with ties going to nearest even integer.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_HALF_UP">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_HALF_UP</code><a class="headerlink" href="#decimal.ROUND_HALF_UP" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_HALF_UP</code><a class="headerlink" href="#decimal.ROUND_HALF_UP" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round to nearest with ties going away from zero.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_UP">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_UP</code><a class="headerlink" href="#decimal.ROUND_UP" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_UP</code><a class="headerlink" href="#decimal.ROUND_UP" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round away from zero.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="decimal.ROUND_05UP">
-<code class="descclassname">decimal.</code><code class="descname">ROUND_05UP</code><a class="headerlink" href="#decimal.ROUND_05UP" title="Stały odnośnik do tej definicji">¶</a></dt>
+<code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">ROUND_05UP</code><a class="headerlink" href="#decimal.ROUND_05UP" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Round away from zero if last digit after rounding towards zero would have
 been 0 or 5; otherwise round towards zero.</p>
 </dd></dl>
@@ -1785,7 +1778,7 @@ is set, then a <a class="reference internal" href="#decimal.DivisionByZero" titl
 condition.</p>
 <dl class="class">
 <dt id="decimal.Clamped">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Clamped</code><a class="headerlink" href="#decimal.Clamped" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Clamped</code><a class="headerlink" href="#decimal.Clamped" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Altered an exponent to fit representation constraints.</p>
 <p>Typically, clamping occurs when an exponent falls outside the context’s
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emin</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emax</span></code> limits.  If possible, the exponent is reduced to
@@ -1794,13 +1787,13 @@ fit by adding zeros to the coefficient.</p>
 
 <dl class="class">
 <dt id="decimal.DecimalException">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">DecimalException</code><a class="headerlink" href="#decimal.DecimalException" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">DecimalException</code><a class="headerlink" href="#decimal.DecimalException" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Base class for other signals and a subclass of <a class="reference internal" href="exceptions.html#ArithmeticError" title="ArithmeticError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ArithmeticError</span></code></a>.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="decimal.DivisionByZero">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">DivisionByZero</code><a class="headerlink" href="#decimal.DivisionByZero" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">DivisionByZero</code><a class="headerlink" href="#decimal.DivisionByZero" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Signals the division of a non-infinite number by zero.</p>
 <p>Can occur with division, modulo division, or when raising a number to a negative
 power.  If this signal is not trapped, returns <code class="xref py py-const docutils literal notranslate"><span class="pre">Infinity</span></code> or
@@ -1809,7 +1802,7 @@ power.  If this signal is not trapped, returns <code class="xref py py-const doc
 
 <dl class="class">
 <dt id="decimal.Inexact">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Inexact</code><a class="headerlink" href="#decimal.Inexact" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Inexact</code><a class="headerlink" href="#decimal.Inexact" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Indicates that rounding occurred and the result is not exact.</p>
 <p>Signals when non-zero digits were discarded during rounding. The rounded result
 is returned.  The signal flag or trap is used to detect when results are
@@ -1818,7 +1811,7 @@ inexact.</p>
 
 <dl class="class">
 <dt id="decimal.InvalidOperation">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">InvalidOperation</code><a class="headerlink" href="#decimal.InvalidOperation" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">InvalidOperation</code><a class="headerlink" href="#decimal.InvalidOperation" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>An invalid operation was performed.</p>
 <p>Indicates that an operation was requested that does not make sense. If not
 trapped, returns <code class="xref py py-const docutils literal notranslate"><span class="pre">NaN</span></code>.  Possible causes include:</p>
@@ -1837,7 +1830,7 @@ trapped, returns <code class="xref py py-const docutils literal notranslate"><sp
 
 <dl class="class">
 <dt id="decimal.Overflow">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Overflow</code><a class="headerlink" href="#decimal.Overflow" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Overflow</code><a class="headerlink" href="#decimal.Overflow" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Numerical overflow.</p>
 <p>Indicates the exponent is larger than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emax</span></code> after rounding has
 occurred.  If not trapped, the result depends on the rounding mode, either
@@ -1848,7 +1841,7 @@ are also signaled.</p>
 
 <dl class="class">
 <dt id="decimal.Rounded">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Rounded</code><a class="headerlink" href="#decimal.Rounded" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Rounded</code><a class="headerlink" href="#decimal.Rounded" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Rounding occurred though possibly no information was lost.</p>
 <p>Signaled whenever rounding discards digits; even if those digits are zero
 (such as rounding <code class="xref py py-const docutils literal notranslate"><span class="pre">5.00</span></code> to <code class="xref py py-const docutils literal notranslate"><span class="pre">5.0</span></code>).  If not trapped, returns
@@ -1858,7 +1851,7 @@ digits.</p>
 
 <dl class="class">
 <dt id="decimal.Subnormal">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Subnormal</code><a class="headerlink" href="#decimal.Subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Subnormal</code><a class="headerlink" href="#decimal.Subnormal" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Exponent was lower than <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emin</span></code> prior to rounding.</p>
 <p>Occurs when an operation result is subnormal (the exponent is too small). If
 not trapped, returns the result unchanged.</p>
@@ -1866,7 +1859,7 @@ not trapped, returns the result unchanged.</p>
 
 <dl class="class">
 <dt id="decimal.Underflow">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">Underflow</code><a class="headerlink" href="#decimal.Underflow" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">Underflow</code><a class="headerlink" href="#decimal.Underflow" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Numerical underflow with result rounded to zero.</p>
 <p>Occurs when a subnormal result is pushed to zero by rounding. <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-class docutils literal notranslate"><span class="pre">Inexact</span></code></a>
 and <a class="reference internal" href="#decimal.Subnormal" title="decimal.Subnormal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subnormal</span></code></a> are also signaled.</p>
@@ -1874,7 +1867,7 @@ and <a class="reference internal" href="#decimal.Subnormal" title="decimal.Subno
 
 <dl class="class">
 <dt id="decimal.FloatOperation">
-<em class="property">class </em><code class="descclassname">decimal.</code><code class="descname">FloatOperation</code><a class="headerlink" href="#decimal.FloatOperation" title="Stały odnośnik do tej definicji">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">decimal.</code><code class="sig-name descname">FloatOperation</code><a class="headerlink" href="#decimal.FloatOperation" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Enable stricter semantics for mixing floats and Decimals.</p>
 <p>If the signal is not trapped (default), mixing floats and Decimals is
 permitted in the <a class="reference internal" href="#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code></a> constructor,
@@ -1914,7 +1907,7 @@ of nearly offsetting quantities resulting in loss of significance.  Knuth
 provides two instructive examples where rounded floating point arithmetic with
 insufficient precision causes the breakdown of the associative and distributive
 properties of addition:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="go"># Examples from Seminumerical Algorithms, Section 4.2.2.</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="go"># Examples from Seminumerical Algorithms, Section 4.2.2.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">getcontext</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">8</span>
 
@@ -1933,7 +1926,7 @@ properties of addition:</p>
 </div>
 <p>The <a class="reference internal" href="#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code></a> module makes it possible to restore the identities by
 expanding the precision sufficiently to avoid loss of significance:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">11111113</span><span class="p">),</span> <span class="n">Decimal</span><span class="p">(</span><span class="o">-</span><span class="mi">11111111</span><span class="p">),</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;7.51111111&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span>
 <span class="go">Decimal(&#39;9.51111111&#39;)</span>
@@ -2278,7 +2271,7 @@ value unchanged:</p>
 <p>A. Yes, any binary floating point number can be exactly expressed as a
 Decimal though an exact conversion may take more precision than intuition would
 suggest:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">Decimal(&#39;3.141592653589793115997963468544185161590576171875&#39;)</span>
 </pre></div>
 </div>
@@ -2295,7 +2288,7 @@ different precisions?</p>
 the arithmetic on those values.  Only the results are rounded.  The advantage
 for inputs is that „what you type is what you get”.  A disadvantage is that the
 results can look odd if you forget that the inputs haven’t been rounded:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.104&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.104&#39;</span><span class="p">)</span>
 <span class="go">Decimal(&#39;5.21&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.104&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.000&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.104&#39;</span><span class="p">)</span>
@@ -2304,7 +2297,7 @@ results can look odd if you forget that the inputs haven’t been rounded:</p>
 </div>
 <p>The solution is either to increase precision or to force rounding of inputs
 using the unary plus operation:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="o">+</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.23456789&#39;</span><span class="p">)</span>      <span class="c1"># unary plus triggers rounding</span>
 <span class="go">Decimal(&#39;1.23&#39;)</span>
 </pre></div>
@@ -2318,20 +2311,68 @@ using the unary plus operation:</p>
 <p>Q. Is the CPython implementation fast for large numbers?</p>
 <p>A. Yes.  In the CPython and PyPy3 implementations, the C/CFFI versions of
 the decimal module integrate the high speed <a class="reference external" href="https://www.bytereef.org/mpdecimal/doc/libmpdec/index.html">libmpdec</a> library for
-arbitrary precision correctly-rounded decimal floating point arithmetic.
+arbitrary precision correctly-rounded decimal floating point arithmetic <a class="footnote-reference brackets" href="#id4" id="id2">1</a>.
 <code class="docutils literal notranslate"><span class="pre">libmpdec</span></code> uses <a class="reference external" href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba multiplication</a>
 for medium-sized numbers and the <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform">Number Theoretic Transform</a>
-for very large numbers.  However, to realize this performance gain, the
-context needs to be set for unrounded calculations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="n">MAX_PREC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emax</span> <span class="o">=</span> <span class="n">MAX_EMAX</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">Emin</span> <span class="o">=</span> <span class="n">MIN_EMIN</span>
+for very large numbers.</p>
+<p>The context must be adapted for exact arbitrary precision arithmetic. <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emin</span></code>
+and <code class="xref py py-attr docutils literal notranslate"><span class="pre">Emax</span></code> should always be set to the maximum values, <code class="xref py py-attr docutils literal notranslate"><span class="pre">clamp</span></code>
+should always be 0 (the default).  Setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> requires some care.</p>
+<p>The easiest approach for trying out bignum arithmetic is to use the maximum
+value for <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> as well <a class="footnote-reference brackets" href="#id5" id="id3">2</a>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="n">MAX_PREC</span><span class="p">,</span> <span class="n">Emax</span><span class="o">=</span><span class="n">MAX_EMAX</span><span class="p">,</span> <span class="n">Emin</span><span class="o">=</span><span class="n">MIN_EMIN</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">/</span> <span class="mi">128</span>
+<span class="go">Decimal(&#39;904625697166532776746648320380374280103671755200316906558262375061821325312&#39;)</span>
 </pre></div>
 </div>
-<div class="versionadded">
-<p><span class="versionmodified">Nowe w wersji 3.3.</span></p>
+<p>For inexact results, <a class="reference internal" href="#decimal.MAX_PREC" title="decimal.MAX_PREC"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MAX_PREC</span></code></a> is far too large on 64-bit platforms and
+the available memory will be insufficient:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">MemoryError</span>
+</pre></div>
 </div>
+<p>On systems with overallocation (e.g. Linux), a more sophisticated approach is to
+adjust <code class="xref py py-attr docutils literal notranslate"><span class="pre">prec</span></code> to the amount of available RAM.  Suppose that you have 8GB of
+RAM and expect 10 simultaneous operands using a maximum of 500MB each:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Maximum number of digits for a single operand using 500MB in 8-byte words</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># with 19 digits per word (4-byte and 9 digits for the 32-bit build):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maxdigits</span> <span class="o">=</span> <span class="mi">19</span> <span class="o">*</span> <span class="p">((</span><span class="mi">500</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Check that this works:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="n">maxdigits</span><span class="p">,</span> <span class="n">Emax</span><span class="o">=</span><span class="n">MAX_EMAX</span><span class="p">,</span> <span class="n">Emin</span><span class="o">=</span><span class="n">MIN_EMIN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setcontext</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fill the available precision with nines:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">logical_invert</span><span class="p">()</span> <span class="o">*</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">524288112</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">  decimal.Inexact</span>: <span class="n">[&lt;class &#39;decimal.Inexact&#39;&gt;]</span>
+</pre></div>
+</div>
+<p>In general (and especially on systems without overallocation), it is recommended
+to estimate even tighter bounds and set the <a class="reference internal" href="#decimal.Inexact" title="decimal.Inexact"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Inexact</span></code></a> trap if all calculations
+are expected to be exact.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
+</div>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 3.9: </span>This approach now works for all exact results except for non-integer powers.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -2341,9 +2382,9 @@ context needs to be set for unrounded calculations.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">decimal</span></code> — Decimal fixed point and floating point arithmetic</a><ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decimal</span></code> — Decimal fixed point and floating point arithmetic</a><ul>
 <li><a class="reference internal" href="#quick-start-tutorial">Quick-start Tutorial</a></li>
 <li><a class="reference internal" href="#decimal-objects">Decimal objects</a><ul>
 <li><a class="reference internal" href="#logical-operands">Logical operands</a></li>
@@ -2367,16 +2408,16 @@ context needs to be set for unrounded calculations.</p>
 
   <h4>Poprzedni temat</h4>
   <p class="topless"><a href="cmath.html"
-                        title="poprzedni rozdział"><code class="docutils literal notranslate"><span class="pre">cmath</span></code> — Mathematical functions for complex numbers</a></p>
+                        title="poprzedni rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code> — Mathematical functions for complex numbers</a></p>
   <h4>Następny temat</h4>
   <p class="topless"><a href="fractions.html"
-                        title="następny rozdział"><code class="docutils literal notranslate"><span class="pre">fractions</span></code> — Rational numbers</a></p>
+                        title="następny rozdział"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fractions</span></code> — Rational numbers</a></p>
   <div role="note" aria-label="source link">
     <h3>Ta strona</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Zgłoś błąd</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.8/Doc/library/decimal.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/library/decimal.rst"
             rel="nofollow">Pokaż źródło
         </a>
       </li>
@@ -2408,7 +2449,7 @@ context needs to be set for unrounded calculations.</p>
     
 
     <li>
-      <a href="../index.html">3.8.3 Documentation</a> &#187;
+      <a href="../index.html">3.9.0b3 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Biblioteka standardowa Pythona</a> &#187;</li>
@@ -2443,7 +2484,7 @@ context needs to be set for unrounded calculations.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 1.8.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
 
   </body>
