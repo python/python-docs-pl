@@ -130,12 +130,16 @@ but required (e.g: <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue40448">bpo-40448</a>: <a class="reference internal" href="../library/ensurepip.html#module-ensurepip" title="ensurepip: Bootstrapping the &quot;pip&quot; installer into an existing Python installation or virtual environment."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ensurepip</span></code></a> now disables the use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> cache when
+installing the bundled versions of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">setuptools</span></code>.  Patch by
+Krzysztof Konopko.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40855">bpo-40855</a>: The standard deviation and variance functions in the statistics
 module were ignoring their mu and xbar arguments.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40807">bpo-40807</a>: Stop codeop._maybe_compile, used by code.InteractiveInterpreter
 (and IDLE). from from emitting each warning three times.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40834">bpo-40834</a>: Fix truncate when sending str object
 with_xxsubinterpreters.channel_send.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue38488">bpo-38488</a>: Update ensurepip to install pip 20.1.1 and setuptools 47.1.0.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue40767">bpo-40767</a>: <a class="reference internal" href="../library/webbrowser.html#module-webbrowser" title="webbrowser: Easy-to-use controller for Web browsers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">webbrowser</span></code></a> now properly finds the default browser in
 pure Wayland systems by checking the WAYLAND_DISPLAY environment variable.
 Patch contributed by Jérémy Attali.</li>
@@ -177,6 +181,8 @@ keyword arguments. Patch contributed by Rémi Lapeyre.</li>
 <code class="docutils literal notranslate"><span class="pre">RuntimeException</span></code> when accessing a module’s <code class="docutils literal notranslate"><span class="pre">__warningregistry__</span></code>
 causes importation of a new module, or when a new module is imported in
 another thread. Patch by Kernc.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue34226">bpo-34226</a>: Fix <a class="reference internal" href="../library/cgi.html#cgi.parse_multipart" title="cgi.parse_multipart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cgi.parse_multipart</span></code></a> without content_length. Patch by
+Roger Duran</li>
 </ul>
 </div>
 <div class="section" id="tests">
@@ -19135,7 +19141,7 @@ Kilburn.</li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 15, 2020.
+    Ostatnia modyfikacja cze 16, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
