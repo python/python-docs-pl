@@ -31,7 +31,7 @@ def fetch():
         exit(1)
     lang = LANGUAGE
     if os.getenv('GITHUB_ACTIONS'):
-        call(f'tx pull -l {lang} --minimum-perc=1 --force', shell=True)
+        call(f'tx pull -l {lang} --minimum-perc=1 --use-git-timestamps', shell=True)
     else:
         call(f'tx pull -l {lang} --minimum-perc=1', shell=True)
     for root, _, po_files in os.walk('.'):
