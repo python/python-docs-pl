@@ -21,7 +21,7 @@ Jak obejrzeć najnowszy deweloperski build?
 ----------------------------------------
 Wejdź na [https://m-aciek.github.io/python-docs-pl/](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
 synchronizowane jest z Transifeksa
-[raz dziennie](https://github.com/m-aciek/python-docs-pl/blob/3.8/.github/workflows/update-and-build.yml#L3).
+[raz dziennie](/.github/workflows/update-and-build.yml#L3).
  
 Dlaczego ta dokumentacja nie jest dostępna na [docs.python.org](https://docs.python.org)?
 -----------------------------------------------------------------------------------------
