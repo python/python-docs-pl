@@ -111,6 +111,8 @@
 <li><p><a class="reference external" href="https://bugs.python.org/issue40985">bpo-40985</a>: Fix a bug that caused the <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> text to be empty
 when a file ends with a line ending in a line continuation character (i.e.
 backslash). The error text should contain the text of the last line.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue40958">bpo-40958</a>: Fix a possible buffer overflow in the PEG parser when gathering
+information for emitting syntax errors. Patch by Pablo Galindo.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40957">bpo-40957</a>: Fix refleak in _Py_fopen_obj() when PySys_Audit() fails</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40947">bpo-40947</a>: The Python <a class="reference internal" href="../c-api/init_config.html#init-path-config"><span class="std std-ref">Path Configuration</span></a> now
 takes <a class="reference internal" href="../c-api/init_config.html#c.PyConfig.platlibdir" title="PyConfig.platlibdir"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyConfig.platlibdir</span></code></a> in account.</p></li>
@@ -19627,7 +19629,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 16, 2020.
+    Ostatnia modyfikacja cze 17, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
