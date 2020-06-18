@@ -122,6 +122,8 @@ than a single <code class="xref py py-obj docutils literal notranslate"><span cl
 around the issue, but the new parser threw a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> for valid
 input due to this. For example, an empty line following a line
 continuation character was interpreted as a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue19569">bpo-19569</a>: Add the private macros <code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_PUSH</span></code>,
+<code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_IGNORE_DEPR_DECLS</span></code>, and <code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_POP</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="library">
@@ -149,6 +151,9 @@ Roger Duran</p></li>
 <div class="section" id="tests">
 <h3>Tests<a class="headerlink" href="#tests" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41003">bpo-41003</a>: Fix <code class="docutils literal notranslate"><span class="pre">test_copyreg</span></code> when <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is installed:
+<code class="docutils literal notranslate"><span class="pre">test.pickletester</span></code> now saves/restores warnings filters when importing
+<code class="docutils literal notranslate"><span class="pre">numpy</span></code>, to ignore filters installed by <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40964">bpo-40964</a>: Disable remote <a class="reference internal" href="../library/imaplib.html#module-imaplib" title="imaplib: IMAP4 protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code></a> tests, host cyrus.andrew.cmu.edu
 is blocking incoming connections.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40927">bpo-40927</a>: Fix test_binhex when run twice: it now uses
@@ -19629,7 +19634,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 17, 2020.
+    Ostatnia modyfikacja cze 18, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
