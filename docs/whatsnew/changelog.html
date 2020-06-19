@@ -151,6 +151,10 @@ Roger Duran</p></li>
 <div class="section" id="tests">
 <h3>Tests<a class="headerlink" href="#tests" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue38377">bpo-38377</a>: On Linux, skip tests using multiprocessing if the current user
+cannot create a file in <code class="docutils literal notranslate"><span class="pre">/dev/shm/</span></code> directory. Add the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">skip_if_broken_multiprocessing_synchronize()</span></code> function
+to the <a class="reference internal" href="../library/test.html#module-test.support" title="test.support: Support for Python's regression test suite."><code class="xref py py-mod docutils literal notranslate"><span class="pre">test.support</span></code></a> module.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41003">bpo-41003</a>: Fix <code class="docutils literal notranslate"><span class="pre">test_copyreg</span></code> when <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is installed:
 <code class="docutils literal notranslate"><span class="pre">test.pickletester</span></code> now saves/restores warnings filters when importing
 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, to ignore filters installed by <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
@@ -173,6 +177,11 @@ environmental variables &amp; ini files.</p></li>
 <div class="section" id="c-api">
 <h3>C API<a class="headerlink" href="#c-api" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue36346">bpo-36346</a>: Mark <code class="docutils literal notranslate"><span class="pre">Py_UNICODE_COPY</span></code>, <code class="docutils literal notranslate"><span class="pre">Py_UNICODE_FILL</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PyUnicode_WSTR_LENGTH</span></code>, <code class="docutils literal notranslate"><span class="pre">PyUnicode_FromUnicode</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PyUnicode_AsUnicode</span></code>, <code class="docutils literal notranslate"><span class="pre">_PyUnicode_AsUnicode</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">PyUnicode_AsUnicodeAndSize</span></code> as deprecated in C. Remove
+<code class="docutils literal notranslate"><span class="pre">Py_UNICODE_MATCH</span></code> which was deprecated and broken since Python 3.3.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue36020">bpo-36020</a>: On Windows, <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;pyerrors.h&quot;</span></code> no longer defines
 <code class="docutils literal notranslate"><span class="pre">snprintf</span></code> and <code class="docutils literal notranslate"><span class="pre">vsnprintf</span></code> macros.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40703">bpo-40703</a>: The PyType_FromSpec*() functions no longer overwrite the type’s
@@ -19634,7 +19643,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 18, 2020.
+    Ostatnia modyfikacja cze 19, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
