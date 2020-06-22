@@ -108,6 +108,11 @@
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue40939">bpo-40939</a>: Deprecate <code class="xref c c-func docutils literal notranslate"><span class="pre">PyNode_Compile()</span></code>.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41052">bpo-41052</a>: Opt out serialization/deserialization for _random.Random</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue40939">bpo-40939</a>: Deprecate <a class="reference internal" href="../c-api/veryhigh.html#c.PyParser_SimpleParseStringFlags" title="PyParser_SimpleParseStringFlags"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_SimpleParseStringFlags()</span></code></a>,
+<a class="reference internal" href="../c-api/veryhigh.html#c.PyParser_SimpleParseStringFlagsFilename" title="PyParser_SimpleParseStringFlagsFilename"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_SimpleParseStringFlagsFilename()</span></code></a> and
+<a class="reference internal" href="../c-api/veryhigh.html#c.PyParser_SimpleParseFileFlags" title="PyParser_SimpleParseFileFlags"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_SimpleParseFileFlags()</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40985">bpo-40985</a>: Fix a bug that caused the <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> text to be empty
 when a file ends with a line ending in a line continuation character (i.e.
 backslash). The error text should contain the text of the last line.</p></li>
@@ -129,6 +134,10 @@ continuation character was interpreted as a <a class="reference internal" href="
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41058">bpo-41058</a>: <code class="xref py py-func docutils literal notranslate"><span class="pre">pdb.find_function()</span></code> now correctly determines the source
+file encoding.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41056">bpo-41056</a>: Fix a NULL pointer dereference within the ssl module during a
+MemoryError in the keylog callback. (discovered by Coverity)</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40448">bpo-40448</a>: <a class="reference internal" href="../library/ensurepip.html#module-ensurepip" title="ensurepip: Bootstrapping the &quot;pip&quot; installer into an existing Python installation or virtual environment."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ensurepip</span></code></a> now disables the use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> cache when
 installing the bundled versions of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">setuptools</span></code>.  Patch by
 Krzysztof Konopko.</p></li>
@@ -19643,7 +19652,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 21, 2020.
+    Ostatnia modyfikacja cze 22, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
