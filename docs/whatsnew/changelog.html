@@ -109,6 +109,11 @@
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bugs.python.org/issue40939">bpo-40939</a>: Deprecate <code class="xref c c-func docutils literal notranslate"><span class="pre">PyNode_Compile()</span></code>.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41056">bpo-41056</a>: Fixes a reference to deallocated stack space during startup
+when constructing sys.path involving a relative symlink when code was
+supplied via -c.  (discovered via Coverity)</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41061">bpo-41061</a>: Fix incorrect expressions and asserts in hashtable code and
+tests.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41052">bpo-41052</a>: Opt out serialization/deserialization for _random.Random</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40939">bpo-40939</a>: Deprecate <a class="reference internal" href="../c-api/veryhigh.html#c.PyParser_SimpleParseStringFlags" title="PyParser_SimpleParseStringFlags"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_SimpleParseStringFlags()</span></code></a>,
 <a class="reference internal" href="../c-api/veryhigh.html#c.PyParser_SimpleParseStringFlagsFilename" title="PyParser_SimpleParseStringFlagsFilename"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_SimpleParseStringFlagsFilename()</span></code></a> and
@@ -127,6 +132,10 @@ than a single <code class="xref py py-obj docutils literal notranslate"><span cl
 around the issue, but the new parser threw a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> for valid
 input due to this. For example, an empty line following a line
 continuation character was interpreted as a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue40824">bpo-40824</a>: Unexpected errors in calling the <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> method are no
+longer masked by <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> in the <a class="reference internal" href="../reference/expressions.html#in"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">in</span></code></a> operator and functions
+<a class="reference internal" href="../library/operator.html#operator.contains" title="operator.contains"><code class="xref py py-func docutils literal notranslate"><span class="pre">contains()</span></code></a>, <a class="reference internal" href="../library/operator.html#operator.indexOf" title="operator.indexOf"><code class="xref py py-func docutils literal notranslate"><span class="pre">indexOf()</span></code></a> and
+<a class="reference internal" href="../library/operator.html#operator.countOf" title="operator.countOf"><code class="xref py py-func docutils literal notranslate"><span class="pre">countOf()</span></code></a> of the <a class="reference internal" href="../library/operator.html#module-operator" title="operator: Functions corresponding to the standard operators."><code class="xref py py-mod docutils literal notranslate"><span class="pre">operator</span></code></a> module.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue19569">bpo-19569</a>: Add the private macros <code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_PUSH</span></code>,
 <code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_IGNORE_DEPR_DECLS</span></code>, and <code class="docutils literal notranslate"><span class="pre">_Py_COMP_DIAG_POP</span></code>.</p></li>
 </ul>
@@ -134,6 +143,8 @@ continuation character was interpreted as a <a class="reference internal" href="
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41068">bpo-41068</a>: Fixed reading files with non-ASCII names from ZIP archive
+directly after writing them.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41058">bpo-41058</a>: <code class="xref py py-func docutils literal notranslate"><span class="pre">pdb.find_function()</span></code> now correctly determines the source
 file encoding.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41056">bpo-41056</a>: Fix a NULL pointer dereference within the ssl module during a
@@ -151,6 +162,9 @@ TraversableResources.</p></li>
 <a class="reference internal" href="../library/keyword.html#module-keyword" title="keyword: Test whether a string is a keyword in Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">keyword</span></code></a> module.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40834">bpo-40834</a>: Fix truncate when sending str object
 with_xxsubinterpreters.channel_send.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue26407">bpo-26407</a>: Unexpected errors in calling the <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> method are no
+longer masked by <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> in <a class="reference internal" href="../library/csv.html#csv.reader" title="csv.reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">csv.reader()</span></code></a>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">csv.writer.writerow()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">csv.writer.writerows()</span></code>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue38488">bpo-38488</a>: Update ensurepip to install pip 20.1.1 and setuptools 47.1.0.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue36543">bpo-36543</a>: Restored the deprecated <code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.cElementTree</span></code> module.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue34226">bpo-34226</a>: Fix <a class="reference internal" href="../library/cgi.html#cgi.parse_multipart" title="cgi.parse_multipart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cgi.parse_multipart</span></code></a> without content_length. Patch by
@@ -19652,7 +19666,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 22, 2020.
+    Ostatnia modyfikacja cze 23, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
