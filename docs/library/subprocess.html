@@ -811,10 +811,11 @@ see <a class="reference internal" href="asyncio-subprocess.html#asyncio.create_s
 <dt id="subprocess.Popen.communicate">
 <code class="sig-prename descclassname">Popen.</code><code class="sig-name descname">communicate</code><span class="sig-paren">(</span><em class="sig-param">input=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.communicate" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Interact with process: Send data to stdin.  Read data from stdout and stderr,
-until end-of-file is reached.  Wait for process to terminate.  The optional
-<em>input</em> argument should be data to be sent to the child process, or
-<code class="docutils literal notranslate"><span class="pre">None</span></code>, if no data should be sent to the child.  If streams were opened in
-text mode, <em>input</em> must be a string.  Otherwise, it must be bytes.</p>
+until end-of-file is reached.  Wait for process to terminate and set the
+<a class="reference internal" href="#subprocess.Popen.returncode" title="subprocess.Popen.returncode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code></a> attribute.  The optional <em>input</em> argument should be
+data to be sent to the child process, or <code class="docutils literal notranslate"><span class="pre">None</span></code>, if no data should be sent
+to the child.  If streams were opened in text mode, <em>input</em> must be a string.
+Otherwise, it must be bytes.</p>
 <p><a class="reference internal" href="#subprocess.Popen.communicate" title="subprocess.Popen.communicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">communicate()</span></code></a> returns a tuple <code class="docutils literal notranslate"><span class="pre">(stdout_data,</span> <span class="pre">stderr_data)</span></code>.
 The data will be strings if streams were opened in text mode; otherwise,
 bytes.</p>
@@ -1694,7 +1695,7 @@ described in rule 3.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 24, 2020.
+    Ostatnia modyfikacja cze 25, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
