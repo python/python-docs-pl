@@ -178,7 +178,7 @@ non-cryptographic one-way compression function.</p>
 </pre></div>
 </div>
 <p>More condensed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha224</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Nobody inspects the spammish repetition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha224</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Nobody inspects the spammish repetition&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="go">&#39;a4337bc45a8fc544c03f52dc550cd6e1e87021bc896588bd79e901e2&#39;</span>
 </pre></div>
 </div>
@@ -193,7 +193,7 @@ and should be preferred.</p>
 </dd></dl>
 
 <p>Using <a class="reference internal" href="#hashlib.new" title="hashlib.new"><code class="xref py py-func docutils literal notranslate"><span class="pre">new()</span></code></a> with an algorithm provided by OpenSSL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;ripemd160&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;ripemd160&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Nobody inspects the spammish repetition&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="go">&#39;cc4a5ce1b3df48aec5d22d1f16b894a0b894eccc&#39;</span>
@@ -335,7 +335,7 @@ computing power. As of 2013, at least 100,000 iterations of SHA-256 are
 suggested.</p>
 <p><em>dklen</em> is the length of the derived key. If <em>dklen</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then the
 digest size of the hash algorithm <em>hash_name</em> is used, e.g. 64 for SHA-512.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hashlib</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dk</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">pbkdf2_hmac</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;salt&#39;</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dk</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
 <span class="go">&#39;0394a2ede332c9a13eb82e9b24631604c31df978b4e2f0fbd2c549944f9d79a5&#39;</span>
@@ -529,7 +529,7 @@ calling the appropriate constructor function (<a class="reference internal" href
 <a class="reference internal" href="#hashlib.blake2s" title="hashlib.blake2s"><code class="xref py py-func docutils literal notranslate"><span class="pre">blake2s()</span></code></a>), then update it with the data by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code> on the
 object, and, finally, get the digest out of the object by calling
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">digest()</span></code> (or <code class="xref py py-meth docutils literal notranslate"><span class="pre">hexdigest()</span></code> for hex-encoded string).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">blake2b</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
@@ -538,14 +538,14 @@ object, and, finally, get the digest out of the object by calling
 </div>
 <p>As a shortcut, you can pass the first chunk of data to update directly to the
 constructor as the positional argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">blake2b</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="go">&#39;6ff843ba685842aa82031d3f53c48b66326df7639a63d128974c5c14f31a0f33343a8c65551134ed1ae0f2b0dd2bb495dc81039e3eeb0aa1bb0388bbeac29183&#39;</span>
 </pre></div>
 </div>
 <p>You can call <a class="reference internal" href="#hashlib.hash.update" title="hashlib.hash.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hash.update()</span></code></a> as many times as you need to iteratively
 update the hash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;world&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">blake2b</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
@@ -560,7 +560,7 @@ update the hash:</p>
 <p>BLAKE2 has configurable size of digests up to 64 bytes for BLAKE2b and up to 32
 bytes for BLAKE2s. For example, to replace SHA-1 with BLAKE2b without changing
 the size of output, we can tell BLAKE2b to produce 20-byte digests:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">blake2b</span><span class="p">(</span><span class="n">digest_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Replacing SHA1 with the more secure function&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
@@ -574,7 +574,7 @@ the size of output, we can tell BLAKE2b to produce 20-byte digests:</p>
 <p>Hash objects with different digest sizes have completely different outputs
 (shorter hashes are <em>not</em> prefixes of longer hashes); BLAKE2b and BLAKE2s
 produce different outputs even if the output length is the same:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span><span class="p">,</span> <span class="n">blake2s</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span><span class="p">,</span> <span class="n">blake2s</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">blake2b</span><span class="p">(</span><span class="n">digest_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="go">&#39;6fa1d8fcfd719046d762&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">blake2b</span><span class="p">(</span><span class="n">digest_size</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
@@ -675,7 +675,7 @@ cryptographic hash function, such as SHA-256, is not suitable for hashing
 passwords.  See <a class="reference external" href="https://blake2.net/#qa">BLAKE2 FAQ</a> for more
 information.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;some message&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Calculate the first hash with a random salt.</span>
@@ -723,7 +723,7 @@ p. 21)</p>
 </div>
 <p>Personalization together with the keyed mode can also be used to derive different
 keys from a single one.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2s</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">blake2s</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span><span class="p">,</span> <span class="n">b64encode</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">orig_key</span> <span class="o">=</span> <span class="n">b64decode</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Rm5EPJai72qcK3RGBpW3vPNfZy5OZothY+kHY6h21KM=&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">enc_key</span> <span class="o">=</span> <span class="n">blake2s</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">orig_key</span><span class="p">,</span> <span class="n">person</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;kEncrypt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
@@ -932,7 +932,7 @@ what that means regarding their use.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

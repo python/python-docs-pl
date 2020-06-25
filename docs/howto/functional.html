@@ -268,7 +268,7 @@ built-in data types support iteration, the most common being lists and
 dictionaries.  An object is called <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a> if you can get an iterator
 for it.</p>
 <p>You can experiment with the iteration interface manually:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">it</span>  
 <span class="go">&lt;...iterator object at ...&gt;</span>
@@ -298,7 +298,7 @@ iterator.  These two statements are equivalent:</p>
 </div>
 <p>Iterators can be materialized as lists or tuples by using the <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a> or
 <a class="reference internal" href="../library/stdtypes.html#tuple" title="tuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">tuple()</span></code></a> constructor functions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>
@@ -307,7 +307,7 @@ iterator.  These two statements are equivalent:</p>
 </div>
 <p>Sequence unpacking also supports iterators: if you know an iterator will return
 N elements, you can unpack them into an N-tuple:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">iterator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
@@ -362,7 +362,7 @@ over values or key/value pairs, you can explicitly call the
 iterator.</p>
 <p>The <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">dict()</span></code></a> constructor can accept an iterator that returns a finite stream
 of <code class="docutils literal notranslate"><span class="pre">(key,</span> <span class="pre">value)</span></code> tuples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Italy&#39;</span><span class="p">,</span> <span class="s1">&#39;Rome&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington DC&#39;</span><span class="p">)]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Italy&#39;</span><span class="p">,</span> <span class="s1">&#39;Rome&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington DC&#39;</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
 <span class="go">{&#39;Italy&#39;: &#39;Rome&#39;, &#39;France&#39;: &#39;Paris&#39;, &#39;US&#39;: &#39;Washington DC&#39;}</span>
 </pre></div>
@@ -465,7 +465,7 @@ equivalent to the following Python code:</p>
 clauses, the length of the resulting output will be equal to the product of the
 lengths of all the sequences.  If you have two lists of length 3, the output
 list is 9 elements long:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seq1</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seq1</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">seq2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq1</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">seq2</span><span class="p">]</span>  
 <span class="go">[(&#39;a&#39;, 1), (&#39;a&#39;, 2), (&#39;a&#39;, 3),</span>
@@ -497,7 +497,7 @@ variables. But, what if the local variables weren’t thrown away on exiting a
 function?  What if you could later resume the function where it left off?  This
 is what generators provide; they can be thought of as resumable functions.</p>
 <p>Here’s the simplest example of a generator function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">generate_ints</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">generate_ints</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
 <span class="gp">... </span>   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
 <span class="gp">... </span>       <span class="k">yield</span> <span class="n">i</span>
 </pre></div>
@@ -514,7 +514,7 @@ suspended and local variables are preserved.  On the next call to the
 generator’s <a class="reference internal" href="../reference/expressions.html#generator.__next__" title="generator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method, the function will resume
 executing.</p>
 <p>Here’s a sample usage of the <code class="docutils literal notranslate"><span class="pre">generate_ints()</span></code> generator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="n">generate_ints</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="n">generate_ints</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span>  
 <span class="go">&lt;generator object generate_ints at ...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
@@ -603,7 +603,7 @@ the internal counter.</p>
 </pre></div>
 </div>
 <p>And here’s an example of changing the counter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>  
 <span class="go">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>  
@@ -655,11 +655,11 @@ and resumed at many different points (the <code class="docutils literal notransl
 features of generator expressions:</p>
 <dl>
 <dt><a class="reference internal" href="../library/functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map(f,</span> <span class="pre">iterA,</span> <span class="pre">iterB,</span> <span class="pre">...)</span></code></a> returns an iterator over the sequence</dt><dd><p><code class="docutils literal notranslate"><span class="pre">f(iterA[0],</span> <span class="pre">iterB[0]),</span> <span class="pre">f(iterA[1],</span> <span class="pre">iterB[1]),</span> <span class="pre">f(iterA[2],</span> <span class="pre">iterB[2]),</span> <span class="pre">...</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;fragment&#39;</span><span class="p">]))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;fragment&#39;</span><span class="p">]))</span>
 <span class="go">[&#39;SENTENCE&#39;, &#39;FRAGMENT&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">upper</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;fragment&#39;</span><span class="p">]]</span>
 <span class="go">[&#39;SENTENCE&#39;, &#39;FRAGMENT&#39;]</span>
@@ -673,16 +673,16 @@ sequence elements that meet a certain condition, and is similarly duplicated by
 list comprehensions.  A <strong>predicate</strong> is a function that returns the truth
 value of some condition; for use with <a class="reference internal" href="../library/functions.html#filter" title="filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>, the predicate must take a
 single value.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
 <span class="go">[0, 2, 4, 6, 8]</span>
 </pre></div>
 </div>
 <p>This can also be written as a list comprehension:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="go">[0, 2, 4, 6, 8]</span>
 </pre></div>
 </div>
@@ -724,7 +724,7 @@ constructed list’s <a class="reference internal" href="../library/stdtypes.htm
 truth values of an iterable’s contents.  <a class="reference internal" href="../library/functions.html#any" title="any"><code class="xref py py-func docutils literal notranslate"><span class="pre">any()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if any element
 in the iterable is a true value, and <a class="reference internal" href="../library/functions.html#all" title="all"><code class="xref py py-func docutils literal notranslate"><span class="pre">all()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all of the
 elements are true values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="go">False</span>
@@ -1050,7 +1050,7 @@ first calculation.</p>
 <p>If you use <a class="reference internal" href="../library/operator.html#operator.add" title="operator.add"><code class="xref py py-func docutils literal notranslate"><span class="pre">operator.add()</span></code></a> with <a class="reference internal" href="../library/functools.html#functools.reduce" title="functools.reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.reduce()</span></code></a>, you’ll add up all the
 elements of the iterable.  This case is so common that there’s a special
 built-in called <a class="reference internal" href="../library/functions.html#sum" title="sum"><code class="xref py py-func docutils literal notranslate"><span class="pre">sum()</span></code></a> to compute it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functools</span><span class="o">,</span> <span class="nn">operator</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functools</span><span class="o">,</span> <span class="nn">operator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -1355,7 +1355,7 @@ features in Python 2.5.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

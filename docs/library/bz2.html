@@ -349,10 +349,10 @@ all of the streams.</p>
 <span id="bz2-usage-examples"></span><h2>Examples of usage<a class="headerlink" href="#examples-of-usage" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Below are some examples of typical usage of the <a class="reference internal" href="#module-bz2" title="bz2: Interfaces for bzip2 compression and decompression."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code></a> module.</p>
 <p>Using <a class="reference internal" href="#bz2.compress" title="bz2.compress"><code class="xref py py-func docutils literal notranslate"><span class="pre">compress()</span></code></a> and <a class="reference internal" href="#bz2.decompress" title="bz2.decompress"><code class="xref py py-func docutils literal notranslate"><span class="pre">decompress()</span></code></a> to demonstrate round-trip compression:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="gp">... </span><span class="s2">Donec rhoncus quis sapien sit amet molestie. Fusce scelerisque vel augue</span>
 <span class="gp">... </span><span class="s2">nec ullamcorper. Nam rutrum pretium placerat. Aliquam vel tristique lorem,</span>
 <span class="gp">... </span><span class="s2">sit amet cursus ante. In interdum laoreet mi, sit amet ultrices purus</span>
@@ -362,21 +362,21 @@ all of the streams.</p>
 <span class="gp">... </span><span class="s2">dolor luctus. Curabitur lacinia mi ornare consectetur vestibulum.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># Data compression ratio</span>
 <span class="go">1.513595166163142</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">==</span> <span class="n">d</span>  <span class="c1"># Check equality to original object after round-trip</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>Using <a class="reference internal" href="#bz2.BZ2Compressor" title="bz2.BZ2Compressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BZ2Compressor</span></code></a> for incremental compression:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">gen_data</span><span class="p">(</span><span class="n">chunks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">gen_data</span><span class="p">(</span><span class="n">chunks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Yield incremental blocks of chunksize bytes.&quot;&quot;&quot;</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">yield</span> <span class="sa">b</span><span class="s2">&quot;z&quot;</span> <span class="o">*</span> <span class="n">chunksize</span>
@@ -396,10 +396,10 @@ all of the streams.</p>
 (a stream of <cite>b”z”</cite> chunks).  Random data tends to compress poorly,
 while ordered, repetitive data usually yields a high compression ratio.</p>
 <p>Writing and reading a bzip2-compressed file in binary mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bz2</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="gp">... </span><span class="s2">Donec rhoncus quis sapien sit amet molestie. Fusce scelerisque vel augue</span>
 <span class="gp">... </span><span class="s2">nec ullamcorper. Nam rutrum pretium placerat. Aliquam vel tristique lorem,</span>
 <span class="gp">... </span><span class="s2">sit amet cursus ante. In interdum laoreet mi, sit amet ultrices purus</span>
@@ -409,17 +409,17 @@ while ordered, repetitive data usually yields a high compression ratio.</p>
 <span class="gp">... </span><span class="s2">dolor luctus. Curabitur lacinia mi ornare consectetur vestibulum.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">bz2</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;myfile.bz2&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">bz2</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;myfile.bz2&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="c1"># Write compressed data to file</span>
 <span class="gp">... </span>    <span class="n">unused</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">bz2</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;myfile.bz2&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">bz2</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;myfile.bz2&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="c1"># Decompress data from file</span>
 <span class="gp">... </span>    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content</span> <span class="o">==</span> <span class="n">data</span>  <span class="c1"># Check equality to original object after round-trip</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content</span> <span class="o">==</span> <span class="n">data</span>  <span class="c1"># Check equality to original object after round-trip</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -521,7 +521,7 @@ while ordered, repetitive data usually yields a high compression ratio.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

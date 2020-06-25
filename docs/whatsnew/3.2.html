@@ -353,7 +353,7 @@ aspects that are visible to the programmer:</p>
 <ul>
 <li><p>Imported modules now have a <a class="reference internal" href="../reference/import.html#__cached__" title="__cached__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__cached__</span></code></a> attribute which stores the name
 of the actual file that was imported:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">collections</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">collections</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">collections</span><span class="o">.</span><span class="n">__cached__</span> 
 <span class="go">&#39;c:/py32/lib/__pycache__/collections.cpython-32.pyc&#39;</span>
 </pre></div>
@@ -361,7 +361,7 @@ of the actual file that was imported:</p>
 </li>
 <li><p>The tag that is unique to each interpreter is accessible from the <a class="reference internal" href="../library/imp.html#module-imp" title="imp: Access the implementation of the import statement. (niezalecane)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imp</span></code></a>
 module:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">imp</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">imp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">get_tag</span><span class="p">()</span> 
 <span class="go">&#39;cpython-32&#39;</span>
 </pre></div>
@@ -370,7 +370,7 @@ module:</p>
 <li><p>Scripts that try to deduce source filename from the imported file now need to
 be smarter.  It is no longer sufficient to simply strip the „c” from a „.pyc”
 filename.  Instead, use the new functions in the <a class="reference internal" href="../library/imp.html#module-imp" title="imp: Access the implementation of the import statement. (niezalecane)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imp</span></code></a> module:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">source_from_cache</span><span class="p">(</span><span class="s1">&#39;c:/py32/lib/__pycache__/collections.cpython-32.pyc&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">source_from_cache</span><span class="p">(</span><span class="s1">&#39;c:/py32/lib/__pycache__/collections.cpython-32.pyc&#39;</span><span class="p">)</span>
 <span class="go">&#39;c:/py32/lib/collections.py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">cache_from_source</span><span class="p">(</span><span class="s1">&#39;c:/py32/lib/collections.py&#39;</span><span class="p">)</span> 
 <span class="go">&#39;c:/py32/lib/__pycache__/collections.cpython-32.pyc&#39;</span>
@@ -480,7 +480,7 @@ binary, octal, or hexadecimal, it caused the output to be prefixed with «0b»,
 «0o», or «0x» respectively.  Now it can also handle floats, complex, and
 Decimal, causing the output to always have a decimal point even when no digits
 follow it.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;#o&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;#o&#39;</span><span class="p">)</span>
 <span class="go">&#39;0o24&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mf">12.34</span><span class="p">,</span> <span class="s1">&#39;#5.0f&#39;</span><span class="p">)</span>
 <span class="go">&#39;  12.&#39;</span>
@@ -559,7 +559,7 @@ exceptions pass through:</p>
 <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>. Previously, the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> form was shorter but that just
 caused confusion and is no longer needed now that the shortest possible
 <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> is displayed by default:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">&#39;3.141592653589793&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -572,7 +572,7 @@ caused confusion and is no longer needed now that the shortest possible
 and they also now support the context management protocol.  This allows timely
 release of any resources that were acquired when requesting a buffer from the
 original object.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">memoryview</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;abcdefgh&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">memoryview</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;abcdefgh&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="go">[97, 98, 99, 100, 101, 102, 103, 104]</span>
 </pre></div>
@@ -609,7 +609,7 @@ This means that C structures like those returned by <a class="reference internal
 <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> and now work with functions and methods that
 expect a tuple as an argument.  This is a big step forward in making the C
 structures as flexible as their pure Python counterparts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Version </span><span class="si">%d</span><span class="s1">.</span><span class="si">%d</span><span class="s1">.</span><span class="si">%d</span><span class="s1"> </span><span class="si">%s</span><span class="s1">(</span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> 
@@ -671,7 +671,7 @@ in <a class="reference external" href="https://bugs.python.org/issue2690">bpo-26
 <li><p>The <a class="reference internal" href="../library/functions.html#callable" title="callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">callable()</span></code></a> builtin function from Py2.x was resurrected.  It provides
 a concise, readable alternative to using an <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a> in an
 expression like <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">collections.Callable)</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">callable</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">callable</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">callable</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">False</span>
@@ -776,7 +776,7 @@ calls.  <a class="reference internal" href="../library/functools.html#functools.
 resource whenever the results are expected to be the same.</p>
 <p>For example, adding a caching decorator to a database query function can save
 database accesses for popular searches:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functools</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functools</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">def</span> <span class="nf">get_phone_number</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -784,19 +784,19 @@ database accesses for popular searches:</p>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">user_requests</span><span class="p">:</span>        
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">user_requests</span><span class="p">:</span>        
 <span class="gp">... </span>    <span class="n">get_phone_number</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>        <span class="c1"># cached lookup</span>
 </pre></div>
 </div>
 <p>To help with choosing an effective cache size, the wrapped function is
 instrumented for tracking cache statistics:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>     
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>     
 <span class="go">CacheInfo(hits=4805, misses=980, maxsize=300, currsize=300)</span>
 </pre></div>
 </div>
 <p>If the phonelist table gets updated, the outdated contents of the cache can be
 cleared with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(Contributed by Raymond Hettinger and incorporating design ideas from Jim
@@ -810,7 +810,7 @@ it also gracefully skips over missing attributes such as <code class="xref py py
 might not be defined for the wrapped callable.</p>
 <p>In the above example, the cache can be removed by recovering the original
 function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span> <span class="o">=</span> <span class="n">get_phone_number</span><span class="o">.</span><span class="n">__wrapped__</span>    <span class="c1"># uncached function</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span> <span class="o">=</span> <span class="n">get_phone_number</span><span class="o">.</span><span class="n">__wrapped__</span>    <span class="c1"># uncached function</span>
 </pre></div>
 </div>
 <p>(By Nick Coghlan and Terrence Cole; <a class="reference external" href="https://bugs.python.org/issue9567">bpo-9567</a>, <a class="reference external" href="https://bugs.python.org/issue3445">bpo-3445</a>, and
@@ -839,7 +839,7 @@ are filled in automatically.</p>
 <li><p>To aid in porting programs from Python 2, the <a class="reference internal" href="../library/functools.html#functools.cmp_to_key" title="functools.cmp_to_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.cmp_to_key()</span></code></a>
 function converts an old-style comparison function to
 modern <a class="reference internal" href="../glossary.html#term-key-function"><span class="xref std std-term">key function</span></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># locale-aware sort order</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># locale-aware sort order</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cmp_to_key</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">strcoll</span><span class="p">))</span> 
 </pre></div>
 </div>
@@ -853,12 +853,12 @@ modern <a class="reference internal" href="../glossary.html#term-key-function"><
 <ul>
 <li><p>The <a class="reference internal" href="../library/itertools.html#module-itertools" title="itertools: Functions creating iterators for efficient looping."><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> module has a new <a class="reference internal" href="../library/itertools.html#itertools.accumulate" title="itertools.accumulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">accumulate()</span></code></a> function
 modeled on APL’s <em>scan</em> operator and Numpy’s <em>accumulate</em> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">]))</span>
 <span class="go">[8, 10, 60]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prob_dist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prob_dist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="n">prob_dist</span><span class="p">))</span>      <span class="c1"># cumulative probability distribution</span>
 <span class="go">[0.1, 0.5, 0.7, 1.0]</span>
 </pre></div>
@@ -879,14 +879,14 @@ subtraction, the existing <em>-=</em> operator for <a class="reference external"
 former is suitable for <a class="reference external" href="https://en.wikipedia.org/wiki/Multiset">multisets</a>
 which only have positive counts, and the latter is more suitable for use cases
 that allow negative counts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">dogs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cats</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span> <span class="o">-=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">dogs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cats</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>    <span class="c1"># saturating subtraction</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span>
 <span class="go">Counter({&#39;dogs&#39;: 3})</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">dogs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cats</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">dogs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cats</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">dogs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cats</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>      <span class="c1"># regular subtraction</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tally</span>
 <span class="go">Counter({&#39;dogs&#39;: 3, &#39;cats&#39;: -5})</span>
@@ -902,7 +902,7 @@ renewing an entry with <code class="docutils literal notranslate"><span class="p
 <p>A fast move-to-end operation is useful for resequencing entries.  For example,
 an ordered dictionary can be used to track order of access by aging entries
 from the oldest to the most recently accessed.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;X&#39;, &#39;d&#39;, &#39;e&#39;]</span>
@@ -916,7 +916,7 @@ from the oldest to the most recently accessed.</p>
 <li><p>The <a class="reference internal" href="../library/collections.html#collections.deque" title="collections.deque"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> class grew two new methods
 <a class="reference internal" href="../library/collections.html#collections.deque.count" title="collections.deque.count"><code class="xref py py-meth docutils literal notranslate"><span class="pre">count()</span></code></a> and <a class="reference internal" href="../library/collections.html#collections.deque.reverse" title="collections.deque.reverse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reverse()</span></code></a> that
 make them more substitutable for <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> objects:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="s1">&#39;simsalabim&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="go">2</span>
@@ -1050,7 +1050,7 @@ C99 standard.</p>
 <p>The <a class="reference internal" href="../library/math.html#math.isfinite" title="math.isfinite"><code class="xref py py-func docutils literal notranslate"><span class="pre">isfinite()</span></code></a> function provides a reliable and fast way to detect
 special values.  It returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for regular numbers and <code class="docutils literal notranslate"><span class="pre">False</span></code> for <em>Nan</em> or
 <em>Infinity</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">isfinite</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">isfinite</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;Nan&#39;</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;Inf&#39;</span><span class="p">))]</span>
 <span class="go">[True, True, False, False]</span>
 </pre></div>
@@ -1058,7 +1058,7 @@ special values.  It returns <code class="docutils literal notranslate"><span cla
 <p>The <a class="reference internal" href="../library/math.html#math.expm1" title="math.expm1"><code class="xref py py-func docutils literal notranslate"><span class="pre">expm1()</span></code></a> function computes <code class="docutils literal notranslate"><span class="pre">e**x-1</span></code> for small values of <em>x</em>
 without incurring the loss of precision that usually accompanies the subtraction
 of nearly equal quantities:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">expm1</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">expm1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">expm1</span><span class="p">(</span><span class="mf">0.013671875</span><span class="p">)</span>   <span class="c1"># more accurate way to compute e**x-1 for a small x</span>
 <span class="go">0.013765762467652909</span>
 </pre></div>
@@ -1080,7 +1080,7 @@ function.  See <a class="reference external" href="https://en.wikipedia.org/wiki
 the function is related to factorials, it grows large even for small values of
 <em>x</em>, so there is also a <a class="reference internal" href="../library/math.html#math.lgamma" title="math.lgamma"><code class="xref py py-func docutils literal notranslate"><span class="pre">lgamma()</span></code></a> function for computing the natural
 logarithm of the gamma function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">lgamma</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">lgamma</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span><span class="p">(</span><span class="mf">7.0</span><span class="p">)</span>           <span class="c1"># six factorial</span>
 <span class="go">720.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lgamma</span><span class="p">(</span><span class="mf">801.0</span><span class="p">)</span>        <span class="c1"># log(800 factorial)</span>
@@ -1278,7 +1278,7 @@ values are equal (<a class="reference external" href="https://bugs.python.org/is
 <a class="reference internal" href="../library/sys.html#sys.hash_info" title="sys.hash_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sys.hash_info</span></code></a>, which describes the bit width of the hash value, the
 prime modulus, the hash values for <em>infinity</em> and <em>nan</em>, and the multiplier
 used for the imaginary part of a number:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">hash_info</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">hash_info</span> 
 <span class="go">sys.hash_info(width=64, modulus=2305843009213693951, inf=314159, nan=0, imag=1000003)</span>
 </pre></div>
 </div>
@@ -1300,7 +1300,7 @@ and <a class="reference internal" href="../library/fractions.html#fractions.Frac
 <p>Similar changes were made to <a class="reference internal" href="../library/fractions.html#fractions.Fraction" title="fractions.Fraction"><code class="xref py py-class docutils literal notranslate"><span class="pre">fractions.Fraction</span></code></a> so that the
 <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_float" title="fractions.Fraction.from_float"><code class="xref py py-meth docutils literal notranslate"><span class="pre">from_float()</span></code></a> and <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_decimal" title="fractions.Fraction.from_decimal"><code class="xref py py-meth docutils literal notranslate"><span class="pre">from_decimal()</span></code></a>
 methods are no longer needed (<a class="reference external" href="https://bugs.python.org/issue8294">bpo-8294</a>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
 <span class="go">Decimal(&#39;1.100000000000000088817841970012523233890533447265625&#39;)</span>
@@ -1358,7 +1358,7 @@ certificates and private keys into a single (potentially long-lived) structure.<
 <a class="reference internal" href="../library/select.html#select.PIPE_BUF" title="select.PIPE_BUF"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PIPE_BUF</span></code></a>, which gives the minimum number of bytes which are
 guaranteed not to block when <a class="reference internal" href="../library/select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.select()</span></code></a> says a pipe is ready
 for writing.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">select</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">select</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">select</span><span class="o">.</span><span class="n">PIPE_BUF</span>  
 <span class="go">512</span>
 </pre></div>
@@ -1375,7 +1375,7 @@ zero-padded file objects.</p>
 <a class="reference internal" href="../library/gzip.html#gzip.decompress" title="gzip.decompress"><code class="xref py py-func docutils literal notranslate"><span class="pre">decompress()</span></code></a> functions for easier in-memory compression and
 decompression.  Keep in mind that text needs to be encoded as <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>
 before compressing and decompressing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gzip</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">gzip</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Three shall be the number thou shalt count, &#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;and the number of the counting shall be three&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>                        <span class="c1"># convert to utf-8</span>
@@ -1478,7 +1478,7 @@ strings, bytes, numbers, tuples, lists, dicts, sets, booleans, and <code class="
 variables.  The <a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> module provides two new functions,
 <a class="reference internal" href="../library/os.html#os.fsencode" title="os.fsencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">fsencode()</span></code></a> and <a class="reference internal" href="../library/os.html#os.fsdecode" title="os.fsdecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">fsdecode()</span></code></a>, for encoding and decoding
 filenames:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;Sehenswürdigkeiten&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="go">b&#39;Sehensw\xc3\xbcrdigkeiten&#39;</span>
@@ -1555,7 +1555,7 @@ extension distributed with SQLite.</p></li>
 <p>A new <a class="reference internal" href="../library/html.html#module-html" title="html: Helpers for manipulating HTML."><code class="xref py py-mod docutils literal notranslate"><span class="pre">html</span></code></a> module was introduced with only a single function,
 <a class="reference internal" href="../library/html.html#html.escape" title="html.escape"><code class="xref py py-func docutils literal notranslate"><span class="pre">escape()</span></code></a>, which is used for escaping reserved characters from HTML
 markup:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">html</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">html</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s1">&#39;x &gt; 2 &amp;&amp; x &lt; 7&#39;</span><span class="p">)</span>
 <span class="go">&#39;x &amp;gt; 2 &amp;amp;&amp;amp; x &amp;lt; 7&#39;</span>
 </pre></div>
@@ -1680,7 +1680,7 @@ start discovery with <code class="docutils literal notranslate"><span class="pre
 <li><p>Experimentation at the interactive prompt is now easier because the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code> class can now be instantiated without
 arguments:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">TestCase</span><span class="p">()</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2124,7 +2124,7 @@ reading directly from dictionaries and strings.</p>
 <h3>urllib.parse<a class="headerlink" href="#urllib-parse" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>A number of usability improvements were made for the <a class="reference internal" href="../library/urllib.parse.html#module-urllib.parse" title="urllib.parse: Parse URLs into or assemble them from components."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.parse</span></code></a> module.</p>
 <p>The <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlparse" title="urllib.parse.urlparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlparse()</span></code></a> function now supports <a class="reference external" href="https://en.wikipedia.org/wiki/IPv6">IPv6</a> addresses as described in <span class="target" id="index-13"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2732.html"><strong>RFC 2732</strong></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.parse</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.parse</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;http://[dead:beef:cafe:5417:affe:8FA3:deaf:feed]/foo/&#39;</span><span class="p">)</span> 
 <span class="go">ParseResult(scheme=&#39;http&#39;,</span>
 <span class="go">            netloc=&#39;[dead:beef:cafe:5417:affe:8FA3:deaf:feed]&#39;,</span>
@@ -2159,7 +2159,7 @@ string, then the <em>safe</em>, <em>encoding</em>, and <em>error</em> parameters
 functions now accept ASCII-encoded byte strings as input, so long as they are
 not mixed with regular strings.  If ASCII-encoded byte strings are given as
 parameters, the return types will also be an ASCII-encoded byte strings:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;http://www.python.org:80/about/&#39;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;http://www.python.org:80/about/&#39;</span><span class="p">)</span> 
 <span class="go">ParseResultBytes(scheme=b&#39;http&#39;, netloc=b&#39;www.python.org:80&#39;,</span>
 <span class="go">                 path=b&#39;/about/&#39;, params=b&#39;&#39;, query=b&#39;&#39;, fragment=b&#39;&#39;)</span>
 </pre></div>
@@ -2729,7 +2729,7 @@ cannot be called before <a class="reference internal" href="../c-api/init.html#c
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

@@ -135,7 +135,7 @@ versions.</p>
 <code class="sig-prename descclassname">shlex.</code><code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param">split_command</em><span class="sig-paren">)</span><a class="headerlink" href="#shlex.join" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Concatenate the tokens of the list <em>split_command</em> and return a string.
 This function is the inverse of <a class="reference internal" href="#shlex.split" title="shlex.split"><code class="xref py py-func docutils literal notranslate"><span class="pre">split()</span></code></a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">join</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">join</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;Multiple words&#39;</span><span class="p">]))</span>
 <span class="go">echo -n &#39;Multiple words&#39;</span>
 </pre></div>
@@ -154,14 +154,14 @@ vulnerabilities (see <a class="reference internal" href="#shlex.quote" title="sh
 string that can safely be used as one token in a shell command line, for
 cases where you cannot use a list.</p>
 <p>This idiom would be unsafe:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;somefile; rm -rf ~&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;somefile; rm -rf ~&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;ls -l </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>  <span class="c1"># executed by a shell: boom!</span>
 <span class="go">ls -l somefile; rm -rf ~</span>
 </pre></div>
 </div>
 <p><a class="reference internal" href="#shlex.quote" title="shlex.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a> lets you plug the security hole:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">quote</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">quote</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;ls -l </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quote</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 <span class="go">ls -l &#39;somefile; rm -rf ~&#39;</span>
@@ -171,7 +171,7 @@ cases where you cannot use a list.</p>
 </pre></div>
 </div>
 <p>The quoting is compatible with UNIX shells and with <a class="reference internal" href="#shlex.split" title="shlex.split"><code class="xref py py-func docutils literal notranslate"><span class="pre">split()</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">split</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">split</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">remote_command</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">remote_command</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">remote_command</span>
 <span class="go">[&#39;ssh&#39;, &#39;home&#39;, &quot;ls -l &#39;somefile; rm -rf ~&#39;&quot;]</span>
@@ -636,7 +636,7 @@ always use <code class="docutils literal notranslate"><span class="pre">posix</s
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

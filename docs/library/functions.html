@@ -247,14 +247,14 @@
 <dt id="bin">
 <code class="sig-name descname">bin</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#bin" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Konwertuje liczbę całkowitą do binarnego ciągu znaków z prefiksem „0b”. Wynik jest poprawnym wyrażeniem Pythona. Jeśli <em>x</em> nie jest pythonowym obiektem <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, musi definiować metodę <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a>, która zwraca liczbę całkowitą. Kilka przykładów:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">&#39;0b11&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">&#39;-0b1010&#39;</span>
 </pre></div>
 </div>
 <p>Jeśli prefiks „0b” może nie być pożądany, możesz użyć dowolnego z poniższych sposobów.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;#b&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;#b&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="go">(&#39;0b1110&#39;, &#39;1110&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">14</span><span class="si">:</span><span class="s1">#b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">14</span><span class="si">:</span><span class="s1">b</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="go">(&#39;0b1110&#39;, &#39;1110&#39;)</span>
@@ -535,7 +535,7 @@ class’s attributes, and recursively of the attributes of its class’s base
 classes.</p></li>
 </ul>
 <p>The resulting list is sorted alphabetically.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">struct</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">struct</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>   <span class="c1"># show the names in the module namespace  </span>
 <span class="go">[&#39;__builtins__&#39;, &#39;__name__&#39;, &#39;struct&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>   <span class="c1"># show the names in the struct module </span>
@@ -583,7 +583,7 @@ close to <em>a</em>, if <code class="docutils literal notranslate"><span class="
 The <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method of the iterator returned by
 <a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> returns a tuple containing a count (from <em>start</em> which
 defaults to 0) and the values obtained from iterating over <em>iterable</em>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">))</span>
 <span class="go">[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -621,7 +621,7 @@ does not have access to the <a class="reference internal" href="../glossary.html
 enclosing environment.</p>
 <p>The return value is the result of
 the evaluated expression. Syntax errors are reported as exceptions.  Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;x+1&#39;</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
@@ -856,7 +856,7 @@ signatures for callables are now more comprehensive and consistent.</p>
 <dd><p>Convert an integer number to a lowercase hexadecimal string prefixed with
 „0x”. If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it has to define an
 <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer. Some examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="go">&#39;0xff&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span>
 <span class="go">&#39;-0x2a&#39;</span>
@@ -864,7 +864,7 @@ signatures for callables are now more comprehensive and consistent.</p>
 </div>
 <p>If you want to convert an integer number to an uppercase or lower hexadecimal
 string with prefix or not, you can use either of the following ways:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span>
 <span class="go">(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;#x&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
 <span class="go">(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)</span>
@@ -1141,7 +1141,7 @@ assign arbitrary attributes to an instance of the <a class="reference internal" 
 is a valid Python expression. If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it
 has to define an <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer. For
 example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="go">&#39;0o10&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="o">-</span><span class="mi">56</span><span class="p">)</span>
 <span class="go">&#39;-0o70&#39;</span>
@@ -1149,7 +1149,7 @@ example:</p>
 </div>
 <p>If you want to convert an integer number to octal string either with prefix
 „0o” or not, you can use either of the following ways.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span>
 <span class="go">(&#39;0o12&#39;, &#39;12&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;#o&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="go">(&#39;0o12&#39;, &#39;12&#39;)</span>
@@ -1778,7 +1778,7 @@ attribute; and the <em>dict</em> dictionary is the namespace containing definiti
 for class body and is copied to a standard dictionary to become the
 <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a> attribute.  For example, the following two
 statements create identical <a class="reference internal" href="#type" title="type"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> objects:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">X</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">X</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -2007,7 +2007,7 @@ mode to convert Windows or Mac-style newlines.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

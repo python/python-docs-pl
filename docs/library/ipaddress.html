@@ -128,7 +128,7 @@ the IP address passed as argument.  Either IPv4 or IPv6 addresses may be
 supplied; integers less than 2**32 will be considered to be IPv4 by default.
 A <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>address</em> does not represent a valid IPv4
 or IPv6 address.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="s1">&#39;2001:db8::&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;2001:db8::&#39;)</span>
@@ -146,7 +146,7 @@ integers less than 2**32 will be considered to be IPv4 by default.  <em>strict</
 is passed to <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> constructor.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>address</em> does not represent a valid IPv4 or
 IPv6 address, or if the network has host bits set.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.0.0/28&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.0.0/28&#39;</span><span class="p">)</span>
 <span class="go">IPv4Network(&#39;192.168.0.0/28&#39;)</span>
 </pre></div>
 </div>
@@ -195,7 +195,7 @@ between the decimal and octal interpretations of such strings).</p></li>
 <li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 4 (most
 significant octet first).</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="mi">3232235521</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.168.0.1&#39;)</span>
@@ -338,7 +338,7 @@ For example, <code class="docutils literal notranslate"><span class="pre">fe80::
 <li><p>An integer that fits into 128 bits.</p></li>
 <li><p>An integer packed into a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object of length 16, big-endian.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Address</span><span class="p">(</span><span class="s1">&#39;2001:db8::1000&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Address</span><span class="p">(</span><span class="s1">&#39;2001:db8::1000&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;2001:db8::1000&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Address</span><span class="p">(</span><span class="s1">&#39;ff02::5678%1&#39;</span><span class="p">)</span>
 <span class="go">IPv6Address(&#39;ff02::5678%1&#39;)</span>
@@ -715,7 +715,7 @@ network address itself and the network broadcast address.  For networks
 with a mask length of 31, the network address and network broadcast
 address are also included in the result. Networks with a mask of 32
 will return a list containing the single host address.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>  
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>  
 <span class="go">[IPv4Address(&#39;192.0.2.1&#39;), IPv4Address(&#39;192.0.2.2&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.3&#39;), IPv4Address(&#39;192.0.2.4&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.5&#39;), IPv4Address(&#39;192.0.2.6&#39;)]</span>
@@ -741,7 +741,7 @@ will return a list containing the single host address.</p>
 <em>network</em> from this one.  Returns an iterator of network objects.
 Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if <em>network</em> is not completely contained in
 this network.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n1</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/28&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n1</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/28&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n2</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">n1</span><span class="o">.</span><span class="n">address_exclude</span><span class="p">(</span><span class="n">n2</span><span class="p">))</span>  
 <span class="go">[IPv4Network(&#39;192.0.2.8/29&#39;), IPv4Network(&#39;192.0.2.4/30&#39;),</span>
@@ -759,7 +759,7 @@ length should be increased by.  <em>new_prefix</em> is the desired new
 prefix of the subnets; it must be larger than our prefix.  One and
 only one of <em>prefixlen_diff</em> and <em>new_prefix</em> must be set.  Returns an
 iterator of network objects.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">())</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/25&#39;), IPv4Network(&#39;192.0.2.128/25&#39;)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">subnets</span><span class="p">(</span><span class="n">prefixlen_diff</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  
 <span class="go">[IPv4Network(&#39;192.0.2.0/26&#39;), IPv4Network(&#39;192.0.2.64/26&#39;),</span>
@@ -787,7 +787,7 @@ should be decreased by.  <em>new_prefix</em> is the desired new prefix of
 the supernet; it must be smaller than our prefix.  One and only one
 of <em>prefixlen_diff</em> and <em>new_prefix</em> must be set.  Returns a single
 network object.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">()</span>
 <span class="go">IPv4Network(&#39;192.0.2.0/23&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">supernet</span><span class="p">(</span><span class="n">prefixlen_diff</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">IPv4Network(&#39;192.0.0.0/22&#39;)</span>
@@ -801,7 +801,7 @@ network object.</p>
 <dt id="ipaddress.IPv4Network.subnet_of">
 <code class="sig-name descname">subnet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.subnet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this network is a subnet of <em>other</em>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.128/30&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">True</span>
@@ -816,7 +816,7 @@ network object.</p>
 <dt id="ipaddress.IPv4Network.supernet_of">
 <code class="sig-name descname">supernet_of</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.supernet_of" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this network is a supernet of <em>other</em>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.0/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.168.1.128/30&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">supernet_of</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">True</span>
@@ -833,7 +833,7 @@ network object.</p>
 <dd><p>Compare this network to <em>other</em>.  In this comparison only the network
 addresses are considered; host bits aren’t.  Returns either <code class="docutils literal notranslate"><span class="pre">-1</span></code>,
 <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.2/32&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.2/32&#39;</span><span class="p">))</span>
 <span class="go">-1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.1/32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compare_networks</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/32&#39;</span><span class="p">))</span>
 <span class="go">1</span>
@@ -1104,7 +1104,7 @@ are available:</p>
 <dt id="ipaddress.IPv4Interface.ip">
 <code class="sig-name descname">ip</code><a class="headerlink" href="#ipaddress.IPv4Interface.ip" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The address (<a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Address</span></code></a>) without network information.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">ip</span>
 <span class="go">IPv4Address(&#39;192.0.2.5&#39;)</span>
 </pre></div>
@@ -1115,7 +1115,7 @@ are available:</p>
 <dt id="ipaddress.IPv4Interface.network">
 <code class="sig-name descname">network</code><a class="headerlink" href="#ipaddress.IPv4Interface.network" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>The network (<a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a>) this interface belongs to.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">network</span>
 <span class="go">IPv4Network(&#39;192.0.2.0/24&#39;)</span>
 </pre></div>
@@ -1126,7 +1126,7 @@ are available:</p>
 <dt id="ipaddress.IPv4Interface.with_prefixlen">
 <code class="sig-name descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_prefixlen" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the mask in prefix notation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_prefixlen</span>
 <span class="go">&#39;192.0.2.5/24&#39;</span>
 </pre></div>
@@ -1137,7 +1137,7 @@ are available:</p>
 <dt id="ipaddress.IPv4Interface.with_netmask">
 <code class="sig-name descname">with_netmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_netmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the network as a net mask.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_netmask</span>
 <span class="go">&#39;192.0.2.5/255.255.255.0&#39;</span>
 </pre></div>
@@ -1148,7 +1148,7 @@ are available:</p>
 <dt id="ipaddress.IPv4Interface.with_hostmask">
 <code class="sig-name descname">with_hostmask</code><a class="headerlink" href="#ipaddress.IPv4Interface.with_hostmask" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>A string representation of the interface with the network as a host mask.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">IPv4Interface</span><span class="p">(</span><span class="s1">&#39;192.0.2.5/24&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span><span class="o">.</span><span class="n">with_hostmask</span>
 <span class="go">&#39;192.0.2.5/0.0.0.255&#39;</span>
 </pre></div>
@@ -1224,7 +1224,7 @@ IP addresses.</p>
 <em>address</em> is an integer representation of an IPv4 IP address.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if the integer is negative or too large to be an
 IPv4 IP address.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
 <span class="go">IPv4Address(&#39;192.0.2.1&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">v4_int_to_packed</span><span class="p">(</span><span class="mi">3221225985</span><span class="p">)</span>
 <span class="go">b&#39;\xc0\x00\x02\x01&#39;</span>
@@ -1251,7 +1251,7 @@ or <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.
 <em>first</em> or <em>last</em> are not IP addresses or are not of the same version.  A
 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised if <em>last</em> is not greater than <em>first</em> or if
 <em>first</em> address version is not 4 or 6.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">summarize_address_range</span><span class="p">(</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">summarize_address_range</span><span class="p">(</span>
 <span class="gp">... </span>   <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.0.2.0&#39;</span><span class="p">),</span>
 <span class="gp">... </span>   <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Address</span><span class="p">(</span><span class="s1">&#39;192.0.2.130&#39;</span><span class="p">))]</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/25&#39;), IPv4Network(&#39;192.0.2.128/31&#39;), IPv4Network(&#39;192.0.2.130/32&#39;)]</span>
@@ -1266,7 +1266,7 @@ or <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.
 <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> objects.  <em>addresses</em> is an iterator of
 <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv4Network</span></code></a> or <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPv6Network</span></code></a> objects.  A <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is
 raised if <em>addresses</em> contains mixed version objects.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ipaddr</span> <span class="k">for</span> <span class="n">ipaddr</span> <span class="ow">in</span>
 <span class="gp">... </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">collapse_addresses</span><span class="p">([</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/25&#39;</span><span class="p">),</span>
 <span class="gp">... </span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">(</span><span class="s1">&#39;192.0.2.128/25&#39;</span><span class="p">)])]</span>
 <span class="go">[IPv4Network(&#39;192.0.2.0/24&#39;)]</span>
@@ -1431,7 +1431,7 @@ module defines the following exceptions:</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

@@ -426,7 +426,7 @@ implementations and information about similar features in other languages.</p>
 <p>Weak reference objects have no methods and no attributes besides
 <a class="reference internal" href="#weakref.ref.__callback__" title="weakref.ref.__callback__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ref.__callback__</span></code></a>. A weak reference object allows the referent to be
 obtained, if it still exists, by calling it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">weakref</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">weakref</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Object</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 <span class="gp">...</span>
@@ -439,7 +439,7 @@ obtained, if it still exists, by calling it:</p>
 </div>
 <p>If the referent no longer exists, calling the reference object returns
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">o</span><span class="p">,</span> <span class="n">o2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">o</span><span class="p">,</span> <span class="n">o2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">())</span>
 <span class="go">None</span>
 </pre></div>
@@ -515,7 +515,7 @@ objects can still be retrieved by ID if they do.</p>
 <p>The main benefit of using <a class="reference internal" href="#weakref.finalize" title="weakref.finalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">finalize</span></code></a> is that it makes it simple
 to register a callback without needing to preserve the returned finalizer
 object.  For instance</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">weakref</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">weakref</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Object</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 <span class="gp">...</span>
@@ -528,7 +528,7 @@ object.  For instance</p>
 </div>
 <p>The finalizer can be called directly as well.  However the finalizer
 will invoke the callback at most once.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CALLBACK&quot;</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
 <span class="gp">...</span>
@@ -545,7 +545,7 @@ will invoke the callback at most once.</p>
 <p>You can unregister a finalizer using its <a class="reference internal" href="#weakref.finalize.detach" title="weakref.finalize.detach"><code class="xref py py-meth docutils literal notranslate"><span class="pre">detach()</span></code></a>
 method.  This kills the finalizer and returns the arguments passed to
 the constructor when it was created.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">Object</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">Object</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>                                           
 <span class="go">(&lt;...Object object ...&gt;, &lt;function callback ...&gt;, (1, 2), {&#39;z&#39;: 3})</span>
@@ -737,7 +737,7 @@ do not guarantee that cleanup occurs either.</p>
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.2.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>
