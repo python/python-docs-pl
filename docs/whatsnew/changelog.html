@@ -110,6 +110,8 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://bugs.python.org/issue41094">bpo-41094</a>: Fix decoding errors with audit when open files with non-ASCII
 names on non-UTF-8 locale.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41084">bpo-41084</a>: Prefix the error message with «f-string: «, when parsing an
+f-string expression which throws a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40939">bpo-40939</a>: Deprecate <code class="xref c c-func docutils literal notranslate"><span class="pre">PyNode_Compile()</span></code>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41056">bpo-41056</a>: Fixes a reference to deallocated stack space during startup
 when constructing sys.path involving a relative symlink when code was
@@ -225,7 +227,11 @@ environmental variables &amp; ini files.</p></li>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bugs.python.org/issue39580">bpo-39580</a>: Avoid opening Finder window if running installer from the
 command line. Patch contributed by Rick Heil.</p></li>
-<li><p><a class="reference external" href="https://bugs.python.org/issue41100">bpo-41100</a>: Support macOS 11 when building.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41100">bpo-41100</a>: Fix configure error when building on macOS 11. Note that the
+current Python release was released shortly after the first developer
+preview of macOS 11 (Big Sur); there are other known issues with building
+and running on the developer preview. Big Sur is expected to be fully
+supported in a future bugfix release of Python 3.8.x and with 3.9.0.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41005">bpo-41005</a>: fixed an XDG settings issue not allowing macos to open browser
 in webbrowser.py</p></li>
 </ul>
@@ -19701,7 +19707,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 27, 2020.
+    Ostatnia modyfikacja cze 28, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
