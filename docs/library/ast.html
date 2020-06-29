@@ -1813,7 +1813,13 @@ back with <a class="reference internal" href="#ast.parse" title="ast.parse"><cod
 <div class="admonition warning">
 <p class="admonition-title">Ostrzeżenie</p>
 <p>The produced code string will not necessarily be equal to the original
-code that generated the <a class="reference internal" href="#ast.AST" title="ast.AST"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code></a> object.</p>
+code that generated the <a class="reference internal" href="#ast.AST" title="ast.AST"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code></a> object (without any compiler
+optimizations, such as constant tuples/frozensets).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Ostrzeżenie</p>
+<p>Trying to unparse a highly complex expression would result with
+<a class="reference internal" href="exceptions.html#RecursionError" title="RecursionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RecursionError</span></code></a>.</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.9.</span></p>
@@ -2182,7 +2188,7 @@ details on working with Python ASTs.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja cze 28, 2020.
+    Ostatnia modyfikacja cze 29, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
