@@ -163,6 +163,10 @@ longer masked by <code class="docutils literal notranslate"><span class="pre">Ty
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41193">bpo-41193</a>: The <code class="docutils literal notranslate"><span class="pre">write_history()</span></code> atexit function of the readline
+completer now ignores any <a class="reference internal" href="../library/exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> to ignore error if the filesystem
+is read-only, instead of only ignoring <a class="reference internal" href="../library/exceptions.html#FileNotFoundError" title="FileNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a> and
+<a class="reference internal" href="../library/exceptions.html#PermissionError" title="PermissionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41161">bpo-41161</a>: The decimal module now requires libmpdec-2.5.0. Users of
 –with-system-libmpdec should update their system library.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40874">bpo-40874</a>: The decimal module now requires libmpdec-2.5.0.</p></li>
@@ -182,9 +186,13 @@ Coverity)</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41048">bpo-41048</a>: <a class="reference internal" href="../library/mimetypes.html#mimetypes.read_mime_types" title="mimetypes.read_mime_types"><code class="xref py py-func docutils literal notranslate"><span class="pre">mimetypes.read_mime_types()</span></code></a> function reads the rule file
 using UTF-8 encoding, not the locale encoding. Patch by Srinivas Reddy
 Thatiparthy.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41043">bpo-41043</a>: Fixed the use of <a class="reference internal" href="../library/glob.html#glob.glob" title="glob.glob"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob()</span></code></a> in the stdlib: literal part
+of the path is now always correctly escaped.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40448">bpo-40448</a>: <a class="reference internal" href="../library/ensurepip.html#module-ensurepip" title="ensurepip: Bootstrapping the &quot;pip&quot; installer into an existing Python installation or virtual environment."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ensurepip</span></code></a> now disables the use of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> cache when
 installing the bundled versions of <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">setuptools</span></code>.  Patch by
 Krzysztof Konopko.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue40967">bpo-40967</a>: Removed <code class="xref py py-meth docutils literal notranslate"><span class="pre">asyncio.Task.current_task()</span></code> and
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">asyncio.Task.all_tasks()</span></code>. Patch contributed by Rémi Lapeyre.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40955">bpo-40955</a>: Fix a minor memory leak in <a class="reference internal" href="../library/subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module when
 extra_groups was specified.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue40855">bpo-40855</a>: The standard deviation and variance functions in the statistics
@@ -19741,7 +19749,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 02, 2020.
+    Ostatnia modyfikacja lip 03, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
