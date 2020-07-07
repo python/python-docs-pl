@@ -110,11 +110,20 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://bugs.python.org/issue41162">bpo-41162</a>: Audit hooks are now cleared later during finalization to avoid
 missing events.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue29778">bpo-29778</a>: Ensure <code class="file docutils literal notranslate"><span class="pre">python3.dll</span></code> is loaded from correct locations
+when Python is embedded (CVE-2020-15523).</p></li>
 </ul>
 </div>
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41215">bpo-41215</a>: Use non-NULL default values in the PEG parser keyword list to
+overcome a bug that was preventing Python from being properly compiled
+when using the XLC compiler. Patch by Pablo Galindo.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue41218">bpo-41218</a>: Python 3.8.3 had a regression where compiling with
+ast.PyCF_ALLOW_TOP_LEVEL_AWAIT would aggressively mark list comprehension
+with CO_COROUTINE. Now only list comprehension making use of async/await
+will tagged as so.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue39960">bpo-39960</a>: The „hackcheck” that prevents sneaking around a type’s
 __setattr__() by calling the superclass method was rewritten to allow C
 implemented heap types.</p></li>
@@ -19782,7 +19791,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 06, 2020.
+    Ostatnia modyfikacja lip 07, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

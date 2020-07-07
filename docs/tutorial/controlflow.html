@@ -305,11 +305,10 @@ symbol table of the called function when it is called; thus, arguments are
 passed using <em>call by value</em> (where the <em>value</em> is always an object <em>reference</em>,
 not the value of the object). <a class="footnote-reference brackets" href="#id2" id="id1">1</a> When a function calls another function, a new
 local symbol table is created for that call.</p>
-<p>A function definition introduces the function name in the current symbol table.
-The value of the function name has a type that is recognized by the interpreter
-as a user-defined function.  This value can be assigned to another name which
-can then also be used as a function.  This serves as a general renaming
-mechanism:</p>
+<p>A function definition associates the function name with the function object in
+the current symbol table.  The interpreter recognizes the object pointed to by
+that name as a user-defined function.  Other names can also point to that same
+function object and can also be used to access the function:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span>
 <span class="go">&lt;function fib at 10042ed0&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">fib</span>
@@ -980,7 +979,7 @@ callee makes to it (items inserted into a list).</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 06, 2020.
+    Ostatnia modyfikacja lip 07, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
