@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
   <head>
     <meta charset="utf-8" />
-    <title>What’s New In Python 3.9 &#8212; Python 3.9.0b4 - dokumentacja</title>
+    <title>Co nowego w Pythonie 3.9 &#8212; Python 3.9.0b4 - dokumentacja</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -100,49 +100,35 @@
           <div class="body" role="main">
             
   <div class="section" id="what-s-new-in-python-3-9">
-<h1>What’s New In Python 3.9<a class="headerlink" href="#what-s-new-in-python-3-9" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<h1>Co nowego w Pythonie 3.9<a class="headerlink" href="#what-s-new-in-python-3-9" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Release</dt>
+<dt class="field-odd">wydanie</dt>
 <dd class="field-odd"><p>3.9.0b4</p>
 </dd>
-<dt class="field-even">Date</dt>
+<dt class="field-even">data</dt>
 <dd class="field-even"><p>lipca 13, 2020</p>
 </dd>
 </dl>
-<p>This article explains the new features in Python 3.9, compared to 3.8.</p>
-<p>For full details, see the <a class="reference internal" href="changelog.html#changelog"><span class="std std-ref">changelog</span></a>.</p>
+<p>Ten artykuł opisuje nowe funkcje Pythona 3.9 w porównaniu do 3.8.</p>
+<p>Pełne szczegóły znajdziesz w <a class="reference internal" href="changelog.html#changelog"><span class="std std-ref">changelogu</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>Prerelease users should be aware that this document is currently in draft
-form. It will be updated substantially as Python 3.9 moves towards release,
-so it’s worth checking back even after reading earlier versions.</p>
+<p>Użytkownicy pre-wydania powinni być świadomi, że ten dokument ma obecnie formę szkicu. Będzie istotnie aktualizowany gdy Python 3.9 zbliży się do wydania, więc warto zajrzeć tu znów, nawet jeśli czytało się wcześniejsze wersje.</p>
 </div>
 <div class="section" id="summary-release-highlights">
-<h2>Summary – Release highlights<a class="headerlink" href="#summary-release-highlights" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Podsumowanie – najważniejsze nowości<a class="headerlink" href="#summary-release-highlights" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 </div>
 <div class="section" id="you-should-check-for-deprecationwarning-in-your-code">
-<h2>You should check for DeprecationWarning in your code<a class="headerlink" href="#you-should-check-for-deprecationwarning-in-your-code" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>When Python 2.7 was still supported, many functions were kept for backward
-compatibility with Python 2.7. With the end of Python 2.7 support, these
-backward compatibility layers have been removed, or will be removed soon.
-Most of them emitted a <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> warning for several years. For
-example, using <code class="docutils literal notranslate"><span class="pre">collections.Mapping</span></code> instead of <code class="docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code>
-emits a <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> since Python 3.3, released in 2012.</p>
-<p>Test your application with the <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> <code class="docutils literal notranslate"><span class="pre">default</span></code> command-line option to see
-<a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> and <a class="reference internal" href="../library/exceptions.html#PendingDeprecationWarning" title="PendingDeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a>, or even with
-<a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> <code class="docutils literal notranslate"><span class="pre">error</span></code> to treat them as errors. <a class="reference internal" href="../library/warnings.html#warning-filter"><span class="std std-ref">Warnings Filter</span></a> can be used to ignore warnings from third-party code.</p>
-<p>It has been decided to keep a few backward compatibility layers for one last
-release, to give more time to Python projects maintainers to organize the
-removal of the Python 2 support and add support for Python 3.9.</p>
-<p>Aliases to <a class="reference internal" href="../library/collections.abc.html#collections-abstract-base-classes"><span class="std std-ref">Abstract Base Classes</span></a> in
-the <a class="reference internal" href="../library/collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a> module, like <code class="docutils literal notranslate"><span class="pre">collections.Mapping</span></code> alias to
-<a class="reference internal" href="../library/collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>, are kept for one last release for backward
-compatibility. They will be removed from Python 3.10.</p>
+<h2>Powinieneś(-winnaś) sprawdzić DeprecationWarningi w swoim kodzie<a class="headerlink" href="#you-should-check-for-deprecationwarning-in-your-code" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Gdy Python 2.7 był jeszcze wspierany, wiele funkcji było utrzymanych dla zgodności wstecznej z Pythonem 2.7. Wraz z zakończeniem wsparcie dla Pythona 2.7, te warstwy kompatybilności wstecznej zostały usunięte, lub zostaną wkrótce usunięte. Większość z nich emitowała warning <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> przez kilka lat. Na przykład użycie <code class="docutils literal notranslate"><span class="pre">collections.Mapping</span></code> zamiast <code class="docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code> emituje <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> od Pythona 3.3, wydanego w 2012.</p>
+<p>Testuj swoją aplikację z opcją linii komend <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> <code class="docutils literal notranslate"><span class="pre">default</span></code>, by widzieć <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a>i i <a class="reference internal" href="../library/exceptions.html#PendingDeprecationWarning" title="PendingDeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a>i, lub nawet z <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> <code class="docutils literal notranslate"><span class="pre">error</span></code>, by traktować je jako błędy. Możesz użyć <a class="reference internal" href="../library/warnings.html#warning-filter"><span class="std std-ref">filtra warningów</span></a>, by ignorować warningi z kodu od osób trzecich.</p>
+<p>Zdecydowano o zatrzymaniu kilku warstw wstecznej kompatybilności dla tego jednego ostatniego wydania, aby dać więcej czasu maintainerom pythonowych projektów na zorganizowanie usunięcia wsparcia dla Pythona 2 i dodania wsparcia dla Pythona 3.9.</p>
+<p>Aliasy <a class="reference internal" href="../library/collections.abc.html#collections-abstract-base-classes"><span class="std std-ref">abstrakcyjnych klas bazowych</span></a> w module <a class="reference internal" href="../library/collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a>, takie jak alias <code class="docutils literal notranslate"><span class="pre">collections.Mapping</span></code> do <a class="reference internal" href="../library/collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>, są zachowane na to jedno wydanie dla zgodności wstecznej. Zostaną usunięte z Pythona 3.10.</p>
 <p>More generally, try to run your tests in the <a class="reference internal" href="../library/devmode.html#devmode"><span class="std std-ref">Python Development Mode</span></a> which helps to prepare your code to make it compatible with the
 next Python version.</p>
 </div>
 <div class="section" id="new-features">
-<h2>New Features<a class="headerlink" href="#new-features" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Nowe funkcjonalności<a class="headerlink" href="#new-features" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="section" id="dictionary-merge-update-operators">
 <h3>Dictionary Merge &amp; Update Operators<a class="headerlink" href="#dictionary-merge-update-operators" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>Merge (<code class="docutils literal notranslate"><span class="pre">|</span></code>) and update (<code class="docutils literal notranslate"><span class="pre">|=</span></code>) operators have been added to the built-in
@@ -936,7 +922,7 @@ functions are now required to build Python.
 <div class="section" id="c-api-changes">
 <h2>C API Changes<a class="headerlink" href="#c-api-changes" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <div class="section" id="id1">
-<h3>New Features<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>Nowe funkcjonalności<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul>
 <li><p>Add <a class="reference internal" href="../c-api/reflection.html#c.PyFrame_GetCode" title="PyFrame_GetCode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetCode()</span></code></a> function: get a frame code.
 Add <a class="reference internal" href="../c-api/reflection.html#c.PyFrame_GetBack" title="PyFrame_GetBack"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetBack()</span></code></a> function: get the frame next outer frame.
@@ -1100,10 +1086,10 @@ used instead.
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Spis treści</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What’s New In Python 3.9</a><ul>
-<li><a class="reference internal" href="#summary-release-highlights">Summary – Release highlights</a></li>
-<li><a class="reference internal" href="#you-should-check-for-deprecationwarning-in-your-code">You should check for DeprecationWarning in your code</a></li>
-<li><a class="reference internal" href="#new-features">New Features</a><ul>
+<li><a class="reference internal" href="#">Co nowego w Pythonie 3.9</a><ul>
+<li><a class="reference internal" href="#summary-release-highlights">Podsumowanie – najważniejsze nowości</a></li>
+<li><a class="reference internal" href="#you-should-check-for-deprecationwarning-in-your-code">Powinieneś(-winnaś) sprawdzić DeprecationWarningi w swoim kodzie</a></li>
+<li><a class="reference internal" href="#new-features">Nowe funkcjonalności</a><ul>
 <li><a class="reference internal" href="#dictionary-merge-update-operators">Dictionary Merge &amp; Update Operators</a></li>
 <li><a class="reference internal" href="#pep-616-new-removeprefix-and-removesuffix-string-methods">PEP 616: New removeprefix() and removesuffix() string methods</a></li>
 <li><a class="reference internal" href="#pep-585-builtin-generic-types">PEP 585: Builtin Generic Types</a></li>
@@ -1165,7 +1151,7 @@ used instead.
 </li>
 <li><a class="reference internal" href="#build-changes">Build Changes</a></li>
 <li><a class="reference internal" href="#c-api-changes">C API Changes</a><ul>
-<li><a class="reference internal" href="#id1">New Features</a></li>
+<li><a class="reference internal" href="#id1">Nowe funkcjonalności</a></li>
 <li><a class="reference internal" href="#id2">Porting to Python 3.9</a></li>
 <li><a class="reference internal" href="#id3">Removed</a></li>
 </ul>
