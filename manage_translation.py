@@ -30,10 +30,7 @@ def fetch():
         sys.stderr.write("The Transifex client app is required (pip install transifex-client).\n")
         exit(1)
     lang = LANGUAGE
-    if os.getenv('GITHUB_ACTIONS'):
-        call(f'tx pull -l {lang} --minimum-perc=1 --use-git-timestamps', shell=True)
-    else:
-        call(f'tx pull -l {lang} --minimum-perc=1', shell=True)
+    call(f'tx pull -l {lang} --minimum-perc=1 --use-git-timestamps', shell=True)
     for root, _, po_files in os.walk('.'):
         for po_file in po_files:
             if not po_file.endswith(".po"):
@@ -147,34 +144,32 @@ Polskie tłumaczenie dokumentacji Pythona
 [Pomóż tłumaczyć](https://www.transifex.com/python-doc/python-newest/)
 dokumentację Pythona na język polski.
 
-Przydatne materiały:
-* [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
-
-Znalazłeś błąd lub masz sugestię?
----------------------------------
+**Znalazłeś błąd lub masz sugestię?**
 * [Dodaj zgłoszenie](https://github.com/m-aciek/python-docs-pl/issues) w tym projekcie
 * lub sam(a) [nanieś poprawkę](https://www.transifex.com/python-doc/python-newest/)
   w projekcie *Python document translation* na platformie Transifex.
 
-Jak obejrzeć najnowszy deweloperski build?
-----------------------------------------
+**Jak obejrzeć najnowszy deweloperski build?**
+
 Wejdź na [https://m-aciek.github.io/python-docs-pl/](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
 synchronizowane jest z Transifeksa
 [raz dziennie](/.github/workflows/update-and-build.yml#L3).
  
-Dlaczego ta dokumentacja nie jest dostępna na [docs.python.org](https://docs.python.org)?
------------------------------------------------------------------------------------------
+**Dlaczego ta dokumentacja nie jest dostępna na [docs.python.org](https://docs.python.org)?**
+
 Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
 [kiedy w pełni przetłumaczone będą zasoby](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
 * `bugs`,
 * wszystkie z katalogu `tutorial`,
 * `library/functions`.
  
-Aktualizacja tłumaczeń
-----------------------
+**Aktualizacja tłumaczeń**
 * `./manage_translations.py recreate_tx_config`
 * `./manage_translations.py fetch`
 * `./manage_translations.py recreate_readme`
+
+**Potencjalnie przydatne materiały**
+* [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
 '''
         )
 
