@@ -108,6 +108,7 @@
 <div class="section" id="security">
 <h3>Security<a class="headerlink" href="#security" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <ul class="simple">
+<li><p><a class="reference external" href="https://bugs.python.org/issue41304">bpo-41304</a>: Fixes <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3x._pth</span></code> being ignored on Windows</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41162">bpo-41162</a>: Audit hooks are now cleared later during finalization to avoid
 missing events.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue29778">bpo-29778</a>: Ensure <code class="file docutils literal notranslate"><span class="pre">python3.dll</span></code> is loaded from correct locations
@@ -140,6 +141,8 @@ implemented heap types.</p></li>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bugs.python.org/issue41288">bpo-41288</a>: Unpickling invalid NEWOBJ_EX opcode with the C implementation
 raises now UnpicklingError instead of crashing.</p></li>
+<li><p><a class="reference external" href="https://bugs.python.org/issue39017">bpo-39017</a>: Avoid infinite loop when reading specially crafted TAR files
+using the tarfile module (CVE-2019-20907).</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41235">bpo-41235</a>: Fix the error handling in
 <a class="reference internal" href="../library/ssl.html#ssl.SSLContext.load_dh_params" title="ssl.SSLContext.load_dh_params"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLContext.load_dh_params()</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://bugs.python.org/issue41207">bpo-41207</a>: In distutils.spawn, restore expectation that DistutilsExecError
@@ -19823,7 +19826,7 @@ Kilburn.</p></li>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 15, 2020.
+    Ostatnia modyfikacja lip 16, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
