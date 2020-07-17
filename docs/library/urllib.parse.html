@@ -149,15 +149,15 @@ present.  For example:</p>
 a netloc only if it is properly introduced by «//».  Otherwise the
 input is presumed to be a relative URL and thus to start with
 a path component.</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="go"> &gt;&gt;&gt; from urllib.parse import urlparse</span>
-<span class="go"> &gt;&gt;&gt; urlparse(&#39;//www.cwi.nl:80/%7Eguido/Python.html&#39;)</span>
-<span class="go"> ParseResult(scheme=&#39;&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;//www.cwi.nl:80/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">)</span>
+<span class="go">ParseResult(scheme=&#39;&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
 <span class="go">            params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
-<span class="go"> &gt;&gt;&gt; urlparse(&#39;www.cwi.nl/%7Eguido/Python.html&#39;)</span>
-<span class="go"> ParseResult(scheme=&#39;&#39;, netloc=&#39;&#39;, path=&#39;www.cwi.nl/%7Eguido/Python.html&#39;,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;www.cwi.nl/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">)</span>
+<span class="go">ParseResult(scheme=&#39;&#39;, netloc=&#39;&#39;, path=&#39;www.cwi.nl/%7Eguido/Python.html&#39;,</span>
 <span class="go">            params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
-<span class="go"> &gt;&gt;&gt; urlparse(&#39;help/Python.html&#39;)</span>
-<span class="go"> ParseResult(scheme=&#39;&#39;, netloc=&#39;&#39;, path=&#39;help/Python.html&#39;, params=&#39;&#39;,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;help/Python.html&#39;</span><span class="p">)</span>
+<span class="go">ParseResult(scheme=&#39;&#39;, netloc=&#39;&#39;, path=&#39;help/Python.html&#39;, params=&#39;&#39;,</span>
 <span class="go">            query=&#39;&#39;, fragment=&#39;&#39;)</span>
 </pre></div>
 </div>
@@ -253,14 +253,14 @@ decomposed before parsing, no error will be raised.</p>
 and attributes that are particularly useful. One such method is <code class="xref py py-meth docutils literal notranslate"><span class="pre">_replace()</span></code>.
 The <code class="xref py py-meth docutils literal notranslate"><span class="pre">_replace()</span></code> method will return a new ParseResult object replacing specified
 fields with new values.</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="go"> &gt;&gt;&gt; from urllib.parse import urlparse</span>
-<span class="go"> &gt;&gt;&gt; u = urlparse(&#39;//www.cwi.nl:80/%7Eguido/Python.html&#39;)</span>
-<span class="go"> &gt;&gt;&gt; u</span>
-<span class="go"> ParseResult(scheme=&#39;&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
-<span class="go">             params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
-<span class="go"> &gt;&gt;&gt; u._replace(scheme=&#39;http&#39;)</span>
-<span class="go"> ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
-<span class="go">             params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="s1">&#39;//www.cwi.nl:80/</span><span class="si">%7E</span><span class="s1">guido/Python.html&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">ParseResult(scheme=&#39;&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
+<span class="go">            params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="go">ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.cwi.nl:80&#39;, path=&#39;/%7Eguido/Python.html&#39;,</span>
+<span class="go">            params=&#39;&#39;, query=&#39;&#39;, fragment=&#39;&#39;)</span>
 </pre></div>
 </div>
 <div class="versionchanged">
@@ -920,7 +920,7 @@ treatment of border cases.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 16, 2020.
+    Ostatnia modyfikacja lip 17, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
