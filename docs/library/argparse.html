@@ -1157,7 +1157,22 @@ container should match the <a class="reference internal" href="#type">type</a> s
 </pre></div>
 </div>
 <p>Any container can be passed as the <em>choices</em> value, so <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> objects,
-<a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> objects, and custom containers are all supported.</p>
+<a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> objects, and custom containers are all supported.
+This includes <a class="reference internal" href="enum.html#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a>, which could be used to restrain
+argument’s choices; if we reuse previous rock/paper/scissors game example,
+this could be as follows:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">GameMove</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">ROCK</span> <span class="o">=</span> <span class="s1">&#39;rock&#39;</span>
+<span class="gp">... </span>    <span class="n">PAPER</span> <span class="o">=</span> <span class="s1">&#39;paper&#39;</span>
+<span class="gp">... </span>    <span class="n">SCISSORS</span> <span class="o">=</span> <span class="s1">&#39;scissors&#39;</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s1">&#39;game.py&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">GameMove</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">GameMove</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s1">&#39;rock&#39;</span><span class="p">])</span>
+<span class="go">Namespace(move=&lt;GameMove.ROCK: &#39;rock&#39;&gt;)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="required">
 <h3>required<a class="headerlink" href="#required" title="Stały odnośnik do tego nagłówka">¶</a></h3>
@@ -2295,7 +2310,7 @@ the standard Python syntax to use dictionaries to format strings, that is,
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 17, 2020.
+    Ostatnia modyfikacja lip 18, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
