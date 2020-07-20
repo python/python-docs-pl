@@ -1526,6 +1526,8 @@ must be integral.  The result will be inexact unless <code class="docutils liter
 the result is finite and can be expressed exactly in «precision» digits.
 The rounding mode of the context is used. Results are always correctly-rounded
 in the Python version.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Decimal(0)</span> <span class="pre">**</span> <span class="pre">Decimal(0)</span></code> results in <code class="docutils literal notranslate"><span class="pre">InvalidOperation</span></code>, and if <code class="docutils literal notranslate"><span class="pre">InvalidOperation</span></code>
+is not trapped, then results in <code class="docutils literal notranslate"><span class="pre">Decimal('NaN')</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.3: </span>The C module computes <a class="reference internal" href="#decimal.Context.power" title="decimal.Context.power"><code class="xref py py-meth docutils literal notranslate"><span class="pre">power()</span></code></a> in terms of the correctly-rounded
 <a class="reference internal" href="#decimal.Context.exp" title="decimal.Context.exp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exp()</span></code></a> and <a class="reference internal" href="#decimal.Context.ln" title="decimal.Context.ln"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ln()</span></code></a> functions. The result is well-defined but
@@ -2480,7 +2482,7 @@ are expected to be exact.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 19, 2020.
+    Ostatnia modyfikacja lip 20, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
