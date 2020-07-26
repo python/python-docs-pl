@@ -1211,7 +1211,22 @@ returns a boolean value regardless of the type of its argument
 <pre>
 <strong id="grammar-token-assignment-expression">assignment_expression</strong> ::=  [<a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><code class="xref docutils literal notranslate"><span class="pre">identifier</span></code></a> &quot;:=&quot;] <a class="reference internal" href="#grammar-token-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a>
 </pre>
-<p>See <span class="target" id="index-85"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0572"><strong>PEP 572</strong></a> for more details about assignment expressions.</p>
+<p>An assignment expression (sometimes also called a „named expression” or
+„walrus”) assigns an <a class="reference internal" href="#grammar-token-expression"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression</span></code></a> to an <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><code class="xref std std-token docutils literal notranslate"><span class="pre">identifier</span></code></a>, while also
+returning the value of the <a class="reference internal" href="#grammar-token-expression"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression</span></code></a>.</p>
+<p>One common use case is when handling matched regular expressions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">matching</span> <span class="o">:=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">do_something</span><span class="p">(</span><span class="n">matching</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, when processing a file stream in chunks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">chunk</span> <span class="o">:=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">9000</span><span class="p">):</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Nowe w wersji 3.8: </span>See <span class="target" id="index-85"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0572"><strong>PEP 572</strong></a> for more details about assignment expressions.</p>
+</div>
 </div>
 <div class="section" id="conditional-expressions">
 <span id="if-expr"></span><h2><span class="section-number">6.13. </span>Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -1561,7 +1576,7 @@ bitwise unary operator on its right, that is, <code class="docutils literal notr
 <br />
     <br />
 
-    Ostatnia modyfikacja lip 25, 2020.
+    Ostatnia modyfikacja lip 26, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
