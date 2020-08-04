@@ -505,12 +505,11 @@ their values.  This is meant only as an example.</p>
 <div class="section" id="the-packer">
 <h3>The Packer<a class="headerlink" href="#the-packer" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p id="index-1">The packer is one of Tk’s geometry-management mechanisms.    Geometry managers
-are used to specify the relative positioning of the positioning of widgets
-within their container - their mutual <em>master</em>.  In contrast to the more
-cumbersome <em>placer</em> (which is used less commonly, and we do not cover here), the
-packer takes qualitative relationship specification - <em>above</em>, <em>to the left of</em>,
-<em>filling</em>, etc - and works everything out to determine the exact placement
-coordinates for you.</p>
+are used to specify the relative positioning of widgets within their container -
+their mutual <em>master</em>.  In contrast to the more cumbersome <em>placer</em> (which is
+used less commonly, and we do not cover here), the packer takes qualitative
+relationship specification - <em>above</em>, <em>to the left of</em>, <em>filling</em>, etc - and
+works everything out to determine the exact placement coordinates for you.</p>
 <p>The size of any <em>master</em> widget is determined by the size of the „slave widgets”
 inside.  The packer is used to control where slave widgets appear inside the
 master into which they are packed.  You can pack widgets into frames, and frames
@@ -569,30 +568,35 @@ defined in <a class="reference internal" href="#module-tkinter" title="tkinter: 
 method.  If you follow this protocol, the widget will always track the value of
 the variable, with no further intervention on your part.</p>
 <p>For example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">Frame</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+
+<span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">entrythingy</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entrythingy</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entrythingy</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 
-        <span class="c1"># here is the application variable</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
-        <span class="c1"># set it to some value</span>
+        <span class="c1"># Create the application variable.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="c1"># Set it to some value.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;this is a variable&quot;</span><span class="p">)</span>
-        <span class="c1"># tell the entry widget to watch this variable</span>
+        <span class="c1"># Tell the entry widget to watch this variable.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entrythingy</span><span class="p">[</span><span class="s2">&quot;textvariable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contents</span>
 
-        <span class="c1"># and here we get a callback when the user hits return.</span>
-        <span class="c1"># we will have the program print out the value of the</span>
-        <span class="c1"># application variable when the user hits return</span>
+        <span class="c1"># Define a callback for when the user hits return.</span>
+        <span class="c1"># It prints the current value of the variable.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entrythingy</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Key-Return&gt;&#39;</span><span class="p">,</span>
-                              <span class="bp">self</span><span class="o">.</span><span class="n">print_contents</span><span class="p">)</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">print_contents</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">print_contents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hi. contents of entry is now ----&gt;&quot;</span><span class="p">,</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi. The current entry content is:&quot;</span><span class="p">,</span>
               <span class="bp">self</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<span class="n">myapp</span> <span class="o">=</span> <span class="n">App</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1008,7 @@ The callback is called as follows:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja sie 03, 2020.
+    Ostatnia modyfikacja sie 04, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
