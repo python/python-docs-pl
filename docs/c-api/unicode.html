@@ -124,6 +124,12 @@ APIs (typically <a class="reference internal" href="#c.PyUnicode_FromUnicode" ti
 <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_UNICODE*</span></code></a> representation; you will have to call
 <a class="reference internal" href="#c.PyUnicode_READY" title="PyUnicode_READY"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_READY()</span></code></a> on them before calling any other API.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>The „legacy” Unicode object will be removed in Python 3.12 with deprecated
+APIs. All Unicode objects will be „canonical” since then. See <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0623"><strong>PEP 623</strong></a>
+for more information.</p>
+</div>
 <div class="section" id="unicode-type">
 <h3>Unicode Type<a class="headerlink" href="#unicode-type" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>These are the basic Unicode object types used for the Unicode implementation in
@@ -203,6 +209,9 @@ particular happens if memory allocation fails.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.10, will be removed in version 3.12: </span>This API will be removed with <a class="reference internal" href="#c.PyUnicode_FromUnicode" title="PyUnicode_FromUnicode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromUnicode()</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -244,6 +253,9 @@ canonical representation has the correct character size; use
 <dd><p>Return values of the <a class="reference internal" href="#c.PyUnicode_KIND" title="PyUnicode_KIND"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_KIND()</span></code></a> macro.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
+</div>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.10, will be removed in version 3.12: </span><code class="docutils literal notranslate"><span class="pre">PyUnicode_WCHAR_KIND</span></code> is deprecated.</p>
 </div>
 </dd></dl>
 
@@ -321,7 +333,7 @@ Py_ssize_t <code class="sig-name descname">PyUnicode_GET_SIZE</code><span class=
 code units (this includes surrogate pairs as 2 units).  <em>o</em> has to be a
 Unicode object (not checked).</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
 <a class="reference internal" href="#c.PyUnicode_GET_LENGTH" title="PyUnicode_GET_LENGTH"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_GET_LENGTH()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -332,7 +344,7 @@ Py_ssize_t <code class="sig-name descname">PyUnicode_GET_DATA_SIZE</code><span c
 <dd><p>Return the size of the deprecated <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></a> representation in
 bytes.  <em>o</em> has to be a Unicode object (not checked).</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
 <a class="reference internal" href="#c.PyUnicode_GET_LENGTH" title="PyUnicode_GET_LENGTH"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_GET_LENGTH()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -356,7 +368,7 @@ code to use the new <code class="xref c c-func docutils literal notranslate"><sp
 <a class="reference internal" href="#c.PyUnicode_WRITE" title="PyUnicode_WRITE"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_WRITE()</span></code></a> or <a class="reference internal" href="#c.PyUnicode_READ" title="PyUnicode_READ"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_READ()</span></code></a>.</p>
 </div>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using the
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using the
 <code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_nBYTE_DATA()</span></code> family of macros.</p>
 </div>
 </dd></dl>
@@ -866,7 +878,7 @@ null code point appended.</p>
 <div class="deprecated-removed">
 <p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0.</span></p>
 </div>
-<p>These API functions are deprecated with the implementation of <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0393"><strong>PEP 393</strong></a>.
+<p>These API functions are deprecated with the implementation of <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0393"><strong>PEP 393</strong></a>.
 Extension modules can continue using them, as they will not be removed in Python
 3.x, but need to be aware that their use can now cause performance and memory hits.</p>
 <dl class="function">
@@ -882,8 +894,11 @@ Therefore, modification of the resulting Unicode object is only allowed when
 <p>If the buffer is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, <a class="reference internal" href="#c.PyUnicode_READY" title="PyUnicode_READY"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_READY()</span></code></a> must be called once the
 string content has been filled before using any of the access macros such as
 <a class="reference internal" href="#c.PyUnicode_KIND" title="PyUnicode_KIND"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_KIND()</span></code></a>.</p>
-<p>Please migrate to using <a class="reference internal" href="#c.PyUnicode_FromKindAndData" title="PyUnicode_FromKindAndData"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromKindAndData()</span></code></a>,
-<a class="reference internal" href="#c.PyUnicode_FromWideChar" title="PyUnicode_FromWideChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromWideChar()</span></code></a> or <a class="reference internal" href="#c.PyUnicode_New" title="PyUnicode_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_New()</span></code></a>.</p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
+<a class="reference internal" href="#c.PyUnicode_FromKindAndData" title="PyUnicode_FromKindAndData"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromKindAndData()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_FromWideChar" title="PyUnicode_FromWideChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromWideChar()</span></code></a>, or
+<a class="reference internal" href="#c.PyUnicode_New" title="PyUnicode_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_New()</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -896,9 +911,11 @@ available. The buffer is always terminated with an extra null code point.
 Note that the resulting <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></a> string may also contain
 embedded null code points, which would cause the string to be truncated when
 used in most C functions.</p>
-<p>Please migrate to using <a class="reference internal" href="#c.PyUnicode_AsUCS4" title="PyUnicode_AsUCS4"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUCS4()</span></code></a>,
-<a class="reference internal" href="#c.PyUnicode_AsWideChar" title="PyUnicode_AsWideChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsWideChar()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_ReadChar" title="PyUnicode_ReadChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_ReadChar()</span></code></a> or similar new
-APIs.</p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
+<a class="reference internal" href="#c.PyUnicode_AsUCS4" title="PyUnicode_AsUCS4"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUCS4()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_AsWideChar" title="PyUnicode_AsWideChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsWideChar()</span></code></a>,
+<a class="reference internal" href="#c.PyUnicode_ReadChar" title="PyUnicode_ReadChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_ReadChar()</span></code></a> or similar new APIs.</p>
+</div>
 <div class="deprecated-removed">
 <p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.10.</span></p>
 </div>
@@ -923,6 +940,11 @@ truncated when used in most C functions.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Nowe w wersji 3.3.</span></p>
 </div>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
+<a class="reference internal" href="#c.PyUnicode_AsUCS4" title="PyUnicode_AsUCS4"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUCS4()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_AsWideChar" title="PyUnicode_AsWideChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsWideChar()</span></code></a>,
+<a class="reference internal" href="#c.PyUnicode_ReadChar" title="PyUnicode_ReadChar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_ReadChar()</span></code></a> or similar new APIs.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -945,7 +967,10 @@ truncated when used in most C functions.</p>
 Py_ssize_t <code class="sig-name descname">PyUnicode_GetSize</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *unicode</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyUnicode_GetSize" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><p>Return the size of the deprecated <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></a> representation, in
 code units (this includes surrogate pairs as 2 units).</p>
-<p>Please migrate to using <a class="reference internal" href="#c.PyUnicode_GetLength" title="PyUnicode_GetLength"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_GetLength()</span></code></a>.</p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 3.12: </span>Part of the old-style Unicode API, please migrate to using
+<a class="reference internal" href="#c.PyUnicode_GET_LENGTH" title="PyUnicode_GET_LENGTH"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_GET_LENGTH()</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -968,7 +993,7 @@ system.</p>
 <dd><em class="refcount">Return value: New reference.</em><p>Decode a string from UTF-8 on Android and VxWorks, or from the current
 locale encoding on other platforms. The supported
 error handlers are <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;surrogateescape&quot;</span></code>
-(<span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a>). The decoder uses <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> error handler if
+(<span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a>). The decoder uses <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> error handler if
 <em>errors</em> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  <em>str</em> must end with a null character but
 cannot contain embedded null characters.</p>
 <p>Use <a class="reference internal" href="#c.PyUnicode_DecodeFSDefaultAndSize" title="PyUnicode_DecodeFSDefaultAndSize"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_DecodeFSDefaultAndSize()</span></code></a> to decode a string from
@@ -1006,7 +1031,7 @@ length using <code class="xref c c-func docutils literal notranslate"><span clas
 <dd><em class="refcount">Return value: New reference.</em><p>Encode a Unicode object to UTF-8 on Android and VxWorks, or to the current
 locale encoding on other platforms. The
 supported error handlers are <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;surrogateescape&quot;</span></code>
-(<span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a>). The encoder uses <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> error handler if
+(<span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a>). The encoder uses <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> error handler if
 <em>errors</em> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. Return a <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object. <em>unicode</em> cannot
 contain embedded null characters.</p>
 <p>Use <a class="reference internal" href="#c.PyUnicode_EncodeFSDefault" title="PyUnicode_EncodeFSDefault"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_EncodeFSDefault()</span></code></a> to encode a string to
@@ -1035,7 +1060,7 @@ used for <code class="docutils literal notranslate"><span class="pre">strict</sp
 <p>To encode and decode file names and other environment strings,
 <code class="xref c c-data docutils literal notranslate"><span class="pre">Py_FileSystemDefaultEncoding</span></code> should be used as the encoding, and
 <code class="xref c c-data docutils literal notranslate"><span class="pre">Py_FileSystemDefaultEncodeErrors</span></code> should be used as the error handler
-(<span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a> and <span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0529"><strong>PEP 529</strong></a>). To encode file names to <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> during
+(<span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0383"><strong>PEP 383</strong></a> and <span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0529"><strong>PEP 529</strong></a>). To encode file names to <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> during
 argument parsing, the <code class="docutils literal notranslate"><span class="pre">&quot;O&amp;&quot;</span></code> converter should be used, passing
 <a class="reference internal" href="#c.PyUnicode_FSConverter" title="PyUnicode_FSConverter"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FSConverter()</span></code></a> as the conversion function:</p>
 <dl class="function">
@@ -2029,7 +2054,7 @@ interned string object with the same value.</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja sie 05, 2020.
+    Ostatnia modyfikacja sie 06, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
