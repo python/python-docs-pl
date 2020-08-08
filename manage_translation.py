@@ -154,7 +154,7 @@ dokumentację Pythona na język polski.
 Wejdź na [https://m-aciek.github.io/python-docs-pl/](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
 synchronizowane jest z Transifeksa
 [raz dziennie](/.github/workflows/update-and-build.yml#L3).
- 
+
 **Dlaczego ta dokumentacja nie jest dostępna na [docs.python.org](https://docs.python.org)?**
 
 Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
@@ -162,7 +162,7 @@ Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
 * `bugs`,
 * wszystkie z katalogu `tutorial`,
 * `library/functions`.
- 
+
 **Aktualizacja tłumaczeń**
 * `./manage_translations.py recreate_tx_config`
 * `./manage_translations.py fetch`
