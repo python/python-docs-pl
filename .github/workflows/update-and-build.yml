@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@master
-        with:
-          python-version: 3.8
       - run: sudo apt-get install -y gettext
       - run: pip install transifex-client requests
       - uses: actions/checkout@master
@@ -37,8 +35,6 @@ jobs:
     needs: ['update-translation']
     steps:
       - uses: actions/setup-python@master
-        with:
-          python-version: 3.8
       - uses: actions/checkout@master
         with:
           repository: python/cpython
