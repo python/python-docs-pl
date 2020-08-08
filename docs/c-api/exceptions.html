@@ -760,6 +760,11 @@ UTF-8 encoded strings.</p>
 <dd><em class="refcount">Return value: New reference.</em><p>Create a <a class="reference internal" href="../library/exceptions.html#UnicodeEncodeError" title="UnicodeEncodeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnicodeEncodeError</span></code></a> object with the attributes <em>encoding</em>,
 <em>object</em>, <em>length</em>, <em>start</em>, <em>end</em> and <em>reason</em>. <em>encoding</em> and <em>reason</em> are
 UTF-8 encoded strings.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.3: </span>3.11</p>
+<p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE</span></code> is deprecated since Python 3.3. Please migrate to
+<code class="docutils literal notranslate"><span class="pre">PyObject_CallFunction(PyExc_UnicodeEncodeError,</span> <span class="pre">&quot;sOnns&quot;,</span> <span class="pre">...)</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -767,6 +772,11 @@ UTF-8 encoded strings.</p>
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyUnicodeTranslateError_Create</code><span class="sig-paren">(</span>const <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE">Py_UNICODE</a><em> *object</em>, Py_ssize_t<em> length</em>, Py_ssize_t<em> start</em>, Py_ssize_t<em> end</em>, const char<em> *reason</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyUnicodeTranslateError_Create" title="Stały odnośnik do tej definicji">¶</a></dt>
 <dd><em class="refcount">Return value: New reference.</em><p>Create a <a class="reference internal" href="../library/exceptions.html#UnicodeTranslateError" title="UnicodeTranslateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnicodeTranslateError</span></code></a> object with the attributes <em>object</em>,
 <em>length</em>, <em>start</em>, <em>end</em> and <em>reason</em>. <em>reason</em> is a UTF-8 encoded string.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 3.3: </span>3.11</p>
+<p><code class="docutils literal notranslate"><span class="pre">Py_UNICODE</span></code> is deprecated since Python 3.3. Please migrate to
+<code class="docutils literal notranslate"><span class="pre">PyObject_CallFunction(PyExc_UnicodeTranslateError,</span> <span class="pre">&quot;Onns&quot;,</span> <span class="pre">...)</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -1375,7 +1385,7 @@ the variables:</p>
 <br />
     <br />
 
-    Ostatnia modyfikacja sie 07, 2020.
+    Ostatnia modyfikacja sie 08, 2020.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
