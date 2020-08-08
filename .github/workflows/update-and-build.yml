@@ -14,6 +14,8 @@ jobs:
       - run: sudo apt-get install -y gettext
       - run: pip install transifex-client requests
       - uses: actions/checkout@master
+        with:
+          ref: 3.9
       - run: echo -e '[https://www.transifex.com]\napi_hostname = https://api.transifex.com\nhostname = https://www.transifex.com\nusername = api' > $HOME/.transifexrc
       - run: ./manage_translation.py fetch
         env:
@@ -28,6 +30,7 @@ jobs:
       - run: git commit -m 'Update translation from Transifex' || true
       - uses: ad-m/github-push-action@master
         with:
+          branch: 3.9
           github_token: ${{ secrets.GITHUB_TOKEN }}
   build-translation:
     runs-on: ubuntu-latest
@@ -44,6 +47,7 @@ jobs:
         working-directory: ./Doc
       - uses: actions/checkout@master
         with:
+          ref: 3.9
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
