@@ -93,6 +93,7 @@ def _get_resources():
             f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
             params={'language_code': LANGUAGE, 'offset': offset},
             auth=('api', transifex_api_key))
+        response.raise_for_status()
         response_list = response.json()
         resources.extend(response_list)
         if len(response_list) < 100:
