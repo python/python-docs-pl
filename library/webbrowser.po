@@ -1,0 +1,342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2020, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# m_aciek <maciej.olko@gmail.com>, 2020
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-09 12:40+0000\n"
+"PO-Revision-Date: 2020-05-30 12:14+0000\n"
+"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid ":mod:`webbrowser` --- Convenient Web-browser controller"
+msgstr ""
+
+msgid "**Source code:** :source:`Lib/webbrowser.py`"
+msgstr ""
+
+msgid ""
+"The :mod:`webbrowser` module provides a high-level interface to allow "
+"displaying Web-based documents to users. Under most circumstances, simply "
+"calling the :func:`.open` function from this module will do the right thing."
+msgstr ""
+
+msgid ""
+"Under Unix, graphical browsers are preferred under X11, but text-mode "
+"browsers will be used if graphical browsers are not available or an X11 "
+"display isn't available.  If text-mode browsers are used, the calling "
+"process will block until the user exits the browser."
+msgstr ""
+
+msgid ""
+"If the environment variable :envvar:`BROWSER` exists, it is interpreted as "
+"the :data:`os.pathsep`-separated list of browsers to try ahead of the "
+"platform defaults.  When the value of a list part contains the string ``"
+"%s``, then it is interpreted as a literal browser command line to be used "
+"with the argument URL substituted for ``%s``; if the part does not contain ``"
+"%s``, it is simply interpreted as the name of the browser to launch. [1]_"
+msgstr ""
+
+msgid ""
+"For non-Unix platforms, or when a remote browser is available on Unix, the "
+"controlling process will not wait for the user to finish with the browser, "
+"but allow the remote browser to maintain its own windows on the display.  If "
+"remote browsers are not available on Unix, the controlling process will "
+"launch a new browser and wait."
+msgstr ""
+
+msgid ""
+"The script :program:`webbrowser` can be used as a command-line interface for "
+"the module. It accepts a URL as the argument. It accepts the following "
+"optional parameters: ``-n`` opens the URL in a new browser window, if "
+"possible; ``-t`` opens the URL in a new browser page (\"tab\"). The options "
+"are, naturally, mutually exclusive.  Usage example::"
+msgstr ""
+
+msgid "The following exception is defined:"
+msgstr ""
+
+msgid "Exception raised when a browser control error occurs."
+msgstr ""
+
+msgid "The following functions are defined:"
+msgstr ""
+
+msgid ""
+"Display *url* using the default browser. If *new* is 0, the *url* is opened "
+"in the same browser window if possible.  If *new* is 1, a new browser window "
+"is opened if possible.  If *new* is 2, a new browser page (\"tab\") is "
+"opened if possible.  If *autoraise* is ``True``, the window is raised if "
+"possible (note that under many window managers this will occur regardless of "
+"the setting of this variable)."
+msgstr ""
+
+msgid ""
+"Note that on some platforms, trying to open a filename using this function, "
+"may work and start the operating system's associated program.  However, this "
+"is neither supported nor portable."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``webbrowser.open`` with argument "
+"``url``."
+msgstr ""
+
+msgid ""
+"Open *url* in a new window of the default browser, if possible, otherwise, "
+"open *url* in the only browser window."
+msgstr ""
+
+msgid ""
+"Open *url* in a new page (\"tab\") of the default browser, if possible, "
+"otherwise equivalent to :func:`open_new`."
+msgstr ""
+
+msgid ""
+"Return a controller object for the browser type *using*.  If *using* is "
+"``None``, return a controller for a default browser appropriate to the "
+"caller's environment."
+msgstr ""
+
+msgid ""
+"Register the browser type *name*.  Once a browser type is registered, the :"
+"func:`get` function can return a controller for that browser type.  If "
+"*instance* is not provided, or is ``None``, *constructor* will be called "
+"without parameters to create an instance when needed.  If *instance* is "
+"provided, *constructor* will never be called, and may be ``None``."
+msgstr ""
+
+msgid ""
+"Setting *preferred* to ``True`` makes this browser a preferred result for a :"
+"func:`get` call with no argument.  Otherwise, this entry point is only "
+"useful if you plan to either set the :envvar:`BROWSER` variable or call :"
+"func:`get` with a nonempty argument matching the name of a handler you "
+"declare."
+msgstr ""
+
+msgid "*preferred* keyword-only parameter was added."
+msgstr ""
+
+msgid ""
+"A number of browser types are predefined.  This table gives the type names "
+"that may be passed to the :func:`get` function and the corresponding "
+"instantiations for the controller classes, all defined in this module."
+msgstr ""
+
+msgid "Type Name"
+msgstr ""
+
+msgid "Class Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "``'mozilla'``"
+msgstr ""
+
+msgid ":class:`Mozilla('mozilla')`"
+msgstr ""
+
+msgid "``'firefox'``"
+msgstr ""
+
+msgid "``'netscape'``"
+msgstr ""
+
+msgid ":class:`Mozilla('netscape')`"
+msgstr ""
+
+msgid "``'galeon'``"
+msgstr ""
+
+msgid ":class:`Galeon('galeon')`"
+msgstr ""
+
+msgid "``'epiphany'``"
+msgstr ""
+
+msgid ":class:`Galeon('epiphany')`"
+msgstr ""
+
+msgid "``'skipstone'``"
+msgstr ""
+
+msgid ":class:`BackgroundBrowser('skipstone')`"
+msgstr ""
+
+msgid "``'kfmclient'``"
+msgstr ""
+
+msgid ":class:`Konqueror()`"
+msgstr ""
+
+msgid "\\(1)"
+msgstr ""
+
+msgid "``'konqueror'``"
+msgstr ""
+
+msgid "``'kfm'``"
+msgstr ""
+
+msgid "``'mosaic'``"
+msgstr ""
+
+msgid ":class:`BackgroundBrowser('mosaic')`"
+msgstr ""
+
+msgid "``'opera'``"
+msgstr ""
+
+msgid ":class:`Opera()`"
+msgstr ""
+
+msgid "``'grail'``"
+msgstr ""
+
+msgid ":class:`Grail()`"
+msgstr ""
+
+msgid "``'links'``"
+msgstr ""
+
+msgid ":class:`GenericBrowser('links')`"
+msgstr ""
+
+msgid "``'elinks'``"
+msgstr ""
+
+msgid ":class:`Elinks('elinks')`"
+msgstr ""
+
+msgid "``'lynx'``"
+msgstr ""
+
+msgid ":class:`GenericBrowser('lynx')`"
+msgstr ""
+
+msgid "``'w3m'``"
+msgstr ""
+
+msgid ":class:`GenericBrowser('w3m')`"
+msgstr ""
+
+msgid "``'windows-default'``"
+msgstr ""
+
+msgid ":class:`WindowsDefault`"
+msgstr ""
+
+msgid "\\(2)"
+msgstr ""
+
+msgid "``'macosx'``"
+msgstr ""
+
+msgid ":class:`MacOSX('default')`"
+msgstr ""
+
+msgid "\\(3)"
+msgstr ""
+
+msgid "``'safari'``"
+msgstr ""
+
+msgid ":class:`MacOSX('safari')`"
+msgstr ""
+
+msgid "``'google-chrome'``"
+msgstr ""
+
+msgid ":class:`Chrome('google-chrome')`"
+msgstr ""
+
+msgid "``'chrome'``"
+msgstr ""
+
+msgid ":class:`Chrome('chrome')`"
+msgstr ""
+
+msgid "``'chromium'``"
+msgstr ""
+
+msgid ":class:`Chromium('chromium')`"
+msgstr ""
+
+msgid "``'chromium-browser'``"
+msgstr ""
+
+msgid ":class:`Chromium('chromium-browser')`"
+msgstr ""
+
+msgid "Notes:"
+msgstr ""
+
+msgid ""
+"\"Konqueror\" is the file manager for the KDE desktop environment for Unix, "
+"and only makes sense to use if KDE is running.  Some way of reliably "
+"detecting KDE would be nice; the :envvar:`KDEDIR` variable is not "
+"sufficient.  Note also that the name \"kfm\" is used even when using the :"
+"program:`konqueror` command with KDE 2 --- the implementation selects the "
+"best strategy for running Konqueror."
+msgstr ""
+
+msgid "Only on Windows platforms."
+msgstr ""
+
+msgid "Only on Mac OS X platform."
+msgstr ""
+
+msgid "Support for Chrome/Chromium has been added."
+msgstr ""
+
+msgid "Here are some simple examples::"
+msgstr ""
+
+msgid "Browser Controller Objects"
+msgstr ""
+
+msgid ""
+"Browser controllers provide these methods which parallel three of the module-"
+"level convenience functions:"
+msgstr ""
+
+msgid ""
+"Display *url* using the browser handled by this controller. If *new* is 1, a "
+"new browser window is opened if possible. If *new* is 2, a new browser page "
+"(\"tab\") is opened if possible."
+msgstr ""
+
+msgid ""
+"Open *url* in a new window of the browser handled by this controller, if "
+"possible, otherwise, open *url* in the only browser window.  Alias :func:"
+"`open_new`."
+msgstr ""
+
+msgid ""
+"Open *url* in a new page (\"tab\") of the browser handled by this "
+"controller, if possible, otherwise equivalent to :func:`open_new`."
+msgstr ""
+
+msgid "Footnotes"
+msgstr "Przypisy"
+
+msgid ""
+"Executables named here without a full path will be searched in the "
+"directories given in the :envvar:`PATH` environment variable."
+msgstr ""
