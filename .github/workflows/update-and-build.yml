@@ -78,24 +78,3 @@ jobs:
         with:
           name: build
           path: Doc/build/html
-  commit-build:
-    runs-on: ubuntu-latest
-    needs: ['build-translation']
-    steps:
-      - uses: actions/checkout@master
-      - run: git pull
-      - uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
-      - run: rm -r docs
-      - run: mv build docs
-      - run: touch docs/.nojekyll
-      - run: git config --local user.email 'maciej.olko@gmail.com'
-        name: Run git config --local user.email '…'
-      - run: git config --local user.name "GitHub Action's commit-build job"
-      - run: git add .
-      - run: git commit -m 'Update translation build' || true
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
