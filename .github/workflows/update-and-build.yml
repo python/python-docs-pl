@@ -35,18 +35,21 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
   build-translation:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [3.8, 3.9]
     needs: ['update-translation']
     steps:
       - uses: actions/setup-python@master
       - uses: actions/checkout@master
         with:
           repository: python/cpython
-          ref: 3.9
+          ref: ${{ matrix.version }}
       - run: make venv
         working-directory: ./Doc
       - uses: actions/checkout@master
         with:
-          ref: 3.9
+          ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
@@ -54,5 +57,5 @@ jobs:
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
-          name: build
+          name: build-${{ matrix.version }}
           path: Doc/build/html
