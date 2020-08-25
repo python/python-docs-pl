@@ -27,6 +27,12 @@ Pojawi się w tam
 * wszystkie z katalogu `tutorial`,
 * `library/functions`.
 
+**Kanały komunikacji**
+
+* [Doc-SIG](https://www.python.org/community/sigs/current/doc-sig/),
+* [Transifex Forum](https://www.transifex.com/python-doc/teams/5390/discussions/),
+* Freenode #python.pl-doc.
+
 **Aktualizacja tłumaczeń**
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
