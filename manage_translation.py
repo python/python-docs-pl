@@ -137,8 +137,8 @@ def recreate_readme():
             f'''\
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
-![build](https://github.com/m-aciek/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
-![{language_switcher_status:.2f}% language switchera](https://img.shields.io/badge/language_switcher-{language_switcher_status:.2f}%25-0.svg)
+![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
+![{language_switcher_status:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{language_switcher_status:.2f}%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
 ![{number_of_translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{number_of_translators}-0.svg)
 
@@ -146,19 +146,19 @@ Polskie tłumaczenie dokumentacji Pythona
 dokumentację Pythona na język polski.
 
 **Znalazłeś błąd lub masz sugestię?**
-* [Dodaj zgłoszenie](https://github.com/m-aciek/python-docs-pl/issues) w tym projekcie
-* lub sam(a) [nanieś poprawkę](https://www.transifex.com/python-doc/python-newest/)
-  w projekcie *Python document translation* na platformie Transifex.
+* [Dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie
+* lub sam(a) nanieś poprawkę w projekcie
+  [*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
+  na platformie Transifex.
 
-**Jak obejrzeć najnowszy deweloperski build?**
+**Jak obejrzeć build dokumentacji?**
 
-Wejdź na [https://m-aciek.github.io/python-docs-pl/](https://m-aciek.github.io/python-docs-pl/). Tłumaczenie
-synchronizowane jest z Transifeksa
-[raz dziennie](/.github/workflows/update-and-build.yml#L3).
+Wejdź na [https://docs.python.org/pl/](https://docs.python.org/pl/)
+lub pobierz zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action. 
 
-**Dlaczego ta dokumentacja nie jest dostępna na [docs.python.org](https://docs.python.org)?**
+**Dlaczego ta dokumentacja nie jest dostępna w przełączniku języków?**
 
-Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
+Pojawi się w tam
 [kiedy w pełni przetłumaczone będą zasoby](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
 * `bugs`,
 * wszystkie z katalogu `tutorial`,
