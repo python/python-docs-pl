@@ -165,9 +165,9 @@ Pojawi się w tam i w language switcherze (przełączniku w lewym górnym rogu),
 * `library/functions`.
 
 **Aktualizacja tłumaczeń**
-* `./manage_translations.py recreate_tx_config`
-* `./manage_translations.py fetch`
-* `./manage_translations.py recreate_readme`
+* `./manage_translation.py recreate_tx_config`
+* `./manage_translation.py fetch`
+* `./manage_translation.py recreate_readme`
 
 **Potencjalnie przydatne materiały**
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
