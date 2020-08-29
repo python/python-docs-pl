@@ -170,6 +170,14 @@ Pojawi się w tam
 * [Transifex Forum](https://www.transifex.com/python-doc/teams/5390/discussions/),
 * Freenode #python.pl-doc.
 
+**Licencja**
+
+Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy umowę na
+przekazanie twoich tłumaczeń Python Software Foundation
+[na licencji CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.pl).
+W zamian będzie widoczne, że jesteś tłumaczem(-ką) części, którą przetłumaczyłeś(-łaś).
+Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do dokumentacji.
+
 **Aktualizacja tłumaczeń**
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
