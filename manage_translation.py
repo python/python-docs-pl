@@ -142,14 +142,24 @@ Polskie tłumaczenie dokumentacji Pythona
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
 ![{number_of_translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{number_of_translators}-0.svg)
 
-[Pomóż tłumaczyć](https://www.transifex.com/python-doc/python-newest/)
-dokumentację Pythona na język polski.
+Praca nad tłumaczeniem dokumentacji odbywa się na platformie [Transifex](https://www.transifex.com/).
 
-**Znalazłeś błąd lub masz sugestię?**
-* [Dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie
-* lub sam(a) nanieś poprawkę w projekcie
-  [*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
-  na platformie Transifex.
+Jeśli znalazłeś(-aś) błąd lub masz sugestię,
+[dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
+przejdź do projektu
+[*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
+na platformie Transifex.
+
+Jeśli chcesz pomóc w tłumaczeniu, oto co powinnaś(-nieneś) zrobić:
+
+* Zarejestruj się na plaformie [Transifex](https://www.transifex.com/) i odwiedź stronę
+projektu [Python document](https://www.transifex.com/python-doc/python-newest/).
+* Na stronie projektu wybierz język nad którym chcesz pracować.
+* Następnie naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
+* Gdy już będziesz członkiem zespołu na stronie zespołu wybierz zasób, który chcesz zaktualizować.
+
+Więcej informacji o używaniu Transifexa znajdziesz w
+[dokumentacji Transifexa](https://docs.transifex.com/getting-started-1/translators).
 
 **Jak obejrzeć build dokumentacji?**
 
