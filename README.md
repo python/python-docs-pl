@@ -1,7 +1,7 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
-![22.60% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-22.60%25-0.svg)
+![22.81% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-22.81%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.pl&url=http://gce.zhsj.me/python/newest)
 ![4 tłumaczy](https://img.shields.io/badge/tłumaczy-4-0.svg)
 
