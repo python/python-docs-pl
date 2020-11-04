@@ -24,7 +24,7 @@ msgstr ""
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Exception Handling"
-msgstr ""
+msgstr "Obsługa sytuacji wyjątkowych"
 
 msgid ""
 "The functions described in this chapter will let you handle and raise Python "
@@ -57,6 +57,17 @@ msgid ""
 "error is not handled or carefully propagated, additional calls into the "
 "Python/C API may not behave as intended and may fail in mysterious ways."
 msgstr ""
+"Gdy zadanie musi zawieźć z powodu błędu zadania które wywołało, ogólnie nie "
+"ustawia ona wskaźnika błędu; podzadanie które zostało wywołane już go "
+"ustawiła. Jest on odpowiedzialny albo za obsługę błędu i wyczyszczenie "
+"wskaźnika sytuacji wyjątkowej lub powrót po sprzątnięciu jakichkolwiek "
+"zasobów które utrzymuje (takich jak odwołania do przedmiotów lub zajęte "
+"pamięci); *nie* powinien kontynuować zwyczajnie jeśli nie jest przygotowany "
+"do obsługi błędu. Jeśli kończy z powodu błędu, istotne jest zwrócenie uwagi "
+"wołającego że został zgłoszony błąd. Jeśli błąd nie jest obsługiwany lub "
+"propagowany właściwie, dodatkowe odwołania do sprzęgu języka pytonowskiego/C "
+"mogą nie zachowywać się tak, jak planowano i mogą zawieźć w nieoczekiwane "
+"sposoby."
 
 msgid ""
 "The error indicator is **not** the result of :func:`sys.exc_info()`. The "
@@ -516,7 +527,7 @@ msgid ""
 msgstr ""
 
 msgid "Exception Objects"
-msgstr ""
+msgstr "Przedmioty Sytuacji Wyjątkowych"
 
 msgid ""
 "Return the traceback associated with the exception as a new reference, as "
@@ -633,7 +644,7 @@ msgid ""
 msgstr ""
 
 msgid "Recursion Control"
-msgstr ""
+msgstr "Kontrola Rekursji"
 
 msgid ""
 "These two functions provide a way to perform safe recursive calls at the C "
@@ -710,7 +721,7 @@ msgid ""
 msgstr ""
 
 msgid "Standard Exceptions"
-msgstr ""
+msgstr "Sztandarowe Sytuacje Wyjątkowe"
 
 msgid ""
 "All standard Python exceptions are available as global variables whose names "
@@ -720,10 +731,10 @@ msgid ""
 msgstr ""
 
 msgid "C Name"
-msgstr ""
+msgstr "Nazwa C"
 
 msgid "Python Name"
-msgstr ""
+msgstr "Nazwa w języku pytonowskim"
 
 msgid "Notes"
 msgstr "Notatki"
@@ -732,7 +743,7 @@ msgid ":c:data:`PyExc_BaseException`"
 msgstr ""
 
 msgid ":exc:`BaseException`"
-msgstr ""
+msgstr ":exc:`BaseException`"
 
 msgid "\\(1)"
 msgstr "\\(1)"
@@ -741,25 +752,25 @@ msgid ":c:data:`PyExc_Exception`"
 msgstr ""
 
 msgid ":exc:`Exception`"
-msgstr ""
+msgstr ":exc:`Exception`"
 
 msgid ":c:data:`PyExc_ArithmeticError`"
 msgstr ""
 
 msgid ":exc:`ArithmeticError`"
-msgstr ""
+msgstr ":exc:`ArithmeticError`"
 
 msgid ":c:data:`PyExc_AssertionError`"
 msgstr ""
 
 msgid ":exc:`AssertionError`"
-msgstr ""
+msgstr ":exc:`AssertionError`"
 
 msgid ":c:data:`PyExc_AttributeError`"
 msgstr ""
 
 msgid ":exc:`AttributeError`"
-msgstr ""
+msgstr ":exc:`AttributeError`"
 
 msgid ":c:data:`PyExc_BlockingIOError`"
 msgstr ""
@@ -813,7 +824,7 @@ msgid ":c:data:`PyExc_EOFError`"
 msgstr ""
 
 msgid ":exc:`EOFError`"
-msgstr ""
+msgstr ":exc:`EOFError`"
 
 msgid ":c:data:`PyExc_FileExistsError`"
 msgstr ""
@@ -831,7 +842,7 @@ msgid ":c:data:`PyExc_FloatingPointError`"
 msgstr ""
 
 msgid ":exc:`FloatingPointError`"
-msgstr ""
+msgstr ":exc:`FloatingPointError`"
 
 msgid ":c:data:`PyExc_GeneratorExit`"
 msgstr ""
@@ -843,7 +854,7 @@ msgid ":c:data:`PyExc_ImportError`"
 msgstr ""
 
 msgid ":exc:`ImportError`"
-msgstr ""
+msgstr ":exc:`ImportError`"
 
 msgid ":c:data:`PyExc_IndentationError`"
 msgstr ""
@@ -855,7 +866,7 @@ msgid ":c:data:`PyExc_IndexError`"
 msgstr ""
 
 msgid ":exc:`IndexError`"
-msgstr ""
+msgstr ":exc:`IndexError`"
 
 msgid ":c:data:`PyExc_InterruptedError`"
 msgstr ""
@@ -873,25 +884,25 @@ msgid ":c:data:`PyExc_KeyError`"
 msgstr ""
 
 msgid ":exc:`KeyError`"
-msgstr ""
+msgstr ":exc:`KeyError`"
 
 msgid ":c:data:`PyExc_KeyboardInterrupt`"
 msgstr ""
 
 msgid ":exc:`KeyboardInterrupt`"
-msgstr ""
+msgstr ":exc:`KeyboardInterrupt`"
 
 msgid ":c:data:`PyExc_LookupError`"
 msgstr ""
 
 msgid ":exc:`LookupError`"
-msgstr ""
+msgstr ":exc:`LookupError`"
 
 msgid ":c:data:`PyExc_MemoryError`"
 msgstr ""
 
 msgid ":exc:`MemoryError`"
-msgstr ""
+msgstr ":exc:`MemoryError`"
 
 msgid ":c:data:`PyExc_ModuleNotFoundError`"
 msgstr ""
@@ -903,7 +914,7 @@ msgid ":c:data:`PyExc_NameError`"
 msgstr ""
 
 msgid ":exc:`NameError`"
-msgstr ""
+msgstr ":exc:`NameError`"
 
 msgid ":c:data:`PyExc_NotADirectoryError`"
 msgstr ""
@@ -915,19 +926,19 @@ msgid ":c:data:`PyExc_NotImplementedError`"
 msgstr ""
 
 msgid ":exc:`NotImplementedError`"
-msgstr ""
+msgstr ":exc:`NotImplementedError`"
 
 msgid ":c:data:`PyExc_OSError`"
 msgstr ""
 
 msgid ":exc:`OSError`"
-msgstr ""
+msgstr ":exc:`OSError`"
 
 msgid ":c:data:`PyExc_OverflowError`"
 msgstr ""
 
 msgid ":exc:`OverflowError`"
-msgstr ""
+msgstr ":exc:`OverflowError`"
 
 msgid ":c:data:`PyExc_PermissionError`"
 msgstr ""
@@ -951,16 +962,16 @@ msgid ":c:data:`PyExc_ReferenceError`"
 msgstr ""
 
 msgid ":exc:`ReferenceError`"
-msgstr ""
+msgstr ":exc:`ReferenceError`"
 
 msgid "\\(2)"
-msgstr ""
+msgstr "\\(2)"
 
 msgid ":c:data:`PyExc_RuntimeError`"
 msgstr ""
 
 msgid ":exc:`RuntimeError`"
-msgstr ""
+msgstr ":exc:`RuntimeError`"
 
 msgid ":c:data:`PyExc_StopAsyncIteration`"
 msgstr ""
@@ -978,19 +989,19 @@ msgid ":c:data:`PyExc_SyntaxError`"
 msgstr ""
 
 msgid ":exc:`SyntaxError`"
-msgstr ""
+msgstr ":exc:`SyntaxError`"
 
 msgid ":c:data:`PyExc_SystemError`"
 msgstr ""
 
 msgid ":exc:`SystemError`"
-msgstr ""
+msgstr ":exc:`SystemError`"
 
 msgid ":c:data:`PyExc_SystemExit`"
 msgstr ""
 
 msgid ":exc:`SystemExit`"
-msgstr ""
+msgstr ":exc:`SystemExit`"
 
 msgid ":c:data:`PyExc_TabError`"
 msgstr ""
@@ -1008,7 +1019,7 @@ msgid ":c:data:`PyExc_TypeError`"
 msgstr ""
 
 msgid ":exc:`TypeError`"
-msgstr ""
+msgstr ":exc:`TypeError`"
 
 msgid ":c:data:`PyExc_UnboundLocalError`"
 msgstr ""
@@ -1044,13 +1055,13 @@ msgid ":c:data:`PyExc_ValueError`"
 msgstr ""
 
 msgid ":exc:`ValueError`"
-msgstr ""
+msgstr ":exc:`ValueError`"
 
 msgid ":c:data:`PyExc_ZeroDivisionError`"
 msgstr ""
 
 msgid ":exc:`ZeroDivisionError`"
-msgstr ""
+msgstr ":exc:`ZeroDivisionError`"
 
 msgid ""
 ":c:data:`PyExc_BlockingIOError`, :c:data:`PyExc_BrokenPipeError`, :c:data:"
@@ -1092,11 +1103,15 @@ msgstr "Uwagi:"
 
 msgid "This is a base class for other standard exceptions."
 msgstr ""
+"To jest podstawowy rodzaj przedmiotu dla innych sztandarowych sytuacji "
+"wyjątkowych."
 
 msgid ""
 "Only defined on Windows; protect code that uses this by testing that the "
 "preprocessor macro ``MS_WINDOWS`` is defined."
 msgstr ""
+"Zdefiniowane tylko w systemie Windows; Kod chroniony który używa tego przez "
+"sprawdzenie czy makrodefinicja preprocesora ``MS_WINDOWS`` jest określona."
 
 msgid "Standard Warning Categories"
 msgstr ""
