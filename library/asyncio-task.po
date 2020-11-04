@@ -1,0 +1,793 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2020, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# m_aciek <maciej.olko@gmail.com>, 2020
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-20 14:34+0000\n"
+"PO-Revision-Date: 2020-05-30 11:56+0000\n"
+"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Coroutines and Tasks"
+msgstr ""
+
+msgid ""
+"This section outlines high-level asyncio APIs to work with coroutines and "
+"Tasks."
+msgstr ""
+
+msgid "Coroutines"
+msgstr ""
+
+msgid ""
+":term:`Coroutines <coroutine>` declared with the async/await syntax is the "
+"preferred way of writing asyncio applications.  For example, the following "
+"snippet of code (requires Python 3.7+) prints \"hello\", waits 1 second, and "
+"then prints \"world\"::"
+msgstr ""
+
+msgid ""
+"Note that simply calling a coroutine will not schedule it to be executed::"
+msgstr ""
+
+msgid "To actually run a coroutine, asyncio provides three main mechanisms:"
+msgstr ""
+
+msgid ""
+"The :func:`asyncio.run` function to run the top-level entry point \"main()\" "
+"function (see the above example.)"
+msgstr ""
+
+msgid ""
+"Awaiting on a coroutine.  The following snippet of code will print \"hello\" "
+"after waiting for 1 second, and then print \"world\" after waiting for "
+"*another* 2 seconds::"
+msgstr ""
+
+msgid "Expected output::"
+msgstr ""
+
+msgid ""
+"The :func:`asyncio.create_task` function to run coroutines concurrently as "
+"asyncio :class:`Tasks <Task>`."
+msgstr ""
+
+msgid ""
+"Let's modify the above example and run two ``say_after`` coroutines "
+"*concurrently*::"
+msgstr ""
+
+msgid ""
+"Note that expected output now shows that the snippet runs 1 second faster "
+"than before::"
+msgstr ""
+
+msgid "Awaitables"
+msgstr ""
+
+msgid ""
+"We say that an object is an **awaitable** object if it can be used in an :"
+"keyword:`await` expression.  Many asyncio APIs are designed to accept "
+"awaitables."
+msgstr ""
+
+msgid ""
+"There are three main types of *awaitable* objects: **coroutines**, "
+"**Tasks**, and **Futures**."
+msgstr ""
+
+msgid ""
+"Python coroutines are *awaitables* and therefore can be awaited from other "
+"coroutines::"
+msgstr ""
+
+msgid ""
+"In this documentation the term \"coroutine\" can be used for two closely "
+"related concepts:"
+msgstr ""
+
+msgid "a *coroutine function*: an :keyword:`async def` function;"
+msgstr ""
+
+msgid ""
+"a *coroutine object*: an object returned by calling a *coroutine function*."
+msgstr ""
+
+msgid ""
+"asyncio also supports legacy :ref:`generator-based "
+"<asyncio_generator_based_coro>` coroutines."
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "*Tasks* are used to schedule coroutines *concurrently*."
+msgstr ""
+
+msgid ""
+"When a coroutine is wrapped into a *Task* with functions like :func:`asyncio."
+"create_task` the coroutine is automatically scheduled to run soon::"
+msgstr ""
+
+msgid "Futures"
+msgstr ""
+
+msgid ""
+"A :class:`Future` is a special **low-level** awaitable object that "
+"represents an **eventual result** of an asynchronous operation."
+msgstr ""
+
+msgid ""
+"When a Future object is *awaited* it means that the coroutine will wait "
+"until the Future is resolved in some other place."
+msgstr ""
+
+msgid ""
+"Future objects in asyncio are needed to allow callback-based code to be used "
+"with async/await."
+msgstr ""
+
+msgid ""
+"Normally **there is no need** to create Future objects at the application "
+"level code."
+msgstr ""
+
+msgid ""
+"Future objects, sometimes exposed by libraries and some asyncio APIs, can be "
+"awaited::"
+msgstr ""
+
+msgid ""
+"A good example of a low-level function that returns a Future object is :meth:"
+"`loop.run_in_executor`."
+msgstr ""
+
+msgid "Running an asyncio Program"
+msgstr ""
+
+msgid "Execute the :term:`coroutine` *coro* and return the result."
+msgstr ""
+
+msgid ""
+"This function runs the passed coroutine, taking care of managing the asyncio "
+"event loop and *finalizing asynchronous generators*."
+msgstr ""
+
+msgid ""
+"This function cannot be called when another asyncio event loop is running in "
+"the same thread."
+msgstr ""
+
+msgid "If *debug* is ``True``, the event loop will be run in debug mode."
+msgstr ""
+
+msgid ""
+"This function always creates a new event loop and closes it at the end.  It "
+"should be used as a main entry point for asyncio programs, and should "
+"ideally only be called once."
+msgstr ""
+
+msgid "Example::"
+msgstr ""
+
+msgid ""
+"The source code for ``asyncio.run()`` can be found in :source:`Lib/asyncio/"
+"runners.py`."
+msgstr ""
+
+msgid "Creating Tasks"
+msgstr ""
+
+msgid ""
+"Wrap the *coro* :ref:`coroutine <coroutine>` into a :class:`Task` and "
+"schedule its execution.  Return the Task object."
+msgstr ""
+
+msgid ""
+"If *name* is not ``None``, it is set as the name of the task using :meth:"
+"`Task.set_name`."
+msgstr ""
+
+msgid ""
+"The task is executed in the loop returned by :func:`get_running_loop`, :exc:"
+"`RuntimeError` is raised if there is no running loop in current thread."
+msgstr ""
+
+msgid ""
+"This function has been **added in Python 3.7**.  Prior to Python 3.7, the "
+"low-level :func:`asyncio.ensure_future` function can be used instead::"
+msgstr ""
+
+msgid "Added the ``name`` parameter."
+msgstr ""
+
+msgid "Sleeping"
+msgstr ""
+
+msgid "Block for *delay* seconds."
+msgstr ""
+
+msgid ""
+"If *result* is provided, it is returned to the caller when the coroutine "
+"completes."
+msgstr ""
+
+msgid ""
+"``sleep()`` always suspends the current task, allowing other tasks to run."
+msgstr ""
+
+msgid "The *loop* parameter."
+msgstr ""
+
+msgid ""
+"Example of coroutine displaying the current date every second for 5 seconds::"
+msgstr ""
+
+msgid "Running Tasks Concurrently"
+msgstr ""
+
+msgid ""
+"Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws* sequence "
+"*concurrently*."
+msgstr ""
+
+msgid ""
+"If any awaitable in *aws* is a coroutine, it is automatically scheduled as a "
+"Task."
+msgstr ""
+
+msgid ""
+"If all awaitables are completed successfully, the result is an aggregate "
+"list of returned values.  The order of result values corresponds to the "
+"order of awaitables in *aws*."
+msgstr ""
+
+msgid ""
+"If *return_exceptions* is ``False`` (default), the first raised exception is "
+"immediately propagated to the task that awaits on ``gather()``.  Other "
+"awaitables in the *aws* sequence **won't be cancelled** and will continue to "
+"run."
+msgstr ""
+
+msgid ""
+"If *return_exceptions* is ``True``, exceptions are treated the same as "
+"successful results, and aggregated in the result list."
+msgstr ""
+
+msgid ""
+"If ``gather()`` is *cancelled*, all submitted awaitables (that have not "
+"completed yet) are also *cancelled*."
+msgstr ""
+
+msgid ""
+"If any Task or Future from the *aws* sequence is *cancelled*, it is treated "
+"as if it raised :exc:`CancelledError` -- the ``gather()`` call is **not** "
+"cancelled in this case.  This is to prevent the cancellation of one "
+"submitted Task/Future to cause other Tasks/Futures to be cancelled."
+msgstr ""
+
+msgid ""
+"If *return_exceptions* is False, cancelling gather() after it has been "
+"marked done won't cancel any submitted awaitables. For instance, gather can "
+"be marked done after propagating an exception to the caller, therefore, "
+"calling ``gather.cancel()`` after catching an exception (raised by one of "
+"the awaitables) from gather won't cancel any other awaitables."
+msgstr ""
+
+msgid ""
+"If the *gather* itself is cancelled, the cancellation is propagated "
+"regardless of *return_exceptions*."
+msgstr ""
+
+msgid "Shielding From Cancellation"
+msgstr ""
+
+msgid ""
+"Protect an :ref:`awaitable object <asyncio-awaitables>` from being :meth:"
+"`cancelled <Task.cancel>`."
+msgstr ""
+
+msgid "If *aw* is a coroutine it is automatically scheduled as a Task."
+msgstr ""
+
+msgid "The statement::"
+msgstr ""
+
+msgid "is equivalent to::"
+msgstr ""
+
+msgid ""
+"*except* that if the coroutine containing it is cancelled, the Task running "
+"in ``something()`` is not cancelled.  From the point of view of "
+"``something()``, the cancellation did not happen. Although its caller is "
+"still cancelled, so the \"await\" expression still raises a :exc:"
+"`CancelledError`."
+msgstr ""
+
+msgid ""
+"If ``something()`` is cancelled by other means (i.e. from within itself) "
+"that would also cancel ``shield()``."
+msgstr ""
+
+msgid ""
+"If it is desired to completely ignore cancellation (not recommended) the "
+"``shield()`` function should be combined with a try/except clause, as "
+"follows::"
+msgstr ""
+
+msgid "Timeouts"
+msgstr ""
+
+msgid ""
+"Wait for the *aw* :ref:`awaitable <asyncio-awaitables>` to complete with a "
+"timeout."
+msgstr ""
+
+msgid ""
+"*timeout* can either be ``None`` or a float or int number of seconds to wait "
+"for.  If *timeout* is ``None``, block until the future completes."
+msgstr ""
+
+msgid ""
+"If a timeout occurs, it cancels the task and raises :exc:`asyncio."
+"TimeoutError`."
+msgstr ""
+
+msgid ""
+"To avoid the task :meth:`cancellation <Task.cancel>`, wrap it in :func:"
+"`shield`."
+msgstr ""
+
+msgid ""
+"The function will wait until the future is actually cancelled, so the total "
+"wait time may exceed the *timeout*."
+msgstr ""
+
+msgid "If the wait is cancelled, the future *aw* is also cancelled."
+msgstr ""
+
+msgid ""
+"When *aw* is cancelled due to a timeout, ``wait_for`` waits for *aw* to be "
+"cancelled.  Previously, it raised :exc:`asyncio.TimeoutError` immediately."
+msgstr ""
+
+msgid "Waiting Primitives"
+msgstr ""
+
+msgid ""
+"Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws* set "
+"concurrently and block until the condition specified by *return_when*."
+msgstr ""
+
+msgid "Returns two sets of Tasks/Futures: ``(done, pending)``."
+msgstr ""
+
+msgid "Usage::"
+msgstr ""
+
+msgid ""
+"*timeout* (a float or int), if specified, can be used to control the maximum "
+"number of seconds to wait before returning."
+msgstr ""
+
+msgid ""
+"Note that this function does not raise :exc:`asyncio.TimeoutError`. Futures "
+"or Tasks that aren't done when the timeout occurs are simply returned in the "
+"second set."
+msgstr ""
+
+msgid ""
+"*return_when* indicates when this function should return.  It must be one of "
+"the following constants:"
+msgstr ""
+
+msgid "Constant"
+msgstr "Stała"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid ":const:`FIRST_COMPLETED`"
+msgstr ""
+
+msgid "The function will return when any future finishes or is cancelled."
+msgstr ""
+
+msgid ":const:`FIRST_EXCEPTION`"
+msgstr ""
+
+msgid ""
+"The function will return when any future finishes by raising an exception.  "
+"If no future raises an exception then it is equivalent to :const:"
+"`ALL_COMPLETED`."
+msgstr ""
+
+msgid ":const:`ALL_COMPLETED`"
+msgstr ""
+
+msgid "The function will return when all futures finish or are cancelled."
+msgstr ""
+
+msgid ""
+"Unlike :func:`~asyncio.wait_for`, ``wait()`` does not cancel the futures "
+"when a timeout occurs."
+msgstr ""
+
+msgid ""
+"If any awaitable in *aws* is a coroutine, it is automatically scheduled as a "
+"Task.  Passing coroutines objects to ``wait()`` directly is deprecated as it "
+"leads to :ref:`confusing behavior <asyncio_example_wait_coroutine>`."
+msgstr ""
+
+msgid ""
+"``wait()`` schedules coroutines as Tasks automatically and later returns "
+"those implicitly created Task objects in ``(done, pending)`` sets.  "
+"Therefore the following code won't work as expected::"
+msgstr ""
+
+msgid "Here is how the above snippet can be fixed::"
+msgstr ""
+
+msgid "Passing coroutine objects to ``wait()`` directly is deprecated."
+msgstr ""
+
+msgid ""
+"Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws* set "
+"concurrently.  Return an iterator of coroutines. Each coroutine returned can "
+"be awaited to get the earliest next result from the set of the remaining "
+"awaitables."
+msgstr ""
+
+msgid ""
+"Raises :exc:`asyncio.TimeoutError` if the timeout occurs before all Futures "
+"are done."
+msgstr ""
+
+msgid "Scheduling From Other Threads"
+msgstr ""
+
+msgid "Submit a coroutine to the given event loop.  Thread-safe."
+msgstr ""
+
+msgid ""
+"Return a :class:`concurrent.futures.Future` to wait for the result from "
+"another OS thread."
+msgstr ""
+
+msgid ""
+"This function is meant to be called from a different OS thread than the one "
+"where the event loop is running.  Example::"
+msgstr ""
+
+msgid ""
+"If an exception is raised in the coroutine, the returned Future will be "
+"notified.  It can also be used to cancel the task in the event loop::"
+msgstr ""
+
+msgid ""
+"See the :ref:`concurrency and multithreading <asyncio-multithreading>` "
+"section of the documentation."
+msgstr ""
+
+msgid ""
+"Unlike other asyncio functions this function requires the *loop* argument to "
+"be passed explicitly."
+msgstr ""
+
+msgid "Introspection"
+msgstr ""
+
+msgid ""
+"Return the currently running :class:`Task` instance, or ``None`` if no task "
+"is running."
+msgstr ""
+
+msgid ""
+"If *loop* is ``None`` :func:`get_running_loop` is used to get the current "
+"loop."
+msgstr ""
+
+msgid "Return a set of not yet finished :class:`Task` objects run by the loop."
+msgstr ""
+
+msgid ""
+"If *loop* is ``None``, :func:`get_running_loop` is used for getting current "
+"loop."
+msgstr ""
+
+msgid "Task Object"
+msgstr ""
+
+msgid ""
+"A :class:`Future-like <Future>` object that runs a Python :ref:`coroutine "
+"<coroutine>`.  Not thread-safe."
+msgstr ""
+
+msgid ""
+"Tasks are used to run coroutines in event loops. If a coroutine awaits on a "
+"Future, the Task suspends the execution of the coroutine and waits for the "
+"completion of the Future.  When the Future is *done*, the execution of the "
+"wrapped coroutine resumes."
+msgstr ""
+
+msgid ""
+"Event loops use cooperative scheduling: an event loop runs one Task at a "
+"time.  While a Task awaits for the completion of a Future, the event loop "
+"runs other Tasks, callbacks, or performs IO operations."
+msgstr ""
+
+msgid ""
+"Use the high-level :func:`asyncio.create_task` function to create Tasks, or "
+"the low-level :meth:`loop.create_task` or :func:`ensure_future` functions.  "
+"Manual instantiation of Tasks is discouraged."
+msgstr ""
+
+msgid ""
+"To cancel a running Task use the :meth:`cancel` method.  Calling it will "
+"cause the Task to throw a :exc:`CancelledError` exception into the wrapped "
+"coroutine.  If a coroutine is awaiting on a Future object during "
+"cancellation, the Future object will be cancelled."
+msgstr ""
+
+msgid ""
+":meth:`cancelled` can be used to check if the Task was cancelled. The method "
+"returns ``True`` if the wrapped coroutine did not suppress the :exc:"
+"`CancelledError` exception and was actually cancelled."
+msgstr ""
+
+msgid ""
+":class:`asyncio.Task` inherits from :class:`Future` all of its APIs except :"
+"meth:`Future.set_result` and :meth:`Future.set_exception`."
+msgstr ""
+
+msgid ""
+"Tasks support the :mod:`contextvars` module.  When a Task is created it "
+"copies the current context and later runs its coroutine in the copied "
+"context."
+msgstr ""
+
+msgid "Added support for the :mod:`contextvars` module."
+msgstr ""
+
+msgid "Request the Task to be cancelled."
+msgstr ""
+
+msgid ""
+"This arranges for a :exc:`CancelledError` exception to be thrown into the "
+"wrapped coroutine on the next cycle of the event loop."
+msgstr ""
+
+msgid ""
+"The coroutine then has a chance to clean up or even deny the request by "
+"suppressing the exception with a :keyword:`try` ... ... ``except "
+"CancelledError`` ... :keyword:`finally` block. Therefore, unlike :meth:"
+"`Future.cancel`, :meth:`Task.cancel` does not guarantee that the Task will "
+"be cancelled, although suppressing cancellation completely is not common and "
+"is actively discouraged."
+msgstr ""
+
+msgid ""
+"The following example illustrates how coroutines can intercept the "
+"cancellation request::"
+msgstr ""
+
+msgid "Return ``True`` if the Task is *cancelled*."
+msgstr ""
+
+msgid ""
+"The Task is *cancelled* when the cancellation was requested with :meth:"
+"`cancel` and the wrapped coroutine propagated the :exc:`CancelledError` "
+"exception thrown into it."
+msgstr ""
+
+msgid "Return ``True`` if the Task is *done*."
+msgstr ""
+
+msgid ""
+"A Task is *done* when the wrapped coroutine either returned a value, raised "
+"an exception, or the Task was cancelled."
+msgstr ""
+
+msgid "Return the result of the Task."
+msgstr ""
+
+msgid ""
+"If the Task is *done*, the result of the wrapped coroutine is returned (or "
+"if the coroutine raised an exception, that exception is re-raised.)"
+msgstr ""
+
+msgid ""
+"If the Task has been *cancelled*, this method raises a :exc:`CancelledError` "
+"exception."
+msgstr ""
+
+msgid ""
+"If the Task's result isn't yet available, this method raises a :exc:"
+"`InvalidStateError` exception."
+msgstr ""
+
+msgid "Return the exception of the Task."
+msgstr ""
+
+msgid ""
+"If the wrapped coroutine raised an exception that exception is returned.  If "
+"the wrapped coroutine returned normally this method returns ``None``."
+msgstr ""
+
+msgid ""
+"If the Task isn't *done* yet, this method raises an :exc:`InvalidStateError` "
+"exception."
+msgstr ""
+
+msgid "Add a callback to be run when the Task is *done*."
+msgstr ""
+
+msgid "This method should only be used in low-level callback-based code."
+msgstr ""
+
+msgid ""
+"See the documentation of :meth:`Future.add_done_callback` for more details."
+msgstr ""
+
+msgid "Remove *callback* from the callbacks list."
+msgstr ""
+
+msgid ""
+"See the documentation of :meth:`Future.remove_done_callback` for more "
+"details."
+msgstr ""
+
+msgid "Return the list of stack frames for this Task."
+msgstr ""
+
+msgid ""
+"If the wrapped coroutine is not done, this returns the stack where it is "
+"suspended.  If the coroutine has completed successfully or was cancelled, "
+"this returns an empty list. If the coroutine was terminated by an exception, "
+"this returns the list of traceback frames."
+msgstr ""
+
+msgid "The frames are always ordered from oldest to newest."
+msgstr ""
+
+msgid "Only one stack frame is returned for a suspended coroutine."
+msgstr ""
+
+msgid ""
+"The optional *limit* argument sets the maximum number of frames to return; "
+"by default all available frames are returned. The ordering of the returned "
+"list differs depending on whether a stack or a traceback is returned: the "
+"newest frames of a stack are returned, but the oldest frames of a traceback "
+"are returned.  (This matches the behavior of the traceback module.)"
+msgstr ""
+
+msgid "Print the stack or traceback for this Task."
+msgstr ""
+
+msgid ""
+"This produces output similar to that of the traceback module for the frames "
+"retrieved by :meth:`get_stack`."
+msgstr ""
+
+msgid "The *limit* argument is passed to :meth:`get_stack` directly."
+msgstr ""
+
+msgid ""
+"The *file* argument is an I/O stream to which the output is written; by "
+"default output is written to :data:`sys.stderr`."
+msgstr ""
+
+msgid "Return the coroutine object wrapped by the :class:`Task`."
+msgstr ""
+
+msgid "Return the name of the Task."
+msgstr ""
+
+msgid ""
+"If no name has been explicitly assigned to the Task, the default asyncio "
+"Task implementation generates a default name during instantiation."
+msgstr ""
+
+msgid "Set the name of the Task."
+msgstr ""
+
+msgid ""
+"The *value* argument can be any object, which is then converted to a string."
+msgstr ""
+
+msgid ""
+"In the default Task implementation, the name will be visible in the :func:"
+"`repr` output of a task object."
+msgstr ""
+
+msgid "Return a set of all tasks for an event loop."
+msgstr ""
+
+msgid ""
+"By default all tasks for the current event loop are returned. If *loop* is "
+"``None``, the :func:`get_event_loop` function is used to get the current "
+"loop."
+msgstr ""
+
+msgid ""
+"Do not call this as a task method. Use the :func:`asyncio.all_tasks` "
+"function instead."
+msgstr ""
+
+msgid "Return the currently running task or ``None``."
+msgstr ""
+
+msgid ""
+"If *loop* is ``None``, the :func:`get_event_loop` function is used to get "
+"the current loop."
+msgstr ""
+
+msgid ""
+"Do not call this as a task method.  Use the :func:`asyncio.current_task` "
+"function instead."
+msgstr ""
+
+msgid "Generator-based Coroutines"
+msgstr ""
+
+msgid ""
+"Support for generator-based coroutines is **deprecated** and is scheduled "
+"for removal in Python 3.10."
+msgstr ""
+
+msgid ""
+"Generator-based coroutines predate async/await syntax.  They are Python "
+"generators that use ``yield from`` expressions to await on Futures and other "
+"coroutines."
+msgstr ""
+
+msgid ""
+"Generator-based coroutines should be decorated with :func:`@asyncio."
+"coroutine <asyncio.coroutine>`, although this is not enforced."
+msgstr ""
+
+msgid "Decorator to mark generator-based coroutines."
+msgstr ""
+
+msgid ""
+"This decorator enables legacy generator-based coroutines to be compatible "
+"with async/await code::"
+msgstr ""
+
+msgid "This decorator should not be used for :keyword:`async def` coroutines."
+msgstr ""
+
+msgid "Use :keyword:`async def` instead."
+msgstr ""
+
+msgid "Return ``True`` if *obj* is a :ref:`coroutine object <coroutine>`."
+msgstr ""
+
+msgid ""
+"This method is different from :func:`inspect.iscoroutine` because it returns "
+"``True`` for generator-based coroutines."
+msgstr ""
+
+msgid "Return ``True`` if *func* is a :ref:`coroutine function <coroutine>`."
+msgstr ""
+
+msgid ""
+"This method is different from :func:`inspect.iscoroutinefunction` because it "
+"returns ``True`` for generator-based coroutine functions decorated with :"
+"func:`@coroutine <coroutine>`."
+msgstr ""
