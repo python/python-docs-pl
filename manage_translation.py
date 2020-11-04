@@ -30,7 +30,7 @@ def fetch():
         sys.stderr.write("The Transifex client app is required (pip install transifex-client).\n")
         exit(1)
     lang = LANGUAGE
-    pull_returncode = call(f'tx pull -l {lang} --minimum-perc=1 --use-git-timestamps', shell=True)
+    pull_returncode = call(f'tx pull -l {lang} --minimum-perc=1 --force', shell=True)
     if pull_returncode != 0:
         exit(pull_returncode)
     for root, _, po_files in os.walk('.'):
