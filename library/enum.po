@@ -1,0 +1,855 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2020, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# m_aciek <maciej.olko@gmail.com>, 2020
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 04:10+0000\n"
+"PO-Revision-Date: 2017-02-16 23:09+0000\n"
+"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid ":mod:`enum` --- Support for enumerations"
+msgstr ":mod:`enum` --- Wsparcie dla wyliczeń"
+
+msgid "**Source code:** :source:`Lib/enum.py`"
+msgstr "**kod źródłowy:** :source:`Lib/enum.py`"
+
+msgid ""
+"An enumeration is a set of symbolic names (members) bound to unique, "
+"constant values.  Within an enumeration, the members can be compared by "
+"identity, and the enumeration itself can be iterated over."
+msgstr ""
+"Wyliczenie jest zbiorem symbolicznych nazw (literałów wyliczeniowych) "
+"związanych z unikalnymi, stałymi wartościami. Wewnątrz wyliczenia literały "
+"mogą być porównywane według równości a po wyliczeniu można iterować."
+
+msgid "Case of Enum Members"
+msgstr "Wielkość liter literałów wyliczeniowych"
+
+msgid ""
+"Because Enums are used to represent constants we recommend using UPPER_CASE "
+"names for enum members, and will be using that style in our examples."
+msgstr ""
+
+msgid "Module Contents"
+msgstr ""
+
+msgid ""
+"This module defines four enumeration classes that can be used to define "
+"unique sets of names and values: :class:`Enum`, :class:`IntEnum`, :class:"
+"`Flag`, and :class:`IntFlag`.  It also defines one decorator, :func:"
+"`unique`, and one helper, :class:`auto`."
+msgstr ""
+
+msgid ""
+"Base class for creating enumerated constants.  See section `Functional API`_ "
+"for an alternate construction syntax."
+msgstr ""
+
+msgid ""
+"Base class for creating enumerated constants that are also subclasses of :"
+"class:`int`."
+msgstr ""
+
+msgid ""
+"Base class for creating enumerated constants that can be combined using the "
+"bitwise operators without losing their :class:`IntFlag` membership. :class:"
+"`IntFlag` members are also subclasses of :class:`int`."
+msgstr ""
+
+msgid ""
+"Base class for creating enumerated constants that can be combined using the "
+"bitwise operations without losing their :class:`Flag` membership."
+msgstr ""
+
+msgid ""
+"Enum class decorator that ensures only one name is bound to any one value."
+msgstr ""
+
+msgid ""
+"Instances are replaced with an appropriate value for Enum members.  By "
+"default, the initial value starts at 1."
+msgstr ""
+
+msgid "``Flag``, ``IntFlag``, ``auto``"
+msgstr ""
+
+msgid "Creating an Enum"
+msgstr ""
+
+msgid ""
+"Enumerations are created using the :keyword:`class` syntax, which makes them "
+"easy to read and write.  An alternative creation method is described in "
+"`Functional API`_.  To define an enumeration, subclass :class:`Enum` as "
+"follows::"
+msgstr ""
+
+msgid "Enum member values"
+msgstr ""
+
+msgid ""
+"Member values can be anything: :class:`int`, :class:`str`, etc..  If the "
+"exact value is unimportant you may use :class:`auto` instances and an "
+"appropriate value will be chosen for you.  Care must be taken if you mix :"
+"class:`auto` with other values."
+msgstr ""
+
+msgid "Nomenclature"
+msgstr ""
+
+msgid "The class :class:`Color` is an *enumeration* (or *enum*)"
+msgstr ""
+
+msgid ""
+"The attributes :attr:`Color.RED`, :attr:`Color.GREEN`, etc., are "
+"*enumeration members* (or *enum members*) and are functionally constants."
+msgstr ""
+
+msgid ""
+"The enum members have *names* and *values* (the name of :attr:`Color.RED` is "
+"``RED``, the value of :attr:`Color.BLUE` is ``3``, etc.)"
+msgstr ""
+
+msgid ""
+"Even though we use the :keyword:`class` syntax to create Enums, Enums are "
+"not normal Python classes.  See `How are Enums different?`_ for more details."
+msgstr ""
+
+msgid "Enumeration members have human readable string representations::"
+msgstr ""
+
+msgid "...while their ``repr`` has more information::"
+msgstr ""
+
+msgid "The *type* of an enumeration member is the enumeration it belongs to::"
+msgstr ""
+
+msgid "Enum members also have a property that contains just their item name::"
+msgstr ""
+
+msgid "Enumerations support iteration, in definition order::"
+msgstr ""
+
+msgid ""
+"Enumeration members are hashable, so they can be used in dictionaries and "
+"sets::"
+msgstr ""
+
+msgid "Programmatic access to enumeration members and their attributes"
+msgstr ""
+
+msgid ""
+"Sometimes it's useful to access members in enumerations programmatically (i."
+"e. situations where ``Color.RED`` won't do because the exact color is not "
+"known at program-writing time).  ``Enum`` allows such access::"
+msgstr ""
+
+msgid "If you want to access enum members by *name*, use item access::"
+msgstr ""
+
+msgid "If you have an enum member and need its :attr:`name` or :attr:`value`::"
+msgstr ""
+
+msgid "Duplicating enum members and values"
+msgstr ""
+
+msgid "Having two enum members with the same name is invalid::"
+msgstr ""
+
+msgid ""
+"However, two enum members are allowed to have the same value.  Given two "
+"members A and B with the same value (and A defined first), B is an alias to "
+"A.  By-value lookup of the value of A and B will return A.  By-name lookup "
+"of B will also return A::"
+msgstr ""
+
+msgid ""
+"Attempting to create a member with the same name as an already defined "
+"attribute (another member, a method, etc.) or attempting to create an "
+"attribute with the same name as a member is not allowed."
+msgstr ""
+
+msgid "Ensuring unique enumeration values"
+msgstr ""
+
+msgid ""
+"By default, enumerations allow multiple names as aliases for the same value. "
+"When this behavior isn't desired, the following decorator can be used to "
+"ensure each value is used only once in the enumeration:"
+msgstr ""
+
+msgid ""
+"A :keyword:`class` decorator specifically for enumerations.  It searches an "
+"enumeration's :attr:`__members__` gathering any aliases it finds; if any are "
+"found :exc:`ValueError` is raised with the details::"
+msgstr ""
+
+msgid "Using automatic values"
+msgstr ""
+
+msgid "If the exact value is unimportant you can use :class:`auto`::"
+msgstr ""
+
+msgid ""
+"The values are chosen by :func:`_generate_next_value_`, which can be "
+"overridden::"
+msgstr ""
+
+msgid ""
+"The goal of the default :meth:`_generate_next_value_` methods is to provide "
+"the next :class:`int` in sequence with the last :class:`int` provided, but "
+"the way it does this is an implementation detail and may change."
+msgstr ""
+
+msgid ""
+"The :meth:`_generate_next_value_` method must be defined before any members."
+msgstr ""
+
+msgid "Iteration"
+msgstr ""
+
+msgid "Iterating over the members of an enum does not provide the aliases::"
+msgstr ""
+
+msgid ""
+"The special attribute ``__members__`` is a read-only ordered mapping of "
+"names to members.  It includes all names defined in the enumeration, "
+"including the aliases::"
+msgstr ""
+
+msgid ""
+"The ``__members__`` attribute can be used for detailed programmatic access "
+"to the enumeration members.  For example, finding all the aliases::"
+msgstr ""
+
+msgid "Comparisons"
+msgstr ""
+
+msgid "Enumeration members are compared by identity::"
+msgstr ""
+
+msgid ""
+"Ordered comparisons between enumeration values are *not* supported.  Enum "
+"members are not integers (but see `IntEnum`_ below)::"
+msgstr ""
+
+msgid "Equality comparisons are defined though::"
+msgstr ""
+
+msgid ""
+"Comparisons against non-enumeration values will always compare not equal "
+"(again, :class:`IntEnum` was explicitly designed to behave differently, see "
+"below)::"
+msgstr ""
+
+msgid "Allowed members and attributes of enumerations"
+msgstr ""
+
+msgid ""
+"The examples above use integers for enumeration values.  Using integers is "
+"short and handy (and provided by default by the `Functional API`_), but not "
+"strictly enforced.  In the vast majority of use-cases, one doesn't care what "
+"the actual value of an enumeration is.  But if the value *is* important, "
+"enumerations can have arbitrary values."
+msgstr ""
+
+msgid ""
+"Enumerations are Python classes, and can have methods and special methods as "
+"usual.  If we have this enumeration::"
+msgstr ""
+
+msgid "Then::"
+msgstr ""
+
+msgid ""
+"The rules for what is allowed are as follows: names that start and end with "
+"a single underscore are reserved by enum and cannot be used; all other "
+"attributes defined within an enumeration will become members of this "
+"enumeration, with the exception of special methods (:meth:`__str__`, :meth:"
+"`__add__`, etc.), descriptors (methods are also descriptors), and variable "
+"names listed in :attr:`_ignore_`."
+msgstr ""
+
+msgid ""
+"Note:  if your enumeration defines :meth:`__new__` and/or :meth:`__init__` "
+"then any value(s) given to the enum member will be passed into those "
+"methods. See `Planet`_ for an example."
+msgstr ""
+
+msgid "Restricted Enum subclassing"
+msgstr ""
+
+msgid ""
+"A new :class:`Enum` class must have one base Enum class, up to one concrete "
+"data type, and as many :class:`object`-based mixin classes as needed.  The "
+"order of these base classes is::"
+msgstr ""
+
+msgid ""
+"Also, subclassing an enumeration is allowed only if the enumeration does not "
+"define any members.  So this is forbidden::"
+msgstr ""
+
+msgid "But this is allowed::"
+msgstr ""
+
+msgid ""
+"Allowing subclassing of enums that define members would lead to a violation "
+"of some important invariants of types and instances.  On the other hand, it "
+"makes sense to allow sharing some common behavior between a group of "
+"enumerations. (See `OrderedEnum`_ for an example.)"
+msgstr ""
+
+msgid "Pickling"
+msgstr ""
+
+msgid "Enumerations can be pickled and unpickled::"
+msgstr ""
+
+msgid ""
+"The usual restrictions for pickling apply: picklable enums must be defined "
+"in the top level of a module, since unpickling requires them to be "
+"importable from that module."
+msgstr ""
+
+msgid ""
+"With pickle protocol version 4 it is possible to easily pickle enums nested "
+"in other classes."
+msgstr ""
+
+msgid ""
+"It is possible to modify how Enum members are pickled/unpickled by defining :"
+"meth:`__reduce_ex__` in the enumeration class."
+msgstr ""
+
+msgid "Functional API"
+msgstr ""
+
+msgid ""
+"The :class:`Enum` class is callable, providing the following functional API::"
+msgstr ""
+
+msgid ""
+"The semantics of this API resemble :class:`~collections.namedtuple`. The "
+"first argument of the call to :class:`Enum` is the name of the enumeration."
+msgstr ""
+
+msgid ""
+"The second argument is the *source* of enumeration member names.  It can be "
+"a whitespace-separated string of names, a sequence of names, a sequence of 2-"
+"tuples with key/value pairs, or a mapping (e.g. dictionary) of names to "
+"values.  The last two options enable assigning arbitrary values to "
+"enumerations; the others auto-assign increasing integers starting with 1 "
+"(use the ``start`` parameter to specify a different starting value).  A new "
+"class derived from :class:`Enum` is returned.  In other words, the above "
+"assignment to :class:`Animal` is equivalent to::"
+msgstr ""
+
+msgid ""
+"The reason for defaulting to ``1`` as the starting number and not ``0`` is "
+"that ``0`` is ``False`` in a boolean sense, but enum members all evaluate to "
+"``True``."
+msgstr ""
+
+msgid ""
+"Pickling enums created with the functional API can be tricky as frame stack "
+"implementation details are used to try and figure out which module the "
+"enumeration is being created in (e.g. it will fail if you use a utility "
+"function in separate module, and also may not work on IronPython or Jython). "
+"The solution is to specify the module name explicitly as follows::"
+msgstr ""
+
+msgid ""
+"If ``module`` is not supplied, and Enum cannot determine what it is, the new "
+"Enum members will not be unpicklable; to keep errors closer to the source, "
+"pickling will be disabled."
+msgstr ""
+
+msgid ""
+"The new pickle protocol 4 also, in some circumstances, relies on :attr:"
+"`~definition.__qualname__` being set to the location where pickle will be "
+"able to find the class.  For example, if the class was made available in "
+"class SomeData in the global scope::"
+msgstr ""
+
+msgid "The complete signature is::"
+msgstr ""
+
+msgid "value"
+msgstr ""
+
+msgid "What the new Enum class will record as its name."
+msgstr ""
+
+msgid "names"
+msgstr ""
+
+msgid ""
+"The Enum members.  This can be a whitespace or comma separated string "
+"(values will start at 1 unless otherwise specified)::"
+msgstr ""
+
+msgid "or an iterator of names::"
+msgstr ""
+
+msgid "or an iterator of (name, value) pairs::"
+msgstr ""
+
+msgid "or a mapping::"
+msgstr ""
+
+msgid "module"
+msgstr ""
+
+msgid "name of module where new Enum class can be found."
+msgstr ""
+
+msgid "qualname"
+msgstr ""
+
+msgid "where in module new Enum class can be found."
+msgstr ""
+
+msgid "type"
+msgstr ""
+
+msgid "type to mix in to new Enum class."
+msgstr ""
+
+msgid "start"
+msgstr ""
+
+msgid "number to start counting at if only names are passed in."
+msgstr ""
+
+msgid "The *start* parameter was added."
+msgstr ""
+
+msgid "Derived Enumerations"
+msgstr ""
+
+msgid "IntEnum"
+msgstr ""
+
+msgid ""
+"The first variation of :class:`Enum` that is provided is also a subclass of :"
+"class:`int`.  Members of an :class:`IntEnum` can be compared to integers; by "
+"extension, integer enumerations of different types can also be compared to "
+"each other::"
+msgstr ""
+
+msgid ""
+"However, they still can't be compared to standard :class:`Enum` "
+"enumerations::"
+msgstr ""
+
+msgid ""
+":class:`IntEnum` values behave like integers in other ways you'd expect::"
+msgstr ""
+
+msgid "IntFlag"
+msgstr ""
+
+msgid ""
+"The next variation of :class:`Enum` provided, :class:`IntFlag`, is also "
+"based on :class:`int`.  The difference being :class:`IntFlag` members can be "
+"combined using the bitwise operators (&, \\|, ^, ~) and the result is still "
+"an :class:`IntFlag` member.  However, as the name implies, :class:`IntFlag` "
+"members also subclass :class:`int` and can be used wherever an :class:`int` "
+"is used.  Any operation on an :class:`IntFlag` member besides the bit-wise "
+"operations will lose the :class:`IntFlag` membership."
+msgstr ""
+
+msgid "Sample :class:`IntFlag` class::"
+msgstr ""
+
+msgid "It is also possible to name the combinations::"
+msgstr ""
+
+msgid ""
+"Another important difference between :class:`IntFlag` and :class:`Enum` is "
+"that if no flags are set (the value is 0), its boolean evaluation is :data:"
+"`False`::"
+msgstr ""
+
+msgid ""
+"Because :class:`IntFlag` members are also subclasses of :class:`int` they "
+"can be combined with them::"
+msgstr ""
+
+msgid "Flag"
+msgstr ""
+
+msgid ""
+"The last variation is :class:`Flag`.  Like :class:`IntFlag`, :class:`Flag` "
+"members can be combined using the bitwise operators (&, \\|, ^, ~).  Unlike :"
+"class:`IntFlag`, they cannot be combined with, nor compared against, any "
+"other :class:`Flag` enumeration, nor :class:`int`.  While it is possible to "
+"specify the values directly it is recommended to use :class:`auto` as the "
+"value and let :class:`Flag` select an appropriate value."
+msgstr ""
+
+msgid ""
+"Like :class:`IntFlag`, if a combination of :class:`Flag` members results in "
+"no flags being set, the boolean evaluation is :data:`False`::"
+msgstr ""
+
+msgid ""
+"Individual flags should have values that are powers of two (1, 2, 4, "
+"8, ...), while combinations of flags won't::"
+msgstr ""
+
+msgid ""
+"Giving a name to the \"no flags set\" condition does not change its boolean "
+"value::"
+msgstr ""
+
+msgid ""
+"For the majority of new code, :class:`Enum` and :class:`Flag` are strongly "
+"recommended, since :class:`IntEnum` and :class:`IntFlag` break some semantic "
+"promises of an enumeration (by being comparable to integers, and thus by "
+"transitivity to other unrelated enumerations).  :class:`IntEnum` and :class:"
+"`IntFlag` should be used only in cases where :class:`Enum` and :class:`Flag` "
+"will not do; for example, when integer constants are replaced with "
+"enumerations, or for interoperability with other systems."
+msgstr ""
+
+msgid "Others"
+msgstr ""
+
+msgid ""
+"While :class:`IntEnum` is part of the :mod:`enum` module, it would be very "
+"simple to implement independently::"
+msgstr ""
+
+msgid ""
+"This demonstrates how similar derived enumerations can be defined; for "
+"example a :class:`StrEnum` that mixes in :class:`str` instead of :class:"
+"`int`."
+msgstr ""
+
+msgid "Some rules:"
+msgstr ""
+
+msgid ""
+"When subclassing :class:`Enum`, mix-in types must appear before :class:"
+"`Enum` itself in the sequence of bases, as in the :class:`IntEnum` example "
+"above."
+msgstr ""
+
+msgid ""
+"While :class:`Enum` can have members of any type, once you mix in an "
+"additional type, all the members must have values of that type, e.g. :class:"
+"`int` above.  This restriction does not apply to mix-ins which only add "
+"methods and don't specify another type."
+msgstr ""
+
+msgid ""
+"When another data type is mixed in, the :attr:`value` attribute is *not the "
+"same* as the enum member itself, although it is equivalent and will compare "
+"equal."
+msgstr ""
+
+msgid ""
+"%-style formatting:  `%s` and `%r` call the :class:`Enum` class's :meth:"
+"`__str__` and :meth:`__repr__` respectively; other codes (such as `%i` or `"
+"%h` for IntEnum) treat the enum member as its mixed-in type."
+msgstr ""
+
+msgid ""
+":ref:`Formatted string literals <f-strings>`, :meth:`str.format`, and :func:"
+"`format` will use the mixed-in type's :meth:`__format__` unless :meth:"
+"`__str__` or :meth:`__format__` is overridden in the subclass, in which case "
+"the overridden methods or :class:`Enum` methods will be used. Use the !s "
+"and !r format codes to force usage of the :class:`Enum` class's :meth:"
+"`__str__` and :meth:`__repr__` methods."
+msgstr ""
+
+msgid "When to use :meth:`__new__` vs. :meth:`__init__`"
+msgstr ""
+
+msgid ""
+":meth:`__new__` must be used whenever you want to customize the actual value "
+"of the :class:`Enum` member.  Any other modifications may go in either :meth:"
+"`__new__` or :meth:`__init__`, with :meth:`__init__` being preferred."
+msgstr ""
+
+msgid ""
+"For example, if you want to pass several items to the constructor, but only "
+"want one of them to be the value::"
+msgstr ""
+
+msgid "Interesting examples"
+msgstr ""
+
+msgid ""
+"While :class:`Enum`, :class:`IntEnum`, :class:`IntFlag`, and :class:`Flag` "
+"are expected to cover the majority of use-cases, they cannot cover them "
+"all.  Here are recipes for some different types of enumerations that can be "
+"used directly, or as examples for creating one's own."
+msgstr ""
+
+msgid "Omitting values"
+msgstr ""
+
+msgid ""
+"In many use-cases one doesn't care what the actual value of an enumeration "
+"is. There are several ways to define this type of simple enumeration:"
+msgstr ""
+
+msgid "use instances of :class:`auto` for the value"
+msgstr ""
+
+msgid "use instances of :class:`object` as the value"
+msgstr ""
+
+msgid "use a descriptive string as the value"
+msgstr ""
+
+msgid ""
+"use a tuple as the value and a custom :meth:`__new__` to replace the tuple "
+"with an :class:`int` value"
+msgstr ""
+
+msgid ""
+"Using any of these methods signifies to the user that these values are not "
+"important, and also enables one to add, remove, or reorder members without "
+"having to renumber the remaining members."
+msgstr ""
+
+msgid ""
+"Whichever method you choose, you should provide a :meth:`repr` that also "
+"hides the (unimportant) value::"
+msgstr ""
+
+msgid "Using :class:`auto`"
+msgstr ""
+
+msgid "Using :class:`auto` would look like::"
+msgstr ""
+
+msgid "Using :class:`object`"
+msgstr ""
+
+msgid "Using :class:`object` would look like::"
+msgstr ""
+
+msgid "Using a descriptive string"
+msgstr ""
+
+msgid "Using a string as the value would look like::"
+msgstr ""
+
+msgid "Using a custom :meth:`__new__`"
+msgstr ""
+
+msgid "Using an auto-numbering :meth:`__new__` would look like::"
+msgstr ""
+
+msgid ""
+"To make a more general purpose ``AutoNumber``, add ``*args`` to the "
+"signature::"
+msgstr ""
+
+msgid ""
+"Then when you inherit from ``AutoNumber`` you can write your own "
+"``__init__`` to handle any extra arguments::"
+msgstr ""
+
+msgid ""
+"The :meth:`__new__` method, if defined, is used during creation of the Enum "
+"members; it is then replaced by Enum's :meth:`__new__` which is used after "
+"class creation for lookup of existing members."
+msgstr ""
+
+msgid "OrderedEnum"
+msgstr ""
+
+msgid ""
+"An ordered enumeration that is not based on :class:`IntEnum` and so "
+"maintains the normal :class:`Enum` invariants (such as not being comparable "
+"to other enumerations)::"
+msgstr ""
+
+msgid "DuplicateFreeEnum"
+msgstr ""
+
+msgid ""
+"Raises an error if a duplicate member name is found instead of creating an "
+"alias::"
+msgstr ""
+
+msgid ""
+"This is a useful example for subclassing Enum to add or change other "
+"behaviors as well as disallowing aliases.  If the only desired change is "
+"disallowing aliases, the :func:`unique` decorator can be used instead."
+msgstr ""
+
+msgid "Planet"
+msgstr ""
+
+msgid ""
+"If :meth:`__new__` or :meth:`__init__` is defined the value of the enum "
+"member will be passed to those methods::"
+msgstr ""
+
+msgid "TimePeriod"
+msgstr ""
+
+msgid "An example to show the :attr:`_ignore_` attribute in use::"
+msgstr ""
+
+msgid "How are Enums different?"
+msgstr ""
+
+msgid ""
+"Enums have a custom metaclass that affects many aspects of both derived Enum "
+"classes and their instances (members)."
+msgstr ""
+
+msgid "Enum Classes"
+msgstr ""
+
+msgid ""
+"The :class:`EnumMeta` metaclass is responsible for providing the :meth:"
+"`__contains__`, :meth:`__dir__`, :meth:`__iter__` and other methods that "
+"allow one to do things with an :class:`Enum` class that fail on a typical "
+"class, such as `list(Color)` or `some_enum_var in Color`.  :class:`EnumMeta` "
+"is responsible for ensuring that various other methods on the final :class:"
+"`Enum` class are correct (such as :meth:`__new__`, :meth:`__getnewargs__`, :"
+"meth:`__str__` and :meth:`__repr__`)."
+msgstr ""
+
+msgid "Enum Members (aka instances)"
+msgstr ""
+
+msgid ""
+"The most interesting thing about Enum members is that they are singletons. :"
+"class:`EnumMeta` creates them all while it is creating the :class:`Enum` "
+"class itself, and then puts a custom :meth:`__new__` in place to ensure that "
+"no new ones are ever instantiated by returning only the existing member "
+"instances."
+msgstr ""
+
+msgid "Finer Points"
+msgstr ""
+
+msgid "Supported ``__dunder__`` names"
+msgstr ""
+
+msgid ""
+":attr:`__members__` is a read-only ordered mapping of ``member_name``:"
+"``member`` items.  It is only available on the class."
+msgstr ""
+
+msgid ""
+":meth:`__new__`, if specified, must create and return the enum members; it "
+"is also a very good idea to set the member's :attr:`_value_` appropriately.  "
+"Once all the members are created it is no longer used."
+msgstr ""
+
+msgid "Supported ``_sunder_`` names"
+msgstr ""
+
+msgid "``_name_`` -- name of the member"
+msgstr ""
+
+msgid ""
+"``_value_`` -- value of the member; can be set / modified in ``__new__``"
+msgstr ""
+
+msgid ""
+"``_missing_`` -- a lookup function used when a value is not found; may be "
+"overridden"
+msgstr ""
+
+msgid ""
+"``_ignore_`` -- a list of names, either as a :class:`list` or a :class:"
+"`str`, that will not be transformed into members, and will be removed from "
+"the final class"
+msgstr ""
+
+msgid ""
+"``_order_`` -- used in Python 2/3 code to ensure member order is consistent "
+"(class attribute, removed during class creation)"
+msgstr ""
+
+msgid ""
+"``_generate_next_value_`` -- used by the `Functional API`_ and by :class:"
+"`auto` to get an appropriate value for an enum member; may be overridden"
+msgstr ""
+
+msgid "``_missing_``, ``_order_``, ``_generate_next_value_``"
+msgstr ""
+
+msgid "``_ignore_``"
+msgstr ""
+
+msgid ""
+"To help keep Python 2 / Python 3 code in sync an :attr:`_order_` attribute "
+"can be provided.  It will be checked against the actual order of the "
+"enumeration and raise an error if the two do not match::"
+msgstr ""
+
+msgid ""
+"In Python 2 code the :attr:`_order_` attribute is necessary as definition "
+"order is lost before it can be recorded."
+msgstr ""
+
+msgid "``Enum`` member type"
+msgstr ""
+
+msgid ""
+":class:`Enum` members are instances of their :class:`Enum` class, and are "
+"normally accessed as ``EnumClass.member``.  Under certain circumstances they "
+"can also be accessed as ``EnumClass.member.member``, but you should never do "
+"this as that lookup may fail or, worse, return something besides the :class:"
+"`Enum` member you are looking for (this is another good reason to use all-"
+"uppercase names for members)::"
+msgstr ""
+
+msgid "Boolean value of ``Enum`` classes and members"
+msgstr ""
+
+msgid ""
+":class:`Enum` members that are mixed with non-:class:`Enum` types (such as :"
+"class:`int`, :class:`str`, etc.) are evaluated according to the mixed-in "
+"type's rules; otherwise, all members evaluate as :data:`True`.  To make your "
+"own Enum's boolean evaluation depend on the member's value add the following "
+"to your class::"
+msgstr ""
+
+msgid ":class:`Enum` classes always evaluate as :data:`True`."
+msgstr ""
+
+msgid "``Enum`` classes with methods"
+msgstr ""
+
+msgid ""
+"If you give your :class:`Enum` subclass extra methods, like the `Planet`_ "
+"class above, those methods will show up in a :func:`dir` of the member, but "
+"not of the class::"
+msgstr ""
+
+msgid "Combining members of ``Flag``"
+msgstr ""
+
+msgid ""
+"If a combination of Flag members is not named, the :func:`repr` will include "
+"all named flags and all named combinations of flags that are in the value::"
+msgstr ""
