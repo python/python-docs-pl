@@ -44,6 +44,7 @@ jobs:
     strategy:
       matrix:
         version: [3.8, 3.9]
+        format: [html, latex]
     needs: ['update-translation']
     steps:
       - uses: actions/setup-python@master
@@ -59,9 +60,9 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
-      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" html
+      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
-          name: build-${{ matrix.version }}
-          path: Doc/build/html
+          name: build-${{ matrix.version }}-${{ matrix.format }}
+          path: Doc/build/${{ matrix.format }}
