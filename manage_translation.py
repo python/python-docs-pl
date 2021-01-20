@@ -180,9 +180,8 @@ Pojawi się w tam
 
 **Kanały komunikacji**
 
-* [Doc-SIG](https://www.python.org/community/sigs/current/doc-sig/),
-* [Transifex Forum](https://www.transifex.com/python-doc/teams/5390/discussions/),
-* Freenode #python.pl-doc.
+* [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
+* [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
 **Licencja**
 
