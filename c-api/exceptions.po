@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# m_aciek <maciej.olko@gmail.com>, 2020
+# m_aciek <maciej.olko@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-01 05:02+0000\n"
-"PO-Revision-Date: 2017-02-16 17:35+0000\n"
-"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 00:48+0000\n"
+"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,8 +203,8 @@ msgstr ""
 
 msgid ""
 "Similar to :c:func:`PyErr_SetFromErrnoWithFilenameObject`, but the filename "
-"is given as a C string.  *filename* is decoded from the filesystem encoding "
-"(:func:`os.fsdecode`)."
+"is given as a C string.  *filename* is decoded from the :term:`filesystem "
+"encoding and error handler`."
 msgstr ""
 
 msgid ""
@@ -264,7 +264,7 @@ msgstr ""
 
 msgid ""
 "Like :c:func:`PyErr_SyntaxLocationObject`, but *filename* is a byte string "
-"decoded from the filesystem encoding (:func:`os.fsdecode`)."
+"decoded from the :term:`filesystem encoding and error handler`."
 msgstr ""
 
 msgid ""
@@ -334,8 +334,8 @@ msgstr ""
 
 msgid ""
 "Similar to :c:func:`PyErr_WarnExplicitObject` except that *message* and "
-"*module* are UTF-8 encoded strings, and *filename* is decoded from the "
-"filesystem encoding (:func:`os.fsdecode`)."
+"*module* are UTF-8 encoded strings, and *filename* is decoded from the :term:"
+"`filesystem encoding and error handler`."
 msgstr ""
 
 msgid ""
@@ -462,26 +462,71 @@ msgstr ""
 msgid "Signal Handling"
 msgstr ""
 
-msgid ""
-"This function interacts with Python's signal handling.  It checks whether a "
-"signal has been sent to the processes and if so, invokes the corresponding "
-"signal handler.  If the :mod:`signal` module is supported, this can invoke a "
-"signal handler written in Python.  In all cases, the default effect for :"
-"const:`SIGINT` is to raise the  :exc:`KeyboardInterrupt` exception.  If an "
-"exception is raised the error indicator is set and the function returns "
-"``-1``; otherwise the function returns ``0``.  The error indicator may or "
-"may not be cleared if it was previously set."
+msgid "This function interacts with Python's signal handling."
 msgstr ""
 
 msgid ""
-"Simulate the effect of a :const:`SIGINT` signal arriving. The next time :c:"
-"func:`PyErr_CheckSignals` is called,  the Python signal handler for :const:"
-"`SIGINT` will be called."
+"If the function is called from the main thread and under the main Python "
+"interpreter, it checks whether a signal has been sent to the processes and "
+"if so, invokes the corresponding signal handler.  If the :mod:`signal` "
+"module is supported, this can invoke a signal handler written in Python."
 msgstr ""
 
 msgid ""
-"If :const:`SIGINT` isn't handled by Python (it was set to :data:`signal."
-"SIG_DFL` or :data:`signal.SIG_IGN`), this function does nothing."
+"The function attempts to handle all pending signals, and then returns ``0``. "
+"However, if a Python signal handler raises an exception, the error indicator "
+"is set and the function returns ``-1`` immediately (such that other pending "
+"signals may not have been handled yet: they will be on the next :c:func:"
+"`PyErr_CheckSignals()` invocation)."
+msgstr ""
+
+msgid ""
+"If the function is called from a non-main thread, or under a non-main Python "
+"interpreter, it does nothing and returns ``0``."
+msgstr ""
+
+msgid ""
+"This function can be called by long-running C code that wants to be "
+"interruptible by user requests (such as by pressing Ctrl-C)."
+msgstr ""
+
+msgid ""
+"The default Python signal handler for :const:`SIGINT` raises the :exc:"
+"`KeyboardInterrupt` exception."
+msgstr ""
+
+msgid ""
+"Simulate the effect of a :const:`SIGINT` signal arriving. This is equivalent "
+"to ``PyErr_SetInterruptEx(SIGINT)``."
+msgstr ""
+
+msgid ""
+"This function is async-signal-safe.  It can be called without the :term:"
+"`GIL` and from a C signal handler."
+msgstr ""
+
+msgid ""
+"Simulate the effect of a signal arriving. The next time :c:func:"
+"`PyErr_CheckSignals` is called,  the Python signal handler for the given "
+"signal number will be called."
+msgstr ""
+
+msgid ""
+"This function can be called by C code that sets up its own signal handling "
+"and wants Python signal handlers to be invoked as expected when an "
+"interruption is requested (for example when the user presses Ctrl-C to "
+"interrupt an operation)."
+msgstr ""
+
+msgid ""
+"If the given signal isn't handled by Python (it was set to :data:`signal."
+"SIG_DFL` or :data:`signal.SIG_IGN`), it will be ignored."
+msgstr ""
+
+msgid ""
+"If *signum* is outside of the allowed range of signal numbers, ``-1`` is "
+"returned.  Otherwise, ``0`` is returned.  The error indicator is never "
+"changed by this function."
 msgstr ""
 
 msgid ""

@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# m_aciek <maciej.olko@gmail.com>, 2020
+# m_aciek <maciej.olko@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-28 06:43+0000\n"
-"PO-Revision-Date: 2019-09-01 14:41+0000\n"
-"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 01:08+0000\n"
+"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,12 +91,40 @@ msgid "Entry points"
 msgstr ""
 
 msgid ""
-"The ``entry_points()`` function returns a dictionary of all entry points, "
-"keyed by group.  Entry points are represented by ``EntryPoint`` instances; "
-"each ``EntryPoint`` has a ``.name``, ``.group``, and ``.value`` attributes "
-"and a ``.load()`` method to resolve the value.  There are also ``.module``, "
-"``.attr``, and ``.extras`` attributes for getting the components of the ``."
-"value`` attribute::"
+"The ``entry_points()`` function returns a collection of entry points. Entry "
+"points are represented by ``EntryPoint`` instances; each ``EntryPoint`` has "
+"a ``.name``, ``.group``, and ``.value`` attributes and a ``.load()`` method "
+"to resolve the value.  There are also ``.module``, ``.attr``, and ``."
+"extras`` attributes for getting the components of the ``.value`` attribute."
+msgstr ""
+
+msgid "Query all entry points::"
+msgstr ""
+
+msgid ""
+"The ``entry_points()`` function returns an ``EntryPoints`` object, a "
+"sequence of all ``EntryPoint`` objects with ``names`` and ``groups`` "
+"attributes for convenience::"
+msgstr ""
+
+msgid ""
+"``EntryPoints`` has a ``select`` method to select entry points matching "
+"specific properties. Select entry points in the ``console_scripts`` group::"
+msgstr ""
+
+msgid ""
+"Equivalently, since ``entry_points`` passes keyword arguments through to "
+"select::"
+msgstr ""
+
+msgid ""
+"Pick out a specific script named \"wheel\" (found in the wheel project)::"
+msgstr ""
+
+msgid "Equivalently, query for that entry point during selection::"
+msgstr ""
+
+msgid "Inspect the resolved entry point::"
 msgstr ""
 
 msgid ""
@@ -105,6 +133,20 @@ msgid ""
 "particular group.  Read `the setuptools docs <https://setuptools.readthedocs."
 "io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_ "
 "for more information on entry points, their definition, and usage."
+msgstr ""
+
+msgid "*Compatibility Note*"
+msgstr ""
+
+msgid ""
+"The \"selectable\" entry points were introduced in ``importlib_metadata`` "
+"3.6 and Python 3.10. Prior to those changes, ``entry_points`` accepted no "
+"parameters and always returned a dictionary of entry points, keyed by group. "
+"For compatibility, if no parameters are passed to entry_points, a "
+"``SelectableGroups`` object is returned, implementing that dict interface. "
+"In the future, calling ``entry_points`` with no parameters will return an "
+"``EntryPoints`` object. Users should rely on the selection interface to "
+"retrieve entry points by group."
 msgstr ""
 
 msgid "Distribution metadata"
@@ -116,8 +158,22 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The keys of the returned data structure [#f1]_ name the metadata keywords, "
-"and their values are returned unparsed from the distribution metadata::"
+"The keys of the returned data structure, a ``PackageMetadata``, name the "
+"metadata keywords, and the values are returned unparsed from the "
+"distribution metadata::"
+msgstr ""
+
+msgid ""
+"``PackageMetadata`` also presents a ``json`` attribute that returns all the "
+"metadata in a JSON-compatible form per :PEP:`566`::"
+msgstr ""
+
+msgid ""
+"The ``Description`` is now included in the metadata when presented through "
+"the payload. Line continuation characters have been removed."
+msgstr ""
+
+msgid "The ``json`` attribute was added."
 msgstr ""
 
 msgid "Distribution versions"
@@ -135,12 +191,17 @@ msgid ""
 "You can also get the full set of files contained within a distribution.  The "
 "``files()`` function takes a distribution package name and returns all of "
 "the files installed by this distribution.  Each file object returned is a "
-"``PackagePath``, a :class:`pathlib.Path` derived object with additional "
+"``PackagePath``, a :class:`pathlib.PurePath` derived object with additional "
 "``dist``, ``size``, and ``hash`` properties as indicated by the metadata.  "
 "For example::"
 msgstr ""
 
 msgid "Once you have the file, you can also read its contents::"
+msgstr ""
+
+msgid ""
+"You can also use the ``locate`` method to get a the absolute path to the "
+"file::"
 msgstr ""
 
 msgid ""
@@ -158,6 +219,14 @@ msgstr ""
 msgid ""
 "To get the full set of requirements for a distribution, use the "
 "``requires()`` function::"
+msgstr ""
+
+msgid "Package distributions"
+msgstr ""
+
+msgid ""
+"A convience method to resolve the distribution or distributions (in the case "
+"of a namespace package) for top-level Python packages or modules::"
 msgstr ""
 
 msgid "Distributions"
@@ -227,10 +296,3 @@ msgstr ""
 
 msgid "Footnotes"
 msgstr "Przypisy"
-
-msgid ""
-"Technically, the returned distribution metadata object is an :class:`email."
-"message.EmailMessage` instance, but this is an implementation detail, and "
-"not part of the stable API.  You should only use dictionary-like methods and "
-"syntax to access the metadata contents."
-msgstr ""

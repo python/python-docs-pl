@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Tomasz Rodzen <t.rodzen@poczta.fm>, 2020
+# Tomasz Rodzen <t.rodzen@poczta.fm>, 2021
 # m_aciek <maciej.olko@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 06:48+0000\n"
-"PO-Revision-Date: 2017-02-16 23:38+0000\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 01:19+0000\n"
 "Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -599,7 +599,9 @@ msgstr ""
 
 msgid ""
 "A dict containing annotations of parameters.  The keys of the dict are the "
-"parameter names, and ``'return'`` for the return annotation, if provided."
+"parameter names, and ``'return'`` for the return annotation, if provided.  "
+"For more information on working with this attribute, see :ref:`annotations-"
+"howto`."
 msgstr ""
 
 msgid ":attr:`__kwdefaults__`"
@@ -813,17 +815,33 @@ msgid ""
 "= 1`` is equivalent to ``m.__dict__[\"x\"] = 1``."
 msgstr ""
 
+msgid "Predefined (writable) attributes:"
+msgstr ""
+
+msgid ":attr:`__name__`"
+msgstr ""
+
+msgid "The module's name."
+msgstr ""
+
+msgid "The module's documentation string, or ``None`` if unavailable."
+msgstr ""
+
+msgid ":attr:`__file__`"
+msgstr ""
+
 msgid ""
-"Predefined (writable) attributes: :attr:`__name__` is the module's name; :"
-"attr:`__doc__` is the module's documentation string, or ``None`` if "
-"unavailable; :attr:`__annotations__` (optional) is a dictionary containing :"
-"term:`variable annotations <variable annotation>` collected during module "
-"body execution; :attr:`__file__` is the pathname of the file from which the "
-"module was loaded, if it was loaded from a file. The :attr:`__file__` "
-"attribute may be missing for certain types of modules, such as C modules "
-"that are statically linked into the interpreter; for extension modules "
-"loaded dynamically from a shared library, it is the pathname of the shared "
-"library file."
+"The pathname of the file from which the module was loaded, if it was loaded "
+"from a file. The :attr:`__file__` attribute may be missing for certain types "
+"of modules, such as C modules that are statically linked into the "
+"interpreter.  For extension modules loaded dynamically from a shared "
+"library, it's the pathname of the shared library file."
+msgstr ""
+
+msgid ""
+"A dictionary containing :term:`variable annotations <variable annotation>` "
+"collected during module body execution.  For best practices on working with :"
+"attr:`__annotations__`, please see :ref:`annotations-howto`."
 msgstr ""
 
 msgid ""
@@ -876,15 +894,33 @@ msgid ""
 "below)."
 msgstr ""
 
+msgid ":attr:`~definition.__name__`"
+msgstr ""
+
+msgid "The class name."
+msgstr ""
+
+msgid "The name of the module in which the class was defined."
+msgstr ""
+
+msgid "The dictionary containing the class's namespace."
+msgstr ""
+
+msgid ":attr:`~class.__bases__`"
+msgstr ""
+
 msgid ""
-"Special attributes: :attr:`~definition.__name__` is the class name; :attr:"
-"`__module__` is the module name in which the class was defined; :attr:"
-"`~object.__dict__` is the dictionary containing the class's namespace; :attr:"
-"`~class.__bases__` is a tuple containing the base classes, in the order of "
-"their occurrence in the base class list; :attr:`__doc__` is the class's "
-"documentation string, or ``None`` if undefined; :attr:`__annotations__` "
-"(optional) is a dictionary containing :term:`variable annotations <variable "
-"annotation>` collected during class body execution."
+"A tuple containing the base classes, in the order of their occurrence in the "
+"base class list."
+msgstr ""
+
+msgid "The class's documentation string, or ``None`` if undefined."
+msgstr ""
+
+msgid ""
+"A dictionary containing :term:`variable annotations <variable annotation>` "
+"collected during class body execution.  For best practices on working with :"
+"attr:`__annotations__`, please see :ref:`annotations-howto`."
 msgstr ""
 
 msgid "Class instances"
@@ -1158,9 +1194,8 @@ msgid ""
 "is a wrapper around any other object, usually a user-defined method object. "
 "When a static method object is retrieved from a class or a class instance, "
 "the object actually returned is the wrapped object, which is not subject to "
-"any further transformation. Static method objects are not themselves "
-"callable, although the objects they wrap usually are. Static method objects "
-"are created by the built-in :func:`staticmethod` constructor."
+"any further transformation. Static method objects are also callable. Static "
+"method objects are created by the built-in :func:`staticmethod` constructor."
 msgstr ""
 
 msgid "Class method objects"
@@ -2464,12 +2499,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Due to a bug in the dispatching mechanism for ``**=``, a class that defines :"
-"meth:`__ipow__` but returns ``NotImplemented`` would fail to fall back to "
-"``x.__pow__(y)`` and ``y.__rpow__(x)``. This bug is fixed in Python 3.10."
-msgstr ""
-
-msgid ""
 "Called to implement the unary arithmetic operations (``-``, ``+``, :func:"
 "`abs` and ``~``)."
 msgstr ""
@@ -2557,6 +2586,39 @@ msgstr ""
 msgid ""
 "The specification, background, and examples for the Python :keyword:`with` "
 "statement."
+msgstr ""
+
+msgid "Customizing positional arguments in class pattern matching"
+msgstr ""
+
+msgid ""
+"When using a class name in a pattern, positional arguments in the pattern "
+"are not allowed by default, i.e. ``case MyClass(x, y)`` is typically invalid "
+"without special support in ``MyClass``. To be able to use that kind of "
+"patterns, the class needs to define a *__match_args__* attribute."
+msgstr ""
+
+msgid ""
+"This class variable can be assigned a tuple of strings. When this class is "
+"used in a class pattern with positional arguments, each positional argument "
+"will be converted into a keyword argument, using the corresponding value in "
+"*__match_args__* as the keyword. The absence of this attribute is equivalent "
+"to setting it to ``()``."
+msgstr ""
+
+msgid ""
+"For example, if ``MyClass.__match_args__`` is ``(\"left\", \"center\", "
+"\"right\")`` that means that ``case MyClass(x, y)`` is equivalent to ``case "
+"MyClass(left=x, center=y)``. Note that the number of arguments in the "
+"pattern must be smaller than or equal to the number of elements in "
+"*__match_args__*; if it is larger, the pattern match attempt will raise a :"
+"exc:`TypeError`."
+msgstr ""
+
+msgid ":pep:`634` - Structural Pattern Matching"
+msgstr ""
+
+msgid "The specification for the Python ``match`` statement."
 msgstr ""
 
 msgid "Special method lookup"

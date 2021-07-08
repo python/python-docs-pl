@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Bartosz Chmiel <chmielbartosz@gmail.com>, 2020
-# Lidia Lipinska-Zubrycka <lidiawandalipinska@gmail.com>, 2020
-# Igor Zubrycki <igorzubrycki@gmail.com>, 2020
+# Bartosz Chmiel <chmielbartosz@gmail.com>, 2021
+# Igor Zubrycki <igorzubrycki@gmail.com>, 2021
+# Lidia Lipinska-Zubrycka <lidiawandalipinska@gmail.com>, 2021
 # m_aciek <maciej.olko@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-28 06:43+0000\n"
-"PO-Revision-Date: 2017-02-16 23:40+0000\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 01:50+0000\n"
 "Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,15 @@ msgstr ""
 "przydatny by uniknąć nadmiarowych wcięć. Sekwencja :keyword:`!if` … :keyword:"
 "`!elif` … :keyword:`!elif` … jest zamiennikiem instrukcji ``switch`` lub "
 "``case`` z innych języków."
+
+msgid ""
+"If you're comparing the same value to several constants, or checking for "
+"specific types or attributes, you may also find the :keyword:`!match` "
+"statement useful. For more details see :ref:`tut-match`."
+msgstr ""
+"Jeśli porównujesz tę samą wartość z wieloma stałymi lub sprawdzasz "
+"poszczególne typy lub atrybuty, może ci się przydać instrukcja :keyword:`!"
+"match`. Więcej szczegółów znajdziesz w :ref:`tut-match`."
 
 msgid ":keyword:`!for` Statements"
 msgstr "Instrukcje :keyword:`!for`"
@@ -157,6 +166,9 @@ msgid ""
 "arguments.  In chapter :ref:`tut-structures`, we will discuss in more detail "
 "about :func:`list`."
 msgstr ""
+"Później napotkamy więcej funkcji, które zwracają iterable i biorą iterable "
+"jako argumenty. W rozdziale :ref:`tut-structures`, omówimy bardziej "
+"szczegółowo :func:`list`."
 
 msgid ""
 ":keyword:`!break` and :keyword:`!continue` Statements, and :keyword:`!else` "
@@ -237,6 +249,126 @@ msgstr ""
 "funkcji lub ciała warunku, kiedy pracujesz nad nowym kodem. Pozwoli ci to "
 "myśleć na bardziej abstrakcyjnym poziomie. :keyword:`!pass` jest „po cichu” "
 "ignorowane::"
+
+msgid ":keyword:`!match` Statements"
+msgstr "Instrukcje :keyword:`!match`"
+
+msgid ""
+"A match statement takes an expression and compares its value to successive "
+"patterns given as one or more case blocks.  This is superficially similar to "
+"a switch statement in C, Java or JavaScript (and many other languages), but "
+"it can also extract components (sequence elements or object attributes) from "
+"the value into variables."
+msgstr ""
+
+msgid ""
+"The simplest form compares a subject value against one or more literals::"
+msgstr ""
+
+msgid ""
+"Note the last block: the \"variable name\" ``_`` acts as a *wildcard* and "
+"never fails to match. If no case matches, none of the branches is executed."
+msgstr ""
+
+msgid ""
+"You can combine several literals in a single pattern using ``|`` (\"or\")::"
+msgstr ""
+
+msgid ""
+"Patterns can look like unpacking assignments, and can be used to bind "
+"variables::"
+msgstr ""
+
+msgid ""
+"Study that one carefully!  The first pattern has two literals, and can be "
+"thought of as an extension of the literal pattern shown above.  But the next "
+"two patterns combine a literal and a variable, and the variable *binds* a "
+"value from the subject (``point``).  The fourth pattern captures two values, "
+"which makes it conceptually similar to the unpacking assignment ``(x, y) = "
+"point``."
+msgstr ""
+
+msgid ""
+"If you are using classes to structure your data you can use the class name "
+"followed by an argument list resembling a constructor, but with the ability "
+"to capture attributes into variables::"
+msgstr ""
+
+msgid ""
+"You can use positional parameters with some builtin classes that provide an "
+"ordering for their attributes (e.g. dataclasses). You can also define a "
+"specific position for attributes in patterns by setting the "
+"``__match_args__`` special attribute in your classes. If it's set to (\"x\", "
+"\"y\"), the following patterns are all equivalent (and all bind the ``y`` "
+"attribute to the ``var`` variable)::"
+msgstr ""
+
+msgid ""
+"A recommended way to read patterns is to look at them as an extended form of "
+"what you would put on the left of an assignment, to understand which "
+"variables would be set to what. Only the standalone names (like ``var`` "
+"above) are assigned to by a match statement. Dotted names (like ``foo."
+"bar``), attribute names (the ``x=`` and ``y=`` above) or class names "
+"(recognized by the \"(...)\" next to them like ``Point`` above) are never "
+"assigned to."
+msgstr ""
+
+msgid ""
+"Patterns can be arbitrarily nested.  For example, if we have a short list of "
+"points, we could match it like this::"
+msgstr ""
+
+msgid ""
+"We can add an ``if`` clause to a pattern, known as a \"guard\".  If the "
+"guard is false, ``match`` goes on to try the next case block.  Note that "
+"value capture happens before the guard is evaluated::"
+msgstr ""
+
+msgid "Several other key features of this statement:"
+msgstr ""
+
+msgid ""
+"Like unpacking assignments, tuple and list patterns have exactly the same "
+"meaning and actually match arbitrary sequences.  An important exception is "
+"that they don't match iterators or strings."
+msgstr ""
+
+msgid ""
+"Sequence patterns support extended unpacking: ``[x, y, *rest]`` and ``(x, y, "
+"*rest)`` work similar to unpacking assignments.  The name after ``*`` may "
+"also be ``_``, so ``(x, y, *_)`` matches a sequence of at least two items "
+"without binding the remaining items."
+msgstr ""
+
+msgid ""
+"Mapping patterns: ``{\"bandwidth\": b, \"latency\": l}`` captures the ``"
+"\"bandwidth\"`` and ``\"latency\"`` values from a dictionary.  Unlike "
+"sequence patterns, extra keys are ignored.  An unpacking like ``**rest`` is "
+"also supported.  (But ``**_`` would be redundant, so it not allowed.)"
+msgstr ""
+
+msgid "Subpatterns may be captured using the ``as`` keyword::"
+msgstr ""
+
+msgid ""
+"will capture the second element of the input as ``p2`` (as long as the input "
+"is a sequence of two points)"
+msgstr ""
+
+msgid ""
+"Most literals are compared by equality, however the singletons ``True``, "
+"``False`` and ``None`` are compared by identity."
+msgstr ""
+
+msgid ""
+"Patterns may use named constants.  These must be dotted names to prevent "
+"them from being interpreted as capture variable::"
+msgstr ""
+
+msgid ""
+"For a more detailed explanation and additional examples, you can look into :"
+"pep:`636` which is written in a tutorial format."
+msgstr ""
 
 msgid "Defining Functions"
 msgstr "Definiowanie funkcji"

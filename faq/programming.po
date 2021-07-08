@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2020
 # m_aciek <maciej.olko@gmail.com>, 2021
+# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-23 06:25+0000\n"
-"PO-Revision-Date: 2017-02-16 17:43+0000\n"
-"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 00:52+0000\n"
+"Last-Translator: Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1131,8 +1131,8 @@ msgstr ""
 msgid ""
 "The ``array`` module also provides methods for creating arrays of fixed "
 "types with compact representations, but they are slower to index than "
-"lists.  Also note that the Numeric extensions and others define array-like "
-"structures with various characteristics as well."
+"lists.  Also note that NumPy and other third party packages define array-"
+"like structures with various characteristics as well."
 msgstr ""
 
 msgid ""
@@ -1399,18 +1399,17 @@ msgstr ""
 
 msgid ""
 "How do I call a method defined in a base class from a derived class that "
-"overrides it?"
+"extends it?"
 msgstr ""
 
 msgid "Use the built-in :func:`super` function::"
 msgstr ""
 
 msgid ""
-"For version prior to 3.0, you may be using classic classes: For a class "
-"definition such as ``class Derived(Base): ...`` you can call method "
-"``meth()`` defined in ``Base`` (or one of ``Base``'s base classes) as ``Base."
-"meth(self, arguments...)``.  Here, ``Base.meth`` is an unbound method, so "
-"you need to provide the ``self`` argument."
+"In the example, :func:`super` will automatically determine the instance from "
+"which it was called (the ``self`` value), look up the :term:`method "
+"resolution order` (MRO) with ``type(self).__mro__``, and return the next in "
+"line after ``Derived`` in the MRO: ``Base``."
 msgstr ""
 
 msgid "How can I organize my code to make it easier to change the base class?"
@@ -1657,6 +1656,55 @@ msgid ""
 "__contains__`::"
 msgstr ""
 
+msgid "How do I cache method calls?"
+msgstr ""
+
+msgid ""
+"The two principal tools for caching methods are :func:`functools."
+"cached_property` and :func:`functools.lru_cache`.  The former stores results "
+"at the instance level and the latter at the class level."
+msgstr ""
+
+msgid ""
+"The *cached_property* approach only works with methods that do not take any "
+"arguments.  It does not create a reference to the instance.  The cached "
+"method result will be kept only as long as the instance is alive."
+msgstr ""
+
+msgid ""
+"The advantage is that when an instance is not longer used, the cached method "
+"result will be released right away.  The disadvantage is that if instances "
+"accumulate, so too will the accumulated method results.  They can grow "
+"without bound."
+msgstr ""
+
+msgid ""
+"The *lru_cache* approach works with methods that have hashable arguments.  "
+"It creates a reference to the instance unless special efforts are made to "
+"pass in weak references."
+msgstr ""
+
+msgid ""
+"The advantage of the least recently used algorithm is that the cache is "
+"bounded by the specified *maxsize*.  The disadvantage is that instances are "
+"kept alive until they age out of the cache or until the cache is cleared."
+msgstr ""
+
+msgid "This example shows the various techniques::"
+msgstr ""
+
+msgid ""
+"The above example assumes that the *station_id* never changes.  If the "
+"relevant instance attributes are mutable, the *cached_property* approach "
+"can't be made to work because it cannot detect changes to the attributes."
+msgstr ""
+
+msgid ""
+"The *lru_cache* approach can be made to work, but the class needs to define "
+"the *__eq__* and *__hash__* methods so the cache can detect relevant "
+"attribute updates::"
+msgstr ""
+
 msgid "Modules"
 msgstr "Moduły"
 
@@ -1739,38 +1787,41 @@ msgstr ""
 msgid "Suppose you have the following modules:"
 msgstr ""
 
-msgid "foo.py::"
+msgid ":file:`foo.py`::"
 msgstr ""
 
-msgid "bar.py::"
+msgid ":file:`bar.py`::"
 msgstr ""
 
 msgid "The problem is that the interpreter will perform the following steps:"
 msgstr ""
 
-msgid "main imports foo"
+msgid "main imports ``foo``"
 msgstr ""
 
-msgid "Empty globals for foo are created"
+msgid "Empty globals for ``foo`` are created"
 msgstr ""
 
-msgid "foo is compiled and starts executing"
+msgid "``foo`` is compiled and starts executing"
 msgstr ""
 
-msgid "foo imports bar"
+msgid "``foo`` imports ``bar``"
 msgstr ""
 
-msgid "Empty globals for bar are created"
+msgid "Empty globals for ``bar`` are created"
 msgstr ""
 
-msgid "bar is compiled and starts executing"
+msgid "``bar`` is compiled and starts executing"
 msgstr ""
 
 msgid ""
-"bar imports foo (which is a no-op since there already is a module named foo)"
+"``bar`` imports ``foo`` (which is a no-op since there already is a module "
+"named ``foo``)"
 msgstr ""
 
-msgid "bar.foo_var = foo.foo_var"
+msgid ""
+"The import mechanism tries to read ``foo_var`` from ``foo`` globals, to set "
+"``bar.foo_var = foo.foo_var``"
 msgstr ""
 
 msgid ""

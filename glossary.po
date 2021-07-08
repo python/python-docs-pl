@@ -10,10 +10,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-01 05:02+0000\n"
-"PO-Revision-Date: 2017-02-16 17:32+0000\n"
+"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"PO-Revision-Date: 2021-06-28 00:47+0000\n"
 "Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Glossary"
-msgstr "Glosariusz"
+msgstr "Słowik"
 
 msgid "``>>>``"
 msgstr "``>>>``"
@@ -106,7 +106,8 @@ msgstr ""
 
 msgid ""
 "See :term:`variable annotation`, :term:`function annotation`, :pep:`484` "
-"and :pep:`526`, which describe this functionality."
+"and :pep:`526`, which describe this functionality. Also see :ref:"
+"`annotations-howto` for best practices on working with annotations."
 msgstr ""
 
 msgid "argument"
@@ -255,6 +256,24 @@ msgstr ""
 msgid ""
 "See also :term:`text file` for a file object able to read and write :class:"
 "`str` objects."
+msgstr ""
+
+msgid "borrowed reference"
+msgstr ""
+
+msgid ""
+"In Python's C API, a borrowed reference is a reference to an object. It does "
+"not modify the object reference count. It becomes a dangling pointer if the "
+"object is destroyed. For example, a garbage collection can remove the last :"
+"term:`strong reference` to the object and so destroy it."
+msgstr ""
+
+msgid ""
+"Calling :c:func:`Py_INCREF` on the :term:`borrowed reference` is recommended "
+"to convert it to a :term:`strong reference` in-place, except when the object "
+"cannot be destroyed before the last usage of the borrowed reference. The :c:"
+"func:`Py_NewRef` function can be used to create a new :term:`strong "
+"reference`."
 msgstr ""
 
 msgid "bytes-like object"
@@ -577,6 +596,36 @@ msgstr ""
 msgid "A synonym for :term:`file object`."
 msgstr ""
 
+msgid "filesystem encoding and error handler"
+msgstr ""
+
+msgid ""
+"Encoding and error handler used by Python to decode bytes from the operating "
+"system and encode Unicode to the operating system."
+msgstr ""
+
+msgid ""
+"The filesystem encoding must guarantee to successfully decode all bytes "
+"below 128. If the file system encoding fails to provide this guarantee, API "
+"functions can raise :exc:`UnicodeError`."
+msgstr ""
+
+msgid ""
+"The :func:`sys.getfilesystemencoding` and :func:`sys."
+"getfilesystemencodeerrors` functions can be used to get the filesystem "
+"encoding and error handler."
+msgstr ""
+
+msgid ""
+"The :term:`filesystem encoding and error handler` are configured at Python "
+"startup by the :c:func:`PyConfig_Read` function: see :c:member:`~PyConfig."
+"filesystem_encoding` and :c:member:`~PyConfig.filesystem_errors` members of :"
+"c:type:`PyConfig`."
+msgstr ""
+
+msgid "See also the :term:`locale encoding`."
+msgstr ""
+
 msgid "finder"
 msgstr ""
 
@@ -632,7 +681,8 @@ msgstr ""
 
 msgid ""
 "See :term:`variable annotation` and :pep:`484`, which describe this "
-"functionality."
+"functionality. Also see :ref:`annotations-howto` for best practices on "
+"working with annotations."
 msgstr ""
 
 msgid "__future__"
@@ -986,6 +1036,27 @@ msgid ""
 "the code, ``if key in mapping: return mapping[key]`` can fail if another "
 "thread removes *key* from *mapping* after the test, but before the lookup. "
 "This issue can be solved with locks or by using the EAFP approach."
+msgstr ""
+
+msgid "locale encoding"
+msgstr ""
+
+msgid ""
+"On Unix, it is the encoding of the LC_CTYPE locale. It can be set with "
+"``locale.setlocale(locale.LC_CTYPE, new_locale)``."
+msgstr ""
+
+msgid "On Windows, it is the ANSI code page (ex: ``cp1252``)."
+msgstr ""
+
+msgid ""
+"``locale.getpreferredencoding(False)`` can be used to get the locale "
+"encoding."
+msgstr ""
+
+msgid ""
+"Python uses the :term:`filesystem encoding and error handler` to convert "
+"between Unicode filenames and bytes filenames."
 msgstr ""
 
 msgid "list"
@@ -1532,6 +1603,25 @@ msgid ""
 "keyword:`if`, :keyword:`while` or :keyword:`for`."
 msgstr ""
 
+msgid "strong reference"
+msgstr ""
+
+msgid ""
+"In Python's C API, a strong reference is a reference to an object which "
+"increments the object's reference count when it is created and decrements "
+"the object's reference count when it is deleted."
+msgstr ""
+
+msgid ""
+"The :c:func:`Py_NewRef` function can be used to create a strong reference to "
+"an object. Usually, the :c:func:`Py_DECREF` function must be called on the "
+"strong reference before exiting the scope of the strong reference, to avoid "
+"leaking one reference."
+msgstr ""
+
+msgid "See also :term:`borrowed reference`."
+msgstr ""
+
 msgid "text encoding"
 msgstr ""
 
@@ -1643,7 +1733,8 @@ msgstr ""
 
 msgid ""
 "See :term:`function annotation`, :pep:`484` and :pep:`526`, which describe "
-"this functionality."
+"this functionality. Also see :ref:`annotations-howto` for best practices on "
+"working with annotations."
 msgstr ""
 
 msgid "virtual environment"
