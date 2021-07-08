@@ -46,7 +46,7 @@ def fetch():
 
 
 RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
-PROJECT_SLUG = 'python-39'
+PROJECT_SLUG = 'python-newest'
 
 
 def recreate_tx_config():
@@ -153,7 +153,7 @@ Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
 ![{language_switcher_status:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{language_switcher_status:.2f}%25-0.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/39)
+![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
 ![{number_of_translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{number_of_translators}-0.svg)
 
 Praca nad tłumaczeniem dokumentacji odbywa się na platformie [Transifex](https://www.transifex.com/).
@@ -161,13 +161,13 @@ Praca nad tłumaczeniem dokumentacji odbywa się na platformie [Transifex](https
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
 przejdź do projektu
-[*Python document translation*](https://www.transifex.com/python-doc/python-39/)
+[*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
 na platformie Transifex.
 
 Jeśli chcesz pomóc w tłumaczeniu, oto co powinnaś(-nieneś) zrobić:
 
 * Zarejestruj się na plaformie [Transifex](https://www.transifex.com/) i odwiedź stronę
-projektu [Python document](https://www.transifex.com/python-doc/python-39/).
+projektu [Python document](https://www.transifex.com/python-doc/python-newest/).
 * Na stronie projektu wybierz język nad którym chcesz pracować.
 * Następnie naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
 * Gdy już będziesz członkiem zespołu na stronie zespołu wybierz zasób, który chcesz zaktualizować.

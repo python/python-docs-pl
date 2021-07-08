@@ -10,13 +10,13 @@ Praca nad tłumaczeniem dokumentacji odbywa się na platformie [Transifex](https
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
 przejdź do projektu
-[*Python document translation*](https://www.transifex.com/python-doc/python-39/)
+[*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
 na platformie Transifex.
 
 Jeśli chcesz pomóc w tłumaczeniu, oto co powinnaś(-nieneś) zrobić:
 
 * Zarejestruj się na plaformie [Transifex](https://www.transifex.com/) i odwiedź stronę
-projektu [Python document](https://www.transifex.com/python-doc/python-39/).
+projektu [Python document](https://www.transifex.com/python-doc/python-newest/).
 * Na stronie projektu wybierz język nad którym chcesz pracować.
 * Następnie naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
 * Gdy już będziesz członkiem zespołu na stronie zespołu wybierz zasób, który chcesz zaktualizować.
