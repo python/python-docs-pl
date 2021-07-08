@@ -27,10 +27,14 @@ def fetch():
     Fetch translations from Transifex, remove source lines.
     """
     if call("tx --version", shell=True) != 0:
-        sys.stderr.write("The Transifex client app is required (pip install transifex-client).\n")
+        sys.stderr.write(
+            "The Transifex client app is required (pip install transifex-client).\n"
+        )
         exit(1)
     lang = LANGUAGE
-    pull_returncode = call(f'tx pull -l {lang} --minimum-perc=1 --force', shell=True)
+    pull_returncode = call(
+        f'tx pull -l {lang} --minimum-perc=1 --force --skip', shell=True
+    )
     if pull_returncode != 0:
         exit(pull_returncode)
     for root, _, po_files in os.walk('.'):
@@ -41,9 +45,7 @@ def fetch():
             call(f'msgcat --no-location -o {po_path} {po_path}', shell=True)
 
 
-RESOURCE_NAME_MAP = {
-    'glossary_': 'glossary'
-}
+RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-39'
 
 
@@ -53,10 +55,12 @@ def recreate_tx_config():
     """
     resources = _get_resources()
     with open('.tx/config', 'w') as config:
-        config.writelines((
-            '[main]\n',
-            'host = https://www.transifex.com\n',
-        ))
+        config.writelines(
+            (
+                '[main]\n',
+                'host = https://www.transifex.com\n',
+            )
+        )
         for resource in resources:
             slug = resource['slug']
             name = RESOURCE_NAME_MAP.get(slug, slug)
@@ -66,25 +70,30 @@ def recreate_tx_config():
                 directory, file_name = name.split('--')
                 if match(r'\d+_\d+', file_name):
                     file_name = file_name.replace('_', '.')
-                config.writelines((
-                    '\n',
-                    f'[{PROJECT_SLUG}.{slug}]\n',
-                    f'trans.{LANGUAGE} = {directory}/{file_name}.po\n',
-                    'type = PO\n',
-                    'source_lang = en\n',
-                ))
+                config.writelines(
+                    (
+                        '\n',
+                        f'[{PROJECT_SLUG}.{slug}]\n',
+                        f'trans.{LANGUAGE} = {directory}/{file_name}.po\n',
+                        'type = PO\n',
+                        'source_lang = en\n',
+                    )
+                )
             else:
-                config.writelines((
-                    '\n',
-                    f'[{PROJECT_SLUG}.{slug}]\n',
-                    f'trans.{LANGUAGE} = {name}.po\n',
-                    'type = PO\n',
-                    'source_lang = en\n',
-                ))
+                config.writelines(
+                    (
+                        '\n',
+                        f'[{PROJECT_SLUG}.{slug}]\n',
+                        f'trans.{LANGUAGE} = {name}.po\n',
+                        'type = PO\n',
+                        'source_lang = en\n',
+                    )
+                )
 
 
 def _get_resources():
     from requests import get
+
     resources = []
     offset = 0
     if os.path.exists('.tx/api-key'):
@@ -96,7 +105,8 @@ def _get_resources():
         response = get(
             f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
             params={'language_code': LANGUAGE, 'offset': offset},
-            auth=('api', transifex_api_key))
+            auth=('api', transifex_api_key),
+        )
         response.raise_for_status()
         response_list = response.json()
         resources.extend(response_list)
@@ -112,18 +122,18 @@ def _get_number_of_translators():
         capture_output=True,
         text=True,
     )
-    translators = [
-        match('(.*) <.*>', t).group(1) for t in process.stdout.splitlines()
-    ]
+    translators = [match('(.*) <.*>', t).group(1) for t in process.stdout.splitlines()]
     unique_translators = Counter(translators).keys()
     return len(unique_translators)
 
 
 def recreate_readme():
     def language_switcher(entry):
-        return (entry['name'].startswith('bugs') or
-                entry['name'].startswith('tutorial') or
-                entry['name'].startswith('library--functions'))
+        return (
+            entry['name'].startswith('bugs')
+            or entry['name'].startswith('tutorial')
+            or entry['name'].startswith('library--functions')
+        )
 
     def average(averages, weights):
         return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
