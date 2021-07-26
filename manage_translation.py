@@ -156,37 +156,32 @@ Polskie tłumaczenie dokumentacji Pythona
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
 ![{number_of_translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{number_of_translators}-0.svg)
 
-Praca nad tłumaczeniem dokumentacji odbywa się na platformie [Transifex](https://www.transifex.com/).
-
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
-przejdź do projektu
-[*Python document translation*](https://www.transifex.com/python-doc/python-newest/)
-na platformie Transifex.
+napraw go sam(a):
 
-Jeśli chcesz pomóc w tłumaczeniu, oto co powinnaś(-nieneś) zrobić:
+* Zarejestruj się na platformie [Transifex](https://www.transifex.com/) i wejdź na stronę
+projektu [dokumentacji Pythona](https://www.transifex.com/python-doc/python-newest/).
+* Na stronie projektu wybierz język polski.
+* Naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
+* Po dołączeniu do zespołu, wybierz zasób, który chcesz poprawić/zaktualizować.
 
-* Zarejestruj się na plaformie [Transifex](https://www.transifex.com/) i odwiedź stronę
-projektu [Python document](https://www.transifex.com/python-doc/python-newest/).
-* Na stronie projektu wybierz język nad którym chcesz pracować.
-* Następnie naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
-* Gdy już będziesz członkiem zespołu na stronie zespołu wybierz zasób, który chcesz zaktualizować.
+Więcej informacji o używaniu Transifeksa znajdziesz w
+[dokumentacji Transifeksa](https://docs.transifex.com/getting-started-1/translators).
 
-Więcej informacji o używaniu Transifexa znajdziesz w
-[dokumentacji Transifexa](https://docs.transifex.com/getting-started-1/translators).
+**Postęp tłumaczenia**
 
-**Jak obejrzeć build dokumentacji?**
+![postęp tłumaczenia do przełącznika języków](language-switcher-progress.svg)
 
-Wejdź na [https://docs.python.org/pl/](https://docs.python.org/pl/)
-lub pobierz zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action. 
-
-**Dlaczego ta dokumentacja nie jest dostępna w przełączniku języków?**
-
-Pojawi się w tam
-[kiedy w pełni przetłumaczone będą zasoby](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
+Język polski pojawi się w przełączniku języków na docs.python.org, 
+[kiedy w pełni przetłumaczone będą](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
 * `bugs`,
-* wszystkie z katalogu `tutorial`,
+* wszystkie zasoby z katalogu `tutorial`,
 * `library/functions`.
+
+**Jak obejrzeć najnowszy build dokumentacji przed opublikowaniem?**
+
+Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions). 
 
 **Kanały komunikacji**
 
