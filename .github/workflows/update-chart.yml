@@ -1,0 +1,20 @@
+on: {push: {branches: ['3.10']}}
+jobs:
+  update-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@master
+      - run: pip install gitpython matplotlib
+      - uses: actions/checkout@master
+        with:
+          ref: '3.10'
+      - run: python update_switcher_chart.py
+      - run: git config --local user.email 'maciej.olko@gmail.com'
+        name: Run git config --local user.email '…'
+      - run: git config --local user.name "GitHub Action's update-chart job"
+      - run: git add .
+      - run: git commit -m 'Update language switcher progress chart' || return 0
+      - uses: ad-m/github-push-action@master
+        with:
+          branch: '3.10'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
