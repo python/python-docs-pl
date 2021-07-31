@@ -179,9 +179,11 @@ Język polski pojawi się w przełączniku języków na docs.python.org,
 * wszystkie zasoby z katalogu `tutorial`,
 * `library/functions`.
 
-**Jak obejrzeć najnowszy build dokumentacji przed opublikowaniem?**
+**Jak obejrzeć najnowszy build dokumentacji?**
 
 Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions). 
+Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około pół godziny.
+Dokumentacja na python.org aktualizowana jest około raz dziennie.
 
 **Kanały komunikacji**
 
