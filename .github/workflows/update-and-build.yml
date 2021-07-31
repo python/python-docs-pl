@@ -39,6 +39,10 @@ jobs:
         with:
           branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: peter-evans/repository-dispatch@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: translation-updated
   build-translation:
     runs-on: ubuntu-latest
     strategy:
