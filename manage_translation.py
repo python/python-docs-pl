@@ -167,7 +167,7 @@ projektu [dokumentacji Pythona](https://www.transifex.com/python-doc/python-newe
 * Po dołączeniu do zespołu, wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
-[dokumentacji Transifeksa](https://docs.transifex.com/getting-started-1/translators).
+[jego dokumentacji](https://docs.transifex.com/getting-started-1/translators).
 
 **Postęp tłumaczenia**
 
