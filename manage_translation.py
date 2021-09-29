@@ -113,7 +113,7 @@ def _get_number_of_translators():
         text=True,
     )
     translators = [
-        match('(.*) <.*>', t).group(1) for t in process.stdout.splitlines()
+        match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()
     ]
     unique_translators = Counter(translators).keys()
     return len(unique_translators)
