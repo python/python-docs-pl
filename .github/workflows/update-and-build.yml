@@ -16,7 +16,7 @@ jobs:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@master
       - run: sudo apt-get install -y gettext
-      - run: pip install transifex-client requests --use-feature=2020-resolver
+      - run: pip install 'transifex-client>=0.14' requests
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
