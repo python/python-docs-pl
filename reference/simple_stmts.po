@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2022, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"POT-Creation-Date: 2022-06-16 06:28+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
 "Last-Translator: m_aciek <maciej.olko@gmail.com>, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -95,10 +95,7 @@ msgid ""
 "parentheses, the object is assigned to that target."
 msgstr ""
 
-msgid ""
-"Else: The object must be an iterable with the same number of items as there "
-"are targets in the target list, and the items are assigned, from left to "
-"right, to the corresponding targets."
+msgid "Else:"
 msgstr ""
 
 msgid ""
@@ -109,6 +106,12 @@ msgid ""
 "starred target.  The final items of the iterable are assigned to the targets "
 "after the starred target.  A list of the remaining items in the iterable is "
 "then assigned to the starred target (the list can be empty)."
+msgstr ""
+
+msgid ""
+"Else: The object must be an iterable with the same number of items as there "
+"are targets in the target list, and the items are assigned, from left to "
+"right, to the corresponding targets."
 msgstr ""
 
 msgid ""
@@ -479,10 +482,10 @@ msgid "The :keyword:`!raise` statement"
 msgstr ""
 
 msgid ""
-"If no expressions are present, :keyword:`raise` re-raises the last exception "
-"that was active in the current scope.  If no exception is active in the "
-"current scope, a :exc:`RuntimeError` exception is raised indicating that "
-"this is an error."
+"If no expressions are present, :keyword:`raise` re-raises the exception that "
+"is currently being handled, which is also known as the *active exception*. "
+"If there isn't currently an active exception, a :exc:`RuntimeError` "
+"exception is raised indicating that this is an error."
 msgstr ""
 
 msgid ""
@@ -501,8 +504,9 @@ msgid ""
 "A traceback object is normally created automatically when an exception is "
 "raised and attached to it as the :attr:`__traceback__` attribute, which is "
 "writable. You can create an exception and set your own traceback in one step "
-"using the :meth:`with_traceback` exception method (which returns the same "
-"exception instance, with its traceback set to its argument), like so::"
+"using the :meth:`~BaseException.with_traceback` exception method (which "
+"returns the same exception instance, with its traceback set to its "
+"argument), like so::"
 msgstr ""
 
 msgid ""
@@ -517,9 +521,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"A similar mechanism works implicitly if an exception is raised inside an "
-"exception handler or a :keyword:`finally` clause: the previous exception is "
-"then attached as the new exception's :attr:`__context__` attribute::"
+"A similar mechanism works implicitly if a new exception is raised when an "
+"exception is already being handled.  An exception may be handled when an :"
+"keyword:`except` or :keyword:`finally` clause, or a :keyword:`with` "
+"statement, is used.  The previous exception is then attached as the new "
+"exception's :attr:`__context__` attribute::"
 msgstr ""
 
 msgid ""

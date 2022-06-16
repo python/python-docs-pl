@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2022, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"POT-Creation-Date: 2022-06-16 06:28+0000\n"
 "PO-Revision-Date: 2021-06-28 00:51+0000\n"
 "Last-Translator: m_aciek <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -179,15 +179,12 @@ msgstr "Intermezzo: Błędy i Wyjątki"
 msgid ""
 "An important convention throughout the Python interpreter is the following: "
 "when a function fails, it should set an exception condition and return an "
-"error value (usually a ``NULL`` pointer).  Exceptions are stored in a static "
-"global variable inside the interpreter; if this variable is ``NULL`` no "
-"exception has occurred.  A second global variable stores the \"associated "
-"value\" of the exception (the second argument to :keyword:`raise`).  A third "
-"variable contains the stack traceback in case the error originated in Python "
-"code.  These three variables are the C equivalents of the result in Python "
-"of :meth:`sys.exc_info` (see the section on module :mod:`sys` in the Python "
-"Library Reference).  It is important to know about them to understand how "
-"errors are passed around."
+"error value (usually ``-1`` or a ``NULL`` pointer).  Exception information "
+"is stored in three members of the interpreter's thread state.  These are "
+"``NULL`` if there is no exception.  Otherwise they are the C equivalents of "
+"the members of the Python tuple returned by :meth:`sys.exc_info`.  These are "
+"the exception type, exception instance, and a traceback object.  It is "
+"important to know about them to understand how errors are passed around."
 msgstr ""
 
 msgid ""

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2022, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-29 12:56+0000\n"
+"POT-Creation-Date: 2022-06-16 06:28+0000\n"
 "PO-Revision-Date: 2021-06-28 01:09+0000\n"
 "Last-Translator: Michał Biliński <m.bilinskimichal@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -52,8 +52,8 @@ msgstr ""
 
 msgid ""
 "Return the ceiling of *x*, the smallest integer greater than or equal to "
-"*x*. If *x* is not a float, delegates to ``x.__ceil__()``, which should "
-"return an :class:`~numbers.Integral` value."
+"*x*. If *x* is not a float, delegates to :meth:`x.__ceil__ <object."
+"__ceil__>`, which should return an :class:`~numbers.Integral` value."
 msgstr ""
 
 msgid ""
@@ -95,9 +95,9 @@ msgid "Accepting floats with integral values (like ``5.0``) is deprecated."
 msgstr ""
 
 msgid ""
-"Return the floor of *x*, the largest integer less than or equal to *x*. If "
-"*x* is not a float, delegates to ``x.__floor__()``, which should return an :"
-"class:`~numbers.Integral` value."
+"Return the floor of *x*, the largest integer less than or equal to *x*.  If "
+"*x* is not a float, delegates to :meth:`x.__floor__ <object.__floor__>`, "
+"which should return an :class:`~numbers.Integral` value."
 msgstr ""
 
 msgid ""
@@ -315,9 +315,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return the :class:`~numbers.Real` value *x* truncated to an :class:`~numbers."
-"Integral` (usually an integer). Delegates to :meth:`x.__trunc__() <object."
-"__trunc__>`."
+"Return *x* with the fractional part removed, leaving the integer part.  This "
+"rounds toward 0: ``trunc()`` is equivalent to :func:`floor` for positive "
+"*x*, and equivalent to :func:`ceil` for negative *x*. If *x* is not a float, "
+"delegates to :meth:`x.__trunc__ <object.__trunc__>`, which should return an :"
+"class:`~numbers.Integral` value."
 msgstr ""
 
 msgid "Return the value of the least significant bit of the float *x*:"
@@ -594,8 +596,12 @@ msgid ""
 msgstr ""
 
 msgid ""
-"A floating-point \"not a number\" (NaN) value.  Equivalent to the output of "
-"``float('nan')``."
+"A floating-point \"not a number\" (NaN) value. Equivalent to the output of "
+"``float('nan')``. Due to the requirements of the `IEEE-754 standard <https://"
+"en.wikipedia.org/wiki/IEEE_754>`_, ``math.nan`` and ``float('nan')`` are not "
+"considered to equal to any other numeric value, including themselves. To "
+"check whether a number is a NaN, use the :func:`isnan` function to test for "
+"NaNs instead of ``is`` or ``==``. Example::"
 msgstr ""
 
 msgid ""
