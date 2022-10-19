@@ -16,12 +16,12 @@ jobs:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@master
         with:
-          python-version: '3.9'
+          python-version: 3
       - run: sudo apt-get install -y gettext
-      - run: pip install 'transifex-client>=0.14' requests
+      - run: pip install requests
       - uses: actions/checkout@master
         with:
-          ref: ${{ matrix.version }}
+          ref: ${{ matrix.version }}-tx-go-cli
       - run: ./manage_translation.py recreate_tx_config
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
       - run: git commit -m 'Update translation from Transifex' || true
       - uses: ad-m/github-push-action@master
         with:
-          branch: ${{ matrix.version }}
+          branch: ${{ matrix.version }}-tx-go-cli
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: peter-evans/repository-dispatch@main
         with:
@@ -64,7 +64,7 @@ jobs:
         working-directory: ./Doc
       - uses: actions/checkout@master
         with:
-          ref: ${{ matrix.version }}
+          ref: ${{ matrix.version }}-tx-go-cli
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
