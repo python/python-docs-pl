@@ -28,7 +28,7 @@ jobs:
       - run: echo -e '[https://www.transifex.com]\napi_hostname = https://api.transifex.com\nhostname = https://www.transifex.com\nusername = api' > $HOME/.transifexrc
       - run: |
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
-          export PATH="/home/runner/work/python-docs-pl/python-docs-pl:$PATH"
+          echo "$HOME/work/python-docs-pl/python-docs-pl" >> $GITHUB_PATH
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
