@@ -27,9 +27,7 @@ def fetch():
     Fetch translations from Transifex, remove source lines.
     """
     if call("tx --version", shell=True) != 0:
-        sys.stderr.write(
-            "The Transifex client app is required (pip install transifex-client).\n"
-        )
+        sys.stderr.write("The Transifex client app is required.\n")
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
