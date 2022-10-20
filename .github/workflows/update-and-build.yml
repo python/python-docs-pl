@@ -27,7 +27,8 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: |
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
-          echo "$HOME/work/python-docs-pl/python-docs-pl" >> $GITHUB_PATH
+          echo "/usr/local/bin" >> $GITHUB_PATH
+        working-directory: /usr/local/bin
       - run: ./manage_translation.py fetch ${{ secrets.TX_TOKEN }}
       - run: ./manage_translation.py recreate_readme
         env:
