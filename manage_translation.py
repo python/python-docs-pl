@@ -208,8 +208,6 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 
 
 if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme')
-
     parser = ArgumentParser()
     subparsers = parser.add_subparsers()
     fetch_parser = subparsers.add_parser('fetch')
