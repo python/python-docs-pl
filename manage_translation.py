@@ -72,7 +72,7 @@ def recreate_tx_config(args):
                     (
                         '\n',
                         f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                        f'trans.{LANGUAGE} = {directory}/{file_name}.po\n',
+                        f'file_filter = {directory}/{file_name}.po\n',
                         'type = PO\n',
                         'source_lang = en\n',
                     )
@@ -82,7 +82,7 @@ def recreate_tx_config(args):
                     (
                         '\n',
                         f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                        f'trans.{LANGUAGE} = {name}.po\n',
+                        f'file_filter = {name}.po\n',
                         'type = PO\n',
                         'source_lang = en\n',
                     )
