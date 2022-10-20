@@ -42,6 +42,7 @@ def fetch(args):
             po_path = os.path.join(root, po_file)
             call(f'msgcat --no-location -o {po_path} {po_path}', shell=True)
 
+
 RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-newest'
 
@@ -219,4 +220,5 @@ if __name__ == "__main__":
     readme_parser = subparsers.add_parser('recreate_readme')
     readme_parser.set_defaults(func=recreate_readme)
     options = parser.parse_args()
+
     options.func(options)
