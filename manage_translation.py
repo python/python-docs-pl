@@ -22,7 +22,7 @@ import sys
 LANGUAGE = 'pl'
 
 
-def fetch(args):
+def fetch():
     """
     Fetch translations from Transifex, remove source lines.
     """
@@ -31,7 +31,7 @@ def fetch(args):
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
-        f'tx --token {args.tx_token} pull -l {lang} --minimum-perc=1 --force --skip', shell=True
+        f'tx pull -l {lang} --minimum-perc=1 --force --skip', shell=True
     )
     if pull_returncode != 0:
         exit(pull_returncode)
@@ -47,7 +47,7 @@ RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-newest'
 
 
-def recreate_tx_config(args):
+def recreate_tx_config():
     """
     Regenerate Transifex client config for all resources.
     """
@@ -125,7 +125,7 @@ def _get_number_of_translators():
     return len(unique_translators)
 
 
-def recreate_readme(args):
+def recreate_readme():
     def language_switcher(entry):
         return (
             entry['name'].startswith('bugs')
@@ -208,15 +208,10 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 
 
 if __name__ == "__main__":
+    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme')
+
     parser = ArgumentParser()
-    subparsers = parser.add_subparsers()
-    fetch_parser = subparsers.add_parser('fetch')
-    fetch_parser.add_argument('tx_token')
-    fetch_parser.set_defaults(func=fetch)
-    config_parser = subparsers.add_parser('recreate_tx_config')
-    config_parser.set_defaults(func=recreate_tx_config)
-    readme_parser = subparsers.add_parser('recreate_readme')
-    readme_parser.set_defaults(func=recreate_readme)
+    parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
     options = parser.parse_args()
 
-    options.func(options)
+    eval(options.cmd)()
