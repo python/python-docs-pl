@@ -22,7 +22,7 @@ import sys
 LANGUAGE = 'pl'
 
 
-def fetch():
+def fetch(tx_token: str):
     """
     Fetch translations from Transifex, remove source lines.
     """
@@ -31,7 +31,7 @@ def fetch():
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
-        f'tx pull -l {lang} --minimum-perc=1 --force --skip', shell=True
+        f'tx pull -l {lang} --minimum-perc=1 --force --skip --token {tx_token}', shell=True
     )
     if pull_returncode != 0:
         exit(pull_returncode)
@@ -211,7 +211,11 @@ if __name__ == "__main__":
     RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme')
 
     parser = ArgumentParser()
-    parser.add_argument('cmd', nargs=1, choices=RUNNABLE_SCRIPTS)
-    options = parser.parse_args()
-
-    eval(options.cmd[0])()
+    subparsers = parser.add_subparsers()
+    fetch_parser = subparsers.add_parser('fetch')
+    fetch_parser.add_argument('tx_token', nargs=1)
+    fetch_parser.set_defaults(func=fetch)
+    config_parser = subparsers.add_parser('recreate_tx_config')
+    config_parser.set_defaults(func=recreate_tx_config)
+    readme_parser = subparsers.add_parser('recreate_readme')
+    readme_parser.set_defaults(func=recreate_readme)
