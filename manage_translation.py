@@ -31,7 +31,7 @@ def fetch(args):
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
-        f'tx pull -l {lang} --minimum-perc=1 --force --skip --token {args.tx_token}', shell=True
+        f'tx --token {args.tx_token} pull -l {lang} --minimum-perc=1 --force --skip', shell=True
     )
     if pull_returncode != 0:
         exit(pull_returncode)
