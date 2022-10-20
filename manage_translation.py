@@ -22,7 +22,7 @@ import sys
 LANGUAGE = 'pl'
 
 
-def fetch(tx_token: str):
+def fetch(args):
     """
     Fetch translations from Transifex, remove source lines.
     """
@@ -31,7 +31,7 @@ def fetch(tx_token: str):
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
-        f'tx pull -l {lang} --minimum-perc=1 --force --skip --token {tx_token}', shell=True
+        f'tx pull -l {lang} --minimum-perc=1 --force --skip --token {args.tx_token}', shell=True
     )
     if pull_returncode != 0:
         exit(pull_returncode)
@@ -47,7 +47,7 @@ RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-newest'
 
 
-def recreate_tx_config():
+def recreate_tx_config(args):
     """
     Regenerate Transifex client config for all resources.
     """
@@ -125,7 +125,7 @@ def _get_number_of_translators():
     return len(unique_translators)
 
 
-def recreate_readme():
+def recreate_readme(args):
     def language_switcher(entry):
         return (
             entry['name'].startswith('bugs')
