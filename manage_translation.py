@@ -71,7 +71,7 @@ def recreate_tx_config(args):
                 config.writelines(
                     (
                         '\n',
-                        f'[{PROJECT_SLUG}.{slug}]\n',
+                        f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
                         f'trans.{LANGUAGE} = {directory}/{file_name}.po\n',
                         'type = PO\n',
                         'source_lang = en\n',
