@@ -212,7 +212,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     subparsers = parser.add_subparsers()
     fetch_parser = subparsers.add_parser('fetch')
-    fetch_parser.add_argument('tx_token', nargs=1)
+    fetch_parser.add_argument('tx_token')
     fetch_parser.set_defaults(func=fetch)
     config_parser = subparsers.add_parser('recreate_tx_config')
     config_parser.set_defaults(func=recreate_tx_config)
