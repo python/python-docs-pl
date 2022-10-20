@@ -219,3 +219,5 @@ if __name__ == "__main__":
     config_parser.set_defaults(func=recreate_tx_config)
     readme_parser = subparsers.add_parser('recreate_readme')
     readme_parser.set_defaults(func=recreate_readme)
+    options = parser.parse_args()
+    options.func(options)
