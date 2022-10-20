@@ -42,7 +42,6 @@ def fetch(args):
             po_path = os.path.join(root, po_file)
             call(f'msgcat --no-location -o {po_path} {po_path}', shell=True)
 
-
 RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-newest'
 
