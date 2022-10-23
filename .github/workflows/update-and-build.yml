@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ['3.10']
+        version: [3.8, 3.9, '3.10']
     steps:
       - uses: styfle/cancel-workflow-action@main
         with:
@@ -22,7 +22,7 @@ jobs:
       - run: pip install requests
       - uses: actions/checkout@master
         with:
-          ref: ${{ matrix.version }}-tx-go-cli
+          ref: ${{ matrix.version }}
       - run: ./manage_translation.py recreate_tx_config
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -41,7 +41,7 @@ jobs:
       - run: git commit -m 'Update translation from Transifex' || true
       - uses: ad-m/github-push-action@master
         with:
-          branch: ${{ matrix.version }}-tx-go-cli
+          branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: peter-evans/repository-dispatch@main
         with:
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ['3.10']
+        version: [3.8, 3.9, '3.10']
         format: [html, latex]
     needs: ['update-translation']
     steps:
@@ -66,7 +66,7 @@ jobs:
         working-directory: ./Doc
       - uses: actions/checkout@master
         with:
-          ref: ${{ matrix.version }}-tx-go-cli
+          ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ['3.10']
+        version: [3.8, 3.9, '3.10']
     needs: ['build-translation']
     steps:
       - uses: actions/download-artifact@master
