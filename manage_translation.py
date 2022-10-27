@@ -27,9 +27,7 @@ def fetch():
     Fetch translations from Transifex, remove source lines.
     """
     if call("tx --version", shell=True) != 0:
-        sys.stderr.write(
-            "The Transifex client app is required (pip install transifex-client).\n"
-        )
+        sys.stderr.write("The Transifex client app is required.\n")
         exit(1)
     lang = LANGUAGE
     pull_returncode = call(
@@ -73,8 +71,8 @@ def recreate_tx_config():
                 config.writelines(
                     (
                         '\n',
-                        f'[{PROJECT_SLUG}.{slug}]\n',
-                        f'trans.{LANGUAGE} = {directory}/{file_name}.po\n',
+                        f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
+                        f'file_filter = {directory}/{file_name}.po\n',
                         'type = PO\n',
                         'source_lang = en\n',
                     )
@@ -83,8 +81,8 @@ def recreate_tx_config():
                 config.writelines(
                     (
                         '\n',
-                        f'[{PROJECT_SLUG}.{slug}]\n',
-                        f'trans.{LANGUAGE} = {name}.po\n',
+                        f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
+                        f'file_filter = {name}.po\n',
                         'type = PO\n',
                         'source_lang = en\n',
                     )
@@ -213,7 +211,7 @@ if __name__ == "__main__":
     RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme')
 
     parser = ArgumentParser()
-    parser.add_argument('cmd', nargs=1, choices=RUNNABLE_SCRIPTS)
+    parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
     options = parser.parse_args()
 
-    eval(options.cmd[0])()
+    eval(options.cmd)()

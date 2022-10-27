@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - '*'
+  workflow_dispatch:
 jobs:
   update-translation:
     runs-on: ubuntu-latest
@@ -16,16 +17,17 @@ jobs:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@master
         with:
-          python-version: '3.9'
+          python-version: 3
       - run: sudo apt-get install -y gettext
-      - run: pip install 'transifex-client>=0.14' requests
+      - run: pip install requests
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
       - run: ./manage_translation.py recreate_tx_config
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: echo -e '[https://www.transifex.com]\napi_hostname = https://api.transifex.com\nhostname = https://www.transifex.com\nusername = api' > $HOME/.transifexrc
+      - run: curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+        working-directory: /usr/local/bin
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
