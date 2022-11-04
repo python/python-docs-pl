@@ -36,6 +36,7 @@ Dokumentacja na python.org aktualizowana jest około raz dziennie.
 
 **Kanały komunikacji**
 
+* [python-docs-pl Discord](https://discord.gg/3faJmGKhta)
 * [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
