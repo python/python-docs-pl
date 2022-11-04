@@ -34,8 +34,7 @@ jobs:
       - run: ./manage_translation.py recreate_readme
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: git config --local user.email 'maciej.olko@gmail.com'
-        name: Run git config --local user.email '…'
+      - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
       - run: git add .
       - run: git commit -m 'Update translation from Transifex' || true
