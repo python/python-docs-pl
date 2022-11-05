@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Igor Zubrycki <igorzubrycki@gmail.com>, 2021
-# Maciej Olko <maciej.olko@gmail.com>, 2022
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 19:46+0000\n"
-"PO-Revision-Date: 2021-06-28 01:13+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2022\n"
+"POT-Creation-Date: 2022-11-05 19:53+0000\n"
+"PO-Revision-Date: 2022-11-05 17:22+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +268,7 @@ msgstr ""
 
 msgid ""
 "The number of statements that :mod:`!sqlite3` should internally cache for "
-"this connection, to avoid parsing overhead. By default, 128 statements."
+"this connection, to avoid parsing overhead. By default, 100 statements."
 msgstr ""
 
 msgid ""
@@ -324,12 +323,7 @@ msgid ""
 "tracebacks in user-defined functions, aggregates, converters, authorizer "
 "callbacks etc. If you want to debug them, you can call this function with "
 "*flag* set to ``True``. Afterwards, you will get tracebacks from callbacks "
-"on :data:`sys.stderr`. Use ``False`` to disable the feature again."
-msgstr ""
-
-msgid ""
-"Register an :func:`unraisable hook handler <sys.unraisablehook>` for an "
-"improved debug experience:"
+"on ``sys.stderr``. Use ``False`` to disable the feature again."
 msgstr ""
 
 msgid ""
@@ -425,76 +419,16 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Integer constant required by the DB-API 2.0, stating the level of thread "
-"safety the :mod:`!sqlite3` module supports. This attribute is set based on "
-"the default `threading mode <https://sqlite.org/threadsafe.html>`_ the "
-"underlying SQLite library is compiled with. The SQLite threading modes are:"
+"Integer constant required by the DB-API, stating the level of thread safety "
+"the :mod:`!sqlite3` module supports. Currently hard-coded to ``1``, meaning *"
+"\"Threads may share the module, but not connections.\"* However, this may "
+"not always be true. You can check the underlying SQLite library's compile-"
+"time threaded mode using the following query::"
 msgstr ""
 
 msgid ""
-"**Single-thread**: In this mode, all mutexes are disabled and SQLite is "
-"unsafe to use in more than a single thread at once."
-msgstr ""
-
-msgid ""
-"**Multi-thread**: In this mode, SQLite can be safely used by multiple "
-"threads provided that no single database connection is used simultaneously "
-"in two or more threads."
-msgstr ""
-
-msgid ""
-"**Serialized**: In serialized mode, SQLite can be safely used by multiple "
-"threads with no restriction."
-msgstr ""
-
-msgid ""
-"The mappings from SQLite threading modes to DB-API 2.0 threadsafety levels "
-"are as follows:"
-msgstr ""
-
-msgid "SQLite threading mode"
-msgstr ""
-
-msgid "`threadsafety`_"
-msgstr ""
-
-msgid "`SQLITE_THREADSAFE`_"
-msgstr ""
-
-msgid "DB-API 2.0 meaning"
-msgstr ""
-
-msgid "single-thread"
-msgstr ""
-
-msgid "0"
-msgstr "0"
-
-msgid "Threads may not share the module"
-msgstr ""
-
-msgid "multi-thread"
-msgstr ""
-
-msgid "1"
-msgstr "1"
-
-msgid "2"
-msgstr "2"
-
-msgid "Threads may share the module, but not connections"
-msgstr ""
-
-msgid "serialized"
-msgstr ""
-
-msgid "3"
-msgstr ""
-
-msgid "Threads may share the module, connections and cursors"
-msgstr ""
-
-msgid "Set *threadsafety* dynamically instead of hard-coding it to ``1``."
+"Note that the `SQLITE_THREADSAFE levels <https://sqlite.org/compile."
+"html#threadsafe>`_ do not match the DB-API 2.0 ``threadsafety`` levels."
 msgstr ""
 
 msgid ""
@@ -526,40 +460,6 @@ msgid ""
 "Create and return a :class:`Cursor` object. The cursor method accepts a "
 "single optional parameter *factory*. If supplied, this must be a callable "
 "returning an instance of :class:`Cursor` or its subclasses."
-msgstr ""
-
-msgid ""
-"Open a :class:`Blob` handle to an existing :abbr:`BLOB (Binary Large "
-"OBject)`."
-msgstr ""
-
-msgid "The name of the table where the blob is located."
-msgstr ""
-
-msgid "The name of the column where the blob is located."
-msgstr ""
-
-msgid "The name of the row where the blob is located."
-msgstr ""
-
-msgid ""
-"Set to ``True`` if the blob should be opened without write permissions. "
-"Defaults to ``False``."
-msgstr ""
-
-msgid ""
-"The name of the database where the blob is located. Defaults to ``\"main\"``."
-msgstr ""
-
-msgid "Raises"
-msgstr ""
-
-msgid "When trying to open a blob in a ``WITHOUT ROWID`` table."
-msgstr ""
-
-msgid ""
-"The blob size cannot be changed using the :class:`Blob` class. Use the SQL "
-"function ``zeroblob`` to create a blob with a fixed size."
 msgstr ""
 
 msgid ""
@@ -616,6 +516,9 @@ msgid ""
 "optimizations."
 msgstr ""
 
+msgid "Raises"
+msgstr ""
+
 msgid "If *deterministic* is used with SQLite versions older than 3.8.3."
 msgstr ""
 
@@ -663,53 +566,6 @@ msgstr ""
 msgid "Set to ``None`` to remove an existing SQL aggregate function."
 msgstr ""
 
-msgid "Create or remove a user-defined aggregate window function."
-msgstr ""
-
-msgid "The name of the SQL aggregate window function to create or remove."
-msgstr ""
-
-msgid ""
-"The number of arguments the SQL aggregate window function can accept. If "
-"``-1``, it may take any number of arguments."
-msgstr ""
-
-msgid ""
-"A class that must implement the following methods:  * ``step()``: Add a row "
-"to the current window. * ``value()``: Return the current value of the "
-"aggregate. * ``inverse()``: Remove a row from the current window. * "
-"``finalize()``: Return the final result of the aggregate as   :ref:`a type "
-"natively supported by SQLite <sqlite3-types>`.  The number of arguments that "
-"the ``step()`` and ``value()`` methods must accept is controlled by "
-"*num_params*.  Set to ``None`` to remove an existing SQL aggregate window "
-"function."
-msgstr ""
-
-msgid "A class that must implement the following methods:"
-msgstr ""
-
-msgid "``step()``: Add a row to the current window."
-msgstr ""
-
-msgid "``value()``: Return the current value of the aggregate."
-msgstr ""
-
-msgid "``inverse()``: Remove a row from the current window."
-msgstr ""
-
-msgid ""
-"The number of arguments that the ``step()`` and ``value()`` methods must "
-"accept is controlled by *num_params*."
-msgstr ""
-
-msgid "Set to ``None`` to remove an existing SQL aggregate window function."
-msgstr ""
-
-msgid ""
-"If used with a version of SQLite older than 3.25.0, which does not support "
-"aggregate window functions."
-msgstr ""
-
 msgid ""
 "Create a collation named *name* using the collating function *callable*. "
 "*callable* is passed two :class:`string <str>` arguments, and it should "
@@ -729,11 +585,6 @@ msgid "The following example shows a reverse sorting collation:"
 msgstr ""
 
 msgid "Remove a collation function by setting *callable* to ``None``."
-msgstr ""
-
-msgid ""
-"The collation name can contain any Unicode character.  Earlier, only ASCII "
-"characters were allowed."
 msgstr ""
 
 msgid ""
@@ -763,12 +614,6 @@ msgid ""
 "first argument and the meaning of the second and third argument depending on "
 "the first one. All necessary constants are available in the :mod:`!sqlite3` "
 "module."
-msgstr ""
-
-msgid "Passing ``None`` as *authorizer_callback* will disable the authorizer."
-msgstr ""
-
-msgid "Added support for disabling the authorizer using ``None``."
 msgstr ""
 
 msgid ""
@@ -896,84 +741,6 @@ msgstr ""
 msgid "Example 2, copy an existing database into a transient copy:"
 msgstr ""
 
-msgid "Get a connection runtime limit."
-msgstr ""
-
-msgid "The `SQLite limit category`_ to be queried."
-msgstr ""
-
-msgid "If *category* is not recognised by the underlying SQLite library."
-msgstr ""
-
-msgid ""
-"Example, query the maximum length of an SQL statement for :class:"
-"`Connection` ``con`` (the default is 1000000000):"
-msgstr ""
-
-msgid ""
-"Set a connection runtime limit. Attempts to increase a limit above its hard "
-"upper bound are silently truncated to the hard upper bound. Regardless of "
-"whether or not the limit was changed, the prior value of the limit is "
-"returned."
-msgstr ""
-
-msgid "The `SQLite limit category`_ to be set."
-msgstr ""
-
-msgid ""
-"The value of the new limit. If negative, the current limit is unchanged."
-msgstr ""
-
-msgid ""
-"Example, limit the number of attached databases to 1 for :class:`Connection` "
-"``con`` (the default limit is 10):"
-msgstr ""
-
-msgid ""
-"Serialize a database into a :class:`bytes` object.  For an ordinary on-disk "
-"database file, the serialization is just a copy of the disk file.  For an in-"
-"memory database or a \"temp\" database, the serialization is the same "
-"sequence of bytes which would be written to disk if that database were "
-"backed up to disk."
-msgstr ""
-
-msgid "The database name to be serialized. Defaults to ``\"main\"``."
-msgstr ""
-
-msgid ""
-"This method is only available if the underlying SQLite library has the "
-"serialize API."
-msgstr ""
-
-msgid ""
-"Deserialize a :meth:`serialized <serialize>` database into a :class:"
-"`Connection`. This method causes the database connection to disconnect from "
-"database *name*, and reopen *name* as an in-memory database based on the "
-"serialization contained in *data*."
-msgstr ""
-
-msgid "A serialized database."
-msgstr ""
-
-msgid "The database name to deserialize into. Defaults to ``\"main\"``."
-msgstr ""
-
-msgid ""
-"If the database connection is currently involved in a read transaction or a "
-"backup operation."
-msgstr ""
-
-msgid "If *data* does not contain a valid SQLite database."
-msgstr ""
-
-msgid "If :func:`len(data) <len>` is larger than ``2**63 - 1``."
-msgstr ""
-
-msgid ""
-"This method is only available if the underlying SQLite library has the "
-"deserialize API."
-msgstr ""
-
 msgid ""
 "This read-only attribute corresponds to the low-level SQLite `autocommit "
 "mode`_."
@@ -1052,9 +819,9 @@ msgstr ""
 
 msgid ""
 ":meth:`execute` will only execute a single SQL statement. If you try to "
-"execute more than one statement with it, it will raise a :exc:"
-"`ProgrammingError`. Use :meth:`executescript` if you want to execute "
-"multiple SQL statements with one call."
+"execute more than one statement with it, it will raise a :exc:`Warning`. "
+"Use :meth:`executescript` if you want to execute multiple SQL statements "
+"with one call."
 msgstr ""
 
 msgid ""
@@ -1192,53 +959,6 @@ msgstr ""
 msgid "Added support of slicing."
 msgstr ""
 
-msgid "Blob objects"
-msgstr ""
-
-msgid ""
-"A :class:`Blob` instance is a :term:`file-like object` that can read and "
-"write data in an SQLite :abbr:`BLOB (Binary Large OBject)`. Call :func:"
-"`len(blob) <len>` to get the size (number of bytes) of the blob. Use indices "
-"and :term:`slices <slice>` for direct access to the blob data."
-msgstr ""
-
-msgid ""
-"Use the :class:`Blob` as a :term:`context manager` to ensure that the blob "
-"handle is closed after use."
-msgstr ""
-
-msgid "Close the blob."
-msgstr ""
-
-msgid ""
-"The blob will be unusable from this point onward.  An :class:`~sqlite3."
-"Error` (or subclass) exception will be raised if any further operation is "
-"attempted with the blob."
-msgstr ""
-
-msgid ""
-"Read *length* bytes of data from the blob at the current offset position. If "
-"the end of the blob is reached, the data up to :abbr:`EOF (End of File)` "
-"will be returned.  When *length* is not specified, or is negative, :meth:"
-"`~Blob.read` will read until the end of the blob."
-msgstr ""
-
-msgid ""
-"Write *data* to the blob at the current offset.  This function cannot change "
-"the blob length.  Writing beyond the end of the blob will raise :exc:"
-"`ValueError`."
-msgstr ""
-
-msgid "Return the current access position of the blob."
-msgstr ""
-
-msgid ""
-"Set the current access position of the blob to *offset*.  The *origin* "
-"argument defaults to :data:`os.SEEK_SET` (absolute blob positioning). Other "
-"values for *origin* are :data:`os.SEEK_CUR` (seek relative to the current "
-"position) and :data:`os.SEEK_END` (seek relative to the blob’s end)."
-msgstr ""
-
 msgid "PrepareProtocol objects"
 msgstr ""
 
@@ -1255,10 +975,10 @@ msgid "The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`)."
 msgstr ""
 
 msgid ""
-"This exception is not currently raised by the :mod:`!sqlite3` module, but "
-"may be raised by applications using :mod:`!sqlite3`, for example if a user-"
-"defined function truncates data while inserting. ``Warning`` is a subclass "
-"of :exc:`Exception`."
+"This exception is raised by :mod:`!sqlite3` if an SQL query is not a :class:"
+"`string <str>`, or if multiple statements are passed to :meth:`~Cursor."
+"execute` or :meth:`~Cursor.executemany`. ``Warning`` is a subclass of :exc:"
+"`Exception`."
 msgstr ""
 
 msgid ""
@@ -1268,24 +988,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If the exception originated from within the SQLite library, the following "
-"two attributes are added to the exception:"
-msgstr ""
-
-msgid ""
-"The numeric error code from the `SQLite API <https://sqlite.org/rescode."
-"html>`_"
-msgstr ""
-
-msgid ""
-"The symbolic name of the numeric error code from the `SQLite API <https://"
-"sqlite.org/rescode.html>`_"
-msgstr ""
-
-msgid ""
-"Exception raised for misuse of the low-level SQLite C API. In other words, "
-"if this exception is raised, it probably indicates a bug in the :mod:`!"
-"sqlite3` module. ``InterfaceError`` is a subclass of :exc:`Error`."
+"This exception is raised by :mod:`!sqlite3` for fetch across rollback, or "
+"if :mod:`!sqlite3` is unable to bind parameters. ``InterfaceError`` is a "
+"subclass of :exc:`Error`."
 msgstr ""
 
 msgid ""
@@ -1321,9 +1026,9 @@ msgstr ""
 
 msgid ""
 "Exception raised for :mod:`!sqlite3` API programming errors, for example "
-"supplying the wrong number of bindings to a query, or trying to operate on a "
-"closed :class:`Connection`. ``ProgrammingError`` is a subclass of :exc:"
-"`DatabaseError`."
+"trying to operate on a closed :class:`Connection`, or trying to execute non-"
+"DML statements with :meth:`~Cursor.executemany`. ``ProgrammingError`` is a "
+"subclass of :exc:`DatabaseError`."
 msgstr ""
 
 msgid ""

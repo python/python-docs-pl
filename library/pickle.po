@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2021
-# Maciej Olko <maciej.olko@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 19:46+0000\n"
-"PO-Revision-Date: 2021-06-28 01:11+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2021\n"
+"POT-Creation-Date: 2022-11-05 19:53+0000\n"
+"PO-Revision-Date: 2022-11-05 17:22+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -591,8 +590,9 @@ msgid "classes accessible from the top level of a module;"
 msgstr ""
 
 msgid ""
-"instances of such classes whose the result of calling :meth:`__getstate__` "
-"is picklable  (see section :ref:`pickle-inst` for details)."
+"instances of such classes whose :attr:`~object.__dict__` or the result of "
+"calling :meth:`__getstate__` is picklable  (see section :ref:`pickle-inst` "
+"for details)."
 msgstr ""
 
 msgid ""
@@ -694,39 +694,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Classes can further influence how their instances are pickled by overriding "
-"the method :meth:`__getstate__`.  It is called and the returned object is "
-"pickled as the contents for the instance, instead of a default state. There "
-"are several cases:"
-msgstr ""
-
-msgid ""
-"For a class that has no instance :attr:`~object.__dict__` and no :attr:"
-"`~object.__slots__`, the default state is ``None``."
-msgstr ""
-
-msgid ""
-"For a class that has an instance :attr:`~object.__dict__` and no :attr:"
-"`~object.__slots__`, the default state is ``self.__dict__``."
-msgstr ""
-
-msgid ""
-"For a class that has an instance :attr:`~object.__dict__` and :attr:`~object."
-"__slots__`, the default state is a tuple consisting of two dictionaries:  "
-"``self.__dict__``, and a dictionary mapping slot names to slot values.  Only "
-"slots that have a value are included in the latter."
-msgstr ""
-
-msgid ""
-"For a class that has :attr:`~object.__slots__` and no instance :attr:"
-"`~object.__dict__`, the default state is a tuple whose first item is "
-"``None`` and whose second item is a dictionary mapping slot names to slot "
-"values described in the previous bullet."
-msgstr ""
-
-msgid ""
-"Added the default implementation of the ``__getstate__()`` method in the :"
-"class:`object` class."
+"Classes can further influence how their instances are pickled; if the class "
+"defines the method :meth:`__getstate__`, it is called and the returned "
+"object is pickled as the contents for the instance, instead of the contents "
+"of the instance's dictionary.  If the :meth:`__getstate__` method is absent, "
+"the instance's :attr:`~object.__dict__` is pickled as usual."
 msgstr ""
 
 msgid ""

@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 19:46+0000\n"
-"PO-Revision-Date: 2021-06-28 01:15+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2021\n"
+"POT-Creation-Date: 2022-11-05 19:53+0000\n"
+"PO-Revision-Date: 2022-11-05 17:22+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,8 +43,9 @@ msgid "An explanation of some terminology and conventions is in order."
 msgstr ""
 
 msgid ""
-"The :dfn:`epoch` is the point where the time starts, the return value of "
-"``time.gmtime(0)``. It is January 1, 1970, 00:00:00 (UTC) on all platforms."
+"The :dfn:`epoch` is the point where the time starts, and is platform "
+"dependent.  For Unix, the epoch is January 1, 1970, 00:00:00 (UTC). To find "
+"out what the epoch is on a given platform, look at ``time.gmtime(0)``."
 msgstr ""
 
 msgid ""
@@ -54,9 +55,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The functions in this module may not handle dates and times before the "
-"epoch_ or far in the future.  The cut-off point in the future is determined "
-"by the C library; for 32-bit systems, it is typically in 2038."
+"The functions in this module may not handle dates and times before the epoch "
+"or far in the future.  The cut-off point in the future is determined by the "
+"C library; for 32-bit systems, it is typically in 2038."
 msgstr ""
 
 msgid ""
@@ -186,12 +187,9 @@ msgid ""
 "such as segmentation fault."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: Unix"
-msgstr ""
-
 msgid ""
-"See the man page for :manpage:`pthread_getcpuclockid(3)` for further "
-"information."
+":ref:`Availability <availability>`: Unix (see the man page for :manpage:"
+"`pthread_getcpuclockid(3)` for further information)."
 msgstr ""
 
 msgid ""
@@ -229,7 +227,7 @@ msgid "Similar to :func:`clock_settime` but set time with nanoseconds."
 msgstr ""
 
 msgid ""
-"Convert a time expressed in seconds since the epoch_ to a string of a form: "
+"Convert a time expressed in seconds since the epoch to a string of a form: "
 "``'Sun Jun 20 23:21:05 1993'`` representing local time. The day field is two "
 "characters long and is space padded if the day is a single digit, e.g.: "
 "``'Wed Jun  9 04:26:40 1993'``."
@@ -283,7 +281,7 @@ msgid "*resolution*: The resolution of the clock in seconds (:class:`float`)"
 msgstr ""
 
 msgid ""
-"Convert a time expressed in seconds since the epoch_ to a :class:"
+"Convert a time expressed in seconds since the epoch to a :class:"
 "`struct_time` in UTC in which the dst flag is always zero.  If *secs* is not "
 "provided or :const:`None`, the current time as returned by :func:`.time` is "
 "used.  Fractions of a second are ignored.  See above for a description of "
@@ -376,44 +374,11 @@ msgstr ""
 msgid ""
 "Suspend execution of the calling thread for the given number of seconds. The "
 "argument may be a floating point number to indicate a more precise sleep "
-"time."
-msgstr ""
-
-msgid ""
-"If the sleep is interrupted by a signal and no exception is raised by the "
-"signal handler, the sleep is restarted with a recomputed timeout."
-msgstr ""
-
-msgid ""
-"The suspension time may be longer than requested by an arbitrary amount, "
-"because of the scheduling of other activity in the system."
-msgstr ""
-
-msgid ""
-"On Windows, if *secs* is zero, the thread relinquishes the remainder of its "
-"time slice to any other thread that is ready to run. If there are no other "
-"threads ready to run, the function returns immediately, and the thread "
-"continues execution.  On Windows 8.1 and newer the implementation uses a "
-"`high-resolution timer <https://docs.microsoft.com/en-us/windows-hardware/"
-"drivers/kernel/high-resolution-timers>`_ which provides resolution of 100 "
-"nanoseconds. If *secs* is zero, ``Sleep(0)`` is used."
-msgstr ""
-
-msgid "Unix implementation:"
-msgstr ""
-
-msgid "Use ``clock_nanosleep()`` if available (resolution: 1 nanosecond);"
-msgstr ""
-
-msgid "Or use ``nanosleep()`` if available (resolution: 1 nanosecond);"
-msgstr ""
-
-msgid "Or use ``select()`` (resolution: 1 microsecond)."
-msgstr ""
-
-msgid ""
-"On Unix, the ``clock_nanosleep()`` and ``nanosleep()`` functions are now "
-"used if available. On Windows, a waitable timer is now used."
+"time. The actual suspension time may be less than that requested because any "
+"caught signal will terminate the :func:`sleep` following execution of that "
+"signal's catching routine.  Also, the suspension time may be longer than "
+"requested by an arbitrary amount because of the scheduling of other activity "
+"in the system."
 msgstr ""
 
 msgid ""
@@ -810,10 +775,12 @@ msgstr ""
 
 msgid ""
 "Return the time in seconds since the epoch_ as a floating point number. The "
-"handling of `leap seconds`_ is platform dependent. On Windows and most Unix "
-"systems, the leap seconds are not counted towards the time in seconds since "
-"the epoch_. This is commonly referred to as `Unix time <https://en.wikipedia."
-"org/wiki/Unix_time>`_."
+"specific date of the epoch and the handling of `leap seconds`_ is platform "
+"dependent. On Windows and most Unix systems, the epoch is January 1, 1970, "
+"00:00:00 (UTC) and leap seconds are not counted towards the time in seconds "
+"since the epoch. This is commonly referred to as `Unix time <https://en."
+"wikipedia.org/wiki/Unix_time>`_. To find out what the epoch is on a given "
+"platform, look at ``gmtime(0)``."
 msgstr ""
 
 msgid ""
@@ -856,10 +823,9 @@ msgid ""
 "`float` type."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: Linux, Unix, Windows."
-msgstr ""
-
-msgid "Unix systems supporting ``CLOCK_THREAD_CPUTIME_ID``."
+msgid ""
+":ref:`Availability <availability>`: Windows, Linux, Unix systems supporting "
+"``CLOCK_THREAD_CPUTIME_ID``."
 msgstr ""
 
 msgid "Similar to :func:`thread_time` but return time as nanoseconds."
@@ -979,7 +945,7 @@ msgid ""
 "similar."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: Linux >= 2.6.39."
+msgid ":ref:`Availability <availability>`: Linux 2.6.39 or later."
 msgstr ""
 
 msgid ""
@@ -1001,13 +967,16 @@ msgid ""
 "based time that is not subject to NTP adjustments."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: Linux >= 2.6.28, macOS >= 10.12."
+msgid ""
+":ref:`Availability <availability>`: Linux 2.6.28 and newer, macOS 10.12 and "
+"newer."
 msgstr ""
 
 msgid "High-resolution per-process timer from the CPU."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: FreeBSD, NetBSD >= 7, OpenBSD."
+msgid ""
+":ref:`Availability <availability>`: FreeBSD, NetBSD 7 or later, OpenBSD."
 msgstr ""
 
 msgid ""
@@ -1031,7 +1000,7 @@ msgid ""
 "suspended, providing accurate uptime measurement, both absolute and interval."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: FreeBSD, OpenBSD >= 5.5."
+msgid ":ref:`Availability <availability>`: FreeBSD, OpenBSD 5.5 or later."
 msgstr ""
 
 msgid ""
@@ -1040,7 +1009,7 @@ msgid ""
 "the system is asleep."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: macOS >= 10.12."
+msgid ":ref:`Availability <availability>`: macOS 10.12 and newer."
 msgstr ""
 
 msgid ""
