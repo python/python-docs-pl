@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.10\n"
+"Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-04 14:28+0000\n"
+"POT-Creation-Date: 2022-11-05 19:46+0000\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Michał Biliński <m.bilinskimichal@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -123,6 +123,9 @@ msgstr ""
 msgid ""
 "The largest year number allowed in a :class:`date` or :class:`.datetime` "
 "object. :const:`MAXYEAR` is ``9999``."
+msgstr ""
+
+msgid "Alias for the UTC timezone singleton :attr:`datetime.timezone.utc`."
 msgstr ""
 
 msgid "Available Types"
@@ -619,13 +622,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return a :class:`date` corresponding to a *date_string* given in the format "
-"``YYYY-MM-DD``::"
+"Return a :class:`date` corresponding to a *date_string* given in any valid "
+"ISO 8601 format, except ordinal dates (e.g. ``YYYY-DDD``)::"
 msgstr ""
 
-msgid ""
-"This is the inverse of :meth:`date.isoformat`. It only supports the format "
-"``YYYY-MM-DD``."
+msgid "Previously, this method only supported the format ``YYYY-MM-DD``."
 msgstr ""
 
 msgid ""
@@ -781,9 +782,6 @@ msgstr ""
 
 msgid ""
 "Return a string representing the date in ISO 8601 format, ``YYYY-MM-DD``::"
-msgstr ""
-
-msgid "This is the inverse of :meth:`date.fromisoformat`."
 msgstr ""
 
 msgid "For a date *d*, ``str(d)`` is equivalent to ``d.isoformat()``."
@@ -1023,25 +1021,28 @@ msgid "Added the *tzinfo* argument."
 msgstr ""
 
 msgid ""
-"Return a :class:`.datetime` corresponding to a *date_string* in one of the "
-"formats emitted by :meth:`date.isoformat` and :meth:`datetime.isoformat`."
+"Return a :class:`.datetime` corresponding to a *date_string* in any valid "
+"ISO 8601 format, with the following exceptions:"
 msgstr ""
 
-msgid "Specifically, this function supports strings in the format:"
+msgid "Time zone offsets may have fractional seconds."
 msgstr ""
 
-msgid "where ``*`` can match any single character."
+msgid "The ``T`` separator may be replaced by any single unicode character."
 msgstr ""
 
-msgid ""
-"This does *not* support parsing arbitrary ISO 8601 strings - it is only "
-"intended as the inverse operation of :meth:`datetime.isoformat`. A more full-"
-"featured ISO 8601 parser, ``dateutil.parser.isoparse`` is available in the "
-"third-party package `dateutil <https://dateutil.readthedocs.io/en/stable/"
-"parser.html#dateutil.parser.isoparse>`__."
+msgid "Ordinal dates are not currently supported."
+msgstr ""
+
+msgid "Fractional hours and minutes are not supported."
 msgstr ""
 
 msgid "Examples::"
+msgstr ""
+
+msgid ""
+"Previously, this method only supported formats that could be emitted by :"
+"meth:`date.isoformat()` or :meth:`datetime.isoformat()`."
 msgstr ""
 
 msgid ""
@@ -1572,14 +1573,23 @@ msgid "Other constructor:"
 msgstr ""
 
 msgid ""
-"Return a :class:`.time` corresponding to a *time_string* in one of the "
-"formats emitted by :meth:`time.isoformat`. Specifically, this function "
-"supports strings in the format:"
+"Return a :class:`.time` corresponding to a *time_string* in any valid ISO "
+"8601 format, with the following exceptions:"
 msgstr ""
 
 msgid ""
-"This does *not* support parsing arbitrary ISO 8601 strings. It is only "
-"intended as the inverse operation of :meth:`time.isoformat`."
+"The leading ``T``, normally required in cases where there may be ambiguity "
+"between a date and a time, is not required."
+msgstr ""
+
+msgid ""
+"Fractional seconds may have any number of digits (anything beyond 6 will be "
+"truncated)."
+msgstr ""
+
+msgid ""
+"Previously, this method only supported formats that could be emitted by :"
+"meth:`time.isoformat()`."
 msgstr ""
 
 msgid ""
