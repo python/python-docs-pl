@@ -22,7 +22,7 @@ Więcej informacji o używaniu Transifeksa znajdziesz w
 
 ![postęp tłumaczenia do przełącznika języków](language-switcher-progress.svg)
 
-Język polski pojawi się w przełączniku języków na docs.python.org, 
+Język polski pojawi się w przełączniku języków na docs.python.org,
 [kiedy w pełni przetłumaczone będą](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
 * `bugs`,
 * wszystkie zasoby z katalogu `tutorial`,
@@ -30,7 +30,7 @@ Język polski pojawi się w przełączniku języków na docs.python.org,
 
 **Jak obejrzeć najnowszy build dokumentacji?**
 
-Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions). 
+Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions).
 Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około pół godziny.
 Dokumentacja na python.org aktualizowana jest około raz dziennie.
 
