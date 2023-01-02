@@ -46,6 +46,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           event-type: translation-updated
+  lint:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/setup-python@master
+        with:
+          python-version: 3
+      - run: pip install sphinx-lint
+      - uses: actions/checkout@master
+      - run: sphinx-lint
   build-translation:
     runs-on: ubuntu-latest
     strategy:
