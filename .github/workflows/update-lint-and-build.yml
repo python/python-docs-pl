@@ -36,9 +36,13 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
+      - run: >
+          git diff --ignore-matching-lines='^"POT-Creation-Date: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV
       - run: git add .
       - run: git commit -m 'Update translation from Transifex' || true
+        if: env.SIGNIFICANT_CHANGES
       - uses: ad-m/github-push-action@master
+        if: env.SIGNIFICANT_CHANGES
         with:
           branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
