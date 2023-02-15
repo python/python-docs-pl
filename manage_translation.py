@@ -15,9 +15,12 @@
 from argparse import ArgumentParser
 from collections import Counter
 import os
-from re import match
+from dataclasses import dataclass
+from re import match, search
 from subprocess import call, run
 import sys
+from typing import Self
+from urllib.parse import unquote
 
 LANGUAGE = 'pl'
 
@@ -83,10 +86,29 @@ def recreate_tx_config():
                 ))
 
 
+@dataclass
+class ResourceLanguageStatistics:
+    name: str
+    total_words: int
+    translated_words: int
+    total_strings: int
+    translated_strings: int
+
+    @classmethod
+    def from_api_v3_entry(cls, data: dict) -> Self:
+        return cls(
+            name=search('r:([^:]*)', data['id']).group(1),
+            total_words=data['attributes']['total_words'],
+            translated_words=data['attributes']['translated_words'],
+            total_strings=data['attributes']['total_strings'],
+            translated_strings=data['attributes']['translated_strings'],
+        )
+
+
 def _get_resources():
     from requests import get
     resources = []
-    offset = 0
+    cursor = None
     if os.path.exists('.tx/api-key'):
         with open('.tx/api-key') as f:
             transifex_api_key = f.read()
@@ -94,16 +116,20 @@ def _get_resources():
         transifex_api_key = os.getenv('TX_TOKEN')
     while True:
         response = get(
-            f'https://api.transifex.com/organizations/python-doc/projects/{PROJECT_SLUG}/resources/',
-            params={'language_code': LANGUAGE, 'offset': offset},
-            auth=('api', transifex_api_key))
+            'https://rest.api.transifex.com/resource_language_stats',
+            params={
+                'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'
+            } | ({'page[cursor]': cursor} if cursor else {}),
+            headers={'Authorization': f'Bearer {transifex_api_key}'}
+        )
         response.raise_for_status()
-        response_list = response.json()
+        response_json = response.json()
+        response_list = response_json['data']
         resources.extend(response_list)
-        if len(response_list) < 100:
+        if 'next' not in response_json['links']:
             break
-        offset += len(response_list)
-    return resources
+        cursor = unquote(search('page\[cursor]=([^&]*)', response_json['links']['next']).group(1))
+    return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
 def _get_number_of_translators():
@@ -121,17 +147,17 @@ def _get_number_of_translators():
 
 def recreate_readme():
     def language_switcher(entry):
-        return (entry['name'].startswith('bugs') or
-                entry['name'].startswith('tutorial') or
-                entry['name'].startswith('library--functions'))
+        return (entry.name.startswith('bugs') or
+                entry.name.startswith('tutorial') or
+                entry.name.startswith('library--functions'))
 
     def average(averages, weights):
         return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
 
     resources = _get_resources()
     filtered = list(filter(language_switcher, resources))
-    average_list = [e['stats']['translated']['percentage'] for e in filtered]
-    weights_list = [e['wordcount'] for e in filtered]
+    average_list = [e.translated_words / e.total_words for e in filtered]
+    weights_list = [e.total_words for e in filtered]
 
     language_switcher_status = average(average_list, weights=weights_list) * 100
     number_of_translators = _get_number_of_translators()
