@@ -19,7 +19,6 @@ from dataclasses import dataclass
 from re import match, search
 from subprocess import call, run
 import sys
-from typing import Self
 from urllib.parse import unquote
 
 LANGUAGE = 'pl'
@@ -99,7 +98,7 @@ class Resource:
     slug: str
 
     @classmethod
-    def from_api_v3_entry(cls, data: dict) -> Self:
+    def from_api_v3_entry(cls, data: dict):
         return cls(slug=data['attributes']['slug'])
 
 
@@ -112,7 +111,7 @@ class ResourceLanguageStatistics:
     translated_strings: int
 
     @classmethod
-    def from_api_v3_entry(cls, data: dict) -> Self:
+    def from_api_v3_entry(cls, data: dict):
         return cls(
             name=search('r:([^:]*)', data['id']).group(1),
             total_words=data['attributes']['total_words'],
