@@ -65,7 +65,7 @@ def recreate_tx_config():
             )
         )
         for resource in resources:
-            slug = resource['slug']
+            slug = resource.slug
             name = RESOURCE_NAME_MAP.get(slug, slug)
             if slug == '0':
                 continue
@@ -95,6 +95,15 @@ def recreate_tx_config():
 
 
 @dataclass
+class Resource:
+    slug: str
+
+    @classmethod
+    def from_api_v3_entry(cls, data: dict) -> Self:
+        return cls(slug=data['attributes']['slug'])
+
+
+@dataclass
 class ResourceLanguageStatistics:
     name: str
     total_words: int
@@ -113,7 +122,7 @@ class ResourceLanguageStatistics:
         )
 
 
-def _get_resources():
+def _get_from_api_v3_with_cursor(url: str, params: dict):
     from requests import get
 
     resources = []
@@ -125,19 +134,32 @@ def _get_resources():
         transifex_api_key = os.getenv('TX_TOKEN')
     while True:
         response = get(
-            'https://rest.api.transifex.com/resource_language_stats',
-            params={
-                'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'
-            } | ({'page[cursor]': cursor} if cursor else {}),
+            url,
+            params=params | ({'page[cursor]': cursor} if cursor else {}),
             headers={'Authorization': f'Bearer {transifex_api_key}'}
         )
         response.raise_for_status()
         response_json = response.json()
         response_list = response_json['data']
         resources.extend(response_list)
-        if 'next' not in response_json['links']:
+        if not response_json['links'].get('next'):  # for stats no key, for list resources null
             break
         cursor = unquote(search('page\[cursor]=([^&]*)', response_json['links']['next']).group(1))
+    return resources
+
+
+def _get_resources():
+    resources = _get_from_api_v3_with_cursor(
+        'https://rest.api.transifex.com/resources', {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}'}
+    )
+    return [Resource.from_api_v3_entry(entry) for entry in resources]
+
+
+def _get_resource_language_stats():
+    resources = _get_from_api_v3_with_cursor(
+        'https://rest.api.transifex.com/resource_language_stats',
+        {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
+    )
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
@@ -163,9 +185,9 @@ def recreate_readme():
     def average(averages, weights):
         return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
 
-    resources = _get_resources()
+    resources = _get_resource_language_stats()
     filtered = list(filter(language_switcher, resources))
-    average_list = [e.translated_words / e.total_words for e in filtered]
+    average_list = [e.translated_strings / e.total_strings for e in filtered]
     weights_list = [e.total_words for e in filtered]
 
     language_switcher_status = average(average_list, weights=weights_list) * 100
