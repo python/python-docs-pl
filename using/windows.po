@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2023, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
 # Krzysztof Abramowicz, 2022
 # Maciej Olko <maciej.olko@gmail.com>, 2022
+# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 16:17+0000\n"
+"POT-Creation-Date: 2023-02-03 14:14+0000\n"
 "PO-Revision-Date: 2021-06-28 01:51+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2022\n"
+"Last-Translator: Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2023\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1010,22 +1011,42 @@ msgid ""
 "command::"
 msgstr ""
 
-msgid "You should find the latest version of Python 3.x starts."
-msgstr ""
-
 msgid ""
 "If you see the following error, you do not have the launcher installed::"
-msgstr ""
-
-msgid ""
-"Per-user installations of Python do not add the launcher to :envvar:`PATH` "
-"unless the option was selected on installation."
 msgstr ""
 
 msgid "The command::"
 msgstr ""
 
 msgid "displays the currently installed version(s) of Python."
+msgstr ""
+
+msgid ""
+"The ``-x.y`` argument is the short form of the ``-V:Company/Tag`` argument, "
+"which allows selecting a specific Python runtime, including those that may "
+"have come from somewhere other than python.org. Any runtime registered by "
+"following :pep:`514` will be discoverable. The ``--list`` command lists all "
+"available runtimes using the ``-V:`` format."
+msgstr ""
+
+msgid ""
+"When using the ``-V:`` argument, specifying the Company will limit selection "
+"to runtimes from that provider, while specifying only the Tag will select "
+"from all providers. Note that omitting the slash implies a tag::"
+msgstr ""
+
+msgid ""
+"The short form of the argument (``-3``) only ever selects from core Python "
+"releases, and not other distributions. However, the longer form (``-V:3``) "
+"will select from any."
+msgstr ""
+
+msgid ""
+"The Company is matched on the full string, case-insenitive. The Tag is "
+"matched oneither the full string, or a prefix, provided the next character "
+"is a dot or a hyphen. This allows ``-V:3.1`` to match ``3.1-32``, but not "
+"``3.10``. Tags are sorted using numerical ordering (``3.10`` is newer than "
+"``3.1``), but are compared using text (``-V:3.01`` does not match ``3.1``)."
 msgstr ""
 
 msgid "Virtual environments"
@@ -1060,7 +1081,7 @@ msgid ""
 "Re-executing the command should now print the latest Python 3.x information. "
 "As with the above command-line examples, you can specify a more explicit "
 "version qualifier.  Assuming you have Python 3.7 installed, try changing the "
-"first line to ``#! python3.7`` and you should find the |version| version "
+"first line to ``#! python3.7`` and you should find the 3.7 version "
 "information printed."
 msgstr ""
 
@@ -1105,7 +1126,7 @@ msgid ""
 "which interpreter to use.  The supported virtual commands are:"
 msgstr ""
 
-msgid "``/usr/bin/env python``"
+msgid "``/usr/bin/env``"
 msgstr ""
 
 msgid "``/usr/bin/python``"
@@ -1151,17 +1172,29 @@ msgstr ""
 msgid ""
 "The ``/usr/bin/env`` form of shebang line has one further special property. "
 "Before looking for installed Python interpreters, this form will search the "
-"executable :envvar:`PATH` for a Python executable. This corresponds to the "
-"behaviour of the Unix ``env`` program, which performs a :envvar:`PATH` "
-"search. If an executable matching the first argument after the ``env`` "
-"command cannot be found, it will be handled as described below. "
-"Additionally, the environment variable :envvar:`PYLAUNCHER_NO_SEARCH_PATH` "
-"may be set (to any value) to skip this additional search."
+"executable :envvar:`PATH` for a Python executable matching the name provided "
+"as the first argument. This corresponds to the behaviour of the Unix ``env`` "
+"program, which performs a :envvar:`PATH` search. If an executable matching "
+"the first argument after the ``env`` command cannot be found, but the "
+"argument starts with ``python``, it will be handled as described for the "
+"other virtual commands. The environment variable :envvar:"
+"`PYLAUNCHER_NO_SEARCH_PATH` may be set (to any value) to skip this search "
+"of :envvar:`PATH`."
 msgstr ""
 
 msgid ""
-"Shebang lines that do not match any of these patterns are treated as "
-"**Windows** paths that are absolute or relative to the directory containing "
+"Shebang lines that do not match any of these patterns are looked up in the "
+"``[commands]`` section of the launcher's :ref:`.INI file <launcher-ini>`. "
+"This may be used to handle certain commands in a way that makes sense for "
+"your system. The name of the command must be a single argument (no spaces in "
+"the shebang executable), and the value substituted is the full path to the "
+"executable (additional arguments specified in the .INI will be quoted as "
+"part of the filename)."
+msgstr ""
+
+msgid ""
+"Any commands not found in the .INI file are treated as **Windows** "
+"executable paths that are absolute or relative to the directory containing "
 "the script file. This is a convenience for Windows-only scripts, such as "
 "those generated by an installer, since the behavior is not compatible with "
 "Unix-style shells. These paths may be quoted, and may include multiple "
@@ -1188,11 +1221,10 @@ msgstr ""
 
 msgid ""
 "Two .ini files will be searched by the launcher - ``py.ini`` in the current "
-"user's \"application data\" directory (i.e. the directory returned by "
-"calling the Windows function ``SHGetFolderPath`` with "
-"``CSIDL_LOCAL_APPDATA``) and ``py.ini`` in the same directory as the "
-"launcher. The same .ini files are used for both the 'console' version of the "
-"launcher (i.e. py.exe) and for the 'windows' version (i.e. pyw.exe)."
+"user's application data directory (``%LOCALAPPDATA%`` or ``$env:"
+"LocalAppData``) and ``py.ini`` in the same directory as the launcher. The "
+"same .ini files are used for both the 'console' version of the launcher (i."
+"e. py.exe) and for the 'windows' version (i.e. pyw.exe)."
 msgstr ""
 
 msgid ""
@@ -1292,7 +1324,7 @@ msgid ""
 msgstr ""
 
 msgid "For example:"
-msgstr ""
+msgstr "Na przykład::"
 
 msgid "Setting ``PY_PYTHON=3.7`` is equivalent to the INI file containing:"
 msgstr ""

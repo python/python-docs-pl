@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2023, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-14 04:15+0000\n"
+"POT-Creation-Date: 2023-02-03 14:14+0000\n"
 "PO-Revision-Date: 2021-06-28 01:10+0000\n"
 "Last-Translator: Krzysztof Abramowicz, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -249,21 +249,22 @@ msgid "Support for detecting non-root mount points on Windows."
 msgstr ""
 
 msgid ""
-"Join one or more path components intelligently.  The return value is the "
-"concatenation of *path* and any members of *\\*paths* with exactly one "
-"directory separator following each non-empty part except the last, meaning "
-"that the result will only end in a separator if the last part is empty.  If "
-"a component is an absolute path, all previous components are thrown away and "
-"joining continues from the absolute path component."
+"Join one or more path segments intelligently.  The return value is the "
+"concatenation of *path* and all members of *\\*paths*, with exactly one "
+"directory separator following each non-empty part, except the last. That is, "
+"the result will only end in a separator if the last part is either empty or "
+"ends in a separator. If a segment is an absolute path (which on Windows "
+"requires both a drive and a root), then all previous segments are ignored "
+"and joining continues from the absolute path segment."
 msgstr ""
 
 msgid ""
-"On Windows, the drive letter is not reset when an absolute path component (e."
-"g., ``r'\\foo'``) is encountered.  If a component contains a drive letter, "
-"all previous components are thrown away and the drive letter is reset.  Note "
-"that since there is a current directory for each drive, ``os.path.join(\"c:"
-"\", \"foo\")`` represents a path relative to the current directory on drive :"
-"file:`C:` (:file:`c:foo`), not :file:`c:\\\\foo`."
+"On Windows, the drive is not reset when a rooted path segment (e.g., "
+"``r'\\foo'``) is encountered. If a segment is on a different drive or is an "
+"absolute path, all previous segments are ignored and the drive is reset. "
+"Note that since there is a current directory for each drive, ``os.path."
+"join(\"c:\", \"foo\")`` represents a path relative to the current directory "
+"on drive :file:`C:` (:file:`c:foo`), not :file:`c:\\\\foo`."
 msgstr ""
 
 msgid "Accepts a :term:`path-like object` for *path* and *paths*."

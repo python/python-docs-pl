@@ -1,19 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2023, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# m_aciek <maciej.olko@gmail.com>, 2020
+# Maciej Olko <maciej.olko@gmail.com>, 2021
+# Waldemar Stoczkowski, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-01 05:02+0000\n"
-"PO-Revision-Date: 2017-02-16 23:15+0000\n"
-"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
+"POT-Creation-Date: 2023-02-03 14:14+0000\n"
+"PO-Revision-Date: 2021-06-28 01:08+0000\n"
+"Last-Translator: Waldemar Stoczkowski, 2023\n"
 "Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +53,8 @@ msgid ""
 "class or module. The functions whose names begin with \"is\" are mainly "
 "provided as convenient choices for the second argument to :func:"
 "`getmembers`. They also help you determine when you can expect to find the "
-"following special attributes:"
+"following special attributes (see :ref:`import-mod-attrs` for module "
+"attributes):"
 msgstr ""
 
 msgid "Type"
@@ -64,22 +66,13 @@ msgstr ""
 msgid "Description"
 msgstr "Opis"
 
-msgid "module"
+msgid "class"
 msgstr ""
 
 msgid "__doc__"
 msgstr ""
 
 msgid "documentation string"
-msgstr ""
-
-msgid "__file__"
-msgstr ""
-
-msgid "filename (missing for built-in modules)"
-msgstr ""
-
-msgid "class"
 msgstr ""
 
 msgid "__name__"
@@ -149,6 +142,12 @@ msgid "__globals__"
 msgstr ""
 
 msgid "global namespace in which this function was defined"
+msgstr ""
+
+msgid "__builtins__"
+msgstr ""
+
+msgid "builtins namespace"
 msgstr ""
 
 msgid "__annotations__"
@@ -312,10 +311,16 @@ msgstr ""
 msgid "name with which this code object was defined"
 msgstr ""
 
+msgid "co_qualname"
+msgstr ""
+
+msgid "fully qualified name with which this code object was defined"
+msgstr ""
+
 msgid "co_names"
 msgstr ""
 
-msgid "tuple of names of local variables"
+msgid "tuple of names other than arguments and function locals"
 msgstr ""
 
 msgid "co_nlocals"
@@ -407,6 +412,9 @@ msgstr ""
 msgid "Add ``cr_origin`` attribute to coroutines."
 msgstr ""
 
+msgid "Add ``__builtins__`` attribute to functions."
+msgstr ""
+
 msgid ""
 "Return all the members of an object in a list of ``(name, value)`` pairs "
 "sorted by name. If the optional *predicate* argument—which will be called "
@@ -418,6 +426,21 @@ msgid ""
 ":func:`getmembers` will only return class attributes defined in the "
 "metaclass when the argument is a class and those attributes have been listed "
 "in the metaclass' custom :meth:`__dir__`."
+msgstr ""
+
+msgid ""
+"Return all the members of an object in a list of ``(name, value)`` pairs "
+"sorted by name without triggering dynamic lookup via the descriptor "
+"protocol, __getattr__ or __getattribute__. Optionally, only return members "
+"that satisfy a given predicate."
+msgstr ""
+
+msgid ""
+":func:`getmembers_static` may not be able to retrieve all members that "
+"getmembers can fetch (like dynamically created attributes) and may find "
+"members that getmembers can't (like descriptors that raise AttributeError). "
+"It can also return descriptor objects instead of instance members in some "
+"cases."
 msgstr ""
 
 msgid ""
@@ -518,6 +541,15 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Return ``True`` if the type of object is a :class:`~types.MethodWrapperType`."
+msgstr ""
+
+msgid ""
+"These are instances of :class:`~types.MethodWrapperType`, such as :meth:"
+"`~object.__str__`, :meth:`~object.__eq__` and :meth:`~object.__repr__`."
+msgstr ""
+
+msgid ""
 "Return ``True`` if the object is a user-defined or built-in function or "
 "method."
 msgstr ""
@@ -583,7 +615,8 @@ msgid ""
 "Get the documentation string for an object, cleaned up with :func:"
 "`cleandoc`. If the documentation string for an object is not provided and "
 "the object is a class, a method, a property or a descriptor, retrieve the "
-"documentation string from the inheritance hierarchy."
+"documentation string from the inheritance hierarchy. Return ``None`` if the "
+"documentation string is invalid or missing."
 msgstr ""
 
 msgid "Documentation strings are now inherited if not overridden."
@@ -603,13 +636,15 @@ msgid ""
 "class, or function."
 msgstr ""
 
-msgid "Try to guess which module an object was defined in."
+msgid ""
+"Try to guess which module an object was defined in. Return ``None`` if the "
+"module cannot be determined."
 msgstr ""
 
 msgid ""
-"Return the name of the Python source file in which an object was defined.  "
-"This will fail with a :exc:`TypeError` if the object is a built-in module, "
-"class, or function."
+"Return the name of the Python source file in which an object was defined or "
+"``None`` if no way can be identified to get the source.  This will fail with "
+"a :exc:`TypeError` if the object is a built-in module, class, or function."
 msgstr ""
 
 msgid ""
@@ -663,8 +698,21 @@ msgid ""
 msgstr ""
 
 msgid ""
+"For objects defined in modules using stringized annotations (``from "
+"__future__ import annotations``), :func:`signature` will attempt to "
+"automatically un-stringize the annotations using :func:`inspect."
+"get_annotations()`.  The ``global``, ``locals``, and ``eval_str`` parameters "
+"are passed into :func:`inspect.get_annotations()` when resolving the "
+"annotations; see the documentation for :func:`inspect.get_annotations()` for "
+"instructions on how to use these parameters."
+msgstr ""
+
+msgid ""
 "Raises :exc:`ValueError` if no signature can be provided, and :exc:"
-"`TypeError` if that type of object is not supported."
+"`TypeError` if that type of object is not supported.  Also, if the "
+"annotations are stringized, and ``eval_str`` is not false, the ``eval()`` "
+"call(s) to un-stringize the annotations could potentially raise any kind of "
+"exception."
 msgstr ""
 
 msgid ""
@@ -677,6 +725,9 @@ msgid ""
 "``follow_wrapped`` parameter. Pass ``False`` to get a signature of "
 "``callable`` specifically (``callable.__wrapped__`` will not be used to "
 "unwrap decorated callables.)"
+msgstr ""
+
+msgid "``globals``, ``locals``, and ``eval_str`` parameters."
 msgstr ""
 
 msgid ""
@@ -756,10 +807,14 @@ msgstr ""
 msgid ""
 "Return a :class:`Signature` (or its subclass) object for a given callable "
 "``obj``.  Pass ``follow_wrapped=False`` to get a signature of ``obj`` "
-"without unwrapping its ``__wrapped__`` chain."
+"without unwrapping its ``__wrapped__`` chain. ``globalns`` and ``localns`` "
+"will be used as the namespaces when resolving annotations."
 msgstr ""
 
 msgid "This method simplifies subclassing of :class:`Signature`::"
+msgstr ""
+
+msgid "``globalns`` and ``localns`` parameters."
 msgstr ""
 
 msgid ""
@@ -950,28 +1005,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Get the names and default values of a Python function's parameters. A :term:"
-"`named tuple` ``ArgSpec(args, varargs, keywords, defaults)`` is returned. "
-"*args* is a list of the parameter names. *varargs* and *keywords* are the "
-"names of the ``*`` and ``**`` parameters or ``None``. *defaults* is a tuple "
-"of default argument values or ``None`` if there are no default arguments; if "
-"this tuple has *n* elements, they correspond to the last *n* elements listed "
-"in *args*."
-msgstr ""
-
-msgid ""
-"Use :func:`getfullargspec` for an updated API that is usually a drop-in "
-"replacement, but also correctly handles function annotations and keyword-"
-"only parameters."
-msgstr ""
-
-msgid ""
-"Alternatively, use :func:`signature` and :ref:`Signature Object <inspect-"
-"signature-object>`, which provide a more structured introspection API for "
-"callables."
-msgstr ""
-
-msgid ""
 "Get the names and default values of a Python function's parameters.  A :term:"
 "`named tuple` is returned:"
 msgstr ""
@@ -1026,30 +1059,6 @@ msgid ""
 msgstr ""
 
 msgid "This function was inadvertently marked as deprecated in Python 3.5."
-msgstr ""
-
-msgid ""
-"Format a pretty argument spec from the values returned by :func:"
-"`getfullargspec`."
-msgstr ""
-
-msgid ""
-"The first seven arguments are (``args``, ``varargs``, ``varkw``, "
-"``defaults``, ``kwonlyargs``, ``kwonlydefaults``, ``annotations``)."
-msgstr ""
-
-msgid ""
-"The other six arguments are functions that are called to turn argument "
-"names, ``*`` argument name, ``**`` argument name, default values, return "
-"annotation and individual annotations into strings, respectively."
-msgstr ""
-
-msgid "For example:"
-msgstr ""
-
-msgid ""
-"Use :func:`signature` and :ref:`Signature Object <inspect-signature-"
-"object>`, which provide a better introspecting API for callables."
 msgstr ""
 
 msgid ""
@@ -1112,19 +1121,172 @@ msgstr ""
 msgid ":exc:`ValueError` is raised if a cycle is encountered."
 msgstr ""
 
+msgid "Compute the annotations dict for an object."
+msgstr ""
+
+msgid ""
+"``obj`` may be a callable, class, or module. Passing in an object of any "
+"other type raises :exc:`TypeError`."
+msgstr ""
+
+msgid ""
+"Returns a dict.  ``get_annotations()`` returns a new dict every time it's "
+"called; calling it twice on the same object will return two different but "
+"equivalent dicts."
+msgstr ""
+
+msgid "This function handles several details for you:"
+msgstr ""
+
+msgid ""
+"If ``eval_str`` is true, values of type ``str`` will be un-stringized using :"
+"func:`eval()`.  This is intended for use with stringized annotations (``from "
+"__future__ import annotations``)."
+msgstr ""
+
+msgid ""
+"If ``obj`` doesn't have an annotations dict, returns an empty dict.  "
+"(Functions and methods always have an annotations dict; classes, modules, "
+"and other types of callables may not.)"
+msgstr ""
+
+msgid ""
+"Ignores inherited annotations on classes.  If a class doesn't have its own "
+"annotations dict, returns an empty dict."
+msgstr ""
+
+msgid ""
+"All accesses to object members and dict values are done using ``getattr()`` "
+"and ``dict.get()`` for safety."
+msgstr ""
+
+msgid "Always, always, always returns a freshly created dict."
+msgstr ""
+
+msgid ""
+"``eval_str`` controls whether or not values of type ``str`` are replaced "
+"with the result of calling :func:`eval()` on those values:"
+msgstr ""
+
+msgid ""
+"If eval_str is true, :func:`eval()` is called on values of type ``str``. "
+"(Note that ``get_annotations`` doesn't catch exceptions; if :func:`eval()` "
+"raises an exception, it will unwind the stack past the ``get_annotations`` "
+"call.)"
+msgstr ""
+
+msgid ""
+"If eval_str is false (the default), values of type ``str`` are unchanged."
+msgstr ""
+
+msgid ""
+"``globals`` and ``locals`` are passed in to :func:`eval()`; see the "
+"documentation for :func:`eval()` for more information.  If ``globals`` or "
+"``locals`` is ``None``, this function may replace that value with a context-"
+"specific default, contingent on ``type(obj)``:"
+msgstr ""
+
+msgid "If ``obj`` is a module, ``globals`` defaults to ``obj.__dict__``."
+msgstr ""
+
+msgid ""
+"If ``obj`` is a class, ``globals`` defaults to ``sys.modules[obj.__module__]."
+"__dict__`` and ``locals`` defaults to the ``obj`` class namespace."
+msgstr ""
+
+msgid ""
+"If ``obj`` is a callable, ``globals`` defaults to ``obj.__globals__``, "
+"although if ``obj`` is a wrapped function (using ``functools."
+"update_wrapper()``) it is first unwrapped."
+msgstr ""
+
+msgid ""
+"Calling ``get_annotations`` is best practice for accessing the annotations "
+"dict of any object.  See :ref:`annotations-howto` for more information on "
+"annotations best practices."
+msgstr ""
+
 msgid "The interpreter stack"
 msgstr ""
 
 msgid ""
-"When the following functions return \"frame records,\" each record is a :"
-"term:`named tuple` ``FrameInfo(frame, filename, lineno, function, "
-"code_context, index)``. The tuple contains the frame object, the filename, "
-"the line number of the current line, the function name, a list of lines of "
-"context from the source code, and the index of the current line within that "
+"Some of the following functions return :class:`FrameInfo` objects. For "
+"backwards compatibility these objects allow tuple-like operations on all "
+"attributes except ``positions``. This behavior is considered deprecated and "
+"may be removed in the future."
+msgstr ""
+
+msgid "The :ref:`frame object <frame-objects>` that the record corresponds to."
+msgstr ""
+
+msgid ""
+"The file name associated with the code being executed by the frame this "
+"record corresponds to."
+msgstr ""
+
+msgid ""
+"The line number of the current line associated with the code being executed "
+"by the frame this record corresponds to."
+msgstr ""
+
+msgid ""
+"The function name that is being executed by the frame this record "
+"corresponds to."
+msgstr ""
+
+msgid ""
+"A list of lines of context from the source code that's being executed by the "
+"frame this record corresponds to."
+msgstr ""
+
+msgid ""
+"The index of the current line being executed in the :attr:`code_context` "
 "list."
 msgstr ""
 
-msgid "Return a named tuple instead of a tuple."
+msgid ""
+"A :class:`dis.Positions` object containing the start line number, end line "
+"number, start column offset, and end column offset associated with the "
+"instruction being executed by the frame this record corresponds to."
+msgstr ""
+
+msgid "Return a :term:`named tuple` instead of a :class:`tuple`."
+msgstr ""
+
+msgid ""
+":class:`!FrameInfo` is now a class instance (that is backwards compatible "
+"with the previous :term:`named tuple`)."
+msgstr ""
+
+msgid ""
+"The file name associated with the code being executed by the frame this "
+"traceback corresponds to."
+msgstr ""
+
+msgid ""
+"The line number of the current line associated with the code being executed "
+"by the frame this traceback corresponds to."
+msgstr ""
+
+msgid ""
+"The function name that is being executed by the frame this traceback "
+"corresponds to."
+msgstr ""
+
+msgid ""
+"A list of lines of context from the source code that's being executed by the "
+"frame this traceback corresponds to."
+msgstr ""
+
+msgid ""
+"A :class:`dis.Positions` object containing the start line number, end line "
+"number, start column offset, and end column offset associated with the "
+"instruction being executed by the frame this traceback corresponds to."
+msgstr ""
+
+msgid ""
+":class:`!Traceback` is now a class instance (that is backwards compatible "
+"with the previous :term:`named tuple`)."
 msgstr ""
 
 msgid ""
@@ -1158,15 +1320,18 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Get information about a frame or traceback object.  A :term:`named tuple` "
-"``Traceback(filename, lineno, function, code_context, index)`` is returned."
+"Get information about a frame or traceback object.  A :class:`Traceback` "
+"object is returned."
+msgstr ""
+
+msgid "A :class:`Traceback` object is returned instead of a named tuple."
 msgstr ""
 
 msgid ""
-"Get a list of frame records for a frame and all outer frames.  These frames "
-"represent the calls that lead to the creation of *frame*. The first entry in "
-"the returned list represents *frame*; the last entry represents the "
-"outermost call on *frame*'s stack."
+"Get a list of :class:`FrameInfo` objects for a frame and all outer frames. "
+"These frames represent the calls that lead to the creation of *frame*. The "
+"first entry in the returned list represents *frame*; the last entry "
+"represents the outermost call on *frame*'s stack."
 msgstr ""
 
 msgid ""
@@ -1174,11 +1339,14 @@ msgid ""
 "lineno, function, code_context, index)`` is returned."
 msgstr ""
 
+msgid "A list of :class:`FrameInfo` objects is returned."
+msgstr ""
+
 msgid ""
-"Get a list of frame records for a traceback's frame and all inner frames.  "
-"These frames represent calls made as a consequence of *frame*.  The first "
-"entry in the list represents *traceback*; the last entry represents where "
-"the exception was raised."
+"Get a list of :class:`FrameInfo` objects for a traceback's frame and all "
+"inner frames.  These frames represent calls made as a consequence of "
+"*frame*. The first entry in the list represents *traceback*; the last entry "
+"represents where the exception was raised."
 msgstr ""
 
 msgid "Return the frame object for the caller's stack frame."
@@ -1192,16 +1360,16 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return a list of frame records for the caller's stack.  The first entry in "
-"the returned list represents the caller; the last entry represents the "
-"outermost call on the stack."
+"Return a list of :class:`FrameInfo` objects for the caller's stack.  The "
+"first entry in the returned list represents the caller; the last entry "
+"represents the outermost call on the stack."
 msgstr ""
 
 msgid ""
-"Return a list of frame records for the stack between the current frame and "
-"the frame in which an exception currently being handled was raised in.  The "
-"first entry in the list represents the caller; the last entry represents "
-"where the exception was raised."
+"Return a list of :class:`FrameInfo` objects for the stack between the "
+"current frame and the frame in which an exception currently being handled "
+"was raised in.  The first entry in the list represents the caller; the last "
+"entry represents where the exception was raised."
 msgstr ""
 
 msgid "Fetching attributes statically"
@@ -1358,9 +1526,6 @@ msgid ""
 "generator object is returned when the code object is executed."
 msgstr ""
 
-msgid "The flag is set if there are no free or cell variables."
-msgstr ""
-
 msgid ""
 "The flag is set when the code object is a coroutine function. When the code "
 "object is executed it returns a coroutine object. See :pep:`492` for more "
@@ -1387,7 +1552,7 @@ msgid ""
 msgstr ""
 
 msgid "Command Line Interface"
-msgstr ""
+msgstr "Interfejs linii komend"
 
 msgid ""
 "The :mod:`inspect` module also provides a basic introspection capability "
