@@ -185,7 +185,7 @@ def recreate_readme():
 
     resources = _get_resource_language_stats()
     filtered = list(filter(language_switcher, resources))
-    average_list = [e.translated_strings / e.total_strings for e in filtered]
+    average_list = [e.translated_words / e.total_words for e in filtered]
     weights_list = [e.total_words for e in filtered]
 
     language_switcher_status = average(average_list, weights=weights_list) * 100
