@@ -37,7 +37,7 @@ jobs:
       - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
       - run: >
-          git diff --ignore-matching-lines='^"POT-Creation-Date: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV
+          ! git diff --ignore-matching-lines='^"POT-Creation-Date: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || return 0
       - run: git add .
       - run: git commit -m 'Update translation from Transifex' || true
         if: env.SIGNIFICANT_CHANGES
