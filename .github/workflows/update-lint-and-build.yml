@@ -52,6 +52,9 @@ jobs:
           event-type: translation-updated
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [3.8, 3.9, '3.10', 3.11]
     needs: ['update-translation']
     continue-on-error: true
     steps:
@@ -60,6 +63,8 @@ jobs:
           python-version: 3
       - run: pip install sphinx-lint
       - uses: actions/checkout@master
+        with:
+          ref: ${{ matrix.version }}
       - run: sphinx-lint
   build-translation:
     runs-on: ubuntu-latest
