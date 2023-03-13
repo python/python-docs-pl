@@ -120,7 +120,7 @@ class ResourceLanguageStatistics:
         )
 
 
-def _get_from_api_v3_with_cursor(url: str, params: dict):
+def _get_from_api_v3_with_cursor(url: str, params: dict) -> list[dict]:
     from requests import get
 
     resources = []
@@ -146,14 +146,14 @@ def _get_from_api_v3_with_cursor(url: str, params: dict):
     return resources
 
 
-def _get_resources():
+def _get_resources() -> list[Resource]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resources', {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}'}
     )
     return [Resource.from_api_v3_entry(entry) for entry in resources]
 
 
-def _get_resource_language_stats():
+def _get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resource_language_stats',
         {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
@@ -161,29 +161,32 @@ def _get_resource_language_stats():
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
-def _get_number_of_translators():
-    process = run(
-        ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
-        capture_output=True,
-        text=True,
-    )
-    translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
-    unique_translators = Counter(translators).keys()
-    return len(unique_translators)
+LANGUAGE_SWITCHER_RESOURCES_PREFIXES = ('bugs', 'tutorial', 'library--functions')  # is compatible with 3.10?
 
 
 def recreate_readme():
-    def language_switcher(entry):
-        return (
-            entry.name.startswith('bugs')
-            or entry.name.startswith('tutorial')
-            or entry.name.startswith('library--functions')
-        )
+    def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
+        filtered = filter(filter_function, resources)
+        pairs = ((e.translated_words, e.total_words) for e in filtered)
+        translated_total, total_total = (sum(counts) for counts in zip(*pairs))
+        return translated_total / total_total * 100
 
+    def _language_switcher(entry):
+        return any(entry.name.startswith(prefix) for prefix in LANGUAGE_SWITCHER_RESOURCES_PREFIXES)
+
+    def _get_number_of_translators():
+        process = run(
+            ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
+            capture_output=True,
+            text=True,
+        )
+        translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
+        unique_translators = Counter(translators).keys()
+        return len(unique_translators)
 
     resources = _get_resource_language_stats()
-    language_switcher_status = progress_from_resources(resources, language_switcher)
-    total_progress_status = progress_from_resources(resources, lambda _: True)
+    language_switcher_status = _progress_from_resources(resources, _language_switcher)
+    total_progress_status = _progress_from_resources(resources, lambda _: True)
     number_of_translators = _get_number_of_translators()
 
     with open('README.md', 'w') as file:
@@ -248,16 +251,6 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
 '''
         )
-
-
-def progress_from_resources(resources: list, filter_function: Callable):
-    def _average(averages, weights):
-        return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
-
-    filtered = list(filter(filter_function, resources))
-    average_list = [e.translated_words / e.total_words for e in filtered]
-    weights_list = [e.total_words for e in filtered]
-    return _average(average_list, weights=weights_list) * 100
 
 
 if __name__ == "__main__":
