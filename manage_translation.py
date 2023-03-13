@@ -161,7 +161,7 @@ def _get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
-LANGUAGE_SWITCHER_RESOURCES_PREFIXES = ('bugs', 'tutorial', 'library--functions')  # is compatible with 3.10?
+LANGUAGE_SWITCHER_RESOURCES_PREFIXES = ('bugs', 'tutorial', 'library--functions')
 
 
 def recreate_readme():
