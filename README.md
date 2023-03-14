@@ -17,7 +17,7 @@ f'''![{switcher:.2f}% przełącznika języków](https://img.shields.io/badge/prz
 ![48.35% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-48.35%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-3.51%25-0.svg)
 ![19 tłumaczy](https://img.shields.io/badge/tłumaczy-19-0.svg)
-<!-- [[[end]]] -->
+<!-- [[[end]]] (checksum: 053f68317d1e29132c6a9aafe1534f78) -->
 
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
