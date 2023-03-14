@@ -167,7 +167,7 @@ def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter
     return translated_total / total_total * 100
 
 
-def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
+def progress_from_resources(resources, filter_function):
     filtered = filter(filter_function, resources)
     pairs = ((e.translated_words, e.total_words) for e in filtered)
     translated_total, total_total = (sum(counts) for counts in zip(*pairs))
