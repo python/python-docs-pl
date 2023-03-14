@@ -161,31 +161,31 @@ def _get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
-LANGUAGE_SWITCHER_RESOURCES_PREFIXES = ('bugs', 'tutorial', 'library--functions')
+def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
+    filtered = filter(filter_function, resources)
+    pairs = ((e.translated_words, e.total_words) for e in filtered)
+    translated_total, total_total = (sum(counts) for counts in zip(*pairs))
+    return translated_total / total_total * 100
+
+
+def _get_number_of_translators():
+    process = run(
+        ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
+        capture_output=True,
+        text=True,
+    )
+    translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
+    unique_translators = Counter(translators).keys()
+    return len(unique_translators)
 
 
 def recreate_readme():
-    def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
-        filtered = filter(filter_function, resources)
-        pairs = ((e.translated_words, e.total_words) for e in filtered)
-        translated_total, total_total = (sum(counts) for counts in zip(*pairs))
-        return translated_total / total_total * 100
-
-    def _language_switcher(entry):
-        return any(entry.name.startswith(prefix) for prefix in LANGUAGE_SWITCHER_RESOURCES_PREFIXES)
-
-    def _get_number_of_translators():
-        process = run(
-            ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
-            capture_output=True,
-            text=True,
-        )
-        translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
-        unique_translators = Counter(translators).keys()
-        return len(unique_translators)
+    def language_switcher(entry: ResourceLanguageStatistics) -> bool:
+        language_switcher_resources_prefixes = ('bugs', 'tutorial', 'library--functions')
+        return any(entry.name.startswith(prefix) for prefix in language_switcher_resources_prefixes)
 
     resources = _get_resource_language_stats()
-    language_switcher_status = _progress_from_resources(resources, _language_switcher)
+    language_switcher_status = _progress_from_resources(resources, language_switcher)
     total_progress_status = _progress_from_resources(resources, lambda _: True)
     number_of_translators = _get_number_of_translators()
 
