@@ -1,9 +1,23 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
+<!-- [[[cog
+from manage_translation import _get_resource_language_stats, _progress_from_resources, _language_switcher, _get_number_of_translators
+
+stats = _get_resource_language_stats()
+switcher = _progress_from_resources(stats, _language_switcher)
+total = _progress_from_resources(stats, lambda _: True)
+translators = _get_number_of_translators()
+
+print(
+f'''![{switcher:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{switcher:.2f}%25-0.svg)
+![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.2f}%25-0.svg)
+![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
+]]] -->
 ![48.35% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-48.35%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-3.51%25-0.svg)
 ![19 tłumaczy](https://img.shields.io/badge/tłumaczy-19-0.svg)
+<!-- [[[end]]] -->
 
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
