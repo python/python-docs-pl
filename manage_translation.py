@@ -13,7 +13,6 @@
 # * regenerate_tx_config: recreate configuration for all resources.
 
 from argparse import ArgumentParser
-from collections import Counter
 import os
 from dataclasses import dataclass
 from re import match, search
@@ -162,13 +161,9 @@ def _get_resource_language_stats():
 
 
 def _get_number_of_translators():
-    process = run(
-        ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
-        capture_output=True,
-        text=True,
-    )
-    translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
-    unique_translators = Counter(translators).keys()
+    process = run(['grep', '-ohE', r'^# (.+), \d+$', '-r', '.'], capture_output=True, text=True)
+    translators = [match(r'# (.*)( <.*>)?, \d+', t).group(1) for t in process.stdout.splitlines()]
+    unique_translators = set(translators)
     return len(unique_translators)
 
 
