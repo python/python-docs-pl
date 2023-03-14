@@ -2,12 +2,12 @@ Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
 <!-- [[[cog
-from manage_translation import _get_resource_language_stats, _progress_from_resources, _language_switcher, _get_number_of_translators
+from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
 
-stats = _get_resource_language_stats()
-switcher = _progress_from_resources(stats, _language_switcher)
-total = _progress_from_resources(stats, lambda _: True)
-translators = _get_number_of_translators()
+stats = get_resource_language_stats()
+switcher = progress_from_resources(stats, language_switcher)
+total = progress_from_resources(stats, lambda _: True)
+translators = get_number_of_translators()
 
 print(
 f'''![{switcher:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{switcher:.2f}%25-0.svg)

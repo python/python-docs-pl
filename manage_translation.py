@@ -152,7 +152,7 @@ def _get_resources() -> list[Resource]:
     return [Resource.from_api_v3_entry(entry) for entry in resources]
 
 
-def _get_resource_language_stats() -> list[ResourceLanguageStatistics]:
+def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resource_language_stats',
         {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
@@ -167,7 +167,14 @@ def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter
     return translated_total / total_total * 100
 
 
-def _get_number_of_translators():
+def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
+    filtered = filter(filter_function, resources)
+    pairs = ((e.translated_words, e.total_words) for e in filtered)
+    translated_total, total_total = (sum(counts) for counts in zip(*pairs))
+    return translated_total / total_total * 100
+
+
+def get_number_of_translators():
     process = run(
         ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
         capture_output=True,
