@@ -16,11 +16,11 @@ from argparse import ArgumentParser
 from collections import Counter
 import os
 from dataclasses import dataclass
-from re import match, search
+from re import match
 from subprocess import call, run
 import sys
-from typing import Self
-from urllib.parse import unquote
+from typing import Self, Callable
+from urllib.parse import urlparse, parse_qs
 
 LANGUAGE = 'pl'
 
@@ -112,7 +112,7 @@ class ResourceLanguageStatistics:
     @classmethod
     def from_api_v3_entry(cls, data: dict) -> Self:
         return cls(
-            name=search('r:([^:]*)', data['id']).group(1),
+            name=data['id'].removeprefix(f'o:python-doc:p:{PROJECT_SLUG}:r:').removesuffix(f':l:{LANGUAGE}'),
             total_words=data['attributes']['total_words'],
             translated_words=data['attributes']['translated_words'],
             total_strings=data['attributes']['total_strings'],
@@ -120,7 +120,7 @@ class ResourceLanguageStatistics:
         )
 
 
-def _get_from_api_v3_with_cursor(url: str, params: dict):
+def _get_from_api_v3_with_cursor(url: str, params: dict) -> list[dict]:
     from requests import get
 
     resources = []
@@ -129,7 +129,7 @@ def _get_from_api_v3_with_cursor(url: str, params: dict):
         with open('.tx/api-key') as f:
             transifex_api_key = f.read()
     else:
-        transifex_api_key = os.getenv('TX_TOKEN')
+        transifex_api_key = os.getenv('TX_TOKEN', '')
     while True:
         response = get(
             url,
@@ -142,23 +142,30 @@ def _get_from_api_v3_with_cursor(url: str, params: dict):
         resources.extend(response_list)
         if not response_json['links'].get('next'):  # for stats no key, for list resources null
             break
-        cursor = unquote(search('page\[cursor]=([^&]*)', response_json['links']['next']).group(1))
+        cursor, *_ = parse_qs(urlparse(response_json['links']['next']).query)['page[cursor]']
     return resources
 
 
-def _get_resources():
+def _get_resources() -> list[Resource]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resources', {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}'}
     )
     return [Resource.from_api_v3_entry(entry) for entry in resources]
 
 
-def _get_resource_language_stats():
+def _get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resource_language_stats',
         {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
     )
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
+
+
+def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
+    filtered = filter(filter_function, resources)
+    pairs = ((e.translated_words, e.total_words) for e in filtered)
+    translated_total, total_total = (sum(counts) for counts in zip(*pairs))
+    return translated_total / total_total * 100
 
 
 def _get_number_of_translators():
@@ -173,22 +180,13 @@ def _get_number_of_translators():
 
 
 def recreate_readme():
-    def language_switcher(entry):
-        return (
-            entry.name.startswith('bugs')
-            or entry.name.startswith('tutorial')
-            or entry.name.startswith('library--functions')
-        )
-
-    def average(averages, weights):
-        return sum([a * w for a, w in zip(averages, weights)]) / sum(weights)
+    def language_switcher(entry: ResourceLanguageStatistics) -> bool:
+        language_switcher_resources_prefixes = ('bugs', 'tutorial', 'library--functions')
+        return any(entry.name.startswith(prefix) for prefix in language_switcher_resources_prefixes)
 
     resources = _get_resource_language_stats()
-    filtered = list(filter(language_switcher, resources))
-    average_list = [e.translated_words / e.total_words for e in filtered]
-    weights_list = [e.total_words for e in filtered]
-
-    language_switcher_status = average(average_list, weights=weights_list) * 100
+    language_switcher_status = _progress_from_resources(resources, language_switcher)
+    total_progress_status = _progress_from_resources(resources, lambda _: True)
     number_of_translators = _get_number_of_translators()
 
     with open('README.md', 'w') as file:
@@ -198,7 +196,7 @@ Polskie tłumaczenie dokumentacji Pythona
 ========================================
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
 ![{language_switcher_status:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{language_switcher_status:.2f}%25-0.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/dynamic/json.svg?label=całość&query=$.{LANGUAGE}&url=http://gce.zhsj.me/python/newest)
+![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total_progress_status:.2f}%25-0.svg)
 ![{number_of_translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{number_of_translators}-0.svg)
 
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
