@@ -160,14 +160,7 @@ def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
 
 
-def _progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable):
-    filtered = filter(filter_function, resources)
-    pairs = ((e.translated_words, e.total_words) for e in filtered)
-    translated_total, total_total = (sum(counts) for counts in zip(*pairs))
-    return translated_total / total_total * 100
-
-
-def progress_from_resources(resources, filter_function):
+def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable) -> float:
     filtered = filter(filter_function, resources)
     pairs = ((e.translated_words, e.total_words) for e in filtered)
     translated_total, total_total = (sum(counts) for counts in zip(*pairs))
