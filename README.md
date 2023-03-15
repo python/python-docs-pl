@@ -1,7 +1,7 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
-from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators, LANGUAGE
+from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
 
 stats = get_resource_language_stats()
 switcher = progress_from_resources(stats, language_switcher)
