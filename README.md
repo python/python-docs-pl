@@ -17,7 +17,7 @@ f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflow
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
 ![48.54% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-48.54%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-3.51%25-0.svg)
-![19 tłumaczy](https://img.shields.io/badge/tłumaczy-19-0.svg)
+![18 tłumaczy](https://img.shields.io/badge/tłumaczy-18-0.svg)
 <!-- [[[end]]] -->
 
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
