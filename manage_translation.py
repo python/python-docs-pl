@@ -11,15 +11,13 @@
 #          files.
 # * regenerate_tx_config: recreate configuration for all resources.
 
-from argparse import ArgumentParser
 import os
-from collections import Counter
+from argparse import ArgumentParser
 from dataclasses import dataclass
 from pathlib import Path
 from re import match
-from subprocess import call, run
+from subprocess import call
 import sys
-from timeit import timeit
 from typing import Self, Callable
 from urllib.parse import urlparse, parse_qs
 
@@ -190,13 +188,10 @@ def language_switcher(entry: ResourceLanguageStatistics) -> bool:
 
 
 if __name__ == "__main__":
-    # RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config')
-    #
-    # parser = ArgumentParser()
-    # parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
-    # options = parser.parse_args()
-    #
-    # eval(options.cmd)()
-    print(timeit(get_number_of_translators, number=10))
+    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config')
 
-    print(timeit(get_number_of_translators_old, number=10))
+    parser = ArgumentParser()
+    parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
+    options = parser.parse_args()
+
+    eval(options.cmd)()
