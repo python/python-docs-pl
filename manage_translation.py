@@ -12,14 +12,18 @@
 # * regenerate_tx_config: recreate configuration for all resources.
 
 from argparse import ArgumentParser
-from collections import Counter
 import os
+from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from re import match
 from subprocess import call, run
 import sys
+from timeit import timeit
 from typing import Self, Callable
 from urllib.parse import urlparse, parse_qs
+
+from polib import pofile
 
 LANGUAGE = 'pl'
 
@@ -168,14 +172,16 @@ def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_
 
 
 def get_number_of_translators():
-    process = run(
-        ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
-        capture_output=True,
-        text=True,
-    )
-    translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
-    unique_translators = Counter(translators).keys()
-    return len(unique_translators)
+    translators = set()
+    for file in Path().rglob('*.po'):
+        header = pofile(file).header.splitlines()
+        for translator_record in header[header.index('Translators:') + 1:]:
+            translator, _ = translator_record.split(', ')
+            if (email_match := match('.* <(.*)>', translator)):
+                translators.add(email_match.group(1))
+            else:
+                translators.add(translator)
+    return len(translators)
 
 
 def language_switcher(entry: ResourceLanguageStatistics) -> bool:
@@ -184,10 +190,13 @@ def language_switcher(entry: ResourceLanguageStatistics) -> bool:
 
 
 if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config')
+    # RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config')
+    #
+    # parser = ArgumentParser()
+    # parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
+    # options = parser.parse_args()
+    #
+    # eval(options.cmd)()
+    print(timeit(get_number_of_translators, number=10))
 
-    parser = ArgumentParser()
-    parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
-    options = parser.parse_args()
-
-    eval(options.cmd)()
+    print(timeit(get_number_of_translators_old, number=10))
