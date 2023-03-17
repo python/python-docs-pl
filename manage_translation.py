@@ -11,8 +11,8 @@
 #          files.
 # * regenerate_tx_config: recreate configuration for all resources.
 
-import os
 from argparse import ArgumentParser
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from re import match
