@@ -31,7 +31,7 @@ jobs:
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: cog -rP README.md
+      - run: python -Werror -m cogapp -rP README.md
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com

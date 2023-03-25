@@ -22,6 +22,7 @@ from subprocess import call
 import sys
 from typing import Self, Callable
 from urllib.parse import urlparse, parse_qs
+from warnings import warn
 
 from polib import pofile
 
@@ -197,7 +198,7 @@ def _remove_aliases(translators: set[str]) -> None:
 def _check_for_new_aliases(translators) -> None:
     for pair in combinations(translators, 2):
         if (ratio := SequenceMatcher(lambda x: x in '<>@', *pair).ratio()) > 0.64:
-            raise ValueError(
+            warn(
                 f"{pair} are similar ({ratio:.3f}). Please add them to aliases list or bump the limit."
             )
 
