@@ -182,7 +182,7 @@ def get_number_of_translators():
 def _fetch_translators() -> set[str]:
     translators = set()
     for file in Path().rglob('*.po'):
-        header = pofile(os.fsdecode(file)).header.splitlines()
+        header = pofile(file).header.splitlines()
         for translator_record in header[header.index('Translators:') + 1:]:
             translator, _year = translator_record.split(', ')
             translators.add(translator)
