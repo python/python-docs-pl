@@ -12,14 +12,19 @@
 # * regenerate_tx_config: recreate configuration for all resources.
 
 from argparse import ArgumentParser
-from collections import Counter
 import os
 from dataclasses import dataclass
+from difflib import SequenceMatcher
+from itertools import combinations
+from pathlib import Path
 from re import match
-from subprocess import call, run
+from subprocess import call
 import sys
 from typing import Self, Callable
 from urllib.parse import urlparse, parse_qs
+from warnings import warn
+
+from polib import pofile
 
 LANGUAGE = 'pl'
 
@@ -168,14 +173,34 @@ def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_
 
 
 def get_number_of_translators():
-    process = run(
-        ['grep', '-ohP', r'(?<=^# )(.+)(?=, \d+$)', '-r', '.'],
-        capture_output=True,
-        text=True,
-    )
-    translators = [match('(.*)( <.*>)?', t).group(1) for t in process.stdout.splitlines()]
-    unique_translators = Counter(translators).keys()
-    return len(unique_translators)
+    translators = _fetch_translators()
+    _remove_aliases(translators)
+    _check_for_new_aliases(translators)
+    return len(translators)
+
+
+def _fetch_translators() -> set[str]:
+    translators = set()
+    for file in Path().rglob('*.po'):
+        header = pofile(file).header.splitlines()
+        for translator_record in header[header.index('Translators:') + 1:]:
+            translator, _year = translator_record.split(', ')
+            translators.add(translator)
+    return translators
+
+
+def _remove_aliases(translators: set[str]) -> None:
+    for alias, main in (("m_aciek <maciej.olko@gmail.com>", "Maciej Olko <maciej.olko@gmail.com>"),):
+        translators.remove(alias)
+        assert main in translators
+
+
+def _check_for_new_aliases(translators) -> None:
+    for pair in combinations(translators, 2):
+        if (ratio := SequenceMatcher(lambda x: x in '<>@', *pair).ratio()) > 0.64:
+            warn(
+                f"{pair} are similar ({ratio:.3f}). Please add them to aliases list or bump the limit."
+            )
 
 
 def language_switcher(entry: ResourceLanguageStatistics) -> bool:

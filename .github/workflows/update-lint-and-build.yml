@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: 3
       - run: sudo apt-get install -y gettext
-      - run: pip install requests cogapp
+      - run: pip install requests cogapp polib
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
@@ -31,7 +31,7 @@ jobs:
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: cog -rP README.md
+      - run: python -Werror -m cogapp -rP README.md
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
