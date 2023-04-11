@@ -66,7 +66,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 **Aktualizacja tłumaczeń**
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
-* `./manage_translation.py recreate_readme`
+* `cog -rP README.md`
 
 **Potencjalnie przydatne materiały**
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
