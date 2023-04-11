@@ -15,8 +15,8 @@ f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflow
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-and-build.yml/badge.svg)
-![48.54% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-48.54%25-0.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-3.51%25-0.svg)
+![48.63% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-48.63%25-0.svg)
+![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-3.52%25-0.svg)
 ![18 tłumaczy](https://img.shields.io/badge/tłumaczy-18-0.svg)
 <!-- [[[end]]] -->
 
@@ -66,7 +66,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 **Aktualizacja tłumaczeń**
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
-* `./manage_translation.py recreate_readme`
+* `cog -rP README.md`
 
 **Potencjalnie przydatne materiały**
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
