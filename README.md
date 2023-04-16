@@ -24,10 +24,11 @@ Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
 napraw go sam(a):
 
-* Zarejestruj się na platformie [Transifex](https://www.transifex.com/) i wejdź na stronę
-projektu [dokumentacji Pythona](https://www.transifex.com/python-doc/python-newest/).
+* Wejdź na stronę
+projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-newest/).
+* Naciśnij przycisk „Join this project”, aby dołączyć do projektu.
+* Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
-* Naciśnij przycisk „Join this Team”, aby dołączyć do zespołu.
 * Po dołączeniu do zespołu, wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
