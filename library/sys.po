@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2023, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2021
 # Krzysztof Abramowicz, 2022
+# Maciej Olko <maciej.olko@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.10\n"
+"Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-04 14:28+0000\n"
+"POT-Creation-Date: 2023-05-12 14:12+0000\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
-"Last-Translator: Krzysztof Abramowicz, 2022\n"
-"Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,6 +55,17 @@ msgid ""
 "are called first, followed by hooks added in the current (sub)interpreter.  "
 "Hooks can then log the event, raise an exception to abort the operation, or "
 "terminate the process entirely."
+msgstr ""
+
+msgid ""
+"Note that audit hooks are primarily for collecting information about "
+"internal or otherwise unobservable actions, whether by Python or libraries "
+"written in Python. They are not suitable for implementing a \"sandbox\". In "
+"particular, malicious code can trivially disable or bypass hooks added using "
+"this function. At a minimum, any security-sensitive hooks must be added "
+"using the C API :c:func:`PySys_AddAuditHook` before initialising the "
+"runtime, and any modules allowing arbitrary memory modification (such as :"
+"mod:`ctypes`) should be completely removed or closely monitored."
 msgstr ""
 
 msgid ""
@@ -327,6 +338,49 @@ msgid ""
 msgstr ""
 
 msgid ""
+"A :term:`named tuple` holding information about the environment on the "
+"*wasm32-emscripten* platform. The named tuple is provisional and may change "
+"in the future."
+msgstr ""
+
+msgid "Attribute"
+msgstr ""
+
+msgid "Explanation"
+msgstr "Wytłumaczenie"
+
+msgid ":const:`emscripten_version`"
+msgstr ""
+
+msgid ""
+"Emscripten version as tuple of ints (major, minor, micro), e.g. ``(3, 1, "
+"8)``."
+msgstr ""
+
+msgid ":const:`runtime`"
+msgstr ""
+
+msgid ""
+"Runtime string, e.g. browser user agent, ``'Node.js v14.18.2'``, or "
+"``'UNKNOWN'``."
+msgstr ""
+
+msgid ":const:`pthreads`"
+msgstr ""
+
+msgid "``True`` if Python is compiled with Emscripten pthreads support."
+msgstr ""
+
+msgid ":const:`shared_memory`"
+msgstr ""
+
+msgid "``True`` if Python is compiled with shared memory support."
+msgstr ""
+
+msgid ":ref:`Availability <availability>`: Emscripten."
+msgstr ""
+
+msgid ""
 "If this is set (not ``None``), Python will write bytecode-cache ``.pyc`` "
 "files to (and read them from) a parallel directory tree rooted at this "
 "directory, rather than from ``__pycache__`` directories in the source code "
@@ -396,24 +450,35 @@ msgid "__unraisablehook__"
 msgstr ""
 
 msgid ""
-"This function returns a tuple of three values that give information about "
-"the exception that is currently being handled.  The information returned is "
-"specific both to the current thread and to the current stack frame.  If the "
-"current stack frame is not handling an exception, the information is taken "
-"from the calling stack frame, or its caller, and so on until a stack frame "
-"is found that is handling an exception.  Here, \"handling an exception\" is "
-"defined as \"executing an except clause.\"  For any stack frame, only "
-"information about the exception being currently handled is accessible."
+"This function, when called while an exception handler is executing (such as "
+"an ``except`` or ``except*`` clause), returns the exception instance that "
+"was caught by this handler. When exception handlers are nested within one "
+"another, only the exception handled by the innermost handler is accessible."
+msgstr ""
+
+msgid "If no exception handler is executing, this function returns ``None``."
 msgstr ""
 
 msgid ""
-"If no exception is being handled anywhere on the stack, a tuple containing "
-"three ``None`` values is returned.  Otherwise, the values returned are "
-"``(type, value, traceback)``.  Their meaning is: *type* gets the type of the "
-"exception being handled (a subclass of :exc:`BaseException`); *value* gets "
-"the exception instance (an instance of the exception type); *traceback* gets "
-"a :ref:`traceback object <traceback-objects>` which encapsulates the call "
-"stack at the point where the exception originally occurred."
+"This function returns the old-style representation of the handled exception. "
+"If an exception ``e`` is currently handled (so :func:`exception` would "
+"return ``e``), :func:`exc_info` returns the tuple ``(type(e), e, e."
+"__traceback__)``. That is, a tuple containing the type of the exception (a "
+"subclass of :exc:`BaseException`), the exception itself, and a :ref:"
+"`traceback object <traceback-objects>` which typically encapsulates the call "
+"stack at the point where the exception last occurred."
+msgstr ""
+
+msgid ""
+"If no exception is being handled anywhere on the stack, this function return "
+"a tuple containing three ``None`` values."
+msgstr ""
+
+msgid ""
+"The ``type`` and ``traceback`` fields are now derived from the ``value`` "
+"(the exception instance), so when an exception is modified while it is being "
+"handled, the changes are reflected in the results of subsequent calls to :"
+"func:`exc_info`."
 msgstr ""
 
 msgid ""
@@ -573,6 +638,12 @@ msgstr ""
 msgid ":option:`-X utf8 <-X>`"
 msgstr ""
 
+msgid ":const:`safe_path`"
+msgstr ""
+
+msgid ":option:`-P`"
+msgstr ""
+
 msgid ":const:`int_max_str_digits`"
 msgstr ""
 
@@ -599,6 +670,9 @@ msgid ""
 "``utf8`` flag."
 msgstr ""
 
+msgid "Added the ``safe_path`` attribute for :option:`-P` option."
+msgstr ""
+
 msgid "Added the ``int_max_str_digits`` attribute."
 msgstr ""
 
@@ -617,10 +691,10 @@ msgstr ""
 msgid "explanation"
 msgstr ""
 
-msgid ":const:`epsilon`"
+msgid "``epsilon``"
 msgstr ""
 
-msgid "DBL_EPSILON"
+msgid "``DBL_EPSILON``"
 msgstr ""
 
 msgid ""
@@ -631,10 +705,10 @@ msgstr ""
 msgid "See also :func:`math.ulp`."
 msgstr ""
 
-msgid ":const:`dig`"
+msgid "``dig``"
 msgstr ""
 
-msgid "DBL_DIG"
+msgid "``DBL_DIG``"
 msgstr ""
 
 msgid ""
@@ -642,10 +716,10 @@ msgid ""
 "float;  see below"
 msgstr ""
 
-msgid ":const:`mant_dig`"
+msgid "``mant_dig``"
 msgstr ""
 
-msgid "DBL_MANT_DIG"
+msgid "``DBL_MANT_DIG``"
 msgstr ""
 
 msgid ""
@@ -653,19 +727,19 @@ msgid ""
 "float"
 msgstr ""
 
-msgid ":const:`max`"
+msgid "``max``"
 msgstr ""
 
-msgid "DBL_MAX"
+msgid "``DBL_MAX``"
 msgstr ""
 
 msgid "maximum representable positive finite float"
 msgstr ""
 
-msgid ":const:`max_exp`"
+msgid "``max_exp``"
 msgstr ""
 
-msgid "DBL_MAX_EXP"
+msgid "``DBL_MAX_EXP``"
 msgstr ""
 
 msgid ""
@@ -673,10 +747,10 @@ msgid ""
 "float"
 msgstr ""
 
-msgid ":const:`max_10_exp`"
+msgid "``max_10_exp``"
 msgstr ""
 
-msgid "DBL_MAX_10_EXP"
+msgid "``DBL_MAX_10_EXP``"
 msgstr ""
 
 msgid ""
@@ -684,10 +758,10 @@ msgid ""
 "finite floats"
 msgstr ""
 
-msgid ":const:`min`"
+msgid "``min``"
 msgstr ""
 
-msgid "DBL_MIN"
+msgid "``DBL_MIN``"
 msgstr ""
 
 msgid "minimum representable positive *normalized* float"
@@ -698,44 +772,49 @@ msgid ""
 "*denormalized* representable float."
 msgstr ""
 
-msgid ":const:`min_exp`"
+msgid "``min_exp``"
 msgstr ""
 
-msgid "DBL_MIN_EXP"
+msgid "``DBL_MIN_EXP``"
 msgstr ""
 
 msgid "minimum integer *e* such that ``radix**(e-1)`` is a normalized float"
 msgstr ""
 
-msgid ":const:`min_10_exp`"
+msgid "``min_10_exp``"
 msgstr ""
 
-msgid "DBL_MIN_10_EXP"
+msgid "``DBL_MIN_10_EXP``"
 msgstr ""
 
 msgid "minimum integer *e* such that ``10**e`` is a normalized float"
 msgstr ""
 
-msgid ":const:`radix`"
+msgid "``radix``"
 msgstr ""
 
-msgid "FLT_RADIX"
+msgid "``FLT_RADIX``"
 msgstr ""
 
 msgid "radix of exponent representation"
 msgstr ""
 
-msgid ":const:`rounds`"
+msgid "``rounds``"
 msgstr ""
 
-msgid "FLT_ROUNDS"
+msgid "``FLT_ROUNDS``"
 msgstr ""
 
 msgid ""
-"integer constant representing the rounding mode used for arithmetic "
-"operations.  This reflects the value of the system FLT_ROUNDS macro at "
-"interpreter startup time.  See section 5.2.4.2.2 of the C99 standard for an "
-"explanation of the possible values and their meanings."
+"integer representing the rounding mode for floating-point arithmetic. This "
+"reflects the value of the system ``FLT_ROUNDS`` macro at interpreter startup "
+"time: ``-1`` indeterminable, ``0`` toward zero, ``1`` to nearest, ``2`` "
+"toward positive infinity, ``3`` toward negative infinity"
+msgstr ""
+
+msgid ""
+"All other values for ``FLT_ROUNDS`` characterize implementation-defined "
+"rounding behavior."
 msgstr ""
 
 msgid ""
@@ -798,7 +877,7 @@ msgid ""
 "the encoding used with the :term:`filesystem error handler <filesystem "
 "encoding and error handler>` to convert between Unicode filenames and bytes "
 "filenames. The filesystem error handler is returned from :func:"
-"`getfilesystemencoding`."
+"`getfilesystemencodeerrors`."
 msgstr ""
 
 msgid ""
@@ -881,9 +960,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"See `recursive sizeof recipe <https://code.activestate.com/recipes/577504>`_ "
-"for an example of using :func:`getsizeof` recursively to find the size of "
-"containers and all their contents."
+"See `recursive sizeof recipe <https://code.activestate.com/recipes/577504/"
+">`_ for an example of using :func:`getsizeof` recursively to find the size "
+"of containers and all their contents."
 msgstr ""
 
 msgid ""
@@ -900,8 +979,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys._getframe`` with no "
-"arguments."
+"Raises an :ref:`auditing event <auditing>` ``sys._getframe`` with argument "
+"``frame``."
 msgstr ""
 
 msgid ""
@@ -1145,12 +1224,6 @@ msgid ""
 "representation of integers.  The attributes are read only."
 msgstr ""
 
-msgid "Attribute"
-msgstr ""
-
-msgid "Explanation"
-msgstr "Wytłumaczenie"
-
 msgid ":const:`bits_per_digit`"
 msgstr ""
 
@@ -1317,20 +1390,34 @@ msgid ""
 msgstr ""
 
 msgid ""
-"As initialized upon program startup, the first item of this list, "
-"``path[0]``, is the directory containing the script that was used to invoke "
-"the Python interpreter.  If the script directory is not available (e.g.  if "
-"the interpreter is invoked interactively or if the script is read from "
-"standard input), ``path[0]`` is the empty string, which directs Python to "
-"search modules in the current directory first.  Notice that the script "
-"directory is inserted *before* the entries inserted as a result of :envvar:"
-"`PYTHONPATH`."
+"By default, as initialized upon program startup, a potentially unsafe path "
+"is prepended to :data:`sys.path` (*before* the entries inserted as a result "
+"of :envvar:`PYTHONPATH`):"
+msgstr ""
+
+msgid ""
+"``python -m module`` command line: prepend the current working directory."
+msgstr ""
+
+msgid ""
+"``python script.py`` command line: prepend the script's directory. If it's a "
+"symbolic link, resolve symbolic links."
+msgstr ""
+
+msgid ""
+"``python -c code`` and ``python`` (REPL) command lines: prepend an empty "
+"string, which means the current working directory."
+msgstr ""
+
+msgid ""
+"To not prepend this potentially unsafe path, use the :option:`-P` command "
+"line option or the :envvar:`PYTHONSAFEPATH` environment variable."
 msgstr ""
 
 msgid ""
 "A program is free to modify this list for its own purposes.  Only strings "
-"and bytes should be added to :data:`sys.path`; all other data types are "
-"ignored during import."
+"should be added to :data:`sys.path`; all other data types are ignored during "
+"import."
 msgstr ""
 
 msgid ""
@@ -1387,10 +1474,22 @@ msgstr ""
 msgid "``'aix'``"
 msgstr ""
 
+msgid "Emscripten"
+msgstr ""
+
+msgid "``'emscripten'``"
+msgstr ""
+
 msgid "Linux"
 msgstr ""
 
 msgid "``'linux'``"
+msgstr ""
+
+msgid "WASI"
+msgstr ""
+
+msgid "``'wasi'``"
 msgstr ""
 
 msgid "Windows"
@@ -1469,10 +1568,10 @@ msgstr ""
 
 msgid ""
 "A string giving the site-specific directory prefix where the platform "
-"independent Python files are installed; on Unix, the default is ``'/usr/"
-"local'``.  This can be set at build time with the ``--prefix`` argument to "
-"the :program:`configure` script.  See :ref:`installation_paths` for derived "
-"paths."
+"independent Python files are installed; on Unix, the default is :file:`/usr/"
+"local`. This can be set at build time with the :option:`--prefix` argument "
+"to the :program:`configure` script.  See :ref:`installation_paths` for "
+"derived paths."
 msgstr ""
 
 msgid ""
@@ -1920,6 +2019,11 @@ msgstr ""
 msgid "``'pthread'``: POSIX threads"
 msgstr ""
 
+msgid ""
+"``'pthread-stubs'``: stub POSIX threads (on WebAssembly platforms without "
+"threading support)"
+msgstr ""
+
 msgid "``'solaris'``: Solaris threads"
 msgstr ""
 
@@ -2053,9 +2157,9 @@ msgstr ""
 msgid ""
 "The version number used to form registry keys on Windows platforms. This is "
 "stored as string resource 1000 in the Python DLL.  The value is normally the "
-"first three characters of :const:`version`.  It is provided in the :mod:"
-"`sys` module for informational purposes; modifying this value has no effect "
-"on the registry keys used by Python."
+"major and minor versions of the running Python interpreter.  It is provided "
+"in the :mod:`sys` module for informational purposes; modifying this value "
+"has no effect on the registry keys used by Python."
 msgstr ""
 
 msgid ""
@@ -2077,4 +2181,49 @@ msgid ""
 "ISO/IEC 9899:1999.  \"Programming languages -- C.\"  A public draft of this "
 "standard is available at https://www.open-std.org/jtc1/sc22/wg14/www/docs/"
 "n1256.pdf\\ ."
+msgstr ""
+
+msgid "auditing"
+msgstr ""
+
+msgid "object"
+msgstr ""
+
+msgid "traceback"
+msgstr ""
+
+msgid "profile function"
+msgstr ""
+
+msgid "profiler"
+msgstr ""
+
+msgid "trace function"
+msgstr ""
+
+msgid "debugger"
+msgstr ""
+
+msgid "module"
+msgstr "moduł"
+
+msgid "search"
+msgstr "wyszukiwanie"
+
+msgid "path"
+msgstr "ścieżka"
+
+msgid "interpreter prompts"
+msgstr ""
+
+msgid "prompts, interpreter"
+msgstr ""
+
+msgid ">>>"
+msgstr ""
+
+msgid "interpreter prompt"
+msgstr ""
+
+msgid "..."
 msgstr ""
