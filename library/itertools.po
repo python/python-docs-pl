@@ -1,0 +1,696 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2023, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Maciej Olko <maciej.olko@gmail.com>, 2021
+# Transifex Bot <>, 2023
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"PO-Revision-Date: 2021-06-28 01:08+0000\n"
+"Last-Translator: Transifex Bot <>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid ":mod:`itertools` --- Functions creating iterators for efficient looping"
+msgstr ""
+
+msgid ""
+"This module implements a number of :term:`iterator` building blocks inspired "
+"by constructs from APL, Haskell, and SML.  Each has been recast in a form "
+"suitable for Python."
+msgstr ""
+
+msgid ""
+"The module standardizes a core set of fast, memory efficient tools that are "
+"useful by themselves or in combination.  Together, they form an \"iterator "
+"algebra\" making it possible to construct specialized tools succinctly and "
+"efficiently in pure Python."
+msgstr ""
+
+msgid ""
+"For instance, SML provides a tabulation tool: ``tabulate(f)`` which produces "
+"a sequence ``f(0), f(1), ...``.  The same effect can be achieved in Python "
+"by combining :func:`map` and :func:`count` to form ``map(f, count())``."
+msgstr ""
+
+msgid ""
+"These tools and their built-in counterparts also work well with the high-"
+"speed functions in the :mod:`operator` module.  For example, the "
+"multiplication operator can be mapped across two vectors to form an "
+"efficient dot-product: ``sum(starmap(operator.mul, zip(vec1, vec2, "
+"strict=True)))``."
+msgstr ""
+
+msgid "**Infinite iterators:**"
+msgstr ""
+
+msgid "Iterator"
+msgstr ""
+
+msgid "Arguments"
+msgstr ""
+
+msgid "Results"
+msgstr ""
+
+msgid "Example"
+msgstr ""
+
+msgid ":func:`count`"
+msgstr ""
+
+msgid "start, [step]"
+msgstr ""
+
+msgid "start, start+step, start+2*step, ..."
+msgstr ""
+
+msgid "``count(10) --> 10 11 12 13 14 ...``"
+msgstr ""
+
+msgid ":func:`cycle`"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "p0, p1, ... plast, p0, p1, ..."
+msgstr ""
+
+msgid "``cycle('ABCD') --> A B C D A B C D ...``"
+msgstr ""
+
+msgid ":func:`repeat`"
+msgstr ""
+
+msgid "elem [,n]"
+msgstr ""
+
+msgid "elem, elem, elem, ... endlessly or up to n times"
+msgstr ""
+
+msgid "``repeat(10, 3) --> 10 10 10``"
+msgstr ""
+
+msgid "**Iterators terminating on the shortest input sequence:**"
+msgstr ""
+
+msgid ":func:`accumulate`"
+msgstr ""
+
+msgid "p [,func]"
+msgstr ""
+
+msgid "p0, p0+p1, p0+p1+p2, ..."
+msgstr ""
+
+msgid "``accumulate([1,2,3,4,5]) --> 1 3 6 10 15``"
+msgstr ""
+
+msgid ":func:`chain`"
+msgstr ""
+
+msgid "p, q, ..."
+msgstr ""
+
+msgid "p0, p1, ... plast, q0, q1, ..."
+msgstr ""
+
+msgid "``chain('ABC', 'DEF') --> A B C D E F``"
+msgstr ""
+
+msgid ":func:`chain.from_iterable`"
+msgstr ""
+
+msgid "iterable"
+msgstr ""
+
+msgid "``chain.from_iterable(['ABC', 'DEF']) --> A B C D E F``"
+msgstr ""
+
+msgid ":func:`compress`"
+msgstr ""
+
+msgid "data, selectors"
+msgstr ""
+
+msgid "(d[0] if s[0]), (d[1] if s[1]), ..."
+msgstr ""
+
+msgid "``compress('ABCDEF', [1,0,1,0,1,1]) --> A C E F``"
+msgstr ""
+
+msgid ":func:`dropwhile`"
+msgstr ""
+
+msgid "pred, seq"
+msgstr ""
+
+msgid "seq[n], seq[n+1], starting when pred fails"
+msgstr ""
+
+msgid "``dropwhile(lambda x: x<5, [1,4,6,4,1]) --> 6 4 1``"
+msgstr ""
+
+msgid ":func:`filterfalse`"
+msgstr ""
+
+msgid "elements of seq where pred(elem) is false"
+msgstr ""
+
+msgid "``filterfalse(lambda x: x%2, range(10)) --> 0 2 4 6 8``"
+msgstr ""
+
+msgid ":func:`groupby`"
+msgstr ""
+
+msgid "iterable[, key]"
+msgstr ""
+
+msgid "sub-iterators grouped by value of key(v)"
+msgstr ""
+
+msgid ":func:`islice`"
+msgstr ""
+
+msgid "seq, [start,] stop [, step]"
+msgstr ""
+
+msgid "elements from seq[start:stop:step]"
+msgstr ""
+
+msgid "``islice('ABCDEFG', 2, None) --> C D E F G``"
+msgstr ""
+
+msgid ":func:`pairwise`"
+msgstr ""
+
+msgid "(p[0], p[1]), (p[1], p[2])"
+msgstr ""
+
+msgid "``pairwise('ABCDEFG') --> AB BC CD DE EF FG``"
+msgstr ""
+
+msgid ":func:`starmap`"
+msgstr ""
+
+msgid "func, seq"
+msgstr ""
+
+msgid "func(\\*seq[0]), func(\\*seq[1]), ..."
+msgstr ""
+
+msgid "``starmap(pow, [(2,5), (3,2), (10,3)]) --> 32 9 1000``"
+msgstr ""
+
+msgid ":func:`takewhile`"
+msgstr ""
+
+msgid "seq[0], seq[1], until pred fails"
+msgstr ""
+
+msgid "``takewhile(lambda x: x<5, [1,4,6,4,1]) --> 1 4``"
+msgstr ""
+
+msgid ":func:`tee`"
+msgstr ""
+
+msgid "it, n"
+msgstr ""
+
+msgid "it1, it2, ... itn  splits one iterator into n"
+msgstr ""
+
+msgid ":func:`zip_longest`"
+msgstr ""
+
+msgid "(p[0], q[0]), (p[1], q[1]), ..."
+msgstr ""
+
+msgid "``zip_longest('ABCD', 'xy', fillvalue='-') --> Ax By C- D-``"
+msgstr ""
+
+msgid "**Combinatoric iterators:**"
+msgstr ""
+
+msgid ":func:`product`"
+msgstr ""
+
+msgid "p, q, ... [repeat=1]"
+msgstr ""
+
+msgid "cartesian product, equivalent to a nested for-loop"
+msgstr ""
+
+msgid ":func:`permutations`"
+msgstr ""
+
+msgid "p[, r]"
+msgstr ""
+
+msgid "r-length tuples, all possible orderings, no repeated elements"
+msgstr ""
+
+msgid ":func:`combinations`"
+msgstr ""
+
+msgid "p, r"
+msgstr ""
+
+msgid "r-length tuples, in sorted order, no repeated elements"
+msgstr ""
+
+msgid ":func:`combinations_with_replacement`"
+msgstr ""
+
+msgid "r-length tuples, in sorted order, with repeated elements"
+msgstr ""
+
+msgid "Examples"
+msgstr "Przykłady"
+
+msgid "``product('ABCD', repeat=2)``"
+msgstr ""
+
+msgid "``AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD``"
+msgstr ""
+
+msgid "``permutations('ABCD', 2)``"
+msgstr ""
+
+msgid "``AB AC AD BA BC BD CA CB CD DA DB DC``"
+msgstr ""
+
+msgid "``combinations('ABCD', 2)``"
+msgstr ""
+
+msgid "``AB AC AD BC BD CD``"
+msgstr ""
+
+msgid "``combinations_with_replacement('ABCD', 2)``"
+msgstr ""
+
+msgid "``AA AB AC AD BB BC BD CC CD DD``"
+msgstr ""
+
+msgid "Itertool functions"
+msgstr ""
+
+msgid ""
+"The following module functions all construct and return iterators. Some "
+"provide streams of infinite length, so they should only be accessed by "
+"functions or loops that truncate the stream."
+msgstr ""
+
+msgid ""
+"Make an iterator that returns accumulated sums, or accumulated results of "
+"other binary functions (specified via the optional *func* argument)."
+msgstr ""
+
+msgid ""
+"If *func* is supplied, it should be a function of two arguments. Elements of "
+"the input *iterable* may be any type that can be accepted as arguments to "
+"*func*. (For example, with the default operation of addition, elements may "
+"be any addable type including :class:`~decimal.Decimal` or :class:"
+"`~fractions.Fraction`.)"
+msgstr ""
+
+msgid ""
+"Usually, the number of elements output matches the input iterable. However, "
+"if the keyword argument *initial* is provided, the accumulation leads off "
+"with the *initial* value so that the output has one more element than the "
+"input iterable."
+msgstr ""
+
+msgid "Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"There are a number of uses for the *func* argument.  It can be set to :func:"
+"`min` for a running minimum, :func:`max` for a running maximum, or :func:"
+"`operator.mul` for a running product.  Amortization tables can be built by "
+"accumulating interest and applying payments:"
+msgstr ""
+
+msgid ""
+"See :func:`functools.reduce` for a similar function that returns only the "
+"final accumulated value."
+msgstr ""
+
+msgid "Added the optional *func* parameter."
+msgstr ""
+
+msgid "Added the optional *initial* parameter."
+msgstr ""
+
+msgid ""
+"Make an iterator that returns elements from the first iterable until it is "
+"exhausted, then proceeds to the next iterable, until all of the iterables "
+"are exhausted.  Used for treating consecutive sequences as a single "
+"sequence. Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Alternate constructor for :func:`chain`.  Gets chained inputs from a single "
+"iterable argument that is evaluated lazily.  Roughly equivalent to::"
+msgstr ""
+
+msgid "Return *r* length subsequences of elements from the input *iterable*."
+msgstr ""
+
+msgid ""
+"The combination tuples are emitted in lexicographic ordering according to "
+"the order of the input *iterable*. So, if the input *iterable* is sorted, "
+"the output tuples will be produced in sorted order."
+msgstr ""
+
+msgid ""
+"Elements are treated as unique based on their position, not on their value.  "
+"So if the input elements are unique, there will be no repeated values in "
+"each combination."
+msgstr ""
+
+msgid ""
+"The code for :func:`combinations` can be also expressed as a subsequence of :"
+"func:`permutations` after filtering entries where the elements are not in "
+"sorted order (according to their position in the input pool)::"
+msgstr ""
+
+msgid ""
+"The number of items returned is ``n! / r! / (n-r)!`` when ``0 <= r <= n`` or "
+"zero when ``r > n``."
+msgstr ""
+
+msgid ""
+"Return *r* length subsequences of elements from the input *iterable* "
+"allowing individual elements to be repeated more than once."
+msgstr ""
+
+msgid ""
+"Elements are treated as unique based on their position, not on their value.  "
+"So if the input elements are unique, the generated combinations will also be "
+"unique."
+msgstr ""
+
+msgid ""
+"The code for :func:`combinations_with_replacement` can be also expressed as "
+"a subsequence of :func:`product` after filtering entries where the elements "
+"are not in sorted order (according to their position in the input pool)::"
+msgstr ""
+
+msgid ""
+"The number of items returned is ``(n+r-1)! / r! / (n-1)!`` when ``n > 0``."
+msgstr ""
+
+msgid ""
+"Make an iterator that filters elements from *data* returning only those that "
+"have a corresponding element in *selectors* that evaluates to ``True``. "
+"Stops when either the *data* or *selectors* iterables has been exhausted. "
+"Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Make an iterator that returns evenly spaced values starting with number "
+"*start*. Often used as an argument to :func:`map` to generate consecutive "
+"data points. Also, used with :func:`zip` to add sequence numbers.  Roughly "
+"equivalent to::"
+msgstr ""
+
+msgid ""
+"When counting with floating point numbers, better accuracy can sometimes be "
+"achieved by substituting multiplicative code such as: ``(start + step * i "
+"for i in count())``."
+msgstr ""
+
+msgid "Added *step* argument and allowed non-integer arguments."
+msgstr ""
+
+msgid ""
+"Make an iterator returning elements from the iterable and saving a copy of "
+"each. When the iterable is exhausted, return elements from the saved copy.  "
+"Repeats indefinitely.  Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Note, this member of the toolkit may require significant auxiliary storage "
+"(depending on the length of the iterable)."
+msgstr ""
+
+msgid ""
+"Make an iterator that drops elements from the iterable as long as the "
+"predicate is true; afterwards, returns every element.  Note, the iterator "
+"does not produce *any* output until the predicate first becomes false, so it "
+"may have a lengthy start-up time.  Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Make an iterator that filters elements from iterable returning only those "
+"for which the predicate is false. If *predicate* is ``None``, return the "
+"items that are false. Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Make an iterator that returns consecutive keys and groups from the "
+"*iterable*. The *key* is a function computing a key value for each element.  "
+"If not specified or is ``None``, *key* defaults to an identity function and "
+"returns the element unchanged.  Generally, the iterable needs to already be "
+"sorted on the same key function."
+msgstr ""
+
+msgid ""
+"The operation of :func:`groupby` is similar to the ``uniq`` filter in Unix.  "
+"It generates a break or new group every time the value of the key function "
+"changes (which is why it is usually necessary to have sorted the data using "
+"the same key function).  That behavior differs from SQL's GROUP BY which "
+"aggregates common elements regardless of their input order."
+msgstr ""
+
+msgid ""
+"The returned group is itself an iterator that shares the underlying iterable "
+"with :func:`groupby`.  Because the source is shared, when the :func:"
+"`groupby` object is advanced, the previous group is no longer visible.  So, "
+"if that data is needed later, it should be stored as a list::"
+msgstr ""
+
+msgid ":func:`groupby` is roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"Make an iterator that returns selected elements from the iterable. If "
+"*start* is non-zero, then elements from the iterable are skipped until start "
+"is reached. Afterward, elements are returned consecutively unless *step* is "
+"set higher than one which results in items being skipped.  If *stop* is "
+"``None``, then iteration continues until the iterator is exhausted, if at "
+"all; otherwise, it stops at the specified position."
+msgstr ""
+
+msgid ""
+"If *start* is ``None``, then iteration starts at zero. If *step* is "
+"``None``, then the step defaults to one."
+msgstr ""
+
+msgid ""
+"Unlike regular slicing, :func:`islice` does not support negative values for "
+"*start*, *stop*, or *step*.  Can be used to extract related fields from data "
+"where the internal structure has been flattened (for example, a multi-line "
+"report may list a name field on every third line)."
+msgstr ""
+
+msgid "Return successive overlapping pairs taken from the input *iterable*."
+msgstr ""
+
+msgid ""
+"The number of 2-tuples in the output iterator will be one fewer than the "
+"number of inputs.  It will be empty if the input iterable has fewer than two "
+"values."
+msgstr ""
+
+msgid ""
+"Return successive *r* length permutations of elements in the *iterable*."
+msgstr ""
+
+msgid ""
+"If *r* is not specified or is ``None``, then *r* defaults to the length of "
+"the *iterable* and all possible full-length permutations are generated."
+msgstr ""
+
+msgid ""
+"The permutation tuples are emitted in lexicographic order according to the "
+"order of the input *iterable*. So, if the input *iterable* is sorted, the "
+"output tuples will be produced in sorted order."
+msgstr ""
+
+msgid ""
+"Elements are treated as unique based on their position, not on their value.  "
+"So if the input elements are unique, there will be no repeated values within "
+"a permutation."
+msgstr ""
+
+msgid ""
+"The code for :func:`permutations` can be also expressed as a subsequence of :"
+"func:`product`, filtered to exclude entries with repeated elements (those "
+"from the same position in the input pool)::"
+msgstr ""
+
+msgid ""
+"The number of items returned is ``n! / (n-r)!`` when ``0 <= r <= n`` or zero "
+"when ``r > n``."
+msgstr ""
+
+msgid "Cartesian product of input iterables."
+msgstr ""
+
+msgid ""
+"Roughly equivalent to nested for-loops in a generator expression. For "
+"example, ``product(A, B)`` returns the same as ``((x,y) for x in A for y in "
+"B)``."
+msgstr ""
+
+msgid ""
+"The nested loops cycle like an odometer with the rightmost element advancing "
+"on every iteration.  This pattern creates a lexicographic ordering so that "
+"if the input's iterables are sorted, the product tuples are emitted in "
+"sorted order."
+msgstr ""
+
+msgid ""
+"To compute the product of an iterable with itself, specify the number of "
+"repetitions with the optional *repeat* keyword argument.  For example, "
+"``product(A, repeat=4)`` means the same as ``product(A, A, A, A)``."
+msgstr ""
+
+msgid ""
+"This function is roughly equivalent to the following code, except that the "
+"actual implementation does not build up intermediate results in memory::"
+msgstr ""
+
+msgid ""
+"Before :func:`product` runs, it completely consumes the input iterables, "
+"keeping pools of values in memory to generate the products.  Accordingly, it "
+"is only useful with finite inputs."
+msgstr ""
+
+msgid ""
+"Make an iterator that returns *object* over and over again. Runs "
+"indefinitely unless the *times* argument is specified."
+msgstr ""
+
+msgid ""
+"A common use for *repeat* is to supply a stream of constant values to *map* "
+"or *zip*:"
+msgstr ""
+
+msgid ""
+"Make an iterator that computes the function using arguments obtained from "
+"the iterable.  Used instead of :func:`map` when argument parameters are "
+"already grouped in tuples from a single iterable (when the data has been "
+"\"pre-zipped\")."
+msgstr ""
+
+msgid ""
+"The difference between :func:`map` and :func:`starmap` parallels the "
+"distinction between ``function(a,b)`` and ``function(*c)``. Roughly "
+"equivalent to::"
+msgstr ""
+
+msgid ""
+"Make an iterator that returns elements from the iterable as long as the "
+"predicate is true.  Roughly equivalent to::"
+msgstr ""
+
+msgid "Return *n* independent iterators from a single iterable."
+msgstr ""
+
+msgid ""
+"The following Python code helps explain what *tee* does (although the actual "
+"implementation is more complex and uses only a single underlying :abbr:`FIFO "
+"(first-in, first-out)` queue)::"
+msgstr ""
+
+msgid ""
+"Once a :func:`tee` has been created, the original *iterable* should not be "
+"used anywhere else; otherwise, the *iterable* could get advanced without the "
+"tee objects being informed."
+msgstr ""
+
+msgid ""
+"``tee`` iterators are not threadsafe. A :exc:`RuntimeError` may be raised "
+"when using simultaneously iterators returned by the same :func:`tee` call, "
+"even if the original *iterable* is threadsafe."
+msgstr ""
+
+msgid ""
+"This itertool may require significant auxiliary storage (depending on how "
+"much temporary data needs to be stored). In general, if one iterator uses "
+"most or all of the data before another iterator starts, it is faster to use :"
+"func:`list` instead of :func:`tee`."
+msgstr ""
+
+msgid ""
+"Make an iterator that aggregates elements from each of the iterables. If the "
+"iterables are of uneven length, missing values are filled-in with "
+"*fillvalue*. Iteration continues until the longest iterable is exhausted.  "
+"Roughly equivalent to::"
+msgstr ""
+
+msgid ""
+"If one of the iterables is potentially infinite, then the :func:"
+"`zip_longest` function should be wrapped with something that limits the "
+"number of calls (for example :func:`islice` or :func:`takewhile`).  If not "
+"specified, *fillvalue* defaults to ``None``."
+msgstr ""
+
+msgid "Itertools Recipes"
+msgstr ""
+
+msgid ""
+"This section shows recipes for creating an extended toolset using the "
+"existing itertools as building blocks."
+msgstr ""
+
+msgid ""
+"The primary purpose of the itertools recipes is educational.  The recipes "
+"show various ways of thinking about individual tools — for example, that "
+"``chain.from_iterable`` is related to the concept of flattening.  The "
+"recipes also give ideas about ways that the tools can be combined — for "
+"example, how ``compress()`` and ``range()`` can work together.  The recipes "
+"also show patterns for using itertools with the :mod:`operator` and :mod:"
+"`collections` modules as well as with the built-in itertools such as "
+"``map()``, ``filter()``, ``reversed()``, and ``enumerate()``."
+msgstr ""
+
+msgid ""
+"A secondary purpose of the recipes is to serve as an incubator.  The "
+"``accumulate()``, ``compress()``, and ``pairwise()`` itertools started out "
+"as recipes.  Currently, the ``iter_index()`` recipe is being tested to see "
+"whether it proves its worth."
+msgstr ""
+
+msgid ""
+"Substantially all of these recipes and many, many others can be installed "
+"from the `more-itertools project <https://pypi.org/project/more-itertools/"
+">`_ found on the Python Package Index::"
+msgstr ""
+
+msgid ""
+"Many of the recipes offer the same high performance as the underlying "
+"toolset. Superior memory performance is kept by processing elements one at a "
+"time rather than bringing the whole iterable into memory all at once. Code "
+"volume is kept small by linking the tools together in a functional style "
+"which helps eliminate temporary variables.  High speed is retained by "
+"preferring \"vectorized\" building blocks over the use of for-loops and :"
+"term:`generator`\\s which incur interpreter overhead."
+msgstr ""
