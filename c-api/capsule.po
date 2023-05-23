@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2023, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Transifex Bot <>, 2023
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"PO-Revision-Date: 2021-06-28 00:47+0000\n"
+"Last-Translator: Transifex Bot <>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Capsules"
+msgstr ""
+
+msgid ""
+"Refer to :ref:`using-capsules` for more information on using these objects."
+msgstr ""
+
+msgid ""
+"This subtype of :c:type:`PyObject` represents an opaque value, useful for C "
+"extension modules who need to pass an opaque value (as a :c:expr:`void*` "
+"pointer) through Python code to other C code.  It is often used to make a C "
+"function pointer defined in one module available to other modules, so the "
+"regular import mechanism can be used to access C APIs defined in dynamically "
+"loaded modules."
+msgstr ""
+
+msgid "The type of a destructor callback for a capsule.  Defined as::"
+msgstr ""
+
+msgid ""
+"See :c:func:`PyCapsule_New` for the semantics of PyCapsule_Destructor "
+"callbacks."
+msgstr ""
+
+msgid ""
+"Return true if its argument is a :c:type:`PyCapsule`.  This function always "
+"succeeds."
+msgstr ""
+
+msgid ""
+"Create a :c:type:`PyCapsule` encapsulating the *pointer*.  The *pointer* "
+"argument may not be ``NULL``."
+msgstr ""
+
+msgid "On failure, set an exception and return ``NULL``."
+msgstr ""
+
+msgid ""
+"The *name* string may either be ``NULL`` or a pointer to a valid C string.  "
+"If non-``NULL``, this string must outlive the capsule.  (Though it is "
+"permitted to free it inside the *destructor*.)"
+msgstr ""
+
+msgid ""
+"If the *destructor* argument is not ``NULL``, it will be called with the "
+"capsule as its argument when it is destroyed."
+msgstr ""
+
+msgid ""
+"If this capsule will be stored as an attribute of a module, the *name* "
+"should be specified as ``modulename.attributename``.  This will enable other "
+"modules to import the capsule using :c:func:`PyCapsule_Import`."
+msgstr ""
+
+msgid ""
+"Retrieve the *pointer* stored in the capsule.  On failure, set an exception "
+"and return ``NULL``."
+msgstr ""
+
+msgid ""
+"The *name* parameter must compare exactly to the name stored in the capsule. "
+"If the name stored in the capsule is ``NULL``, the *name* passed in must "
+"also be ``NULL``.  Python uses the C function :c:func:`strcmp` to compare "
+"capsule names."
+msgstr ""
+
+msgid ""
+"Return the current destructor stored in the capsule.  On failure, set an "
+"exception and return ``NULL``."
+msgstr ""
+
+msgid ""
+"It is legal for a capsule to have a ``NULL`` destructor.  This makes a "
+"``NULL`` return code somewhat ambiguous; use :c:func:`PyCapsule_IsValid` or :"
+"c:func:`PyErr_Occurred` to disambiguate."
+msgstr ""
+
+msgid ""
+"Return the current context stored in the capsule.  On failure, set an "
+"exception and return ``NULL``."
+msgstr ""
+
+msgid ""
+"It is legal for a capsule to have a ``NULL`` context.  This makes a ``NULL`` "
+"return code somewhat ambiguous; use :c:func:`PyCapsule_IsValid` or :c:func:"
+"`PyErr_Occurred` to disambiguate."
+msgstr ""
+
+msgid ""
+"Return the current name stored in the capsule.  On failure, set an exception "
+"and return ``NULL``."
+msgstr ""
+
+msgid ""
+"It is legal for a capsule to have a ``NULL`` name.  This makes a ``NULL`` "
+"return code somewhat ambiguous; use :c:func:`PyCapsule_IsValid` or :c:func:"
+"`PyErr_Occurred` to disambiguate."
+msgstr ""
+
+msgid ""
+"Import a pointer to a C object from a capsule attribute in a module.  The "
+"*name* parameter should specify the full name to the attribute, as in "
+"``module.attribute``.  The *name* stored in the capsule must match this "
+"string exactly."
+msgstr ""
+
+msgid ""
+"Return the capsule's internal *pointer* on success.  On failure, set an "
+"exception and return ``NULL``."
+msgstr ""
+
+msgid "*no_block* has no effect anymore."
+msgstr ""
+
+msgid ""
+"Determines whether or not *capsule* is a valid capsule.  A valid capsule is "
+"non-``NULL``, passes :c:func:`PyCapsule_CheckExact`, has a non-``NULL`` "
+"pointer stored in it, and its internal name matches the *name* parameter.  "
+"(See :c:func:`PyCapsule_GetPointer` for information on how capsule names are "
+"compared.)"
+msgstr ""
+
+msgid ""
+"In other words, if :c:func:`PyCapsule_IsValid` returns a true value, calls "
+"to any of the accessors (any function starting with :c:func:`PyCapsule_Get`) "
+"are guaranteed to succeed."
+msgstr ""
+
+msgid ""
+"Return a nonzero value if the object is valid and matches the name passed "
+"in. Return ``0`` otherwise.  This function will not fail."
+msgstr ""
+
+msgid "Set the context pointer inside *capsule* to *context*."
+msgstr ""
+
+msgid ""
+"Return ``0`` on success.  Return nonzero and set an exception on failure."
+msgstr ""
+
+msgid "Set the destructor inside *capsule* to *destructor*."
+msgstr ""
+
+msgid ""
+"Set the name inside *capsule* to *name*.  If non-``NULL``, the name must "
+"outlive the capsule.  If the previous *name* stored in the capsule was not "
+"``NULL``, no attempt is made to free it."
+msgstr ""
+
+msgid ""
+"Set the void pointer inside *capsule* to *pointer*.  The pointer may not be "
+"``NULL``."
+msgstr ""
+
+msgid "object"
+msgstr ""
+
+msgid "Capsule"
+msgstr ""

@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2023, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Transifex Bot <>, 2023
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"PO-Revision-Date: 2021-06-28 00:51+0000\n"
+"Last-Translator: Transifex Bot <>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Building C and C++ Extensions"
+msgstr ""
+
+msgid ""
+"A C extension for CPython is a shared library (e.g. a ``.so`` file on Linux, "
+"``.pyd`` on Windows), which exports an *initialization function*."
+msgstr ""
+
+msgid ""
+"To be importable, the shared library must be available on :envvar:"
+"`PYTHONPATH`, and must be named after the module name, with an appropriate "
+"extension. When using distutils, the correct filename is generated "
+"automatically."
+msgstr ""
+
+msgid "The initialization function has the signature:"
+msgstr ""
+
+msgid ""
+"It returns either a fully initialized module, or a :c:type:`PyModuleDef` "
+"instance. See :ref:`initializing-modules` for details."
+msgstr ""
+
+msgid ""
+"For modules with ASCII-only names, the function must be named "
+"``PyInit_<modulename>``, with ``<modulename>`` replaced by the name of the "
+"module. When using :ref:`multi-phase-initialization`, non-ASCII module names "
+"are allowed. In this case, the initialization function name is "
+"``PyInitU_<modulename>``, with ``<modulename>`` encoded using Python's "
+"*punycode* encoding with hyphens replaced by underscores. In Python::"
+msgstr ""
+
+msgid ""
+"It is possible to export multiple modules from a single shared library by "
+"defining multiple initialization functions. However, importing them requires "
+"using symbolic links or a custom importer, because by default only the "
+"function corresponding to the filename is found. See the *\"Multiple modules "
+"in one library\"* section in :pep:`489` for details."
+msgstr ""
+
+msgid "Building C and C++ Extensions with distutils"
+msgstr ""
+
+msgid ""
+"Extension modules can be built using distutils,  which is included in "
+"Python. Since distutils also supports creation of binary packages, users "
+"don't necessarily need a compiler and distutils to install the extension."
+msgstr ""
+
+msgid ""
+"A distutils package contains a driver script, :file:`setup.py`. This is a "
+"plain Python file, which, in the most simple case, could look like this:"
+msgstr ""
+
+msgid "With this :file:`setup.py`, and a file :file:`demo.c`, running ::"
+msgstr ""
+
+msgid ""
+"will compile :file:`demo.c`, and produce an extension module named ``demo`` "
+"in the :file:`build` directory. Depending on the system, the module file "
+"will end up in a subdirectory :file:`build/lib.system`, and may have a name "
+"like :file:`demo.so` or :file:`demo.pyd`."
+msgstr ""
+
+msgid ""
+"In the :file:`setup.py`, all execution is performed by calling the ``setup`` "
+"function. This takes a variable number of keyword arguments, of which the "
+"example above uses only a subset. Specifically, the example specifies meta-"
+"information to build packages, and it specifies the contents of the "
+"package.  Normally, a package will contain additional modules, like Python "
+"source modules, documentation, subpackages, etc. Please refer to the "
+"distutils documentation in :ref:`distutils-index` to learn more about the "
+"features of distutils; this section explains building extension modules only."
+msgstr ""
+
+msgid ""
+"It is common to pre-compute arguments to :func:`setup`, to better structure "
+"the driver script. In the example above, the ``ext_modules`` argument to :"
+"func:`~distutils.core.setup` is a list of extension modules, each of which "
+"is an instance of the :class:`~distutils.extension.Extension`. In the "
+"example, the instance defines an extension named ``demo`` which is build by "
+"compiling a single source file, :file:`demo.c`."
+msgstr ""
+
+msgid ""
+"In many cases, building an extension is more complex, since additional "
+"preprocessor defines and libraries may be needed. This is demonstrated in "
+"the example below."
+msgstr ""
+
+msgid ""
+"In this example, :func:`~distutils.core.setup` is called with additional "
+"meta-information, which is recommended when distribution packages have to be "
+"built. For the extension itself, it specifies preprocessor defines, include "
+"directories, library directories, and libraries. Depending on the compiler, "
+"distutils passes this information in different ways to the compiler. For "
+"example, on Unix, this may result in the compilation commands ::"
+msgstr ""
+
+msgid ""
+"These lines are for demonstration purposes only; distutils users should "
+"trust that distutils gets the invocations right."
+msgstr ""
+
+msgid "Distributing your extension modules"
+msgstr ""
+
+msgid ""
+"When an extension has been successfully built, there are three ways to use "
+"it."
+msgstr ""
+
+msgid ""
+"End-users will typically want to install the module, they do so by running ::"
+msgstr ""
+
+msgid ""
+"Module maintainers should produce source packages; to do so, they run ::"
+msgstr ""
+
+msgid ""
+"In some cases, additional files need to be included in a source "
+"distribution; this is done through a :file:`MANIFEST.in` file; see :ref:"
+"`manifest` for details."
+msgstr ""
+
+msgid ""
+"If the source distribution has been built successfully, maintainers can also "
+"create binary distributions. Depending on the platform, one of the following "
+"commands can be used to do so. ::"
+msgstr ""
