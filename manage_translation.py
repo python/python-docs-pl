@@ -168,6 +168,7 @@ def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> 
 
 def get_number_of_translators():
     translators = set(_fetch_translators())
+    _remove_bot(translators)
     _remove_aliases(translators)
     _check_for_new_aliases(translators)
     return len(translators)
@@ -179,6 +180,10 @@ def _fetch_translators() -> Generator[str, None, None]:
         for translator_record in header[header.index('Translators:') + 1:]:
             translator, _year = translator_record.split(', ')
             yield translator
+
+
+def _remove_bot(translators: set[str]) -> None:
+    translators.remove("Transifex Bot <>")
 
 
 def _remove_aliases(translators: set[str]) -> None:
