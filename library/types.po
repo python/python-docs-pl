@@ -1,0 +1,484 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2023, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Transifex Bot <>, 2023
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"PO-Revision-Date: 2021-06-28 01:16+0000\n"
+"Last-Translator: Transifex Bot <>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid ":mod:`types` --- Dynamic type creation and names for built-in types"
+msgstr ""
+
+msgid "**Source code:** :source:`Lib/types.py`"
+msgstr ""
+
+msgid ""
+"This module defines utility functions to assist in dynamic creation of new "
+"types."
+msgstr ""
+
+msgid ""
+"It also defines names for some object types that are used by the standard "
+"Python interpreter, but not exposed as builtins like :class:`int` or :class:"
+"`str` are."
+msgstr ""
+
+msgid ""
+"Finally, it provides some additional type-related utility classes and "
+"functions that are not fundamental enough to be builtins."
+msgstr ""
+
+msgid "Dynamic Type Creation"
+msgstr ""
+
+msgid "Creates a class object dynamically using the appropriate metaclass."
+msgstr ""
+
+msgid ""
+"The first three arguments are the components that make up a class definition "
+"header: the class name, the base classes (in order), the keyword arguments "
+"(such as ``metaclass``)."
+msgstr ""
+
+msgid ""
+"The *exec_body* argument is a callback that is used to populate the freshly "
+"created class namespace. It should accept the class namespace as its sole "
+"argument and update the namespace directly with the class contents. If no "
+"callback is provided, it has the same effect as passing in ``lambda ns: "
+"None``."
+msgstr ""
+
+msgid "Calculates the appropriate metaclass and creates the class namespace."
+msgstr ""
+
+msgid ""
+"The arguments are the components that make up a class definition header: the "
+"class name, the base classes (in order) and the keyword arguments (such as "
+"``metaclass``)."
+msgstr ""
+
+msgid "The return value is a 3-tuple: ``metaclass, namespace, kwds``"
+msgstr ""
+
+msgid ""
+"*metaclass* is the appropriate metaclass, *namespace* is the prepared class "
+"namespace and *kwds* is an updated copy of the passed in *kwds* argument "
+"with any ``'metaclass'`` entry removed. If no *kwds* argument is passed in, "
+"this will be an empty dict."
+msgstr ""
+
+msgid ""
+"The default value for the ``namespace`` element of the returned tuple has "
+"changed.  Now an insertion-order-preserving mapping is used when the "
+"metaclass does not have a ``__prepare__`` method."
+msgstr ""
+
+msgid ":ref:`metaclasses`"
+msgstr ""
+
+msgid "Full details of the class creation process supported by these functions"
+msgstr ""
+
+msgid ":pep:`3115` - Metaclasses in Python 3000"
+msgstr ""
+
+msgid "Introduced the ``__prepare__`` namespace hook"
+msgstr ""
+
+msgid "Resolve MRO entries dynamically as specified by :pep:`560`."
+msgstr ""
+
+msgid ""
+"This function looks for items in *bases* that are not instances of :class:"
+"`type`, and returns a tuple where each such object that has an :meth:"
+"`~object.__mro_entries__` method is replaced with an unpacked result of "
+"calling this method.  If a *bases* item is an instance of :class:`type`, or "
+"it doesn't have an :meth:`!__mro_entries__` method, then it is included in "
+"the return tuple unchanged."
+msgstr ""
+
+msgid ":pep:`560` - Core support for typing module and generic types"
+msgstr ""
+
+msgid "Standard Interpreter Types"
+msgstr ""
+
+msgid ""
+"This module provides names for many of the types that are required to "
+"implement a Python interpreter. It deliberately avoids including some of the "
+"types that arise only incidentally during processing such as the "
+"``listiterator`` type."
+msgstr ""
+
+msgid ""
+"Typical use of these names is for :func:`isinstance` or :func:`issubclass` "
+"checks."
+msgstr ""
+
+msgid ""
+"If you instantiate any of these types, note that signatures may vary between "
+"Python versions."
+msgstr ""
+
+msgid "Standard names are defined for the following types:"
+msgstr ""
+
+msgid "The type of :data:`None`."
+msgstr ""
+
+msgid ""
+"The type of user-defined functions and functions created by :keyword:"
+"`lambda`  expressions."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``function.__new__`` with "
+"argument ``code``."
+msgstr ""
+
+msgid ""
+"The audit event only occurs for direct instantiation of function objects, "
+"and is not raised for normal compilation."
+msgstr ""
+
+msgid ""
+"The type of :term:`generator`-iterator objects, created by generator "
+"functions."
+msgstr ""
+
+msgid ""
+"The type of :term:`coroutine` objects, created by :keyword:`async def` "
+"functions."
+msgstr ""
+
+msgid ""
+"The type of :term:`asynchronous generator`-iterator objects, created by "
+"asynchronous generator functions."
+msgstr ""
+
+msgid "The type for code objects such as returned by :func:`compile`."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``code.__new__`` with arguments "
+"``code``, ``filename``, ``name``, ``argcount``, ``posonlyargcount``, "
+"``kwonlyargcount``, ``nlocals``, ``stacksize``, ``flags``."
+msgstr ""
+
+msgid ""
+"Note that the audited arguments may not match the names or positions "
+"required by the initializer.  The audit event only occurs for direct "
+"instantiation of code objects, and is not raised for normal compilation."
+msgstr ""
+
+msgid ""
+"Return a copy of the code object with new values for the specified fields."
+msgstr ""
+
+msgid ""
+"The type for cell objects: such objects are used as containers for a "
+"function's free variables."
+msgstr ""
+
+msgid "The type of methods of user-defined class instances."
+msgstr ""
+
+msgid ""
+"The type of built-in functions like :func:`len` or :func:`sys.exit`, and "
+"methods of built-in classes.  (Here, the term \"built-in\" means \"written "
+"in C\".)"
+msgstr ""
+
+msgid ""
+"The type of methods of some built-in data types and base classes such as :"
+"meth:`object.__init__` or :meth:`object.__lt__`."
+msgstr ""
+
+msgid ""
+"The type of *bound* methods of some built-in data types and base classes. "
+"For example it is the type of :code:`object().__str__`."
+msgstr ""
+
+msgid "The type of :data:`NotImplemented`."
+msgstr ""
+
+msgid ""
+"The type of methods of some built-in data types such as :meth:`str.join`."
+msgstr ""
+
+msgid ""
+"The type of *unbound* class methods of some built-in data types such as "
+"``dict.__dict__['fromkeys']``."
+msgstr ""
+
+msgid ""
+"The type of :term:`modules <module>`. The constructor takes the name of the "
+"module to be created and optionally its :term:`docstring`."
+msgstr ""
+
+msgid ""
+"Use :func:`importlib.util.module_from_spec` to create a new module if you "
+"wish to set the various import-controlled attributes."
+msgstr ""
+
+msgid "The :term:`docstring` of the module. Defaults to ``None``."
+msgstr ""
+
+msgid "The :term:`loader` which loaded the module. Defaults to ``None``."
+msgstr ""
+
+msgid ""
+"This attribute is to match :attr:`importlib.machinery.ModuleSpec.loader` as "
+"stored in the :attr:`__spec__` object."
+msgstr ""
+
+msgid ""
+"A future version of Python may stop setting this attribute by default. To "
+"guard against this potential change, preferably read from the :attr:"
+"`__spec__` attribute instead or use ``getattr(module, \"__loader__\", "
+"None)`` if you explicitly need to use this attribute."
+msgstr ""
+
+msgid "Defaults to ``None``. Previously the attribute was optional."
+msgstr ""
+
+msgid ""
+"The name of the module. Expected to match :attr:`importlib.machinery."
+"ModuleSpec.name`."
+msgstr ""
+
+msgid ""
+"Which :term:`package` a module belongs to. If the module is top-level (i.e. "
+"not a part of any specific package) then the attribute should be set to "
+"``''``, else it should be set to the name of the package (which can be :attr:"
+"`__name__` if the module is a package itself). Defaults to ``None``."
+msgstr ""
+
+msgid ""
+"This attribute is to match :attr:`importlib.machinery.ModuleSpec.parent` as "
+"stored in the :attr:`__spec__` object."
+msgstr ""
+
+msgid ""
+"A future version of Python may stop setting this attribute by default. To "
+"guard against this potential change, preferably read from the :attr:"
+"`__spec__` attribute instead or use ``getattr(module, \"__package__\", "
+"None)`` if you explicitly need to use this attribute."
+msgstr ""
+
+msgid ""
+"A record of the module's import-system-related state. Expected to be an "
+"instance of :class:`importlib.machinery.ModuleSpec`."
+msgstr ""
+
+msgid "The type of :data:`Ellipsis`."
+msgstr ""
+
+msgid ""
+"The type of :ref:`parameterized generics <types-genericalias>` such as "
+"``list[int]``."
+msgstr ""
+
+msgid ""
+"``t_origin`` should be a non-parameterized generic class, such as ``list``, "
+"``tuple`` or ``dict``.  ``t_args`` should be a :class:`tuple` (possibly of "
+"length 1) of types which parameterize ``t_origin``::"
+msgstr ""
+
+msgid "This type can now be subclassed."
+msgstr ""
+
+msgid ":ref:`Generic Alias Types<types-genericalias>`"
+msgstr ""
+
+msgid "In-depth documentation on instances of :class:`!types.GenericAlias`"
+msgstr ""
+
+msgid ":pep:`585` - Type Hinting Generics In Standard Collections"
+msgstr ""
+
+msgid "Introducing the :class:`!types.GenericAlias` class"
+msgstr ""
+
+msgid "The type of :ref:`union type expressions<types-union>`."
+msgstr ""
+
+msgid ""
+"The type of traceback objects such as found in ``sys.exception()."
+"__traceback__``."
+msgstr ""
+
+msgid ""
+"See :ref:`the language reference <traceback-objects>` for details of the "
+"available attributes and operations, and guidance on creating tracebacks "
+"dynamically."
+msgstr ""
+
+msgid ""
+"The type of frame objects such as found in ``tb.tb_frame`` if ``tb`` is a "
+"traceback object."
+msgstr ""
+
+msgid ""
+"See :ref:`the language reference <frame-objects>` for details of the "
+"available attributes and operations."
+msgstr ""
+
+msgid ""
+"The type of objects defined in extension modules with ``PyGetSetDef``, such "
+"as ``FrameType.f_locals`` or ``array.array.typecode``.  This type is used as "
+"descriptor for object attributes; it has the same purpose as the :class:"
+"`property` type, but for classes defined in extension modules."
+msgstr ""
+
+msgid ""
+"The type of objects defined in extension modules with ``PyMemberDef``, such "
+"as ``datetime.timedelta.days``.  This type is used as descriptor for simple "
+"C data members which use standard conversion functions; it has the same "
+"purpose as the :class:`property` type, but for classes defined in extension "
+"modules."
+msgstr ""
+
+msgid ""
+"In other implementations of Python, this type may be identical to "
+"``GetSetDescriptorType``."
+msgstr ""
+
+msgid ""
+"Read-only proxy of a mapping. It provides a dynamic view on the mapping's "
+"entries, which means that when the mapping changes, the view reflects these "
+"changes."
+msgstr ""
+
+msgid ""
+"Updated to support the new union (``|``) operator from :pep:`584`, which "
+"simply delegates to the underlying mapping."
+msgstr ""
+
+msgid ""
+"Return ``True`` if the underlying mapping has a key *key*, else ``False``."
+msgstr ""
+
+msgid ""
+"Return the item of the underlying mapping with key *key*.  Raises a :exc:"
+"`KeyError` if *key* is not in the underlying mapping."
+msgstr ""
+
+msgid ""
+"Return an iterator over the keys of the underlying mapping.  This is a "
+"shortcut for ``iter(proxy.keys())``."
+msgstr ""
+
+msgid "Return the number of items in the underlying mapping."
+msgstr ""
+
+msgid "Return a shallow copy of the underlying mapping."
+msgstr ""
+
+msgid ""
+"Return the value for *key* if *key* is in the underlying mapping, else "
+"*default*.  If *default* is not given, it defaults to ``None``, so that this "
+"method never raises a :exc:`KeyError`."
+msgstr ""
+
+msgid ""
+"Return a new view of the underlying mapping's items (``(key, value)`` pairs)."
+msgstr ""
+
+msgid "Return a new view of the underlying mapping's keys."
+msgstr ""
+
+msgid "Return a new view of the underlying mapping's values."
+msgstr ""
+
+msgid "Return a reverse iterator over the keys of the underlying mapping."
+msgstr ""
+
+msgid "Additional Utility Classes and Functions"
+msgstr ""
+
+msgid ""
+"A simple :class:`object` subclass that provides attribute access to its "
+"namespace, as well as a meaningful repr."
+msgstr ""
+
+msgid ""
+"Unlike :class:`object`, with ``SimpleNamespace`` you can add and remove "
+"attributes.  If a ``SimpleNamespace`` object is initialized with keyword "
+"arguments, those are directly added to the underlying namespace."
+msgstr ""
+
+msgid "The type is roughly equivalent to the following code::"
+msgstr ""
+
+msgid ""
+"``SimpleNamespace`` may be useful as a replacement for ``class NS: pass``. "
+"However, for a structured record type use :func:`~collections.namedtuple` "
+"instead."
+msgstr ""
+
+msgid ""
+"Attribute order in the repr changed from alphabetical to insertion (like "
+"``dict``)."
+msgstr ""
+
+msgid "Route attribute access on a class to __getattr__."
+msgstr ""
+
+msgid ""
+"This is a descriptor, used to define attributes that act differently when "
+"accessed through an instance and through a class.  Instance access remains "
+"normal, but access to an attribute through a class will be routed to the "
+"class's __getattr__ method; this is done by raising AttributeError."
+msgstr ""
+
+msgid ""
+"This allows one to have properties active on an instance, and have virtual "
+"attributes on the class with the same name (see :class:`enum.Enum` for an "
+"example)."
+msgstr ""
+
+msgid "Coroutine Utility Functions"
+msgstr ""
+
+msgid ""
+"This function transforms a :term:`generator` function into a :term:"
+"`coroutine function` which returns a generator-based coroutine. The "
+"generator-based coroutine is still a :term:`generator iterator`, but is also "
+"considered to be a :term:`coroutine` object and is :term:`awaitable`.  "
+"However, it may not necessarily implement the :meth:`~object.__await__` "
+"method."
+msgstr ""
+
+msgid "If *gen_func* is a generator function, it will be modified in-place."
+msgstr ""
+
+msgid ""
+"If *gen_func* is not a generator function, it will be wrapped. If it returns "
+"an instance of :class:`collections.abc.Generator`, the instance will be "
+"wrapped in an *awaitable* proxy object.  All other types of objects will be "
+"returned as is."
+msgstr ""
+
+msgid "built-in function"
+msgstr ""
+
+msgid "compile"
+msgstr ""
