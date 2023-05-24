@@ -20,7 +20,7 @@ from pathlib import Path
 from re import match
 from subprocess import call
 import sys
-from typing import Self, Callable
+from typing import Self, Generator, Iterable
 from urllib.parse import urlparse, parse_qs
 from warnings import warn
 
@@ -124,10 +124,9 @@ class ResourceLanguageStatistics:
         )
 
 
-def _get_from_api_v3_with_cursor(url: str, params: dict) -> list[dict]:
+def _get_from_api_v3_with_cursor(url: str, params: dict) -> Generator[dict, None, None]:
     from requests import get
 
-    resources = []
     cursor = None
     if os.path.exists('.tx/api-key'):
         with open('.tx/api-key') as f:
@@ -142,51 +141,46 @@ def _get_from_api_v3_with_cursor(url: str, params: dict) -> list[dict]:
         )
         response.raise_for_status()
         response_json = response.json()
-        response_list = response_json['data']
-        resources.extend(response_list)
+        yield from response_json['data']
         if not response_json['links'].get('next'):  # for stats no key, for list resources null
             break
         cursor, *_ = parse_qs(urlparse(response_json['links']['next']).query)['page[cursor]']
-    return resources
 
 
-def _get_resources() -> list[Resource]:
+def _get_resources() -> Generator[Resource, None, None]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resources', {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}'}
     )
-    return [Resource.from_api_v3_entry(entry) for entry in resources]
+    yield from (Resource.from_api_v3_entry(entry) for entry in resources)
 
 
-def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
+def get_resource_language_stats() -> Generator[ResourceLanguageStatistics, None, None]:
     resources = _get_from_api_v3_with_cursor(
         'https://rest.api.transifex.com/resource_language_stats',
         {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
     )
-    return [ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources]
+    yield from (ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources)
 
 
-def progress_from_resources(resources: list[ResourceLanguageStatistics], filter_function: Callable) -> float:
-    filtered = filter(filter_function, resources)
-    pairs = ((e.translated_words, e.total_words) for e in filtered)
+def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> float:
+    pairs = ((e.translated_words, e.total_words) for e in resources)
     translated_total, total_total = (sum(counts) for counts in zip(*pairs))
     return translated_total / total_total * 100
 
 
 def get_number_of_translators():
-    translators = _fetch_translators()
+    translators = set(_fetch_translators())
     _remove_aliases(translators)
     _check_for_new_aliases(translators)
     return len(translators)
 
 
-def _fetch_translators() -> set[str]:
-    translators = set()
+def _fetch_translators() -> Generator[str, None, None]:
     for file in Path().rglob('*.po'):
         header = pofile(file).header.splitlines()
         for translator_record in header[header.index('Translators:') + 1:]:
             translator, _year = translator_record.split(', ')
-            translators.add(translator)
-    return translators
+            yield translator
 
 
 def _remove_aliases(translators: set[str]) -> None:
