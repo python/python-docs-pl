@@ -71,27 +71,21 @@ def recreate_tx_config():
             name = RESOURCE_NAME_MAP.get(slug, slug)
             if '--' in slug:
                 directory, file_name = name.split('--')
-                if match(r'\d+_\d+', file_name):
+                if match(r'\d+_\d+', file_name):  # whatsnew
                     file_name = file_name.replace('_', '.')
-                config.writelines(
-                    (
-                        '\n',
-                        f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                        f'file_filter = {directory}/{file_name}.po\n',
-                        'type = PO\n',
-                        'source_lang = en\n',
-                    )
-                )
+                file_filter = f'{directory}/{file_name}.po'
             else:
-                config.writelines(
-                    (
-                        '\n',
-                        f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                        f'file_filter = {name}.po\n',
-                        'type = PO\n',
-                        'source_lang = en\n',
-                    )
+                file_filter = f'{name}.po'
+
+            config.writelines(
+                (
+                    '\n',
+                    f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
+                    f'file_filter = {file_filter}\n',
+                    'type = PO\n',
+                    'source_lang = en\n',
                 )
+            )
 
 
 @dataclass
