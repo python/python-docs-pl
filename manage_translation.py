@@ -69,9 +69,7 @@ def recreate_tx_config():
         for resource in resources:
             slug = resource.slug
             name = RESOURCE_NAME_MAP.get(slug, slug)
-            if slug == '0':
-                continue
-            elif '--' in slug:
+            if '--' in slug:
                 directory, file_name = name.split('--')
                 if match(r'\d+_\d+', file_name):
                     file_name = file_name.replace('_', '.')
