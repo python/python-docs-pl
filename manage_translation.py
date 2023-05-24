@@ -9,7 +9,7 @@
 #
 # * fetch: fetch translations from transifex.com and strip source lines from the
 #          files.
-# * regenerate_tx_config: recreate configuration for all resources.
+# * recreate_tx_config: recreate configuration for all resources.
 
 from argparse import ArgumentParser
 import os
