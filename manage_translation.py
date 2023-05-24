@@ -51,7 +51,7 @@ def fetch():
 
 
 RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
-PROJECT_SLUG = 'python-newest'
+PROJECT_SLUG = 'python-311'
 
 
 def recreate_tx_config():
