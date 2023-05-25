@@ -20,6 +20,7 @@ from pathlib import Path
 from re import match
 from subprocess import call
 import sys
+from textwrap import dedent
 from typing import Self, Generator, Iterable
 from urllib.parse import urlparse, parse_qs
 from warnings import warn
@@ -56,12 +57,7 @@ def recreate_tx_config():
     """
     resources = _get_resources()
     with open('.tx/config', 'w') as config:
-        config.writelines(
-            (
-                '[main]\n',
-                'host = https://www.transifex.com\n',
-            )
-        )
+        config.write('[main]\nhost = https://www.transifex.com\n')
         for resource in resources:
             slug = resource.slug
             name = RESOURCE_NAME_MAP.get(slug, slug)
@@ -73,13 +69,14 @@ def recreate_tx_config():
             else:
                 file_filter = f'{name}.po'
 
-            config.writelines(
-                (
-                    '\n',
-                    f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                    f'file_filter = {file_filter}\n',
-                    'type = PO\n',
-                    'source_lang = en\n',
+            config.write(
+                dedent(
+                    f'''
+                    [o:python-doc:p:{PROJECT_SLUG}:r:{slug}]
+                    file_filter = {file_filter}
+                    type = PO
+                    source_lang = en
+                    '''
                 )
             )
 
