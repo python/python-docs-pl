@@ -42,12 +42,8 @@ def fetch():
     )
     if pull_returncode != 0:
         exit(pull_returncode)
-    for root, _, po_files in os.walk('.'):
-        for po_file in po_files:
-            if not po_file.endswith(".po"):
-                continue
-            po_path = os.path.join(root, po_file)
-            call(f'msgcat --no-location -o {po_path} {po_path}', shell=True)
+    for file in Path().rglob('*.po'):
+        call(f'msgcat --no-location -o {file} {file}', shell=True)
 
 
 RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
