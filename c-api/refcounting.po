@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-05-26 14:12+0000\n"
 "PO-Revision-Date: 2021-06-28 00:50+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2021\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -27,8 +27,24 @@ msgid "Reference Counting"
 msgstr ""
 
 msgid ""
-"The macros in this section are used for managing reference counts of Python "
-"objects."
+"The functions and macros in this section are used for managing reference "
+"counts of Python objects."
+msgstr ""
+
+msgid "Get the reference count of the Python object *o*."
+msgstr ""
+
+msgid ""
+"Use the :c:func:`Py_SET_REFCNT()` function to set an object reference count."
+msgstr ""
+
+msgid "The parameter type is no longer :c:expr:`const PyObject*`."
+msgstr ""
+
+msgid ":c:func:`Py_REFCNT()` is changed to the inline static function."
+msgstr ""
+
+msgid "Set the object *o* reference counter to *refcnt*."
 msgstr ""
 
 msgid "Increment the reference count for object *o*."
@@ -134,6 +150,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"The macro argument is now only evaluated once. If the argument has side "
+"effects, these are no longer duplicated."
+msgstr ""
+
+msgid ""
 "Increment the reference count for object *o*. A function version of :c:func:"
 "`Py_XINCREF`. It can be used for runtime dynamic embedding of Python."
 msgstr ""
@@ -144,7 +165,28 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The following functions or macros are only for use within the interpreter "
-"core: :c:func:`_Py_Dealloc`, :c:func:`_Py_ForgetReference`, :c:func:"
-"`_Py_NewReference`, as well as the global variable :c:data:`_Py_RefTotal`."
+"Macro safely decrementing the `dst` reference count and setting `dst` to "
+"`src`."
+msgstr ""
+
+msgid "As in case of :c:func:`Py_CLEAR`, \"the obvious\" code can be deadly::"
+msgstr ""
+
+msgid "The safe way is::"
+msgstr ""
+
+msgid ""
+"That arranges to set `dst` to `src` _before_ decrementing reference count of "
+"*dst* old value, so that any code triggered as a side-effect of `dst` "
+"getting torn down no longer believes `dst` points to a valid object."
+msgstr ""
+
+msgid ""
+"The macro arguments are now only evaluated once. If an argument has side "
+"effects, these are no longer duplicated."
+msgstr ""
+
+msgid ""
+"Variant of :c:macro:`Py_SETREF` macro that uses :c:func:`Py_XDECREF` instead "
+"of :c:func:`Py_DECREF`."
 msgstr ""

@@ -10,9 +10,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-05-26 14:12+0000\n"
 "PO-Revision-Date: 2021-06-28 01:08+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -489,12 +489,34 @@ msgstr ""
 
 msgid ""
 "Return ``True`` if the object is a :term:`coroutine function` (a function "
-"defined with an :keyword:`async def` syntax)."
+"defined with an :keyword:`async def` syntax), a :func:`functools.partial` "
+"wrapping a :term:`coroutine function`, or a sync function marked with :func:"
+"`markcoroutinefunction`."
 msgstr ""
 
 msgid ""
 "Functions wrapped in :func:`functools.partial` now return ``True`` if the "
 "wrapped function is a :term:`coroutine function`."
+msgstr ""
+
+msgid ""
+"Sync functions marked with :func:`markcoroutinefunction` now return ``True``."
+msgstr ""
+
+msgid ""
+"Decorator to mark a callable as a :term:`coroutine function` if it would not "
+"otherwise be detected by :func:`iscoroutinefunction`."
+msgstr ""
+
+msgid ""
+"This may be of use for sync functions that return a :term:`coroutine`, if "
+"the function is passed to an API that requires :func:`iscoroutinefunction`."
+msgstr ""
+
+msgid ""
+"When possible, using an :keyword:`async def` function is preferred. Also "
+"acceptable is calling the function and testing the return with :func:"
+"`iscoroutine`."
 msgstr ""
 
 msgid ""
@@ -1420,7 +1442,7 @@ msgid ""
 "getset descriptors invoking these may trigger code execution::"
 msgstr ""
 
-msgid "Current State of Generators and Coroutines"
+msgid "Current State of Generators, Coroutines, and Asynchronous Generators"
 msgstr ""
 
 msgid ""
@@ -1469,6 +1491,26 @@ msgid "CORO_CLOSED: Execution has completed."
 msgstr ""
 
 msgid ""
+"Get current state of an asynchronous generator object.  The function is "
+"intended to be used with asynchronous iterator objects created by :keyword:"
+"`async def` functions which use the :keyword:`yield` statement, but will "
+"accept any asynchronous generator-like object that has ``ag_running`` and "
+"``ag_frame`` attributes."
+msgstr ""
+
+msgid "AGEN_CREATED: Waiting to start execution."
+msgstr ""
+
+msgid "AGEN_RUNNING: Currently being executed by the interpreter."
+msgstr ""
+
+msgid "AGEN_SUSPENDED: Currently suspended at a yield expression."
+msgstr ""
+
+msgid "AGEN_CLOSED: Execution has completed."
+msgstr ""
+
+msgid ""
 "The current internal state of the generator can also be queried. This is "
 "mostly useful for testing purposes, to ensure that internal state is being "
 "updated as expected:"
@@ -1497,6 +1539,12 @@ msgstr ""
 msgid ""
 "This function is analogous to :func:`~inspect.getgeneratorlocals`, but works "
 "for coroutine objects created by :keyword:`async def` functions."
+msgstr ""
+
+msgid ""
+"This function is analogous to :func:`~inspect.getgeneratorlocals`, but works "
+"for asynchronous generator objects created by :keyword:`async def` functions "
+"which use the :keyword:`yield` statement."
 msgstr ""
 
 msgid "Code Objects Bit Flags"
@@ -1552,6 +1600,18 @@ msgid ""
 "implementations.  Furthermore, the flags are an implementation detail, and "
 "can be removed or deprecated in future Python releases. It's recommended to "
 "use public APIs from the :mod:`inspect` module for any introspection needs."
+msgstr ""
+
+msgid "Buffer flags"
+msgstr ""
+
+msgid ""
+"This is an :class:`enum.IntFlag` that represents the flags that can be "
+"passed to the :meth:`~object.__buffer__` method of objects implementing the :"
+"ref:`buffer protocol <bufferobjects>`."
+msgstr ""
+
+msgid "The meaning of the flags is explained at :ref:`buffer-request-types`."
 msgstr ""
 
 msgid "Command Line Interface"
