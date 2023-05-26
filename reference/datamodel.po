@@ -7,16 +7,15 @@
 # Tomasz Rodzen <t.rodzen@poczta.fm>, 2021
 # Krzysztof Abramowicz, 2023
 # Maciej Olko <maciej.olko@gmail.com>, 2023
-# Transifex Bot <>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-05-26 14:12+0000\n"
 "PO-Revision-Date: 2021-06-28 01:19+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1023,9 +1022,10 @@ msgid ""
 "bytecode; :attr:`co_filename` is the filename from which the code was "
 "compiled; :attr:`co_firstlineno` is the first line number of the function; :"
 "attr:`co_lnotab` is a string encoding the mapping from bytecode offsets to "
-"line numbers (for details see the source code of the interpreter); :attr:"
-"`co_stacksize` is the required stack size; :attr:`co_flags` is an integer "
-"encoding a number of flags for the interpreter."
+"line numbers (for details see the source code of the interpreter, is "
+"deprecated since 3.12 and may be removed in 3.14); :attr:`co_stacksize` is "
+"the required stack size; :attr:`co_flags` is an integer encoding a number of "
+"flags for the interpreter."
 msgstr ""
 
 msgid ""
@@ -2135,6 +2135,14 @@ msgstr ""
 msgid "Dynamically resolve bases that are not instances of :class:`type`."
 msgstr ""
 
+msgid ":func:`types.get_original_bases`"
+msgstr ""
+
+msgid ""
+"Retrieve a class's \"original bases\" prior to modifications by :meth:"
+"`~object.__mro_entries__`."
+msgstr ""
+
 msgid ":pep:`560`"
 msgstr ""
 
@@ -2811,6 +2819,51 @@ msgstr ""
 msgid "The specification for the Python ``match`` statement."
 msgstr ""
 
+msgid "Emulating buffer types"
+msgstr ""
+
+msgid ""
+"The :ref:`buffer protocol <bufferobjects>` provides a way for Python objects "
+"to expose efficient access to a low-level memory array. This protocol is "
+"implemented by builtin types such as :class:`bytes` and :class:`memoryview`, "
+"and third-party libraries may define additional buffer types."
+msgstr ""
+
+msgid ""
+"While buffer types are usually implemented in C, it is also possible to "
+"implement the protocol in Python."
+msgstr ""
+
+msgid ""
+"Called when a buffer is requested from *self* (for example, by the :class:"
+"`memoryview` constructor). The *flags* argument is an integer representing "
+"the kind of buffer requested, affecting for example whether the returned "
+"buffer is read-only or writable. :class:`inspect.BufferFlags` provides a "
+"convenient way to interpret the flags. The method must return a :class:"
+"`memoryview` object."
+msgstr ""
+
+msgid ""
+"Called when a buffer is no longer needed. The *buffer* argument is a :class:"
+"`memoryview` object that was previously returned by :meth:`~object."
+"__buffer__`. The method must release any resources associated with the "
+"buffer. This method should return ``None``. Buffer objects that do not need "
+"to perform any cleanup are not required to implement this method."
+msgstr ""
+
+msgid ":pep:`688` - Making the buffer protocol accessible in Python"
+msgstr ""
+
+msgid ""
+"Introduces the Python ``__buffer__`` and ``__release_buffer__`` methods."
+msgstr ""
+
+msgid ":class:`collections.abc.Buffer`"
+msgstr ""
+
+msgid "ABC for buffer types."
+msgstr ""
+
 msgid "Special method lookup"
 msgstr ""
 
@@ -2923,6 +2976,11 @@ msgid ""
 "`StopIteration`, or other exception) is the same as when iterating over the :"
 "meth:`~object.__await__` return value, described above.  If the exception is "
 "not caught in the coroutine, it propagates back to the caller."
+msgstr ""
+
+msgid ""
+"The second signature \\(type\\[, value\\[, traceback\\]\\]\\) is deprecated "
+"and may be removed in a future version of Python."
 msgstr ""
 
 msgid ""

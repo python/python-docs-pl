@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-05-26 14:12+0000\n"
 "PO-Revision-Date: 2021-06-28 00:50+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2022\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -42,7 +42,9 @@ msgid ""
 "beginning of the object's representation in memory.  These are represented "
 "by the :c:type:`PyObject` and :c:type:`PyVarObject` types, which are "
 "defined, in turn, by the expansions of some macros also used, whether "
-"directly or indirectly, in the definition of all other Python objects."
+"directly or indirectly, in the definition of all other Python objects.  "
+"Additional macros can be found under :ref:`reference counting "
+"<countingrefs>`."
 msgstr ""
 
 msgid ""
@@ -119,22 +121,6 @@ msgid ""
 msgstr ""
 
 msgid "Set the object *o* type to *type*."
-msgstr ""
-
-msgid "Get the reference count of the Python object *o*."
-msgstr ""
-
-msgid ""
-"Use the :c:func:`Py_SET_REFCNT()` function to set an object reference count."
-msgstr ""
-
-msgid "The parameter type is no longer :c:expr:`const PyObject*`."
-msgstr ""
-
-msgid ":c:func:`Py_REFCNT()` is changed to the inline static function."
-msgstr ""
-
-msgid "Set the object *o* reference counter to *refcnt*."
 msgstr ""
 
 msgid "Get the size of the Python object *o*."
@@ -364,187 +350,74 @@ msgstr ""
 
 msgid ""
 "Structure which describes an attribute of a type which corresponds to a C "
-"struct member.  Its fields are:"
-msgstr ""
-
-msgid "Field"
-msgstr ""
-
-msgid "C Type"
-msgstr "typ języka C"
-
-msgid "Meaning"
-msgstr "Znaczenie"
-
-msgid ":attr:`name`"
-msgstr ""
-
-msgid "const char \\*"
-msgstr ""
-
-msgid "name of the member"
-msgstr ""
-
-msgid ":attr:`!type`"
-msgstr ""
-
-msgid "int"
-msgstr "int"
-
-msgid "the type of the member in the C struct"
-msgstr ""
-
-msgid ":attr:`offset`"
-msgstr ""
-
-msgid "Py_ssize_t"
+"struct member.  Its fields are, in order:"
 msgstr ""
 
 msgid ""
-"the offset in bytes that the member is located on the type's object struct"
+"Name of the member. A NULL value marks the end of a ``PyMemberDef[]`` array."
 msgstr ""
 
-msgid ":attr:`flags`"
-msgstr ""
-
-msgid "flag bits indicating if the field should be read-only or writable"
-msgstr ""
-
-msgid ":attr:`doc`"
+msgid "The string should be static, no copy is made of it."
 msgstr ""
 
 msgid ""
-":attr:`!type` can be one of many ``T_`` macros corresponding to various C "
-"types.  When the member is accessed in Python, it will be converted to the "
-"equivalent Python type."
-msgstr ""
-
-msgid "Macro name"
-msgstr ""
-
-msgid "C type"
-msgstr ""
-
-msgid "T_SHORT"
-msgstr ""
-
-msgid "short"
-msgstr ""
-
-msgid "T_INT"
-msgstr ""
-
-msgid "T_LONG"
-msgstr ""
-
-msgid "long"
-msgstr ""
-
-msgid "T_FLOAT"
-msgstr ""
-
-msgid "float"
-msgstr "typ (float) zmiennoprzecinkowy pojedynczej precyzji"
-
-msgid "T_DOUBLE"
-msgstr ""
-
-msgid "double"
-msgstr "typ (double) zmiennoprzecinkowy podwójnej precyzji"
-
-msgid "T_STRING"
-msgstr ""
-
-msgid "T_OBJECT"
-msgstr ""
-
-msgid "PyObject \\*"
-msgstr ""
-
-msgid "T_OBJECT_EX"
-msgstr ""
-
-msgid "T_CHAR"
-msgstr ""
-
-msgid "char"
-msgstr ""
-
-msgid "T_BYTE"
-msgstr ""
-
-msgid "T_UBYTE"
-msgstr ""
-
-msgid "unsigned char"
-msgstr "nieoznaczony typ znakowy"
-
-msgid "T_UINT"
-msgstr ""
-
-msgid "unsigned int"
-msgstr "nieoznaczony typ int"
-
-msgid "T_USHORT"
-msgstr ""
-
-msgid "unsigned short"
-msgstr "nieoznaczony typ krótki"
-
-msgid "T_ULONG"
-msgstr ""
-
-msgid "unsigned long"
-msgstr "nieoznaczony typ długi"
-
-msgid "T_BOOL"
-msgstr ""
-
-msgid "T_LONGLONG"
-msgstr ""
-
-msgid "long long"
-msgstr ""
-
-msgid "T_ULONGLONG"
-msgstr ""
-
-msgid "unsigned long long"
-msgstr ""
-
-msgid "T_PYSSIZET"
+"The offset in bytes that the member is located on the type’s object struct."
 msgstr ""
 
 msgid ""
-":c:macro:`T_OBJECT` and :c:macro:`T_OBJECT_EX` differ in that :c:macro:"
-"`T_OBJECT` returns ``None`` if the member is ``NULL`` and :c:macro:"
-"`T_OBJECT_EX` raises an :exc:`AttributeError`.  Try to use :c:macro:"
-"`T_OBJECT_EX` over :c:macro:`T_OBJECT` because :c:macro:`T_OBJECT_EX` "
-"handles use of the :keyword:`del` statement on that attribute more correctly "
-"than :c:macro:`T_OBJECT`."
+"The type of the member in the C struct. See :ref:`PyMemberDef-types` for the "
+"possible values."
 msgstr ""
 
 msgid ""
-":attr:`flags` can be ``0`` for write and read access or :c:macro:`READONLY` "
-"for read-only access.  Using :c:macro:`T_STRING` for :attr:`type` implies :c:"
-"macro:`READONLY`.  :c:macro:`T_STRING` data is interpreted as UTF-8. Only :c:"
-"macro:`T_OBJECT` and :c:macro:`T_OBJECT_EX` members can be deleted.  (They "
-"are set to ``NULL``)."
+"Zero or more of the :ref:`PyMemberDef-flags`, combined using bitwise OR."
 msgstr ""
 
 msgid ""
-"Heap allocated types (created using :c:func:`PyType_FromSpec` or similar), "
-"``PyMemberDef`` may contain definitions for the special members "
-"``__dictoffset__``, ``__weaklistoffset__`` and ``__vectorcalloffset__``, "
-"corresponding to :c:member:`~PyTypeObject.tp_dictoffset`, :c:member:"
-"`~PyTypeObject.tp_weaklistoffset` and :c:member:`~PyTypeObject."
+"The docstring, or NULL. The string should be static, no copy is made of it. "
+"Typically, it is defined using :c:macro:`PyDoc_STR`."
+msgstr ""
+
+msgid ""
+"By default (when :c:member:`flags` is ``0``), members allow both read and "
+"write access. Use the :c:macro:`Py_READONLY` flag for read-only access. "
+"Certain types, like :c:macro:`Py_T_STRING`, imply :c:macro:`Py_READONLY`. "
+"Only :c:macro:`Py_T_OBJECT_EX` (and legacy :c:macro:`T_OBJECT`) members can "
+"be deleted."
+msgstr ""
+
+msgid ""
+"For heap-allocated types (created using :c:func:`PyType_FromSpec` or "
+"similar), ``PyMemberDef`` may contain a definition for the special member "
+"``\"__vectorcalloffset__\"``, corresponding to :c:member:`~PyTypeObject."
 "tp_vectorcall_offset` in type objects. These must be defined with "
-"``T_PYSSIZET`` and ``READONLY``, for example::"
+"``Py_T_PYSSIZET`` and ``Py_READONLY``, for example::"
+msgstr ""
+
+msgid "(You may need to ``#include <stddef.h>`` for :c:func:`!offsetof`.)"
+msgstr ""
+
+msgid ""
+"The legacy offsets :c:member:`~PyTypeObject.tp_dictoffset` and :c:member:"
+"`~PyTypeObject.tp_weaklistoffset` can be defined similarly using "
+"``\"__dictoffset__\"`` and ``\"__weaklistoffset__\"`` members, but "
+"extensions are strongly encouraged to use :const:`Py_TPFLAGS_MANAGED_DICT` "
+"and :const:`Py_TPFLAGS_MANAGED_WEAKREF` instead."
+msgstr ""
+
+msgid ""
+"``PyMemberDef`` is always available. Previously, it required including "
+"``\"structmember.h\"``."
 msgstr ""
 
 msgid ""
 "Get an attribute belonging to the object at address *obj_addr*.  The "
 "attribute is described by ``PyMemberDef`` *m*.  Returns ``NULL`` on error."
+msgstr ""
+
+msgid ""
+"``PyMember_GetOne`` is always available. Previously, it required including "
+"``\"structmember.h\"``."
 msgstr ""
 
 msgid ""
@@ -554,50 +427,212 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Structure to define property-like access for a type. See also description of "
-"the :c:member:`PyTypeObject.tp_getset` slot."
+"``PyMember_SetOne`` is always available. Previously, it required including "
+"``\"structmember.h\"``."
 msgstr ""
 
-msgid "name"
+msgid "Member flags"
+msgstr ""
+
+msgid "The following flags can be used with :c:member:`PyMemberDef.flags`:"
+msgstr ""
+
+msgid "Not writable."
+msgstr ""
+
+msgid ""
+"Emit an ``object.__getattr__`` :ref:`audit event <audit-events>` before "
+"reading."
+msgstr ""
+
+msgid ""
+"Indicates that the :c:member:`~PyMemberDef.offset` of this ``PyMemberDef`` "
+"entry indicates an offset from the subclass-specific data, rather than from "
+"``PyObject``."
+msgstr ""
+
+msgid ""
+"Can only be used as part of :c:member:`Py_tp_members <PyTypeObject."
+"tp_members>` :c:type:`slot <PyTypeSlot>` when creating a class using "
+"negative :c:member:`~PyTypeDef.basicsize`. It is mandatory in that case."
+msgstr ""
+
+msgid ""
+"This flag is only used in :c:type:`PyTypeSlot`. When setting :c:member:"
+"`~PyTypeObject.tp_members` during class creation, Python clears it and sets :"
+"c:member:`PyMemberDef.offset` to the offset from the ``PyObject`` struct."
+msgstr ""
+
+msgid ""
+"The :const:`!RESTRICTED`, :const:`!READ_RESTRICTED` and :const:`!"
+"WRITE_RESTRICTED` macros available with ``#include \"structmember.h\"`` are "
+"deprecated. :const:`!READ_RESTRICTED` and :const:`!RESTRICTED` are "
+"equivalent to :const:`Py_AUDIT_READ`; :const:`!WRITE_RESTRICTED` does "
+"nothing."
+msgstr ""
+
+msgid ""
+"The :const:`!READONLY` macro was renamed to :const:`Py_READONLY`. The :const:"
+"`!PY_AUDIT_READ` macro was renamed with the ``Py_`` prefix. The new names "
+"are now always available. Previously, these required ``#include "
+"\"structmember.h\"``. The header is still available and it provides the old "
+"names."
+msgstr ""
+
+msgid "Member types"
+msgstr ""
+
+msgid ""
+":c:member:`PyMemberDef.type` can be one of the following macros "
+"corresponding to various C types. When the member is accessed in Python, it "
+"will be converted to the equivalent Python type. When it is set from Python, "
+"it will be converted back to the C type. If that is not possible, an "
+"exception such as :exc:`TypeError` or :exc:`ValueError` is raised."
+msgstr ""
+
+msgid ""
+"Unless marked (D), attributes defined this way cannot be deleted using e.g. :"
+"keyword:`del` or :py:func:`delattr`."
+msgstr ""
+
+msgid "Macro name"
+msgstr ""
+
+msgid "C type"
+msgstr ""
+
+msgid "Python type"
+msgstr ""
+
+msgid ":c:expr:`char`"
+msgstr ""
+
+msgid ":py:class:`int`"
+msgstr ""
+
+msgid ":c:expr:`short`"
+msgstr ""
+
+msgid ":c:expr:`int`"
+msgstr ""
+
+msgid ":c:expr:`long`"
+msgstr ""
+
+msgid ":c:expr:`long long`"
+msgstr ""
+
+msgid ":c:expr:`unsigned char`"
+msgstr ""
+
+msgid ":c:expr:`unsigned int`"
+msgstr ""
+
+msgid ":c:expr:`unsigned short`"
+msgstr ""
+
+msgid ":c:expr:`unsigned long`"
+msgstr ""
+
+msgid ":c:expr:`unsigned long long`"
+msgstr ""
+
+msgid ":c:expr:`Py_ssize_t`"
+msgstr ""
+
+msgid ":c:expr:`float`"
+msgstr ""
+
+msgid ":py:class:`float`"
+msgstr ""
+
+msgid ":c:expr:`double`"
+msgstr ""
+
+msgid ":c:expr:`char` (written as 0 or 1)"
+msgstr ""
+
+msgid ":py:class:`bool`"
+msgstr ""
+
+msgid ":c:expr:`const char *` (*)"
+msgstr ""
+
+msgid ":py:class:`str` (RO)"
+msgstr ""
+
+msgid ":c:expr:`const char[]` (*)"
+msgstr ""
+
+msgid ":c:expr:`char` (0-127)"
+msgstr ""
+
+msgid ":py:class:`str` (**)"
+msgstr ""
+
+msgid ":c:expr:`PyObject *`"
+msgstr ""
+
+msgid ":py:class:`object` (D)"
+msgstr ""
+
+msgid ""
+"(*): Zero-terminated, UTF8-encoded C string. With :c:macro:`!Py_T_STRING` "
+"the C representation is a pointer; with :c:macro:`!Py_T_STRING_INLINE` the "
+"string is stored directly in the structure."
+msgstr ""
+
+msgid "(**): String of length 1. Only ASCII is accepted."
+msgstr ""
+
+msgid "(RO): Implies :c:macro:`Py_READONLY`."
+msgstr ""
+
+msgid ""
+"(D): Can be deleted, in which case the pointer is set to ``NULL``. Reading a "
+"``NULL`` pointer raises :py:exc:`AttributeError`."
+msgstr ""
+
+msgid ""
+"In previous versions, the macros were only available with ``#include "
+"\"structmember.h\"`` and were named without the ``Py_`` prefix (e.g. as "
+"``T_INT``). The header is still available and contains the old names, along "
+"with the following deprecated types:"
+msgstr ""
+
+msgid ""
+"Like ``Py_T_OBJECT_EX``, but ``NULL`` is converted to ``None``. This results "
+"in surprising behavior in Python: deleting the attribute effectively sets it "
+"to ``None``."
+msgstr ""
+
+msgid "Always ``None``. Must be used with :c:macro:`Py_READONLY`."
+msgstr ""
+
+msgid "Defining Getters and Setters"
+msgstr ""
+
+msgid ""
+"Structure to define property-like access for a type. See also description of "
+"the :c:member:`PyTypeObject.tp_getset` slot."
 msgstr ""
 
 msgid "attribute name"
 msgstr ""
 
-msgid "get"
-msgstr ""
-
-msgid "getter"
-msgstr ""
-
-msgid "C function to get the attribute"
-msgstr ""
-
-msgid "set"
-msgstr ""
-
-msgid "setter"
+msgid "C function to get the attribute."
 msgstr ""
 
 msgid ""
-"optional C function to set or delete the attribute, if omitted the attribute "
-"is readonly"
-msgstr ""
-
-msgid "doc"
+"Optional C function to set or delete the attribute, if omitted the attribute "
+"is readonly."
 msgstr ""
 
 msgid "optional docstring"
 msgstr ""
 
-msgid "closure"
-msgstr ""
-
-msgid "void \\*"
-msgstr ""
-
 msgid ""
-"optional function pointer, providing additional data for getter and setter"
+"Optional function pointer, providing additional data for getter and setter."
 msgstr ""
 
 msgid ""
@@ -627,4 +662,73 @@ msgid "classmethod"
 msgstr ""
 
 msgid "staticmethod"
+msgstr ""
+
+msgid "READ_RESTRICTED"
+msgstr ""
+
+msgid "WRITE_RESTRICTED"
+msgstr ""
+
+msgid "RESTRICTED"
+msgstr ""
+
+msgid "READONLY"
+msgstr ""
+
+msgid "T_BYTE"
+msgstr ""
+
+msgid "T_SHORT"
+msgstr ""
+
+msgid "T_INT"
+msgstr ""
+
+msgid "T_LONG"
+msgstr ""
+
+msgid "T_LONGLONG"
+msgstr ""
+
+msgid "T_UBYTE"
+msgstr ""
+
+msgid "T_USHORT"
+msgstr ""
+
+msgid "T_UINT"
+msgstr ""
+
+msgid "T_ULONG"
+msgstr ""
+
+msgid "T_ULONGULONG"
+msgstr ""
+
+msgid "T_PYSSIZET"
+msgstr ""
+
+msgid "T_FLOAT"
+msgstr ""
+
+msgid "T_DOUBLE"
+msgstr ""
+
+msgid "T_BOOL"
+msgstr ""
+
+msgid "T_CHAR"
+msgstr ""
+
+msgid "T_STRING"
+msgstr ""
+
+msgid "T_STRING_INPLACE"
+msgstr ""
+
+msgid "T_OBJECT_EX"
+msgstr ""
+
+msgid "structmember.h"
 msgstr ""
