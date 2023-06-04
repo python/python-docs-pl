@@ -109,17 +109,17 @@ def _get_tx_token() -> str:
     return transifex_api_key
 
 
-def _get_resources() -> Generator[transifex_api.Resource, None, None]:
+def _get_resources() -> list[transifex_api.Resource]:
     transifex_api.setup(auth=_get_tx_token())
-    yield from transifex_api.Resource.filter(project=f'o:python-doc:p:{PROJECT_SLUG}').all()
+    return transifex_api.Resource.filter(project=f'o:python-doc:p:{PROJECT_SLUG}').all()
 
 
-def get_resource_language_stats() -> Generator[ResourceLanguageStatistics, None, None]:
+def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     transifex_api.setup(auth=_get_tx_token())
     resources = transifex_api.ResourceLanguageStats.filter(
         project=f'o:python-doc:p:{PROJECT_SLUG}', language=f'l:{LANGUAGE}'
     ).all()
-    yield from (ResourceLanguageStatistics.from_api_entry(entry) for entry in resources)
+    return [ResourceLanguageStatistics.from_api_entry(entry) for entry in resources]
 
 
 def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> float:
