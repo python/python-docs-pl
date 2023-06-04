@@ -22,10 +22,10 @@ from subprocess import call
 import sys
 from textwrap import dedent
 from typing import Self, Generator, Iterable
-from urllib.parse import urlparse, parse_qs
 from warnings import warn
 
 from polib import pofile
+from transifex.api import transifex_api
 
 LANGUAGE = 'pl'
 
@@ -82,15 +82,6 @@ def recreate_tx_config():
 
 
 @dataclass
-class Resource:
-    slug: str
-
-    @classmethod
-    def from_api_v3_entry(cls, data: dict) -> Self:
-        return cls(slug=data['attributes']['slug'])
-
-
-@dataclass
 class ResourceLanguageStatistics:
     name: str
     total_words: int
@@ -99,52 +90,36 @@ class ResourceLanguageStatistics:
     translated_strings: int
 
     @classmethod
-    def from_api_v3_entry(cls, data: dict) -> Self:
+    def from_api_entry(cls, data: transifex_api.ResourceLanguageStats) -> Self:
         return cls(
-            name=data['id'].removeprefix(f'o:python-doc:p:{PROJECT_SLUG}:r:').removesuffix(f':l:{LANGUAGE}'),
-            total_words=data['attributes']['total_words'],
-            translated_words=data['attributes']['translated_words'],
-            total_strings=data['attributes']['total_strings'],
-            translated_strings=data['attributes']['translated_strings'],
+            name=data.id.removeprefix(f'o:python-doc:p:{PROJECT_SLUG}:r:').removesuffix(f':l:{LANGUAGE}'),
+            total_words=data.attributes['total_words'],
+            translated_words=data.attributes['translated_words'],
+            total_strings=data.attributes['total_strings'],
+            translated_strings=data.attributes['translated_strings'],
         )
 
 
-def _get_from_api_v3_with_cursor(url: str, params: dict) -> Generator[dict, None, None]:
-    from requests import get
-
-    cursor = None
+def _get_tx_token() -> str:
     if os.path.exists('.tx/api-key'):
         with open('.tx/api-key') as f:
             transifex_api_key = f.read()
     else:
         transifex_api_key = os.getenv('TX_TOKEN', '')
-    while True:
-        response = get(
-            url,
-            params=params | ({'page[cursor]': cursor} if cursor else {}),
-            headers={'Authorization': f'Bearer {transifex_api_key}'}
-        )
-        response.raise_for_status()
-        response_json = response.json()
-        yield from response_json['data']
-        if not response_json['links'].get('next'):  # for stats no key, for list resources null
-            break
-        cursor, *_ = parse_qs(urlparse(response_json['links']['next']).query)['page[cursor]']
+    return transifex_api_key
 
 
-def _get_resources() -> Generator[Resource, None, None]:
-    resources = _get_from_api_v3_with_cursor(
-        'https://rest.api.transifex.com/resources', {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}'}
-    )
-    yield from (Resource.from_api_v3_entry(entry) for entry in resources)
+def _get_resources() -> Generator[transifex_api.Resource, None, None]:
+    transifex_api.setup(auth=_get_tx_token())
+    yield from transifex_api.Resource.filter(project=f'o:python-doc:p:{PROJECT_SLUG}').all()
 
 
 def get_resource_language_stats() -> Generator[ResourceLanguageStatistics, None, None]:
-    resources = _get_from_api_v3_with_cursor(
-        'https://rest.api.transifex.com/resource_language_stats',
-        {'filter[project]': f'o:python-doc:p:{PROJECT_SLUG}', 'filter[language]': f'l:{LANGUAGE}'}
-    )
-    yield from (ResourceLanguageStatistics.from_api_v3_entry(entry) for entry in resources)
+    transifex_api.setup(auth=_get_tx_token())
+    resources = transifex_api.ResourceLanguageStats.filter(
+        project=f'o:python-doc:p:{PROJECT_SLUG}', language=f'l:{LANGUAGE}'
+    ).all()
+    yield from (ResourceLanguageStatistics.from_api_entry(entry) for entry in resources)
 
 
 def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> float:
