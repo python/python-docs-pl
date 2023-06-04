@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2022
-# Transifex Bot <>, 2023
+# Maciej Olko <maciej.olko@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 14:13+0000\n"
+"POT-Creation-Date: 2023-06-04 10:28+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,7 +324,7 @@ msgstr ""
 
 msgid ""
 "*Other_ID_Start* - explicit list of characters in `PropList.txt <https://www."
-"unicode.org/Public/14.0.0/ucd/PropList.txt>`_ to support backwards "
+"unicode.org/Public/15.0.0/ucd/PropList.txt>`_ to support backwards "
 "compatibility"
 msgstr ""
 
@@ -339,7 +338,7 @@ msgstr ""
 
 msgid ""
 "A non-normative HTML file listing all valid identifier characters for "
-"Unicode 14.0.0 can be found at https://www.unicode.org/Public/14.0.0/ucd/"
+"Unicode 15.0.0 can be found at https://www.unicode.org/Public/15.0.0/ucd/"
 "DerivedCoreProperties.txt"
 msgstr ""
 
@@ -357,16 +356,23 @@ msgstr ""
 
 msgid ""
 "Some identifiers are only reserved under specific contexts. These are known "
-"as *soft keywords*.  The identifiers ``match``, ``case`` and ``_`` can "
-"syntactically act as keywords in contexts related to the pattern matching "
-"statement, but this distinction is done at the parser level, not when "
-"tokenizing."
+"as *soft keywords*.  The identifiers ``match``, ``case``, ``type`` and ``_`` "
+"can syntactically act as keywords in certain contexts, but this distinction "
+"is done at the parser level, not when tokenizing."
 msgstr ""
 
 msgid ""
-"As soft keywords, their use with pattern matching is possible while still "
-"preserving compatibility with existing code that uses ``match``, ``case`` "
-"and ``_`` as identifier names."
+"As soft keywords, their use in the grammar is possible while still "
+"preserving compatibility with existing code that uses these names as "
+"identifier names."
+msgstr ""
+
+msgid ""
+"``match``, ``case``, and ``_`` are used in the :keyword:`match` statement. "
+"``type`` is used in the :keyword:`type` statement."
+msgstr ""
+
+msgid "``type`` is now a soft keyword."
 msgstr ""
 
 msgid "Reserved classes of identifiers"
@@ -460,9 +466,12 @@ msgid ""
 "In plain English: Both types of literals can be enclosed in matching single "
 "quotes (``'``) or double quotes (``\"``).  They can also be enclosed in "
 "matching groups of three single or double quotes (these are generally "
-"referred to as *triple-quoted strings*).  The backslash (``\\``) character "
-"is used to escape characters that otherwise have a special meaning, such as "
-"newline, backslash itself, or the quote character."
+"referred to as *triple-quoted strings*). The backslash (``\\``) character is "
+"used to give special meaning to otherwise ordinary characters like ``n``, "
+"which means 'newline' when escaped (``\\n``). It can also be used to escape "
+"characters that otherwise have a special meaning, such as newline, backslash "
+"itself, or the quote character. See :ref:`escape sequences <escape-"
+"sequences>` below for examples."
 msgstr ""
 
 msgid ""
@@ -655,8 +664,13 @@ msgstr ""
 
 msgid ""
 "Octal escapes with value larger than ``0o377`` produce a :exc:"
-"`DeprecationWarning`. In a future Python version they will be a :exc:"
-"`SyntaxWarning` and eventually a :exc:`SyntaxError`."
+"`DeprecationWarning`."
+msgstr ""
+
+msgid ""
+"Octal escapes with value larger than ``0o377`` produce a :exc:"
+"`SyntaxWarning`. In a future Python version they will be eventually a :exc:"
+"`SyntaxError`."
 msgstr ""
 
 msgid "Unlike in Standard C, exactly two hex digits are required."
@@ -688,10 +702,12 @@ msgid ""
 "category of unrecognized escapes for bytes literals."
 msgstr ""
 
+msgid "Unrecognized escape sequences produce a :exc:`DeprecationWarning`."
+msgstr ""
+
 msgid ""
-"Unrecognized escape sequences produce a :exc:`DeprecationWarning`.  In a "
-"future Python version they will be a :exc:`SyntaxWarning` and eventually a :"
-"exc:`SyntaxError`."
+"Unrecognized escape sequences produce a :exc:`SyntaxWarning`. In a future "
+"Python version they will be eventually a :exc:`SyntaxError`."
 msgstr ""
 
 msgid ""
@@ -760,16 +776,24 @@ msgid ""
 "Expressions in formatted string literals are treated like regular Python "
 "expressions surrounded by parentheses, with a few exceptions. An empty "
 "expression is not allowed, and both :keyword:`lambda`  and assignment "
-"expressions ``:=`` must be surrounded by explicit parentheses. Replacement "
-"expressions can contain line breaks (e.g. in triple-quoted strings), but "
-"they cannot contain comments.  Each expression is evaluated in the context "
-"where the formatted string literal appears, in order from left to right."
+"expressions ``:=`` must be surrounded by explicit parentheses. Each "
+"expression is evaluated in the context where the formatted string literal "
+"appears, in order from left to right.  Replacement expressions can contain "
+"newlines in both single-quoted and triple-quoted f-strings and they can "
+"contain comments.  Everything that comes after a ``#`` inside a replacement "
+"field is a comment (even closing braces and quotes). In that case, "
+"replacement fields must be closed in a different line."
 msgstr ""
 
 msgid ""
 "Prior to Python 3.7, an :keyword:`await` expression and comprehensions "
 "containing an :keyword:`async for` clause were illegal in the expressions in "
 "formatted string literals due to a problem with the implementation."
+msgstr ""
+
+msgid ""
+"Prior to Python 3.12, comments were not allowed inside f-string replacement "
+"fields."
 msgstr ""
 
 msgid ""
@@ -816,18 +840,23 @@ msgid "Some examples of formatted string literals::"
 msgstr ""
 
 msgid ""
-"A consequence of sharing the same syntax as regular string literals is that "
-"characters in the replacement fields must not conflict with the quoting used "
-"in the outer formatted string literal::"
+"Reusing the outer f-string quoting type inside a replacement field is "
+"permitted::"
 msgstr ""
 
 msgid ""
-"Backslashes are not allowed in format expressions and will raise an error::"
+"Prior to Python 3.12, reuse of the same quoting type of the outer f-string "
+"inside a replacement field was not possible."
 msgstr ""
 
 msgid ""
-"To include a value in which a backslash escape is required, create a "
-"temporary variable."
+"Backslashes are also allowed in replacement fields and are evaluated the "
+"same way as in any other context::"
+msgstr ""
+
+msgid ""
+"Prior to Python 3.12, backslashes were not permitted inside an f-string "
+"replacement field."
 msgstr ""
 
 msgid ""
@@ -948,5 +977,311 @@ msgstr ""
 msgid "Footnotes"
 msgstr "Przypisy"
 
-msgid "https://www.unicode.org/Public/11.0.0/ucd/NameAliases.txt"
+msgid "https://www.unicode.org/Public/15.0.0/ucd/NameAliases.txt"
+msgstr ""
+
+msgid "lexical analysis"
+msgstr ""
+
+msgid "parser"
+msgstr ""
+
+msgid "token"
+msgstr ""
+
+msgid "line structure"
+msgstr ""
+
+msgid "logical line"
+msgstr ""
+
+msgid "physical line"
+msgstr ""
+
+msgid "line joining"
+msgstr ""
+
+msgid "NEWLINE token"
+msgstr ""
+
+msgid "comment"
+msgstr "komentarz"
+
+msgid "hash character"
+msgstr ""
+
+msgid "# (hash)"
+msgstr "# (kratka)"
+
+msgid "source character set"
+msgstr ""
+
+msgid "encoding declarations (source file)"
+msgstr ""
+
+msgid "source encoding declaration"
+msgstr ""
+
+msgid "line continuation"
+msgstr ""
+
+msgid "backslash character"
+msgstr ""
+
+msgid "blank line"
+msgstr ""
+
+msgid "indentation"
+msgstr ""
+
+msgid "leading whitespace"
+msgstr ""
+
+msgid "space"
+msgstr ""
+
+msgid "tab"
+msgstr ""
+
+msgid "grouping"
+msgstr ""
+
+msgid "statement grouping"
+msgstr ""
+
+msgid "INDENT token"
+msgstr ""
+
+msgid "DEDENT token"
+msgstr ""
+
+msgid "identifier"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "keyword"
+msgstr ""
+
+msgid "reserved word"
+msgstr ""
+
+msgid "soft keyword"
+msgstr ""
+
+msgid "_, identifiers"
+msgstr ""
+
+msgid "__, identifiers"
+msgstr ""
+
+msgid "literal"
+msgstr ""
+
+msgid "constant"
+msgstr ""
+
+msgid "string literal"
+msgstr ""
+
+msgid "bytes literal"
+msgstr ""
+
+msgid "ASCII"
+msgstr ""
+
+msgid "' (single quote)"
+msgstr ""
+
+msgid "\" (double quote)"
+msgstr ""
+
+msgid "u'"
+msgstr ""
+
+msgid "u\""
+msgstr ""
+
+msgid "triple-quoted string"
+msgstr ""
+
+msgid "Unicode Consortium"
+msgstr ""
+
+msgid "raw string"
+msgstr ""
+
+msgid "\"\"\""
+msgstr ""
+
+msgid "'''"
+msgstr ""
+
+msgid "b'"
+msgstr ""
+
+msgid "b\""
+msgstr ""
+
+msgid "r'"
+msgstr ""
+
+msgid "raw string literal"
+msgstr ""
+
+msgid "r\""
+msgstr ""
+
+msgid "f'"
+msgstr ""
+
+msgid "formatted string literal"
+msgstr ""
+
+msgid "f\""
+msgstr ""
+
+msgid "escape sequence"
+msgstr ""
+
+msgid "Standard C"
+msgstr ""
+
+msgid "C"
+msgstr ""
+
+msgid "\\ (backslash)"
+msgstr ""
+
+msgid "\\\\"
+msgstr ""
+
+msgid "\\a"
+msgstr ""
+
+msgid "\\b"
+msgstr ""
+
+msgid "\\f"
+msgstr ""
+
+msgid "\\n"
+msgstr ""
+
+msgid "\\r"
+msgstr ""
+
+msgid "\\t"
+msgstr ""
+
+msgid "\\v"
+msgstr ""
+
+msgid "\\x"
+msgstr ""
+
+msgid "\\u"
+msgstr ""
+
+msgid "\\U"
+msgstr ""
+
+msgid "unrecognized escape sequence"
+msgstr ""
+
+msgid "interpolated string literal"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
+msgid "formatted literal"
+msgstr ""
+
+msgid "interpolated literal"
+msgstr ""
+
+msgid "f-string"
+msgstr ""
+
+msgid "fstring"
+msgstr ""
+
+msgid "{} (curly brackets)"
+msgstr ""
+
+msgid "in formatted string literal"
+msgstr ""
+
+msgid "! (exclamation)"
+msgstr ""
+
+msgid ": (colon)"
+msgstr ": (dwukropek)"
+
+msgid "= (equals)"
+msgstr ""
+
+msgid "for help in debugging using string literals"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "numeric literal"
+msgstr ""
+
+msgid "integer literal"
+msgstr ""
+
+msgid "floating point literal"
+msgstr ""
+
+msgid "hexadecimal literal"
+msgstr ""
+
+msgid "octal literal"
+msgstr ""
+
+msgid "binary literal"
+msgstr ""
+
+msgid "decimal literal"
+msgstr ""
+
+msgid "imaginary literal"
+msgstr ""
+
+msgid "complex literal"
+msgstr ""
+
+msgid "0b"
+msgstr ""
+
+msgid "0o"
+msgstr ""
+
+msgid "0x"
+msgstr ""
+
+msgid "_ (underscore)"
+msgstr ""
+
+msgid "in numeric literal"
+msgstr ""
+
+msgid ". (dot)"
+msgstr ""
+
+msgid "e"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+msgid "operators"
+msgstr ""
+
+msgid "delimiters"
 msgstr ""
