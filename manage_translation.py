@@ -47,7 +47,6 @@ def fetch():
         call(f'msgcat --no-location -o {file} {file}', shell=True)
 
 
-RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-newest'
 
 
@@ -60,14 +59,7 @@ def recreate_tx_config():
         config.write('[main]\nhost = https://www.transifex.com\n')
         for resource in resources:
             slug = resource.slug
-            name = RESOURCE_NAME_MAP.get(slug, slug)
-            if '--' in slug:
-                directory, file_name = name.split('--')
-                if match(r'\d+_\d+', file_name):  # whatsnew
-                    file_name = file_name.replace('_', '.')
-                file_filter = f'{directory}/{file_name}.po'
-            else:
-                file_filter = f'{name}.po'
+            file_filter = _denormalize_resource_name(slug)
 
             config.write(
                 dedent(
@@ -79,6 +71,22 @@ def recreate_tx_config():
                     '''
                 )
             )
+
+
+def _denormalize_resource_name(slug):
+    """
+    Reversion of transifex.normalize_resource_name in sphinx-intl
+    https://github.com/sphinx-doc/sphinx-intl/blob/c327016e394903966ab966fe49f58bcaa70588af/sphinx_intl/transifex.py#L45-L56
+    """
+    name = {'glossary_': 'glossary'}.get(slug, slug)
+    if '--' in slug:
+        directory, file_name = name.split('--')
+        if match(r'\d+_\d+', file_name):  # whatsnew
+            file_name = file_name.replace('_', '.')
+        file_filter = f'{directory}/{file_name}.po'
+    else:
+        file_filter = f'{name}.po'
+    return file_filter
 
 
 @dataclass
