@@ -3,7 +3,7 @@ Polskie tłumaczenie dokumentacji Pythona
 <!-- [[[cog
 from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
 
-stats = list(get_resource_language_stats())
+stats = get_resource_language_stats()
 switcher = progress_from_resources(filter(language_switcher, stats))
 total = progress_from_resources(stats)
 translators = get_number_of_translators()
