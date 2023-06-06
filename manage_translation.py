@@ -141,8 +141,7 @@ def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> 
 def get_number_of_translators():
     translators = set(_fetch_translators())
     _remove_bot(translators)
-    _remove_aliases(translators)
-    _check_for_new_aliases(translators)
+    _check_for_aliases(translators)
     return len(translators)
 
 
@@ -158,13 +157,7 @@ def _remove_bot(translators: set[str]) -> None:
     translators.remove("Transifex Bot <>")
 
 
-def _remove_aliases(translators: set[str]) -> None:
-    for alias, main in (("m_aciek <maciej.olko@gmail.com>", "Maciej Olko <maciej.olko@gmail.com>"),):
-        translators.remove(alias)
-        assert main in translators
-
-
-def _check_for_new_aliases(translators) -> None:
+def _check_for_aliases(translators) -> None:
     for pair in combinations(translators, 2):
         if (ratio := SequenceMatcher(lambda x: x in '<>@', *pair).ratio()) > 0.64:
             warn(
