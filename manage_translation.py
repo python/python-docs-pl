@@ -20,6 +20,7 @@ from pathlib import Path
 from re import match
 from subprocess import call
 import sys
+from textwrap import dedent
 from typing import Self, Generator, Iterable
 from warnings import warn
 
@@ -46,7 +47,6 @@ def fetch():
         call(f'msgcat --no-location -o {file} {file}', shell=True)
 
 
-RESOURCE_NAME_MAP = {'glossary_': 'glossary'}
 PROJECT_SLUG = 'python-311'
 
 
@@ -64,24 +64,35 @@ def recreate_tx_config():
         )
         for resource in resources:
             slug = resource.slug
-            name = RESOURCE_NAME_MAP.get(slug, slug)
-            if '--' in slug:
-                directory, file_name = name.split('--')
-                if match(r'\d+_\d+', file_name):  # whatsnew
-                    file_name = file_name.replace('_', '.')
-                file_filter = f'{directory}/{file_name}.po'
-            else:
-                file_filter = f'{name}.po'
+            file_filter = _denormalize_resource_name(slug)
 
-            config.writelines(
-                (
-                    '\n',
-                    f'[o:python-doc:p:{PROJECT_SLUG}:r:{slug}]\n',
-                    f'file_filter = {file_filter}\n',
-                    'type = PO\n',
-                    'source_lang = en\n',
+            config.write(
+                dedent(
+                    f'''
+                    [o:python-doc:p:{PROJECT_SLUG}:r:{slug}]
+                    file_filter  = {file_filter}
+                    source_file  = pot/{file_filter}t
+                    type         = PO
+                    minimum_perc = 0
+                    '''
                 )
             )
+
+
+def _denormalize_resource_name(slug):
+    """
+    Reversion of transifex.normalize_resource_name in sphinx-intl
+    https://github.com/sphinx-doc/sphinx-intl/blob/c327016e394903966ab966fe49f58bcaa70588af/sphinx_intl/transifex.py#L45-L56
+    """
+    name = {'glossary_': 'glossary'}.get(slug, slug)
+    if '--' in slug:
+        directory, file_name = name.split('--')
+        if match(r'\d+_\d+', file_name):  # whatsnew
+            file_name = file_name.replace('_', '.')
+        file_filter = f'{directory}/{file_name}.po'
+    else:
+        file_filter = f'{name}.po'
+    return file_filter
 
 
 @dataclass
