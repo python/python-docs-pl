@@ -34,17 +34,18 @@ def fetch():
     """
     Fetch translations from Transifex, remove source lines.
     """
-    if call("tx --version", shell=True) != 0:
+    if (code := call("tx --version", shell=True)) != 0:
         sys.stderr.write("The Transifex client app is required.\n")
-        exit(1)
+        exit(code)
     lang = LANGUAGE
-    pull_returncode = call(
-        f'tx pull -l {lang} --minimum-perc=1 --force --skip', shell=True
-    )
-    if pull_returncode != 0:
-        exit(pull_returncode)
+    _call(f'tx pull -l {lang} --minimum-perc=1 --force --skip')
     for file in Path().rglob('*.po'):
-        call(f'msgcat --no-location -o {file} {file}', shell=True)
+        _call(f'msgcat --no-location -o {file} {file}')
+
+
+def _call(command: str):
+    if (return_code := call(command, shell=True)) != 0:
+        exit(return_code)
 
 
 PROJECT_SLUG = 'python-311'
@@ -70,33 +71,24 @@ def recreate_tx_config():
 
 
 def _clone_cpython_repo(version: str):
-    if (status := call(
-        f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1', shell=True
-    )) != 0:
-        exit(status)
+    _call(f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1')
 
 
 def _build_gettext():
-    if (status := call(
-        "make -C cpython/Doc/ "
-        "ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -d build/.doctrees . locales/pot' build",
-        shell=True,
-    )) != 0:
-        exit(status)
+    _call(
+        "make -C cpython/Doc/ ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -d build/.doctrees . locales/pot' build"
+    )
 
 
 def _create_txconfig():
-    if (status := call('sphinx-intl create-txconfig', shell=True)) != 0:
-        exit(status)
+    _call('sphinx-intl create-txconfig')
 
 
 def _update_txconfig_resources():
-    if (status := call(
+    _call(
         f'sphinx-intl update-txconfig-resources --transifex-organization-name python-doc '
-        f'--transifex-project-name={PROJECT_SLUG} --locale-dir . --pot-dir pot',
-        shell=True,
-    )) != 0:
-        exit(status)
+        f'--transifex-project-name={PROJECT_SLUG} --locale-dir . --pot-dir pot'
+    )
 
 
 @dataclass
