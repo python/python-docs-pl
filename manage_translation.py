@@ -65,9 +65,10 @@ def recreate_tx_config():
                 dedent(
                     f'''
                     [o:python-doc:p:{PROJECT_SLUG}:r:{slug}]
-                    file_filter = {file_filter}
-                    type = PO
-                    source_lang = en
+                    file_filter  = {file_filter}
+                    source_file  = pot/{file_filter}t
+                    type         = PO
+                    minimum_perc = 0
                     '''
                 )
             )
