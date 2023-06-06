@@ -13,14 +13,14 @@
 
 from argparse import ArgumentParser
 import os
+from contextlib import chdir
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from itertools import combinations
 from pathlib import Path
-from re import match
 from subprocess import call
 import sys
-from textwrap import dedent
+from tempfile import TemporaryDirectory
 from typing import Self, Generator, Iterable
 from warnings import warn
 
@@ -48,46 +48,55 @@ def fetch():
 
 
 PROJECT_SLUG = 'python-newest'
+VERSION = '3.12'
 
 
 def recreate_tx_config():
     """
     Regenerate Transifex client config for all resources.
     """
-    resources = _get_resources()
-    with open('.tx/config', 'w') as config:
-        config.write('[main]\nhost = https://www.transifex.com\n')
-        for resource in resources:
-            slug = resource.slug
-            file_filter = _denormalize_resource_name(slug)
-
-            config.write(
-                dedent(
-                    f'''
-                    [o:python-doc:p:{PROJECT_SLUG}:r:{slug}]
-                    file_filter  = {file_filter}
-                    source_file  = pot/{file_filter}t
-                    type         = PO
-                    minimum_perc = 0
-                    '''
-                )
-            )
+    with TemporaryDirectory() as directory:
+        with chdir(directory):
+            _clone_cpython_repo(VERSION)
+            _build_gettext()
+            with chdir(Path(directory) / 'cpython/Doc/locales'):
+                _create_txconfig()
+                _update_txconfig_resources()
+                with open('.tx/config', 'r') as file:
+                    contents = file.read()
+        contents = contents.replace('./<lang>/LC_MESSAGES/', '')
+        with open('.tx/config', 'w') as file:
+            file.write(contents)
 
 
-def _denormalize_resource_name(slug):
-    """
-    Reversion of transifex.normalize_resource_name in sphinx-intl
-    https://github.com/sphinx-doc/sphinx-intl/blob/c327016e394903966ab966fe49f58bcaa70588af/sphinx_intl/transifex.py#L45-L56
-    """
-    name = {'glossary_': 'glossary'}.get(slug, slug)
-    if '--' in slug:
-        directory, file_name = name.split('--')
-        if match(r'\d+_\d+', file_name):  # whatsnew
-            file_name = file_name.replace('_', '.')
-        file_filter = f'{directory}/{file_name}.po'
-    else:
-        file_filter = f'{name}.po'
-    return file_filter
+def _clone_cpython_repo(version: str):
+    if (status := call(
+        f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1', shell=True
+    )) != 0:
+        exit(status)
+
+
+def _build_gettext():
+    if (status := call(
+        "make -C cpython/Doc/ "
+        "ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -d build/.doctrees . locales/pot' build",
+        shell=True,
+    )) != 0:
+        exit(status)
+
+
+def _create_txconfig():
+    if (status := call('sphinx-intl create-txconfig', shell=True)) != 0:
+        exit(status)
+
+
+def _update_txconfig_resources():
+    if (status := call(
+        f'sphinx-intl update-txconfig-resources --transifex-organization-name python-doc '
+        f'--transifex-project-name={PROJECT_SLUG} --locale-dir . --pot-dir pot',
+        shell=True,
+    )) != 0:
+        exit(status)
 
 
 @dataclass
