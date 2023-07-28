@@ -5,18 +5,17 @@
 #
 # Translators:
 # Seweryn Piórkowski <seweryn.piorkowski@gmail.com>, 2021
-# Maciej Olko <maciej.olko@gmail.com>, 2021
 # Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2023
-# Transifex Bot <>, 2023
+# Maciej Olko <maciej.olko@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-07-28 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,17 +35,9 @@ msgid "Introduction"
 msgstr "Wprowadzenie"
 
 msgid ""
-"Turtle graphics is a popular way for introducing programming to kids.  It "
-"was part of the original Logo programming language developed by Wally "
-"Feurzeig, Seymour Papert and Cynthia Solomon in 1967."
-msgstr ""
-
-msgid ""
-"Imagine a robotic turtle starting at (0, 0) in the x-y plane.  After an "
-"``import turtle``, give it the command ``turtle.forward(15)``, and it moves "
-"(on-screen!) 15 pixels in the direction it is facing, drawing a line as it "
-"moves.  Give it the command ``turtle.right(25)``, and it rotates in-place 25 "
-"degrees clockwise."
+"Turtle graphics is an implementation of `the popular geometric drawing tools "
+"introduced in Logo <https://en.wikipedia.org/wiki/Turtle_ (robot)>`_, "
+"developed by Wally Feurzeig, Seymour Papert and Cynthia Solomon in 1967."
 msgstr ""
 
 msgid ""
@@ -54,90 +45,247 @@ msgid ""
 msgstr ""
 
 msgid ""
-"By combining together these and similar commands, intricate shapes and "
-"pictures can easily be drawn."
+"In Python, turtle graphics provides a representation of a physical "
+"\"turtle\" (a little robot with a pen) that draws on a sheet of paper on the "
+"floor."
 msgstr ""
 
 msgid ""
-"The :mod:`turtle` module is an extended reimplementation of the same-named "
-"module from the Python standard distribution up to version Python 2.5."
+"It's an effective and well-proven way for learners to encounter programming "
+"concepts and interaction with software, as it provides instant, visible "
+"feedback. It also provides convenient access to graphical output in general."
 msgstr ""
 
 msgid ""
-"It tries to keep the merits of the old turtle module and to be (nearly) 100% "
-"compatible with it.  This means in the first place to enable the learning "
-"programmer to use all the commands, classes and methods interactively when "
-"using the module from within IDLE run with the ``-n`` switch."
+"Turtle drawing was originally created as an educational tool, to be used by "
+"teachers in the classroom. For the programmer who needs to produce some "
+"graphical output it can be a way to do that without the overhead of "
+"introducing more complex or external libraries into their work."
+msgstr ""
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid ""
+"New users should start here. In this tutorial we'll explore some of the "
+"basics of turtle drawing."
+msgstr ""
+
+msgid "Starting a turtle environment"
+msgstr ""
+
+msgid "In a Python shell, import all the objects of the ``turtle`` module::"
 msgstr ""
 
 msgid ""
-"The turtle module provides turtle graphics primitives, in both object-"
-"oriented and procedure-oriented ways.  Because it uses :mod:`tkinter` for "
-"the underlying graphics, it needs a version of Python installed with Tk "
-"support."
+"If you run into a ``No module named '_tkinter'`` error, you'll have to "
+"install the :mod:`Tk interface package <tkinter>` on your system."
 msgstr ""
 
-msgid "The object-oriented interface uses essentially two+two classes:"
+msgid "Basic drawing"
 msgstr ""
 
-msgid ""
-"The :class:`TurtleScreen` class defines graphics windows as a playground for "
-"the drawing turtles.  Its constructor needs a :class:`tkinter.Canvas` or a :"
-"class:`ScrolledCanvas` as argument.  It should be used when :mod:`turtle` is "
-"used as part of some application."
+msgid "Send the turtle forward 100 steps::"
 msgstr ""
 
 msgid ""
-"The function :func:`Screen` returns a singleton object of a :class:"
-"`TurtleScreen` subclass. This function should be used when :mod:`turtle` is "
-"used as a standalone tool for doing graphics. As a singleton object, "
-"inheriting from its class is not possible."
+"You should see (most likely, in a new window on your display) a line drawn "
+"by the turtle, heading East. Change the direction of the turtle, so that it "
+"turns 120 degrees left (anti-clockwise)::"
+msgstr ""
+
+msgid "Let's continue by drawing a triangle::"
 msgstr ""
 
 msgid ""
-"All methods of TurtleScreen/Screen also exist as functions, i.e. as part of "
-"the procedure-oriented interface."
+"Notice how the turtle, represented by an arrow, points in different "
+"directions as you steer it."
 msgstr ""
 
 msgid ""
-":class:`RawTurtle` (alias: :class:`RawPen`) defines Turtle objects which "
-"draw on a :class:`TurtleScreen`.  Its constructor needs a Canvas, "
-"ScrolledCanvas or TurtleScreen as argument, so the RawTurtle objects know "
-"where to draw."
+"Experiment with those commands, and also with ``backward()`` and ``right()``."
+msgstr ""
+
+msgid "Pen control"
 msgstr ""
 
 msgid ""
-"Derived from RawTurtle is the subclass :class:`Turtle` (alias: :class:"
-"`Pen`), which draws on \"the\" :class:`Screen` instance which is "
-"automatically created, if not already present."
+"Try changing the color - for example, ``color('blue')`` - and width of the "
+"line - for example, ``width(3)`` - and then drawing again."
 msgstr ""
 
 msgid ""
-"All methods of RawTurtle/Turtle also exist as functions, i.e. part of the "
-"procedure-oriented interface."
+"You can also move the turtle around without drawing, by lifting up the pen: "
+"``up()`` before moving. To start drawing again, use ``down()``."
+msgstr ""
+
+msgid "The turtle's position"
 msgstr ""
 
 msgid ""
-"The procedural interface provides functions which are derived from the "
-"methods of the classes :class:`Screen` and :class:`Turtle`.  They have the "
-"same names as the corresponding methods.  A screen object is automatically "
-"created whenever a function derived from a Screen method is called.  An "
-"(unnamed) turtle object is automatically created whenever any of the "
-"functions derived from a Turtle method is called."
+"Send your turtle back to its starting-point (useful if it has disappeared "
+"off-screen)::"
 msgstr ""
 
 msgid ""
-"To use multiple turtles on a screen one has to use the object-oriented "
-"interface."
+"The home position is at the center of the turtle's screen. If you ever need "
+"to know them, get the turtle's x-y co-ordinates with::"
+msgstr ""
+
+msgid "Home is at ``(0, 0)``."
+msgstr ""
+
+msgid ""
+"And after a while, it will probably help to clear the window so we can start "
+"anew::"
+msgstr ""
+
+msgid "Making algorithmic patterns"
+msgstr ""
+
+msgid "Using loops, it's possible to build up geometric patterns::"
+msgstr ""
+
+msgid "\\ - which of course, are limited only by the imagination!"
+msgstr ""
+
+msgid ""
+"Let's draw the star shape at the top of this page. We want red lines, filled "
+"in with yellow::"
+msgstr ""
+
+msgid ""
+"Just as ``up()`` and ``down()`` determine whether lines will be drawn, "
+"filling can be turned on and off::"
+msgstr ""
+
+msgid "Next we'll create a loop::"
+msgstr ""
+
+msgid ""
+"``abs(pos()) < 1`` is a good way to know when the turtle is back at its home "
+"position."
+msgstr ""
+
+msgid "Finally, complete the filling::"
+msgstr ""
+
+msgid ""
+"(Note that filling only actually takes place when you give the "
+"``end_fill()`` command.)"
+msgstr ""
+
+msgid "How to..."
+msgstr ""
+
+msgid "This section covers some typical turtle use-cases and approaches."
+msgstr ""
+
+msgid "Get started as quickly as possible"
+msgstr ""
+
+msgid ""
+"One of the joys of turtle graphics is the immediate, visual feedback that's "
+"available from simple commands - it's an excellent way to introduce children "
+"to programming ideas, with a minimum of overhead (not just children, of "
+"course)."
+msgstr ""
+
+msgid ""
+"The turtle module makes this possible by exposing all its basic "
+"functionality as functions, available with ``from turtle import *``. The :"
+"ref:`turtle graphics tutorial <turtle-tutorial>` covers this approach."
+msgstr ""
+
+msgid ""
+"It's worth noting that many of the turtle commands also have even more terse "
+"equivalents, such as ``fd()`` for :func:`forward`. These are especially "
+"useful when working with learners for whom typing is not a skill."
+msgstr ""
+
+msgid ""
+"You'll need to have the :mod:`Tk interface package <tkinter>` installed on "
+"your system for turtle graphics to work. Be warned that this is not always "
+"straightforward, so check this in advance if you're planning to use turtle "
+"graphics with a learner."
+msgstr ""
+
+msgid "Use the ``turtle`` module namespace"
+msgstr ""
+
+msgid ""
+"Using ``from turtle import *`` is convenient - but be warned that it imports "
+"a rather large collection of objects, and if you're doing anything but "
+"turtle graphics you run the risk of a name conflict (this becomes even more "
+"an issue if you're using turtle graphics in a script where other modules "
+"might be imported)."
+msgstr ""
+
+msgid ""
+"The solution is to use ``import turtle`` - ``fd()`` becomes ``turtle.fd()``, "
+"``width()`` becomes ``turtle.width()`` and so on. (If typing \"turtle\" over "
+"and over again becomes tedious, use for example ``import turtle as t`` "
+"instead.)"
+msgstr ""
+
+msgid "Use turtle graphics in a script"
+msgstr ""
+
+msgid ""
+"It's recommended to use the ``turtle`` module namespace as described "
+"immediately above, for example::"
+msgstr ""
+
+msgid ""
+"Another step is also required though - as soon as the script ends, Python "
+"will also close the turtle's window. Add::"
+msgstr ""
+
+msgid ""
+"to the end of the script. The script will now wait to be dismissed and will "
+"not exit until it is terminated, for example by closing the turtle graphics "
+"window."
+msgstr ""
+
+msgid "Use object-oriented turtle graphics"
+msgstr ""
+
+msgid ""
+":ref:`Explanation of the object-oriented interface <turtle-explanation>`"
+msgstr ""
+
+msgid ""
+"Other than for very basic introductory purposes, or for trying things out as "
+"quickly as possible, it's more usual and much more powerful to use the "
+"object-oriented approach to turtle graphics. For example, this allows "
+"multiple turtles on screen at once."
+msgstr ""
+
+msgid ""
+"In this approach, the various turtle commands are methods of objects (mostly "
+"of ``Turtle`` objects). You *can* use the object-oriented approach in the "
+"shell, but it would be more typical in a Python script."
+msgstr ""
+
+msgid "The example above then becomes::"
+msgstr ""
+
+msgid ""
+"Note the last line. ``t.screen`` is an instance of the :class:`Screen` that "
+"a Turtle instance exists on; it's created automatically along with the "
+"turtle."
+msgstr ""
+
+msgid "The turtle's screen can be customised, for example::"
+msgstr ""
+
+msgid "Turtle graphics reference"
 msgstr ""
 
 msgid ""
 "In the following documentation the argument list for functions is given. "
 "Methods, of course, have the additional first argument *self* which is "
 "omitted here."
-msgstr ""
-
-msgid "Overview of available Turtle and Screen methods"
 msgstr ""
 
 msgid "Turtle methods"
@@ -162,6 +310,9 @@ msgid ":func:`left` | :func:`lt`"
 msgstr ""
 
 msgid ":func:`goto` | :func:`setpos` | :func:`setposition`"
+msgstr ""
+
+msgid ":func:`teleport`"
 msgstr ""
 
 msgid ":func:`setx`"
@@ -225,9 +376,6 @@ msgid ":func:`degrees`"
 msgstr ""
 
 msgid ":func:`radians`"
-msgstr ""
-
-msgid "Pen control"
 msgstr ""
 
 msgid "Drawing state"
@@ -529,6 +677,18 @@ msgstr ""
 msgid ""
 "Move turtle to an absolute position.  If the pen is down, draw line.  Do not "
 "change the turtle's orientation."
+msgstr ""
+
+msgid "a boolean"
+msgstr ""
+
+msgid ""
+"Move turtle to an absolute position. Unlike goto(x, y), a line will not be "
+"drawn. The turtle's orientation does not change. If currently filling, the "
+"polygon(s) teleported from will be filled after leaving, and filling will "
+"begin again after teleporting. This can be disabled with fill_gap=True, "
+"which makes the imaginary line traveled during teleporting act as a fill "
+"barrier like in goto(x, y)."
 msgstr ""
 
 msgid ""
@@ -1634,6 +1794,48 @@ msgid "``abs(a)`` absolute value of a"
 msgstr ""
 
 msgid "``a.rotate(angle)`` rotation"
+msgstr ""
+
+msgid "Explanation"
+msgstr "Wytłumaczenie"
+
+msgid ""
+"A turtle object draws on a screen object, and there a number of key classes "
+"in the turtle object-oriented interface that can be used to create them and "
+"relate them to each other."
+msgstr ""
+
+msgid ""
+"A :class:`Turtle` instance will automatically create a :class:`Screen` "
+"instance if one is not already present."
+msgstr ""
+
+msgid ""
+"``Turtle`` is a subclass of :class:`RawTurtle`, which *doesn't* "
+"automatically create a drawing surface - a *canvas* will need to be provided "
+"or created for it. The *canvas* can be a :class:`tkinter.Canvas`, :class:"
+"`ScrolledCanvas` or :class:`TurtleScreen`."
+msgstr ""
+
+msgid ""
+":class:`TurtleScreen` is the basic drawing surface for a turtle. :class:"
+"`Screen` is a subclass of ``TurtleScreen``, and includes :ref:`some "
+"additional methods <screenspecific>` for managing its appearance (including "
+"size and title) and behaviour. ``TurtleScreen``'s constructor needs a :class:"
+"`tkinter.Canvas` or a :class:`ScrolledCanvas` as an argument."
+msgstr ""
+
+msgid ""
+"The functional interface for turtle graphics uses the various methods of "
+"``Turtle`` and ``TurtleScreen``/``Screen``. Behind the scenes, a screen "
+"object is automatically created whenever a function derived from a "
+"``Screen`` method is called. Similarly, a turtle object is automatically "
+"created whenever any of the functions derived from a Turtle method is called."
+msgstr ""
+
+msgid ""
+"To use multiple turtles on a screen, the object-oriented interface must be "
+"used."
 msgstr ""
 
 msgid "Help and configuration"
