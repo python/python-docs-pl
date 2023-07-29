@@ -1,20 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2023, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# m_aciek <maciej.olko@gmail.com>, 2020
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.9\n"
+"Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-01 05:02+0000\n"
-"PO-Revision-Date: 2017-02-16 23:15+0000\n"
-"Last-Translator: m_aciek <maciej.olko@gmail.com>, 2020\n"
-"Language-Team: Polish (https://www.transifex.com/python-doc/teams/5390/pl/)\n"
+"POT-Creation-Date: 2023-07-29 03:05+0000\n"
+"PO-Revision-Date: 2022-11-05 17:22+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,7 +65,7 @@ msgid "Description"
 msgstr "Opis"
 
 msgid "module"
-msgstr ""
+msgstr "moduł"
 
 msgid "__doc__"
 msgstr ""
@@ -122,7 +122,7 @@ msgid "name of module in which this method was defined"
 msgstr ""
 
 msgid "function"
-msgstr ""
+msgstr "funkcja"
 
 msgid "name with which this function was defined"
 msgstr ""
@@ -149,6 +149,12 @@ msgid "__globals__"
 msgstr ""
 
 msgid "global namespace in which this function was defined"
+msgstr ""
+
+msgid "__builtins__"
+msgstr ""
+
+msgid "builtins namespace"
 msgstr ""
 
 msgid "__annotations__"
@@ -315,7 +321,7 @@ msgstr ""
 msgid "co_names"
 msgstr ""
 
-msgid "tuple of names of local variables"
+msgid "tuple of names other than arguments and function locals"
 msgstr ""
 
 msgid "co_nlocals"
@@ -405,6 +411,9 @@ msgid ""
 msgstr ""
 
 msgid "Add ``cr_origin`` attribute to coroutines."
+msgstr ""
+
+msgid "Add ``__builtins__`` attribute to functions."
 msgstr ""
 
 msgid ""
@@ -583,7 +592,8 @@ msgid ""
 "Get the documentation string for an object, cleaned up with :func:"
 "`cleandoc`. If the documentation string for an object is not provided and "
 "the object is a class, a method, a property or a descriptor, retrieve the "
-"documentation string from the inheritance hierarchy."
+"documentation string from the inheritance hierarchy. Return ``None`` if the "
+"documentation string is invalid or missing."
 msgstr ""
 
 msgid "Documentation strings are now inherited if not overridden."
@@ -603,13 +613,15 @@ msgid ""
 "class, or function."
 msgstr ""
 
-msgid "Try to guess which module an object was defined in."
+msgid ""
+"Try to guess which module an object was defined in. Return ``None`` if the "
+"module cannot be determined."
 msgstr ""
 
 msgid ""
-"Return the name of the Python source file in which an object was defined.  "
-"This will fail with a :exc:`TypeError` if the object is a built-in module, "
-"class, or function."
+"Return the name of the Python source file in which an object was defined or "
+"``None`` if no way can be identified to get the source.  This will fail with "
+"a :exc:`TypeError` if the object is a built-in module, class, or function."
 msgstr ""
 
 msgid ""
@@ -618,7 +630,8 @@ msgid ""
 "object.  The source code is returned as a list of the lines corresponding to "
 "the object and the line number indicates where in the original source file "
 "the first line of code was found.  An :exc:`OSError` is raised if the source "
-"code cannot be retrieved."
+"code cannot be retrieved. A :exc:`TypeError` is raised if the object is a "
+"built-in module, class, or function."
 msgstr ""
 
 msgid ""
@@ -630,7 +643,8 @@ msgid ""
 "Return the text of the source code for an object. The argument may be a "
 "module, class, method, function, traceback, frame, or code object.  The "
 "source code is returned as a single string.  An :exc:`OSError` is raised if "
-"the source code cannot be retrieved."
+"the source code cannot be retrieved. A :exc:`TypeError` is raised if the "
+"object is a built-in module, class, or function."
 msgstr ""
 
 msgid ""
@@ -663,8 +677,21 @@ msgid ""
 msgstr ""
 
 msgid ""
+"For objects defined in modules using stringized annotations (``from "
+"__future__ import annotations``), :func:`signature` will attempt to "
+"automatically un-stringize the annotations using :func:`inspect."
+"get_annotations()`.  The ``global``, ``locals``, and ``eval_str`` parameters "
+"are passed into :func:`inspect.get_annotations()` when resolving the "
+"annotations; see the documentation for :func:`inspect.get_annotations()` for "
+"instructions on how to use these parameters."
+msgstr ""
+
+msgid ""
 "Raises :exc:`ValueError` if no signature can be provided, and :exc:"
-"`TypeError` if that type of object is not supported."
+"`TypeError` if that type of object is not supported.  Also, if the "
+"annotations are stringized, and ``eval_str`` is not false, the ``eval()`` "
+"call(s) to un-stringize the annotations could potentially raise any kind of "
+"exception."
 msgstr ""
 
 msgid ""
@@ -677,6 +704,9 @@ msgid ""
 "``follow_wrapped`` parameter. Pass ``False`` to get a signature of "
 "``callable`` specifically (``callable.__wrapped__`` will not be used to "
 "unwrap decorated callables.)"
+msgstr ""
+
+msgid "``globals``, ``locals``, and ``eval_str`` parameters."
 msgstr ""
 
 msgid ""
@@ -709,7 +739,7 @@ msgid ""
 "modified copy."
 msgstr ""
 
-msgid "Signature objects are picklable and hashable."
+msgid "Signature objects are picklable and :term:`hashable`."
 msgstr ""
 
 msgid "A special class-level marker to specify absence of a return annotation."
@@ -756,10 +786,14 @@ msgstr ""
 msgid ""
 "Return a :class:`Signature` (or its subclass) object for a given callable "
 "``obj``.  Pass ``follow_wrapped=False`` to get a signature of ``obj`` "
-"without unwrapping its ``__wrapped__`` chain."
+"without unwrapping its ``__wrapped__`` chain. ``globalns`` and ``localns`` "
+"will be used as the namespaces when resolving annotations."
 msgstr ""
 
 msgid "This method simplifies subclassing of :class:`Signature`::"
+msgstr ""
+
+msgid "``globalns`` and ``localns`` parameters."
 msgstr ""
 
 msgid ""
@@ -767,7 +801,7 @@ msgid ""
 "you can use :meth:`Parameter.replace` to create a modified copy."
 msgstr ""
 
-msgid "Parameter objects are picklable and hashable."
+msgid "Parameter objects are picklable and :term:`hashable`."
 msgstr ""
 
 msgid ""
@@ -800,8 +834,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Describes how argument values are bound to the parameter.  Possible values "
-"(accessible via :class:`Parameter`, like ``Parameter.KEYWORD_ONLY``):"
+"Describes how argument values are bound to the parameter.  The possible "
+"values are accessible via :class:`Parameter` (like ``Parameter."
+"KEYWORD_ONLY``), and support comparison and ordering, in the following order:"
 msgstr ""
 
 msgid "Name"
@@ -1045,7 +1080,7 @@ msgid ""
 msgstr ""
 
 msgid "For example:"
-msgstr ""
+msgstr "Na przykład::"
 
 msgid ""
 "Use :func:`signature` and :ref:`Signature Object <inspect-signature-"
@@ -1110,6 +1145,91 @@ msgid ""
 msgstr ""
 
 msgid ":exc:`ValueError` is raised if a cycle is encountered."
+msgstr ""
+
+msgid "Compute the annotations dict for an object."
+msgstr ""
+
+msgid ""
+"``obj`` may be a callable, class, or module. Passing in an object of any "
+"other type raises :exc:`TypeError`."
+msgstr ""
+
+msgid ""
+"Returns a dict.  ``get_annotations()`` returns a new dict every time it's "
+"called; calling it twice on the same object will return two different but "
+"equivalent dicts."
+msgstr ""
+
+msgid "This function handles several details for you:"
+msgstr ""
+
+msgid ""
+"If ``eval_str`` is true, values of type ``str`` will be un-stringized using :"
+"func:`eval()`.  This is intended for use with stringized annotations (``from "
+"__future__ import annotations``)."
+msgstr ""
+
+msgid ""
+"If ``obj`` doesn't have an annotations dict, returns an empty dict.  "
+"(Functions and methods always have an annotations dict; classes, modules, "
+"and other types of callables may not.)"
+msgstr ""
+
+msgid ""
+"Ignores inherited annotations on classes.  If a class doesn't have its own "
+"annotations dict, returns an empty dict."
+msgstr ""
+
+msgid ""
+"All accesses to object members and dict values are done using ``getattr()`` "
+"and ``dict.get()`` for safety."
+msgstr ""
+
+msgid "Always, always, always returns a freshly created dict."
+msgstr ""
+
+msgid ""
+"``eval_str`` controls whether or not values of type ``str`` are replaced "
+"with the result of calling :func:`eval()` on those values:"
+msgstr ""
+
+msgid ""
+"If eval_str is true, :func:`eval()` is called on values of type ``str``. "
+"(Note that ``get_annotations`` doesn't catch exceptions; if :func:`eval()` "
+"raises an exception, it will unwind the stack past the ``get_annotations`` "
+"call.)"
+msgstr ""
+
+msgid ""
+"If eval_str is false (the default), values of type ``str`` are unchanged."
+msgstr ""
+
+msgid ""
+"``globals`` and ``locals`` are passed in to :func:`eval()`; see the "
+"documentation for :func:`eval()` for more information.  If ``globals`` or "
+"``locals`` is ``None``, this function may replace that value with a context-"
+"specific default, contingent on ``type(obj)``:"
+msgstr ""
+
+msgid "If ``obj`` is a module, ``globals`` defaults to ``obj.__dict__``."
+msgstr ""
+
+msgid ""
+"If ``obj`` is a class, ``globals`` defaults to ``sys.modules[obj.__module__]."
+"__dict__`` and ``locals`` defaults to the ``obj`` class namespace."
+msgstr ""
+
+msgid ""
+"If ``obj`` is a callable, ``globals`` defaults to ``obj.__globals__``, "
+"although if ``obj`` is a wrapped function (using ``functools."
+"update_wrapper()``) it is first unwrapped."
+msgstr ""
+
+msgid ""
+"Calling ``get_annotations`` is best practice for accessing the annotations "
+"dict of any object.  See :ref:`annotations-howto` for more information on "
+"annotations best practices."
 msgstr ""
 
 msgid "The interpreter stack"
@@ -1387,7 +1507,7 @@ msgid ""
 msgstr ""
 
 msgid "Command Line Interface"
-msgstr ""
+msgstr "Interfejs linii komend"
 
 msgid ""
 "The :mod:`inspect` module also provides a basic introspection capability "
