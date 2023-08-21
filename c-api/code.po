@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# haaritsubaki, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2023-08-18 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 00:48+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: haaritsubaki, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,21 +52,43 @@ msgstr ""
 
 msgid ""
 "Return a new code object.  If you need a dummy code object to create a "
-"frame, use :c:func:`PyCode_NewEmpty` instead.  Calling :c:func:`PyCode_New` "
-"directly will bind you to a precise Python version since the definition of "
-"the bytecode changes often. The many arguments of this function are inter-"
-"dependent in complex ways, meaning that subtle changes to values are likely "
-"to result in incorrect execution or VM crashes. Use this function only with "
-"extreme care."
-msgstr ""
-
-msgid "Added ``exceptiontable`` parameter."
+"frame, use :c:func:`PyCode_NewEmpty` instead."
 msgstr ""
 
 msgid ""
-"Similar to :c:func:`PyCode_New`, but with an extra \"posonlyargcount\" for "
-"positional-only arguments. The same caveats that apply to ``PyCode_New`` "
-"also apply to this function."
+"Since the definition of the bytecode changes often, calling :c:func:"
+"`PyUnstable_Code_New` directly can bind you to a precise Python version."
+msgstr ""
+
+msgid ""
+"The many arguments of this function are inter-dependent in complex ways, "
+"meaning that subtle changes to values are likely to result in incorrect "
+"execution or VM crashes. Use this function only with extreme care."
+msgstr ""
+
+msgid "Added ``qualname`` and ``exceptiontable`` parameters."
+msgstr ""
+
+msgid ""
+"Renamed from ``PyCode_New`` as part of :ref:`unstable-c-api`. The old name "
+"is deprecated, but will remain available until the signature changes again."
+msgstr ""
+
+msgid ""
+"Similar to :c:func:`PyUnstable_Code_New`, but with an extra "
+"\"posonlyargcount\" for positional-only arguments. The same caveats that "
+"apply to ``PyUnstable_Code_New`` also apply to this function."
+msgstr ""
+
+msgid "as ``PyCode_NewWithPosOnlyArgs``"
+msgstr ""
+
+msgid "Added ``qualname`` and  ``exceptiontable`` parameters."
+msgstr ""
+
+msgid ""
+"Renamed to ``PyUnstable_Code_NewWithPosOnlyArgs``. The old name is "
+"deprecated, but will remain available until the signature changes again."
 msgstr ""
 
 msgid ""
@@ -127,11 +149,154 @@ msgid ""
 "variables. On error, ``NULL`` is returned and an exception is raised."
 msgstr ""
 
-msgid "object"
+msgid ""
+"Register *callback* as a code object watcher for the current interpreter. "
+"Return an ID which may be passed to :c:func:`PyCode_ClearWatcher`. In case "
+"of error (e.g. no more watcher IDs available), return ``-1`` and set an "
+"exception."
 msgstr ""
+
+msgid ""
+"Clear watcher identified by *watcher_id* previously returned from :c:func:"
+"`PyCode_AddWatcher` for the current interpreter. Return ``0`` on success, or "
+"``-1`` and set an exception on error (e.g. if the given *watcher_id* was "
+"never registered.)"
+msgstr ""
+
+msgid ""
+"Enumeration of possible code object watcher events: - "
+"``PY_CODE_EVENT_CREATE`` - ``PY_CODE_EVENT_DESTROY``"
+msgstr ""
+
+msgid "Type of a code object watcher callback function."
+msgstr ""
+
+msgid ""
+"If *event* is ``PY_CODE_EVENT_CREATE``, then the callback is invoked after "
+"`co` has been fully initialized. Otherwise, the callback is invoked before "
+"the destruction of *co* takes place, so the prior state of *co* can be "
+"inspected."
+msgstr ""
+
+msgid ""
+"If *event* is ``PY_CODE_EVENT_DESTROY``, taking a reference in the callback "
+"to the about-to-be-destroyed code object will resurrect it and prevent it "
+"from being freed at this time. When the resurrected object is destroyed "
+"later, any watcher callbacks active at that time will be called again."
+msgstr ""
+
+msgid ""
+"Users of this API should not rely on internal runtime implementation "
+"details. Such details may include, but are not limited to, the exact order "
+"and timing of creation and destruction of code objects. While changes in "
+"these details may result in differences observable by watchers (including "
+"whether a callback is invoked or not), it does not change the semantics of "
+"the Python code being executed."
+msgstr ""
+
+msgid ""
+"If the callback sets an exception, it must return ``-1``; this exception "
+"will be printed as an unraisable exception using :c:func:"
+"`PyErr_WriteUnraisable`. Otherwise it should return ``0``."
+msgstr ""
+
+msgid ""
+"There may already be a pending exception set on entry to the callback. In "
+"this case, the callback should return ``0`` with the same exception still "
+"set. This means the callback may not call any other API that can set an "
+"exception unless it saves and clears the exception state first, and restores "
+"it before returning."
+msgstr ""
+
+msgid "Extra information"
+msgstr ""
+
+msgid ""
+"To support low-level extensions to frame evaluation, such as external just-"
+"in-time compilers, it is possible to attach arbitrary extra data to code "
+"objects."
+msgstr ""
+
+msgid ""
+"These functions are part of the unstable C API tier: this functionality is a "
+"CPython implementation detail, and the API may change without deprecation "
+"warnings."
+msgstr ""
+
+msgid "Return a new an opaque index value used to adding data to code objects."
+msgstr ""
+
+msgid ""
+"You generally call this function once (per interpreter) and use the result "
+"with ``PyCode_GetExtra`` and ``PyCode_SetExtra`` to manipulate data on "
+"individual code objects."
+msgstr ""
+
+msgid ""
+"If *free* is not ``NULL``: when a code object is deallocated, *free* will be "
+"called on non-``NULL`` data stored under the new index. Use :c:func:"
+"`Py_DecRef` when storing :c:type:`PyObject`."
+msgstr ""
+
+msgid "as ``_PyEval_RequestCodeExtraIndex``"
+msgstr ""
+
+msgid ""
+"Renamed to ``PyUnstable_Eval_RequestCodeExtraIndex``. The old private name "
+"is deprecated, but will be available until the API changes."
+msgstr ""
+
+msgid ""
+"Set *extra* to the extra data stored under the given index. Return 0 on "
+"success. Set an exception and return -1 on failure."
+msgstr ""
+
+msgid ""
+"If no data was set under the index, set *extra* to ``NULL`` and return 0 "
+"without setting an exception."
+msgstr ""
+
+msgid "as ``_PyCode_GetExtra``"
+msgstr ""
+
+msgid ""
+"Renamed to ``PyUnstable_Code_GetExtra``. The old private name is deprecated, "
+"but will be available until the API changes."
+msgstr ""
+
+msgid ""
+"Set the extra data stored under the given index to *extra*. Return 0 on "
+"success. Set an exception and return -1 on failure."
+msgstr ""
+
+msgid "as ``_PyCode_SetExtra``"
+msgstr ""
+
+msgid ""
+"Renamed to ``PyUnstable_Code_SetExtra``. The old private name is deprecated, "
+"but will be available until the API changes."
+msgstr ""
+
+msgid "object"
+msgstr "obiekt"
 
 msgid "code"
 msgstr ""
 
 msgid "code object"
+msgstr ""
+
+msgid "PyCode_New"
+msgstr ""
+
+msgid "PyCode_NewWithPosOnlyArgs"
+msgstr ""
+
+msgid "_PyEval_RequestCodeExtraIndex"
+msgstr ""
+
+msgid "_PyCode_GetExtra"
+msgstr ""
+
+msgid "_PyCode_SetExtra"
 msgstr ""
