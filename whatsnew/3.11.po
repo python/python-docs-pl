@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-11 14:13+0000\n"
+"POT-Creation-Date: 2023-08-25 14:13+0000\n"
 "PO-Revision-Date: 2022-11-05 19:49+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -437,7 +437,10 @@ msgid ""
 "class:`frozenset`, :class:`collections.OrderedDict`, :class:`collections."
 "deque`, :class:`weakref.WeakSet`, and :class:`datetime.tzinfo` now copies "
 "and pickles instance attributes implemented as :term:`slots <__slots__>`. "
-"(Contributed by Serhiy Storchaka in :issue:`26579`.)"
+"This change has an unintended side effect: It trips up a small minority of "
+"existing Python projects not expecting :meth:`object.__getstate__` to exist. "
+"See the later comments on :gh:`70766` for discussions of what workarounds "
+"such code may need. (Contributed by Serhiy Storchaka in :issue:`26579`.)"
 msgstr ""
 
 msgid ""
@@ -2813,7 +2816,7 @@ msgstr ""
 msgid ":c:func:`PyBuffer_FromContiguous`"
 msgstr ""
 
-msgid ":c:func:`PyBuffer_CopyData`"
+msgid ":c:func:`PyObject_CopyData`"
 msgstr ""
 
 msgid ":c:func:`PyBuffer_IsContiguous`"
@@ -3202,40 +3205,40 @@ msgid ""
 "Deprecate the following functions to configure the Python initialization:"
 msgstr ""
 
-msgid ":c:func:`PySys_AddWarnOptionUnicode`"
+msgid ":c:func:`!PySys_AddWarnOptionUnicode`"
 msgstr ""
 
-msgid ":c:func:`PySys_AddWarnOption`"
+msgid ":c:func:`!PySys_AddWarnOption`"
 msgstr ""
 
-msgid ":c:func:`PySys_AddXOption`"
+msgid ":c:func:`!PySys_AddXOption`"
 msgstr ""
 
-msgid ":c:func:`PySys_HasWarnOptions`"
+msgid ":c:func:`!PySys_HasWarnOptions`"
 msgstr ""
 
-msgid ":c:func:`PySys_SetArgvEx`"
+msgid ":c:func:`!PySys_SetArgvEx`"
 msgstr ""
 
-msgid ":c:func:`PySys_SetArgv`"
+msgid ":c:func:`!PySys_SetArgv`"
 msgstr ""
 
-msgid ":c:func:`PySys_SetPath`"
+msgid ":c:func:`!PySys_SetPath`"
 msgstr ""
 
-msgid ":c:func:`Py_SetPath`"
+msgid ":c:func:`!Py_SetPath`"
 msgstr ""
 
-msgid ":c:func:`Py_SetProgramName`"
+msgid ":c:func:`!Py_SetProgramName`"
 msgstr ""
 
-msgid ":c:func:`Py_SetPythonHome`"
+msgid ":c:func:`!Py_SetPythonHome`"
 msgstr ""
 
-msgid ":c:func:`Py_SetStandardStreamEncoding`"
+msgid ":c:func:`!Py_SetStandardStreamEncoding`"
 msgstr ""
 
-msgid ":c:func:`_Py_SetProgramFullPath`"
+msgid ":c:func:`!_Py_SetProgramFullPath`"
 msgstr ""
 
 msgid ""
@@ -3254,28 +3257,28 @@ msgid ""
 "will be removed in Python 3.12."
 msgstr ""
 
-msgid ":c:func:`PyUnicode_AS_DATA`"
+msgid ":c:func:`!PyUnicode_AS_DATA`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_AS_UNICODE`"
+msgid ":c:func:`!PyUnicode_AS_UNICODE`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_AsUnicodeAndSize`"
+msgid ":c:func:`!PyUnicode_AsUnicodeAndSize`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_AsUnicode`"
+msgid ":c:func:`!PyUnicode_AsUnicode`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_FromUnicode`"
+msgid ":c:func:`!PyUnicode_FromUnicode`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_GET_DATA_SIZE`"
+msgid ":c:func:`!PyUnicode_GET_DATA_SIZE`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_GET_SIZE`"
+msgid ":c:func:`!PyUnicode_GET_SIZE`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_GetSize`"
+msgid ":c:func:`!PyUnicode_GetSize`"
 msgstr ""
 
 msgid ":c:func:`PyUnicode_IS_COMPACT`"
@@ -3287,23 +3290,23 @@ msgstr ""
 msgid ":c:func:`PyUnicode_READY`"
 msgstr ""
 
-msgid ":c:func:`Py_UNICODE_WSTR_LENGTH`"
+msgid ":c:func:`!PyUnicode_WSTR_LENGTH`"
 msgstr ""
 
-msgid ":c:func:`_PyUnicode_AsUnicode`"
+msgid ":c:func:`!_PyUnicode_AsUnicode`"
 msgstr ""
 
-msgid ":c:macro:`PyUnicode_WCHAR_KIND`"
+msgid ":c:macro:`!PyUnicode_WCHAR_KIND`"
 msgstr ""
 
 msgid ":c:type:`PyUnicodeObject`"
 msgstr ""
 
-msgid ":c:func:`PyUnicode_InternImmortal()`"
+msgid ":c:func:`!PyUnicode_InternImmortal`"
 msgstr ""
 
 msgid ""
-":c:func:`PyFrame_BlockSetup` and :c:func:`PyFrame_BlockPop` have been "
+":c:func:`!PyFrame_BlockSetup` and :c:func:`!PyFrame_BlockPop` have been "
 "removed. (Contributed by Mark Shannon in :issue:`40222`.)"
 msgstr ""
 
