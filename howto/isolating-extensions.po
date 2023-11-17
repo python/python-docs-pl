@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 14:13+0000\n"
+"POT-Creation-Date: 2023-11-17 14:14+0000\n"
 "PO-Revision-Date: 2022-11-05 19:48+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2022\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -384,15 +384,46 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Please refer to the :ref:`the documentation <type-structs>` of :c:macro:"
-"`Py_TPFLAGS_HAVE_GC` and :c:member:`~PyTypeObject.tp_traverse` for "
-"additional considerations."
+"Please refer to the the documentation of :c:macro:`Py_TPFLAGS_HAVE_GC` and :"
+"c:member:`~PyTypeObject.tp_traverse` for additional considerations."
 msgstr ""
 
 msgid ""
-"If your traverse function delegates to the ``tp_traverse`` of its base class "
-"(or another type), ensure that ``Py_TYPE(self)`` is visited only once. Note "
-"that only heap type are expected to visit the type in ``tp_traverse``."
+"The API for defining heap types grew organically, leaving it somewhat "
+"awkward to use in its current state. The following sections will guide you "
+"through common issues."
+msgstr ""
+
+msgid "``tp_traverse`` in Python 3.8 and lower"
+msgstr ""
+
+msgid ""
+"The requirement to visit the type from ``tp_traverse`` was added in Python "
+"3.9. If you support Python 3.8 and lower, the traverse function must *not* "
+"visit the type, so it must be more complicated::"
+msgstr ""
+
+msgid ""
+"Unfortunately, :c:data:`Py_Version` was only added in Python 3.11. As a "
+"replacement, use:"
+msgstr ""
+
+msgid ":c:macro:`PY_VERSION_HEX`, if not using the stable ABI, or"
+msgstr ""
+
+msgid ""
+":py:data:`sys.version_info` (via :c:func:`PySys_GetObject` and :c:func:"
+"`PyArg_ParseTuple`)."
+msgstr ""
+
+msgid "Delegating ``tp_traverse``"
+msgstr ""
+
+msgid ""
+"If your traverse function delegates to the :c:member:`~PyTypeObject."
+"tp_traverse` of its base class (or another type), ensure that "
+"``Py_TYPE(self)`` is visited only once. Note that only heap type are "
+"expected to visit the type in ``tp_traverse``."
 msgstr ""
 
 msgid "For example, if your traverse function includes::"
@@ -402,8 +433,65 @@ msgid "...and ``base`` may be a static type, then it should also include::"
 msgstr ""
 
 msgid ""
-"It is not necessary to handle the type's reference count in ``tp_new`` and "
-"``tp_clear``."
+"It is not necessary to handle the type's reference count in :c:member:"
+"`~PyTypeObject.tp_new` and :c:member:`~PyTypeObject.tp_clear`."
+msgstr ""
+
+msgid "Defining ``tp_dealloc``"
+msgstr ""
+
+msgid ""
+"If your type has a custom :c:member:`~PyTypeObject.tp_dealloc` function, it "
+"needs to:"
+msgstr ""
+
+msgid ""
+"call :c:func:`PyObject_GC_UnTrack` before any fields are invalidated, and"
+msgstr ""
+
+msgid "decrement the reference count of the type."
+msgstr ""
+
+msgid ""
+"To keep the type valid while ``tp_free`` is called, the type's refcount "
+"needs to be decremented *after* the instance is deallocated. For example::"
+msgstr ""
+
+msgid ""
+"The default ``tp_dealloc`` function does this, so if your type does *not* "
+"override ``tp_dealloc`` you don't need to add it."
+msgstr ""
+
+msgid "Not overriding ``tp_free``"
+msgstr ""
+
+msgid ""
+"The :c:member:`~PyTypeObject.tp_free` slot of a heap type must be set to :c:"
+"func:`PyObject_GC_Del`. This is the default; do not override it."
+msgstr ""
+
+msgid "Avoiding ``PyObject_New``"
+msgstr ""
+
+msgid "GC-tracked objects need to be allocated using GC-aware functions."
+msgstr ""
+
+msgid "If you use use :c:func:`PyObject_New` or :c:func:`PyObject_NewVar`:"
+msgstr ""
+
+msgid ""
+"Get and call type's :c:member:`~PyTypeObject.tp_alloc` slot, if possible. "
+"That is, replace ``TYPE *o = PyObject_New(TYPE, typeobj)`` with::"
+msgstr ""
+
+msgid ""
+"Replace ``o = PyObject_NewVar(TYPE, typeobj, size)`` with the same, but use "
+"size instead of the 0."
+msgstr ""
+
+msgid ""
+"If the above is not possible (e.g. inside a custom ``tp_alloc``), call :c:"
+"func:`PyObject_GC_New` or :c:func:`PyObject_GC_NewVar`::"
 msgstr ""
 
 msgid "Module State Access from Classes"
