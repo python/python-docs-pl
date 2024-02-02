@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2021
+# Maciej Olko <maciej.olko@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 14:13+0000\n"
+"POT-Creation-Date: 2024-02-02 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2021\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,72 +67,57 @@ msgstr ""
 msgid "*filename* accepts a :term:`path-like object`."
 msgstr ""
 
-msgid "Open the database file *file* and return a corresponding object."
+msgid "Open a database and return the corresponding database object."
+msgstr ""
+
+msgid "Parameters"
+msgstr "parametry"
+
+msgid ""
+"The database file to open.  If the database file already exists, the :func:"
+"`whichdb` function is used to determine its type and the appropriate module "
+"is used; if it does not exist, the first submodule listed above that can be "
+"imported is used."
+msgstr ""
+
+msgid "The database file to open."
 msgstr ""
 
 msgid ""
 "If the database file already exists, the :func:`whichdb` function is used to "
 "determine its type and the appropriate module is used; if it does not exist, "
-"the first module listed above that can be imported is used."
-msgstr ""
-
-msgid "The optional *flag* argument can be:"
-msgstr ""
-
-msgid "Value"
-msgstr "Wartość"
-
-msgid "Meaning"
-msgstr "Znaczenie"
-
-msgid "``'r'`` (default)"
-msgstr ""
-
-msgid "|flag_r|"
-msgstr ""
-
-msgid "``'w'``"
-msgstr ""
-
-msgid "|flag_w|"
-msgstr ""
-
-msgid "``'c'``"
-msgstr ""
-
-msgid "|flag_c|"
-msgstr ""
-
-msgid "``'n'``"
-msgstr ""
-
-msgid "|flag_n|"
+"the first submodule listed above that can be imported is used."
 msgstr ""
 
 msgid ""
-"The optional *mode* argument is the Unix mode of the file, used only when "
-"the database has to be created.  It defaults to octal ``0o666`` (and will be "
-"modified by the prevailing umask)."
+"* ``'r'`` (default): |flag_r| * ``'w'``: |flag_w| * ``'c'``: |flag_c| * "
+"``'n'``: |flag_n|"
+msgstr ""
+
+msgid "``'r'`` (default): |flag_r|"
+msgstr ""
+
+msgid "``'w'``: |flag_w|"
+msgstr ""
+
+msgid "``'c'``: |flag_c|"
+msgstr ""
+
+msgid "``'n'``: |flag_n|"
+msgstr ""
+
+msgid "|mode_param_doc|"
 msgstr ""
 
 msgid "*file* accepts a :term:`path-like object`."
 msgstr ""
 
 msgid ""
-"The object returned by :func:`open` supports the same basic functionality as "
-"a :class:`dict`; keys and their corresponding values can be stored, "
-"retrieved, and deleted, and the :keyword:`in` operator and the :meth:`!keys` "
-"method are available, as well as :meth:`!get` and :meth:`!setdefault`."
-msgstr ""
-
-msgid ""
-":meth:`!get` and :meth:`!setdefault` are now available in all database "
-"modules."
-msgstr ""
-
-msgid ""
-"Deleting a key from a read-only database raises database module specific "
-"error instead of :exc:`KeyError`."
+"The object returned by :func:`~dbm.open` supports the same basic "
+"functionality as a :class:`dict`; keys and their corresponding values can be "
+"stored, retrieved, and deleted, and the :keyword:`in` operator and the :meth:"
+"`!keys` method are available, as well as :meth:`!get` and :meth:`!"
+"setdefault` methods."
 msgstr ""
 
 msgid ""
@@ -147,8 +132,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+":meth:`!get` and :meth:`!setdefault` methods are now available for all :mod:"
+"`dbm` backends."
+msgstr ""
+
+msgid ""
 "Added native support for the context management protocol to the objects "
-"returned by :func:`.open`."
+"returned by :func:`~dbm.open`."
+msgstr ""
+
+msgid ""
+"Deleting a key from a read-only database raises a database module specific "
+"exception instead of :exc:`KeyError`."
 msgstr ""
 
 msgid ""
@@ -192,55 +187,57 @@ msgid ""
 "key."
 msgstr ""
 
-msgid ""
-"Open a GDBM database and return a :class:`!gdbm` object.  The *filename* "
-"argument is the name of the database file."
+msgid "Open a GDBM database and return a :class:`!gdbm` object."
 msgstr ""
 
 msgid ""
-"The following additional characters may be appended to the flag to control "
-"how the database is opened:"
+"* ``'r'`` (default): |flag_r| * ``'w'``: |flag_w| * ``'c'``: |flag_c| * "
+"``'n'``: |flag_n|  The following additional characters may be appended to "
+"control how the database is opened:  * ``'f'``: Open the database in fast "
+"mode.   Writes to the database will not be synchronized. * ``'s'``: "
+"Synchronized mode.   Changes to the database will be written immediately to "
+"the file. * ``'u'``: Do not lock database.  Not all flags are valid for all "
+"versions of GDBM. See the :data:`open_flags` member for a list of supported "
+"flag characters."
 msgstr ""
 
-msgid "``'f'``"
-msgstr "``'f'``"
+msgid ""
+"The following additional characters may be appended to control how the "
+"database is opened:"
+msgstr ""
 
 msgid ""
-"Open the database in fast mode.  Writes to the database will not be "
+"``'f'``: Open the database in fast mode. Writes to the database will not be "
 "synchronized."
 msgstr ""
 
-msgid "``'s'``"
+msgid ""
+"``'s'``: Synchronized mode. Changes to the database will be written "
+"immediately to the file."
+msgstr ""
+
+msgid "``'u'``: Do not lock database."
 msgstr ""
 
 msgid ""
-"Synchronized mode. This will cause changes to the database to be immediately "
-"written to the file."
+"Not all flags are valid for all versions of GDBM. See the :data:`open_flags` "
+"member for a list of supported flag characters."
 msgstr ""
 
-msgid "``'u'``"
-msgstr "``'u'``"
-
-msgid "Do not lock database."
+msgid "Raises"
 msgstr ""
 
-msgid ""
-"Not all flags are valid for all versions of GDBM.  The module constant :"
-"const:`open_flags` is a string of supported flag characters.  The exception :"
-"exc:`error` is raised if an invalid flag is specified."
+msgid "If an invalid *flag* argument is passed."
 msgstr ""
 
 msgid ""
-"The optional *mode* argument is the Unix mode of the file, used only when "
-"the database has to be created.  It defaults to octal ``0o666``."
+"A string of characters the *flag* parameter of :meth:`~dbm.gnu.open` "
+"supports."
 msgstr ""
 
 msgid ""
 "In addition to the dictionary-like methods, :class:`gdbm` objects have the "
-"following methods:"
-msgstr ""
-
-msgid "Accepts :term:`path-like object` for filename."
+"following methods and attributes:"
 msgstr ""
 
 msgid ""
@@ -307,18 +304,20 @@ msgstr ""
 msgid "Name of the NDBM implementation library used."
 msgstr ""
 
-msgid ""
-"Open an NDBM database and return an :class:`!ndbm` object. The *filename* "
-"argument is the name of the database file (without the :file:`.dir` or :file:"
-"`.pag` extensions)."
+msgid "Open an NDBM database and return an :class:`!ndbm` object."
 msgstr ""
 
-msgid "The optional *flag* argument must be one of these values:"
+msgid ""
+"The basename of the database file (without the :file:`.dir` or :file:`.pag` "
+"extensions)."
 msgstr ""
 
 msgid ""
 "In addition to the dictionary-like methods, :class:`!ndbm` objects provide "
 "the following method:"
+msgstr ""
+
+msgid "Accepts :term:`path-like object` for filename."
 msgstr ""
 
 msgid "Close the NDBM database."
@@ -338,13 +337,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The :mod:`dbm.dumb` module provides a persistent dictionary-like interface "
-"which is written entirely in Python.  Unlike other modules such as :mod:`dbm."
-"gnu` no external library is required.  As with other persistent mappings, "
-"the keys and values are always stored as bytes."
+"The :mod:`dbm.dumb` module provides a persistent :class:`dict`-like "
+"interface which is written entirely in Python. Unlike other :mod:`dbm` "
+"backends, such as :mod:`dbm.gnu`, no external library is required. As with "
+"other :mod:`dbm` backends, the keys and values are always stored as :class:"
+"`bytes`."
 msgstr ""
 
-msgid "The module defines the following:"
+msgid "The :mod:`!dbm.dumb` module defines the following:"
 msgstr ""
 
 msgid ""
@@ -354,16 +354,37 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Open a ``dumbdbm`` database and return a dumbdbm object.  The *filename* "
-"argument is the basename of the database file (without any specific "
-"extensions).  When a dumbdbm database is created, files with :file:`.dat` "
-"and :file:`.dir` extensions are created."
+"Open a :mod:`!dbm.dumb` database. The returned database object behaves "
+"similar to a :term:`mapping`, in addition to providing :meth:`~dumbdbm.sync` "
+"and :meth:`~dumbdbm.close` methods."
 msgstr ""
 
-msgid "``'r'``"
+msgid ""
+"The basename of the database file (without extensions). A new database "
+"creates the following files:  - :file:`{filename}.dat` - :file:`{filename}."
+"dir`"
 msgstr ""
 
-msgid "``'c'`` (default)"
+msgid ""
+"The basename of the database file (without extensions). A new database "
+"creates the following files:"
+msgstr ""
+
+msgid ":file:`{filename}.dat`"
+msgstr ""
+
+msgid ":file:`{filename}.dir`"
+msgstr ""
+
+msgid ""
+"* ``'r'``: |flag_r| * ``'w'``: |flag_w| * ``'c'`` (default): |flag_c| * "
+"``'n'``: |flag_n|"
+msgstr ""
+
+msgid "``'r'``: |flag_r|"
+msgstr ""
+
+msgid "``'c'`` (default): |flag_c|"
 msgstr ""
 
 msgid ""
@@ -373,19 +394,17 @@ msgid ""
 msgstr ""
 
 msgid ""
-":func:`.open` always creates a new database when the flag has the value "
-"``'n'``."
+":func:`~dbm.dumb.open` always creates a new database when *flag* is ``'n'``."
 msgstr ""
 
 msgid ""
-"A database opened with flags ``'r'`` is now read-only.  Opening with flags "
-"``'r'`` and ``'w'`` no longer creates a database if it does not exist."
+"A database opened read-only if *flag* is ``'r'``. A database is not created "
+"if it does not exist if *flag* is ``'r'`` or ``'w'``."
 msgstr ""
 
 msgid ""
 "In addition to the methods provided by the :class:`collections.abc."
-"MutableMapping` class, :class:`dumbdbm` objects provide the following "
-"methods:"
+"MutableMapping` class, the following methods are provided:"
 msgstr ""
 
 msgid ""
@@ -393,7 +412,7 @@ msgid ""
 "the :meth:`Shelve.sync` method."
 msgstr ""
 
-msgid "Close the ``dumbdbm`` database."
+msgid "Close the database."
 msgstr ""
 
 msgid "databases"
