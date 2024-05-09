@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.12, 3.11, '3.10', 3.9, 3.8]
+        version: [3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
     steps:
       - uses: styfle/cancel-workflow-action@main
         with:
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.12, 3.11]
+        version: [3.13, 3.12, 3.11]
     needs: ['update-translation']
     continue-on-error: true
     steps:
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.12, 3.11, '3.10', 3.9, 3.8]
+        version: [3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
         format: [html, latex]
     needs: ['update-translation']
     steps:
@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.12, 3.11, '3.10', 3.9, 3.8]
+        version: [3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
     needs: ['build-translation']
     steps:
       - uses: actions/download-artifact@master
