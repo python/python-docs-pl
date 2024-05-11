@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
+"POT-Creation-Date: 2024-05-10 22:05-0300\n"
 "PO-Revision-Date: 2021-06-28 01:15+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -326,6 +326,26 @@ msgid ""
 "only the difference between the results of two calls is valid."
 msgstr ""
 
+msgid "Clock:"
+msgstr ""
+
+msgid ""
+"On Windows, call ``QueryPerformanceCounter()`` and "
+"``QueryPerformanceFrequency()``."
+msgstr ""
+
+msgid "On macOS, call ``mach_absolute_time()`` and ``mach_timebase_info()``."
+msgstr ""
+
+msgid "On HP-UX, call ``gethrtime()``."
+msgstr ""
+
+msgid "Call ``clock_gettime(CLOCK_HIGHRES)`` if available."
+msgstr ""
+
+msgid "Otherwise, call ``clock_gettime(CLOCK_MONOTONIC)``."
+msgstr ""
+
 msgid ""
 "Use :func:`monotonic_ns` to avoid the precision loss caused by the :class:"
 "`float` type."
@@ -349,11 +369,19 @@ msgid ""
 msgstr ""
 
 msgid ""
+"On CPython, use the same clock than :func:`time.monotonic()` and is a "
+"monotonic clock, i.e. a clock that cannot go backwards."
+msgstr ""
+
+msgid ""
 "Use :func:`perf_counter_ns` to avoid the precision loss caused by the :class:"
 "`float` type."
 msgstr ""
 
 msgid "On Windows, the function is now system-wide."
+msgstr ""
+
+msgid "Use the same clock than :func:`time.monotonic()`."
 msgstr ""
 
 msgid "Similar to :func:`perf_counter`, but return time as nanoseconds."
@@ -414,6 +442,11 @@ msgid "Or use ``select()`` (resolution: 1 microsecond)."
 msgstr ""
 
 msgid ""
+"Raises an :ref:`auditing event <auditing>` ``time.sleep`` with argument "
+"``secs``."
+msgstr ""
+
+msgid ""
 "The function now sleeps at least *secs* even if the sleep is interrupted by "
 "a signal, except if the signal handler raises an exception (see :pep:`475` "
 "for the rationale)."
@@ -422,6 +455,9 @@ msgstr ""
 msgid ""
 "On Unix, the ``clock_nanosleep()`` and ``nanosleep()`` functions are now "
 "used if available. On Windows, a waitable timer is now used."
+msgstr ""
+
+msgid "Raises an auditing event."
 msgstr ""
 
 msgid ""
@@ -821,6 +857,15 @@ msgid ""
 "attributes."
 msgstr ""
 
+msgid "On Windows, call ``GetSystemTimeAsFileTime()``."
+msgstr ""
+
+msgid "Call ``clock_gettime(CLOCK_REALTIME)`` if available."
+msgstr ""
+
+msgid "Otherwise, call ``gettimeofday()``."
+msgstr ""
+
 msgid ""
 "Use :func:`time_ns` to avoid the precision loss caused by the :class:`float` "
 "type."
@@ -992,6 +1037,14 @@ msgstr ""
 msgid ":ref:`Availability <availability>`: Linux >= 2.6.28, macOS >= 10.12."
 msgstr ""
 
+msgid ""
+"Similar to :data:`CLOCK_MONOTONIC_RAW`, but reads a value cached by the "
+"system at context switch and hence has less accuracy."
+msgstr ""
+
+msgid ":ref:`Availability <availability>`: macOS >= 10.12."
+msgstr ""
+
 msgid "High-resolution per-process timer from the CPU."
 msgstr ""
 
@@ -1028,7 +1081,9 @@ msgid ""
 "the system is asleep."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: macOS >= 10.12."
+msgid ""
+"Like :data:`CLOCK_UPTIME_RAW`, but the value is cached by the system at "
+"context switches and therefore has less accuracy."
 msgstr ""
 
 msgid ""

@@ -5,15 +5,16 @@
 #
 # Translators:
 # haaritsubaki, 2023
+# Maciej Olko <maciej.olko@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 01:27+0000\n"
+"POT-Creation-Date: 2024-05-10 22:05-0300\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
-"Last-Translator: haaritsubaki, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,6 +126,30 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Create a Python integer from the value contained in the first *n_bytes* of "
+"*buffer*, interpreted as a two's-complement signed number."
+msgstr ""
+
+msgid ""
+"*flags* are as for :c:func:`PyLong_AsNativeBytes`. Passing ``-1`` will "
+"select the native endian that CPython was compiled with and assume that the "
+"most-significant bit is a sign bit. Passing "
+"``Py_ASNATIVEBYTES_UNSIGNED_BUFFER`` will produce the same result as "
+"calling :c:func:`PyLong_FromUnsignedNativeBytes`. Other flags are ignored."
+msgstr ""
+
+msgid ""
+"Create a Python integer from the value contained in the first *n_bytes* of "
+"*buffer*, interpreted as an unsigned number."
+msgstr ""
+
+msgid ""
+"*flags* are as for :c:func:`PyLong_AsNativeBytes`. Passing ``-1`` will "
+"select the native endian that CPython was compiled with and assume that the "
+"most-significant bit is not a sign bit. Flags other than endian are ignored."
+msgstr ""
+
+msgid ""
 "Return a C :c:expr:`long` representation of *obj*.  If *obj* is not an "
 "instance of :c:type:`PyLongObject`, first call its :meth:`~object.__index__` "
 "method (if present) to convert it to a :c:type:`PyLongObject`."
@@ -142,6 +167,11 @@ msgid "Use :meth:`~object.__index__` if available."
 msgstr ""
 
 msgid "This function will no longer use :meth:`~object.__int__`."
+msgstr ""
+
+msgid ""
+"Similar to :c:func:`PyLong_AsLong`, but store the result in a C :c:expr:"
+"`int` instead of a C :c:expr:`long`."
 msgstr ""
 
 msgid ""
@@ -285,6 +315,133 @@ msgid ""
 "Returns ``NULL`` on error.  Use :c:func:`PyErr_Occurred` to disambiguate."
 msgstr ""
 
+msgid ""
+"Copy the Python integer value *pylong* to a native *buffer* of size "
+"*n_bytes*. The *flags* can be set to ``-1`` to behave similarly to a C cast, "
+"or to values documented below to control the behavior."
+msgstr ""
+
+msgid ""
+"Returns ``-1`` with an exception raised on error.  This may happen if "
+"*pylong* cannot be interpreted as an integer, or if *pylong* was negative "
+"and the ``Py_ASNATIVEBYTES_REJECT_NEGATIVE`` flag was set."
+msgstr ""
+
+msgid ""
+"Otherwise, returns the number of bytes required to store the value. If this "
+"is equal to or less than *n_bytes*, the entire value was copied. All "
+"*n_bytes* of the buffer are written: large buffers are padded with zeroes."
+msgstr ""
+
+msgid ""
+"If the returned value is greater than than *n_bytes*, the value was "
+"truncated: as many of the lowest bits of the value as could fit are written, "
+"and the higher bits are ignored. This matches the typical behavior of a C-"
+"style downcast."
+msgstr ""
+
+msgid ""
+"Overflow is not considered an error. If the returned value is larger than "
+"*n_bytes*, most significant bits were discarded."
+msgstr ""
+
+msgid "``0`` will never be returned."
+msgstr ""
+
+msgid "Values are always copied as two's-complement."
+msgstr ""
+
+msgid "Usage example::"
+msgstr ""
+
+msgid ""
+"Passing zero to *n_bytes* will return the size of a buffer that would be "
+"large enough to hold the value. This may be larger than technically "
+"necessary, but not unreasonably so."
+msgstr ""
+
+msgid ""
+"Passing *n_bytes=0* to this function is not an accurate way to determine the "
+"bit length of a value."
+msgstr ""
+
+msgid "If *n_bytes=0*, *buffer* may be ``NULL``."
+msgstr ""
+
+msgid ""
+"To get at the entire Python value of an unknown size, the function can be "
+"called twice: first to determine the buffer size, then to fill it::"
+msgstr ""
+
+msgid ""
+"*flags* is either ``-1`` (``Py_ASNATIVEBYTES_DEFAULTS``) to select defaults "
+"that behave most like a C cast, or a combintation of the other flags in the "
+"table below. Note that ``-1`` cannot be combined with other flags."
+msgstr ""
+
+msgid ""
+"Currently, ``-1`` corresponds to ``Py_ASNATIVEBYTES_NATIVE_ENDIAN | "
+"Py_ASNATIVEBYTES_UNSIGNED_BUFFER``."
+msgstr ""
+
+msgid "Flag"
+msgstr ""
+
+msgid "Value"
+msgstr "Wartość"
+
+msgid "``-1``"
+msgstr ""
+
+msgid "``0``"
+msgstr ""
+
+msgid "``1``"
+msgstr ""
+
+msgid "``3``"
+msgstr ""
+
+msgid "``4``"
+msgstr ""
+
+msgid "``8``"
+msgstr ""
+
+msgid ""
+"Specifying ``Py_ASNATIVEBYTES_NATIVE_ENDIAN`` will override any other endian "
+"flags. Passing ``2`` is reserved."
+msgstr ""
+
+msgid ""
+"By default, sufficient buffer will be requested to include a sign bit. For "
+"example, when converting 128 with *n_bytes=1*, the function will return 2 "
+"(or more) in order to store a zero sign bit."
+msgstr ""
+
+msgid ""
+"If ``Py_ASNATIVEBYTES_UNSIGNED_BUFFER`` is specified, a zero sign bit will "
+"be omitted from size calculations. This allows, for example, 128 to fit in a "
+"single-byte buffer. If the destination buffer is later treated as signed, a "
+"positive input value may become negative. Note that the flag does not affect "
+"handling of negative values: for those, space for a sign bit is always "
+"requested."
+msgstr ""
+
+msgid ""
+"Specifying ``Py_ASNATIVEBYTES_REJECT_NEGATIVE`` causes an exception to be "
+"set if *pylong* is negative. Without this flag, negative values will be "
+"copied provided there is enough space for at least one sign bit, regardless "
+"of whether ``Py_ASNATIVEBYTES_UNSIGNED_BUFFER`` was specified."
+msgstr ""
+
+msgid ""
+"With the default *flags* (``-1``, or *UNSIGNED_BUFFER*  without "
+"*REJECT_NEGATIVE*), multiple Python integers can map to a single value "
+"without overflow. For example, both ``255`` and ``-1`` fit a single-byte "
+"buffer and set all its bits. This matches typical C cast behavior."
+msgstr ""
+
 msgid "Return 1 if *op* is compact, 0 otherwise."
 msgstr ""
 
@@ -292,8 +449,7 @@ msgid ""
 "This function makes it possible for performance-critical code to implement a "
 "“fast path” for small integers. For compact values use :c:func:"
 "`PyUnstable_Long_CompactValue`; for others fall back to a :c:func:"
-"`PyLong_As* <PyLong_AsSize_t>` function or :c:func:`calling "
-"<PyObject_CallMethod>` :meth:`int.to_bytes`."
+"`PyLong_As* <PyLong_AsSize_t>` function or :c:func:`PyLong_AsNativeBytes`."
 msgstr ""
 
 msgid "The speedup is expected to be negligible for most users."

@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 14:13+0000\n"
+"POT-Creation-Date: 2024-05-10 22:05-0300\n"
 "PO-Revision-Date: 2021-06-28 01:05+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -410,12 +410,32 @@ msgid ""
 msgstr ""
 
 msgid ""
-"This exception is derived from :exc:`RuntimeError`.  It is raised when the "
-"interpreter detects that the maximum recursion depth (see :func:`sys."
-"getrecursionlimit`) is exceeded."
+"This exception is derived from :exc:`RuntimeError`.  It is raised when an "
+"operation is blocked during interpreter shutdown also known as :term:`Python "
+"finalization <interpreter shutdown>`."
+msgstr ""
+
+msgid ""
+"Examples of operations which can be blocked with a :exc:"
+"`PythonFinalizationError` during the Python finalization:"
+msgstr ""
+
+msgid "Creating a new Python thread."
+msgstr ""
+
+msgid ":func:`os.fork`."
+msgstr ""
+
+msgid "See also the :func:`sys.is_finalizing` function."
 msgstr ""
 
 msgid "Previously, a plain :exc:`RuntimeError` was raised."
+msgstr ""
+
+msgid ""
+"This exception is derived from :exc:`RuntimeError`.  It is raised when the "
+"interpreter detects that the maximum recursion depth (see :func:`sys."
+"getrecursionlimit`) is exceeded."
 msgstr ""
 
 msgid ""
@@ -903,10 +923,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The condition can be either a function that accepts an exception and returns "
-"true for those that should be in the subgroup, or it can be an exception "
-"type or a tuple of exception types, which is used to check for a match using "
-"the same check that is used in an ``except`` clause."
+"The condition can be an exception type or tuple of exception types, in which "
+"case each exception is checked for a match using the same check that is used "
+"in an ``except`` clause.  The condition can also be a callable (other than a "
+"type object) that accepts an exception as its single argument and returns "
+"true for the exceptions that should be in the subgroup."
 msgstr ""
 
 msgid ""
@@ -921,6 +942,9 @@ msgid ""
 "The condition is checked for all exceptions in the nested exception group, "
 "including the top-level and any nested exception groups. If the condition is "
 "true for such an exception group, it is included in the result in full."
+msgstr ""
+
+msgid "``condition`` can be any callable which is not a type object."
 msgstr ""
 
 msgid ""

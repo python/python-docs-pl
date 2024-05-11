@@ -5,15 +5,16 @@
 #
 # Translators:
 # haaritsubaki, 2023
+# Maciej Olko <maciej.olko@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
+"POT-Creation-Date: 2024-05-10 22:05-0300\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
-"Last-Translator: haaritsubaki, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +25,100 @@ msgstr ""
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Object Protocol"
+msgstr ""
+
+msgid "Get a :term:`strong reference` to a constant."
+msgstr ""
+
+msgid "Set an exception and return ``NULL`` if *constant_id* is invalid."
+msgstr ""
+
+msgid "*constant_id* must be one of these constant identifiers:"
+msgstr ""
+
+msgid "Constant Identifier"
+msgstr ""
+
+msgid "Value"
+msgstr "Wartość"
+
+msgid "Returned object"
+msgstr ""
+
+msgid "``0``"
+msgstr ""
+
+msgid ":py:data:`None`"
+msgstr ""
+
+msgid "``1``"
+msgstr ""
+
+msgid ":py:data:`False`"
+msgstr ""
+
+msgid "``2``"
+msgstr ""
+
+msgid ":py:data:`True`"
+msgstr ""
+
+msgid "``3``"
+msgstr ""
+
+msgid ":py:data:`Ellipsis`"
+msgstr ""
+
+msgid "``4``"
+msgstr ""
+
+msgid ":py:data:`NotImplemented`"
+msgstr ""
+
+msgid "``5``"
+msgstr ""
+
+msgid "``6``"
+msgstr ""
+
+msgid "``7``"
+msgstr ""
+
+msgid "``''``"
+msgstr ""
+
+msgid "``8``"
+msgstr ""
+
+msgid "``b''``"
+msgstr ""
+
+msgid "``9``"
+msgstr ""
+
+msgid "``()``"
+msgstr ""
+
+msgid ""
+"Numeric values are only given for projects which cannot use the constant "
+"identifiers."
+msgstr ""
+
+msgid "In CPython, all of these constants are :term:`immortal`."
+msgstr ""
+
+msgid ""
+"Similar to :c:func:`Py_GetConstant`, but return a :term:`borrowed reference`."
+msgstr ""
+
+msgid ""
+"This function is primarily intended for backwards compatibility: using :c:"
+"func:`Py_GetConstant` is recommended for new code."
+msgstr ""
+
+msgid ""
+"The reference is borrowed from the interpreter, and is valid until the "
+"interpreter finalization. .. versionadded:: 3.13"
 msgstr ""
 
 msgid ""
@@ -51,15 +146,27 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Returns ``1`` if *o* has the attribute *attr_name*, and ``0`` otherwise.  "
-"This is equivalent to the Python expression ``hasattr(o, attr_name)``.  This "
-"function always succeeds."
+"Returns ``1`` if *o* has the attribute *attr_name*, and ``0`` otherwise. "
+"This is equivalent to the Python expression ``hasattr(o, attr_name)``. On "
+"failure, return ``-1``."
+msgstr ""
+
+msgid ""
+"This is the same as :c:func:`PyObject_HasAttrWithError`, but *attr_name* is "
+"specified as a :c:expr:`const char*` UTF-8 encoded bytes string, rather than "
+"a :c:expr:`PyObject*`."
+msgstr ""
+
+msgid ""
+"Returns ``1`` if *o* has the attribute *attr_name*, and ``0`` otherwise. "
+"This function always succeeds."
 msgstr ""
 
 msgid ""
 "Exceptions that occur when this calls :meth:`~object.__getattr__` and :meth:"
 "`~object.__getattribute__` methods are silently ignored. For proper error "
-"handling, use :c:func:`PyObject_GetAttr` instead."
+"handling, use :c:func:`PyObject_HasAttrWithError`, :c:func:"
+"`PyObject_GetOptionalAttr` or :c:func:`PyObject_GetAttr` instead."
 msgstr ""
 
 msgid ""
@@ -72,7 +179,8 @@ msgid ""
 "Exceptions that occur when this calls :meth:`~object.__getattr__` and :meth:"
 "`~object.__getattribute__` methods or while creating the temporary :class:"
 "`str` object are silently ignored. For proper error handling, use :c:func:"
-"`PyObject_GetAttrString` instead."
+"`PyObject_HasAttrStringWithError`, :c:func:`PyObject_GetOptionalAttrString` "
+"or :c:func:`PyObject_GetAttrString` instead."
 msgstr ""
 
 msgid ""
@@ -82,9 +190,38 @@ msgid ""
 msgstr ""
 
 msgid ""
+"If the missing attribute should not be treated as a failure, you can use :c:"
+"func:`PyObject_GetOptionalAttr` instead."
+msgstr ""
+
+msgid ""
 "This is the same as :c:func:`PyObject_GetAttr`, but *attr_name* is specified "
 "as a :c:expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
+msgstr ""
+
+msgid ""
+"If the missing attribute should not be treated as a failure, you can use :c:"
+"func:`PyObject_GetOptionalAttrString` instead."
+msgstr ""
+
+msgid ""
+"Variant of :c:func:`PyObject_GetAttr` which doesn't raise :exc:"
+"`AttributeError` if the attribute is not found."
+msgstr ""
+
+msgid ""
+"If the attribute is found, return ``1`` and set *\\*result* to a new :term:"
+"`strong reference` to the attribute. If the attribute is not found, return "
+"``0`` and set *\\*result* to ``NULL``; the :exc:`AttributeError` is "
+"silenced. If an error other than :exc:`AttributeError` is raised, return "
+"``-1`` and set *\\*result* to ``NULL``."
+msgstr ""
+
+msgid ""
+"This is the same as :c:func:`PyObject_GetOptionalAttr`, but *attr_name* is "
+"specified as a :c:expr:`const char*` UTF-8 encoded bytes string, rather than "
+"a :c:expr:`PyObject*`."
 msgstr ""
 
 msgid ""
@@ -424,6 +561,17 @@ msgstr ""
 msgid ""
 "On error, set an exception and return ``NULL``. :py:exc:`TypeError` is "
 "raised if *o* does not have :c:macro:`Py_TPFLAGS_ITEMS_AT_END` set."
+msgstr ""
+
+msgid "Visit the managed dictionary of *obj*."
+msgstr ""
+
+msgid ""
+"This function must only be called in a traverse function of the type which "
+"has the :c:macro:`Py_TPFLAGS_MANAGED_DICT` flag set."
+msgstr ""
+
+msgid "Clear the managed dictionary of *obj*."
 msgstr ""
 
 msgid "built-in function"
