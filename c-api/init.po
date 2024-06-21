@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 14:15+0000\n"
+"POT-Creation-Date: 2024-06-21 14:14+0000\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
 "Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -119,6 +119,15 @@ msgid ":c:func:`PyMem_RawCalloc`"
 msgstr ""
 
 msgid ":c:func:`PyMem_RawFree`"
+msgstr ""
+
+msgid "Synchronization:"
+msgstr ""
+
+msgid ":c:func:`PyMutex_Lock`"
+msgstr ""
+
+msgid ":c:func:`PyMutex_Unlock`"
 msgstr ""
 
 msgid ""
@@ -2064,6 +2073,40 @@ msgstr ""
 msgid ""
 "Due to the compatibility problem noted above, this version of the API should "
 "not be used in new code."
+msgstr ""
+
+msgid "Synchronization Primitives"
+msgstr ""
+
+msgid "The C-API provides a basic mutual exclusion lock."
+msgstr ""
+
+msgid ""
+"A mutual exclusion lock.  The :c:type:`!PyMutex` should be initialized to "
+"zero to represent the unlocked state.  For example::"
+msgstr ""
+
+msgid ""
+"Instances of :c:type:`!PyMutex` should not be copied or moved.  Both the "
+"contents and address of a :c:type:`!PyMutex` are meaningful, and it must "
+"remain at a fixed, writable location in memory."
+msgstr ""
+
+msgid ""
+"A :c:type:`!PyMutex` currently occupies one byte, but the size should be "
+"considered unstable.  The size may change in future Python releases without "
+"a deprecation period."
+msgstr ""
+
+msgid ""
+"Lock mutex *m*.  If another thread has already locked it, the calling thread "
+"will block until the mutex is unlocked.  While blocked, the thread will "
+"temporarily release the :term:`GIL` if it is held."
+msgstr ""
+
+msgid ""
+"Unlock mutex *m*. The mutex must be locked --- otherwise, the function will "
+"issue a fatal error."
 msgstr ""
 
 msgid "PyEval_InitThreads()"
