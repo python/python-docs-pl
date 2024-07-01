@@ -11,7 +11,7 @@ jobs:
       - run: pip install gitpython matplotlib
       - uses: actions/checkout@master
         with:
-          ref: '3.12'
+          ref: '3.13'
           fetch-depth: 0
       - run: python update_switcher_chart.py
       - run: git config --local user.email github-actions@github.com
@@ -20,5 +20,5 @@ jobs:
       - run: git commit -m 'Update language switcher progress chart' || return 0
       - uses: ad-m/github-push-action@master
         with:
-          branch: '3.12'
+          branch: '3.13'
           github_token: ${{ secrets.GITHUB_TOKEN }}
