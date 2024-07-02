@@ -22,7 +22,7 @@ for commit in repo.iter_commits():
         continue
     number = float(found.group(1))
     progress.append(number)
-    dates.append(datetime.fromtimestamp(commit.committed_date))
+    dates.append(datetime.fromtimestamp(commit.authored_date))
 
 pyplot.plot_date(dates, progress)
 pyplot.ylim(ymin=0)
