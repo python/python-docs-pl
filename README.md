@@ -70,4 +70,5 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * `cog -rP README.md`
 
 **Potencjalnie przydatne materiały**
+* [statystyki oglądalności](https://plausible.io/docs.python.org/?filters=((contains,page,(/pl/)%29%29)
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
