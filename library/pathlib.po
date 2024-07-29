@@ -1,20 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2023
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Maciej Olko <maciej.olko@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2024-07-29 04:06+0000\n"
 "PO-Revision-Date: 2021-06-28 01:11+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,10 +24,10 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`pathlib` --- Object-oriented filesystem paths"
+msgid ":mod:`!pathlib` --- Object-oriented filesystem paths"
 msgstr ""
 
-msgid "**Source code:** :source:`Lib/pathlib.py`"
+msgid "**Source code:** :source:`Lib/pathlib/`"
 msgstr ""
 
 msgid ""
@@ -36,6 +36,15 @@ msgid ""
 "between :ref:`pure paths <pure-paths>`, which provide purely computational "
 "operations without I/O, and :ref:`concrete paths <concrete-paths>`, which "
 "inherit from pure paths but also provide I/O operations."
+msgstr ""
+
+msgid ""
+"Inheritance diagram showing the classes available in pathlib. The\n"
+"most basic class is PurePath, which has three direct subclasses:\n"
+"PurePosixPath, PureWindowsPath, and Path. Further to these four\n"
+"classes, there are two classes that use multiple inheritance:\n"
+"PosixPath subclasses PurePosixPath and Path, and WindowsPath\n"
+"subclasses PureWindowsPath and Path."
 msgstr ""
 
 msgid ""
@@ -89,6 +98,14 @@ msgstr ""
 msgid "Opening a file::"
 msgstr ""
 
+msgid "Exceptions"
+msgstr "Wyjątki"
+
+msgid ""
+"An exception inheriting :exc:`NotImplementedError` that is raised when an "
+"unsupported operation is called on a path object."
+msgstr ""
+
 msgid "Pure paths"
 msgstr ""
 
@@ -105,8 +122,9 @@ msgstr ""
 
 msgid ""
 "Each element of *pathsegments* can be either a string representing a path "
-"segment, an object implementing the :class:`os.PathLike` interface which "
-"returns a string, or another path object::"
+"segment, or an object implementing the :class:`os.PathLike` interface where "
+"the :meth:`~os.PathLike.__fspath__` method returns a string, such as another "
+"path object::"
 msgstr ""
 
 msgid "When *pathsegments* is empty, the current directory is assumed::"
@@ -223,6 +241,11 @@ msgstr ""
 msgid "Pure paths provide the following methods and properties:"
 msgstr ""
 
+msgid ""
+"The implementation of the :mod:`os.path` module used for low-level path "
+"parsing and joining: either :mod:`posixpath` or :mod:`ntpath`."
+msgstr ""
+
 msgid "A string representing the drive letter or name, if any::"
 msgstr ""
 
@@ -287,10 +310,13 @@ msgstr ""
 msgid "UNC drive names are not considered::"
 msgstr ""
 
-msgid "The file extension of the final component, if any::"
+msgid "The last dot-separated portion of the final component, if any::"
 msgstr ""
 
-msgid "A list of the path's file extensions::"
+msgid "This is commonly called the file extension."
+msgstr ""
+
+msgid "A list of the path's suffixes, often called file extensions::"
 msgstr ""
 
 msgid "The final path component, without its suffix::"
@@ -298,11 +324,6 @@ msgstr ""
 
 msgid ""
 "Return a string representation of the path with forward slashes (``/``)::"
-msgstr ""
-
-msgid ""
-"Represent the path as a ``file`` URI.  :exc:`ValueError` is raised if the "
-"path isn't absolute."
 msgstr ""
 
 msgid ""
@@ -314,47 +335,96 @@ msgid "Return whether or not this path is relative to the *other* path."
 msgstr ""
 
 msgid ""
+"This method is string-based; it neither accesses the filesystem nor treats "
+"\"``..``\" segments specially. The following code is equivalent:"
+msgstr ""
+
+msgid ""
+"Passing additional arguments is deprecated; if supplied, they are joined "
+"with *other*."
+msgstr ""
+
+msgid ""
 "With :class:`PureWindowsPath`, return ``True`` if the path is considered "
 "reserved under Windows, ``False`` otherwise.  With :class:`PurePosixPath`, "
 "``False`` is always returned."
 msgstr ""
 
 msgid ""
-"File system calls on reserved paths can fail mysteriously or have unintended "
-"effects."
+"Windows path names that contain a colon, or end with a dot or a space, are "
+"considered reserved. UNC paths may be reserved."
+msgstr ""
+
+msgid ""
+"This method is deprecated; use :func:`os.path.isreserved` to detect reserved "
+"paths on Windows."
 msgstr ""
 
 msgid ""
 "Calling this method is equivalent to combining the path with each of the "
-"*other* arguments in turn::"
+"given *pathsegments* in turn::"
 msgstr ""
 
 msgid ""
 "Match this path against the provided glob-style pattern.  Return ``True`` if "
-"matching is successful, ``False`` otherwise."
+"matching is successful, ``False`` otherwise.  For example::"
 msgstr ""
 
-msgid ""
-"If *pattern* is relative, the path can be either relative or absolute, and "
-"matching is done from the right::"
-msgstr ""
-
-msgid ""
-"If *pattern* is absolute, the path must be absolute, and the whole path must "
-"match::"
+msgid ":ref:`pathlib-pattern-language` documentation."
 msgstr ""
 
 msgid "As with other methods, case-sensitivity follows platform defaults::"
 msgstr ""
 
 msgid ""
-"Compute a version of this path relative to the path represented by *other*.  "
-"If it's impossible, ValueError is raised::"
+"Set *case_sensitive* to ``True`` or ``False`` to override this behaviour."
 msgstr ""
 
 msgid ""
-"NOTE: This function is part of :class:`PurePath` and works with strings. It "
-"does not check or access the underlying file structure."
+"Match this path against the provided non-recursive glob-style pattern. "
+"Return ``True`` if matching is successful, ``False`` otherwise."
+msgstr ""
+
+msgid ""
+"This method is similar to :meth:`~PurePath.full_match`, but empty patterns "
+"aren't allowed (:exc:`ValueError` is raised), the recursive wildcard "
+"\"``**``\" isn't supported (it acts like non-recursive \"``*``\"), and if a "
+"relative pattern is provided, then matching is done from the right::"
+msgstr ""
+
+msgid "The *pattern* parameter accepts a :term:`path-like object`."
+msgstr ""
+
+msgid "The *case_sensitive* parameter was added."
+msgstr ""
+
+msgid ""
+"Compute a version of this path relative to the path represented by *other*.  "
+"If it's impossible, :exc:`ValueError` is raised::"
+msgstr ""
+
+msgid ""
+"When *walk_up* is false (the default), the path must start with *other*. "
+"When the argument is true, ``..`` entries may be added to form the relative "
+"path. In all other cases, such as the paths referencing different drives, :"
+"exc:`ValueError` is raised.::"
+msgstr ""
+
+msgid ""
+"This function is part of :class:`PurePath` and works with strings. It does "
+"not check or access the underlying file structure. This can impact the "
+"*walk_up* option as it assumes that no symlinks are present in the path; "
+"call :meth:`~Path.resolve` first if necessary to resolve symlinks."
+msgstr ""
+
+msgid ""
+"The *walk_up* parameter was added (old behavior is the same as "
+"``walk_up=False``)."
+msgstr ""
+
+msgid ""
+"Passing additional positional arguments is deprecated; if supplied, they are "
+"joined with *other*."
 msgstr ""
 
 msgid ""
@@ -371,6 +441,13 @@ msgid ""
 "Return a new path with the :attr:`suffix` changed.  If the original path "
 "doesn't have a suffix, the new *suffix* is appended instead.  If the "
 "*suffix* is an empty string, the original suffix is removed::"
+msgstr ""
+
+msgid ""
+"Create a new path object of the same type by combining the given "
+"*pathsegments*. This method is called whenever a derivative path is created, "
+"such as from :attr:`parent` and :meth:`relative_to`. Subclasses may override "
+"this method to pass information to derivative paths, for example::"
 msgstr ""
 
 msgid "Concrete paths"
@@ -394,8 +471,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Raises :exc:`UnsupportedOperation` on Windows. In previous versions, :exc:"
+"`NotImplementedError` was raised instead."
+msgstr ""
+
+msgid ""
 "A subclass of :class:`Path` and :class:`PureWindowsPath`, this class "
 "represents concrete Windows filesystem paths::"
+msgstr ""
+
+msgid ""
+"Raises :exc:`UnsupportedOperation` on non-Windows platforms. In previous "
+"versions, :exc:`NotImplementedError` was raised instead."
 msgstr ""
 
 msgid ""
@@ -404,13 +491,110 @@ msgid ""
 "failures in your application)::"
 msgstr ""
 
-msgid "Methods"
+msgid ""
+"Some concrete path methods can raise an :exc:`OSError` if a system call "
+"fails (for example because the path doesn't exist)."
+msgstr ""
+
+msgid "Parsing and generating URIs"
 msgstr ""
 
 msgid ""
-"Concrete paths provide the following methods in addition to pure paths "
-"methods.  Many of these methods can raise an :exc:`OSError` if a system call "
-"fails (for example because the path doesn't exist)."
+"Concrete path objects can be created from, and represented as, 'file' URIs "
+"conforming to :rfc:`8089`."
+msgstr ""
+
+msgid ""
+"File URIs are not portable across machines with different :ref:`filesystem "
+"encodings <filesystem-encoding>`."
+msgstr ""
+
+msgid "Return a new path object from parsing a 'file' URI. For example::"
+msgstr ""
+
+msgid "On Windows, DOS device and UNC paths may be parsed from URIs::"
+msgstr ""
+
+msgid "Several variant forms are supported::"
+msgstr ""
+
+msgid ""
+":exc:`ValueError` is raised if the URI does not start with ``file:``, or the "
+"parsed path isn't absolute."
+msgstr ""
+
+msgid ""
+"Represent the path as a 'file' URI.  :exc:`ValueError` is raised if the path "
+"isn't absolute."
+msgstr ""
+
+msgid ""
+"For historical reasons, this method is also available from :class:`PurePath` "
+"objects. However, its use of :func:`os.fsencode` makes it strictly impure."
+msgstr ""
+
+msgid "Expanding and resolving paths"
+msgstr ""
+
+msgid ""
+"Return a new path object representing the user's home directory (as returned "
+"by :func:`os.path.expanduser` with ``~`` construct). If the home directory "
+"can't be resolved, :exc:`RuntimeError` is raised."
+msgstr ""
+
+msgid ""
+"Return a new path with expanded ``~`` and ``~user`` constructs, as returned "
+"by :meth:`os.path.expanduser`. If a home directory can't be resolved, :exc:"
+"`RuntimeError` is raised."
+msgstr ""
+
+msgid ""
+"Return a new path object representing the current directory (as returned by :"
+"func:`os.getcwd`)::"
+msgstr ""
+
+msgid ""
+"Make the path absolute, without normalization or resolving symlinks. Returns "
+"a new path object::"
+msgstr ""
+
+msgid ""
+"Make the path absolute, resolving any symlinks.  A new path object is "
+"returned::"
+msgstr ""
+
+msgid ""
+"\"``..``\" components are also eliminated (this is the only method to do "
+"so)::"
+msgstr ""
+
+msgid ""
+"If a path doesn't exist or a symlink loop is encountered, and *strict* is "
+"``True``, :exc:`OSError` is raised.  If *strict* is ``False``, the path is "
+"resolved as far as possible and any remainder is appended without checking "
+"whether it exists."
+msgstr ""
+
+msgid "The *strict* parameter was added (pre-3.6 behavior is strict)."
+msgstr ""
+
+msgid ""
+"Symlink loops are treated like other errors: :exc:`OSError` is raised in "
+"strict mode, and no exception is raised in non-strict mode. In previous "
+"versions, :exc:`RuntimeError` is raised no matter the value of *strict*."
+msgstr ""
+
+msgid ""
+"Return the path to which the symbolic link points (as returned by :func:`os."
+"readlink`)::"
+msgstr ""
+
+msgid ""
+"Raises :exc:`UnsupportedOperation` if :func:`os.readlink` is not available. "
+"In previous versions, :exc:`NotImplementedError` was raised."
+msgstr ""
+
+msgid "Querying file type and status"
 msgstr ""
 
 msgid ""
@@ -423,18 +607,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return a new path object representing the current directory (as returned by :"
-"func:`os.getcwd`)::"
-msgstr ""
-
-msgid ""
-"Return a new path object representing the user's home directory (as returned "
-"by :func:`os.path.expanduser` with ``~`` construct). If the home directory "
-"can't be resolved, :exc:`RuntimeError` is raised."
-msgstr ""
-
-msgid ""
-"Return a :class:`os.stat_result` object containing information about this "
+"Return an :class:`os.stat_result` object containing information about this "
 "path, like :func:`os.stat`. The result is looked up at each call to this "
 "method."
 msgstr ""
@@ -447,63 +620,22 @@ msgstr ""
 msgid "The *follow_symlinks* parameter was added."
 msgstr ""
 
-msgid "Change the file mode and permissions, like :func:`os.chmod`."
+msgid ""
+"Like :meth:`Path.stat` but, if the path points to a symbolic link, return "
+"the symbolic link's information rather than its target's."
+msgstr ""
+
+msgid "Return ``True`` if the path points to an existing file or directory."
 msgstr ""
 
 msgid ""
-"This method normally follows symlinks. Some Unix flavours support changing "
-"permissions on the symlink itself; on these platforms you may add the "
-"argument ``follow_symlinks=False``, or use :meth:`~Path.lchmod`."
-msgstr ""
-
-msgid "Whether the path points to an existing file or directory::"
+"This method normally follows symlinks; to check if a symlink exists, add the "
+"argument ``follow_symlinks=False``."
 msgstr ""
 
 msgid ""
-"If the path points to a symlink, :meth:`exists` returns whether the symlink "
-"*points to* an existing file or directory."
-msgstr ""
-
-msgid ""
-"Return a new path with expanded ``~`` and ``~user`` constructs, as returned "
-"by :meth:`os.path.expanduser`. If a home directory can't be resolved, :exc:"
-"`RuntimeError` is raised."
-msgstr ""
-
-msgid ""
-"Glob the given relative *pattern* in the directory represented by this path, "
-"yielding all matching files (of any kind)::"
-msgstr ""
-
-msgid ""
-"Patterns are the same as for :mod:`fnmatch`, with the addition of \"``**``\" "
-"which means \"this directory and all subdirectories, recursively\".  In "
-"other words, it enables recursive globbing::"
-msgstr ""
-
-msgid ""
-"Using the \"``**``\" pattern in large directory trees may consume an "
-"inordinate amount of time."
-msgstr ""
-
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``pathlib.Path.glob`` with "
-"arguments ``self``, ``pattern``."
-msgstr ""
-
-msgid ""
-"Return only directories if *pattern* ends with a pathname components "
-"separator (:data:`~os.sep` or :data:`~os.altsep`)."
-msgstr ""
-
-msgid ""
-"Return the name of the group owning the file.  :exc:`KeyError` is raised if "
-"the file's gid isn't found in the system database."
-msgstr ""
-
-msgid ""
-"Return ``True`` if the path points to a directory (or a symbolic link "
-"pointing to a directory), ``False`` if it points to another kind of file."
+"Return ``True`` if the path points to a regular file, ``False`` if it points "
+"to another kind of file."
 msgstr ""
 
 msgid ""
@@ -512,17 +644,18 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return ``True`` if the path points to a regular file (or a symbolic link "
-"pointing to a regular file), ``False`` if it points to another kind of file."
+"This method normally follows symlinks; to exclude symlinks, add the argument "
+"``follow_symlinks=False``."
 msgstr ""
 
 msgid ""
-"Return ``True`` if the path is a :dfn:`mount point`: a point in a file "
-"system where a different file system has been mounted.  On POSIX, the "
-"function checks whether *path*'s parent, :file:`path/..`, is on a different "
-"device than *path*, or whether :file:`path/..` and *path* point to the same "
-"i-node on the same device --- this should detect mount points for all Unix "
-"and POSIX variants.  Not implemented on Windows."
+"Return ``True`` if the path points to a directory, ``False`` if it points to "
+"another kind of file."
+msgstr ""
+
+msgid ""
+"This method normally follows symlinks; to exclude symlinks to directories, "
+"add the argument ``follow_symlinks=False``."
 msgstr ""
 
 msgid ""
@@ -532,6 +665,25 @@ msgstr ""
 msgid ""
 "``False`` is also returned if the path doesn't exist; other errors (such as "
 "permission errors) are propagated."
+msgstr ""
+
+msgid ""
+"Return ``True`` if the path points to a junction, and ``False`` for any "
+"other type of file. Currently only Windows supports junctions."
+msgstr ""
+
+msgid ""
+"Return ``True`` if the path is a :dfn:`mount point`: a point in a file "
+"system where a different file system has been mounted.  On POSIX, the "
+"function checks whether *path*'s parent, :file:`path/..`, is on a different "
+"device than *path*, or whether :file:`path/..` and *path* point to the same "
+"i-node on the same device --- this should detect mount points for all Unix "
+"and POSIX variants.  On Windows, a mount point is considered to be a drive "
+"letter root (e.g. ``c:\\``), a UNC share (e.g. ``\\\\server\\share``), or a "
+"mounted filesystem directory."
+msgstr ""
+
+msgid "Windows support was added."
 msgstr ""
 
 msgid ""
@@ -556,6 +708,60 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Return whether this path points to the same file as *other_path*, which can "
+"be either a Path object, or a string.  The semantics are similar to :func:"
+"`os.path.samefile` and :func:`os.path.samestat`."
+msgstr ""
+
+msgid ""
+"An :exc:`OSError` can be raised if either file cannot be accessed for some "
+"reason."
+msgstr ""
+
+msgid "Reading and writing files"
+msgstr ""
+
+msgid ""
+"Open the file pointed to by the path, like the built-in :func:`open` "
+"function does::"
+msgstr ""
+
+msgid "Return the decoded contents of the pointed-to file as a string::"
+msgstr ""
+
+msgid ""
+"The file is opened and then closed. The optional parameters have the same "
+"meaning as in :func:`open`."
+msgstr ""
+
+msgid "The *newline* parameter was added."
+msgstr ""
+
+msgid "Return the binary contents of the pointed-to file as a bytes object::"
+msgstr ""
+
+msgid ""
+"Open the file pointed to in text mode, write *data* to it, and close the "
+"file::"
+msgstr ""
+
+msgid ""
+"An existing file of the same name is overwritten. The optional parameters "
+"have the same meaning as in :func:`open`."
+msgstr ""
+
+msgid ""
+"Open the file pointed to in bytes mode, write *data* to it, and close the "
+"file::"
+msgstr ""
+
+msgid "An existing file of the same name is overwritten."
+msgstr ""
+
+msgid "Reading directories"
+msgstr ""
+
+msgid ""
 "When the path points to a directory, yield path objects of the directory "
 "contents::"
 msgstr ""
@@ -563,23 +769,167 @@ msgstr ""
 msgid ""
 "The children are yielded in arbitrary order, and the special entries ``'.'`` "
 "and ``'..'`` are not included.  If a file is removed from or added to the "
-"directory after creating the iterator, whether a path object for that file "
-"be included is unspecified."
+"directory after creating the iterator, it is unspecified whether a path "
+"object for that file is included."
 msgstr ""
 
 msgid ""
-"Like :meth:`Path.chmod` but, if the path points to a symbolic link, the "
-"symbolic link's mode is changed rather than its target's."
+"If the path is not a directory or otherwise inaccessible, :exc:`OSError` is "
+"raised."
 msgstr ""
 
 msgid ""
-"Like :meth:`Path.stat` but, if the path points to a symbolic link, return "
-"the symbolic link's information rather than its target's."
+"Glob the given relative *pattern* in the directory represented by this path, "
+"yielding all matching files (of any kind)::"
+msgstr ""
+
+msgid ""
+"By default, or when the *case_sensitive* keyword-only argument is set to "
+"``None``, this method matches paths using platform-specific casing rules: "
+"typically, case-sensitive on POSIX, and case-insensitive on Windows. Set "
+"*case_sensitive* to ``True`` or ``False`` to override this behaviour."
+msgstr ""
+
+msgid ""
+"By default, or when the *recurse_symlinks* keyword-only argument is set to "
+"``False``, this method follows symlinks except when expanding \"``**``\" "
+"wildcards. Set *recurse_symlinks* to ``True`` to always follow symlinks."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``pathlib.Path.glob`` with "
+"arguments ``self``, ``pattern``."
+msgstr ""
+
+msgid "The *recurse_symlinks* parameter was added."
+msgstr ""
+
+msgid ""
+"Any :exc:`OSError` exceptions raised from scanning the filesystem are "
+"suppressed. In previous versions, such exceptions are suppressed in many "
+"cases, but not all."
+msgstr ""
+
+msgid ""
+"Glob the given relative *pattern* recursively.  This is like calling :func:"
+"`Path.glob` with \"``**/``\" added in front of the *pattern*."
+msgstr ""
+
+msgid ":ref:`pathlib-pattern-language` and :meth:`Path.glob` documentation."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``pathlib.Path.rglob`` with "
+"arguments ``self``, ``pattern``."
+msgstr ""
+
+msgid ""
+"Generate the file names in a directory tree by walking the tree either top-"
+"down or bottom-up."
+msgstr ""
+
+msgid ""
+"For each directory in the directory tree rooted at *self* (including *self* "
+"but excluding '.' and '..'), the method yields a 3-tuple of ``(dirpath, "
+"dirnames, filenames)``."
+msgstr ""
+
+msgid ""
+"*dirpath* is a :class:`Path` to the directory currently being walked, "
+"*dirnames* is a list of strings for the names of subdirectories in *dirpath* "
+"(excluding ``'.'`` and ``'..'``), and *filenames* is a list of strings for "
+"the names of the non-directory files in *dirpath*. To get a full path (which "
+"begins with *self*) to a file or directory in *dirpath*, do ``dirpath / "
+"name``. Whether or not the lists are sorted is file system-dependent."
+msgstr ""
+
+msgid ""
+"If the optional argument *top_down* is true (which is the default), the "
+"triple for a directory is generated before the triples for any of its "
+"subdirectories (directories are walked top-down).  If *top_down* is false, "
+"the triple for a directory is generated after the triples for all of its "
+"subdirectories (directories are walked bottom-up). No matter the value of "
+"*top_down*, the list of subdirectories is retrieved before the triples for "
+"the directory and its subdirectories are walked."
+msgstr ""
+
+msgid ""
+"When *top_down* is true, the caller can modify the *dirnames* list in-place "
+"(for example, using :keyword:`del` or slice assignment), and :meth:`Path."
+"walk` will only recurse into the subdirectories whose names remain in "
+"*dirnames*. This can be used to prune the search, or to impose a specific "
+"order of visiting, or even to inform :meth:`Path.walk` about directories the "
+"caller creates or renames before it resumes :meth:`Path.walk` again. "
+"Modifying *dirnames* when *top_down* is false has no effect on the behavior "
+"of :meth:`Path.walk()` since the directories in *dirnames* have already been "
+"generated by the time *dirnames* is yielded to the caller."
+msgstr ""
+
+msgid ""
+"By default, errors from :func:`os.scandir` are ignored.  If the optional "
+"argument *on_error* is specified, it should be a callable; it will be called "
+"with one argument, an :exc:`OSError` instance. The callable can handle the "
+"error to continue the walk or re-raise it to stop the walk. Note that the "
+"filename is available as the ``filename`` attribute of the exception object."
+msgstr ""
+
+msgid ""
+"By default, :meth:`Path.walk` does not follow symbolic links, and instead "
+"adds them to the *filenames* list. Set *follow_symlinks* to true to resolve "
+"symlinks and place them in *dirnames* and *filenames* as appropriate for "
+"their targets, and consequently visit directories pointed to by symlinks "
+"(where supported)."
+msgstr ""
+
+msgid ""
+"Be aware that setting *follow_symlinks* to true can lead to infinite "
+"recursion if a link points to a parent directory of itself. :meth:`Path."
+"walk` does not keep track of the directories it has already visited."
+msgstr ""
+
+msgid ""
+":meth:`Path.walk` assumes the directories it walks are not modified during "
+"execution. For example, if a directory from *dirnames* has been replaced "
+"with a symlink and *follow_symlinks* is false, :meth:`Path.walk` will still "
+"try to descend into it. To prevent such behavior, remove directories from "
+"*dirnames* as appropriate."
+msgstr ""
+
+msgid ""
+"Unlike :func:`os.walk`, :meth:`Path.walk` lists symlinks to directories in "
+"*filenames* if *follow_symlinks* is false."
+msgstr ""
+
+msgid ""
+"This example displays the number of bytes used by all files in each "
+"directory, while ignoring ``__pycache__`` directories::"
+msgstr ""
+
+msgid ""
+"This next example is a simple implementation of :func:`shutil.rmtree`. "
+"Walking the tree bottom-up is essential as :func:`rmdir` doesn't allow "
+"deleting a directory before it is empty::"
+msgstr ""
+
+msgid "Creating files and directories"
+msgstr ""
+
+msgid ""
+"Create a file at this given path.  If *mode* is given, it is combined with "
+"the process's ``umask`` value to determine the file mode and access flags.  "
+"If the file already exists, the function succeeds when *exist_ok* is true "
+"(and its modification time is updated to the current time), otherwise :exc:"
+"`FileExistsError` is raised."
+msgstr ""
+
+msgid ""
+"The :meth:`~Path.open`, :meth:`~Path.write_text` and :meth:`~Path."
+"write_bytes` methods are often used to create files."
 msgstr ""
 
 msgid ""
 "Create a new directory at this given path.  If *mode* is given, it is "
-"combined with the process' ``umask`` value to determine the file mode and "
+"combined with the process's ``umask`` value to determine the file mode and "
 "access flags.  If the path already exists, :exc:`FileExistsError` is raised."
 msgstr ""
 
@@ -600,126 +950,32 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If *exist_ok* is true, :exc:`FileExistsError` exceptions will be ignored "
-"(same behavior as the POSIX ``mkdir -p`` command), but only if the last path "
-"component is not an existing non-directory file."
+"If *exist_ok* is true, :exc:`FileExistsError` will not be raised unless the "
+"given path already exists in the file system and is not a directory (same "
+"behavior as the POSIX ``mkdir -p`` command)."
 msgstr ""
 
 msgid "The *exist_ok* parameter was added."
 msgstr ""
 
-msgid ""
-"Open the file pointed to by the path, like the built-in :func:`open` "
-"function does::"
+msgid "Make this path a symbolic link pointing to *target*."
 msgstr ""
 
 msgid ""
-"Return the name of the user owning the file.  :exc:`KeyError` is raised if "
-"the file's uid isn't found in the system database."
-msgstr ""
-
-msgid "Return the binary contents of the pointed-to file as a bytes object::"
-msgstr ""
-
-msgid "Return the decoded contents of the pointed-to file as a string::"
-msgstr ""
-
-msgid ""
-"The file is opened and then closed. The optional parameters have the same "
-"meaning as in :func:`open`."
-msgstr ""
-
-msgid ""
-"Return the path to which the symbolic link points (as returned by :func:`os."
-"readlink`)::"
-msgstr ""
-
-msgid ""
-"Rename this file or directory to the given *target*, and return a new Path "
-"instance pointing to *target*.  On Unix, if *target* exists and is a file, "
-"it will be replaced silently if the user has permission. On Windows, if "
-"*target* exists, :exc:`FileExistsError` will be raised. *target* can be "
-"either a string or another path object::"
-msgstr ""
-
-msgid ""
-"The target path may be absolute or relative. Relative paths are interpreted "
-"relative to the current working directory, *not* the directory of the Path "
-"object."
-msgstr ""
-
-msgid ""
-"It is implemented in terms of :func:`os.rename` and gives the same "
-"guarantees."
-msgstr ""
-
-msgid "Added return value, return the new Path instance."
-msgstr ""
-
-msgid ""
-"Rename this file or directory to the given *target*, and return a new Path "
-"instance pointing to *target*.  If *target* points to an existing file or "
-"empty directory, it will be unconditionally replaced."
-msgstr ""
-
-msgid ""
-"Make the path absolute, without normalization or resolving symlinks. Returns "
-"a new path object::"
-msgstr ""
-
-msgid ""
-"Make the path absolute, resolving any symlinks.  A new path object is "
-"returned::"
-msgstr ""
-
-msgid ""
-"\"``..``\" components are also eliminated (this is the only method to do "
-"so)::"
-msgstr ""
-
-msgid ""
-"If the path doesn't exist and *strict* is ``True``, :exc:`FileNotFoundError` "
-"is raised.  If *strict* is ``False``, the path is resolved as far as "
-"possible and any remainder is appended without checking whether it exists.  "
-"If an infinite loop is encountered along the resolution path, :exc:"
-"`RuntimeError` is raised."
-msgstr ""
-
-msgid "The *strict* argument (pre-3.6 behavior is strict)."
-msgstr ""
-
-msgid ""
-"This is like calling :func:`Path.glob` with \"``**/``\" added in front of "
-"the given relative *pattern*::"
-msgstr ""
-
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``pathlib.Path.rglob`` with "
-"arguments ``self``, ``pattern``."
-msgstr ""
-
-msgid "Remove this directory.  The directory must be empty."
-msgstr ""
-
-msgid ""
-"Return whether this path points to the same file as *other_path*, which can "
-"be either a Path object, or a string.  The semantics are similar to :func:"
-"`os.path.samefile` and :func:`os.path.samestat`."
-msgstr ""
-
-msgid ""
-"An :exc:`OSError` can be raised if either file cannot be accessed for some "
-"reason."
-msgstr ""
-
-msgid ""
-"Make this path a symbolic link to *target*.  Under Windows, "
-"*target_is_directory* must be true (default ``False``) if the link's target "
-"is a directory.  Under POSIX, *target_is_directory*'s value is ignored."
+"On Windows, a symlink represents either a file or a directory, and does not "
+"morph to the target dynamically.  If the target is present, the type of the "
+"symlink will be created to match. Otherwise, the symlink will be created as "
+"a directory if *target_is_directory* is true or a file symlink (the default) "
+"otherwise.  On non-Windows platforms, *target_is_directory* is ignored."
 msgstr ""
 
 msgid ""
 "The order of arguments (link, target) is the reverse of :func:`os.symlink`'s."
+msgstr ""
+
+msgid ""
+"Raises :exc:`UnsupportedOperation` if :func:`os.symlink` is not available. "
+"In previous versions, :exc:`NotImplementedError` was raised."
 msgstr ""
 
 msgid "Make this path a hard link to the same file as *target*."
@@ -729,28 +985,40 @@ msgid ""
 "The order of arguments (link, target) is the reverse of :func:`os.link`'s."
 msgstr ""
 
-msgid "Make *target* a hard link to this path."
+msgid ""
+"Raises :exc:`UnsupportedOperation` if :func:`os.link` is not available. In "
+"previous versions, :exc:`NotImplementedError` was raised."
+msgstr ""
+
+msgid "Renaming and deleting"
 msgstr ""
 
 msgid ""
-"This function does not make this path a hard link to *target*, despite the "
-"implication of the function and argument names. The argument order (target, "
-"link) is the reverse of :func:`Path.symlink_to` and :func:`Path."
-"hardlink_to`, but matches that of :func:`os.link`."
+"Rename this file or directory to the given *target*, and return a new :class:"
+"`!Path` instance pointing to *target*.  On Unix, if *target* exists and is a "
+"file, it will be replaced silently if the user has permission. On Windows, "
+"if *target* exists, :exc:`FileExistsError` will be raised. *target* can be "
+"either a string or another path object::"
 msgstr ""
 
 msgid ""
-"This method is deprecated in favor of :meth:`Path.hardlink_to`, as the "
-"argument order of :meth:`Path.link_to`  does not match that of :meth:`Path."
-"symlink_to`."
+"The target path may be absolute or relative. Relative paths are interpreted "
+"relative to the current working directory, *not* the directory of the :class:"
+"`!Path` object."
 msgstr ""
 
 msgid ""
-"Create a file at this given path.  If *mode* is given, it is combined with "
-"the process' ``umask`` value to determine the file mode and access flags.  "
-"If the file already exists, the function succeeds if *exist_ok* is true (and "
-"its modification time is updated to the current time), otherwise :exc:"
-"`FileExistsError` is raised."
+"It is implemented in terms of :func:`os.rename` and gives the same "
+"guarantees."
+msgstr ""
+
+msgid "Added return value, return the new :class:`!Path` instance."
+msgstr ""
+
+msgid ""
+"Rename this file or directory to the given *target*, and return a new :class:"
+"`!Path` instance pointing to *target*.  If *target* points to an existing "
+"file or empty directory, it will be unconditionally replaced."
 msgstr ""
 
 msgid ""
@@ -771,40 +1039,263 @@ msgstr ""
 msgid "The *missing_ok* parameter was added."
 msgstr ""
 
-msgid ""
-"Open the file pointed to in bytes mode, write *data* to it, and close the "
-"file::"
+msgid "Remove this directory.  The directory must be empty."
 msgstr ""
 
-msgid "An existing file of the same name is overwritten."
-msgstr ""
-
-msgid ""
-"Open the file pointed to in text mode, write *data* to it, and close the "
-"file::"
+msgid "Permissions and ownership"
 msgstr ""
 
 msgid ""
-"An existing file of the same name is overwritten. The optional parameters "
-"have the same meaning as in :func:`open`."
+"Return the name of the user owning the file. :exc:`KeyError` is raised if "
+"the file's user identifier (UID) isn't found in the system database."
 msgstr ""
 
-msgid "The *newline* parameter was added."
+msgid ""
+"This method normally follows symlinks; to get the owner of the symlink, add "
+"the argument ``follow_symlinks=False``."
 msgstr ""
 
-msgid "Correspondence to tools in the :mod:`os` module"
+msgid ""
+"Raises :exc:`UnsupportedOperation` if the :mod:`pwd` module is not "
+"available. In earlier versions, :exc:`NotImplementedError` was raised."
+msgstr ""
+
+msgid ""
+"Return the name of the group owning the file. :exc:`KeyError` is raised if "
+"the file's group identifier (GID) isn't found in the system database."
+msgstr ""
+
+msgid ""
+"This method normally follows symlinks; to get the group of the symlink, add "
+"the argument ``follow_symlinks=False``."
+msgstr ""
+
+msgid ""
+"Raises :exc:`UnsupportedOperation` if the :mod:`grp` module is not "
+"available. In earlier versions, :exc:`NotImplementedError` was raised."
+msgstr ""
+
+msgid "Change the file mode and permissions, like :func:`os.chmod`."
+msgstr ""
+
+msgid ""
+"This method normally follows symlinks. Some Unix flavours support changing "
+"permissions on the symlink itself; on these platforms you may add the "
+"argument ``follow_symlinks=False``, or use :meth:`~Path.lchmod`."
+msgstr ""
+
+msgid ""
+"Like :meth:`Path.chmod` but, if the path points to a symbolic link, the "
+"symbolic link's mode is changed rather than its target's."
+msgstr ""
+
+msgid "Pattern language"
+msgstr ""
+
+msgid ""
+"The following wildcards are supported in patterns for :meth:`~PurePath."
+"full_match`, :meth:`~Path.glob` and :meth:`~Path.rglob`:"
+msgstr ""
+
+msgid "``**`` (entire segment)"
+msgstr ""
+
+msgid "Matches any number of file or directory segments, including zero."
+msgstr ""
+
+msgid "``*`` (entire segment)"
+msgstr ""
+
+msgid "Matches one file or directory segment."
+msgstr ""
+
+msgid "``*`` (part of a segment)"
+msgstr ""
+
+msgid "Matches any number of non-separator characters, including zero."
+msgstr ""
+
+msgid "``?``"
+msgstr ""
+
+msgid "Matches one non-separator character."
+msgstr ""
+
+msgid "``[seq]``"
+msgstr ""
+
+msgid "Matches one character in *seq*."
+msgstr ""
+
+msgid "``[!seq]``"
+msgstr ""
+
+msgid "Matches one character not in *seq*."
+msgstr ""
+
+msgid ""
+"For a literal match, wrap the meta-characters in brackets. For example, "
+"``\"[?]\"`` matches the character ``\"?\"``."
+msgstr ""
+
+msgid "The \"``**``\" wildcard enables recursive globbing. A few examples:"
+msgstr ""
+
+msgid "Pattern"
+msgstr ""
+
+msgid "Meaning"
+msgstr "Znaczenie"
+
+msgid "\"``**/*``\""
+msgstr ""
+
+msgid "Any path with at least one segment."
+msgstr ""
+
+msgid "\"``**/*.py``\""
+msgstr ""
+
+msgid "Any path with a final segment ending \"``.py``\"."
+msgstr ""
+
+msgid "\"``assets/**``\""
+msgstr ""
+
+msgid "Any path starting with \"``assets/``\"."
+msgstr ""
+
+msgid "\"``assets/**/*``\""
+msgstr ""
+
+msgid ""
+"Any path starting with \"``assets/``\", excluding \"``assets/``\" itself."
+msgstr ""
+
+msgid ""
+"Globbing with the \"``**``\" wildcard visits every directory in the tree. "
+"Large directory trees may take a long time to search."
+msgstr ""
+
+msgid ""
+"Globbing with a pattern that ends with \"``**``\" returns both files and "
+"directories. In previous versions, only directories were returned."
+msgstr ""
+
+msgid ""
+"In :meth:`Path.glob` and :meth:`~Path.rglob`, a trailing slash may be added "
+"to the pattern to match only directories."
+msgstr ""
+
+msgid ""
+"Globbing with a pattern that ends with a pathname components separator (:"
+"data:`~os.sep` or :data:`~os.altsep`) returns only directories."
+msgstr ""
+
+msgid "Comparison to the :mod:`glob` module"
+msgstr ""
+
+msgid ""
+"The patterns accepted and results generated by :meth:`Path.glob` and :meth:"
+"`Path.rglob` differ slightly from those by the :mod:`glob` module:"
+msgstr ""
+
+msgid ""
+"Files beginning with a dot are not special in pathlib. This is like passing "
+"``include_hidden=True`` to :func:`glob.glob`."
+msgstr ""
+
+msgid ""
+"\"``**``\" pattern components are always recursive in pathlib. This is like "
+"passing ``recursive=True`` to :func:`glob.glob`."
+msgstr ""
+
+msgid ""
+"\"``**``\" pattern components do not follow symlinks by default in pathlib. "
+"This behaviour has no equivalent in :func:`glob.glob`, but you can pass "
+"``recurse_symlinks=True`` to :meth:`Path.glob` for compatible behaviour."
+msgstr ""
+
+msgid ""
+"Like all :class:`PurePath` and :class:`Path` objects, the values returned "
+"from :meth:`Path.glob` and :meth:`Path.rglob` don't include trailing slashes."
+msgstr ""
+
+msgid ""
+"The values returned from pathlib's ``path.glob()`` and ``path.rglob()`` "
+"include the *path* as a prefix, unlike the results of ``glob."
+"glob(root_dir=path)``."
+msgstr ""
+
+msgid ""
+"The values returned from pathlib's ``path.glob()`` and ``path.rglob()`` may "
+"include *path* itself, for example when globbing \"``**``\", whereas the "
+"results of ``glob.glob(root_dir=path)`` never include an empty string that "
+"would correspond to *path*."
+msgstr ""
+
+msgid "Comparison to the :mod:`os` and :mod:`os.path` modules"
+msgstr ""
+
+msgid ""
+"pathlib implements path operations using :class:`PurePath` and :class:`Path` "
+"objects, and so it's said to be *object-oriented*. On the other hand, the :"
+"mod:`os` and :mod:`os.path` modules supply functions that work with low-"
+"level ``str`` and ``bytes`` objects, which is a more *procedural* approach. "
+"Some users consider the object-oriented style to be more readable."
+msgstr ""
+
+msgid ""
+"Many functions in :mod:`os` and :mod:`os.path` support ``bytes`` paths and :"
+"ref:`paths relative to directory descriptors <dir_fd>`. These features "
+"aren't available in pathlib."
+msgstr ""
+
+msgid ""
+"Python's ``str`` and ``bytes`` types, and portions of the :mod:`os` and :mod:"
+"`os.path` modules, are written in C and are very speedy. pathlib is written "
+"in pure Python and is often slower, but rarely slow enough to matter."
+msgstr ""
+
+msgid ""
+"pathlib's path normalization is slightly more opinionated and consistent "
+"than :mod:`os.path`. For example, whereas :func:`os.path.abspath` eliminates "
+"\"``..``\" segments from a path, which may change its meaning if symlinks "
+"are involved, :meth:`Path.absolute` preserves these segments for greater "
+"safety."
+msgstr ""
+
+msgid ""
+"pathlib's path normalization may render it unsuitable for some applications:"
+msgstr ""
+
+msgid ""
+"pathlib normalizes ``Path(\"my_folder/\")`` to ``Path(\"my_folder\")``, "
+"which changes a path's meaning when supplied to various operating system "
+"APIs and command-line utilities. Specifically, the absence of a trailing "
+"separator may allow the path to be resolved as either a file or directory, "
+"rather than a directory only."
+msgstr ""
+
+msgid ""
+"pathlib normalizes ``Path(\"./my_program\")`` to ``Path(\"my_program\")``, "
+"which changes a path's meaning when used as an executable search path, such "
+"as in a shell or when spawning a child process. Specifically, the absence of "
+"a separator in the path may force it to be looked up in :envvar:`PATH` "
+"rather than the current directory."
+msgstr ""
+
+msgid ""
+"As a consequence of these differences, pathlib is not a drop-in replacement "
+"for :mod:`os.path`."
+msgstr ""
+
+msgid "Corresponding tools"
 msgstr ""
 
 msgid ""
 "Below is a table mapping various :mod:`os` functions to their corresponding :"
 "class:`PurePath`/:class:`Path` equivalent."
-msgstr ""
-
-msgid ""
-"Not all pairs of functions/methods below are equivalent. Some of them, "
-"despite having some overlapping use-cases, have different semantics. They "
-"include :func:`os.path.abspath` and :meth:`Path.absolute`, :func:`os.path."
-"relpath` and :meth:`PurePath.relative_to`."
 msgstr ""
 
 msgid ":mod:`os` and :mod:`os.path`"
@@ -813,10 +1304,46 @@ msgstr ""
 msgid ":mod:`pathlib`"
 msgstr ""
 
-msgid ":func:`os.path.abspath`"
+msgid ":func:`os.path.dirname`"
 msgstr ""
 
-msgid ":meth:`Path.absolute` [#]_"
+msgid ":attr:`PurePath.parent`"
+msgstr ""
+
+msgid ":func:`os.path.basename`"
+msgstr ""
+
+msgid ":attr:`PurePath.name`"
+msgstr ""
+
+msgid ":func:`os.path.splitext`"
+msgstr ""
+
+msgid ":attr:`PurePath.stem`, :attr:`PurePath.suffix`"
+msgstr ""
+
+msgid ":func:`os.path.join`"
+msgstr ""
+
+msgid ":meth:`PurePath.joinpath`"
+msgstr ""
+
+msgid ":func:`os.path.isabs`"
+msgstr ""
+
+msgid ":meth:`PurePath.is_absolute`"
+msgstr ""
+
+msgid ":func:`os.path.relpath`"
+msgstr ""
+
+msgid ":meth:`PurePath.relative_to` [1]_"
+msgstr ""
+
+msgid ":func:`os.path.expanduser`"
+msgstr ""
+
+msgid ":meth:`Path.expanduser` [2]_"
 msgstr ""
 
 msgid ":func:`os.path.realpath`"
@@ -825,49 +1352,10 @@ msgstr ""
 msgid ":meth:`Path.resolve`"
 msgstr ""
 
-msgid ":func:`os.chmod`"
+msgid ":func:`os.path.abspath`"
 msgstr ""
 
-msgid ":meth:`Path.chmod`"
-msgstr ""
-
-msgid ":func:`os.mkdir`"
-msgstr ""
-
-msgid ":meth:`Path.mkdir`"
-msgstr ""
-
-msgid ":func:`os.makedirs`"
-msgstr ""
-
-msgid ":func:`os.rename`"
-msgstr ""
-
-msgid ":meth:`Path.rename`"
-msgstr ""
-
-msgid ":func:`os.replace`"
-msgstr ""
-
-msgid ":meth:`Path.replace`"
-msgstr ""
-
-msgid ":func:`os.rmdir`"
-msgstr ""
-
-msgid ":meth:`Path.rmdir`"
-msgstr ""
-
-msgid ":func:`os.remove`, :func:`os.unlink`"
-msgstr ""
-
-msgid ":meth:`Path.unlink`"
-msgstr ""
-
-msgid ":func:`os.getcwd`"
-msgstr ""
-
-msgid ":func:`Path.cwd`"
+msgid ":meth:`Path.absolute` [3]_"
 msgstr ""
 
 msgid ":func:`os.path.exists`"
@@ -876,16 +1364,10 @@ msgstr ""
 msgid ":meth:`Path.exists`"
 msgstr ""
 
-msgid ":func:`os.path.expanduser`"
+msgid ":func:`os.path.isfile`"
 msgstr ""
 
-msgid ":meth:`Path.expanduser` and :meth:`Path.home`"
-msgstr ""
-
-msgid ":func:`os.listdir`"
-msgstr ""
-
-msgid ":meth:`Path.iterdir`"
+msgid ":meth:`Path.is_file`"
 msgstr ""
 
 msgid ":func:`os.path.isdir`"
@@ -894,16 +1376,64 @@ msgstr ""
 msgid ":meth:`Path.is_dir`"
 msgstr ""
 
-msgid ":func:`os.path.isfile`"
-msgstr ""
-
-msgid ":meth:`Path.is_file`"
-msgstr ""
-
 msgid ":func:`os.path.islink`"
 msgstr ""
 
 msgid ":meth:`Path.is_symlink`"
+msgstr ""
+
+msgid ":func:`os.path.isjunction`"
+msgstr ""
+
+msgid ":meth:`Path.is_junction`"
+msgstr ""
+
+msgid ":func:`os.path.ismount`"
+msgstr ""
+
+msgid ":meth:`Path.is_mount`"
+msgstr ""
+
+msgid ":func:`os.path.samefile`"
+msgstr ""
+
+msgid ":meth:`Path.samefile`"
+msgstr ""
+
+msgid ":func:`os.getcwd`"
+msgstr ""
+
+msgid ":meth:`Path.cwd`"
+msgstr ""
+
+msgid ":func:`os.stat`"
+msgstr ""
+
+msgid ":meth:`Path.stat`"
+msgstr ""
+
+msgid ":func:`os.lstat`"
+msgstr ""
+
+msgid ":meth:`Path.lstat`"
+msgstr ""
+
+msgid ":func:`os.listdir`"
+msgstr ""
+
+msgid ":meth:`Path.iterdir`"
+msgstr ""
+
+msgid ":func:`os.walk`"
+msgstr ""
+
+msgid ":meth:`Path.walk` [4]_"
+msgstr ""
+
+msgid ":func:`os.mkdir`, :func:`os.makedirs`"
+msgstr ""
+
+msgid ":meth:`Path.mkdir`"
 msgstr ""
 
 msgid ":func:`os.link`"
@@ -924,65 +1454,68 @@ msgstr ""
 msgid ":meth:`Path.readlink`"
 msgstr ""
 
-msgid ":func:`os.path.relpath`"
+msgid ":func:`os.rename`"
 msgstr ""
 
-msgid ":meth:`PurePath.relative_to` [#]_"
+msgid ":meth:`Path.rename`"
 msgstr ""
 
-msgid ":func:`os.stat`"
+msgid ":func:`os.replace`"
 msgstr ""
 
-msgid ":meth:`Path.stat`, :meth:`Path.owner`, :meth:`Path.group`"
+msgid ":meth:`Path.replace`"
 msgstr ""
 
-msgid ":func:`os.path.isabs`"
+msgid ":func:`os.remove`, :func:`os.unlink`"
 msgstr ""
 
-msgid ":meth:`PurePath.is_absolute`"
+msgid ":meth:`Path.unlink`"
 msgstr ""
 
-msgid ":func:`os.path.join`"
+msgid ":func:`os.rmdir`"
 msgstr ""
 
-msgid ":func:`PurePath.joinpath`"
+msgid ":meth:`Path.rmdir`"
 msgstr ""
 
-msgid ":func:`os.path.basename`"
+msgid ":func:`os.chmod`"
 msgstr ""
 
-msgid ":attr:`PurePath.name`"
+msgid ":meth:`Path.chmod`"
 msgstr ""
 
-msgid ":func:`os.path.dirname`"
+msgid ":func:`os.lchmod`"
 msgstr ""
 
-msgid ":attr:`PurePath.parent`"
-msgstr ""
-
-msgid ":func:`os.path.samefile`"
-msgstr ""
-
-msgid ":meth:`Path.samefile`"
-msgstr ""
-
-msgid ":func:`os.path.splitext`"
-msgstr ""
-
-msgid ":attr:`PurePath.stem` and :attr:`PurePath.suffix`"
+msgid ":meth:`Path.lchmod`"
 msgstr ""
 
 msgid "Footnotes"
 msgstr "Przypisy"
 
 msgid ""
-":func:`os.path.abspath` normalizes the resulting path, which may change its "
-"meaning in the presence of symlinks, while :meth:`Path.absolute` does not."
+":func:`os.path.relpath` calls :func:`~os.path.abspath` to make paths "
+"absolute and remove \"``..``\" parts, whereas :meth:`PurePath.relative_to` "
+"is a lexical operation that raises :exc:`ValueError` when its inputs' "
+"anchors differ (e.g. if one path is absolute and the other relative.)"
 msgstr ""
 
 msgid ""
-":meth:`PurePath.relative_to` requires ``self`` to be the subpath of the "
-"argument, but :func:`os.path.relpath` does not."
+":func:`os.path.expanduser` returns the path unchanged if the home directory "
+"can't be resolved, whereas :meth:`Path.expanduser` raises :exc:"
+"`RuntimeError`."
+msgstr ""
+
+msgid ""
+":func:`os.path.abspath` removes \"``..``\" components without resolving "
+"symlinks, which may change the meaning of the path, whereas :meth:`Path."
+"absolute` leaves any \"``..``\" components in the path."
+msgstr ""
+
+msgid ""
+":func:`os.walk` always follows symlinks when categorizing paths into "
+"*dirnames* and *filenames*, whereas :meth:`Path.walk` categorizes all "
+"symlinks into *filenames* when *follow_symlinks* is false (the default.)"
 msgstr ""
 
 msgid "path"
