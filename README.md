@@ -32,7 +32,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Po dołączeniu do zespołu, wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
-[jego dokumentacji](https://docs.transifex.com/getting-started-1/translators).
+[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
 
 **Postęp tłumaczenia**
 
@@ -48,11 +48,12 @@ Język polski pojawi się w przełączniku języków na docs.python.org,
 
 Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions).
 Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około pół godziny.
-Dokumentacja na python.org aktualizowana jest około raz dziennie.
+Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dziennie.
 
 **Kanały komunikacji**
 
 * [python-docs-pl Discord](https://discord.gg/3faJmGKhta)
+* [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
 * [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
@@ -72,3 +73,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 **Potencjalnie przydatne materiały**
 * [statystyki oglądalności](https://plausible.io/docs.python.org/?filters=((contains,page,(/pl/)%29%29)
 * [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
+
+**Podobne projekty**
+* [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
+* [Scientific Python Translations](https://scientific-python-translations.github.io/)
