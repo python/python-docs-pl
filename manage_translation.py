@@ -60,7 +60,7 @@ def recreate_tx_config():
         with chdir(directory):
             _clone_cpython_repo(VERSION)
             _build_gettext()
-            with chdir(Path(directory) / 'cpython/Doc/locales'):
+            with chdir(Path(directory) / 'cpython/Doc/build'):
                 _create_txconfig()
                 _update_txconfig_resources()
                 with open('.tx/config', 'r') as file:
@@ -75,9 +75,7 @@ def _clone_cpython_repo(version: str):
 
 
 def _build_gettext():
-    _call(
-        "make -C cpython/Doc/ ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -d build/.doctrees . locales/pot' build"
-    )
+    _call("make -C cpython/Doc/ gettext")
 
 
 def _create_txconfig():
@@ -87,7 +85,7 @@ def _create_txconfig():
 def _update_txconfig_resources():
     _call(
         f'sphinx-intl update-txconfig-resources --transifex-organization-name python-doc '
-        f'--transifex-project-name={PROJECT_SLUG} --locale-dir . --pot-dir pot'
+        f'--transifex-project-name={PROJECT_SLUG} --locale-dir . --pot-dir gettext'
     )
 
 
