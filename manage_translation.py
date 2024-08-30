@@ -16,11 +16,13 @@ from argparse import ArgumentParser
 from collections import Counter
 import os
 from dataclasses import dataclass
+from pathlib import Path
 from re import match, search
 from subprocess import call, run
 import sys
 from typing import Self
 from urllib.parse import unquote
+from warnings import warn
 
 LANGUAGE = 'pl'
 
@@ -90,6 +92,20 @@ def recreate_tx_config():
                         'source_lang = en\n',
                     )
                 )
+    warn_about_files_to_delete()
+
+def warn_about_files_to_delete():
+    files = list(_get_files_to_delete())
+    if not files:
+        return
+    warn(f'Found {len(files)} file(s) to delete: {", ".join(files)}.')
+
+def _get_files_to_delete():
+    with open('.tx/config') as config_file:
+        config = config_file.read()
+    for file in Path().rglob('*.po'):
+        if os.fsdecode(file) not in config:
+            yield os.fsdecode(file)
 
 
 @dataclass
@@ -256,7 +272,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 
 
 if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme')
+    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme', 'warn_about_files_to_delete')
 
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
