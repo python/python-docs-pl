@@ -68,6 +68,20 @@ def recreate_tx_config():
         contents = contents.replace('./<lang>/LC_MESSAGES/', '')
         with open('.tx/config', 'w') as file:
             file.write(contents)
+    warn_about_files_to_delete()
+
+def warn_about_files_to_delete():
+    files = list(_get_files_to_delete())
+    if not files:
+        return
+    warn(f'Found {len(files)} file(s) to delete: {", ".join(files)}.')
+
+def _get_files_to_delete():
+    with open('.tx/config') as config_file:
+        config = config_file.read()
+    for file in Path().rglob('*.po'):
+        if os.fsdecode(file) not in config:
+            yield os.fsdecode(file)
 
 
 def _clone_cpython_repo(version: str):
@@ -178,7 +192,7 @@ def language_switcher(entry: ResourceLanguageStatistics) -> bool:
 
 
 if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config')
+    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'warn_about_files_to_delete')
 
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
