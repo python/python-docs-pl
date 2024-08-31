@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 14:15+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:05+0000\n"
 "Last-Translator: Seweryn Piórkowski <seweryn.piorkowski@gmail.com>, 2021\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -116,6 +116,9 @@ msgid ""
 "method is called as follows::"
 msgstr ""
 
+msgid "parse(string, kwds)"
+msgstr ""
+
 msgid ""
 "``kwds`` is a dictionary containing one pre-initialized key, ``defects``. "
 "``defects`` is an empty list.  The parse method should append any detected "
@@ -133,6 +136,12 @@ msgid ""
 "``init`` method.  The specialized class only needs to provide an ``init`` "
 "method if it wishes to set additional attributes beyond those provided by "
 "``BaseHeader`` itself.  Such an ``init`` method should look like this::"
+msgstr ""
+
+msgid ""
+"def init(self, /, *args, **kw):\n"
+"    self._myattr = kw.pop('myattr')\n"
+"    super().init(*args, **kw)"
 msgstr ""
 
 msgid ""
@@ -189,10 +198,16 @@ msgid ""
 "``datetime`` according to the :rfc:`5322` rules; that is, it is set to::"
 msgstr ""
 
+msgid "email.utils.format_datetime(self.datetime)"
+msgstr ""
+
 msgid ""
 "When creating a ``DateHeader``, *value* may be :class:`~datetime.datetime` "
 "instance.  This means, for example, that the following code is valid and "
 "does what one would expect::"
+msgstr ""
+
+msgid "msg['Date'] = datetime(2011, 7, 15, 21)"
 msgstr ""
 
 msgid ""
@@ -200,6 +215,9 @@ msgid ""
 "timestamp, and the resulting value will have a timezone of ``-0000``.  Much "
 "more useful is to use the :func:`~email.utils.localtime` function from the :"
 "mod:`~email.utils` module::"
+msgstr ""
+
+msgid "msg['Date'] = utils.localtime()"
 msgstr ""
 
 msgid ""
@@ -455,8 +473,14 @@ msgid ""
 "address is::"
 msgstr ""
 
+msgid "[display_name] <username@domain>"
+msgstr ""
+
 msgid "or::"
 msgstr "lub::"
+
+msgid "username@domain"
+msgstr ""
 
 msgid ""
 "where each part must conform to specific syntax rules spelled out in :rfc:"
@@ -504,6 +528,9 @@ msgstr ""
 msgid ""
 "The class used to represent an address group.  The general form of an "
 "address group is::"
+msgstr ""
+
+msgid "display_name: [address-list];"
 msgstr ""
 
 msgid ""
