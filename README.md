@@ -52,7 +52,7 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 **Kanały komunikacji**
 
-* [python-docs-pl Discord](https://discord.gg/3faJmGKhta)
+* [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc)
 * [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
 * [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
@@ -70,9 +70,9 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * `./manage_translation.py fetch`
 * `cog -rP README.md`
 
-**Potencjalnie przydatne materiały**
+**Przydatne materiały**
 * [statystyki oglądalności](https://plausible.io/docs.python.org/?filters=%28%28contains,page,%28/pl/%29%29%29)
-* [polskie tłumaczenie dokumentacji Pythona 2.3](https://pl.python.org/docs/).
+* [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
 **Podobne projekty**
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
