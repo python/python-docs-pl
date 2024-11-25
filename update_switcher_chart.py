@@ -24,9 +24,10 @@ for commit in repo.iter_commits():
     progress.append(number)
     dates.append(datetime.fromtimestamp(commit.authored_date))
 
-pyplot.plot_date(dates, progress)
+pyplot.plot_date(dates, progress, linestyle='-',marker='')
 pyplot.ylim(ymin=0)
 pyplot.grid()
 pyplot.gcf().autofmt_xdate()
 pyplot.gca().yaxis.set_major_formatter(PercentFormatter())
+pyplot.title("Postęp tłumaczenia do dodatku przełącznika języków")
 pyplot.savefig("language-switcher-progress.svg")
