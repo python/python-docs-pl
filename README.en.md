@@ -57,7 +57,7 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 * [Python Translations Working Group](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
-**Licencja**
+**License**
 
 By inviting you to work on a project on the Transifex platform, we offer a contract for
 donating your translations to the Python Software Foundation
