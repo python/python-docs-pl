@@ -20,7 +20,7 @@ f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflow
 ![24 Translators](https://img.shields.io/badge/Translators-24-0.svg)
 <!-- [[[end]]] -->
 
-*Read this in other languages: [Polish](README.md)*
+*Przeczytaj to w innym języku: [Polski](README.md)*
 
 If you find a mistake or have a suggestion,
 [let us know](https://github.com/python/python-docs-pl/issues) or fix it yourself:
