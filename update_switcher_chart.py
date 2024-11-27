@@ -24,7 +24,7 @@ for commit in repo.iter_commits():
     progress.append(number)
     dates.append(datetime.fromtimestamp(commit.authored_date))
 
-pyplot.plot_date(dates, progress, linestyle='-',marker='')
+pyplot.plot_date(dates, progress, linestyle='-', marker='')
 pyplot.ylim(ymin=0)
 pyplot.grid()
 pyplot.gcf().autofmt_xdate()
