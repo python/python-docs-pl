@@ -45,23 +45,22 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
-      # Check for significant changes in README.md
+      # Check for changes in README.md
       - run: >
           ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# Copyright (C) 2001-' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
-      # Check for significant changes in README.en.md
       - run: >
-          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# Copyright (C) 2001-' --exit-code README.en.md && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
+          ! git diff -G'\!\[[0-9]{2,3}\.[0-9]{2}% przełącznika języków\]' --exit-code README.md && echo "SWITCHER_PROGRESS=1" >> $GITHUB_ENV || exit 0
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
       - run: pip install gitpython matplotlib
-        if: env.SIGNIFICANT_CHANGES
+        if: env.SWITCHER_PROGRESS
       - run: python update_switcher_chart.py
-        if: env.SIGNIFICANT_CHANGES
+        if: env.SWITCHER_PROGRESS
       - run: git add .
-        if: env.SIGNIFICANT_CHANGES
+        if: env.SWITCHER_PROGRESS
       - run: git commit -m 'Update switcher progress chart'
-        if: env.SIGNIFICANT_CHANGES
+        if: env.SWITCHER_PROGRESS
       - uses: ad-m/github-push-action@master
         if: env.SIGNIFICANT_CHANGES
         with:
