@@ -1,3 +1,5 @@
+name: Translation and Linting Workflow
+
 on:
   schedule:
     - cron: '*/30 * * * *'
@@ -5,6 +7,7 @@ on:
     branches:
       - '*'
   workflow_dispatch:
+
 jobs:
   update-translation:
     runs-on: ubuntu-latest
@@ -32,26 +35,33 @@ jobs:
       - run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      # Process README.md
       - run: python -Werror -m cogapp -rP README.md
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+      # Process README.en.md
+      - run: python -Werror -m cogapp -rP README.en.md
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
+      # Check for significant changes in README.md
       - run: >
           ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# Copyright (C) 2001-' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
+      # Check for significant changes in README.en.md
       - run: >
-          ! git diff -G'\!\[[0-9]{2,3}\.[0-9]{2}% przełącznika języków\]' --exit-code README.md && echo "SWITCHER_PROGRESS=1" >> $GITHUB_ENV || exit 0
+          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# Copyright (C) 2001-' --exit-code README.en.md && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
       - run: pip install gitpython matplotlib
-        if: env.SWITCHER_PROGRESS
+        if: env.SIGNIFICANT_CHANGES
       - run: python update_switcher_chart.py
-        if: env.SWITCHER_PROGRESS
+        if: env.SIGNIFICANT_CHANGES
       - run: git add .
-        if: env.SWITCHER_PROGRESS
+        if: env.SIGNIFICANT_CHANGES
       - run: git commit -m 'Update switcher progress chart'
-        if: env.SWITCHER_PROGRESS
+        if: env.SIGNIFICANT_CHANGES
       - uses: ad-m/github-push-action@master
         if: env.SIGNIFICANT_CHANGES
         with:
@@ -61,6 +71,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           event-type: translation-updated
+
   lint:
     runs-on: ubuntu-latest
     strategy:
@@ -77,6 +88,7 @@ jobs:
         with:
           ref: ${{ matrix.version }}
       - run: sphinx-lint
+
   build-translation:
     runs-on: ubuntu-latest
     strategy:
@@ -106,6 +118,7 @@ jobs:
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
           path: Doc/build/${{ matrix.format }}
+
   output-pdf:
     runs-on: ubuntu-latest
     strategy:
