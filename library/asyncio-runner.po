@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2022-11-05 19:48+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-11-29 14:50+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgstr ""
 
 msgid ""
 "This function runs the passed coroutine, taking care of managing the asyncio "
-"event loop, *finalizing asynchronous generators*, and closing the threadpool."
+"event loop, *finalizing asynchronous generators*, and closing the executor."
 msgstr ""
 
 msgid ""
@@ -61,12 +61,28 @@ msgid ""
 msgstr ""
 
 msgid ""
-"This function always creates a new event loop and closes it at the end.  It "
-"should be used as a main entry point for asyncio programs, and should "
-"ideally only be called once."
+"If *loop_factory* is not ``None``, it is used to create a new event loop; "
+"otherwise :func:`asyncio.new_event_loop` is used. The loop is closed at the "
+"end. This function should be used as a main entry point for asyncio "
+"programs, and should ideally only be called once. It is recommended to use "
+"*loop_factory* to configure the event loop instead of policies."
+msgstr ""
+
+msgid ""
+"The executor is given a timeout duration of 5 minutes to shutdown. If the "
+"executor hasn't finished within that duration, a warning is emitted and the "
+"executor is closed."
 msgstr ""
 
 msgid "Example::"
+msgstr "Przykład::"
+
+msgid ""
+"async def main():\n"
+"    await asyncio.sleep(1)\n"
+"    print('hello')\n"
+"\n"
+"asyncio.run(main())"
 msgstr ""
 
 msgid "Updated to use :meth:`loop.shutdown_default_executor`."
@@ -74,6 +90,9 @@ msgstr ""
 
 msgid ""
 "*debug* is ``None`` by default to respect the global debug mode settings."
+msgstr ""
+
+msgid "Added *loop_factory* parameter."
 msgstr ""
 
 msgid "Runner context manager"
@@ -97,8 +116,17 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Basically, :func:`asyncio.run()` example can be rewritten with the runner "
+"Basically, :func:`asyncio.run` example can be rewritten with the runner "
 "usage::"
+msgstr ""
+
+msgid ""
+"async def main():\n"
+"    await asyncio.sleep(1)\n"
+"    print('hello')\n"
+"\n"
+"with asyncio.Runner() as runner:\n"
+"    runner.run(main())"
 msgstr ""
 
 msgid "Run a :term:`coroutine <coroutine>` *coro* in the embedded loop."

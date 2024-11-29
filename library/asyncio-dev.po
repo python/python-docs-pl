@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 00:54+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-11-29 14:50+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,8 +63,11 @@ msgstr ""
 
 msgid ""
 "setting the log level of the :ref:`asyncio logger <asyncio-logger>` to :py:"
-"data:`logging.DEBUG`, for example the following snippet of code can be run "
+"const:`logging.DEBUG`, for example the following snippet of code can be run "
 "at startup of the application::"
+msgstr ""
+
+msgid "logging.basicConfig(level=logging.DEBUG)"
 msgstr ""
 
 msgid ""
@@ -115,11 +118,17 @@ msgid ""
 "call_soon_threadsafe` method should be used. Example::"
 msgstr ""
 
+msgid "loop.call_soon_threadsafe(callback, *args)"
+msgstr ""
+
 msgid ""
 "Almost all asyncio objects are not thread safe, which is typically not a "
 "problem unless there is code that works with them from outside of a Task or "
 "a callback.  If there's a need for such code to call a low-level asyncio "
 "API, the :meth:`loop.call_soon_threadsafe` method should be used, e.g.::"
+msgstr ""
+
+msgid "loop.call_soon_threadsafe(fut.cancel)"
 msgstr ""
 
 msgid ""
@@ -129,8 +138,17 @@ msgid ""
 msgstr ""
 
 msgid ""
-"To handle signals and to execute subprocesses, the event loop must be run in "
-"the main thread."
+"async def coro_func():\n"
+"     return await asyncio.sleep(1, 42)\n"
+"\n"
+"# Later in another OS thread:\n"
+"\n"
+"future = asyncio.run_coroutine_threadsafe(coro_func(), loop)\n"
+"# Wait for the result:\n"
+"result = future.result()"
+msgstr ""
+
+msgid "To handle signals the event loop must be run in the main thread."
 msgstr ""
 
 msgid ""
@@ -168,7 +186,7 @@ msgid ""
 msgstr ""
 
 msgid "Logging"
-msgstr ""
+msgstr "Logowanie"
 
 msgid ""
 "asyncio uses the :mod:`logging` module and all logging is performed via the "
@@ -176,8 +194,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The default log level is :py:data:`logging.INFO`, which can be easily "
+"The default log level is :py:const:`logging.INFO`, which can be easily "
 "adjusted::"
+msgstr ""
+
+msgid "logging.getLogger(\"asyncio\").setLevel(logging.WARNING)"
 msgstr ""
 
 msgid ""
@@ -195,15 +216,50 @@ msgid ""
 "`asyncio.create_task`, asyncio will emit a :exc:`RuntimeWarning`::"
 msgstr ""
 
+msgid ""
+"import asyncio\n"
+"\n"
+"async def test():\n"
+"    print(\"never scheduled\")\n"
+"\n"
+"async def main():\n"
+"    test()\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
 msgid "Output::"
+msgstr ""
+
+msgid ""
+"test.py:7: RuntimeWarning: coroutine 'test' was never awaited\n"
+"  test()"
 msgstr ""
 
 msgid "Output in debug mode::"
 msgstr ""
 
 msgid ""
+"test.py:7: RuntimeWarning: coroutine 'test' was never awaited\n"
+"Coroutine created at (most recent call last)\n"
+"  File \"../t.py\", line 9, in <module>\n"
+"    asyncio.run(main(), debug=True)\n"
+"\n"
+"  < .. >\n"
+"\n"
+"  File \"../t.py\", line 7, in main\n"
+"    test()\n"
+"  test()"
+msgstr ""
+
+msgid ""
 "The usual fix is to either await the coroutine or call the :meth:`asyncio."
 "create_task` function::"
+msgstr ""
+
+msgid ""
+"async def main():\n"
+"    await test()"
 msgstr ""
 
 msgid "Detect never-retrieved exceptions"
@@ -220,6 +276,49 @@ msgid "Example of an unhandled exception::"
 msgstr ""
 
 msgid ""
+"import asyncio\n"
+"\n"
+"async def bug():\n"
+"    raise Exception(\"not consumed\")\n"
+"\n"
+"async def main():\n"
+"    asyncio.create_task(bug())\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
+msgid ""
+"Task exception was never retrieved\n"
+"future: <Task finished coro=<bug() done, defined at test.py:3>\n"
+"  exception=Exception('not consumed')>\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"test.py\", line 4, in bug\n"
+"    raise Exception(\"not consumed\")\n"
+"Exception: not consumed"
+msgstr ""
+
+msgid ""
 ":ref:`Enable the debug mode <asyncio-debug-mode>` to get the traceback where "
 "the task was created::"
+msgstr ""
+
+msgid "asyncio.run(main(), debug=True)"
+msgstr ""
+
+msgid ""
+"Task exception was never retrieved\n"
+"future: <Task finished coro=<bug() done, defined at test.py:3>\n"
+"    exception=Exception('not consumed') created at asyncio/tasks.py:321>\n"
+"\n"
+"source_traceback: Object created at (most recent call last):\n"
+"  File \"../t.py\", line 9, in <module>\n"
+"    asyncio.run(main(), debug=True)\n"
+"\n"
+"< .. >\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"../t.py\", line 4, in bug\n"
+"    raise Exception(\"not consumed\")\n"
+"Exception: not consumed"
 msgstr ""

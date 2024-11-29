@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:06+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-11-29 14:50+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,23 +23,17 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`fcntl` --- The ``fcntl`` and ``ioctl`` system calls"
+msgid ":mod:`!fcntl` --- The ``fcntl`` and ``ioctl`` system calls"
 msgstr ""
 
 msgid ""
-"This module performs file control and I/O control on file descriptors. It is "
-"an interface to the :c:func:`fcntl` and :c:func:`ioctl` Unix routines.  For "
-"a complete description of these calls, see :manpage:`fcntl(2)` and :manpage:"
-"`ioctl(2)` Unix manual pages."
+"This module performs file and I/O control on file descriptors. It is an "
+"interface to the :c:func:`fcntl` and :c:func:`ioctl` Unix routines. See the :"
+"manpage:`fcntl(2)` and :manpage:`ioctl(2)` Unix manual pages for full "
+"details."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: not Emscripten, not WASI."
-msgstr ""
-
-msgid ""
-"This module does not work or is not available on WebAssembly platforms "
-"``wasm32-emscripten`` and ``wasm32-wasi``. See :ref:`wasm-availability` for "
-"more information."
+msgid "Availability"
 msgstr ""
 
 msgid ""
@@ -80,6 +74,13 @@ msgid ""
 "the latter setting ``FD_CLOEXEC`` flag in addition."
 msgstr ""
 
+msgid ""
+"On Linux >= 4.5, the :mod:`fcntl` module exposes the ``FICLONE`` and "
+"``FICLONERANGE`` constants, which allow to share some data of one file with "
+"another file by reflinking on some filesystems (e.g., btrfs, OCFS2, and "
+"XFS). This behavior is commonly referred to as \"copy-on-write\"."
+msgstr ""
+
 msgid "The module defines the following functions:"
 msgstr ""
 
@@ -101,7 +102,7 @@ msgid ""
 "result in a segmentation violation or a more subtle data corruption."
 msgstr ""
 
-msgid "If the :c:func:`fcntl` fails, an :exc:`OSError` is raised."
+msgid "If the :c:func:`fcntl` call fails, an :exc:`OSError` is raised."
 msgstr ""
 
 msgid ""
@@ -154,10 +155,24 @@ msgid ""
 "copied back into the supplied buffer."
 msgstr ""
 
-msgid "If the :c:func:`ioctl` fails, an :exc:`OSError` exception is raised."
+msgid ""
+"If the :c:func:`ioctl` call fails, an :exc:`OSError` exception is raised."
 msgstr ""
 
 msgid "An example::"
+msgstr ""
+
+msgid ""
+">>> import array, fcntl, struct, termios, os\n"
+">>> os.getpgrp()\n"
+"13341\n"
+">>> struct.unpack('h', fcntl.ioctl(0, termios.TIOCGPGRP, \"  \"))[0]\n"
+"13341\n"
+">>> buf = array.array('h', [0])\n"
+">>> fcntl.ioctl(0, termios.TIOCGPGRP, buf, 1)\n"
+"0\n"
+">>> buf\n"
+"array('h', [13341])"
 msgstr ""
 
 msgid ""
@@ -172,7 +187,8 @@ msgid ""
 "function is emulated using :c:func:`fcntl`.)"
 msgstr ""
 
-msgid "If the :c:func:`flock` fails, an :exc:`OSError` exception is raised."
+msgid ""
+"If the :c:func:`flock` call fails, an :exc:`OSError` exception is raised."
 msgstr ""
 
 msgid ""
@@ -187,24 +203,27 @@ msgid ""
 "*cmd* is one of the following values:"
 msgstr ""
 
-msgid ":const:`LOCK_UN` -- unlock"
+msgid "Release an existing lock."
 msgstr ""
 
-msgid ":const:`LOCK_SH` -- acquire a shared lock"
+msgid "Acquire a shared lock."
 msgstr ""
 
-msgid ":const:`LOCK_EX` -- acquire an exclusive lock"
+msgid "Acquire an exclusive lock."
 msgstr ""
 
 msgid ""
-"When *cmd* is :const:`LOCK_SH` or :const:`LOCK_EX`, it can also be bitwise "
-"ORed with :const:`LOCK_NB` to avoid blocking on lock acquisition. If :const:"
-"`LOCK_NB` is used and the lock cannot be acquired, an :exc:`OSError` will be "
-"raised and the exception will have an *errno* attribute set to :const:"
-"`EACCES` or :const:`EAGAIN` (depending on the operating system; for "
-"portability, check for both values).  On at least some systems, :const:"
-"`LOCK_EX` can only be used if the file descriptor refers to a file opened "
-"for writing."
+"Bitwise OR with any of the other three ``LOCK_*`` constants to make the "
+"request non-blocking."
+msgstr ""
+
+msgid ""
+"If :const:`!LOCK_NB` is used and the lock cannot be acquired, an :exc:"
+"`OSError` will be raised and the exception will have an *errno* attribute "
+"set to :const:`~errno.EACCES` or :const:`~errno.EAGAIN` (depending on the "
+"operating system; for portability, check for both values).  On at least some "
+"systems, :const:`!LOCK_EX` can only be used if the file descriptor refers to "
+"a file opened for writing."
 msgstr ""
 
 msgid ""
@@ -213,14 +232,13 @@ msgid ""
 "IOBase.seek`, specifically:"
 msgstr ""
 
-msgid ":const:`0` -- relative to the start of the file (:data:`os.SEEK_SET`)"
+msgid "``0`` -- relative to the start of the file (:const:`os.SEEK_SET`)"
 msgstr ""
 
-msgid ""
-":const:`1` -- relative to the current buffer position (:data:`os.SEEK_CUR`)"
+msgid "``1`` -- relative to the current buffer position (:const:`os.SEEK_CUR`)"
 msgstr ""
 
-msgid ":const:`2` -- relative to the end of the file (:data:`os.SEEK_END`)"
+msgid "``2`` -- relative to the end of the file (:const:`os.SEEK_END`)"
 msgstr ""
 
 msgid ""
@@ -238,6 +256,16 @@ msgid "Examples (all on a SVR4 compliant system)::"
 msgstr ""
 
 msgid ""
+"import struct, fcntl, os\n"
+"\n"
+"f = open(...)\n"
+"rv = fcntl.fcntl(f, fcntl.F_SETFL, os.O_NDELAY)\n"
+"\n"
+"lockdata = struct.pack('hhllhh', fcntl.F_WRLCK, 0, 0, 0, 0, 0)\n"
+"rv = fcntl.fcntl(f, fcntl.F_SETLKW, lockdata)"
+msgstr ""
+
+msgid ""
 "Note that in the first example the return value variable *rv* will hold an "
 "integer value; in the second example it will hold a :class:`bytes` object.  "
 "The structure lay-out for the *lockdata* variable is system dependent --- "
@@ -248,7 +276,7 @@ msgid "Module :mod:`os`"
 msgstr ""
 
 msgid ""
-"If the locking flags :data:`~os.O_SHLOCK` and :data:`~os.O_EXLOCK` are "
+"If the locking flags :const:`~os.O_SHLOCK` and :const:`~os.O_EXLOCK` are "
 "present in the :mod:`os` module (on BSD only), the :func:`os.open` function "
 "provides an alternative to the :func:`lockf` and :func:`flock` functions."
 msgstr ""
@@ -260,4 +288,4 @@ msgid "file control"
 msgstr ""
 
 msgid "I/O control"
-msgstr ""
+msgstr "Kontrola I/O"
