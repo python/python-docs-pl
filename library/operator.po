@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:10+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-12-06 14:52+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`operator` --- Standard operators as functions"
+msgid ":mod:`!operator` --- Standard operators as functions"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/operator.py`"
@@ -65,10 +65,10 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return the outcome of :keyword:`not` *obj*.  (Note that there is no :meth:"
-"`__not__` method for object instances; only the interpreter core defines "
-"this operation.  The result is affected by the :meth:`__bool__` and :meth:"
-"`__len__` methods.)"
+"Return the outcome of :keyword:`not` *obj*.  (Note that there is no :meth:`!"
+"__not__` method for object instances; only the interpreter core defines this "
+"operation.  The result is affected by the :meth:`~object.__bool__` and :meth:"
+"`~object.__len__` methods.)"
 msgstr ""
 
 msgid ""
@@ -175,7 +175,7 @@ msgid "Set the value of *a* at index *b* to *c*."
 msgstr ""
 
 msgid ""
-"Return an estimated length for the object *o*. First try to return its "
+"Return an estimated length for the object *obj*. First try to return its "
 "actual length, then an estimate using :meth:`object.__length_hint__`, and "
 "finally return the default value."
 msgstr ""
@@ -213,12 +213,31 @@ msgid ""
 msgstr ""
 
 msgid "Equivalent to::"
+msgstr "Odpowiednik::"
+
+msgid ""
+"def attrgetter(*items):\n"
+"    if any(not isinstance(item, str) for item in items):\n"
+"        raise TypeError('attribute name must be a string')\n"
+"    if len(items) == 1:\n"
+"        attr = items[0]\n"
+"        def g(obj):\n"
+"            return resolve_attr(obj, attr)\n"
+"    else:\n"
+"        def g(obj):\n"
+"            return tuple(resolve_attr(obj, attr) for attr in items)\n"
+"    return g\n"
+"\n"
+"def resolve_attr(obj, attr):\n"
+"    for name in attr.split(\".\"):\n"
+"        obj = getattr(obj, name)\n"
+"    return obj"
 msgstr ""
 
 msgid ""
 "Return a callable object that fetches *item* from its operand using the "
-"operand's :meth:`__getitem__` method.  If multiple items are specified, "
-"returns a tuple of lookup values.  For example:"
+"operand's :meth:`~object.__getitem__` method.  If multiple items are "
+"specified, returns a tuple of lookup values.  For example:"
 msgstr ""
 
 msgid "After ``f = itemgetter(2)``, the call ``f(r)`` returns ``r[2]``."
@@ -230,9 +249,21 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The items can be any type accepted by the operand's :meth:`__getitem__` "
-"method.  Dictionaries accept any :term:`hashable` value.  Lists, tuples, and "
-"strings accept an index or a slice:"
+"def itemgetter(*items):\n"
+"    if len(items) == 1:\n"
+"        item = items[0]\n"
+"        def g(obj):\n"
+"            return obj[item]\n"
+"    else:\n"
+"        def g(obj):\n"
+"            return tuple(obj[item] for item in items)\n"
+"    return g"
+msgstr ""
+
+msgid ""
+"The items can be any type accepted by the operand's :meth:`~object."
+"__getitem__` method.  Dictionaries accept any :term:`hashable` value.  "
+"Lists, tuples, and strings accept an index or a slice:"
 msgstr ""
 
 msgid ""
@@ -255,6 +286,13 @@ msgid ""
 "``b.name('foo', bar=1)``."
 msgstr ""
 
+msgid ""
+"def methodcaller(name, /, *args, **kwargs):\n"
+"    def caller(obj):\n"
+"        return getattr(obj, name)(*args, **kwargs)\n"
+"    return caller"
+msgstr ""
+
 msgid "Mapping Operators to Functions"
 msgstr ""
 
@@ -270,7 +308,7 @@ msgid "Syntax"
 msgstr ""
 
 msgid "Function"
-msgstr ""
+msgstr "Funkcja"
 
 msgid "Addition"
 msgstr ""

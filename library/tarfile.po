@@ -1,21 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2021
-# Seweryn Piórkowski <seweryn.piorkowski@gmail.com>, 2023
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:14+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-12-06 14:52+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +23,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`tarfile` --- Read and write tar archive files"
+msgid ":mod:`!tarfile` --- Read and write tar archive files"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/tarfile.py`"
@@ -68,6 +66,14 @@ msgid "Added support for :mod:`lzma` compression."
 msgstr ""
 
 msgid ""
+"Archives are extracted using a :ref:`filter <tarfile-extraction-filter>`, "
+"which makes it possible to either limit surprising/dangerous features, or to "
+"acknowledge that they are expected and the archive is fully trusted. By "
+"default, archives are fully trusted, but this default is deprecated and "
+"slated to change in Python 3.14."
+msgstr ""
+
+msgid ""
 "Return a :class:`TarFile` object for the pathname *name*. For detailed "
 "information on :class:`TarFile` objects and the keyword arguments that are "
 "allowed, see :ref:`tarfile-objects`."
@@ -91,25 +97,25 @@ msgid "Open for reading with transparent compression (recommended)."
 msgstr ""
 
 msgid "``'r:'``"
-msgstr ""
+msgstr "``'r:'``"
 
 msgid "Open for reading exclusively without compression."
 msgstr ""
 
 msgid "``'r:gz'``"
-msgstr ""
+msgstr "``'r:gz'``"
 
 msgid "Open for reading with gzip compression."
 msgstr ""
 
 msgid "``'r:bz2'``"
-msgstr ""
+msgstr "``'r:bz2'``"
 
 msgid "Open for reading with bzip2 compression."
 msgstr ""
 
 msgid "``'r:xz'``"
-msgstr ""
+msgstr "``'r:xz'``"
 
 msgid "Open for reading with lzma compression."
 msgstr ""
@@ -123,7 +129,7 @@ msgid ""
 msgstr ""
 
 msgid "``'x:gz'``"
-msgstr ""
+msgstr "``'x:gz'``"
 
 msgid ""
 "Create a tarfile with gzip compression. Raise a :exc:`FileExistsError` "
@@ -131,7 +137,7 @@ msgid ""
 msgstr ""
 
 msgid "``'x:bz2'``"
-msgstr ""
+msgstr "``'x:bz2'``"
 
 msgid ""
 "Create a tarfile with bzip2 compression. Raise a :exc:`FileExistsError` "
@@ -139,7 +145,7 @@ msgid ""
 msgstr ""
 
 msgid "``'x:xz'``"
-msgstr ""
+msgstr "``'x:xz'``"
 
 msgid ""
 "Create a tarfile with lzma compression. Raise a :exc:`FileExistsError` "
@@ -161,19 +167,19 @@ msgid "Open for uncompressed writing."
 msgstr ""
 
 msgid "``'w:gz'``"
-msgstr ""
+msgstr "``'w:gz'``"
 
 msgid "Open for gzip compressed writing."
 msgstr ""
 
 msgid "``'w:bz2'``"
-msgstr ""
+msgstr "``'w:bz2'``"
 
 msgid "Open for bzip2 compressed writing."
 msgstr ""
 
 msgid "``'w:xz'``"
-msgstr ""
+msgstr "``'w:xz'``"
 
 msgid "Open for lzma compressed writing."
 msgstr ""
@@ -191,7 +197,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"For modes ``'w:gz'``, ``'r:gz'``, ``'w:bz2'``, ``'r:bz2'``, ``'x:gz'``, ``'x:"
+"For modes ``'w:gz'``, ``'x:gz'``, ``'w|gz'``, ``'w:bz2'``, ``'x:bz2'``, ``'w|"
 "bz2'``, :func:`tarfile.open` accepts the keyword argument *compresslevel* "
 "(default ``9``) to specify the compression level of the file."
 msgstr ""
@@ -206,12 +212,12 @@ msgid ""
 "[compression]'``.  :func:`tarfile.open` will return a :class:`TarFile` "
 "object that processes its data as a stream of blocks.  No random seeking "
 "will be done on the file. If given, *fileobj* may be any object that has a :"
-"meth:`read` or :meth:`write` method (depending on the *mode*). *bufsize* "
-"specifies the blocksize and defaults to ``20 * 512`` bytes. Use this variant "
-"in combination with e.g. ``sys.stdin``, a socket :term:`file object` or a "
-"tape device. However, such a :class:`TarFile` object is limited in that it "
-"does not allow random access, see :ref:`tar-examples`.  The currently "
-"possible modes:"
+"meth:`~io.RawIOBase.read` or :meth:`~io.RawIOBase.write` method (depending "
+"on the *mode*) that works with bytes. *bufsize* specifies the blocksize and "
+"defaults to ``20 * 512`` bytes. Use this variant in combination with e.g. "
+"``sys.stdin.buffer``, a socket :term:`file object` or a tape device. "
+"However, such a :class:`TarFile` object is limited in that it does not allow "
+"random access, see :ref:`tar-examples`.  The currently possible modes:"
 msgstr ""
 
 msgid "Mode"
@@ -278,6 +284,9 @@ msgid "The ``'x'`` (exclusive creation) mode was added."
 msgstr ""
 
 msgid "The *name* parameter accepts a :term:`path-like object`."
+msgstr ""
+
+msgid "The *compresslevel* keyword argument also works for streams."
 msgstr ""
 
 msgid ""
@@ -357,6 +366,39 @@ msgid ""
 "by :func:`sys.getfilesystemencoding` otherwise."
 msgstr ""
 
+msgid "A regular file :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A link (inside tarfile) :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A symbolic link :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A character special device :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A block special device :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A directory :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A FIFO special device :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A contiguous file :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A GNU tar longname :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A GNU tar longlink :attr:`~TarInfo.type`."
+msgstr ""
+
+msgid "A GNU tar sparse file :attr:`~TarInfo.type`."
+msgstr ""
+
 msgid ""
 "Each of the following constants defines a tar archive format that the :mod:"
 "`tarfile` module is able to create. See section :ref:`tar-formats` for "
@@ -389,7 +431,7 @@ msgid "Documentation of the :mod:`zipfile` standard module."
 msgstr ""
 
 msgid ":ref:`archiving-operations`"
-msgstr ""
+msgstr ":ref:`archiving-operations`"
 
 msgid ""
 "Documentation of the higher-level archiving facilities provided by the "
@@ -434,7 +476,7 @@ msgstr ""
 msgid ""
 "*name* is the pathname of the archive. *name* may be a :term:`path-like "
 "object`. It can be omitted if *fileobj* is given. In this case, the file "
-"object's :attr:`name` attribute is used if it exists."
+"object's :attr:`!name` attribute is used if it exists."
 msgstr ""
 
 msgid ""
@@ -485,7 +527,7 @@ msgstr ""
 
 msgid ""
 "*errorlevel* controls how extraction errors are handled, see :attr:`the "
-"corresponding attribute <~TarFile.errorlevel>`."
+"corresponding attribute <TarFile.errorlevel>`."
 msgstr ""
 
 msgid ""
@@ -562,10 +604,10 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The *filter* argument, which was added in Python 3.11.4, specifies how "
-"``members`` are modified or rejected before extraction. See :ref:`tarfile-"
-"extraction-filter` for details. It is recommended to set this explicitly "
-"depending on which *tar* features you need to support."
+"The *filter* argument specifies how ``members`` are modified or rejected "
+"before extraction. See :ref:`tarfile-extraction-filter` for details. It is "
+"recommended to set this explicitly depending on which *tar* features you "
+"need to support."
 msgstr ""
 
 msgid ""
@@ -662,14 +704,9 @@ msgstr ""
 
 msgid ""
 "If ``extraction_filter`` is ``None`` (the default), calling an extraction "
-"method without a *filter* argument will use the :func:`fully_trusted "
-"<fully_trusted_filter>` filter for compatibility with previous Python "
-"versions."
-msgstr ""
-
-msgid ""
-"In Python 3.12+, leaving ``extraction_filter=None`` will emit a "
-"``DeprecationWarning``."
+"method without a *filter* argument will raise a ``DeprecationWarning``, and "
+"fall back to the :func:`fully_trusted <fully_trusted_filter>` filter, whose "
+"dangerous behavior matches previous versions of Python."
 msgstr ""
 
 msgid ""
@@ -683,8 +720,7 @@ msgid ""
 "default, although, since it affects all uses of *tarfile*, it is best "
 "practice to only do so in top-level applications or :mod:`site configuration "
 "<site>`. To set a global default this way, a filter function needs to be "
-"wrapped in :func:`staticmethod()` to prevent injection of a ``self`` "
-"argument."
+"wrapped in :func:`staticmethod` to prevent injection of a ``self`` argument."
 msgstr ""
 
 msgid ""
@@ -753,8 +789,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Modifying the objects returned by :meth:`~!TarFile.getmember` or :meth:`~!"
-"TarFile.getmembers` will affect all subsequent operations on the archive. "
+"Modifying the objects returned by :meth:`~TarFile.getmember` or :meth:"
+"`~TarFile.getmembers` will affect all subsequent operations on the archive. "
 "For cases where this is unwanted, you can use :mod:`copy.copy() <copy>` or "
 "call the :meth:`~TarInfo.replace` method to create a modified copy in one "
 "step."
@@ -775,9 +811,6 @@ msgid ":meth:`~TarFile.addfile` will fail."
 msgstr ""
 
 msgid ":meth:`~TarFile.list` will print a placeholder string."
-msgstr ""
-
-msgid "Added :meth:`~TarInfo.replace` and handling of ``None``."
 msgstr ""
 
 msgid "Create a :class:`TarInfo` object."
@@ -834,6 +867,12 @@ msgid ""
 "objects of type :const:`LNKTYPE` and :const:`SYMTYPE`."
 msgstr ""
 
+msgid ""
+"For symbolic links (``SYMTYPE``), the *linkname* is relative to the "
+"directory that contains the link. For hard links (``LNKTYPE``), the "
+"*linkname* is relative to the root of the archive."
+msgstr ""
+
 msgid "User ID of the user who originally stored this member."
 msgstr ""
 
@@ -846,6 +885,24 @@ msgstr ""
 msgid "Group name."
 msgstr ""
 
+msgid "Header checksum."
+msgstr ""
+
+msgid "Device major number."
+msgstr ""
+
+msgid "Device minor number."
+msgstr ""
+
+msgid "The tar header starts here."
+msgstr ""
+
+msgid "The file's data starts here."
+msgstr ""
+
+msgid "Sparse member information."
+msgstr ""
+
 msgid ""
 "A dictionary containing key-value pairs of an associated pax extended header."
 msgstr ""
@@ -854,6 +911,9 @@ msgid ""
 "Return a *new* copy of the :class:`!TarInfo` object with the given "
 "attributes changed. For example, to return a ``TarInfo`` with the group name "
 "set to ``'staff'``, use::"
+msgstr ""
+
+msgid "new_tarinfo = old_tarinfo.replace(gname='staff')"
 msgstr ""
 
 msgid ""
@@ -865,7 +925,7 @@ msgstr ""
 msgid "A :class:`TarInfo` object also provides some convenient query methods:"
 msgstr ""
 
-msgid "Return :const:`True` if the :class:`Tarinfo` object is a regular file."
+msgid "Return :const:`True` if the :class:`TarInfo` object is a regular file."
 msgstr ""
 
 msgid "Same as :meth:`isfile`."
@@ -912,7 +972,7 @@ msgid ""
 msgstr ""
 
 msgid ":pep:`706`"
-msgstr ""
+msgstr ":pep:`706`"
 
 msgid "Contains further motivation and rationale behind the design."
 msgstr ""
@@ -944,11 +1004,9 @@ msgid "``None`` (default): Use :attr:`TarFile.extraction_filter`."
 msgstr ""
 
 msgid ""
-"If that is also ``None`` (the default), the ``'fully_trusted'`` filter will "
-"be used (for compatibility with earlier versions of Python)."
-msgstr ""
-
-msgid "In Python 3.12, the default will emit a ``DeprecationWarning``."
+"If that is also ``None`` (the default), raise a ``DeprecationWarning``, and "
+"fall back to the ``'fully_trusted'`` filter, whose dangerous behavior "
+"matches previous versions of Python."
 msgstr ""
 
 msgid ""
@@ -961,6 +1019,9 @@ msgid ""
 "`TarInfo <tarinfo-objects>` describing the member and the destination path "
 "to where the archive is extracted (i.e. the same path is used for all "
 "members)::"
+msgstr ""
+
+msgid "filter(member: TarInfo, path: str, /) -> TarInfo | None"
 msgstr ""
 
 msgid ""
@@ -1000,7 +1061,7 @@ msgstr ""
 msgid "Implements the ``'tar'`` filter."
 msgstr ""
 
-msgid "Strip leading slashes (``/`` and :attr:`os.sep`) from filenames."
+msgid "Strip leading slashes (``/`` and :data:`os.sep`) from filenames."
 msgstr ""
 
 msgid ""
@@ -1017,7 +1078,7 @@ msgstr ""
 
 msgid ""
 "Clear high mode bits (setuid, setgid, sticky) and group/other write bits (:"
-"attr:`~stat.S_IWGRP`|:attr:`~stat.S_IWOTH`)."
+"const:`~stat.S_IWGRP` | :const:`~stat.S_IWOTH`)."
 msgstr ""
 
 msgid "Return the modified ``TarInfo`` member."
@@ -1051,13 +1112,13 @@ msgid "For regular files, including hard links:"
 msgstr ""
 
 msgid ""
-"Set the owner read and write permissions (:attr:`~stat.S_IRUSR`|:attr:`~stat."
-"S_IWUSR`)."
+"Set the owner read and write permissions (:const:`~stat.S_IRUSR` | :const:"
+"`~stat.S_IWUSR`)."
 msgstr ""
 
 msgid ""
-"Remove the group & other executable permission (:attr:`~stat.S_IXGRP`|:attr:"
-"`~stat.S_IXOTH`) if the owner doesn’t have it (:attr:`~stat.S_IXUSR`)."
+"Remove the group & other executable permission (:const:`~stat.S_IXGRP` | :"
+"const:`~stat.S_IXOTH`) if the owner doesn’t have it (:const:`~stat.S_IXUSR`)."
 msgstr ""
 
 msgid ""
@@ -1143,7 +1204,7 @@ msgid "Supporting older Python versions"
 msgstr ""
 
 msgid ""
-"Extraction filters were added to Python 3.12, and are backported to older "
+"Extraction filters were added to Python 3.12, but may be backported to older "
 "versions as security updates. To check whether the feature is available, use "
 "e.g. ``hasattr(tarfile, 'data_filter')`` rather than checking the Python "
 "version."
@@ -1159,17 +1220,45 @@ msgid "Fully trusted archive::"
 msgstr ""
 
 msgid ""
+"my_tarfile.extraction_filter = (lambda member, path: member)\n"
+"my_tarfile.extractall()"
+msgstr ""
+
+msgid ""
 "Use the ``'data'`` filter if available, but revert to Python 3.11 behavior "
 "(``'fully_trusted'``) if this feature is not available::"
+msgstr ""
+
+msgid ""
+"my_tarfile.extraction_filter = getattr(tarfile, 'data_filter',\n"
+"                                       (lambda member, path: member))\n"
+"my_tarfile.extractall()"
 msgstr ""
 
 msgid "Use the ``'data'`` filter; *fail* if it is not available::"
 msgstr ""
 
+msgid "my_tarfile.extractall(filter=tarfile.data_filter)"
+msgstr ""
+
 msgid "or::"
 msgstr "lub::"
 
+msgid ""
+"my_tarfile.extraction_filter = tarfile.data_filter\n"
+"my_tarfile.extractall()"
+msgstr ""
+
 msgid "Use the ``'data'`` filter; *warn* if it is not available::"
+msgstr ""
+
+msgid ""
+"if hasattr(tarfile, 'data_filter'):\n"
+"    my_tarfile.extractall(filter='data')\n"
+"else:\n"
+"    # remove this when no longer needed\n"
+"    warn_the_user('Extracting may be unsafe; consider updating Python')\n"
+"    my_tarfile.extractall()"
 msgstr ""
 
 msgid "Stateful extraction filter example"
@@ -1181,7 +1270,28 @@ msgid ""
 "to write these as context managers, to be used like this::"
 msgstr ""
 
+msgid ""
+"with StatefulFilter() as filter_func:\n"
+"    tar.extractall(path, filter=filter_func)"
+msgstr ""
+
 msgid "Such a filter can be written as, for example::"
+msgstr ""
+
+msgid ""
+"class StatefulFilter:\n"
+"    def __init__(self):\n"
+"        self.file_count = 0\n"
+"\n"
+"    def __enter__(self):\n"
+"        return self\n"
+"\n"
+"    def __call__(self, member, path):\n"
+"        self.file_count += 1\n"
+"        return member\n"
+"\n"
+"    def __exit__(self, *exc_info):\n"
+"        print(f'{self.file_count} files extracted')"
 msgstr ""
 
 msgid "Command-Line Interface"
@@ -1197,7 +1307,13 @@ msgid ""
 "`-c` option and then list the filename(s) that should be included:"
 msgstr ""
 
+msgid "$ python -m tarfile -c monty.tar  spam.txt eggs.txt"
+msgstr ""
+
 msgid "Passing a directory is also acceptable:"
+msgstr ""
+
+msgid "$ python -m tarfile -c monty.tar life-of-brian_1979/"
 msgstr ""
 
 msgid ""
@@ -1205,12 +1321,21 @@ msgid ""
 "option:`-e` option:"
 msgstr ""
 
+msgid "$ python -m tarfile -e monty.tar"
+msgstr ""
+
 msgid ""
 "You can also extract a tar archive into a different directory by passing the "
 "directory's name:"
 msgstr ""
 
+msgid "$ python -m tarfile -e monty.tar  other-dir/"
+msgstr ""
+
 msgid "For a list of the files in a tar archive, use the :option:`-l` option:"
+msgstr ""
+
+msgid "$ python -m tarfile -l monty.tar"
 msgstr ""
 
 msgid "Command-line options"
@@ -1245,14 +1370,50 @@ msgid "How to extract an entire tar archive to the current working directory::"
 msgstr ""
 
 msgid ""
+"import tarfile\n"
+"tar = tarfile.open(\"sample.tar.gz\")\n"
+"tar.extractall(filter='data')\n"
+"tar.close()"
+msgstr ""
+
+msgid ""
 "How to extract a subset of a tar archive with :meth:`TarFile.extractall` "
 "using a generator function instead of a list::"
+msgstr ""
+
+msgid ""
+"import os\n"
+"import tarfile\n"
+"\n"
+"def py_files(members):\n"
+"    for tarinfo in members:\n"
+"        if os.path.splitext(tarinfo.name)[1] == \".py\":\n"
+"            yield tarinfo\n"
+"\n"
+"tar = tarfile.open(\"sample.tar.gz\")\n"
+"tar.extractall(members=py_files(tar))\n"
+"tar.close()"
 msgstr ""
 
 msgid "How to create an uncompressed tar archive from a list of filenames::"
 msgstr ""
 
+msgid ""
+"import tarfile\n"
+"tar = tarfile.open(\"sample.tar\", \"w\")\n"
+"for name in [\"foo\", \"bar\", \"quux\"]:\n"
+"    tar.add(name)\n"
+"tar.close()"
+msgstr ""
+
 msgid "The same example using the :keyword:`with` statement::"
+msgstr ""
+
+msgid ""
+"import tarfile\n"
+"with tarfile.open(\"sample.tar\", \"w\") as tar:\n"
+"    for name in [\"foo\", \"bar\", \"quux\"]:\n"
+"        tar.add(name)"
 msgstr ""
 
 msgid ""
@@ -1261,8 +1422,34 @@ msgid ""
 msgstr ""
 
 msgid ""
+"import tarfile\n"
+"tar = tarfile.open(\"sample.tar.gz\", \"r:gz\")\n"
+"for tarinfo in tar:\n"
+"    print(tarinfo.name, \"is\", tarinfo.size, \"bytes in size and is \", "
+"end=\"\")\n"
+"    if tarinfo.isreg():\n"
+"        print(\"a regular file.\")\n"
+"    elif tarinfo.isdir():\n"
+"        print(\"a directory.\")\n"
+"    else:\n"
+"        print(\"something else.\")\n"
+"tar.close()"
+msgstr ""
+
+msgid ""
 "How to create an archive and reset the user information using the *filter* "
 "parameter in :meth:`TarFile.add`::"
+msgstr ""
+
+msgid ""
+"import tarfile\n"
+"def reset(tarinfo):\n"
+"    tarinfo.uid = tarinfo.gid = 0\n"
+"    tarinfo.uname = tarinfo.gname = \"root\"\n"
+"    return tarinfo\n"
+"tar = tarfile.open(\"sample.tar.gz\", \"w:gz\")\n"
+"tar.add(\"foo\", filter=reset)\n"
+"tar.close()"
 msgstr ""
 
 msgid "Supported tar formats"
