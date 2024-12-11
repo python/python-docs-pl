@@ -46,6 +46,8 @@ Język polski pojawi się w przełączniku języków na docs.python.org,
 * wszystkie zasoby z katalogu `tutorial`,
 * `library/functions`.
 
+[Kliknij tutaj, aby zobaczyć co pozostało do przetłumaczenia.](https://github.com/python/python-docs-pl/issues/3)
+
 **Jak obejrzeć najnowszy build dokumentacji?**
 
 Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions).
