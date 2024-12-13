@@ -1,20 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2023
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2024-12-13 15:30+0000\n"
+"PO-Revision-Date: 2023-05-24 02:21+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -399,6 +398,8 @@ msgid ""
 "This can either be a function to be called when the mock is called, an "
 "iterable or an exception (class or instance) to be raised."
 msgstr ""
+"Może to być albo funkcja do wywołania, gdy wywoływany jest mock, iterable "
+"lub wyjątek (klasa lub instancja) do rzucenia."
 
 msgid ""
 "If you pass in a function it will be called with same arguments as the mock "
@@ -407,6 +408,10 @@ msgid ""
 "returns :data:`DEFAULT` then the mock will return its normal value (from "
 "the :attr:`return_value`)."
 msgstr ""
+"Jeśli przekażesz funkcję, zostanie ona wywołana z tymi samymi argumentami co "
+"mock i dopóki funkcja nie zwróci singletona :data:`DEFAULT`, wywołanie mocka "
+"będzie zwracać cokolwiek zwraca funkcja. Jeśli funkcja zwróci :data:"
+"`DEFAULT`, to mock zwróci swoją normalną wartość (z :attr:`return_value`)."
 
 msgid ""
 "If you pass in an iterable, it is used to retrieve an iterator which must "
@@ -414,6 +419,11 @@ msgid ""
 "to be raised, or a value to be returned from the call to the mock (:data:"
 "`DEFAULT` handling is identical to the function case)."
 msgstr ""
+"Jeśli przekażesz iterable, zostanie on użyty do pobrania iteratora, który "
+"musi zwrócić wartość przy każdym wywołaniu. Wartość ta może być albo "
+"instancją wyjątku, która ma być rzucony, albo wartością, która ma być "
+"zwrócona z wywołania mocka (obsługa :data:`DEFAULT` jest identyczna do "
+"przypadku funkcji)."
 
 msgid ""
 "An example of a mock that raises an exception (to test exception handling of "
@@ -554,9 +564,10 @@ msgid "Added signature introspection on specced and autospecced mock objects."
 msgstr ""
 
 msgid ""
-"A mock intended to be used as a property, or other descriptor, on a class. :"
-"class:`PropertyMock` provides :meth:`__get__` and :meth:`__set__` methods so "
-"you can specify a return value when it is fetched."
+"A mock intended to be used as a :class:`property`, or other :term:"
+"`descriptor`, on a class. :class:`PropertyMock` provides :meth:`~object."
+"__get__` and :meth:`~object.__set__` methods so you can specify a return "
+"value when it is fetched."
 msgstr ""
 
 msgid ""
@@ -1094,8 +1105,9 @@ msgid ""
 ":func:`patch.dict` can be used with dictionary like objects that aren't "
 "actually dictionaries. At the very minimum they must support item getting, "
 "setting, deleting and either iteration or membership test. This corresponds "
-"to the magic methods :meth:`__getitem__`, :meth:`__setitem__`, :meth:"
-"`__delitem__` and either :meth:`__iter__` or :meth:`__contains__`."
+"to the magic methods :meth:`~object.__getitem__`, :meth:`~object."
+"__setitem__`, :meth:`~object.__delitem__` and either :meth:`~container."
+"__iter__` or :meth:`~object.__contains__`."
 msgstr ""
 
 msgid "patch.multiple"
@@ -1295,9 +1307,9 @@ msgid "Mocking Magic Methods"
 msgstr ""
 
 msgid ""
-":class:`Mock` supports mocking the Python protocol methods, also known as "
-"\"magic methods\". This allows mock objects to replace containers or other "
-"objects that implement Python protocols."
+":class:`Mock` supports mocking the Python protocol methods, also known as :"
+"term:`\"magic methods\" <magic method>`. This allows mock objects to replace "
+"containers or other objects that implement Python protocols."
 msgstr ""
 
 msgid ""
@@ -1416,8 +1428,8 @@ msgstr ""
 
 msgid ""
 "``MagicMock`` is a subclass of :class:`Mock` with default implementations of "
-"most of the magic methods. You can use ``MagicMock`` without having to "
-"configure the magic methods yourself."
+"most of the :term:`magic methods <magic method>`. You can use ``MagicMock`` "
+"without having to configure the magic methods yourself."
 msgstr ""
 
 msgid "The constructor parameters have the same meaning as for :class:`Mock`."
@@ -1453,47 +1465,47 @@ msgstr ""
 msgid "Methods and their defaults:"
 msgstr ""
 
-msgid "``__lt__``: ``NotImplemented``"
-msgstr ""
+msgid "``__lt__``: :data:`NotImplemented`"
+msgstr "``__lt__``: :data:`NotImplemented`"
 
-msgid "``__gt__``: ``NotImplemented``"
-msgstr ""
+msgid "``__gt__``: :data:`!NotImplemented`"
+msgstr "``__gt__``: :data:`!NotImplemented`"
 
-msgid "``__le__``: ``NotImplemented``"
-msgstr ""
+msgid "``__le__``: :data:`!NotImplemented`"
+msgstr "``__le__``: :data:`!NotImplemented`"
 
-msgid "``__ge__``: ``NotImplemented``"
-msgstr ""
+msgid "``__ge__``: :data:`!NotImplemented`"
+msgstr "``__ge__``: :data:`!NotImplemented`"
 
 msgid "``__int__``: ``1``"
-msgstr ""
+msgstr "``__int__``: ``1``"
 
 msgid "``__contains__``: ``False``"
-msgstr ""
+msgstr "``__contains__``: ``False``"
 
 msgid "``__len__``: ``0``"
-msgstr ""
+msgstr "``__len__``: ``0``"
 
 msgid "``__iter__``: ``iter([])``"
-msgstr ""
+msgstr "``__iter__``: ``iter([])``"
 
 msgid "``__exit__``: ``False``"
-msgstr ""
+msgstr "``__exit__``: ``False``"
 
 msgid "``__aexit__``: ``False``"
-msgstr ""
+msgstr "``__aexit__``: ``False``"
 
 msgid "``__complex__``: ``1j``"
-msgstr ""
+msgstr "``__complex__``: ``1j``"
 
 msgid "``__float__``: ``1.0``"
-msgstr ""
+msgstr "``__float__``: ``1.0``"
 
 msgid "``__bool__``: ``True``"
-msgstr ""
+msgstr "``__bool__``: ``True``"
 
 msgid "``__index__``: ``1``"
-msgstr ""
+msgstr "``__index__``: ``1``"
 
 msgid "``__hash__``: default hash for the mock"
 msgstr ""
@@ -1508,7 +1520,7 @@ msgid "For example:"
 msgstr "Na przykład::"
 
 msgid ""
-"The two equality methods, :meth:`__eq__` and :meth:`__ne__`, are special. "
+"The two equality methods, :meth:`!__eq__` and :meth:`!__ne__`, are special. "
 "They do the default equality comparison on identity, using the :attr:`~Mock."
 "side_effect` attribute, unless you change their return value to return "
 "something else::"
@@ -1536,13 +1548,13 @@ msgid ""
 msgstr ""
 
 msgid "``__subclasses__``"
-msgstr ""
+msgstr "``__subclasses__``"
 
 msgid "``__dir__``"
-msgstr ""
+msgstr "``__dir__``"
 
 msgid "``__format__``"
-msgstr ""
+msgstr "``__format__``"
 
 msgid "``__get__``, ``__set__`` and ``__delete__``"
 msgstr ""
@@ -1556,7 +1568,7 @@ msgid ""
 msgstr ""
 
 msgid "``__getformat__``"
-msgstr ""
+msgstr "``__getformat__``"
 
 msgid ""
 "Magic methods *should* be looked up on the class rather than the instance. "
@@ -1724,6 +1736,11 @@ msgid ""
 "`~Mock.mock_calls`:"
 msgstr ""
 
+msgid ""
+":data:`ANY` is not limited to comparisons with call objects and so can also "
+"be used in test assertions::"
+msgstr ""
+
 msgid "FILTER_DIR"
 msgstr ""
 
@@ -1754,7 +1771,7 @@ msgstr ""
 msgid ""
 "Alternatively you can just use ``vars(my_mock)`` (instance members) and "
 "``dir(type(my_mock))`` (type members) to bypass the filtering irrespective "
-"of :data:`mock.FILTER_DIR`."
+"of :const:`mock.FILTER_DIR`."
 msgstr ""
 
 msgid "mock_open"
@@ -1793,8 +1810,8 @@ msgid "*read_data* is now reset on each call to the *mock*."
 msgstr ""
 
 msgid ""
-"Added :meth:`__iter__` to implementation so that iteration (such as in for "
-"loops) correctly consumes *read_data*."
+"Added :meth:`~container.__iter__` to implementation so that iteration (such "
+"as in for loops) correctly consumes *read_data*."
 msgstr ""
 
 msgid ""
@@ -1804,8 +1821,8 @@ msgstr ""
 
 msgid ""
 "The issue is that even if you mock out the call to :func:`open` it is the "
-"*returned object* that is used as a context manager (and has :meth:"
-"`__enter__` and :meth:`__exit__` called)."
+"*returned object* that is used as a context manager (and has :meth:`~object."
+"__enter__` and :meth:`~object.__exit__` called)."
 msgstr ""
 
 msgid ""
@@ -1934,9 +1951,9 @@ msgstr ""
 
 msgid ""
 "A more serious problem is that it is common for instance attributes to be "
-"created in the :meth:`__init__` method and not to exist on the class at all. "
-"*autospec* can't know about any dynamically created attributes and restricts "
-"the api to visible attributes. ::"
+"created in the :meth:`~object.__init__` method and not to exist on the class "
+"at all. *autospec* can't know about any dynamically created attributes and "
+"restricts the api to visible attributes. ::"
 msgstr ""
 
 msgid ""
@@ -1956,10 +1973,10 @@ msgstr ""
 
 msgid ""
 "Probably the best way of solving the problem is to add class attributes as "
-"default values for instance members initialised in :meth:`__init__`. Note "
-"that if you are only setting default attributes in :meth:`__init__` then "
-"providing them via class attributes (shared between instances of course) is "
-"faster too. e.g."
+"default values for instance members initialised in :meth:`~object.__init__`. "
+"Note that if you are only setting default attributes in :meth:`!__init__` "
+"then providing them via class attributes (shared between instances of "
+"course) is faster too. e.g."
 msgstr ""
 
 msgid ""
@@ -2001,4 +2018,74 @@ msgid ""
 "If a mock instance with a name or a spec is assigned to an attribute it "
 "won't be considered in the sealing chain. This allows one to prevent seal "
 "from fixing part of the mock object. ::"
+msgstr ""
+
+msgid ""
+"Order of precedence of :attr:`side_effect`, :attr:`return_value` and *wraps*"
+msgstr ""
+
+msgid "The order of their precedence is:"
+msgstr ""
+
+msgid ":attr:`~Mock.side_effect`"
+msgstr ":attr:`~Mock.side_effect`"
+
+msgid ":attr:`~Mock.return_value`"
+msgstr ":attr:`~Mock.return_value`"
+
+msgid "*wraps*"
+msgstr ""
+
+msgid ""
+"If all three are set, mock will return the value from :attr:`~Mock."
+"side_effect`, ignoring :attr:`~Mock.return_value` and the wrapped object "
+"altogether. If any two are set, the one with the higher precedence will "
+"return the value. Regardless of the order of which was set first, the order "
+"of precedence remains unchanged."
+msgstr ""
+
+msgid ""
+"As ``None`` is the default value of :attr:`~Mock.side_effect`, if you "
+"reassign its value back to ``None``, the order of precedence will be checked "
+"between :attr:`~Mock.return_value` and the wrapped object, ignoring :attr:"
+"`~Mock.side_effect`."
+msgstr ""
+
+msgid ""
+"If the value being returned by :attr:`~Mock.side_effect` is :data:`DEFAULT`, "
+"it is ignored and the order of precedence moves to the successor to obtain "
+"the value to return."
+msgstr ""
+
+msgid ""
+"When :class:`Mock` wraps an object, the default value of :attr:`~Mock."
+"return_value` will be :data:`DEFAULT`."
+msgstr ""
+
+msgid ""
+"The order of precedence will ignore this value and it will move to the last "
+"successor which is the wrapped object."
+msgstr ""
+
+msgid ""
+"As the real call is being made to the wrapped object, creating an instance "
+"of this mock will return the real instance of the class. The positional "
+"arguments, if any, required by the wrapped object must be passed."
+msgstr ""
+
+msgid ""
+"But if you assign ``None`` to it, this will not be ignored as it is an "
+"explicit assignment. So, the order of precedence will not move to the "
+"wrapped object."
+msgstr ""
+
+msgid ""
+"Even if you set all three at once when initializing the mock, the order of "
+"precedence remains the same:"
+msgstr ""
+
+msgid ""
+"If :attr:`~Mock.side_effect` is exhausted, the order of precedence will not "
+"cause a value to be obtained from the successors. Instead, ``StopIteration`` "
+"exception is raised."
 msgstr ""
