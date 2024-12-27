@@ -52,9 +52,6 @@ jobs:
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
-        with:
-          branch: ${{ matrix.version }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: peter-evans/repository-dispatch@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
