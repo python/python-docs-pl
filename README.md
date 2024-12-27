@@ -1,21 +1,18 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
-from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
+from manage_translation import get_resource_language_stats, progress_from_resources, get_number_of_translators
 
 stats = get_resource_language_stats()
-switcher = progress_from_resources(filter(language_switcher, stats))
 total = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
 f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-lint-and-build.yml/badge.svg)
-![{switcher:.2f}% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-{switcher:.2f}%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.2f}%25-0.svg)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-lint-and-build.yml/badge.svg)
-![98.20% przełącznika języków](https://img.shields.io/badge/przełącznik_języków-98.20%25-0.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-4.35%25-0.svg)
 ![24 tłumaczy](https://img.shields.io/badge/tłumaczy-24-0.svg)
 <!-- [[[end]]] -->
@@ -31,22 +28,10 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Naciśnij przycisk „Join this project”, aby dołączyć do projektu.
 * Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
-* Po dołączeniu do zespołu, wybierz zasób, który chcesz poprawić/zaktualizować.
+* Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
 [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
-
-**Postęp tłumaczenia**
-
-![postęp tłumaczenia do przełącznika języków](language-switcher-progress.svg)
-
-Język polski pojawi się w przełączniku języków na docs.python.org,
-[kiedy w pełni przetłumaczone będą](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
-* `bugs`,
-* wszystkie zasoby z katalogu `tutorial`,
-* `library/functions`.
-
-[Kliknij tutaj, aby zobaczyć co pozostało do przetłumaczenia.](https://github.com/python/python-docs-pl/issues/3)
 
 **Jak obejrzeć najnowszy build dokumentacji?**
 

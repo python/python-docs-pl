@@ -4,18 +4,15 @@ Polish Translation of Python Documentation
 from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
 
 stats = get_resource_language_stats()
-switcher = progress_from_resources(filter(language_switcher, stats))
 total = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
 f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-lint-and-build.yml/badge.svg)
-![{switcher:.2f}% Language Switcher](https://img.shields.io/badge/language_switcher-{switcher:.2f}%25-0.svg)
 ![Total Translation of Documentation](https://img.shields.io/badge/Total-{total:.2f}%25-0.svg)
 ![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-lint-and-build.yml/badge.svg)
-![98.20% Language Switcher](https://img.shields.io/badge/language_switcher-98.20%25-0.svg)
 ![Total Translation of Documentation](https://img.shields.io/badge/Total-4.35%25-0.svg)
 ![24 Translators](https://img.shields.io/badge/Translators-24-0.svg)
 <!-- [[[end]]] -->
@@ -32,17 +29,7 @@ If you find a mistake or have a suggestion,
 * After joining the Project, pick the category you want to fix/translate.
 
 You can find more information about using Transifex
-[in their help guide.](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
-
-**Translation Progress**
-
-![translation progress till Polish is added to the language switcher](language-switcher-progress.svg)
-
-The Polish language will appear in the language switcher in docs.python.org,
-[when these categories will be fully translated](https://www.python.org/dev/peps/pep-0545/#add-translation-to-the-language-switcher):
-* `bugs`,
-* Everything in the `tutorial` section,
-* `library/functions`.
+[in their help guide.](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
 
 **How to see the newest build of the documentation?**
 

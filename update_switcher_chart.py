@@ -1,3 +1,5 @@
+# EOL code, saving as this can be repurposed for a chart with the total translation progress
+
 from datetime import datetime
 from re import search
 
