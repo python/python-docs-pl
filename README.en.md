@@ -19,6 +19,8 @@ f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflow
 
 *Przeczytaj to w innym języku: [Polski](README.md)*
 
+**I found a mistake, what do I do?**
+
 If you find a mistake or have a suggestion,
 [let us know](https://github.com/python/python-docs-pl/issues) or fix it yourself:
 
@@ -30,6 +32,12 @@ If you find a mistake or have a suggestion,
 
 You can find more information about using Transifex
 [in their help guide.](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
+
+**I want to start translating, but I don't know where to start!**
+
+Firstly, you can join as a translator by following the steps outlined above.
+
+Then you can start by translating one of our [prioritized resources.](https://github.com/python/python-docs-pl/issues/50)
 
 **How to see the newest build of the documentation?**
 

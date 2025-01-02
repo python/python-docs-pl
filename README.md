@@ -19,6 +19,8 @@ f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflow
 
 *Read this in another language: [English](README.en.md)*
 
+**Znalazłem błąd, co mam zrobić?**
+
 Jeśli znalazłeś(-aś) błąd lub masz sugestię,
 [dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
 napraw go sam(a):
@@ -32,6 +34,12 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
 [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
+
+**Chcę pomóc w tłumaczeniu, ale nie wiem od czego zacząć!**
+
+Najpierw dołącz do projektu jako tłumacz, postępując zgodnie z przewodnikiem w poprzedniej sekcji.
+
+Następnie możesz zacząć od tłumaczenia jednego z naszych [priorytetowych zasobów.](https://github.com/python/python-docs-pl/issues/50)
 
 **Jak obejrzeć najnowszy build dokumentacji?**
 
