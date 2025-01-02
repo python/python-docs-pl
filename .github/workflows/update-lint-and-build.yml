@@ -52,10 +52,11 @@ jobs:
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
-      - uses: peter-evans/repository-dispatch@main
+      - uses: ad-m/github-push-action@master
+        if: env.SIGNIFICANT_CHANGES
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          event-type: translation-updated
+          branch: ${{ matrix.version }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     runs-on: ubuntu-latest
