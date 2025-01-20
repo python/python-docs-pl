@@ -49,8 +49,8 @@ def _call(command: str):
 
 
 PROJECT_SLUG = 'python-311'
-VERSION = '3.11'
-
+VERSION = 'backport-40a4d88-3.11'  # https://github.com/python/cpython/pull/128879
+GITHUB_ORG = 'miss-islington'
 
 def recreate_tx_config():
     """
@@ -85,7 +85,7 @@ def _get_files_to_delete():
 
 
 def _clone_cpython_repo(version: str):
-    _call(f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1')
+    _call(f'git clone -b {version} --single-branch https://github.com/{GITHUB_ORG}/cpython.git --depth 1')
 
 
 def _build_gettext():
