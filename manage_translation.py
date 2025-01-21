@@ -49,7 +49,7 @@ def _call(command: str):
 
 
 PROJECT_SLUG = 'python-311'
-VERSION = 'backport-40a4d88-3.11'  # https://github.com/python/cpython/pull/128879
+VERSION = '3.11'
 GITHUB_ORG = 'miss-islington'
 
 def recreate_tx_config():
