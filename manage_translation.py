@@ -50,7 +50,6 @@ def _call(command: str):
 
 PROJECT_SLUG = 'python-311'
 VERSION = '3.11'
-GITHUB_ORG = 'miss-islington'
 
 def recreate_tx_config():
     """
