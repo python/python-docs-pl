@@ -79,25 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version:
-          - name: 3.13
-            ref: 3.13
-            account: python
-          - name: 3.12
-            ref: 3.12
-            account: python
-          - name: 3.11
-            ref: backport-40a4d88-3.11
-            account: miss-islington
-          - name: '3.10'
-            ref: blurb2_310
-            account: vstinner
-          - name: 3.9
-            ref: 3.9
-            account: python
-          - name: 3.8
-            ref: 3.8
-            account: python
+        version: [3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
         format: [html, latex]
     needs: ['update-translation']
     steps:
@@ -106,13 +88,13 @@ jobs:
           python-version: 3
       - uses: actions/checkout@master
         with:
-          repository: ${{ matrix.version.account }}/cpython
-          ref: ${{ matrix.version.ref }}
+          repository: python/cpython
+          ref: ${{ matrix.version }}
       - run: make venv
         working-directory: ./Doc
       - uses: actions/checkout@master
         with:
-          ref: ${{ matrix.version.name }}
+          ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
@@ -120,7 +102,7 @@ jobs:
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
-          name: build-${{ matrix.version.name }}-${{ matrix.format }}
+          name: build-${{ matrix.version }}-${{ matrix.format }}
           path: Doc/build/${{ matrix.format }}
 
   output-pdf:
