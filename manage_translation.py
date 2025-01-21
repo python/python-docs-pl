@@ -85,7 +85,7 @@ def _get_files_to_delete():
 
 
 def _clone_cpython_repo(version: str):
-    _call(f'git clone -b {version} --single-branch https://github.com/{GITHUB_ORG}/cpython.git --depth 1')
+    _call(f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1')
 
 
 def _build_gettext():
