@@ -8,7 +8,7 @@ total = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
-f'''![build](https://github.com/python/python-docs-pl/workflows/.github/workflows/update-lint-and-build.yml/badge.svg)
+f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.3f}%25-0.svg)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
