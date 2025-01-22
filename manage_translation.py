@@ -10,6 +10,7 @@
 # * fetch: fetch translations from transifex.com and strip source lines from the
 #          files.
 # * recreate_tx_config: recreate configuration for all resources.
+# * warn_about_files_to_delete: lists files that are not available upstream
 
 from argparse import ArgumentParser
 import os
