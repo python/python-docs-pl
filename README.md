@@ -12,7 +12,6 @@ f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-l
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.3f}%25-0.svg)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
-Stan Ulbrych and Stanislaw Ulbrych are similar (0.828). Deduplicating.
 ![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-4.725%25-0.svg)
 ![24 tłumaczy](https://img.shields.io/badge/tłumaczy-24-0.svg)
