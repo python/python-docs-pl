@@ -175,7 +175,7 @@ def _eliminate_aliases(translators: set[str]) -> set[str]:
         for match in unique:
             if (ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()) > 0.64:
                 print(
-                    f"{pair} are similar ({ratio:.3f}). Deduplicating."
+                    f"{name} and {match} are similar ({ratio:.3f}). Deduplicating."
                 )
                 break
         else:
