@@ -17,6 +17,7 @@ import os
 from contextlib import chdir
 from dataclasses import dataclass
 from difflib import SequenceMatcher
+from logging import info
 from pathlib import Path
 from subprocess import call
 import sys
@@ -174,9 +175,7 @@ def _eliminate_aliases(translators: set[str]) -> set[str]:
     for name in translators:
         for match in unique:
             if (ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()) > 0.64:
-                #print(
-                #    f"{name} and {match} are similar ({ratio:.3f}). Deduplicating."
-                #)
+                info(f"{name} and {match} are similar ({ratio:.3f}). Deduplicating.")
                 break
         else:
             unique.add(name)
