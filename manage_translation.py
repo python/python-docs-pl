@@ -17,7 +17,6 @@ import os
 from contextlib import chdir
 from dataclasses import dataclass
 from difflib import SequenceMatcher
-from itertools import combinations
 from pathlib import Path
 from subprocess import call
 import sys
@@ -154,7 +153,7 @@ def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> 
 def get_number_of_translators():
     translators = set(_fetch_translators())
     _remove_bot(translators)
-    _check_for_aliases(translators)
+    translators = _eliminate_aliases(translators)
     return len(translators)
 
 
@@ -170,12 +169,18 @@ def _remove_bot(translators: set[str]) -> None:
     translators.remove("Transifex Bot <>")
 
 
-def _check_for_aliases(translators) -> None:
-    for pair in combinations(translators, 2):
-        if (ratio := SequenceMatcher(lambda x: x in '<>@', *pair).ratio()) > 0.64:
-            warn(
-                f"{pair} are similar ({ratio:.3f}). Please add them to aliases list or bump the limit."
-            )
+def _eliminate_aliases(translators: set[str]) -> set[str]:
+    unique = set()
+    for name in translators:
+        for match in unique:
+            if (ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()) > 0.64:
+                print(
+                    f"{pair} are similar ({ratio:.3f}). Deduplicating."
+                )
+                break
+        else:
+            unique.add(name)
+    return unique
 
 
 def language_switcher(entry: ResourceLanguageStatistics) -> bool:
