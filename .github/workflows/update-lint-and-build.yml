@@ -73,7 +73,14 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
-      - run: sphinx-lint
+      - run: |
+          sphinx-lint | while IFS= read -r line; do
+            if [[ $line == *"WARNING:"* ]]; then
+              echo "::warning file=${{ matrix.version }}::$line"
+            elif [[ $line == *"ERROR:"* ]]; then
+              echo "::error file=${{ matrix.version }}::$line"
+            fi
+          done
 
   build-translation:
     runs-on: ubuntu-latest
@@ -98,7 +105,14 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
-      - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }}
+      - run: |
+          make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }} 2>&1 | while IFS= read -r line; do
+            if [[ $line == *"WARNING:"* ]]; then
+              echo "::warning::$line"
+            elif [[ $line == *"ERROR:"* ]]; then
+              echo "::error::$line"
+            fi
+          done
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
