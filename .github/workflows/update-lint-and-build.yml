@@ -12,6 +12,7 @@ jobs:
   update-translation:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         version: [3.13, 3.12, 3.11, '3.10', 3.9]
     steps:
@@ -61,6 +62,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         version: [3.13, 3.12, 3.11]
     needs: ['update-translation']
@@ -78,6 +80,7 @@ jobs:
   build-translation:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         version: [3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
         format: [html, latex]
