@@ -3,6 +3,7 @@ name: Translation and Linting Workflow
 on:
   schedule:
     - cron: '0 * * * *'
+  pull_request:
   push:
     branches:
       - '*'
@@ -53,12 +54,7 @@ jobs:
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
-      - uses: ad-m/github-push-action@master
-        if: env.SIGNIFICANT_CHANGES
-        with:
-          branch: ${{ matrix.version }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
+  
   lint:
     runs-on: ubuntu-latest
     strategy:
