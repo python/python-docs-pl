@@ -43,7 +43,7 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       # Process README.en.md
       - run: python -Werror -m cogapp -rP README.en.md
-        if: ${{ hashFiles('README.en.md') != '' }}
+        if: ${{ hashFiles('README.en.md') != '' }} && github.event_name != pull_request
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
