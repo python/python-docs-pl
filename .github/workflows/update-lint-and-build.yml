@@ -101,6 +101,12 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
+      # Testing PO file update
+      - run: make gettext
+        working-directory: ./Doc
+      - run: pip install sphinx-intl
+      - run: sphinx-intl update -d locales -p build/gettext -l pl
+        working-directory: ./Doc
       - run: make -e SPHINXOPTS="-D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
