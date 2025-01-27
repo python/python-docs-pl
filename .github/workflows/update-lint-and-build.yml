@@ -99,6 +99,7 @@ jobs:
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
       - run: make -e SPHINXOPTS="--color -D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }}
+        working-directory: ./Doc
       - uses: actions/upload-artifact@master
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
