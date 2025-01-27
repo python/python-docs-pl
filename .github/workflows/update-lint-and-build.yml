@@ -73,7 +73,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
-      - run: sphinx-lint --color
+      - uses: rffontenelle/sphinx-lint-problem-matcher@v1
+      - run: sphinx-lint
 
   build-translation:
     runs-on: ubuntu-latest
