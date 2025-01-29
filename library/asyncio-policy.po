@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Stan Ulbrych, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2025-01-24 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:55+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,10 +125,10 @@ msgid "On Windows, :class:`ProactorEventLoop` is now used by default."
 msgstr ""
 
 msgid ""
-"In Python versions 3.10.9, 3.11.1 and 3.12 the :meth:`get_event_loop` method "
-"of the default asyncio policy emits a :exc:`DeprecationWarning` if there is "
-"no running event loop and no current loop is set. In some future Python "
-"release this will become an error."
+"The :meth:`get_event_loop` method of the default asyncio policy now emits a :"
+"exc:`DeprecationWarning` if there is no current event loop set and it "
+"decides to create one. In some future Python release this will become an "
+"error."
 msgstr ""
 
 msgid ""
@@ -136,8 +136,8 @@ msgid ""
 "event loop implementation."
 msgstr ""
 
-msgid ":ref:`Availability <availability>`: Windows."
-msgstr ""
+msgid "Availability"
+msgstr "Dostępność"
 
 msgid ""
 "An alternative event loop policy that uses the :class:`ProactorEventLoop` "
@@ -249,7 +249,7 @@ msgstr ""
 
 msgid ""
 "There is no noticeable overhead when handling a big number of children "
-"(*O(1)* each time a child terminates), but starting a thread per process "
+"(*O*\\ (1) each time a child terminates), but starting a thread per process "
 "requires extra memory."
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr ""
 
 msgid ""
 "The solution is safe but it has a significant overhead when handling a big "
-"number of processes (*O(n)* each time a :py:data:`SIGCHLD` is received)."
+"number of processes (*O*\\ (*n*) each time a :py:data:`SIGCHLD` is received)."
 msgstr ""
 
 msgid ""
@@ -285,8 +285,8 @@ msgstr ""
 
 msgid ""
 "This solution is as safe as :class:`MultiLoopChildWatcher` and has the same "
-"*O(N)* complexity but requires a running event loop in the main thread to "
-"work."
+"*O*\\ (*n*) complexity but requires a running event loop in the main thread "
+"to work."
 msgstr ""
 
 msgid ""
@@ -297,7 +297,7 @@ msgstr ""
 
 msgid ""
 "There is no noticeable overhead when handling a big number of children "
-"(*O(1)* each time a child terminates)."
+"(*O*\\ (1) each time a child terminates)."
 msgstr ""
 
 msgid ""
@@ -322,4 +322,19 @@ msgid ""
 "To implement a new event loop policy, it is recommended to subclass :class:"
 "`DefaultEventLoopPolicy` and override the methods for which custom behavior "
 "is wanted, e.g.::"
+msgstr ""
+
+msgid ""
+"class MyEventLoopPolicy(asyncio.DefaultEventLoopPolicy):\n"
+"\n"
+"    def get_event_loop(self):\n"
+"        \"\"\"Get the event loop.\n"
+"\n"
+"        This may be None or an instance of EventLoop.\n"
+"        \"\"\"\n"
+"        loop = super().get_event_loop()\n"
+"        # Do something with loop ...\n"
+"        return loop\n"
+"\n"
+"asyncio.set_event_loop_policy(MyEventLoopPolicy())"
 msgstr ""
