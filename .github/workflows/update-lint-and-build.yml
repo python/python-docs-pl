@@ -105,6 +105,7 @@ jobs:
       - run: make -e SPHINXOPTS="--color -D language='pl' -D gettext_compact=0 -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
+        if: success() || failure()
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
           path: Doc/build/${{ matrix.format }}
