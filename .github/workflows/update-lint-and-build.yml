@@ -102,6 +102,7 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
+      - uses: sphinx-doc/github-problem-matcher@v1.1
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
