@@ -1,19 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Maciej Olko <maciej.olko@gmail.com>, 2024
+# Stan Ulbrych, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2025-02-03 17:40+0000\n"
 "PO-Revision-Date: 2021-06-28 01:50+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,10 +27,127 @@ msgstr ""
 msgid "Configure Python"
 msgstr ""
 
+msgid "Build Requirements"
+msgstr ""
+
+msgid "Features and minimum versions required to build CPython:"
+msgstr ""
+
+msgid ""
+"A `C11 <https://en.cppreference.com/w/c/11>`_ compiler. `Optional C11 "
+"features <https://en.wikipedia.org/wiki/"
+"C11_(C_standard_revision)#Optional_features>`_ are not required."
+msgstr ""
+
+msgid "On Windows, Microsoft Visual Studio 2017 or later is required."
+msgstr ""
+
+msgid ""
+"Support for `IEEE 754 <https://en.wikipedia.org/wiki/IEEE_754>`_ floating-"
+"point numbers and `floating-point Not-a-Number (NaN) <https://en.wikipedia."
+"org/wiki/NaN#Floating_point>`_."
+msgstr ""
+
+msgid "Support for threads."
+msgstr ""
+
+msgid ""
+"OpenSSL 1.1.1 is the minimum version and OpenSSL 3.0.9 is the recommended "
+"minimum version for the :mod:`ssl` and :mod:`hashlib` extension modules."
+msgstr ""
+
+msgid "SQLite 3.15.2 for the :mod:`sqlite3` extension module."
+msgstr ""
+
+msgid "Tcl/Tk 8.5.12 for the :mod:`tkinter` module."
+msgstr ""
+
+msgid ""
+"Autoconf 2.71 and aclocal 1.16.5 are required to regenerate the :file:"
+"`configure` script."
+msgstr ""
+
+msgid "Tcl/Tk version 8.3.1 is now required."
+msgstr ""
+
+msgid ""
+"On Windows, Visual Studio 2015 or later is now required. Tcl/Tk version 8.4 "
+"is now required."
+msgstr ""
+
+msgid ""
+"Selected C99 features are now required, like ``<stdint.h>`` and ``static "
+"inline`` functions."
+msgstr ""
+
+msgid "Thread support and OpenSSL 1.0.2 are now required."
+msgstr ""
+
+msgid "OpenSSL 1.1.1 is now required. Require SQLite 3.7.15."
+msgstr ""
+
+msgid ""
+"C11 compiler, IEEE 754 and NaN support are now required. On Windows, Visual "
+"Studio 2017 or later is required. Tcl/Tk version 8.5.12 is now required for "
+"the :mod:`tkinter` module."
+msgstr ""
+
+msgid "Autoconf 2.71, aclocal 1.16.5 and SQLite 3.15.2 are now required."
+msgstr ""
+
+msgid ""
+"See also :pep:`7` \"Style Guide for C Code\" and :pep:`11` \"CPython "
+"platform support\"."
+msgstr ""
+
+msgid "Generated files"
+msgstr ""
+
+msgid ""
+"To reduce build dependencies, Python source code contains multiple generated "
+"files. Commands to regenerate all generated files::"
+msgstr ""
+
+msgid ""
+"make regen-all\n"
+"make regen-stdlib-module-names\n"
+"make regen-limited-abi\n"
+"make regen-configure"
+msgstr ""
+
+msgid ""
+"The ``Makefile.pre.in`` file documents generated files, their inputs, and "
+"tools used to regenerate them. Search for ``regen-*`` make targets."
+msgstr ""
+
+msgid "configure script"
+msgstr ""
+
+msgid ""
+"The ``make regen-configure`` command regenerates the ``aclocal.m4`` file and "
+"the ``configure`` script using the ``Tools/build/regen-configure.sh`` shell "
+"script which uses an Ubuntu container to get the same tools versions and "
+"have a reproducible output."
+msgstr ""
+
+msgid "The container is optional, the following command can be run locally::"
+msgstr ""
+
+msgid "autoreconf -ivf -Werror"
+msgstr ""
+
+msgid ""
+"The generated files can change depending on the exact ``autoconf-archive``, "
+"``aclocal`` and ``pkg-config`` versions."
+msgstr ""
+
 msgid "Configure Options"
 msgstr ""
 
-msgid "List all ``./configure`` script options using::"
+msgid "List all :file:`configure` script options using::"
+msgstr ""
+
+msgid "./configure --help"
 msgstr ""
 
 msgid ""
@@ -41,8 +159,8 @@ msgid "General Options"
 msgstr ""
 
 msgid ""
-"Support loadable extensions in the :mod:`_sqlite` extension module (default "
-"is no)."
+"Support loadable extensions in the :mod:`!_sqlite` extension module (default "
+"is no) of the :mod:`sqlite3` module."
 msgstr ""
 
 msgid ""
@@ -67,11 +185,6 @@ msgstr ""
 msgid "See :data:`sys.int_info.bits_per_digit <sys.int_info>`."
 msgstr ""
 
-msgid ""
-"Compile the Python ``main()`` function and link Python executable with C++ "
-"compiler: ``$CXX``, or *COMPILER* if specified."
-msgstr ""
-
 msgid "Set the Python executable suffix to *SUFFIX*."
 msgstr ""
 
@@ -88,7 +201,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Select the default time zone search path for :data:`zoneinfo.TZPATH`. See "
+"Select the default time zone search path for :const:`zoneinfo.TZPATH`. See "
 "the :ref:`Compile-time configuration <zoneinfo_data_compile_time_config>` of "
 "the :mod:`zoneinfo` module."
 msgstr ""
@@ -106,7 +219,7 @@ msgid ""
 "than a coroutine-local context (default), see the :mod:`decimal` module."
 msgstr ""
 
-msgid "See :data:`decimal.HAVE_CONTEXTVAR` and the :mod:`contextvars` module."
+msgid "See :const:`decimal.HAVE_CONTEXTVAR` and the :mod:`contextvars` module."
 msgstr ""
 
 msgid "Override order to check db backends for the :mod:`dbm` module"
@@ -117,13 +230,13 @@ msgid ""
 msgstr ""
 
 msgid "``ndbm``;"
-msgstr ""
+msgstr "``ndbm``;"
 
 msgid "``gdbm``;"
-msgstr ""
+msgstr "``gdbm``;"
 
 msgid "``bdb``."
-msgstr ""
+msgstr "``bdb``."
 
 msgid "Disable C locale coercion to a UTF-8 based locale (enabled by default)."
 msgstr ""
@@ -132,6 +245,9 @@ msgid "Don't define the ``PY_COERCE_C_LOCALE`` macro."
 msgstr ""
 
 msgid "See :envvar:`PYTHONCOERCECLOCALE` and the :pep:`538`."
+msgstr ""
+
+msgid "Disable all freelists except the empty tuple singleton."
 msgstr ""
 
 msgid "Python library directory name (default is ``lib``)."
@@ -151,7 +267,7 @@ msgstr ""
 msgid ""
 "Some Linux distribution packaging policies recommend against bundling "
 "dependencies. For example, Fedora installs wheel packages in the ``/usr/"
-"share/python-wheels/`` directory and don't install the :mod:`ensurepip."
+"share/python-wheels/`` directory and don't install the :mod:`!ensurepip."
 "_bundled` package."
 msgstr ""
 
@@ -169,15 +285,287 @@ msgstr ""
 msgid "``no``: configure does not use :program:`pkg-config` even when present"
 msgstr ""
 
-msgid "Turn on internal statistics gathering."
+msgid "Turn on internal Python performance statistics gathering."
+msgstr ""
+
+msgid ""
+"By default, statistics gathering is off. Use ``python3 -X pystats`` command "
+"or set ``PYTHONSTATS=1`` environment variable to turn on statistics "
+"gathering at Python startup."
+msgstr ""
+
+msgid ""
+"At Python exit, dump statistics if statistics gathering was on and not "
+"cleared."
+msgstr ""
+
+msgid "Effects:"
+msgstr ""
+
+msgid "Add :option:`-X pystats <-X>` command line option."
+msgstr ""
+
+msgid "Add :envvar:`!PYTHONSTATS` environment variable."
+msgstr ""
+
+msgid "Define the ``Py_STATS`` macro."
+msgstr ""
+
+msgid "Add functions to the :mod:`sys` module:"
+msgstr ""
+
+msgid ":func:`!sys._stats_on`: Turns on statistics gathering."
+msgstr ""
+
+msgid ":func:`!sys._stats_off`: Turns off statistics gathering."
+msgstr ""
+
+msgid ":func:`!sys._stats_clear`: Clears the statistics."
+msgstr ""
+
+msgid ""
+":func:`!sys._stats_dump`: Dump statistics to file, and clears the statistics."
 msgstr ""
 
 msgid ""
 "The statistics will be dumped to a arbitrary (probably unique) file in ``/"
-"tmp/py_stats/``, or ``C:\\temp\\py_stats\\`` on Windows."
+"tmp/py_stats/`` (Unix) or ``C:\\temp\\py_stats\\`` (Windows). If that "
+"directory does not exist, results will be printed on stderr."
 msgstr ""
 
 msgid "Use ``Tools/scripts/summarize_stats.py`` to read the stats."
+msgstr ""
+
+msgid "Statistics:"
+msgstr ""
+
+msgid "Opcode:"
+msgstr ""
+
+msgid "Specialization: success, failure, hit, deferred, miss, deopt, failures;"
+msgstr ""
+
+msgid "Execution count;"
+msgstr ""
+
+msgid "Pair count."
+msgstr ""
+
+msgid "Call:"
+msgstr ""
+
+msgid "Inlined Python calls;"
+msgstr ""
+
+msgid "PyEval calls;"
+msgstr ""
+
+msgid "Frames pushed;"
+msgstr ""
+
+msgid "Frame object created;"
+msgstr ""
+
+msgid ""
+"Eval calls: vector, generator, legacy, function VECTORCALL, build class, "
+"slot, function \"ex\", API, method."
+msgstr ""
+
+msgid "Object:"
+msgstr ""
+
+msgid "incref and decref;"
+msgstr ""
+
+msgid "interpreter incref and decref;"
+msgstr ""
+
+msgid "allocations: all, 512 bytes, 4 kiB, big;"
+msgstr ""
+
+msgid "free;"
+msgstr ""
+
+msgid "to/from free lists;"
+msgstr ""
+
+msgid "dictionary materialized/dematerialized;"
+msgstr ""
+
+msgid "type cache;"
+msgstr ""
+
+msgid "optimization attempts;"
+msgstr ""
+
+msgid "optimization traces created/executed;"
+msgstr ""
+
+msgid "uops executed."
+msgstr ""
+
+msgid "Garbage collector:"
+msgstr ""
+
+msgid "Garbage collections;"
+msgstr ""
+
+msgid "Objects visited;"
+msgstr ""
+
+msgid "Objects collected."
+msgstr ""
+
+msgid ""
+"Enables **experimental** support for running Python without the :term:"
+"`global interpreter lock` (GIL): free threading build."
+msgstr ""
+
+msgid ""
+"Defines the ``Py_GIL_DISABLED`` macro and adds ``\"t\"`` to :data:`sys."
+"abiflags`."
+msgstr ""
+
+msgid "See :ref:`whatsnew313-free-threaded-cpython` for more detail."
+msgstr ""
+
+msgid ""
+"Indicate how to integrate the :ref:`JIT compiler <whatsnew313-jit-compiler>`."
+msgstr ""
+
+msgid "``no`` - build the interpreter without the JIT."
+msgstr ""
+
+msgid "``yes`` - build the interpreter with the JIT."
+msgstr ""
+
+msgid ""
+"``yes-off`` - build the interpreter with the JIT but disable it by default."
+msgstr ""
+
+msgid ""
+"``interpreter`` - build the interpreter without the JIT, but with the tier 2 "
+"enabled interpreter."
+msgstr ""
+
+msgid ""
+"By convention, ``--enable-experimental-jit`` is a shorthand for ``--enable-"
+"experimental-jit=yes``."
+msgstr ""
+
+msgid ""
+"When building CPython with JIT enabled, ensure that your system has Python "
+"3.11 or later installed."
+msgstr ""
+
+msgid "Path to ``pkg-config`` utility."
+msgstr ""
+
+msgid "``pkg-config`` options."
+msgstr ""
+
+msgid "C compiler options"
+msgstr ""
+
+msgid "C compiler command."
+msgstr ""
+
+msgid "C compiler flags."
+msgstr ""
+
+msgid "C preprocessor command."
+msgstr ""
+
+msgid "C preprocessor flags, e.g. :samp:`-I{include_dir}`."
+msgstr ""
+
+msgid "Linker options"
+msgstr ""
+
+msgid "Linker flags, e.g. :samp:`-L{library_directory}`."
+msgstr ""
+
+msgid "Libraries to pass to the linker, e.g. :samp:`-l{library}`."
+msgstr ""
+
+msgid "Name for machine-dependent library files."
+msgstr ""
+
+msgid "Options for third-party dependencies"
+msgstr ""
+
+msgid ""
+"C compiler and linker flags to link Python to ``libbz2``, used by :mod:`bz2` "
+"module, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libncurses`` or ``libncursesw``, used by :"
+"mod:`curses` module, overriding ``pkg-config``."
+msgstr ""
+
+msgid "C compiler and linker flags for ``gdbm``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libb2`` (:ref:`BLAKE2 <hashlib-blake2>`), "
+"used by :mod:`hashlib` module, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libedit``, used by :mod:`readline` module, "
+"overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libffi``, used by :mod:`ctypes` module, "
+"overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libmpdec``, used by :mod:`decimal` module, "
+"overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"These environment variables have no effect unless :option:`--with-system-"
+"libmpdec` is specified."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``liblzma``, used by :mod:`lzma` module, "
+"overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libreadline``, used by :mod:`readline` "
+"module, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libsqlite3``, used by :mod:`sqlite3` "
+"module, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libuuid``, used by :mod:`uuid` module, "
+"overriding ``pkg-config``."
+msgstr ""
+
+msgid "C compiler and linker flags for PANEL, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libpanel`` or ``libpanelw``, used by :mod:"
+"`curses.panel` module, overriding ``pkg-config``."
+msgstr ""
+
+msgid "C compiler and linker flags for TCLTK, overriding ``pkg-config``."
+msgstr ""
+
+msgid ""
+"C compiler and linker flags for ``libzlib``, used by :mod:`gzip` module, "
+"overriding ``pkg-config``."
 msgstr ""
 
 msgid "WebAssembly Options"
@@ -211,7 +599,7 @@ msgid ""
 "file:`/usr/local`."
 msgstr ""
 
-msgid "This value can be retrived at runtime using :data:`sys.prefix`."
+msgid "This value can be retrieved at runtime using :data:`sys.prefix`."
 msgstr ""
 
 msgid ""
@@ -224,12 +612,12 @@ msgid ""
 "prefix`."
 msgstr ""
 
-msgid "This value can be retrived at runtime using :data:`sys.exec_prefix`."
+msgid "This value can be retrieved at runtime using :data:`sys.exec_prefix`."
 msgstr ""
 
 msgid ""
 "Don't build nor install test modules, like the :mod:`test` package or the :"
-"mod:`_testcapi` extension module (built and installed by default)."
+"mod:`!_testcapi` extension module (built and installed by default)."
 msgstr ""
 
 msgid "Select the :mod:`ensurepip` command run on Python installation:"
@@ -251,7 +639,8 @@ msgstr ""
 
 msgid ""
 "Configuring Python using ``--enable-optimizations --with-lto`` (PGO + LTO) "
-"is recommended for best performance."
+"is recommended for best performance. The experimental ``--enable-bolt`` flag "
+"can also be used to improve performance."
 msgstr ""
 
 msgid ""
@@ -270,6 +659,14 @@ msgid ""
 "flags."
 msgstr ""
 
+msgid ""
+"During the build, you may encounter compiler warnings about profile data not "
+"being available for some source files. These warnings are harmless, as only "
+"a subset of the code is exercised during profile data acquisition. To "
+"disable these warnings on Clang, manually suppress them by adding ``-Wno-"
+"profile-instr-unprofiled`` to :envvar:`CFLAGS`."
+msgstr ""
+
 msgid "Use ``-fno-semantic-interposition`` on GCC."
 msgstr ""
 
@@ -279,6 +676,9 @@ msgid ""
 msgstr ""
 
 msgid "Default: ``-m test --pgo --timeout=$(TESTTIMEOUT)``."
+msgstr ""
+
+msgid "Task failure is no longer ignored silently."
 msgstr ""
 
 msgid "Enable Link Time Optimization (LTO) in any build (disabled by default)."
@@ -293,16 +693,61 @@ msgid "To use ThinLTO feature, use ``--with-lto=thin`` on Clang."
 msgstr ""
 
 msgid ""
+"Use ThinLTO as the default optimization policy on Clang if the compiler "
+"accepts the flag."
+msgstr ""
+
+msgid ""
+"Enable usage of the `BOLT post-link binary optimizer <https://github.com/"
+"llvm/llvm-project/tree/main/bolt>`_ (disabled by default)."
+msgstr ""
+
+msgid ""
+"BOLT is part of the LLVM project but is not always included in their binary "
+"distributions. This flag requires that ``llvm-bolt`` and ``merge-fdata`` are "
+"available."
+msgstr ""
+
+msgid ""
+"BOLT is still a fairly new project so this flag should be considered "
+"experimental for now. Because this tool operates on machine code its success "
+"is dependent on a combination of the build environment + the other "
+"optimization configure args + the CPU architecture, and not all combinations "
+"are supported. BOLT versions before LLVM 16 are known to crash BOLT under "
+"some scenarios. Use of LLVM 16 or newer for BOLT optimization is strongly "
+"encouraged."
+msgstr ""
+
+msgid ""
+"The :envvar:`!BOLT_INSTRUMENT_FLAGS` and :envvar:`!BOLT_APPLY_FLAGS` :"
+"program:`configure` variables can be defined to override the default set of "
+"arguments for :program:`llvm-bolt` to instrument and apply BOLT data to "
+"binaries, respectively."
+msgstr ""
+
+msgid ""
+"Arguments to ``llvm-bolt`` when creating a `BOLT optimized binary <https://"
+"github.com/facebookarchive/BOLT>`_."
+msgstr ""
+
+msgid "Arguments to ``llvm-bolt`` when instrumenting binaries."
+msgstr ""
+
+msgid ""
 "Enable computed gotos in evaluation loop (enabled by default on supported "
 "compilers)."
 msgstr ""
 
 msgid ""
-"Disable the specialized Python memory allocator :ref:`pymalloc <pymalloc>` "
-"(enabled by default)."
+"Disable the fast :ref:`mimalloc <mimalloc>` allocator (enabled by default)."
 msgstr ""
 
 msgid "See also :envvar:`PYTHONMALLOC` environment variable."
+msgstr ""
+
+msgid ""
+"Disable the specialized Python memory allocator :ref:`pymalloc <pymalloc>` "
+"(enabled by default)."
 msgstr ""
 
 msgid ""
@@ -317,6 +762,11 @@ msgid "See the ``PyDoc_STRVAR()`` macro."
 msgstr ""
 
 msgid "Enable C-level code profiling with ``gprof`` (disabled by default)."
+msgstr ""
+
+msgid ""
+"Add ``-fstrict-overflow`` to the C compiler flags (by default we add ``-fno-"
+"strict-overflow`` instead)."
 msgstr ""
 
 msgid "Python Debug Build"
@@ -338,13 +788,15 @@ msgstr ""
 msgid "Add ``d`` to :data:`sys.abiflags`."
 msgstr ""
 
-msgid "Add :func:`sys.gettotalrefcount` function."
+msgid "Add :func:`!sys.gettotalrefcount` function."
 msgstr ""
 
 msgid "Add :option:`-X showrefcount <-X>` command line option."
 msgstr ""
 
-msgid "Add :envvar:`PYTHONTHREADDEBUG` environment variable."
+msgid ""
+"Add :option:`-d` command line option and :envvar:`PYTHONDEBUG` environment "
+"variable to debug the parser."
 msgstr ""
 
 msgid ""
@@ -389,7 +841,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The :c:macro:`Py_SAFE_DOWNCAST()` macro checks for integer underflow and "
+"The :c:macro:`!Py_SAFE_DOWNCAST()` macro checks for integer underflow and "
 "overflow when downcasting from wide types to narrow types."
 msgstr ""
 
@@ -401,8 +853,7 @@ msgstr ""
 msgid ""
 "Release builds and debug builds are now ABI compatible: defining the "
 "``Py_DEBUG`` macro no longer implies the ``Py_TRACE_REFS`` macro (see the :"
-"option:`--with-trace-refs` option), which introduces the only ABI "
-"incompatibility."
+"option:`--with-trace-refs` option)."
 msgstr ""
 
 msgid "Debug options"
@@ -416,9 +867,6 @@ msgstr ""
 msgid "Enable tracing references for debugging purpose (disabled by default)."
 msgstr ""
 
-msgid "Effects:"
-msgstr ""
-
 msgid "Define the ``Py_TRACE_REFS`` macro."
 msgstr ""
 
@@ -429,8 +877,16 @@ msgid "Add :envvar:`PYTHONDUMPREFS` environment variable."
 msgstr ""
 
 msgid ""
-"This build is not ABI compatible with release build (default build) or debug "
-"build (``Py_DEBUG`` and ``Py_REF_DEBUG`` macros)."
+"The :envvar:`PYTHONDUMPREFS` environment variable can be used to dump "
+"objects and reference counts still alive at Python exit."
+msgstr ""
+
+msgid ":ref:`Statically allocated objects <static-types>` are not traced."
+msgstr ""
+
+msgid ""
+"This build is now ABI compatible with release build and :ref:`debug build "
+"<debug-build>`."
 msgstr ""
 
 msgid ""
@@ -471,7 +927,7 @@ msgid ""
 "(default is no)."
 msgstr ""
 
-msgid "Linker options"
+msgid "Enable ThreadSanitizer data race detector, ``tsan`` (default is no)."
 msgstr ""
 
 msgid "Enable building a shared Python library: ``libpython`` (default is no)."
@@ -489,24 +945,33 @@ msgid "Link against additional libraries (default is no)."
 msgstr ""
 
 msgid ""
-"Build the :mod:`pyexpat` module using an installed ``expat`` library "
+"Build the :mod:`!pyexpat` module using an installed ``expat`` library "
 "(default is no)."
 msgstr ""
 
 msgid ""
-"Build the :mod:`_ctypes` extension module using an installed ``ffi`` "
-"library, see the :mod:`ctypes` module (default is system-dependent)."
+"Build the ``_decimal`` extension module using an installed ``mpdecimal`` "
+"library, see the :mod:`decimal` module (default is yes)."
+msgstr ""
+
+msgid "Default to using the installed ``mpdecimal`` library."
 msgstr ""
 
 msgid ""
-"Build the ``_decimal`` extension module using an installed ``mpdec`` "
-"library, see the :mod:`decimal` module (default is no)."
+"A copy of the ``mpdecimal`` library sources will no longer be distributed "
+"with Python 3.15."
 msgstr ""
 
-msgid "Use ``editline`` library for backend of the :mod:`readline` module."
+msgid ":option:`LIBMPDEC_CFLAGS` and :option:`LIBMPDEC_LIBS`."
 msgstr ""
 
-msgid "Define the ``WITH_EDITLINE`` macro."
+msgid "Designate a backend library for the :mod:`readline` module."
+msgstr ""
+
+msgid "readline: Use readline as the backend."
+msgstr ""
+
+msgid "editline: Use editline as the backend."
 msgstr ""
 
 msgid "Don't build the :mod:`readline` module (built by default)."
@@ -548,10 +1013,10 @@ msgid "``siphash13`` (default);"
 msgstr ""
 
 msgid "``siphash24``;"
-msgstr ""
+msgstr "``siphash24``;"
 
 msgid "``fnv``."
-msgstr ""
+msgstr "``fnv``."
 
 msgid "``siphash13`` is added and it is the new default."
 msgstr ""
@@ -560,22 +1025,22 @@ msgid "Built-in hash modules:"
 msgstr ""
 
 msgid "``md5``;"
-msgstr ""
+msgstr "``md5``;"
 
 msgid "``sha1``;"
-msgstr ""
+msgstr "``sha1``;"
 
 msgid "``sha256``;"
-msgstr ""
+msgstr "``sha256``;"
 
 msgid "``sha512``;"
-msgstr ""
+msgstr "``sha512``;"
 
 msgid "``sha3`` (with shake);"
 msgstr ""
 
 msgid "``blake2``."
-msgstr ""
+msgstr "``blake2``."
 
 msgid "Override the OpenSSL default cipher suites string:"
 msgstr ""
@@ -600,7 +1065,7 @@ msgstr ""
 msgid "macOS Options"
 msgstr ""
 
-msgid "See ``Mac/README.rst``."
+msgid "See :source:`Mac/README.rst`."
 msgstr ""
 
 msgid ""
@@ -625,29 +1090,51 @@ msgid "``universal2``;"
 msgstr ""
 
 msgid "``32-bit``;"
-msgstr ""
+msgstr "``32-bit``;"
 
 msgid "``64-bit``;"
-msgstr ""
+msgstr "``64-bit``;"
 
 msgid "``3-way``;"
 msgstr ""
 
 msgid "``intel``;"
-msgstr ""
+msgstr "``intel``;"
 
 msgid "``intel-32``;"
-msgstr ""
+msgstr "``intel-32``;"
 
 msgid "``intel-64``;"
-msgstr ""
+msgstr "``intel-64``;"
 
 msgid "``all``."
-msgstr ""
+msgstr "``all``."
 
 msgid ""
 "Specify the name for the python framework on macOS only valid when :option:"
 "`--enable-framework` is set (default: ``Python``)."
+msgstr ""
+
+msgid ""
+"The Python standard library contains strings that are known to trigger "
+"automated inspection tool errors when submitted for distribution by the "
+"macOS and iOS App Stores. If enabled, this option will apply the list of "
+"patches that are known to correct app store compliance. A custom patch file "
+"can also be specified. This option is disabled by default."
+msgstr ""
+
+msgid "iOS Options"
+msgstr ""
+
+msgid "See :source:`iOS/README.rst`."
+msgstr ""
+
+msgid ""
+"Create a Python.framework. Unlike macOS, the *INSTALLDIR* argument "
+"specifying the installation path is mandatory."
+msgstr ""
+
+msgid "Specify the name for the framework (default: ``Python``)."
 msgstr ""
 
 msgid "Cross Compiling Options"
@@ -673,10 +1160,27 @@ msgstr ""
 msgid "An environment variable that points to a file with configure overrides."
 msgstr ""
 
-msgid "Example *config.site* file::"
+msgid "Example *config.site* file:"
+msgstr ""
+
+msgid ""
+"# config.site-aarch64\n"
+"ac_cv_buggy_getaddrinfo=no\n"
+"ac_cv_file__dev_ptmx=yes\n"
+"ac_cv_file__dev_ptc=no"
+msgstr ""
+
+msgid "Program to run CPython for the host platform for cross-compilation."
 msgstr ""
 
 msgid "Cross compiling example::"
+msgstr ""
+
+msgid ""
+"CONFIG_SITE=config.site-aarch64 ../configure \\\n"
+"    --build=x86_64-pc-linux-gnu \\\n"
+"    --host=aarch64-unknown-linux-gnu \\\n"
+"    --with-build-python=../x86_64/python"
 msgstr ""
 
 msgid "Python Build System"
@@ -700,9 +1204,6 @@ msgid ""
 "`Module/makesetup` shell script;"
 msgstr ""
 
-msgid ":file:`setup.py`: C extensions built using the :mod:`distutils` module."
-msgstr ""
-
 msgid "Main build steps"
 msgstr ""
 
@@ -717,50 +1218,120 @@ msgid ""
 "``python`` program."
 msgstr ""
 
-msgid ""
-"C extensions are built by the Makefile (see :file:`Modules/Setup`) and "
-"``python setup.py build``."
+msgid "C extensions are built by the Makefile (see :file:`Modules/Setup`)."
 msgstr ""
 
 msgid "Main Makefile targets"
 msgstr ""
 
-msgid "``make``: Build Python with the standard library."
+msgid "make"
 msgstr ""
 
 msgid ""
-"``make platform:``: build the ``python`` program, but don't build the "
-"standard library extension modules."
+"For the most part, when rebuilding after editing some code or refreshing "
+"your checkout from upstream, all you need to do is execute ``make``, which "
+"(per Make's semantics) builds the default target, the first one defined in "
+"the Makefile.  By tradition (including in the CPython project) this is "
+"usually the ``all`` target. The ``configure`` script expands an ``autoconf`` "
+"variable, ``@DEF_MAKE_ALL_RULE@`` to describe precisely which targets ``make "
+"all`` will build. The three choices are:"
+msgstr ""
+
+msgid "``profile-opt`` (configured with ``--enable-optimizations``)"
+msgstr ""
+
+msgid "``build_wasm`` (configured with ``--with-emscripten-target``)"
 msgstr ""
 
 msgid ""
-"``make profile-opt``: build Python using Profile Guided Optimization (PGO). "
-"You can use the configure :option:`--enable-optimizations` option to make "
-"this the default target of the ``make`` command (``make all`` or just "
-"``make``)."
+"``build_all`` (configured without explicitly using either of the others)"
 msgstr ""
 
 msgid ""
-"``make buildbottest``: Build Python and run the Python test suite, the same "
-"way than buildbots test Python. Set ``TESTTIMEOUT`` variable (in seconds) to "
-"change the test timeout (1200 by default: 20 minutes)."
+"Depending on the most recent source file changes, Make will rebuild any "
+"targets (object files and executables) deemed out-of-date, including running "
+"``configure`` again if necessary. Source/target dependencies are many and "
+"maintained manually however, so Make sometimes doesn't have all the "
+"information necessary to correctly detect all targets which need to be "
+"rebuilt.  Depending on which targets aren't rebuilt, you might experience a "
+"number of problems. If you have build or test problems which you can't "
+"otherwise explain, ``make clean && make`` should work around most dependency "
+"problems, at the expense of longer build times."
 msgstr ""
 
-msgid "``make install``: Build and install Python."
-msgstr ""
-
-msgid ""
-"``make regen-all``: Regenerate (almost) all generated files; ``make regen-"
-"stdlib-module-names`` and ``autoconf`` must be run separately for the "
-"remaining generated files."
-msgstr ""
-
-msgid "``make clean``: Remove built files."
+msgid "make platform"
 msgstr ""
 
 msgid ""
-"``make distclean``: Same than ``make clean``, but remove also files created "
-"by the configure script."
+"Build the ``python`` program, but don't build the standard library extension "
+"modules. This generates a file named ``platform`` which contains a single "
+"line describing the details of the build platform, e.g., ``macosx-14.3-"
+"arm64-3.12`` or ``linux-x86_64-3.13``."
+msgstr ""
+
+msgid "make profile-opt"
+msgstr ""
+
+msgid ""
+"Build Python using profile-guided optimization (PGO).  You can use the "
+"configure :option:`--enable-optimizations` option to make this the default "
+"target of the ``make`` command (``make all`` or just ``make``)."
+msgstr ""
+
+msgid "make clean"
+msgstr ""
+
+msgid "Remove built files."
+msgstr ""
+
+msgid "make distclean"
+msgstr ""
+
+msgid ""
+"In addition to the work done by ``make clean``, remove files created by the "
+"configure script.  ``configure`` will have to be run before building again. "
+"[#]_"
+msgstr ""
+
+msgid "make install"
+msgstr ""
+
+msgid "Build the ``all`` target and install Python."
+msgstr ""
+
+msgid "make test"
+msgstr ""
+
+msgid ""
+"Build the ``all`` target and run the Python test suite with the ``--fast-"
+"ci`` option. Variables:"
+msgstr ""
+
+msgid "``TESTOPTS``: additional regrtest command-line options."
+msgstr ""
+
+msgid "``TESTPYTHONOPTS``: additional Python command-line options."
+msgstr ""
+
+msgid "``TESTTIMEOUT``: timeout in seconds (default: 10 minutes)."
+msgstr ""
+
+msgid "make buildbottest"
+msgstr ""
+
+msgid ""
+"This is similar to ``make test``, but uses the ``--slow-ci`` option and "
+"default timeout of 20 minutes, instead of ``--fast-ci`` option."
+msgstr ""
+
+msgid "make regen-all"
+msgstr ""
+
+msgid ""
+"Regenerate (almost) all generated files. These include (but are not limited "
+"to) bytecode cases, and parser generator file. ``make regen-stdlib-module-"
+"names`` and ``autoconf`` must be run separately for the remaining `generated "
+"files <#generated-files>`_."
 msgstr ""
 
 msgid "C extensions"
@@ -769,14 +1340,39 @@ msgstr ""
 msgid ""
 "Some C extensions are built as built-in modules, like the ``sys`` module. "
 "They are built with the ``Py_BUILD_CORE_BUILTIN`` macro defined. Built-in "
-"modules have no ``__file__`` attribute::"
+"modules have no ``__file__`` attribute:"
+msgstr ""
+
+msgid ""
+">>> import sys\n"
+">>> sys\n"
+"<module 'sys' (built-in)>\n"
+">>> sys.__file__\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"AttributeError: module 'sys' has no attribute '__file__'"
 msgstr ""
 
 msgid ""
 "Other C extensions are built as dynamic libraries, like the ``_asyncio`` "
 "module. They are built with the ``Py_BUILD_CORE_MODULE`` macro defined. "
-"Example on Linux x86-64::"
+"Example on Linux x86-64:"
 msgstr ""
+
+msgid ""
+">>> import _asyncio\n"
+">>> _asyncio\n"
+"<module '_asyncio' from '/usr/lib64/python3.9/lib-dynload/_asyncio."
+"cpython-39-x86_64-linux-gnu.so'>\n"
+">>> _asyncio.__file__\n"
+"'/usr/lib64/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so'"
+msgstr ""
+">>> import _asyncio\n"
+">>> _asyncio\n"
+"<module '_asyncio' from '/usr/lib64/python3.9/lib-dynload/_asyncio."
+"cpython-39-x86_64-linux-gnu.so'>\n"
+">>> _asyncio.__file__\n"
+"'/usr/lib64/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so'"
 
 msgid ""
 ":file:`Modules/Setup` is used to generate Makefile targets to build C "
@@ -786,14 +1382,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The :file:`setup.py` script only builds C extensions as shared libraries "
-"using the :mod:`distutils` module."
-msgstr ""
-
-msgid ""
-"The :c:macro:`PyAPI_FUNC()`, :c:macro:`PyAPI_API()` and :c:macro:"
-"`PyMODINIT_FUNC()` macros of :file:`Include/pyport.h` are defined "
-"differently depending if the ``Py_BUILD_CORE_MODULE`` macro is defined:"
+"The :c:macro:`!PyAPI_FUNC()`, :c:macro:`!PyAPI_DATA()` and :c:macro:"
+"`PyMODINIT_FUNC` macros of :file:`Include/exports.h` are defined differently "
+"depending if the ``Py_BUILD_CORE_MODULE`` macro is defined:"
 msgstr ""
 
 msgid "Use ``Py_EXPORTED_SYMBOL`` if the ``Py_BUILD_CORE_MODULE`` is defined"
@@ -804,8 +1395,8 @@ msgstr ""
 
 msgid ""
 "If the ``Py_BUILD_CORE_BUILTIN`` macro is used by mistake on a C extension "
-"built as a shared library, its ``PyInit_xxx()`` function is not exported, "
-"causing an :exc:`ImportError` on import."
+"built as a shared library, its :samp:`PyInit_{xxx}()` function is not "
+"exported, causing an :exc:`ImportError` on import."
 msgstr ""
 
 msgid "Compiler and linker flags"
@@ -824,14 +1415,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"(Objective) C/C++ preprocessor flags, e.g. ``-I<include dir>`` if you have "
-"headers in a nonstandard directory ``<include dir>``."
+"(Objective) C/C++ preprocessor flags, e.g. :samp:`-I{include_dir}` if you "
+"have headers in a nonstandard directory *include_dir*."
 msgstr ""
 
 msgid ""
 "Both :envvar:`CPPFLAGS` and :envvar:`LDFLAGS` need to contain the shell's "
-"value for setup.py to be able to build extension modules using the "
-"directories specified in the environment variables."
+"value to be able to build extension modules using the directories specified "
+"in the environment variables."
 msgstr ""
 
 msgid ""
@@ -846,40 +1437,19 @@ msgstr ""
 msgid "Compiler flags"
 msgstr ""
 
-msgid "C compiler command."
-msgstr ""
-
 msgid "Example: ``gcc -pthread``."
-msgstr ""
-
-msgid ""
-"C compiler command used to build the ``main()`` function of programs like "
-"``python``."
-msgstr ""
-
-msgid ""
-"Variable set by the :option:`--with-cxx-main` option of the configure script."
-msgstr ""
-
-msgid "Default: ``$(CC)``."
 msgstr ""
 
 msgid "C++ compiler command."
 msgstr ""
 
-msgid "Used if the :option:`--with-cxx-main` option is used."
-msgstr ""
-
 msgid "Example: ``g++ -pthread``."
-msgstr ""
-
-msgid "C compiler flags."
 msgstr ""
 
 msgid ""
 ":envvar:`CFLAGS_NODIST` is used for building the interpreter and stdlib C "
-"extensions.  Use it when a compiler flag should *not* be part of the "
-"distutils :envvar:`CFLAGS` once Python is installed (:issue:`21121`)."
+"extensions.  Use it when a compiler flag should *not* be part of :envvar:"
+"`CFLAGS` once Python is installed (:gh:`65320`)."
 msgstr ""
 
 msgid "In particular, :envvar:`CFLAGS` should not contain:"
@@ -894,6 +1464,11 @@ msgstr ""
 msgid ""
 "hardening flags such as ``-Werror`` because distributions cannot control "
 "whether packages installed by users conform to such heightened standards."
+msgstr ""
+
+msgid ""
+"Options passed to the :mod:`compileall` command line when building PYC files "
+"in ``make install``. Default: ``-j0``."
 msgstr ""
 
 msgid "Extra C compiler flags."
@@ -973,7 +1548,7 @@ msgid ""
 "Linker command used to build programs like ``python`` and ``_testembed``."
 msgstr ""
 
-msgid "Default: ``$(PURIFY) $(MAINCC)``."
+msgid "Default: ``$(PURIFY) $(CC)``."
 msgstr ""
 
 msgid ""
@@ -988,8 +1563,8 @@ msgstr ""
 
 msgid ""
 ":envvar:`LDFLAGS_NODIST` is used in the same manner as :envvar:"
-"`CFLAGS_NODIST`.  Use it when a linker flag should *not* be part of the "
-"distutils :envvar:`LDFLAGS` once Python is installed (:issue:`35257`)."
+"`CFLAGS_NODIST`.  Use it when a linker flag should *not* be part of :envvar:"
+"`LDFLAGS` once Python is installed (:gh:`65320`)."
 msgstr ""
 
 msgid "In particular, :envvar:`LDFLAGS` should not contain:"
@@ -1007,8 +1582,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Linker flags, e.g. ``-L<lib dir>`` if you have libraries in a nonstandard "
-"directory ``<lib dir>``."
+"Linker flags, e.g. :samp:`-L{lib_dir}` if you have libraries in a "
+"nonstandard directory *lib_dir*."
 msgstr ""
 
 msgid ""
@@ -1038,4 +1613,16 @@ msgid "Default: ``$(CONFIGURE_LDFLAGS_NODIST) $(LDFLAGS_NODIST)``."
 msgstr ""
 
 msgid "Linker flags used for building the interpreter object files."
+msgstr ""
+
+msgid "Footnotes"
+msgstr "Przypisy"
+
+msgid ""
+"``git clean -fdx`` is an even more extreme way to \"clean\" your checkout. "
+"It removes all files not known to Git. When bug hunting using ``git "
+"bisect``, this is `recommended between probes <https://github.com/python/"
+"cpython/issues/114505#issuecomment-1907021718>`_ to guarantee a completely "
+"clean build. **Use with care**, as it will delete all files not checked into "
+"Git, including your new, uncommitted work."
 msgstr ""
