@@ -38,6 +38,7 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       # Process README.md
       - run: python -Werror -m cogapp -rP README.md
+        if: ${{ hashFiles('README.md') != '' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       # Process README.en.md
