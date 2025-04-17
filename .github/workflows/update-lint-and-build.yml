@@ -22,39 +22,45 @@ jobs:
       - uses: actions/setup-python@master
         with:
           python-version: 3
-      - run: sudo apt-get install -y gettext
-      - run: pip install requests cogapp polib transifex-python sphinx-intl blurb six
-      - run: curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install -y gettext
+          pip install requests cogapp polib transifex-python sphinx-intl blurb six
+          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
         working-directory: /usr/local/bin
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
           fetch-depth: 0
-      - run: ./manage_translation.py recreate_tx_config
+      - name: Recreate Transifex config
+        run: ./manage_translation.py recreate_tx_config
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - run: ./manage_translation.py fetch
+      - name: Fetch translations
+        run: ./manage_translation.py fetch
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      # Process README.md
-      - run: python -Werror -m cogapp -rP README.md
-        if: ${{ hashFiles('README.md') != '' }}
+      - name: Update README.md
+        run: python -Werror -m cogapp -rP README.md
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      # Process README.en.md
-      - run: python -Werror -m cogapp -rP README.en.md
+      - name:  Update README.en.md
+        run: python -Werror -m cogapp -rP README.en.md
         if: ${{ hashFiles('README.en.md') != '' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - run: git config --local user.email github-actions@github.com
       - run: git config --local user.name "GitHub Action's update-translation job"
-      # Check for changes in README.md
-      - run: >
+      - name: Check for changes in README.md
+        run: >
           ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
-      - run: git add .
-      - run: git commit -m 'Update translation from Transifex'
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
-      - uses: ad-m/github-push-action@master
+      - name: Push commit
+        uses: ad-m/github-push-action@master
         if: env.SIGNIFICANT_CHANGES
         with:
           branch: ${{ matrix.version }}
