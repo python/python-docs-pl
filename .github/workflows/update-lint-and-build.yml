@@ -42,6 +42,7 @@ jobs:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - name: Update README.md
         run: python -Werror -m cogapp -rP README.md
+        if: ${{ hashFiles('README.md') != '' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - name:  Update README.en.md
