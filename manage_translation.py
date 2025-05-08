@@ -49,7 +49,7 @@ def _call(command: str):
         exit(return_code)
 
 
-PROJECT_SLUG = 'python-newest'
+PROJECT_SLUG = 'python-313'
 VERSION = '3.13'
 
 
