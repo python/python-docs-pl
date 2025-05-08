@@ -50,7 +50,7 @@ def _call(command: str):
 
 
 PROJECT_SLUG = 'python-newest'
-VERSION = '3.13'
+VERSION = '3.14'
 
 
 def recreate_tx_config():
