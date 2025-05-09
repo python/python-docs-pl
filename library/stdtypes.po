@@ -4,23 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023
-# haaritsubaki, 2023
-# gresm, 2024
-# Wiktor Matuszewski <wiktor.matuszewski@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
-# Stan Ulbrych, 2025
-# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2025
-# Maciej Olko <maciej.olko@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
-"PO-Revision-Date: 2021-06-28 01:13+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2025\n"
+"POT-Creation-Date: 2025-05-08 03:57+0000\n"
+"PO-Revision-Date: 2025-05-08 05:10+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4986,7 +4979,15 @@ msgid ""
 msgstr ""
 
 msgid ""
-"To illustrate, the following examples all return a dictionary equal to "
+"Providing keyword arguments as in the first example only works for keys that "
+"are valid Python identifiers.  Otherwise, any valid keys can be used."
+msgstr ""
+
+msgid ""
+"Dictionaries compare equal if and only if they have the same ``(key, "
+"value)`` pairs (regardless of ordering). Order comparisons ('<', '<=', '>=', "
+"'>') raise :exc:`TypeError`.  To illustrate dictionary creation and "
+"equality, the following examples all return a dictionary equal to "
 "``{\"one\": 1, \"two\": 2, \"three\": 3}``::"
 msgstr ""
 
@@ -5002,8 +5003,30 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Providing keyword arguments as in the first example only works for keys that "
-"are valid Python identifiers.  Otherwise, any valid keys can be used."
+"Dictionaries preserve insertion order.  Note that updating a key does not "
+"affect the order.  Keys added after deletion are inserted at the end. ::"
+msgstr ""
+
+msgid ""
+">>> d = {\"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4}\n"
+">>> d\n"
+"{'one': 1, 'two': 2, 'three': 3, 'four': 4}\n"
+">>> list(d)\n"
+"['one', 'two', 'three', 'four']\n"
+">>> list(d.values())\n"
+"[1, 2, 3, 4]\n"
+">>> d[\"one\"] = 42\n"
+">>> d\n"
+"{'one': 42, 'two': 2, 'three': 3, 'four': 4}\n"
+">>> del d[\"two\"]\n"
+">>> d[\"two\"] = None\n"
+">>> d\n"
+"{'one': 42, 'three': 3, 'four': 4, 'two': None}"
+msgstr ""
+
+msgid ""
+"Dictionary order is guaranteed to be insertion order.  This behavior was an "
+"implementation detail of CPython from 3.6."
 msgstr ""
 
 msgid ""
@@ -5179,39 +5202,6 @@ msgid ""
 "Update the dictionary *d* with keys and values from *other*, which may be "
 "either a :term:`mapping` or an :term:`iterable` of key/value pairs. The "
 "values of *other* take priority when *d* and *other* share keys."
-msgstr ""
-
-msgid ""
-"Dictionaries compare equal if and only if they have the same ``(key, "
-"value)`` pairs (regardless of ordering). Order comparisons ('<', '<=', '>=', "
-"'>') raise :exc:`TypeError`."
-msgstr ""
-
-msgid ""
-"Dictionaries preserve insertion order.  Note that updating a key does not "
-"affect the order.  Keys added after deletion are inserted at the end. ::"
-msgstr ""
-
-msgid ""
-">>> d = {\"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4}\n"
-">>> d\n"
-"{'one': 1, 'two': 2, 'three': 3, 'four': 4}\n"
-">>> list(d)\n"
-"['one', 'two', 'three', 'four']\n"
-">>> list(d.values())\n"
-"[1, 2, 3, 4]\n"
-">>> d[\"one\"] = 42\n"
-">>> d\n"
-"{'one': 42, 'two': 2, 'three': 3, 'four': 4}\n"
-">>> del d[\"two\"]\n"
-">>> d[\"two\"] = None\n"
-">>> d\n"
-"{'one': 42, 'three': 3, 'four': 4, 'two': None}"
-msgstr ""
-
-msgid ""
-"Dictionary order is guaranteed to be insertion order.  This behavior was an "
-"implementation detail of CPython from 3.6."
 msgstr ""
 
 msgid "Dictionaries and dictionary views are reversible. ::"
