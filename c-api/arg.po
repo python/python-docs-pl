@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -180,7 +180,8 @@ msgstr ""
 
 msgid ""
 "Like ``s``, but the Python object may also be ``None``, in which case the C "
-"pointer is set to ``NULL``."
+"pointer is set to ``NULL``. It is the same as ``s?`` with the C pointer was "
+"initialized to ``NULL``."
 msgstr ""
 
 msgid ""
@@ -189,7 +190,9 @@ msgstr ""
 
 msgid ""
 "Like ``s*``, but the Python object may also be ``None``, in which case the "
-"``buf`` member of the :c:type:`Py_buffer` structure is set to ``NULL``."
+"``buf`` member of the :c:type:`Py_buffer` structure is set to ``NULL``. It "
+"is the same as ``s*?`` with the ``buf`` member of the :c:type:`Py_buffer` "
+"structure was initialized to ``NULL``."
 msgstr ""
 
 msgid ""
@@ -199,7 +202,8 @@ msgstr ""
 
 msgid ""
 "Like ``s#``, but the Python object may also be ``None``, in which case the C "
-"pointer is set to ``NULL``."
+"pointer is set to ``NULL``. It is the same as ``s#?`` with the C pointer was "
+"initialized to ``NULL``."
 msgstr ""
 
 msgid "``y`` (read-only :term:`bytes-like object`) [const char \\*]"
@@ -463,6 +467,9 @@ msgid ""
 "checking."
 msgstr ""
 
+msgid "Use :meth:`~object.__index__` if available."
+msgstr ""
+
 msgid "``L`` (:class:`int`) [long long]"
 msgstr "``L`` (:class:`int`) [long long]"
 
@@ -593,18 +600,43 @@ msgid ""
 "how Python tests values for truth."
 msgstr ""
 
-msgid "``(items)`` (:class:`tuple`) [*matching-items*]"
+msgid "``(items)`` (sequence) [*matching-items*]"
 msgstr ""
 
 msgid ""
-"The object must be a Python sequence whose length is the number of format "
-"units in *items*.  The C arguments must correspond to the individual format "
-"units in *items*.  Format units for sequences may be nested."
+"The object must be a Python sequence (except :class:`str`, :class:`bytes` "
+"or :class:`bytearray`) whose length is the number of format units in "
+"*items*.  The C arguments must correspond to the individual format units in "
+"*items*.  Format units for sequences may be nested."
 msgstr ""
-"Obiekt musi być sekwencją języka Python, której długość jest liczbą "
-"elementów formatu mierzoną w *elementach*. Argumenty języka C muszą "
-"odpowiadać poszczególnym jednostkom formatu w *elementach*. Jednostki "
-"formatu dla sekwencji mogą być zagnieżdżane."
+
+msgid ""
+"If *items* contains format units which store a :ref:`borrowed buffer <c-arg-"
+"borrowed-buffer>` (``s``, ``s#``, ``z``, ``z#``, ``y``, or ``y#``) or a :"
+"term:`borrowed reference` (``S``, ``Y``, ``U``, ``O``, or ``O!``), the "
+"object must be a Python tuple. The *converter* for the ``O&`` format unit in "
+"*items* must not store a borrowed buffer or a borrowed reference."
+msgstr ""
+
+msgid ""
+":class:`str` and :class:`bytearray` objects no longer accepted as a sequence."
+msgstr ""
+
+msgid ""
+"Non-tuple sequences are deprecated if *items* contains format units which "
+"store a borrowed buffer or a borrowed reference."
+msgstr ""
+
+msgid "``unit?`` (anything or ``None``) [*matching-variable(s)*]"
+msgstr ""
+
+msgid ""
+"``?`` modifies the behavior of the preceding format unit. The C variable(s) "
+"corresponding to that parameter should be initialized to their default value "
+"--- when the argument is ``None``, :c:func:`PyArg_ParseTuple` does not touch "
+"the contents of the corresponding C variable(s). If the argument is not "
+"``None``, it is parsed according to the specified format unit."
+msgstr ""
 
 msgid ""
 "A few other characters have a meaning in a format string.  These may not "
@@ -957,6 +989,11 @@ msgstr ""
 msgid "Convert a C :c:type:`Py_ssize_t` to a Python integer."
 msgstr ""
 
+msgid ""
+"Convert a C :c:expr:`int` to a Python :class:`bool` object. .. "
+"versionadded:: 3.14"
+msgstr ""
+
 msgid "``c`` (:class:`bytes` of length 1) [char]"
 msgstr ""
 
@@ -1014,6 +1051,9 @@ msgid ""
 "function is called with *anything* (which should be compatible with :c:expr:"
 "`void*`) as its argument and should return a \"new\" Python object, or "
 "``NULL`` if an error occurred."
+msgstr ""
+
+msgid "``(items)`` (:class:`tuple`) [*matching-items*]"
 msgstr ""
 
 msgid ""

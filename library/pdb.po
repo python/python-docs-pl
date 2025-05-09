@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:11+0000\n"
 "Last-Translator: Stan Ulbrych, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -218,7 +218,9 @@ msgid ""
 "Enter the debugger at the calling stack frame.  This is useful to hard-code "
 "a breakpoint at a given point in a program, even if the code is not "
 "otherwise being debugged (e.g. when an assertion fails).  If given, *header* "
-"is printed to the console just before debugging begins."
+"is printed to the console just before debugging begins. The *commands* "
+"argument, if given, is a list of commands to execute when the debugger "
+"starts."
 msgstr ""
 
 msgid "The keyword-only argument *header*."
@@ -227,6 +229,24 @@ msgstr ""
 msgid ""
 ":func:`set_trace` will enter the debugger immediately, rather than on the "
 "next line of code to be executed."
+msgstr ""
+
+msgid "The *commands* argument."
+msgstr ""
+
+msgid ""
+"async version of :func:`set_trace`. This function should be used inside an "
+"async function with :keyword:`await`."
+msgstr ""
+
+msgid ""
+"async def f():\n"
+"    await pdb.set_trace_async()"
+msgstr ""
+
+msgid ""
+":keyword:`await` statements are supported if the debugger is invoked by this "
+"function."
 msgstr ""
 
 msgid ""
@@ -240,6 +260,21 @@ msgstr ""
 
 msgid ""
 "Enter post-mortem debugging of the exception found in :data:`sys.last_exc`."
+msgstr ""
+
+msgid ""
+"There are two supported backends for pdb: ``'settrace'`` and "
+"``'monitoring'``. See :class:`bdb.Bdb` for details. The user can set the "
+"default backend to use if none is specified when instantiating :class:`Pdb`. "
+"If no backend is specified, the default is ``'settrace'``."
+msgstr ""
+
+msgid ""
+":func:`breakpoint` and :func:`set_trace` will not be affected by this "
+"function. They always use ``'monitoring'`` backend."
+msgstr ""
+
+msgid "Returns the default backend for pdb."
 msgstr ""
 
 msgid ""
@@ -275,6 +310,27 @@ msgid ""
 "pdbrc files from the filesystem."
 msgstr ""
 
+msgid ""
+"The *mode* argument specifies how the debugger was invoked. It impacts the "
+"workings of some debugger commands. Valid values are ``'inline'`` (used by "
+"the breakpoint() builtin), ``'cli'`` (used by the command line invocation) "
+"or ``None`` (for backwards compatible behaviour, as before the *mode* "
+"argument was added)."
+msgstr ""
+
+msgid ""
+"The *backend* argument specifies the backend to use for the debugger. If "
+"``None`` is passed, the default backend will be used. See :func:"
+"`set_default_backend`. Otherwise the supported backends are ``'settrace'`` "
+"and ``'monitoring'``."
+msgstr ""
+
+msgid ""
+"The *colorize* argument, if set to ``True``, will enable colorized output in "
+"the debugger, if color is supported. This will highlight source code "
+"displayed in pdb."
+msgstr ""
+
 msgid "Example call to enable tracing with *skip*::"
 msgstr ""
 
@@ -294,6 +350,21 @@ msgid ""
 msgstr ""
 
 msgid "The *readrc* argument."
+msgstr ""
+
+msgid "Added the *mode* argument."
+msgstr ""
+
+msgid "Added the *backend* argument."
+msgstr ""
+
+msgid "Added the *colorize* argument."
+msgstr ""
+
+msgid ""
+"Inline breakpoints like :func:`breakpoint` or :func:`pdb.set_trace` will "
+"always stop the program at calling frame, ignoring the *skip* pattern (if "
+"any)."
 msgstr ""
 
 msgid "See the documentation for the functions explained above."
@@ -358,7 +429,7 @@ msgid ""
 "compared to using normal variables like ``foo = 1``."
 msgstr ""
 
-msgid "There are three preset *convenience variables*:"
+msgid "There are four preset *convenience variables*:"
 msgstr ""
 
 msgid "``$_frame``: the current frame you are debugging"
@@ -370,7 +441,13 @@ msgstr ""
 msgid "``$_exception``: the exception if the frame is raising an exception"
 msgstr ""
 
+msgid "``$_asynctask``: the asyncio task if pdb stops in an async function"
+msgstr ""
+
 msgid "Added the *convenience variable* feature."
+msgstr ""
+
+msgid "Added the ``$_asynctask`` convenience variable."
 msgstr ""
 
 msgid ""
@@ -402,9 +479,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Print a stack trace, with the most recent frame at the bottom.  An arrow "
-"(``>``) indicates the current frame, which determines the context of most "
-"commands."
+"Print a stack trace, with the most recent frame at the bottom.  if *count* "
+"is 0, print the current frame entry. If *count* is negative, print the least "
+"recent - *count* frames. If *count* is positive, print the most recent "
+"*count* frames.  An arrow (``>``) indicates the current frame, which "
+"determines the context of most commands."
+msgstr ""
+
+msgid "*count* argument is added."
 msgstr ""
 
 msgid ""
@@ -421,9 +503,8 @@ msgid ""
 "With a *lineno* argument, set a break at line *lineno* in the current file. "
 "The line number may be prefixed with a *filename* and a colon, to specify a "
 "breakpoint in another file (possibly one that hasn't been loaded yet).  The "
-"file is searched on :data:`sys.path`.  Accepatable forms of *filename* are "
-"``/abspath/to/file.py``, ``relpath/file.py``, ``module`` and ``package."
-"module``."
+"file is searched on :data:`sys.path`.  Acceptable forms of *filename* are ``/"
+"abspath/to/file.py``, ``relpath/file.py``, ``module`` and ``package.module``."
 msgstr ""
 
 msgid ""
@@ -513,20 +594,23 @@ msgstr ""
 
 msgid ""
 "Specifying any command resuming execution (currently :pdbcmd:`continue`, :"
-"pdbcmd:`step`, :pdbcmd:`next`, :pdbcmd:`return`, :pdbcmd:`jump`, :pdbcmd:"
-"`quit` and their abbreviations) terminates the command list (as if that "
-"command was immediately followed by end). This is because any time you "
-"resume execution (even with a simple next or step), you may encounter "
-"another breakpoint—which could have its own command list, leading to "
-"ambiguities about which list to execute."
+"pdbcmd:`step`, :pdbcmd:`next`, :pdbcmd:`return`, :pdbcmd:`until`, :pdbcmd:"
+"`jump`, :pdbcmd:`quit` and their abbreviations) terminates the command list "
+"(as if that command was immediately followed by end). This is because any "
+"time you resume execution (even with a simple next or step), you may "
+"encounter another breakpoint—which could have its own command list, leading "
+"to ambiguities about which list to execute."
 msgstr ""
 
 msgid ""
-"If you use the ``silent`` command in the command list, the usual message "
-"about stopping at a breakpoint is not printed.  This may be desirable for "
-"breakpoints that are to print a specific message and then continue.  If none "
-"of the other commands print anything, you see no sign that the breakpoint "
-"was reached."
+"If the list of commands contains the ``silent`` command, or a command that "
+"resumes execution, then the breakpoint message containing information about "
+"the frame is not displayed."
+msgstr ""
+
+msgid ""
+"Frame information will not be displayed if a command that resumes execution "
+"is present in the command list."
 msgstr ""
 
 msgid ""
@@ -769,7 +853,27 @@ msgid ""
 "`restart` is an alias for :pdbcmd:`run`."
 msgstr ""
 
-msgid "Quit from the debugger.  The program being executed is aborted."
+msgid ""
+":pdbcmd:`run` and :pdbcmd:`restart` commands are disabled when the debugger "
+"is invoked in ``'inline'`` mode."
+msgstr ""
+
+msgid ""
+"Quit from the debugger.  The program being executed is aborted. An end-of-"
+"file input is equivalent to :pdbcmd:`quit`."
+msgstr ""
+
+msgid ""
+"A confirmation prompt will be shown if the debugger is invoked in "
+"``'inline'`` mode. Either ``y``, ``Y``, ``<Enter>`` or ``EOF`` will confirm "
+"the quit."
+msgstr ""
+
+msgid ""
+"A confirmation prompt will be shown if the debugger is invoked in "
+"``'inline'`` mode. After the confirmation, the debugger will call :func:`sys."
+"exit` immediately, instead of raising :exc:`bdb.BdbQuit` in the next trace "
+"event."
 msgstr ""
 
 msgid ""

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -9,18 +9,18 @@
 # gresm, 2024
 # Wiktor Matuszewski <wiktor.matuszewski@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
-# Stan Ulbrych, 2025
 # Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2025
 # Maciej Olko <maciej.olko@gmail.com>, 2025
+# Stan Ulbrych, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:13+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2025\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -280,17 +280,26 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Python fully supports mixed arithmetic: when a binary arithmetic operator "
-"has operands of different numeric types, the operand with the \"narrower\" "
-"type is widened to that of the other, where integer is narrower than "
-"floating point, which is narrower than complex. A comparison between numbers "
-"of different types behaves as though the exact values of those numbers were "
-"being compared. [2]_"
+"The constructors :func:`int`, :func:`float`, and :func:`complex` can be used "
+"to produce numbers of a specific type."
 msgstr ""
 
 msgid ""
-"The constructors :func:`int`, :func:`float`, and :func:`complex` can be used "
-"to produce numbers of a specific type."
+"Python fully supports mixed arithmetic: when a binary arithmetic operator "
+"has operands of different numeric types, the operand with the \"narrower\" "
+"type is widened to that of the other, where integer is narrower than "
+"floating point. Arithmetic with complex and real operands is defined by the "
+"usual mathematical formula, for example::"
+msgstr ""
+
+msgid ""
+"x + complex(u, v) = complex(x + u, v)\n"
+"x * complex(u, v) = complex(x * u, x * v)"
+msgstr ""
+
+msgid ""
+"A comparison between numbers of different types behaves as though the exact "
+"values of those numbers were being compared. [2]_"
 msgstr ""
 
 msgid ""
@@ -776,6 +785,23 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Class method to return a floating-point number constructed from a number *x*."
+msgstr ""
+
+msgid ""
+"If the argument is an integer or a floating-point number, a floating-point "
+"number with the same value (within Python's floating-point precision) is "
+"returned.  If the argument is outside the range of a Python float, an :exc:"
+"`OverflowError` will be raised."
+msgstr ""
+
+msgid ""
+"For a general Python object ``x``, ``float.from_number(x)`` delegates to ``x."
+"__float__()``. If :meth:`~object.__float__` is not defined then it falls "
+"back to :meth:`~object.__index__`."
+msgstr ""
+
+msgid ""
 "Return a pair of integers whose ratio is exactly equal to the original "
 "float. The ratio is in lowest terms and has a positive denominator.  Raises :"
 "exc:`OverflowError` on infinities and a :exc:`ValueError` on NaNs."
@@ -866,6 +892,25 @@ msgid ""
 msgstr ""
 ">>> float.hex(3740.0)\n"
 "'0x1.d380000000000p+11'"
+
+msgid "Additional Methods on Complex"
+msgstr ""
+
+msgid ""
+"The :class:`!complex` type implements the :class:`numbers.Complex` :term:"
+"`abstract base class`. :class:`!complex` also has the following additional "
+"methods."
+msgstr ""
+
+msgid "Class method to convert a number to a complex number."
+msgstr ""
+
+msgid ""
+"For a general Python object ``x``, ``complex.from_number(x)`` delegates to "
+"``x.__complex__()``.  If :meth:`~object.__complex__` is not defined then it "
+"falls back to :meth:`~object.__float__`.  If :meth:`!__float__` is not "
+"defined then it falls back to :meth:`~object.__index__`."
+msgstr ""
 
 msgid "Hashing of numeric types"
 msgstr ""
@@ -1793,6 +1838,290 @@ msgid ""
 "suitable for floating-point applications."
 msgstr ""
 
+msgid "Text and Binary Sequence Type Methods Summary"
+msgstr ""
+
+msgid ""
+"The following table summarizes the text and binary sequence types methods by "
+"category."
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid ":class:`str` methods"
+msgstr ""
+
+msgid ":class:`bytes` and :class:`bytearray` methods"
+msgstr ""
+
+msgid "Formatting"
+msgstr ""
+
+msgid ":meth:`str.format`"
+msgstr ""
+
+msgid ":meth:`str.format_map`"
+msgstr ""
+
+msgid ":ref:`f-strings`"
+msgstr ":ref:`f-strings`"
+
+msgid ":ref:`old-string-formatting`"
+msgstr ":ref:`old-string-formatting`"
+
+msgid ":ref:`bytes-formatting`"
+msgstr ""
+
+msgid "Searching and Replacing"
+msgstr ""
+
+msgid ":meth:`str.find`"
+msgstr ""
+
+msgid ":meth:`str.rfind`"
+msgstr ""
+
+msgid ":meth:`bytes.find`"
+msgstr ""
+
+msgid ":meth:`bytes.rfind`"
+msgstr ""
+
+msgid ":meth:`str.index`"
+msgstr ""
+
+msgid ":meth:`str.rindex`"
+msgstr ""
+
+msgid ":meth:`bytes.index`"
+msgstr ""
+
+msgid ":meth:`bytes.rindex`"
+msgstr ""
+
+msgid ":meth:`str.startswith`"
+msgstr ""
+
+msgid ":meth:`bytes.startswith`"
+msgstr ""
+
+msgid ":meth:`str.endswith`"
+msgstr ""
+
+msgid ":meth:`bytes.endswith`"
+msgstr ""
+
+msgid ":meth:`str.count`"
+msgstr ""
+
+msgid ":meth:`bytes.count`"
+msgstr ""
+
+msgid ":meth:`str.replace`"
+msgstr ""
+
+msgid ":meth:`bytes.replace`"
+msgstr ""
+
+msgid "Splitting and Joining"
+msgstr ""
+
+msgid ":meth:`str.split`"
+msgstr ""
+
+msgid ":meth:`str.rsplit`"
+msgstr ""
+
+msgid ":meth:`bytes.split`"
+msgstr ""
+
+msgid ":meth:`bytes.rsplit`"
+msgstr ""
+
+msgid ":meth:`str.splitlines`"
+msgstr ""
+
+msgid ":meth:`bytes.splitlines`"
+msgstr ""
+
+msgid ":meth:`str.partition`"
+msgstr ""
+
+msgid ":meth:`bytes.partition`"
+msgstr ""
+
+msgid ":meth:`str.rpartition`"
+msgstr ""
+
+msgid ":meth:`bytes.rpartition`"
+msgstr ""
+
+msgid ":meth:`str.join`"
+msgstr ""
+
+msgid ":meth:`bytes.join`"
+msgstr ""
+
+msgid "String Classification"
+msgstr ""
+
+msgid ":meth:`str.isalpha`"
+msgstr ""
+
+msgid ":meth:`bytes.isalpha`"
+msgstr ""
+
+msgid ":meth:`str.isdecimal`"
+msgstr ""
+
+msgid ":meth:`str.isdigit`"
+msgstr ""
+
+msgid ":meth:`bytes.isdigit`"
+msgstr ""
+
+msgid ":meth:`str.isnumeric`"
+msgstr ""
+
+msgid ":meth:`str.isalnum`"
+msgstr ""
+
+msgid ":meth:`bytes.isalnum`"
+msgstr ""
+
+msgid ":meth:`str.isidentifier`"
+msgstr ""
+
+msgid ":meth:`str.islower`"
+msgstr ""
+
+msgid ":meth:`bytes.islower`"
+msgstr ""
+
+msgid ":meth:`str.isupper`"
+msgstr ""
+
+msgid ":meth:`bytes.isupper`"
+msgstr ""
+
+msgid ":meth:`str.istitle`"
+msgstr ""
+
+msgid ":meth:`bytes.istitle`"
+msgstr ""
+
+msgid ":meth:`str.isspace`"
+msgstr ""
+
+msgid ":meth:`bytes.isspace`"
+msgstr ""
+
+msgid ":meth:`str.isprintable`"
+msgstr ""
+
+msgid "Case Manipulation"
+msgstr ""
+
+msgid ":meth:`str.lower`"
+msgstr ""
+
+msgid ":meth:`bytes.lower`"
+msgstr ""
+
+msgid ":meth:`str.upper`"
+msgstr ""
+
+msgid ":meth:`bytes.upper`"
+msgstr ""
+
+msgid ":meth:`str.casefold`"
+msgstr ""
+
+msgid ":meth:`str.capitalize`"
+msgstr ""
+
+msgid ":meth:`bytes.capitalize`"
+msgstr ""
+
+msgid ":meth:`str.title`"
+msgstr ""
+
+msgid ":meth:`bytes.title`"
+msgstr ""
+
+msgid ":meth:`str.swapcase`"
+msgstr ""
+
+msgid ":meth:`bytes.swapcase`"
+msgstr ""
+
+msgid "Padding and Stripping"
+msgstr ""
+
+msgid ":meth:`str.ljust`"
+msgstr ""
+
+msgid ":meth:`str.rjust`"
+msgstr ""
+
+msgid ":meth:`bytes.ljust`"
+msgstr ""
+
+msgid ":meth:`bytes.rjust`"
+msgstr ""
+
+msgid ":meth:`str.center`"
+msgstr ""
+
+msgid ":meth:`bytes.center`"
+msgstr ""
+
+msgid ":meth:`str.expandtabs`"
+msgstr ""
+
+msgid ":meth:`bytes.expandtabs`"
+msgstr ""
+
+msgid ":meth:`str.strip`"
+msgstr ""
+
+msgid ":meth:`bytes.strip`"
+msgstr ""
+
+msgid ":meth:`str.lstrip`"
+msgstr ""
+
+msgid ":meth:`str.rstrip`"
+msgstr ""
+
+msgid ":meth:`bytes.lstrip`"
+msgstr ""
+
+msgid ":meth:`bytes.rstrip`"
+msgstr ""
+
+msgid "Translation and Encoding"
+msgstr ""
+
+msgid ":meth:`str.translate`"
+msgstr ""
+
+msgid ":meth:`bytes.translate`"
+msgstr ""
+
+msgid ":meth:`str.maketrans`"
+msgstr ""
+
+msgid ":meth:`bytes.maketrans`"
+msgstr ""
+
+msgid ":meth:`str.encode`"
+msgstr ""
+
+msgid ":meth:`bytes.decode`"
+msgstr ""
+
 msgid "Text Sequence Type --- :class:`str`"
 msgstr ""
 
@@ -1949,7 +2278,7 @@ msgstr ""
 msgid ""
 "The casefolding algorithm is `described in section 3.13 'Default Case "
 "Folding' of the Unicode Standard <https://www.unicode.org/versions/"
-"Unicode15.1.0/ch03.pdf>`__."
+"Unicode16.0.0/core-spec/chapter-3/#G33992>`__."
 msgstr ""
 
 msgid ""
@@ -2094,8 +2423,8 @@ msgid ""
 "e., those with general category property being one of \"Lm\", \"Lt\", "
 "\"Lu\", \"Ll\", or \"Lo\".  Note that this is different from the `Alphabetic "
 "property defined in the section 4.10 'Letters, Alphabetic, and Ideographic' "
-"of the Unicode Standard <https://www.unicode.org/versions/Unicode15.1.0/ch04."
-"pdf>`_."
+"of the Unicode Standard <https://www.unicode.org/versions/Unicode16.0.0/core-"
+"spec/chapter-4/#G91002>`_."
 msgstr ""
 
 msgid ""
@@ -2221,7 +2550,7 @@ msgstr ""
 msgid ""
 "The lowercasing algorithm used is `described in section 3.13 'Default Case "
 "Folding' of the Unicode Standard <https://www.unicode.org/versions/"
-"Unicode15.1.0/ch03.pdf>`__."
+"Unicode16.0.0/core-spec/chapter-3/#G33992>`__."
 msgstr ""
 
 msgid ""
@@ -2692,7 +3021,7 @@ msgstr ""
 msgid ""
 "The uppercasing algorithm used is `described in section 3.13 'Default Case "
 "Folding' of the Unicode Standard <https://www.unicode.org/versions/"
-"Unicode15.1.0/ch03.pdf>`__."
+"Unicode16.0.0/core-spec/chapter-3/#G33992>`__."
 msgstr ""
 
 msgid ""
@@ -3251,6 +3580,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+":meth:`bytes.fromhex` now accepts ASCII :class:`bytes` and :term:`bytes-like "
+"objects <bytes-like object>` as input."
+msgstr ""
+
+msgid ""
 "A reverse conversion function exists to transform a bytes object into its "
 "hexadecimal representation."
 msgstr ""
@@ -3340,6 +3674,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+":meth:`bytearray.fromhex` now accepts ASCII :class:`bytes` and :term:`bytes-"
+"like objects <bytes-like object>` as input."
+msgstr ""
+
+msgid ""
 "A reverse conversion function exists to transform a bytearray object into "
 "its hexadecimal representation."
 msgstr ""
@@ -3349,6 +3688,26 @@ msgid ""
 "*sep* and *bytes_per_sep* parameters to insert separators between bytes in "
 "the hex output."
 msgstr ""
+
+msgid ""
+"Resize the :class:`bytearray` to contain *size* bytes. *size* must be "
+"greater than or equal to 0."
+msgstr ""
+
+msgid ""
+"If the :class:`bytearray` needs to shrink, bytes beyond *size* are truncated."
+msgstr ""
+
+msgid ""
+"If the :class:`bytearray` needs to grow, all new bytes, those beyond *size*, "
+"will be set to null bytes."
+msgstr ""
+
+msgid "This is equivalent to:"
+msgstr ""
+
+msgid "Examples:"
+msgstr "Przykłady:"
 
 msgid ""
 "Since bytearray objects are sequences of integers (akin to a list), for a "
@@ -4308,6 +4667,9 @@ msgstr ""
 msgid "memoryviews can now be indexed with tuple of integers."
 msgstr ""
 
+msgid "memoryview is now a :term:`generic type`."
+msgstr ""
+
 msgid ":class:`memoryview` has several methods:"
 msgstr ""
 
@@ -4601,6 +4963,17 @@ msgid ""
 msgstr ""
 
 msgid "The source format is no longer restricted when casting to a byte view."
+msgstr ""
+
+msgid "Count the number of occurrences of *value*."
+msgstr ""
+
+msgid ""
+"Return the index of the first occurrence of *value* (at or after index "
+"*start* and before index *stop*)."
+msgstr ""
+
+msgid "Raises a :exc:`ValueError` if *value* cannot be found."
 msgstr ""
 
 msgid "There are also several readonly attributes available:"
@@ -4986,7 +5359,15 @@ msgid ""
 msgstr ""
 
 msgid ""
-"To illustrate, the following examples all return a dictionary equal to "
+"Providing keyword arguments as in the first example only works for keys that "
+"are valid Python identifiers.  Otherwise, any valid keys can be used."
+msgstr ""
+
+msgid ""
+"Dictionaries compare equal if and only if they have the same ``(key, "
+"value)`` pairs (regardless of ordering). Order comparisons ('<', '<=', '>=', "
+"'>') raise :exc:`TypeError`.  To illustrate dictionary creation and "
+"equality, the following examples all return a dictionary equal to "
 "``{\"one\": 1, \"two\": 2, \"three\": 3}``::"
 msgstr ""
 
@@ -5002,8 +5383,30 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Providing keyword arguments as in the first example only works for keys that "
-"are valid Python identifiers.  Otherwise, any valid keys can be used."
+"Dictionaries preserve insertion order.  Note that updating a key does not "
+"affect the order.  Keys added after deletion are inserted at the end. ::"
+msgstr ""
+
+msgid ""
+">>> d = {\"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4}\n"
+">>> d\n"
+"{'one': 1, 'two': 2, 'three': 3, 'four': 4}\n"
+">>> list(d)\n"
+"['one', 'two', 'three', 'four']\n"
+">>> list(d.values())\n"
+"[1, 2, 3, 4]\n"
+">>> d[\"one\"] = 42\n"
+">>> d\n"
+"{'one': 42, 'two': 2, 'three': 3, 'four': 4}\n"
+">>> del d[\"two\"]\n"
+">>> d[\"two\"] = None\n"
+">>> d\n"
+"{'one': 42, 'three': 3, 'four': 4, 'two': None}"
+msgstr ""
+
+msgid ""
+"Dictionary order is guaranteed to be insertion order.  This behavior was an "
+"implementation detail of CPython from 3.6."
 msgstr ""
 
 msgid ""
@@ -5179,39 +5582,6 @@ msgid ""
 "Update the dictionary *d* with keys and values from *other*, which may be "
 "either a :term:`mapping` or an :term:`iterable` of key/value pairs. The "
 "values of *other* take priority when *d* and *other* share keys."
-msgstr ""
-
-msgid ""
-"Dictionaries compare equal if and only if they have the same ``(key, "
-"value)`` pairs (regardless of ordering). Order comparisons ('<', '<=', '>=', "
-"'>') raise :exc:`TypeError`."
-msgstr ""
-
-msgid ""
-"Dictionaries preserve insertion order.  Note that updating a key does not "
-"affect the order.  Keys added after deletion are inserted at the end. ::"
-msgstr ""
-
-msgid ""
-">>> d = {\"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4}\n"
-">>> d\n"
-"{'one': 1, 'two': 2, 'three': 3, 'four': 4}\n"
-">>> list(d)\n"
-"['one', 'two', 'three', 'four']\n"
-">>> list(d.values())\n"
-"[1, 2, 3, 4]\n"
-">>> d[\"one\"] = 42\n"
-">>> d\n"
-"{'one': 42, 'two': 2, 'three': 3, 'four': 4}\n"
-">>> del d[\"two\"]\n"
-">>> d[\"two\"] = None\n"
-">>> d\n"
-"{'one': 42, 'three': 3, 'four': 4, 'two': None}"
-msgstr ""
-
-msgid ""
-"Dictionary order is guaranteed to be insertion order.  This behavior was an "
-"implementation detail of CPython from 3.6."
 msgstr ""
 
 msgid "Dictionaries and dictionary views are reversible. ::"
@@ -5712,9 +6082,6 @@ msgstr ":class:`collections.abc.Sequence`"
 msgid ":class:`collections.abc.MutableSequence`"
 msgstr ":class:`collections.abc.MutableSequence`"
 
-msgid ":class:`collections.abc.ByteString`"
-msgstr ":class:`collections.abc.ByteString`"
-
 msgid ":class:`collections.abc.MappingView`"
 msgstr ":class:`collections.abc.MappingView`"
 
@@ -5877,8 +6244,8 @@ msgid ""
 "A union object holds the value of the ``|`` (bitwise or) operation on "
 "multiple :ref:`type objects <bltin-type-objects>`.  These types are intended "
 "primarily for :term:`type annotations <annotation>`. The union type "
-"expression enables cleaner type hinting syntax compared to :data:`typing."
-"Union`."
+"expression enables cleaner type hinting syntax compared to subscripting :"
+"class:`typing.Union`."
 msgstr ""
 
 msgid ""
@@ -5923,11 +6290,13 @@ msgstr ""
 msgid "int | str == str | int"
 msgstr "int | str == str | int"
 
-msgid "It is compatible with :data:`typing.Union`::"
+msgid "It creates instances of :class:`typing.Union`::"
 msgstr ""
 
-msgid "int | str == typing.Union[int, str]"
-msgstr "int | str == typing.Union[int, str]"
+msgid ""
+"int | str == typing.Union[int, str]\n"
+"type(int | str) is typing.Union"
+msgstr ""
 
 msgid "Optional types can be spelled as a union with ``None``::"
 msgstr ""
@@ -5962,19 +6331,18 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The user-exposed type for the union object can be accessed from :data:`types."
-"UnionType` and used for :func:`isinstance` checks.  An object cannot be "
-"instantiated from the type::"
+"The user-exposed type for the union object can be accessed from :class:"
+"`typing.Union` and used for :func:`isinstance` checks::"
 msgstr ""
 
 msgid ""
-">>> import types\n"
-">>> isinstance(int | str, types.UnionType)\n"
+">>> import typing\n"
+">>> isinstance(int | str, typing.Union)\n"
 "True\n"
-">>> types.UnionType()\n"
+">>> typing.Union()\n"
 "Traceback (most recent call last):\n"
 "  File \"<stdin>\", line 1, in <module>\n"
-"TypeError: cannot create 'types.UnionType' instances"
+"TypeError: cannot create 'typing.Union' instances"
 msgstr ""
 
 msgid ""
@@ -5998,6 +6366,12 @@ msgid ""
 msgstr ""
 
 msgid ":pep:`604` -- PEP proposing the ``X | Y`` syntax and the Union type."
+msgstr ""
+
+msgid ""
+"Union objects are now instances of :class:`typing.Union`. Previously, they "
+"were instances of :class:`types.UnionType`, which remains an alias for :"
+"class:`typing.Union`."
 msgstr ""
 
 msgid "Other Built-in Types"

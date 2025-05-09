@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:11+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -209,14 +209,15 @@ msgstr ""
 msgid ""
 "Protocol version 4 was added in Python 3.4.  It adds support for very large "
 "objects, pickling more kinds of objects, and some data format "
-"optimizations.  It is the default protocol starting with Python 3.8. Refer "
-"to :pep:`3154` for information about improvements brought by protocol 4."
+"optimizations.  This was the default protocol in Python 3.8--3.13. Refer to :"
+"pep:`3154` for information about improvements brought by protocol 4."
 msgstr ""
 
 msgid ""
 "Protocol version 5 was added in Python 3.8.  It adds support for out-of-band "
-"data and speedup for in-band data.  Refer to :pep:`574` for information "
-"about improvements brought by protocol 5."
+"data and speedup for in-band data.  It is the default protocol starting with "
+"Python 3.14.  Refer to :pep:`574` for information about improvements brought "
+"by protocol 5."
 msgstr ""
 
 msgid ""
@@ -255,14 +256,19 @@ msgstr ""
 msgid ""
 "An integer, the default :ref:`protocol version <pickle-protocols>` used for "
 "pickling.  May be less than :data:`HIGHEST_PROTOCOL`.  Currently the default "
-"protocol is 4, first introduced in Python 3.4 and incompatible with previous "
-"versions."
+"protocol is 5, introduced in Python 3.8 and incompatible with previous "
+"versions. This version introduces support for out-of-band buffers, where :"
+"pep:`3118`-compatible data can be transmitted separately from the main "
+"pickle stream."
 msgstr ""
 
 msgid "The default protocol is 3."
 msgstr ""
 
 msgid "The default protocol is 4."
+msgstr ""
+
+msgid "The default protocol is 5."
 msgstr ""
 
 msgid ""
@@ -461,6 +467,15 @@ msgid ""
 msgstr ""
 
 msgid "Use :func:`pickletools.optimize` if you need more compact pickles."
+msgstr ""
+
+msgid "Clears the pickler's \"memo\"."
+msgstr ""
+
+msgid ""
+"The memo is the data structure that remembers which objects the pickler has "
+"already seen, so that shared or recursive objects are pickled by reference "
+"and not by value.  This method is useful when re-using picklers."
 msgstr ""
 
 msgid "This takes a binary file for reading a pickle data stream."
@@ -1481,6 +1496,27 @@ msgid ""
 "    # The protocol version used is detected automatically, so we do not\n"
 "    # have to specify it.\n"
 "    data = pickle.load(f)"
+msgstr ""
+
+msgid "Command-line interface"
+msgstr ""
+
+msgid ""
+"The :mod:`pickle` module can be invoked as a script from the command line, "
+"it will display contents of the pickle files. However, when the pickle file "
+"that you want to examine comes from an untrusted source, ``-m pickletools`` "
+"is a safer option because it does not execute pickle bytecode, see :ref:"
+"`pickletools CLI usage <pickletools-cli>`."
+msgstr ""
+
+msgid "python -m pickle pickle_file [pickle_file ...]"
+msgstr ""
+
+msgid "The following option is accepted:"
+msgstr ""
+
+msgid ""
+"A pickle file to read, or ``-`` to indicate reading from standard input."
 msgstr ""
 
 msgid "Module :mod:`copyreg`"

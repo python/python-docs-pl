@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -12,9 +12,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:08+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -242,10 +242,37 @@ msgstr ""
 msgid "local namespace seen by this frame"
 msgstr ""
 
+msgid "f_generator"
+msgstr ""
+
+msgid ""
+"returns the generator or coroutine object that owns this frame, or ``None`` "
+"if the frame is of a regular function"
+msgstr ""
+
 msgid "f_trace"
 msgstr ""
 
 msgid "tracing function for this frame, or ``None``"
+msgstr ""
+
+msgid "f_trace_lines"
+msgstr ""
+
+msgid ""
+"indicate whether a tracing event is triggered for each source source line"
+msgstr ""
+
+msgid "f_trace_opcodes"
+msgstr ""
+
+msgid "indicate whether per-opcode events are requested"
+msgstr ""
+
+msgid "clear()"
+msgstr ""
+
+msgid "used to clear all references to local variables"
 msgstr ""
 
 msgid "code"
@@ -356,6 +383,25 @@ msgstr ""
 msgid "tuple of names of arguments and local variables"
 msgstr ""
 
+msgid "co_lines()"
+msgstr ""
+
+msgid "returns an iterator that yields successive bytecode ranges"
+msgstr ""
+
+msgid "co_positions()"
+msgstr ""
+
+msgid ""
+"returns an iterator of source code positions for each bytecode instruction"
+msgstr ""
+
+msgid "replace()"
+msgstr ""
+
+msgid "returns a copy of the code object with new values"
+msgstr ""
+
 msgid "generator"
 msgstr "generator"
 
@@ -445,6 +491,9 @@ msgstr ""
 msgid "Add ``__builtins__`` attribute to functions."
 msgstr ""
 
+msgid "Add ``f_generator`` attribute to frames."
+msgstr ""
+
 msgid ""
 "Return all the members of an object in a list of ``(name, value)`` pairs "
 "sorted by name. If the optional *predicate* argument—which will be called "
@@ -499,6 +548,9 @@ msgid ""
 msgstr ""
 
 msgid "Return ``True`` if the object is a bound method written in Python."
+msgstr ""
+
+msgid "Return ``True`` if the object is a :term:`package`."
 msgstr ""
 
 msgid ""
@@ -813,24 +865,29 @@ msgid ""
 msgstr ""
 
 msgid ""
-"For objects defined in modules using stringized annotations (``from "
-"__future__ import annotations``), :func:`signature` will attempt to "
-"automatically un-stringize the annotations using :func:`get_annotations`.  "
-"The *globals*, *locals*, and *eval_str* parameters are passed into :func:"
-"`get_annotations` when resolving the annotations; see the documentation for :"
-"func:`get_annotations` for instructions on how to use these parameters."
+"If some of the annotations are strings (e.g., because ``from __future__ "
+"import annotations`` was used), :func:`signature` will attempt to "
+"automatically un-stringize the annotations using :func:`annotationlib."
+"get_annotations`.  The *globals*, *locals*, and *eval_str* parameters are "
+"passed into :func:`!annotationlib.get_annotations` when resolving the "
+"annotations; see the documentation for :func:`!annotationlib."
+"get_annotations` for instructions on how to use these parameters. A member "
+"of the :class:`annotationlib.Format` enum can be passed to the "
+"*annotation_format* parameter to control the format of the returned "
+"annotations. For example, use ``annotation_format=annotationlib.Format."
+"STRING`` to return annotations in string format."
 msgstr ""
 
 msgid ""
 "Raises :exc:`ValueError` if no signature can be provided, and :exc:"
 "`TypeError` if that type of object is not supported.  Also, if the "
 "annotations are stringized, and *eval_str* is not false, the ``eval()`` "
-"call(s) to un-stringize the annotations in :func:`get_annotations` could "
-"potentially raise any kind of exception."
+"call(s) to un-stringize the annotations in :func:`annotationlib."
+"get_annotations` could potentially raise any kind of exception."
 msgstr ""
 
 msgid ""
-"A slash(/) in the signature of a function denotes that the parameters prior "
+"A slash (/) in the signature of a function denotes that the parameters prior "
 "to it are positional-only. For more info, see :ref:`the FAQ entry on "
 "positional-only parameters <faq-positional-only-arguments>`."
 msgstr ""
@@ -842,6 +899,9 @@ msgid ""
 msgstr ""
 
 msgid "The *globals*, *locals*, and *eval_str* parameters were added."
+msgstr ""
+
+msgid "The *annotation_format* parameter was added."
 msgstr ""
 
 msgid ""
@@ -947,6 +1007,17 @@ msgid ""
 "If *max_width* is passed, the method will attempt to fit the signature into "
 "lines of at most *max_width* characters. If the signature is longer than "
 "*max_width*, all parameters will be on separate lines."
+msgstr ""
+
+msgid ""
+"If *quote_annotation_strings* is False, :term:`annotations <annotation>` in "
+"the signature are displayed without opening and closing quotation marks if "
+"they are strings. This is useful if the signature was created with the :attr:"
+"`~annotationlib.Format.STRING` format or if ``from __future__ import "
+"annotations`` was used."
+msgstr ""
+
+msgid "The *unquote_annotations* parameter was added."
 msgstr ""
 
 msgid ""
@@ -1355,84 +1426,13 @@ msgid "Compute the annotations dict for an object."
 msgstr ""
 
 msgid ""
-"``obj`` may be a callable, class, or module. Passing in an object of any "
-"other type raises :exc:`TypeError`."
+"This is an alias for :func:`annotationlib.get_annotations`; see the "
+"documentation of that function for more information."
 msgstr ""
 
 msgid ""
-"Returns a dict.  ``get_annotations()`` returns a new dict every time it's "
-"called; calling it twice on the same object will return two different but "
-"equivalent dicts."
-msgstr ""
-
-msgid "This function handles several details for you:"
-msgstr ""
-
-msgid ""
-"If ``eval_str`` is true, values of type ``str`` will be un-stringized using :"
-"func:`eval`.  This is intended for use with stringized annotations (``from "
-"__future__ import annotations``)."
-msgstr ""
-
-msgid ""
-"If ``obj`` doesn't have an annotations dict, returns an empty dict.  "
-"(Functions and methods always have an annotations dict; classes, modules, "
-"and other types of callables may not.)"
-msgstr ""
-
-msgid ""
-"Ignores inherited annotations on classes.  If a class doesn't have its own "
-"annotations dict, returns an empty dict."
-msgstr ""
-
-msgid ""
-"All accesses to object members and dict values are done using ``getattr()`` "
-"and ``dict.get()`` for safety."
-msgstr ""
-
-msgid "Always, always, always returns a freshly created dict."
-msgstr ""
-
-msgid ""
-"``eval_str`` controls whether or not values of type ``str`` are replaced "
-"with the result of calling :func:`eval` on those values:"
-msgstr ""
-
-msgid ""
-"If eval_str is true, :func:`eval` is called on values of type ``str``. (Note "
-"that ``get_annotations`` doesn't catch exceptions; if :func:`eval` raises an "
-"exception, it will unwind the stack past the ``get_annotations`` call.)"
-msgstr ""
-
-msgid ""
-"If eval_str is false (the default), values of type ``str`` are unchanged."
-msgstr ""
-
-msgid ""
-"``globals`` and ``locals`` are passed in to :func:`eval`; see the "
-"documentation for :func:`eval` for more information.  If ``globals`` or "
-"``locals`` is ``None``, this function may replace that value with a context-"
-"specific default, contingent on ``type(obj)``:"
-msgstr ""
-
-msgid "If ``obj`` is a module, ``globals`` defaults to ``obj.__dict__``."
-msgstr ""
-
-msgid ""
-"If ``obj`` is a class, ``globals`` defaults to ``sys.modules[obj.__module__]."
-"__dict__`` and ``locals`` defaults to the ``obj`` class namespace."
-msgstr ""
-
-msgid ""
-"If ``obj`` is a callable, ``globals`` defaults to :attr:`obj.__globals__ "
-"<function.__globals__>`, although if ``obj`` is a wrapped function (using :"
-"func:`functools.update_wrapper`) it is first unwrapped."
-msgstr ""
-
-msgid ""
-"Calling ``get_annotations`` is best practice for accessing the annotations "
-"dict of any object.  See :ref:`annotations-howto` for more information on "
-"annotations best practices."
+"This function is now an alias for :func:`annotationlib.get_annotations`. "
+"Calling it as ``inspect.get_annotations`` will continue to work."
 msgstr ""
 
 msgid "The interpreter stack"
@@ -1828,6 +1828,15 @@ msgid ""
 "The flag is set when the code object is an asynchronous generator function.  "
 "When the code object is executed it returns an asynchronous generator "
 "object.  See :pep:`525` for more details."
+msgstr ""
+
+msgid ""
+"The flag is set when there is a docstring for the code object in the source "
+"code. If set, it will be the first item in :attr:`~codeobject.co_consts`."
+msgstr ""
+
+msgid ""
+"The flag is set when the code object is a function defined in class scope."
 msgstr ""
 
 msgid ""

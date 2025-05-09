@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -12,9 +12,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -26,8 +26,8 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`turtle` --- Turtle graphics"
-msgstr ":mod:`turtle` --- Grafika żółwia"
+msgid ":mod:`!turtle` --- Turtle graphics"
+msgstr ""
 
 msgid "**Source code:** :source:`Lib/turtle.py`"
 msgstr "**Kod źródłowy:** :source:`Lib/turtle.py`"
@@ -352,6 +352,37 @@ msgstr ""
 "interfejsu Tk <tkinter>`. Ostrzegamy, że nie zawsze jest to proste, więc "
 "sprawdź to z wyprzedzeniem, jeśli planujesz używać grafiki żółwia z uczniem."
 
+msgid "Automatically begin and end filling"
+msgstr ""
+
+msgid ""
+"Starting with Python 3.14, you can use the :func:`fill` :term:`context "
+"manager` instead of :func:`begin_fill` and :func:`end_fill` to automatically "
+"begin and end fill. Here is an example::"
+msgstr ""
+
+msgid ""
+"with fill():\n"
+"    for i in range(4):\n"
+"        forward(100)\n"
+"        right(90)\n"
+"\n"
+"forward(200)"
+msgstr ""
+
+msgid "The code above is equivalent to::"
+msgstr ""
+
+msgid ""
+"begin_fill()\n"
+"for i in range(4):\n"
+"    forward(100)\n"
+"    right(90)\n"
+"end_fill()\n"
+"\n"
+"forward(200)"
+msgstr ""
+
 msgid "Use the ``turtle`` module namespace"
 msgstr "Użyć przestrzeni nazw modułu ``turtle``"
 
@@ -639,6 +670,9 @@ msgstr "Wypełnienie"
 msgid ":func:`filling`"
 msgstr ":func:`filling`"
 
+msgid ":func:`fill`"
+msgstr ""
+
 msgid ":func:`begin_fill`"
 msgstr ":func:`begin_fill`"
 
@@ -714,6 +748,9 @@ msgstr ":func:`ondrag`"
 msgid "Special Turtle methods"
 msgstr "Specjalne metody żółwi"
 
+msgid ":func:`poly`"
+msgstr ""
+
 msgid ":func:`begin_poly`"
 msgstr ":func:`begin_poly`"
 
@@ -764,6 +801,9 @@ msgstr ":func:`setworldcoordinates`"
 
 msgid "Animation control"
 msgstr "Kontrola animacji"
+
+msgid ":func:`no_animation`"
+msgstr ""
 
 msgid ":func:`delay`"
 msgstr ":func:`delay`"
@@ -839,6 +879,9 @@ msgstr ":func:`bye`"
 
 msgid ":func:`exitonclick`"
 msgstr ":func:`exitonclick`"
+
+msgid ":func:`save`"
+msgstr ""
 
 msgid ":func:`setup`"
 msgstr ":func:`setup`"
@@ -1990,6 +2033,31 @@ msgstr ""
 "... else:\n"
 "...    turtle.pensize(3)"
 
+msgid "Fill the shape drawn in the ``with turtle.fill():`` block."
+msgstr ""
+
+msgid ""
+">>> turtle.color(\"black\", \"red\")\n"
+">>> with turtle.fill():\n"
+"...     turtle.circle(80)"
+msgstr ""
+
+msgid ""
+"Using :func:`!fill` is equivalent to adding the :func:`begin_fill` before "
+"the fill-block and :func:`end_fill` after the fill-block:"
+msgstr ""
+
+msgid ""
+">>> turtle.color(\"black\", \"red\")\n"
+">>> turtle.begin_fill()\n"
+">>> turtle.circle(80)\n"
+">>> turtle.end_fill()"
+msgstr ""
+">>> turtle.color(\"black\", \"red\")\n"
+">>> turtle.begin_fill()\n"
+">>> turtle.circle(80)\n"
+">>> turtle.end_fill()"
+
 msgid "To be called just before drawing a shape to be filled."
 msgstr "Do wywołania tuż przed rysowaniem kształtu do wypełnienia."
 
@@ -2007,17 +2075,6 @@ msgstr ""
 "nakładania się i liczby nakładających się obszarów.  Na przykład żółwiowa "
 "gwiazda na górze rozdziału może być cała żółta lub mieć kilka białych "
 "obszarów."
-
-msgid ""
-">>> turtle.color(\"black\", \"red\")\n"
-">>> turtle.begin_fill()\n"
-">>> turtle.circle(80)\n"
-">>> turtle.end_fill()"
-msgstr ""
-">>> turtle.color(\"black\", \"red\")\n"
-">>> turtle.begin_fill()\n"
-">>> turtle.circle(80)\n"
-">>> turtle.end_fill()"
 
 msgid ""
 "Delete the turtle's drawings from the screen, re-center the turtle and set "
@@ -2364,6 +2421,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Record the vertices of a polygon drawn in the ``with turtle.poly():`` block. "
+"The first and last vertices will be connected."
+msgstr ""
+
+msgid ""
+">>> with turtle.poly():\n"
+"...     turtle.forward(100)\n"
+"...     turtle.right(60)\n"
+"...     turtle.forward(100)"
+msgstr ""
+
+msgid ""
 "Start recording the vertices of a polygon.  Current turtle position is first "
 "vertex of polygon."
 msgstr ""
@@ -2531,7 +2600,9 @@ msgstr ""
 ">>> screen.bgcolor()\n"
 "(128.0, 0.0, 128.0)"
 
-msgid "a string, name of a gif-file or ``\"nopic\"``, or ``None``"
+msgid ""
+"a string, name of an image file (PNG, GIF, PGM, and PPM) or ``\"nopic\"``, "
+"or ``None``"
 msgstr ""
 
 msgid ""
@@ -2626,6 +2697,19 @@ msgid ""
 "...\n"
 ">>> for _ in range(8):\n"
 "...     left(45); fd(2)   # a regular octagon"
+msgstr ""
+
+msgid ""
+"Temporarily disable turtle animation. The code written inside the "
+"``no_animation`` block will not be animated; once the code block is exited, "
+"the drawing will appear."
+msgstr ""
+
+msgid ""
+">>> with screen.no_animation():\n"
+"...     for dist in range(2, 400, 2):\n"
+"...         fd(dist)\n"
+"...         rt(90)"
 msgstr ""
 
 msgid "positive integer"
@@ -2912,12 +2996,12 @@ msgstr ""
 ">>> screen.getshapes()\n"
 "['arrow', 'blank', 'circle', ..., 'turtle']"
 
-msgid "There are three different ways to call this function:"
+msgid "There are four different ways to call this function:"
 msgstr ""
 
 msgid ""
-"*name* is the name of a gif-file and *shape* is ``None``: Install the "
-"corresponding image shape. ::"
+"*name* is the name of an image file (PNG, GIF, PGM, and PPM) and *shape* is "
+"``None``: Install the corresponding image shape. ::"
 msgstr ""
 
 msgid ">>> screen.register_shape(\"turtle.gif\")"
@@ -2926,6 +3010,14 @@ msgstr ">>> screen.register_shape(\"turtle.gif\")"
 msgid ""
 "Image shapes *do not* rotate when turning the turtle, so they do not display "
 "the heading of the turtle!"
+msgstr ""
+
+msgid ""
+"*name* is an arbitrary string and *shape* is the name of an image file (PNG, "
+"GIF, PGM, and PPM): Install the corresponding image shape. ::"
+msgstr ""
+
+msgid ">>> screen.register_shape(\"turtle\", \"turtle.gif\")"
 msgstr ""
 
 msgid ""
@@ -2944,6 +3036,11 @@ msgstr ""
 msgid ""
 "Add a turtle shape to TurtleScreen's shapelist.  Only thusly registered "
 "shapes can be used by issuing the command ``shape(shapename)``."
+msgstr ""
+
+msgid ""
+"Added support for PNG, PGM, and PPM image formats. Both a shape name and an "
+"image file name can be specified."
 msgstr ""
 
 msgid "Return the list of turtles on the screen."
@@ -2991,6 +3088,23 @@ msgid ""
 "switch (no subprocess) is used, this value should be set to ``True`` in :"
 "file:`turtle.cfg`.  In this case IDLE's own mainloop is active also for the "
 "client script."
+msgstr ""
+
+msgid "Save the current turtle drawing (and turtles) as a PostScript file."
+msgstr ""
+
+msgid "the path of the saved PostScript file"
+msgstr ""
+
+msgid ""
+"if ``False`` and there already exists a file with the given filename, then "
+"the function will raise a ``FileExistsError``. If it is ``True``, the file "
+"will be overwritten."
+msgstr ""
+
+msgid ""
+">>> screen.save(\"my_drawing.ps\")\n"
+">>> screen.save(\"my_drawing.ps\", overwrite=True)"
 msgstr ""
 
 msgid ""
@@ -3698,9 +3812,4 @@ msgid ""
 "Two input methods have been added: :func:`Screen.textinput <textinput>` and :"
 "func:`Screen.numinput <numinput>`. These pop up input dialogs and return "
 "strings and numbers respectively."
-msgstr ""
-
-msgid ""
-"Two example scripts :file:`tdemo_nim.py` and :file:`tdemo_round_dance.py` "
-"have been added to the :file:`Lib/turtledemo` directory."
 msgstr ""

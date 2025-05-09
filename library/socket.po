@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -13,9 +13,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:13+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -207,8 +207,28 @@ msgid ""
 msgstr ""
 
 msgid ""
-":const:`BTPROTO_L2CAP` accepts ``(bdaddr, psm)`` where ``bdaddr`` is the "
-"Bluetooth address as a string and ``psm`` is an integer."
+":const:`BTPROTO_L2CAP` accepts a tuple ``(bdaddr, psm[, cid[, "
+"bdaddr_type]])`` where:"
+msgstr ""
+
+msgid "``bdaddr`` is a string specifying the Bluetooth address."
+msgstr ""
+
+msgid "``psm`` is an integer specifying the Protocol/Service Multiplexer."
+msgstr ""
+
+msgid ""
+"``cid`` is an optional integer specifying the Channel Identifier. If not "
+"given, defaults to zero."
+msgstr ""
+
+msgid ""
+"``bdaddr_type`` is an optional integer specifying the address type; one of :"
+"const:`BDADDR_BREDR` (default), :const:`BDADDR_LE_PUBLIC`, :const:"
+"`BDADDR_LE_RANDOM`."
+msgstr ""
+
+msgid "Added ``cid`` and ``bdaddr_type`` fields."
 msgstr ""
 
 msgid ""
@@ -220,8 +240,10 @@ msgid ":const:`BTPROTO_HCI` accepts a format that depends on your OS."
 msgstr ""
 
 msgid ""
-"On Linux it accepts a tuple ``(device_id,)`` where ``device_id`` is an "
-"integer specifying the number of the Bluetooth device."
+"On Linux it accepts an integer ``device_id`` or a tuple ``(device_id, "
+"[channel])`` where ``device_id`` specifies the number of the Bluetooth "
+"device, and ``channel`` is an optional integer specifying the HCI channel (:"
+"const:`HCI_CHANNEL_RAW` by default)."
 msgstr ""
 
 msgid ""
@@ -236,9 +258,13 @@ msgid "FreeBSD support added."
 msgstr ""
 
 msgid ""
+"Added ``channel`` field. ``device_id`` not packed in a tuple is now accepted."
+msgstr ""
+
+msgid ""
 ":const:`BTPROTO_SCO` accepts ``bdaddr`` where ``bdaddr`` is the Bluetooth "
 "address as a string or a :class:`bytes` object. (ex. ``'12:23:34:45:56:67'`` "
-"or ``b'12:23:34:45:56:67'``) This protocol is not supported under FreeBSD."
+"or ``b'12:23:34:45:56:67'``)"
 msgstr ""
 
 msgid ""
@@ -507,16 +533,16 @@ msgid ""
 msgstr ""
 
 msgid ""
-"On Windows, ``TCP_FASTOPEN``, ``TCP_KEEPCNT`` appear if run-time Windows "
-"supports."
+"Added support for ``TCP_FASTOPEN``, ``TCP_KEEPCNT`` on Windows platforms "
+"when available."
 msgstr ""
 
 msgid "``TCP_NOTSENT_LOWAT`` was added."
 msgstr ""
 
 msgid ""
-"On Windows, ``TCP_KEEPIDLE``, ``TCP_KEEPINTVL`` appear if run-time Windows "
-"supports."
+"Added support for ``TCP_KEEPIDLE``, ``TCP_KEEPINTVL`` on Windows platforms "
+"when available."
 msgstr ""
 
 msgid ""
@@ -548,6 +574,14 @@ msgid ""
 "Added ``SO_BINDTOIFINDEX``. On Linux this constant can be used in the same "
 "way that ``SO_BINDTODEVICE`` is used, but with the index of a network "
 "interface instead of its name."
+msgstr ""
+
+msgid ""
+"Added missing ``IP_FREEBIND``, ``IP_RECVERR``, ``IPV6_RECVERR``, "
+"``IP_RECVTTL``, and ``IP_RECVORIGDSTADDR`` on Linux."
+msgstr ""
+
+msgid "Added support for ``TCP_QUICKACK`` on Windows platforms when available."
 msgstr ""
 
 msgid ""
@@ -633,6 +667,9 @@ msgid ""
 "on this platform."
 msgstr ""
 
+msgid "Integer constants for use with Bluetooth addresses."
+msgstr ""
+
 msgid ""
 "These are string constants containing Bluetooth addresses with special "
 "meanings. For example, :const:`BDADDR_ANY` can be used to indicate any "
@@ -640,9 +677,49 @@ msgid ""
 msgstr ""
 
 msgid ""
-"For use with :const:`BTPROTO_HCI`. :const:`!HCI_FILTER` is only available on "
-"Linux and FreeBSD. :const:`!HCI_TIME_STAMP` and :const:`!HCI_DATA_DIR` are "
-"only available on Linux."
+"These constants describe the Bluetooth address type when binding or "
+"connecting a :const:`BTPROTO_L2CAP` socket."
+msgstr ""
+
+msgid ""
+"Used in the level argument to the :meth:`~socket.setsockopt` and :meth:"
+"`~socket.getsockopt` methods of Bluetooth socket objects."
+msgstr ""
+
+msgid ""
+":const:`SOL_BLUETOOTH` is only available on Linux. Other constants are "
+"available if the corresponding protocol is supported."
+msgstr ""
+
+msgid ""
+"Used in the option name and value argument to the :meth:`~socket.setsockopt` "
+"and :meth:`~socket.getsockopt` methods of Bluetooth socket objects."
+msgstr ""
+
+msgid ""
+":const:`!BT_*` and :const:`L2CAP_LM` are only available on Linux. :const:`!"
+"SO_BTH_*` are only available on Windows. Other constants may be available on "
+"Linux and various BSD platforms."
+msgstr ""
+
+msgid ""
+"Option names for use with :const:`BTPROTO_HCI`. Availability and format of "
+"the option values depend on platform."
+msgstr ""
+
+msgid ""
+"Added :const:`!SO_HCI_EVT_FILTER` and :const:`!SO_HCI_PKT_FILTER` on NetBSD "
+"and DragonFly BSD. Added :const:`!HCI_DATA_DIR` on FreeBSD, NetBSD and "
+"DragonFly BSD."
+msgstr ""
+
+msgid ""
+"The ``device_id`` value used to create an HCI socket that isn't specific to "
+"a single Bluetooth adapter."
+msgstr ""
+
+msgid ""
+"Possible values for ``channel`` field in the :const:`BTPROTO_HCI` address."
 msgstr ""
 
 msgid ""
@@ -661,6 +738,10 @@ msgstr ""
 msgid ""
 "Constant to optimize CPU locality, to be used in conjunction with :data:"
 "`SO_REUSEPORT`."
+msgstr ""
+
+msgid ""
+"Constant to enable duplicate address and port bindings with load balancing."
 msgstr ""
 
 msgid "Constants for Windows Hyper-V sockets for host/guest communications."
@@ -1484,12 +1565,6 @@ msgid ""
 "``None`` if no timeout is set.  This reflects the last call to :meth:"
 "`setblocking` or :meth:`settimeout`."
 msgstr ""
-
-msgid "platform"
-msgstr ""
-
-msgid "Windows"
-msgstr "Windows"
 
 msgid ""
 "The :meth:`ioctl` method is a limited interface to the WSAIoctl system "

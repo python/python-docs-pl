@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:50+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -117,6 +117,9 @@ msgstr ""
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython.run_command`` with "
 "argument ``command``."
+msgstr ""
+
+msgid "*command* is automatically dedented before execution."
 msgstr ""
 
 msgid ""
@@ -624,8 +627,21 @@ msgid ""
 "``-X importtime`` to show how long each import takes. It shows module name, "
 "cumulative time (including nested imports) and self time (excluding nested "
 "imports).  Note that its output may be broken in multi-threaded "
-"application.  Typical usage is ``python3 -X importtime -c 'import "
-"asyncio'``.  See also :envvar:`PYTHONPROFILEIMPORTTIME`."
+"application.  Typical usage is ``python -X importtime -c 'import asyncio'``."
+msgstr ""
+
+msgid ""
+"``-X importtime=2`` enables additional output that indicates when an "
+"imported module has already been loaded.  In such cases, the string "
+"``cached`` will be printed in both time columns."
+msgstr ""
+
+msgid "See also :envvar:`PYTHONPROFILEIMPORTTIME`."
+msgstr ""
+
+msgid ""
+"Added ``-X importtime=2`` to also trace imports of loaded modules, and "
+"reserved values other than ``1`` and ``2`` for future use."
 msgstr ""
 
 msgid ""
@@ -690,6 +706,19 @@ msgid ""
 msgstr ""
 
 msgid ""
+"``-X disable_remote_debug`` disables the remote debugging support as "
+"described in :pep:`768`.  This includes both the functionality to schedule "
+"code for execution in another process and the functionality to receive code "
+"for execution in the current process."
+msgstr ""
+
+msgid ""
+"This option is only available on some platforms and will do nothing if is "
+"not supported on the current system. See also :envvar:"
+"`PYTHON_DISABLE_REMOTE_DEBUG` and :pep:`768`."
+msgstr ""
+
+msgid ""
 ":samp:`-X cpu_count={n}` overrides :func:`os.cpu_count`, :func:`os."
 "process_cpu_count`, and :func:`multiprocessing.cpu_count`. *n* must be "
 "greater than or equal to 1. This option may be useful for users who need to "
@@ -714,6 +743,22 @@ msgid ""
 msgstr ""
 
 msgid ""
+":samp:`-X thread_inherit_context={0,1}` causes :class:`~threading.Thread` "
+"to, by default, use a copy of context of of the caller of ``Thread.start()`` "
+"when starting.  Otherwise, threads will start with an empty context.  If "
+"unset, the value of this option defaults to ``1`` on free-threaded builds "
+"and to ``0`` otherwise.  See also :envvar:`PYTHON_THREAD_INHERIT_CONTEXT`."
+msgstr ""
+
+msgid ""
+":samp:`-X context_aware_warnings={0,1}` causes the :class:`warnings."
+"catch_warnings` context manager to use a :class:`~contextvars.ContextVar` to "
+"store warnings filter state.  If unset, the value of this option defaults to "
+"``1`` on free-threaded builds and to ``0`` otherwise.  See also :envvar:"
+"`PYTHON_CONTEXT_AWARE_WARNINGS`."
+msgstr ""
+
+msgid ""
 "It also allows passing arbitrary values and retrieving them through the :"
 "data:`sys._xoptions` dictionary."
 msgstr ""
@@ -722,6 +767,11 @@ msgid "Removed the ``-X showalloccount`` option."
 msgstr ""
 
 msgid "Removed the ``-X oldparser`` option."
+msgstr ""
+
+msgid ""
+":option:`!-J` is no longer reserved for use by Jython_, and now has no "
+"special meaning."
 msgstr ""
 
 msgid "Controlling color"
@@ -754,12 +804,6 @@ msgid ""
 "the :envvar:`PYTHON_COLORS` environment variable can be used. This variable "
 "takes precedence over ``NO_COLOR``, which in turn takes precedence over "
 "``FORCE_COLOR``."
-msgstr ""
-
-msgid "Options you shouldn't use"
-msgstr ""
-
-msgid "Reserved for use by Jython_."
 msgstr ""
 
 msgid "Environment variables"
@@ -1012,9 +1056,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If this environment variable is set to a non-empty string, Python will show "
-"how long each import takes. This is equivalent to setting the :option:`-X` "
-"``importtime`` option."
+"If this environment variable is set to ``1``, Python will show how long each "
+"import takes. If set to ``2``, Python will include output for imported "
+"modules that have already been loaded. This is equivalent to setting the :"
+"option:`-X` ``importtime`` option."
+msgstr ""
+
+msgid ""
+"Added ``PYTHONPROFILEIMPORTTIME=2`` to also trace imports of loaded modules."
 msgstr ""
 
 msgid ""
@@ -1240,6 +1289,16 @@ msgid ""
 msgstr ""
 
 msgid ""
+"If this variable is set to a non-empty string, it disables the remote "
+"debugging feature described in :pep:`768`. This includes both the "
+"functionality to schedule code for execution in another process and the "
+"functionality to receive code for execution in the current process."
+msgstr ""
+
+msgid "See also the :option:`-X disable_remote_debug` command-line option."
+msgstr ""
+
+msgid ""
 "If this variable is set to a positive integer, it overrides the return "
 "values of :func:`os.cpu_count` and :func:`os.process_cpu_count`."
 msgstr ""
@@ -1287,6 +1346,27 @@ msgstr ""
 msgid ""
 "See also the :option:`-X gil <-X>` command-line option, which takes "
 "precedence over this variable, and :ref:`whatsnew313-free-threaded-cpython`."
+msgstr ""
+
+msgid ""
+"If this variable is set to ``1`` then :class:`~threading.Thread` will, by "
+"default, use a copy of context of of the caller of ``Thread.start()`` when "
+"starting.  Otherwise, new threads will start with an empty context. If "
+"unset, this variable defaults to ``1`` on free-threaded builds and to ``0`` "
+"otherwise.  See also :option:`-X thread_inherit_context<-X>`."
+msgstr ""
+
+msgid ""
+"If set to ``1`` then the :class:`warnings.catch_warnings` context manager "
+"will use a :class:`~contextvars.ContextVar` to store warnings filter state.  "
+"If unset, this variable defaults to ``1`` on free-threaded builds and to "
+"``0`` otherwise.  See :option:`-X context_aware_warnings<-X>`."
+msgstr ""
+
+msgid ""
+"On builds where experimental just-in-time compilation is available, this "
+"variable can force the JIT to be disabled (``0``) or enabled (``1``) at "
+"interpreter startup."
 msgstr ""
 
 msgid "Debug-mode variables"

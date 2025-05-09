@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Stan Ulbrych, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2025
+# Maciej Olko <maciej.olko@gmail.com>, 2025
+# Stan Ulbrych, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +27,773 @@ msgstr ""
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Python Initialization Configuration"
+msgstr ""
+
+msgid "PyInitConfig C API"
+msgstr ""
+
+msgid "Python can be initialized with :c:func:`Py_InitializeFromInitConfig`."
+msgstr ""
+
+msgid ""
+"The :c:func:`Py_RunMain` function can be used to write a customized Python "
+"program."
+msgstr ""
+
+msgid ""
+"See also :ref:`Initialization, Finalization, and Threads <initialization>`."
+msgstr ""
+
+msgid ":pep:`741` \"Python Configuration C API\"."
+msgstr ""
+
+msgid "Example"
+msgstr "Przykład"
+
+msgid ""
+"Example of customized Python always running with the :ref:`Python "
+"Development Mode <devmode>` enabled; return ``-1`` on error:"
+msgstr ""
+
+msgid ""
+"int init_python(void)\n"
+"{\n"
+"    PyInitConfig *config = PyInitConfig_Create();\n"
+"    if (config == NULL) {\n"
+"        printf(\"PYTHON INIT ERROR: memory allocation failed\\n\");\n"
+"        return -1;\n"
+"    }\n"
+"\n"
+"    // Enable the Python Development Mode\n"
+"    if (PyInitConfig_SetInt(config, \"dev_mode\", 1) < 0) {\n"
+"        goto error;\n"
+"    }\n"
+"\n"
+"    // Initialize Python with the configuration\n"
+"    if (Py_InitializeFromInitConfig(config) < 0) {\n"
+"        goto error;\n"
+"    }\n"
+"    PyInitConfig_Free(config);\n"
+"    return 0;\n"
+"\n"
+"error:\n"
+"    {\n"
+"        // Display the error message.\n"
+"        //\n"
+"        // This uncommon braces style is used, because you cannot make\n"
+"        // goto targets point to variable declarations.\n"
+"        const char *err_msg;\n"
+"        (void)PyInitConfig_GetError(config, &err_msg);\n"
+"        printf(\"PYTHON INIT ERROR: %s\\n\", err_msg);\n"
+"        PyInitConfig_Free(config);\n"
+"        return -1;\n"
+"    }\n"
+"}"
+msgstr ""
+
+msgid "Create Config"
+msgstr ""
+
+msgid "Opaque structure to configure the Python initialization."
+msgstr ""
+
+msgid ""
+"Create a new initialization configuration using :ref:`Isolated Configuration "
+"<init-isolated-conf>` default values."
+msgstr ""
+
+msgid "It must be freed by :c:func:`PyInitConfig_Free`."
+msgstr ""
+
+msgid "Return ``NULL`` on memory allocation failure."
+msgstr ""
+
+msgid "Free memory of the initialization configuration *config*."
+msgstr ""
+
+msgid "If *config* is ``NULL``, no operation is performed."
+msgstr ""
+
+msgid "Error Handling"
+msgstr "Przechwytywanie błędów"
+
+msgid "Get the *config* error message."
+msgstr ""
+
+msgid "Set *\\*err_msg* and return ``1`` if an error is set."
+msgstr ""
+
+msgid "Set *\\*err_msg* to ``NULL`` and return ``0`` otherwise."
+msgstr ""
+
+msgid "An error message is an UTF-8 encoded string."
+msgstr ""
+
+msgid "If *config* has an exit code, format the exit code as an error message."
+msgstr ""
+
+msgid ""
+"The error message remains valid until another ``PyInitConfig`` function is "
+"called with *config*. The caller doesn't have to free the error message."
+msgstr ""
+
+msgid "Get the *config* exit code."
+msgstr ""
+
+msgid "Set *\\*exitcode* and return ``1`` if *config* has an exit code set."
+msgstr ""
+
+msgid "Return ``0`` if *config* has no exit code set."
+msgstr ""
+
+msgid ""
+"Only the ``Py_InitializeFromInitConfig()`` function can set an exit code if "
+"the ``parse_argv`` option is non-zero."
+msgstr ""
+
+msgid ""
+"An exit code can be set when parsing the command line failed (exit code "
+"``2``) or when a command line option asks to display the command line help "
+"(exit code ``0``)."
+msgstr ""
+
+msgid "Get Options"
+msgstr ""
+
+msgid ""
+"The configuration option *name* parameter must be a non-NULL null-terminated "
+"UTF-8 encoded string. See :ref:`Configuration Options <pyinitconfig-opts>`."
+msgstr ""
+
+msgid "Test if the configuration has an option called *name*."
+msgstr ""
+
+msgid "Return ``1`` if the option exists, or return ``0`` otherwise."
+msgstr ""
+
+msgid "Get an integer configuration option."
+msgstr ""
+
+msgid "Set *\\*value*, and return ``0`` on success."
+msgstr ""
+
+msgid "Set an error in *config* and return ``-1`` on error."
+msgstr ""
+
+msgid ""
+"Get a string configuration option as a null-terminated UTF-8 encoded string."
+msgstr ""
+
+msgid ""
+"*\\*value* can be set to ``NULL`` if the option is an optional string and "
+"the option is unset."
+msgstr ""
+
+msgid ""
+"On success, the string must be released with ``free(value)`` if it's not "
+"``NULL``."
+msgstr ""
+
+msgid ""
+"Get a string list configuration option as an array of null-terminated UTF-8 "
+"encoded strings."
+msgstr ""
+
+msgid "Set *\\*length* and *\\*value*, and return ``0`` on success."
+msgstr ""
+
+msgid ""
+"On success, the string list must be released with "
+"``PyInitConfig_FreeStrList(length, items)``."
+msgstr ""
+
+msgid "Free memory of a string list created by ``PyInitConfig_GetStrList()``."
+msgstr ""
+
+msgid "Set Options"
+msgstr ""
+
+msgid ""
+"Some configuration options have side effects on other options. This logic is "
+"only implemented when ``Py_InitializeFromInitConfig()`` is called, not by "
+"the \"Set\" functions below. For example, setting ``dev_mode`` to ``1`` does "
+"not set ``faulthandler`` to ``1``."
+msgstr ""
+
+msgid "Set an integer configuration option."
+msgstr ""
+
+msgid "Return ``0`` on success."
+msgstr ""
+
+msgid ""
+"Set a string configuration option from a null-terminated UTF-8 encoded "
+"string. The string is copied."
+msgstr ""
+
+msgid ""
+"Set a string list configuration option from an array of null-terminated "
+"UTF-8 encoded strings. The string list is copied."
+msgstr ""
+
+msgid "Module"
+msgstr ""
+
+msgid "Add a built-in extension module to the table of built-in modules."
+msgstr ""
+
+msgid ""
+"The new module can be imported by the name *name*, and uses the function "
+"*initfunc* as the initialization function called on the first attempted "
+"import."
+msgstr ""
+
+msgid ""
+"If Python is initialized multiple times, ``PyInitConfig_AddModule()`` must "
+"be called at each Python initialization."
+msgstr ""
+
+msgid "Similar to the :c:func:`PyImport_AppendInittab` function."
+msgstr ""
+
+msgid "Initialize Python"
+msgstr ""
+
+msgid "Initialize Python from the initialization configuration."
+msgstr ""
+
+msgid "Set an exit code in *config* and return ``-1`` if Python wants to exit."
+msgstr ""
+
+msgid "See ``PyInitConfig_GetExitcode()`` for the exit code case."
+msgstr ""
+
+msgid "Configuration Options"
+msgstr ""
+
+msgid "Option"
+msgstr ""
+
+msgid "PyConfig/PyPreConfig member"
+msgstr ""
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Visibility"
+msgstr "Widoczność"
+
+msgid "``\"allocator\"``"
+msgstr ""
+
+msgid ":c:member:`allocator <PyPreConfig.allocator>`"
+msgstr ""
+
+msgid "``int``"
+msgstr "``int``"
+
+msgid "Read-only"
+msgstr ""
+
+msgid "``\"argv\"``"
+msgstr ""
+
+msgid ":c:member:`argv <PyConfig.argv>`"
+msgstr ""
+
+msgid "``list[str]``"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "``\"base_exec_prefix\"``"
+msgstr ""
+
+msgid ":c:member:`base_exec_prefix <PyConfig.base_exec_prefix>`"
+msgstr ""
+
+msgid "``str``"
+msgstr ""
+
+msgid "``\"base_executable\"``"
+msgstr ""
+
+msgid ":c:member:`base_executable <PyConfig.base_executable>`"
+msgstr ""
+
+msgid "``\"base_prefix\"``"
+msgstr ""
+
+msgid ":c:member:`base_prefix <PyConfig.base_prefix>`"
+msgstr ""
+
+msgid "``\"buffered_stdio\"``"
+msgstr ""
+
+msgid ":c:member:`buffered_stdio <PyConfig.buffered_stdio>`"
+msgstr ""
+
+msgid "``bool``"
+msgstr ""
+
+msgid "``\"bytes_warning\"``"
+msgstr ""
+
+msgid ":c:member:`bytes_warning <PyConfig.bytes_warning>`"
+msgstr ""
+
+msgid "``\"check_hash_pycs_mode\"``"
+msgstr ""
+
+msgid ":c:member:`check_hash_pycs_mode <PyConfig.check_hash_pycs_mode>`"
+msgstr ""
+
+msgid "``\"code_debug_ranges\"``"
+msgstr ""
+
+msgid ":c:member:`code_debug_ranges <PyConfig.code_debug_ranges>`"
+msgstr ""
+
+msgid "``\"coerce_c_locale\"``"
+msgstr ""
+
+msgid ":c:member:`coerce_c_locale <PyPreConfig.coerce_c_locale>`"
+msgstr ""
+
+msgid "``\"coerce_c_locale_warn\"``"
+msgstr ""
+
+msgid ":c:member:`coerce_c_locale_warn <PyPreConfig.coerce_c_locale_warn>`"
+msgstr ""
+
+msgid "``\"configure_c_stdio\"``"
+msgstr ""
+
+msgid ":c:member:`configure_c_stdio <PyConfig.configure_c_stdio>`"
+msgstr ""
+
+msgid "``\"configure_locale\"``"
+msgstr ""
+
+msgid ":c:member:`configure_locale <PyPreConfig.configure_locale>`"
+msgstr ""
+
+msgid "``\"cpu_count\"``"
+msgstr ""
+
+msgid ":c:member:`cpu_count <PyConfig.cpu_count>`"
+msgstr ""
+
+msgid "``\"dev_mode\"``"
+msgstr ""
+
+msgid ":c:member:`dev_mode <PyConfig.dev_mode>`"
+msgstr ""
+
+msgid "``\"dump_refs\"``"
+msgstr ""
+
+msgid ":c:member:`dump_refs <PyConfig.dump_refs>`"
+msgstr ""
+
+msgid "``\"dump_refs_file\"``"
+msgstr ""
+
+msgid ":c:member:`dump_refs_file <PyConfig.dump_refs_file>`"
+msgstr ""
+
+msgid "``\"exec_prefix\"``"
+msgstr ""
+
+msgid ":c:member:`exec_prefix <PyConfig.exec_prefix>`"
+msgstr ""
+
+msgid "``\"executable\"``"
+msgstr ""
+
+msgid ":c:member:`executable <PyConfig.executable>`"
+msgstr ""
+
+msgid "``\"faulthandler\"``"
+msgstr ""
+
+msgid ":c:member:`faulthandler <PyConfig.faulthandler>`"
+msgstr ""
+
+msgid "``\"filesystem_encoding\"``"
+msgstr ""
+
+msgid ":c:member:`filesystem_encoding <PyConfig.filesystem_encoding>`"
+msgstr ""
+
+msgid "``\"filesystem_errors\"``"
+msgstr ""
+
+msgid ":c:member:`filesystem_errors <PyConfig.filesystem_errors>`"
+msgstr ""
+
+msgid "``\"hash_seed\"``"
+msgstr ""
+
+msgid ":c:member:`hash_seed <PyConfig.hash_seed>`"
+msgstr ""
+
+msgid "``\"home\"``"
+msgstr ""
+
+msgid ":c:member:`home <PyConfig.home>`"
+msgstr ""
+
+msgid "``\"import_time\"``"
+msgstr ""
+
+msgid ":c:member:`import_time <PyConfig.import_time>`"
+msgstr ""
+
+msgid "``\"inspect\"``"
+msgstr ""
+
+msgid ":c:member:`inspect <PyConfig.inspect>`"
+msgstr ""
+
+msgid "``\"install_signal_handlers\"``"
+msgstr ""
+
+msgid ":c:member:`install_signal_handlers <PyConfig.install_signal_handlers>`"
+msgstr ""
+
+msgid "``\"int_max_str_digits\"``"
+msgstr ""
+
+msgid ":c:member:`int_max_str_digits <PyConfig.int_max_str_digits>`"
+msgstr ""
+
+msgid "``\"interactive\"``"
+msgstr ""
+
+msgid ":c:member:`interactive <PyConfig.interactive>`"
+msgstr ""
+
+msgid "``\"isolated\"``"
+msgstr ""
+
+msgid ":c:member:`isolated <PyConfig.isolated>`"
+msgstr ""
+
+msgid "``\"legacy_windows_fs_encoding\"``"
+msgstr ""
+
+msgid ""
+":c:member:`legacy_windows_fs_encoding <PyPreConfig."
+"legacy_windows_fs_encoding>`"
+msgstr ""
+
+msgid "``\"legacy_windows_stdio\"``"
+msgstr ""
+
+msgid ":c:member:`legacy_windows_stdio <PyConfig.legacy_windows_stdio>`"
+msgstr ""
+
+msgid "``\"malloc_stats\"``"
+msgstr ""
+
+msgid ":c:member:`malloc_stats <PyConfig.malloc_stats>`"
+msgstr ""
+
+msgid "``\"module_search_paths\"``"
+msgstr ""
+
+msgid ":c:member:`module_search_paths <PyConfig.module_search_paths>`"
+msgstr ""
+
+msgid "``\"optimization_level\"``"
+msgstr ""
+
+msgid ":c:member:`optimization_level <PyConfig.optimization_level>`"
+msgstr ""
+
+msgid "``\"orig_argv\"``"
+msgstr ""
+
+msgid ":c:member:`orig_argv <PyConfig.orig_argv>`"
+msgstr ""
+
+msgid "``\"parse_argv\"``"
+msgstr ""
+
+msgid ":c:member:`parse_argv <PyConfig.parse_argv>`"
+msgstr ""
+
+msgid "``\"parser_debug\"``"
+msgstr ""
+
+msgid ":c:member:`parser_debug <PyConfig.parser_debug>`"
+msgstr ""
+
+msgid "``\"pathconfig_warnings\"``"
+msgstr ""
+
+msgid ":c:member:`pathconfig_warnings <PyConfig.pathconfig_warnings>`"
+msgstr ""
+
+msgid "``\"perf_profiling\"``"
+msgstr ""
+
+msgid ":c:member:`perf_profiling <PyConfig.perf_profiling>`"
+msgstr ""
+
+msgid "``\"platlibdir\"``"
+msgstr ""
+
+msgid ":c:member:`platlibdir <PyConfig.platlibdir>`"
+msgstr ""
+
+msgid "``\"prefix\"``"
+msgstr ""
+
+msgid ":c:member:`prefix <PyConfig.prefix>`"
+msgstr ""
+
+msgid "``\"program_name\"``"
+msgstr ""
+
+msgid ":c:member:`program_name <PyConfig.program_name>`"
+msgstr ""
+
+msgid "``\"pycache_prefix\"``"
+msgstr ""
+
+msgid ":c:member:`pycache_prefix <PyConfig.pycache_prefix>`"
+msgstr ""
+
+msgid "``\"quiet\"``"
+msgstr ""
+
+msgid ":c:member:`quiet <PyConfig.quiet>`"
+msgstr ""
+
+msgid "``\"run_command\"``"
+msgstr ""
+
+msgid ":c:member:`run_command <PyConfig.run_command>`"
+msgstr ""
+
+msgid "``\"run_filename\"``"
+msgstr ""
+
+msgid ":c:member:`run_filename <PyConfig.run_filename>`"
+msgstr ""
+
+msgid "``\"run_module\"``"
+msgstr ""
+
+msgid ":c:member:`run_module <PyConfig.run_module>`"
+msgstr ""
+
+msgid "``\"run_presite\"``"
+msgstr ""
+
+msgid ":c:member:`run_presite <PyConfig.run_presite>`"
+msgstr ""
+
+msgid "``\"safe_path\"``"
+msgstr ""
+
+msgid ":c:member:`safe_path <PyConfig.safe_path>`"
+msgstr ""
+
+msgid "``\"show_ref_count\"``"
+msgstr ""
+
+msgid ":c:member:`show_ref_count <PyConfig.show_ref_count>`"
+msgstr ""
+
+msgid "``\"site_import\"``"
+msgstr ""
+
+msgid ":c:member:`site_import <PyConfig.site_import>`"
+msgstr ""
+
+msgid "``\"skip_source_first_line\"``"
+msgstr ""
+
+msgid ":c:member:`skip_source_first_line <PyConfig.skip_source_first_line>`"
+msgstr ""
+
+msgid "``\"stdio_encoding\"``"
+msgstr ""
+
+msgid ":c:member:`stdio_encoding <PyConfig.stdio_encoding>`"
+msgstr ""
+
+msgid "``\"stdio_errors\"``"
+msgstr ""
+
+msgid ":c:member:`stdio_errors <PyConfig.stdio_errors>`"
+msgstr ""
+
+msgid "``\"stdlib_dir\"``"
+msgstr ""
+
+msgid ":c:member:`stdlib_dir <PyConfig.stdlib_dir>`"
+msgstr ""
+
+msgid "``\"tracemalloc\"``"
+msgstr ""
+
+msgid ":c:member:`tracemalloc <PyConfig.tracemalloc>`"
+msgstr ""
+
+msgid "``\"use_environment\"``"
+msgstr ""
+
+msgid ":c:member:`use_environment <PyConfig.use_environment>`"
+msgstr ""
+
+msgid "``\"use_frozen_modules\"``"
+msgstr ""
+
+msgid ":c:member:`use_frozen_modules <PyConfig.use_frozen_modules>`"
+msgstr ""
+
+msgid "``\"use_hash_seed\"``"
+msgstr ""
+
+msgid ":c:member:`use_hash_seed <PyConfig.use_hash_seed>`"
+msgstr ""
+
+msgid "``\"use_system_logger\"``"
+msgstr ""
+
+msgid ":c:member:`use_system_logger <PyConfig.use_system_logger>`"
+msgstr ""
+
+msgid "``\"user_site_directory\"``"
+msgstr ""
+
+msgid ":c:member:`user_site_directory <PyConfig.user_site_directory>`"
+msgstr ""
+
+msgid "``\"utf8_mode\"``"
+msgstr ""
+
+msgid ":c:member:`utf8_mode <PyPreConfig.utf8_mode>`"
+msgstr ""
+
+msgid "``\"verbose\"``"
+msgstr ""
+
+msgid ":c:member:`verbose <PyConfig.verbose>`"
+msgstr ""
+
+msgid "``\"warn_default_encoding\"``"
+msgstr ""
+
+msgid ":c:member:`warn_default_encoding <PyConfig.warn_default_encoding>`"
+msgstr ""
+
+msgid "``\"warnoptions\"``"
+msgstr ""
+
+msgid ":c:member:`warnoptions <PyConfig.warnoptions>`"
+msgstr ""
+
+msgid "``\"write_bytecode\"``"
+msgstr ""
+
+msgid ":c:member:`write_bytecode <PyConfig.write_bytecode>`"
+msgstr ""
+
+msgid "``\"xoptions\"``"
+msgstr ""
+
+msgid ":c:member:`xoptions <PyConfig.xoptions>`"
+msgstr ""
+
+msgid "``dict[str, str]``"
+msgstr ""
+
+msgid "``\"_pystats\"``"
+msgstr ""
+
+msgid ":c:member:`_pystats <PyConfig._pystats>`"
+msgstr ""
+
+msgid "Visibility:"
+msgstr ""
+
+msgid ""
+"Public: Can by get by :c:func:`PyConfig_Get` and set by :c:func:"
+"`PyConfig_Set`."
+msgstr ""
+
+msgid ""
+"Read-only: Can by get by :c:func:`PyConfig_Get`, but cannot be set by :c:"
+"func:`PyConfig_Set`."
+msgstr ""
+
+msgid "Runtime Python configuration API"
+msgstr ""
+
+msgid ""
+"At runtime, it's possible to get and set configuration options using :c:func:"
+"`PyConfig_Get` and  :c:func:`PyConfig_Set` functions."
+msgstr ""
+
+msgid ""
+"Some options are read from the :mod:`sys` attributes. For example, the "
+"option ``\"argv\"`` is read from :data:`sys.argv`."
+msgstr ""
+
+msgid ""
+"Get the current runtime value of a configuration option as a Python object."
+msgstr ""
+
+msgid "Return a new reference on success."
+msgstr ""
+
+msgid "Set an exception and return ``NULL`` on error."
+msgstr ""
+
+msgid "The object type depends on the configuration option. It can be:"
+msgstr ""
+
+msgid ""
+"The caller must have an :term:`attached thread state`. The function cannot "
+"be called before Python initialization nor after Python finalization."
+msgstr ""
+
+msgid "Similar to :c:func:`PyConfig_Get`, but get the value as a C int."
+msgstr ""
+
+msgid "Set an exception and return ``-1`` on error."
+msgstr ""
+
+msgid "Get all configuration option names as a ``frozenset``."
+msgstr ""
+
+msgid "Set the current runtime value of a configuration option."
+msgstr ""
+
+msgid "Raise a :exc:`ValueError` if there is no option *name*."
+msgstr ""
+
+msgid "Raise a :exc:`ValueError` if *value* is an invalid value."
+msgstr ""
+
+msgid "Raise a :exc:`ValueError` if the option is read-only (cannot be set)."
+msgstr ""
+
+msgid "Raise a :exc:`TypeError` if *value* has not the proper type."
+msgstr ""
+
+msgid ""
+"Raises an :ref:`auditing event <auditing>` ``cpython.PyConfig_Set`` with "
+"arguments ``name``, ``value``."
+msgstr ""
+
+msgid "PyConfig C API"
 msgstr ""
 
 msgid ""
@@ -50,20 +819,8 @@ msgid ""
 "no signal handler is registered."
 msgstr ""
 
-msgid ""
-"The :c:func:`Py_RunMain` function can be used to write a customized Python "
-"program."
-msgstr ""
-
-msgid ""
-"See also :ref:`Initialization, Finalization, and Threads <initialization>`."
-msgstr ""
-
 msgid ":pep:`587` \"Python Initialization Configuration\"."
 msgstr ""
-
-msgid "Example"
-msgstr "Przykład"
 
 msgid "Example of customized Python always running in isolated mode::"
 msgstr ""
@@ -809,6 +1566,12 @@ msgid ""
 "see the :option:`configure --with-trace-refs option <--with-trace-refs>`."
 msgstr ""
 
+msgid "Filename where to dump Python references."
+msgstr ""
+
+msgid "Set by the :envvar:`PYTHONDUMPREFSFILE` environment variable."
+msgstr ""
+
 msgid ""
 "The site-specific directory prefix where the platform-dependent Python files "
 "are installed: :data:`sys.exec_prefix`."
@@ -906,6 +1669,17 @@ msgstr ""
 msgid "See also the :c:member:`~PyConfig.filesystem_encoding` member."
 msgstr ""
 
+msgid "If non-zero, use frozen modules."
+msgstr ""
+
+msgid "Set by the :envvar:`PYTHON_FROZEN_MODULES` environment variable."
+msgstr ""
+
+msgid ""
+"Default: ``1`` in a release build, or ``0`` in a :ref:`debug build <debug-"
+"build>`."
+msgstr ""
+
 msgid "Randomized hash function seed."
 msgstr ""
 
@@ -932,12 +1706,17 @@ msgstr ""
 msgid "Part of the :ref:`Python Path Configuration <init-path-config>` input."
 msgstr ""
 
-msgid "If non-zero, profile import time."
+msgid ""
+"If ``1``, profile import time. If ``2``, include additional output that "
+"indicates when an imported module has already been loaded."
 msgstr ""
 
 msgid ""
-"Set the ``1`` by the :option:`-X importtime <-X>` option and the :envvar:"
+"Set by the :option:`-X importtime <-X>` option and the :envvar:"
 "`PYTHONPROFILEIMPORTTIME` environment variable."
+msgstr ""
+
+msgid "Added support for ``import_time = 2``"
 msgstr ""
 
 msgid "Enter interactive mode after executing a script or a command."
@@ -1354,20 +2133,31 @@ msgid ""
 "envvar:`PYTHONTRACEMALLOC` environment variable."
 msgstr ""
 
-msgid "Enable compatibility mode with the perf profiler?"
+msgid "Enable the Linux ``perf`` profiler support?"
+msgstr ""
+
+msgid "If equals to ``1``, enable support for the Linux ``perf`` profiler."
 msgstr ""
 
 msgid ""
-"If non-zero, initialize the perf trampoline. See :ref:`perf_profiling` for "
-"more information."
+"If equals to ``2``, enable support for the Linux ``perf`` profiler with "
+"DWARF JIT support."
 msgstr ""
 
 msgid ""
-"Set by :option:`-X perf <-X>` command-line option and by the :envvar:"
-"`PYTHON_PERF_JIT_SUPPORT` environment variable for perf support with stack "
-"pointers and :option:`-X perf_jit <-X>` command-line option and by the :"
-"envvar:`PYTHON_PERF_JIT_SUPPORT` environment variable for perf support with "
-"DWARF JIT information."
+"Set to ``1`` by :option:`-X perf <-X>` command-line option and the :envvar:"
+"`PYTHONPERFSUPPORT` environment variable."
+msgstr ""
+
+msgid ""
+"Set to ``2`` by the :option:`-X perf_jit <-X>` command-line option and the :"
+"envvar:`PYTHON_PERF_JIT_SUPPORT` environment variable."
+msgstr ""
+
+msgid "See :ref:`perf_profiling` for more information."
+msgstr ""
+
+msgid "Directory of the Python standard library."
 msgstr ""
 
 msgid "Use :ref:`environment variables <using-on-envvars>`?"
@@ -1379,6 +2169,18 @@ msgid ""
 msgstr ""
 
 msgid "Set to ``0`` by the :option:`-E` environment variable."
+msgstr ""
+
+msgid ""
+"If non-zero, ``stdout`` and ``stderr`` will be redirected to the system log."
+msgstr ""
+
+msgid "Only available on macOS 10.12 and later, and on iOS."
+msgstr ""
+
+msgid ""
+"Default: ``0`` (don't use the system log) on macOS; ``1`` on iOS (use the "
+"system log)."
 msgstr ""
 
 msgid "If non-zero, add the user site directory to :data:`sys.path`."
@@ -1446,6 +2248,14 @@ msgid ""
 msgstr ""
 
 msgid "Values of the :option:`-X` command line options: :data:`sys._xoptions`."
+msgstr ""
+
+msgid "If non-zero, write performance statistics at Python exit."
+msgstr ""
+
+msgid ""
+"Need a special build with the ``Py_STATS`` macro: see :option:`--enable-"
+"pystats`."
 msgstr ""
 
 msgid ""
@@ -1778,8 +2588,24 @@ msgid "Set :c:member:`~PyConfig.safe_path` to ``1``."
 msgstr ""
 
 msgid ""
+"If :c:member:`~PyConfig.home` is not set and a ``pyvenv.cfg`` file is "
+"present in the same directory as :c:member:`~PyConfig.executable`, or its "
+"parent, :c:member:`~PyConfig.prefix` and :c:member:`~PyConfig.exec_prefix` "
+"are set that location. When this happens, :c:member:`~PyConfig.base_prefix` "
+"and :c:member:`~PyConfig.base_exec_prefix` still keep their value, pointing "
+"to the base installation. See :ref:`sys-path-init-virtual-environments` for "
+"more information."
+msgstr ""
+
+msgid ""
 "The ``__PYVENV_LAUNCHER__`` environment variable is used to set :c:member:"
 "`PyConfig.base_executable`."
+msgstr ""
+
+msgid ""
+":c:member:`~PyConfig.prefix`, and :c:member:`~PyConfig.exec_prefix`, are now "
+"set to the ``pyvenv.cfg`` directory. This was previously done by :mod:"
+"`site`, therefore affected by :option:`-S`."
 msgstr ""
 
 msgid "Py_GetArgcArgv()"
@@ -1791,130 +2617,19 @@ msgstr ""
 msgid "See also :c:member:`PyConfig.orig_argv` member."
 msgstr ""
 
-msgid "Multi-Phase Initialization Private Provisional API"
+msgid "Delaying main module execution"
 msgstr ""
 
 msgid ""
-"This section is a private provisional API introducing multi-phase "
-"initialization, the core feature of :pep:`432`:"
-msgstr ""
-
-msgid "\"Core\" initialization phase, \"bare minimum Python\":"
-msgstr ""
-
-msgid "Builtin types;"
-msgstr ""
-
-msgid "Builtin exceptions;"
-msgstr ""
-
-msgid "Builtin and frozen modules;"
+"In some embedding use cases, it may be desirable to separate interpreter "
+"initialization from the execution of the main module."
 msgstr ""
 
 msgid ""
-"The :mod:`sys` module is only partially initialized (ex: :data:`sys.path` "
-"doesn't exist yet)."
-msgstr ""
-
-msgid "\"Main\" initialization phase, Python is fully initialized:"
-msgstr ""
-
-msgid "Install and configure :mod:`importlib`;"
-msgstr ""
-
-msgid "Apply the :ref:`Path Configuration <init-path-config>`;"
-msgstr ""
-
-msgid "Install signal handlers;"
-msgstr ""
-
-msgid ""
-"Finish :mod:`sys` module initialization (ex: create :data:`sys.stdout` and :"
-"data:`sys.path`);"
-msgstr ""
-
-msgid ""
-"Enable optional features like :mod:`faulthandler` and :mod:`tracemalloc`;"
-msgstr ""
-
-msgid "Import the :mod:`site` module;"
-msgstr ""
-
-msgid "etc."
-msgstr "itd."
-
-msgid "Private provisional API:"
-msgstr ""
-
-msgid ""
-":c:member:`PyConfig._init_main`: if set to ``0``, :c:func:"
-"`Py_InitializeFromConfig` stops at the \"Core\" initialization phase."
-msgstr ""
-
-msgid ""
-"Move to the \"Main\" initialization phase, finish the Python initialization."
-msgstr ""
-
-msgid ""
-"No module is imported during the \"Core\" phase and the ``importlib`` module "
-"is not configured: the :ref:`Path Configuration <init-path-config>` is only "
-"applied during the \"Main\" phase. It may allow to customize Python in "
-"Python to override or tune the :ref:`Path Configuration <init-path-config>`, "
-"maybe install a custom :data:`sys.meta_path` importer or an import hook, etc."
-msgstr ""
-
-msgid ""
-"It may become possible to calculate the :ref:`Path Configuration <init-path-"
-"config>` in Python, after the Core phase and before the Main phase, which is "
-"one of the :pep:`432` motivation."
-msgstr ""
-
-msgid ""
-"The \"Core\" phase is not properly defined: what should be and what should "
-"not be available at this phase is not specified yet. The API is marked as "
-"private and provisional: the API can be modified or even be removed anytime "
-"until a proper public API is designed."
-msgstr ""
-
-msgid ""
-"Example running Python code between \"Core\" and \"Main\" initialization "
-"phases::"
-msgstr ""
-
-msgid ""
-"void init_python(void)\n"
-"{\n"
-"    PyStatus status;\n"
-"\n"
-"    PyConfig config;\n"
-"    PyConfig_InitPythonConfig(&config);\n"
-"    config._init_main = 0;\n"
-"\n"
-"    /* ... customize 'config' configuration ... */\n"
-"\n"
-"    status = Py_InitializeFromConfig(&config);\n"
-"    PyConfig_Clear(&config);\n"
-"    if (PyStatus_Exception(status)) {\n"
-"        Py_ExitStatusException(status);\n"
-"    }\n"
-"\n"
-"    /* Use sys.stderr because sys.stdout is only created\n"
-"       by _Py_InitializeMain() */\n"
-"    int res = PyRun_SimpleString(\n"
-"        \"import sys; \"\n"
-"        \"print('Run Python code before _Py_InitializeMain', \"\n"
-"               \"file=sys.stderr)\");\n"
-"    if (res < 0) {\n"
-"        exit(1);\n"
-"    }\n"
-"\n"
-"    /* ... put more configuration code here ... */\n"
-"\n"
-"    status = _Py_InitializeMain();\n"
-"    if (PyStatus_Exception(status)) {\n"
-"        Py_ExitStatusException(status);\n"
-"    }\n"
-"}"
+"This separation can be achieved by setting ``PyConfig.run_command`` to the "
+"empty string during initialization (to prevent the interpreter from dropping "
+"into the interactive prompt), and then subsequently executing the desired "
+"main module code using ``__main__.__dict__`` as the global namespace."
 msgstr ""
 
 msgid "main()"

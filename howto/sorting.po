@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:53+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -88,12 +88,15 @@ msgid "Key Functions"
 msgstr ""
 
 msgid ""
-"Both :meth:`list.sort` and :func:`sorted` have a *key* parameter to specify "
-"a function (or other callable) to be called on each list element prior to "
-"making comparisons."
+"The :meth:`list.sort` method and the functions :func:`sorted`, :func:`min`, :"
+"func:`max`, :func:`heapq.nsmallest`, and :func:`heapq.nlargest` have a *key* "
+"parameter to specify a function (or other callable) to be called on each "
+"list element prior to making comparisons."
 msgstr ""
 
-msgid "For example, here's a case-insensitive string comparison:"
+msgid ""
+"For example, here's a case-insensitive string comparison using :meth:`str."
+"casefold`:"
 msgstr ""
 
 msgid ""
@@ -377,6 +380,84 @@ msgid ""
 msgstr ""
 
 msgid "sorted(words, key=cmp_to_key(strcoll))  # locale-aware sort order"
+msgstr ""
+
+msgid "Strategies For Unorderable Types and Values"
+msgstr ""
+
+msgid ""
+"A number of type and value issues can arise when sorting. Here are some "
+"strategies that can help:"
+msgstr ""
+
+msgid "Convert non-comparable input types to strings prior to sorting:"
+msgstr ""
+
+msgid ""
+">>> data = ['twelve', '11', 10]\n"
+">>> sorted(map(str, data))\n"
+"['10', '11', 'twelve']"
+msgstr ""
+
+msgid ""
+"This is needed because most cross-type comparisons raise a :exc:`TypeError`."
+msgstr ""
+
+msgid "Remove special values prior to sorting:"
+msgstr ""
+
+msgid ""
+">>> from math import isnan\n"
+">>> from itertools import filterfalse\n"
+">>> data = [3.3, float('nan'), 1.1, 2.2]\n"
+">>> sorted(filterfalse(isnan, data))\n"
+"[1.1, 2.2, 3.3]"
+msgstr ""
+
+msgid ""
+"This is needed because the `IEEE-754 standard <https://en.wikipedia.org/wiki/"
+"IEEE_754>`_ specifies that, \"Every NaN shall compare unordered with "
+"everything, including itself.\""
+msgstr ""
+
+msgid "Likewise, ``None`` can be stripped from datasets as well:"
+msgstr ""
+
+msgid ""
+">>> data = [3.3, None, 1.1, 2.2]\n"
+">>> sorted(x for x in data if x is not None)\n"
+"[1.1, 2.2, 3.3]"
+msgstr ""
+
+msgid "This is needed because ``None`` is not comparable to other types."
+msgstr ""
+
+msgid "Convert mapping types into sorted item lists before sorting:"
+msgstr ""
+
+msgid ""
+">>> data = [{'a': 1}, {'b': 2}]\n"
+">>> sorted(data, key=lambda d: sorted(d.items()))\n"
+"[{'a': 1}, {'b': 2}]"
+msgstr ""
+
+msgid ""
+"This is needed because dict-to-dict comparisons raise a :exc:`TypeError`."
+msgstr ""
+
+msgid "Convert set types into sorted lists before sorting:"
+msgstr ""
+
+msgid ""
+">>> data = [{'a', 'b', 'c'}, {'b', 'c', 'd'}]\n"
+">>> sorted(map(sorted, data))\n"
+"[['a', 'b', 'c'], ['b', 'c', 'd']]"
+msgstr ""
+
+msgid ""
+"This is needed because the elements contained in set types do not have a "
+"deterministic order.  For example, ``list({'a', 'b'})`` may produce either "
+"``['a', 'b']`` or ``['b', 'a']``."
 msgstr ""
 
 msgid "Odds and Ends"

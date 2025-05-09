@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -82,6 +82,14 @@ msgid ""
 "``show_offsets`` argument were added."
 msgstr ""
 
+msgid ""
+"The :option:`-P <dis --show-positions>` command-line option and the "
+"``show_positions`` argument were added."
+msgstr ""
+
+msgid "The :option:`-S <dis --specialized>` command-line option is added."
+msgstr ""
+
 msgid "Example: Given the function :func:`!myfunc`::"
 msgstr ""
 
@@ -100,7 +108,7 @@ msgid ""
 "  2           RESUME                   0\n"
 "\n"
 "  3           LOAD_GLOBAL              1 (len + NULL)\n"
-"              LOAD_FAST                0 (alist)\n"
+"              LOAD_FAST_BORROW         0 (alist)\n"
 "              CALL                     1\n"
 "              RETURN_VALUE"
 msgstr ""
@@ -114,7 +122,7 @@ msgstr ""
 msgid "The :mod:`dis` module can be invoked as a script from the command line:"
 msgstr ""
 
-msgid "python -m dis [-h] [-C] [-O] [infile]"
+msgid "python -m dis [-h] [-C] [-O] [-P] [-S] [infile]"
 msgstr ""
 
 msgid "The following options are accepted:"
@@ -127,6 +135,12 @@ msgid "Show inline caches."
 msgstr ""
 
 msgid "Show offsets of instructions."
+msgstr ""
+
+msgid "Show positions of instructions in the source code."
+msgstr ""
+
+msgid "Show specialized bytecode."
 msgstr ""
 
 msgid ""
@@ -185,6 +199,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"If *show_positions* is ``True``, :meth:`.dis` will include instruction "
+"source code positions in the output."
+msgstr ""
+
+msgid ""
 "Construct a :class:`Bytecode` instance from the given traceback, setting "
 "*current_offset* to the instruction responsible for the exception."
 msgstr ""
@@ -211,6 +230,12 @@ msgstr ""
 msgid "Added the *show_caches* and *adaptive* parameters."
 msgstr ""
 
+msgid "Added the *show_offsets* parameter"
+msgstr ""
+
+msgid "Added the *show_positions* parameter."
+msgstr ""
+
 msgid "Example:"
 msgstr "Przykład:"
 
@@ -221,7 +246,7 @@ msgid ""
 "...\n"
 "RESUME\n"
 "LOAD_GLOBAL\n"
-"LOAD_FAST\n"
+"LOAD_FAST_BORROW\n"
 "CALL\n"
 "RETURN_VALUE"
 msgstr ""
@@ -300,13 +325,13 @@ msgstr ""
 msgid "Implemented recursive disassembling and added *depth* parameter."
 msgstr ""
 
+msgid "Added the *show_offsets* parameter."
+msgstr ""
+
 msgid ""
 "Disassemble the top-of-stack function of a traceback, using the last "
 "traceback if none was passed.  The instruction causing the exception is "
 "indicated."
-msgstr ""
-
-msgid "Added the *show_offsets* parameter."
 msgstr ""
 
 msgid ""
@@ -314,7 +339,10 @@ msgid ""
 "provided.  The output is divided in the following columns:"
 msgstr ""
 
-msgid "the line number, for the first instruction of each line"
+msgid ""
+"the source code location of the instruction. Complete location information "
+"is shown if *show_positions* is true. Otherwise (the default) only the line "
+"number is displayed."
 msgstr ""
 
 msgid "the current instruction, indicated as ``-->``,"
@@ -629,13 +657,12 @@ msgid ""
 "STACK.append(lhs op rhs)"
 msgstr ""
 
-msgid "Implements::"
+msgid ""
+"With oparg :``NB_SUBSCR``, implements binary subscript (replaces opcode "
+"``BINARY_SUBSCR``)"
 msgstr ""
 
-msgid ""
-"key = STACK.pop()\n"
-"container = STACK.pop()\n"
-"STACK.append(container[key])"
+msgid "Implements::"
 msgstr ""
 
 msgid ""
@@ -719,14 +746,6 @@ msgid ""
 "its ``value`` member.  Otherwise, re-raise ``STACK[-1]``."
 msgstr ""
 
-msgid ""
-"Resolves ``__aenter__`` and ``__aexit__`` from ``STACK[-1]``. Pushes "
-"``__aexit__`` and result of ``__aenter__()`` to the stack::"
-msgstr ""
-
-msgid "STACK.extend((__aexit__, __aenter__())"
-msgstr "STACK.extend((__aexit__, __aenter__())"
-
 msgid "**Miscellaneous opcodes**"
 msgstr ""
 
@@ -768,9 +787,6 @@ msgid ""
 msgstr ""
 
 msgid "Returns with ``STACK[-1]`` to the caller of the function."
-msgstr ""
-
-msgid "Returns with ``co_consts[consti]`` to the caller of the function."
 msgstr ""
 
 msgid "Yields ``STACK.pop()`` from a :term:`generator`."
@@ -843,21 +859,14 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Pushes :exc:`AssertionError` onto the stack.  Used by the :keyword:`assert` "
-"statement."
+"Pushes a common constant onto the stack. The interpreter contains a "
+"hardcoded list of constants supported by this instruction.  Used by the :"
+"keyword:`assert` statement to load :exc:`AssertionError`."
 msgstr ""
 
 msgid ""
 "Pushes :func:`!builtins.__build_class__` onto the stack.  It is later called "
 "to construct a class."
-msgstr ""
-
-msgid ""
-"This opcode performs several operations before a with block starts.  First, "
-"it loads :meth:`~object.__exit__` from the context manager and pushes it "
-"onto the stack for later use by :opcode:`WITH_EXCEPT_START`.  Then, :meth:"
-"`~object.__enter__` is called. Finally, the result of calling the "
-"``__enter__()`` method is pushed onto the stack."
 msgstr ""
 
 msgid ""
@@ -969,6 +978,15 @@ msgid "Pushes ``co_consts[consti]`` onto the stack."
 msgstr ""
 
 msgid ""
+"Pushes the integer ``i`` onto the stack. ``i`` must be in ``range(256)``"
+msgstr ""
+
+msgid ""
+"Pushes ``co_consts[consti]`` onto the stack. Can be used when the constant "
+"value is known to be immortal."
+msgstr ""
+
+msgid ""
 "Pushes the value associated with ``co_names[namei]`` onto the stack. The "
 "name is looked up within the locals, then the globals, then the builtins."
 msgstr ""
@@ -1017,12 +1035,6 @@ msgstr ""
 msgid ""
 "The dictionary is created from stack items instead of creating an empty "
 "dictionary pre-sized to hold *count* items."
-msgstr ""
-
-msgid ""
-"The version of :opcode:`BUILD_MAP` specialized for constant keys. Pops the "
-"top element on the stack which contains a tuple of keys, then starting from "
-"``STACK[-2]``, pops *count* values to form values in the built dictionary."
 msgstr ""
 
 msgid ""
@@ -1209,7 +1221,17 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Pushes a borrowed reference to the local ``co_varnames[var_num]`` onto the "
+"stack."
+msgstr ""
+
+msgid ""
 "Pushes references to ``co_varnames[var_nums >> 4]`` and "
+"``co_varnames[var_nums & 15]`` onto the stack."
+msgstr ""
+
+msgid ""
+"Pushes borrowed references to ``co_varnames[var_nums >> 4]`` and "
 "``co_varnames[var_nums & 15]`` onto the stack."
 msgstr ""
 
@@ -1492,7 +1514,7 @@ msgid "A no-op. Performs internal tracing, debugging and optimization checks."
 msgstr ""
 
 msgid ""
-"The ``context`` oparand consists of two parts. The lowest two bits indicate "
+"The ``context`` operand consists of two parts. The lowest two bits indicate "
 "where the ``RESUME`` occurs:"
 msgstr ""
 
@@ -1689,6 +1711,13 @@ msgstr "``INTRINSIC_SET_FUNCTION_TYPE_PARAMS``"
 msgid "Sets the ``__type_params__`` attribute of a function."
 msgstr ""
 
+msgid ""
+"Performs special method lookup on ``STACK[-1]``. If ``type(STACK[-1])."
+"__xxx__`` is a method, leave ``type(STACK[-1]).__xxx__; STACK[-1]`` on the "
+"stack. If ``type(STACK[-1]).__xxx__`` is not a method, leave ``STACK[-1]."
+"__xxx__; NULL`` on the stack."
+msgstr ""
+
 msgid "**Pseudo-instructions**"
 msgstr ""
 
@@ -1732,6 +1761,11 @@ msgstr ""
 msgid ""
 "Undirected relative jump instructions which are replaced by their directed "
 "(forward/backward) counterparts by the assembler."
+msgstr ""
+
+msgid ""
+"Conditional jumps which do not impact the stack. Replaced by the sequence "
+"``COPY 1``, ``TO_BOOL``, ``POP_JUMP_IF_TRUE/FALSE``."
 msgstr ""
 
 msgid ""

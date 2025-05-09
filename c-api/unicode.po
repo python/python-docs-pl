@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -10,9 +10,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:50+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -57,31 +57,25 @@ msgid ""
 msgstr ""
 
 msgid ""
+"This instance of :c:type:`PyTypeObject` represents the Python Unicode type. "
+"It is exposed to Python code as :py:class:`str`."
+msgstr ""
+
+msgid ""
+"This instance of :c:type:`PyTypeObject` represents the Python Unicode "
+"iterator type. It is used to iterate over Unicode string objects."
+msgstr ""
+
+msgid ""
 "These types are typedefs for unsigned integer types wide enough to contain "
 "characters of 32 bits, 16 bits and 8 bits, respectively.  When dealing with "
 "single Unicode characters, use :c:type:`Py_UCS4`."
 msgstr ""
 
 msgid ""
-"This is a typedef of :c:type:`wchar_t`, which is a 16-bit type or 32-bit "
-"type depending on the platform."
-msgstr ""
-
-msgid ""
-"In previous versions, this was a 16-bit type or a 32-bit type depending on "
-"whether you selected a \"narrow\" or \"wide\" Unicode version of Python at "
-"build time."
-msgstr ""
-
-msgid ""
 "These subtypes of :c:type:`PyObject` represent a Python Unicode object.  In "
 "almost all cases, they shouldn't be used directly, since all API functions "
 "that deal with Unicode objects take and return :c:type:`PyObject` pointers."
-msgstr ""
-
-msgid ""
-"This instance of :c:type:`PyTypeObject` represents the Python Unicode type.  "
-"It is exposed to Python code as ``str``."
 msgstr ""
 
 msgid ""
@@ -97,12 +91,6 @@ msgstr ""
 msgid ""
 "Return true if the object *obj* is a Unicode object, but not an instance of "
 "a subtype.  This function always succeeds."
-msgstr ""
-
-msgid "Returns ``0``. This API is kept only for backward compatibility."
-msgstr ""
-
-msgid "This API does nothing since Python 3.12."
 msgstr ""
 
 msgid ""
@@ -136,12 +124,20 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Write into a canonical representation *data* (as obtained with :c:func:"
-"`PyUnicode_DATA`).  This function performs no sanity checks, and is intended "
-"for usage in loops.  The caller should cache the *kind* value and *data* "
-"pointer as obtained from other calls.  *index* is the index in the string "
-"(starts at 0) and *value* is the new code point value which should be "
-"written to that location."
+"Write the code point *value* to the given zero-based *index* in a string."
+msgstr ""
+
+msgid ""
+"The *kind* value and *data* pointer must have been obtained from a string "
+"using :c:func:`PyUnicode_KIND` and :c:func:`PyUnicode_DATA` respectively. "
+"You must hold a reference to that string while calling :c:func:`!"
+"PyUnicode_WRITE`. All requirements of :c:func:`PyUnicode_WriteChar` also "
+"apply."
+msgstr ""
+
+msgid ""
+"The function performs no checks for any of its requirements, and is intended "
+"for usage in loops."
 msgstr ""
 
 msgid ""
@@ -169,6 +165,11 @@ msgstr ""
 msgid ""
 "The function does not call :c:func:`Py_FatalError` anymore if the string is "
 "not ready."
+msgstr ""
+
+msgid ""
+"Return true if the string only contains ASCII characters. Equivalent to :py:"
+"meth:`str.isascii`."
 msgstr ""
 
 msgid "Unicode Character Properties"
@@ -282,12 +283,40 @@ msgid ""
 "to the nearest value in the sequence 127, 255, 65535, 1114111."
 msgstr ""
 
-msgid ""
-"This is the recommended way to allocate a new Unicode object.  Objects "
-"created using this function are not resizable."
+msgid "On error, set an exception and return ``NULL``."
 msgstr ""
 
-msgid "On error, set an exception and return ``NULL``."
+msgid ""
+"After creation, the string can be filled by :c:func:`PyUnicode_WriteChar`, :"
+"c:func:`PyUnicode_CopyCharacters`, :c:func:`PyUnicode_Fill`, :c:func:"
+"`PyUnicode_WRITE` or similar. Since strings are supposed to be immutable, "
+"take care to not “use” the result while it is being modified. In particular, "
+"before it's filled with its final contents, a string:"
+msgstr ""
+
+msgid "must not be hashed,"
+msgstr ""
+
+msgid ""
+"must not be :c:func:`converted to UTF-8 <PyUnicode_AsUTF8AndSize>`, or "
+"another non-\"canonical\" representation,"
+msgstr ""
+
+msgid "must not have its reference count changed,"
+msgstr ""
+
+msgid "must not be shared with code that might do one of the above."
+msgstr ""
+
+msgid ""
+"This list is not exhaustive. Avoiding these uses is your responsibility; "
+"Python does not always check these requirements."
+msgstr ""
+
+msgid ""
+"To avoid accidentally exposing a partially-written string object, prefer "
+"using the :c:type:`PyUnicodeWriter` API, or one of the ``PyUnicode_From*`` "
+"functions below."
 msgstr ""
 
 msgid ""
@@ -684,6 +713,23 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Append the string *right* to the end of *p_left*. *p_left* must point to a :"
+"term:`strong reference` to a Unicode object; :c:func:`!PyUnicode_Append` "
+"releases (\"steals\") this reference."
+msgstr ""
+
+msgid "On error, set *\\*p_left* to ``NULL`` and set an exception."
+msgstr ""
+
+msgid "On success, set *\\*p_left* to a new strong reference to the result."
+msgstr ""
+
+msgid ""
+"The function is similar to :c:func:`PyUnicode_Append`, with the only "
+"difference being that it decrements the reference count of *right* by one."
+msgstr ""
+
+msgid ""
 "Return the name of the default string encoding, ``\"utf-8\"``. See :func:"
 "`sys.getdefaultencoding`."
 msgstr ""
@@ -707,6 +753,31 @@ msgid ""
 msgstr ""
 
 msgid ""
+"The string must not have been “used” yet. See :c:func:`PyUnicode_New` for "
+"details."
+msgstr ""
+
+msgid ""
+"Resize a Unicode object *\\*unicode* to the new *length* in code points."
+msgstr ""
+
+msgid ""
+"Try to resize the string in place (which is usually faster than allocating a "
+"new string and copying characters), or create a new string."
+msgstr ""
+
+msgid ""
+"*\\*unicode* is modified to point to the new (resized) object and ``0`` is "
+"returned on success. Otherwise, ``-1`` is returned and an exception is set, "
+"and *\\*unicode* is left untouched."
+msgstr ""
+
+msgid ""
+"The function doesn't check string content, the result may not be a string in "
+"canonical representation."
+msgstr ""
+
+msgid ""
 "Fill a string with a character: write *fill_char* into ``unicode[start:"
 "start+length]``."
 msgstr ""
@@ -722,18 +793,15 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Write a character to a string.  The string must have been created through :c:"
-"func:`PyUnicode_New`.  Since Unicode strings are supposed to be immutable, "
-"the string must not be shared, or have been hashed yet."
+"Write a *character* to the string *unicode* at the zero-based *index*. "
+"Return ``0`` on success, ``-1`` on error with an exception set."
 msgstr ""
 
 msgid ""
 "This function checks that *unicode* is a Unicode object, that the index is "
-"not out of bounds, and that the object can be modified safely (i.e. that it "
-"its reference count is one)."
-msgstr ""
-
-msgid "Return ``0`` on success, ``-1`` on error with an exception set."
+"not out of bounds, and that the object's reference count is one). See :c:"
+"func:`PyUnicode_WRITE` for a version that skips these checks, making them "
+"your responsibility."
 msgstr ""
 
 msgid ""
@@ -1007,6 +1075,17 @@ msgid ""
 msgstr ""
 
 msgid "Generic Codecs"
+msgstr ""
+
+msgid "The following macro is provided:"
+msgstr ""
+
+msgid "The Unicode code point ``U+FFFD`` (replacement character)."
+msgstr ""
+
+msgid ""
+"This Unicode character is used as the replacement character during decoding "
+"if the *errors* argument is set to \"replace\"."
 msgstr ""
 
 msgid "These are the generic codec APIs:"
@@ -1511,6 +1590,34 @@ msgid ""
 "`PyErr_Occurred` to check for errors."
 msgstr ""
 
+msgid "The :c:func:`PyUnicode_Equal` function."
+msgstr ""
+
+msgid "Test if two strings are equal:"
+msgstr ""
+
+msgid "Return ``1`` if *a* is equal to *b*."
+msgstr ""
+
+msgid "Return ``0`` if *a* is not equal to *b*."
+msgstr ""
+
+msgid ""
+"Set a :exc:`TypeError` exception and return ``-1`` if *a* or *b* is not a :"
+"class:`str` object."
+msgstr ""
+
+msgid "The function always succeeds if *a* and *b* are :class:`str` objects."
+msgstr ""
+
+msgid ""
+"The function works for :class:`str` subclasses, but does not honor custom "
+"``__eq__()`` method."
+msgstr ""
+
+msgid "The :c:func:`PyUnicode_Compare` function."
+msgstr ""
+
 msgid ""
 "Compare a Unicode object with a char buffer which is interpreted as being "
 "UTF-8 or ASCII encoded and return true (``1``) if they are equal, or false "
@@ -1620,4 +1727,175 @@ msgid ""
 msgstr ""
 
 msgid "Strings interned this way are made :term:`immortal`."
+msgstr ""
+
+msgid ""
+"Return a non-zero value if *str* is interned, zero if not. The *str* "
+"argument must be a string; this is not checked. This function always "
+"succeeds."
+msgstr ""
+
+msgid ""
+"A non-zero return value may carry additional information about *how* the "
+"string is interned. The meaning of such non-zero values, as well as each "
+"specific string's intern-related details, may change between CPython "
+"versions."
+msgstr ""
+
+msgid "PyUnicodeWriter"
+msgstr ""
+
+msgid ""
+"The :c:type:`PyUnicodeWriter` API can be used to create a Python :class:"
+"`str` object."
+msgstr ""
+
+msgid "A Unicode writer instance."
+msgstr ""
+
+msgid ""
+"The instance must be destroyed by :c:func:`PyUnicodeWriter_Finish` on "
+"success, or :c:func:`PyUnicodeWriter_Discard` on error."
+msgstr ""
+
+msgid "Create a Unicode writer instance."
+msgstr ""
+
+msgid "*length* must be greater than or equal to ``0``."
+msgstr ""
+
+msgid ""
+"If *length* is greater than ``0``, preallocate an internal buffer of "
+"*length* characters."
+msgstr ""
+
+msgid "Set an exception and return ``NULL`` on error."
+msgstr ""
+
+msgid ""
+"Return the final Python :class:`str` object and destroy the writer instance."
+msgstr ""
+
+msgid "The writer instance is invalid after this call."
+msgstr ""
+
+msgid "Discard the internal Unicode buffer and destroy the writer instance."
+msgstr ""
+
+msgid "If *writer* is ``NULL``, no operation is performed."
+msgstr ""
+
+msgid "Write the single Unicode character *ch* into *writer*."
+msgstr ""
+
+msgid ""
+"On success, return ``0``. On error, set an exception, leave the writer "
+"unchanged, and return ``-1``."
+msgstr ""
+
+msgid ""
+"Decode the string *str* from UTF-8 in strict mode and write the output into "
+"*writer*."
+msgstr ""
+
+msgid ""
+"*size* is the string length in bytes. If *size* is equal to ``-1``, call "
+"``strlen(str)`` to get the string length."
+msgstr ""
+
+msgid "See also :c:func:`PyUnicodeWriter_DecodeUTF8Stateful`."
+msgstr ""
+
+msgid "Writer the wide string *str* into *writer*."
+msgstr ""
+
+msgid ""
+"*size* is a number of wide characters. If *size* is equal to ``-1``, call "
+"``wcslen(str)`` to get the string length."
+msgstr ""
+
+msgid "Writer the UCS4 string *str* into *writer*."
+msgstr ""
+
+msgid "*size* is a number of UCS4 characters."
+msgstr ""
+
+msgid ""
+"Call :c:func:`PyObject_Str` on *obj* and write the output into *writer*."
+msgstr ""
+
+msgid ""
+"Call :c:func:`PyObject_Repr` on *obj* and write the output into *writer*."
+msgstr ""
+
+msgid "Write the substring ``str[start:end]`` into *writer*."
+msgstr ""
+
+msgid ""
+"*str* must be Python :class:`str` object. *start* must be greater than or "
+"equal to 0, and less than or equal to *end*. *end* must be less than or "
+"equal to *str* length."
+msgstr ""
+
+msgid ""
+"Similar to :c:func:`PyUnicode_FromFormat`, but write the output directly "
+"into *writer*."
+msgstr ""
+
+msgid ""
+"Decode the string *str* from UTF-8 with *errors* error handler and write the "
+"output into *writer*."
+msgstr ""
+
+msgid ""
+"*errors* is an :ref:`error handler <error-handlers>` name, such as "
+"``\"replace\"``. If *errors* is ``NULL``, use the strict error handler."
+msgstr ""
+
+msgid ""
+"If *consumed* is not ``NULL``, set *\\*consumed* to the number of decoded "
+"bytes on success. If *consumed* is ``NULL``, treat trailing incomplete UTF-8 "
+"byte sequences as an error."
+msgstr ""
+
+msgid "See also :c:func:`PyUnicodeWriter_WriteUTF8`."
+msgstr ""
+
+msgid "Deprecated API"
+msgstr ""
+
+msgid "The following API is deprecated."
+msgstr ""
+
+msgid ""
+"This is a typedef of :c:type:`wchar_t`, which is a 16-bit type or 32-bit "
+"type depending on the platform. Please use :c:type:`wchar_t` directly "
+"instead."
+msgstr ""
+
+msgid ""
+"In previous versions, this was a 16-bit type or a 32-bit type depending on "
+"whether you selected a \"narrow\" or \"wide\" Unicode version of Python at "
+"build time."
+msgstr ""
+
+msgid ""
+"Do nothing and return ``0``. This API is kept only for backward "
+"compatibility, but there are no plans to remove it."
+msgstr ""
+
+msgid ""
+"This API does nothing since Python 3.12. Previously, this needed to be "
+"called for each string created using the old API (:c:func:`!"
+"PyUnicode_FromUnicode` or similar)."
+msgstr ""
+
+msgid ""
+"Do nothing and return ``1``. This API is kept only for backward "
+"compatibility, but there are no plans to remove it."
+msgstr ""
+
+msgid ""
+"This API does nothing since Python 3.12. Previously, this could be called to "
+"check if :c:func:`PyUnicode_READY` is necessary."
 msgstr ""

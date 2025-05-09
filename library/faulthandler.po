@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:05+0000\n"
 "Last-Translator: Stan Ulbrych, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -114,6 +114,39 @@ msgstr ""
 msgid "Added support for passing file descriptor to this function."
 msgstr ""
 
+msgid "Dumping the C stack"
+msgstr ""
+
+msgid "Dump the C stack trace of the current thread into *file*."
+msgstr ""
+
+msgid ""
+"If the Python build does not support it or the operating system does not "
+"provide a stack trace, then this prints an error in place of a dumped C "
+"stack."
+msgstr ""
+
+msgid "C Stack Compatibility"
+msgstr ""
+
+msgid ""
+"If the system does not support the C-level :manpage:`backtrace(3)` or :"
+"manpage:`dladdr1(3)`, then C stack dumps will not work. An error will be "
+"printed instead of the stack."
+msgstr ""
+
+msgid ""
+"Additionally, some compilers do not support :term:`CPython's <CPython>` "
+"implementation of C stack dumps. As a result, a different error may be "
+"printed instead of the stack, even if the the operating system supports "
+"dumping stacks."
+msgstr ""
+
+msgid ""
+"Dumping C stacks can be arbitrarily slow, depending on the DWARF level of "
+"the binaries in the call stack."
+msgstr ""
+
 msgid "Fault handler state"
 msgstr ""
 
@@ -130,12 +163,26 @@ msgid ""
 "`issue with file descriptors <faulthandler-fd>`."
 msgstr ""
 
+msgid ""
+"If *c_stack* is ``True``, then the C stack trace is printed after the Python "
+"traceback, unless the system does not support it. See :func:`dump_c_stack` "
+"for more information on compatibility."
+msgstr ""
+
 msgid "On Windows, a handler for Windows exception is also installed."
 msgstr ""
 
 msgid ""
 "The dump now mentions if a garbage collector collection is running if "
 "*all_threads* is true."
+msgstr ""
+
+msgid ""
+"Only the current thread is dumped if the :term:`GIL` is disabled to prevent "
+"the risk of data races."
+msgstr ""
+
+msgid "The dump now displays the C stack trace if *c_stack* is true."
 msgstr ""
 
 msgid ""

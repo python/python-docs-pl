@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -668,6 +668,20 @@ msgstr ""
 "Decimal('-Infinity')"
 
 msgid ""
+"Alternative constructor that only accepts instances of :class:`float`, :"
+"class:`int` or :class:`Decimal`, but not strings or tuples."
+msgstr ""
+
+msgid ""
+">>> Decimal.from_number(314)\n"
+"Decimal('314')\n"
+">>> Decimal.from_number(0.1)\n"
+"Decimal('0.1000000000000000055511151231257827021181583404541015625')\n"
+">>> Decimal.from_number(Decimal('3.14'))\n"
+"Decimal('3.14')"
+msgstr ""
+
+msgid ""
 "Fused multiply-add.  Return self*other+third with no rounding of the "
 "intermediate product self*other."
 msgstr ""
@@ -1114,6 +1128,12 @@ msgstr ""
 msgid ""
 ":meth:`localcontext` now supports setting context attributes through the use "
 "of keyword arguments."
+msgstr ""
+
+msgid ""
+"Return a context object initialized to the proper values for one of the IEEE "
+"interchange formats.  The argument must be a multiple of 32 and less than :"
+"const:`IEEE_CONTEXT_MAX_BITS`."
 msgstr ""
 
 msgid ""
@@ -1580,6 +1600,12 @@ msgstr "``-849999999``"
 msgid "``-1999999999999999997``"
 msgstr "``-1999999999999999997``"
 
+msgid "``256``"
+msgstr ""
+
+msgid "``512``"
+msgstr ""
+
 msgid ""
 "The value is ``True``.  Deprecated, because Python now always has threads."
 msgstr ""
@@ -1912,11 +1938,20 @@ msgstr ""
 msgid ""
 "If :func:`setcontext` has not been called before :func:`getcontext`, then :"
 "func:`getcontext` will automatically create a new context for use in the "
-"current thread."
+"current thread.  New context objects have default values set from the :data:"
+"`decimal.DefaultContext` object."
 msgstr ""
 
 msgid ""
-"The new context is copied from a prototype context called *DefaultContext*. "
+"The :data:`sys.flags.thread_inherit_context` flag affects the context for "
+"new threads.  If the flag is false, new threads will start with an empty "
+"context.  In this case, :func:`getcontext` will create a new context object "
+"when called and use the default values from *DefaultContext*.  If the flag "
+"is true, new threads will start with a copy of context from the caller of :"
+"meth:`threading.Thread.start`."
+msgstr ""
+
+msgid ""
 "To control the defaults so that each thread will use the same values "
 "throughout the application, directly modify the *DefaultContext* object. "
 "This should be done *before* any threads are started so that there won't be "

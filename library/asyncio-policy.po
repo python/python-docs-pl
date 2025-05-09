@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:55+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -24,6 +24,12 @@ msgstr ""
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Policies"
+msgstr ""
+
+msgid ""
+"Policies are deprecated and will be removed in Python 3.16. Users are "
+"encouraged to use the :func:`asyncio.run` function or the :class:`asyncio."
+"Runner` with *loop_factory* to use the desired loop implementation."
 msgstr ""
 
 msgid ""
@@ -62,10 +68,20 @@ msgstr ""
 msgid "Return the current process-wide policy."
 msgstr ""
 
+msgid ""
+"The :func:`get_event_loop_policy` function is deprecated and will be removed "
+"in Python 3.16."
+msgstr ""
+
 msgid "Set the current process-wide policy to *policy*."
 msgstr ""
 
 msgid "If *policy* is set to ``None``, the default policy is restored."
+msgstr ""
+
+msgid ""
+"The :func:`set_event_loop_policy` function is deprecated and will be removed "
+"in Python 3.16."
 msgstr ""
 
 msgid "Policy Objects"
@@ -94,18 +110,9 @@ msgstr ""
 msgid "Create and return a new event loop object."
 msgstr ""
 
-msgid "Get a child process watcher object."
-msgstr ""
-
 msgid ""
-"Return a watcher object implementing the :class:`AbstractChildWatcher` "
-"interface."
-msgstr ""
-
-msgid "This function is Unix specific."
-msgstr ""
-
-msgid "Set the current child process watcher to *watcher*."
+"The :class:`AbstractEventLoopPolicy` class is deprecated and will be removed "
+"in Python 3.16."
 msgstr ""
 
 msgid "asyncio ships with the following built-in policies:"
@@ -125,10 +132,13 @@ msgid "On Windows, :class:`ProactorEventLoop` is now used by default."
 msgstr ""
 
 msgid ""
-"The :meth:`get_event_loop` method of the default asyncio policy now emits a :"
-"exc:`DeprecationWarning` if there is no current event loop set and it "
-"decides to create one. In some future Python release this will become an "
-"error."
+"The :meth:`get_event_loop` method of the default asyncio policy now raises "
+"a :exc:`RuntimeError` if there is no set event loop."
+msgstr ""
+
+msgid ""
+"The :class:`DefaultEventLoopPolicy` class is deprecated and will be removed "
+"in Python 3.16."
 msgstr ""
 
 msgid ""
@@ -140,179 +150,18 @@ msgid "Availability"
 msgstr "Dostępność"
 
 msgid ""
+"The :class:`WindowsSelectorEventLoopPolicy` class is deprecated and will be "
+"removed in Python 3.16."
+msgstr ""
+
+msgid ""
 "An alternative event loop policy that uses the :class:`ProactorEventLoop` "
 "event loop implementation."
 msgstr ""
 
-msgid "Process Watchers"
-msgstr ""
-
 msgid ""
-"A process watcher allows customization of how an event loop monitors child "
-"processes on Unix. Specifically, the event loop needs to know when a child "
-"process has exited."
-msgstr ""
-
-msgid ""
-"In asyncio, child processes are created with :func:`create_subprocess_exec` "
-"and :meth:`loop.subprocess_exec` functions."
-msgstr ""
-
-msgid ""
-"asyncio defines the :class:`AbstractChildWatcher` abstract base class, which "
-"child watchers should implement, and has four different implementations: :"
-"class:`ThreadedChildWatcher` (configured to be used by default), :class:"
-"`MultiLoopChildWatcher`, :class:`SafeChildWatcher`, and :class:"
-"`FastChildWatcher`."
-msgstr ""
-
-msgid ""
-"See also the :ref:`Subprocess and Threads <asyncio-subprocess-threads>` "
-"section."
-msgstr ""
-
-msgid ""
-"The following two functions can be used to customize the child process "
-"watcher implementation used by the asyncio event loop:"
-msgstr ""
-
-msgid "Return the current child watcher for the current policy."
-msgstr ""
-
-msgid ""
-"Set the current child watcher to *watcher* for the current policy.  "
-"*watcher* must implement methods defined in the :class:"
-"`AbstractChildWatcher` base class."
-msgstr ""
-
-msgid ""
-"Third-party event loops implementations might not support custom child "
-"watchers.  For such event loops, using :func:`set_child_watcher` might be "
-"prohibited or have no effect."
-msgstr ""
-
-msgid "Register a new child handler."
-msgstr ""
-
-msgid ""
-"Arrange for ``callback(pid, returncode, *args)`` to be called when a process "
-"with PID equal to *pid* terminates.  Specifying another callback for the "
-"same process replaces the previous handler."
-msgstr ""
-
-msgid "The *callback* callable must be thread-safe."
-msgstr ""
-
-msgid "Removes the handler for process with PID equal to *pid*."
-msgstr ""
-
-msgid ""
-"The function returns ``True`` if the handler was successfully removed, "
-"``False`` if there was nothing to remove."
-msgstr ""
-
-msgid "Attach the watcher to an event loop."
-msgstr ""
-
-msgid ""
-"If the watcher was previously attached to an event loop, then it is first "
-"detached before attaching to the new loop."
-msgstr ""
-
-msgid "Note: loop may be ``None``."
-msgstr ""
-
-msgid "Return ``True`` if the watcher is ready to use."
-msgstr ""
-
-msgid ""
-"Spawning a subprocess with *inactive* current child watcher raises :exc:"
-"`RuntimeError`."
-msgstr ""
-
-msgid "Close the watcher."
-msgstr ""
-
-msgid ""
-"This method has to be called to ensure that underlying resources are cleaned-"
-"up."
-msgstr ""
-
-msgid ""
-"This implementation starts a new waiting thread for every subprocess spawn."
-msgstr ""
-
-msgid ""
-"It works reliably even when the asyncio event loop is run in a non-main OS "
-"thread."
-msgstr ""
-
-msgid ""
-"There is no noticeable overhead when handling a big number of children "
-"(*O*\\ (1) each time a child terminates), but starting a thread per process "
-"requires extra memory."
-msgstr ""
-
-msgid "This watcher is used by default."
-msgstr ""
-
-msgid ""
-"This implementation registers a :py:data:`SIGCHLD` signal handler on "
-"instantiation. That can break third-party code that installs a custom "
-"handler for :py:data:`SIGCHLD` signal."
-msgstr ""
-
-msgid ""
-"The watcher avoids disrupting other code spawning processes by polling every "
-"process explicitly on a :py:data:`SIGCHLD` signal."
-msgstr ""
-
-msgid ""
-"There is no limitation for running subprocesses from different threads once "
-"the watcher is installed."
-msgstr ""
-
-msgid ""
-"The solution is safe but it has a significant overhead when handling a big "
-"number of processes (*O*\\ (*n*) each time a :py:data:`SIGCHLD` is received)."
-msgstr ""
-
-msgid ""
-"This implementation uses active event loop from the main thread to handle :"
-"py:data:`SIGCHLD` signal. If the main thread has no running event loop "
-"another thread cannot spawn a subprocess (:exc:`RuntimeError` is raised)."
-msgstr ""
-
-msgid ""
-"This solution is as safe as :class:`MultiLoopChildWatcher` and has the same "
-"*O*\\ (*n*) complexity but requires a running event loop in the main thread "
-"to work."
-msgstr ""
-
-msgid ""
-"This implementation reaps every terminated processes by calling ``os."
-"waitpid(-1)`` directly, possibly breaking other code spawning processes and "
-"waiting for their termination."
-msgstr ""
-
-msgid ""
-"There is no noticeable overhead when handling a big number of children "
-"(*O*\\ (1) each time a child terminates)."
-msgstr ""
-
-msgid ""
-"This solution requires a running event loop in the main thread to work, as :"
-"class:`SafeChildWatcher`."
-msgstr ""
-
-msgid ""
-"This implementation polls process file descriptors (pidfds) to await child "
-"process termination. In some respects, :class:`PidfdChildWatcher` is a "
-"\"Goldilocks\" child watcher implementation. It doesn't require signals or "
-"threads, doesn't interfere with any processes launched outside the event "
-"loop, and scales linearly with the number of subprocesses launched by the "
-"event loop. The main disadvantage is that pidfds are specific to Linux, and "
-"only work on recent (5.3+) kernels."
+"The :class:`WindowsProactorEventLoopPolicy` class is deprecated and will be "
+"removed in Python 3.16."
 msgstr ""
 
 msgid "Custom Policies"

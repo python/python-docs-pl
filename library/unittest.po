@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -299,6 +299,11 @@ msgid ""
 "not modules or classes."
 msgstr ""
 
+msgid ""
+"Output is colorized by default and can be :ref:`controlled using environment "
+"variables <using-on-controlling-color>`."
+msgstr ""
+
 msgid "Command-line options"
 msgstr ""
 
@@ -454,33 +459,25 @@ msgid ""
 "through the `load_tests protocol`_."
 msgstr ""
 
-msgid ""
-"Test discovery supports :term:`namespace packages <namespace package>` for "
-"the start directory. Note that you need to specify the top level directory "
-"too (e.g. ``python -m unittest discover -s root/namespace -t root``)."
+msgid "Test discovery supports :term:`namespace packages <namespace package>`."
 msgstr ""
 
 msgid ""
-":mod:`unittest` dropped the :term:`namespace packages <namespace package>` "
-"support in Python 3.11. It has been broken since Python 3.7. Start directory "
-"and subdirectories containing tests must be regular package that have "
-"``__init__.py`` file."
+"Test discovery dropped the :term:`namespace packages <namespace package>` "
+"support. It has been broken since Python 3.7. Start directory and its "
+"subdirectories containing tests must be regular package that have ``__init__."
+"py`` file."
 msgstr ""
 
 msgid ""
-"Directories containing start directory still can be a namespace package. In "
-"this case, you need to specify start directory as dotted package name, and "
-"target directory explicitly. For example::"
+"If the start directory is the dotted name of the package, the ancestor "
+"packages can be namespace packages."
 msgstr ""
 
 msgid ""
-"# proj/  <-- current directory\n"
-"#   namespace/\n"
-"#     mypkg/\n"
-"#       __init__.py\n"
-"#       test_mypkg.py\n"
-"\n"
-"python -m unittest discover -s namespace.mypkg -t ."
+"Test discovery supports :term:`namespace package` as start directory again. "
+"To avoid scanning directories unrelated to Python, tests are not searched in "
+"subdirectories that do not contain ``__init__.py``."
 msgstr ""
 
 msgid "Organizing test code"
@@ -1133,6 +1130,21 @@ msgstr ""
 msgid "``not isinstance(a, b)``"
 msgstr ""
 
+msgid ":meth:`assertIsSubclass(a, b) <TestCase.assertIsSubclass>`"
+msgstr ""
+
+msgid "``issubclass(a, b)``"
+msgstr ""
+
+msgid "3.14"
+msgstr ""
+
+msgid ":meth:`assertNotIsSubclass(a, b) <TestCase.assertNotIsSubclass>`"
+msgstr ""
+
+msgid "``not issubclass(a, b)``"
+msgstr ""
+
 msgid ""
 "All the assert methods accept a *msg* argument that, if specified, is used "
 "as the error message on failure (see also :data:`longMessage`). Note that "
@@ -1192,6 +1204,12 @@ msgid ""
 "Test that *obj* is (or is not) an instance of *cls* (which can be a class or "
 "a tuple of classes, as supported by :func:`isinstance`). To check for the "
 "exact type, use :func:`assertIs(type(obj), cls) <assertIs>`."
+msgstr ""
+
+msgid ""
+"Test that *cls* is (or is not) a subclass of *superclass* (which can be a "
+"class or a tuple of classes, as supported by :func:`issubclass`). To check "
+"for the exact type, use :func:`assertIs(cls, superclass) <assertIs>`."
 msgstr ""
 
 msgid ""
@@ -1514,6 +1532,42 @@ msgid ""
 "order."
 msgstr ""
 
+msgid ":meth:`assertStartsWith(a, b) <TestCase.assertStartsWith>`"
+msgstr ""
+
+msgid "``a.startswith(b)``"
+msgstr ""
+
+msgid ":meth:`assertNotStartsWith(a, b) <TestCase.assertNotStartsWith>`"
+msgstr ""
+
+msgid "``not a.startswith(b)``"
+msgstr ""
+
+msgid ":meth:`assertEndsWith(a, b) <TestCase.assertEndsWith>`"
+msgstr ""
+
+msgid "``a.endswith(b)``"
+msgstr ""
+
+msgid ":meth:`assertNotEndsWith(a, b) <TestCase.assertNotEndsWith>`"
+msgstr ""
+
+msgid "``not a.endswith(b)``"
+msgstr ""
+
+msgid ":meth:`assertHasAttr(a, b) <TestCase.assertHasAttr>`"
+msgstr ""
+
+msgid "``hastattr(a, b)``"
+msgstr ""
+
+msgid ":meth:`assertNotHasAttr(a, b) <TestCase.assertNotHasAttr>`"
+msgstr ""
+
+msgid "``not hastattr(a, b)``"
+msgstr ""
+
 msgid ""
 "Test that *first* and *second* are approximately (or not approximately) "
 "equal by computing the difference, rounding to the given number of decimal "
@@ -1578,6 +1632,19 @@ msgid ""
 "verifies whether each element has the same count in both sequences. "
 "Equivalent to: ``assertEqual(Counter(list(first)), Counter(list(second)))`` "
 "but works with sequences of unhashable objects as well."
+msgstr ""
+
+msgid ""
+"Test that the Unicode or byte string *s* starts (or does not start) with a "
+"*prefix*. *prefix* can also be a tuple of strings to try."
+msgstr ""
+
+msgid ""
+"Test that the Unicode or byte string *s* ends (or does not end) with a "
+"*suffix*. *suffix* can also be a tuple of strings to try."
+msgstr ""
+
+msgid "Test that the object *obj* has (or has not) an attribute *name*."
 msgstr ""
 
 msgid ""
@@ -2219,10 +2286,13 @@ msgstr ""
 
 msgid ""
 "*start_dir* can not be a :term:`namespace packages <namespace package>`. It "
-"has been broken since Python 3.7 and Python 3.11 officially remove it."
+"has been broken since Python 3.7, and Python 3.11 officially removes it."
 msgstr ""
 
 msgid "*top_level_dir* is only stored for the duration of *discover* call."
+msgstr ""
+
+msgid "*start_dir* can once again be a :term:`namespace package`."
 msgstr ""
 
 msgid ""

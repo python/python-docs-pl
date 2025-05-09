@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -12,9 +12,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -734,6 +734,39 @@ msgid ""
 "Return a :class:`date` corresponding to the ISO calendar date specified by "
 "year, week and day. This is the inverse of the function :meth:`date."
 "isocalendar`."
+msgstr ""
+
+msgid ""
+"Return a :class:`.date` corresponding to *date_string*, parsed according to "
+"*format*. This is equivalent to::"
+msgstr ""
+
+msgid "date(*(time.strptime(date_string, format)[0:3]))"
+msgstr ""
+
+msgid ""
+":exc:`ValueError` is raised if the date_string and format can't be parsed "
+"by :func:`time.strptime` or if it returns a value which isn't a time tuple.  "
+"See also :ref:`strftime-strptime-behavior` and :meth:`date.fromisoformat`."
+msgstr ""
+
+msgid ""
+"If *format* specifies a day of month without a year a :exc:"
+"`DeprecationWarning` is emitted.  This is to avoid a quadrennial leap year "
+"bug in code seeking to parse only a month and day as the default year used "
+"in absence of one in the format is not a leap year. Such *format* values may "
+"raise an error as of Python 3.15.  The workaround is to always include a "
+"year in your *format*.  If parsing *date_string* values that do not have a "
+"year, explicitly add a year that is a leap year before parsing:"
+msgstr ""
+
+msgid ""
+">>> from datetime import date\n"
+">>> date_string = \"02/29\"\n"
+">>> when = date.strptime(f\"{date_string};1984\", \"%m/%d;%Y\")  # Avoids "
+"leap year bug.\n"
+">>> when.strftime(\"%B %d\")\n"
+"'February 29'"
 msgstr ""
 
 msgid "The earliest representable date, ``date(MINYEAR, 1, 1)``."
@@ -2077,7 +2110,7 @@ msgid ""
 "details."
 msgstr ""
 
-msgid "Other constructor:"
+msgid "Other constructors:"
 msgstr ""
 
 msgid ""
@@ -2122,6 +2155,26 @@ msgstr ""
 msgid ""
 "Previously, this method only supported formats that could be emitted by :"
 "meth:`time.isoformat`."
+msgstr ""
+
+msgid ""
+"Return a :class:`.time` corresponding to *date_string*, parsed according to "
+"*format*."
+msgstr ""
+
+msgid ""
+"If *format* does not contain microseconds or timezone information, this is "
+"equivalent to::"
+msgstr ""
+
+msgid "time(*(time.strptime(date_string, format)[3:6]))"
+msgstr ""
+
+msgid ""
+":exc:`ValueError` is raised if the *date_string* and *format* cannot be "
+"parsed by :func:`time.strptime` or if it returns a value which is not a time "
+"tuple.  See also :ref:`strftime-strptime-behavior` and :meth:`time."
+"fromisoformat`."
 msgstr ""
 
 msgid ""
@@ -2828,9 +2881,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Conversely, the :meth:`datetime.strptime` class method creates a :class:`."
-"datetime` object from a string representing a date and time and a "
-"corresponding format string."
+"Conversely, the :meth:`date.strptime`, :meth:`datetime.strptime` and :meth:"
+"`time.strptime` class methods create an object from a string representing "
+"the time and a corresponding format string."
 msgstr ""
 
 msgid ""
@@ -2850,8 +2903,7 @@ msgstr ""
 msgid "Convert object to a string according to a given format"
 msgstr ""
 
-msgid ""
-"Parse a string into a :class:`.datetime` object given a corresponding format"
+msgid "Parse a string into an object given a corresponding format"
 msgstr ""
 
 msgid "Type of method"
@@ -2862,15 +2914,6 @@ msgstr ""
 
 msgid "Class method"
 msgstr ""
-
-msgid "Method of"
-msgstr ""
-
-msgid ":class:`date`; :class:`.datetime`; :class:`.time`"
-msgstr ""
-
-msgid ":class:`.datetime`"
-msgstr ":class:`.datetime`"
 
 msgid "Signature"
 msgstr ""

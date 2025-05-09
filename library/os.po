@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:10+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -301,6 +301,9 @@ msgid ""
 "called."
 msgstr ""
 
+msgid "The :func:`os.reload_environ` function."
+msgstr ""
+
 msgid ""
 "Updated to support :pep:`584`'s merge (``|``) and update (``|=``) operators."
 msgstr ""
@@ -315,6 +318,22 @@ msgstr ""
 msgid ""
 ":data:`environb` is only available if :const:`supports_bytes_environ` is "
 "``True``."
+msgstr ""
+
+msgid ""
+"The :data:`os.environ` and :data:`os.environb` mappings are a cache of "
+"environment variables at the time that Python started. As such, changes to "
+"the current process environment are not reflected if made outside Python, or "
+"by :func:`os.putenv` or :func:`os.unsetenv`. Use :func:`!os.reload_environ` "
+"to update :data:`os.environ` and :data:`os.environb` with any such changes "
+"to the current process environment."
+msgstr ""
+
+msgid ""
+"This function is not thread-safe. Calling it while the environment is being "
+"modified in an other thread is an undefined behavior. Reading from :data:`os."
+"environ` or :data:`os.environb`, or calling :func:`os.getenv` while "
+"reloading, may return an empty result."
 msgstr ""
 
 msgid "These functions are described in :ref:`os-file-dir`."
@@ -515,6 +534,9 @@ msgid ""
 "items of :data:`os.environ`. This also applies to :func:`getenv` and :func:"
 "`getenvb`, which respectively use :data:`os.environ` and :data:`os.environb` "
 "in their implementations."
+msgstr ""
+
+msgid "See also the :func:`os.reload_environ` function."
 msgstr ""
 
 msgid ""
@@ -1396,6 +1418,33 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Read from a file descriptor *fd* into a mutable :ref:`buffer object "
+"<bufferobjects>` *buffer*."
+msgstr ""
+
+msgid ""
+"The *buffer* should be mutable and :term:`bytes-like <bytes-like object>`. "
+"On success, returns the number of bytes read. Less bytes may be read than "
+"the size of the buffer. The underlying system call will be retried when "
+"interrupted by a signal, unless the signal handler raises an exception. "
+"Other errors will not be retried and an error will be raised."
+msgstr ""
+
+msgid ""
+"Returns 0 if *fd* is at end of file or if the provided *buffer* has length 0 "
+"(which can be used to check for errors without reading data). Never returns "
+"negative."
+msgstr ""
+
+msgid ""
+"This function is intended for low-level I/O and must be applied to a file "
+"descriptor as returned by :func:`os.open` or :func:`os.pipe`.  To read a "
+"\"file object\" returned by the built-in function :func:`open`, or :data:"
+"`sys.stdin`, use its member functions, for example :meth:`io.BufferedIOBase."
+"readinto`, :meth:`io.BufferedIOBase.read`, or :meth:`io.TextIOBase.read`"
+msgstr ""
+
+msgid ""
 "Copy *count* bytes from file descriptor *in_fd* to file descriptor *out_fd* "
 "starting at *offset*. Return the number of bytes sent. When EOF is reached "
 "return ``0``."
@@ -1462,7 +1511,33 @@ msgstr ""
 
 msgid ""
 "Transfer *count* bytes from file descriptor *src*, starting from offset "
-"*offset_src*, to file descriptor *dst*, starting from offset *offset_dst*. "
+"*offset_src*, to file descriptor *dst*, starting from offset *offset_dst*."
+msgstr ""
+
+msgid ""
+"The splicing behaviour can be modified by specifying a *flags* value. Any of "
+"the following variables may used, combined using bitwise OR (the ``|`` "
+"operator):"
+msgstr ""
+
+msgid ""
+"If :const:`SPLICE_F_MOVE` is specified, the kernel is asked to move pages "
+"instead of copying, but pages may still be copied if the kernel cannot move "
+"the pages from the pipe."
+msgstr ""
+
+msgid ""
+"If :const:`SPLICE_F_NONBLOCK` is specified, the kernel is asked to not block "
+"on I/O. This makes the splice pipe operations nonblocking, but splice may "
+"nevertheless block because the spliced file descriptors may block."
+msgstr ""
+
+msgid ""
+"If :const:`SPLICE_F_MORE` is specified, it hints to the kernel that more "
+"data will be coming in a subsequent splice."
+msgstr ""
+
+msgid ""
 "At least one of the file descriptors must refer to a pipe. If *offset_src* "
 "is ``None``, then *src* is read from the current position; respectively for "
 "*offset_dst*. The offset associated to the file descriptor that refers to a "
@@ -1484,6 +1559,9 @@ msgid ""
 "then this means that there was no data to transfer, and it would not make "
 "sense to block because there are no writers connected to the write end of "
 "the pipe."
+msgstr ""
+
+msgid "The :manpage:`splice(2)` man page."
 msgstr ""
 
 msgid ""
@@ -1966,7 +2044,8 @@ msgstr ""
 msgid ""
 "This function can support specifying *src_dir_fd* and/or *dst_dir_fd* to "
 "supply :ref:`paths relative to directory descriptors <dir_fd>`, and :ref:"
-"`not following symlinks <follow_symlinks>`."
+"`not following symlinks <follow_symlinks>`. The default value of "
+"*follow_symlinks* is ``False`` on Windows."
 msgstr ""
 
 msgid ""
@@ -4178,6 +4257,11 @@ msgid ""
 "encodings."
 msgstr ""
 
+msgid ""
+"The function is :term:`soft deprecated` and should no longer be used to "
+"write new code. The :mod:`subprocess` module is recommended instead."
+msgstr ""
+
 msgid "Wraps the :c:func:`!posix_spawn` C library API for use from Python."
 msgstr ""
 
@@ -4429,6 +4513,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"These functions are :term:`soft deprecated` and should no longer be used to "
+"write new code. The :mod:`subprocess` module is recommended instead."
+msgstr ""
+
+msgid ""
 "Possible values for the *mode* parameter to the :func:`spawn\\* <spawnl>` "
 "family of functions.  If either of these values is given, the :func:"
 "`spawn\\* <spawnl>` functions will return as soon as the new process has "
@@ -4543,7 +4632,7 @@ msgstr ""
 
 msgid ""
 "The :mod:`subprocess` module provides more powerful facilities for spawning "
-"new processes and retrieving their results; using that module is preferable "
+"new processes and retrieving their results; using that module is recommended "
 "to using this function.  See the :ref:`subprocess-replacements` section in "
 "the :mod:`subprocess` documentation for some helpful recipes."
 msgstr ""
@@ -4921,7 +5010,13 @@ msgid ""
 "interactivity on the rest of the computer."
 msgstr ""
 
+msgid "Scheduling policy for tasks with deadline constraints."
+msgstr ""
+
 msgid "Scheduling policy for extremely low priority background tasks."
+msgstr ""
+
+msgid "Alias for :data:`SCHED_OTHER`."
 msgstr ""
 
 msgid "Scheduling policy for sporadic server programs."

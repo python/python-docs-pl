@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -13,9 +13,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:57+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -1382,6 +1382,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Raises InvalidWriteError if this would write a representation which cannot "
+"be accurately parsed by a future :meth:`read` call from this parser."
+msgstr ""
+
+msgid ""
 "Comments in the original configuration file are not preserved when writing "
 "the configuration back. What is considered a comment, depends on the given "
 "values for *comment_prefix* and *inline_comment_prefix*."
@@ -1451,14 +1456,22 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Add a section named *section* to the instance.  If a section by the given "
-"name already exists, :exc:`DuplicateSectionError` is raised.  If the "
-"*default section* name is passed, :exc:`ValueError` is raised."
+"Add a section named *section* or :const:`UNNAMED_SECTION` to the instance."
+msgstr ""
+
+msgid ""
+"If the given section already exists, :exc:`DuplicateSectionError` is raised. "
+"If the *default section* name is passed, :exc:`ValueError` is raised. If :"
+"const:`UNNAMED_SECTION` is passed and support is disabled, :exc:"
+"`UnnamedSectionDisabledError` is raised."
 msgstr ""
 
 msgid ""
 "Type of *section* is not checked which lets users create non-string named "
 "sections.  This behaviour is unsupported and may cause internal errors."
+msgstr ""
+
+msgid "Added support for :const:`UNNAMED_SECTION`."
 msgstr ""
 
 msgid ""
@@ -1546,6 +1559,22 @@ msgstr ""
 msgid ""
 "Exception raised when a key without a corresponding value is continued with "
 "an indented line."
+msgstr ""
+
+msgid ""
+"Exception raised when attempting to use the :const:`UNNAMED_SECTION` without "
+"enabling it."
+msgstr ""
+
+msgid ""
+"Exception raised when an attempted :meth:`ConfigParser.write` would not be "
+"parsed accurately with a future :meth:`ConfigParser.read` call."
+msgstr ""
+
+msgid ""
+"Ex: Writing a key beginning with the :attr:`ConfigParser.SECTCRE` pattern "
+"would parse as a section header when read. Attempting to write this will "
+"raise this exception."
 msgstr ""
 
 msgid "Footnotes"

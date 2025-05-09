@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -12,9 +12,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 00:54+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -95,9 +95,14 @@ msgid ""
 "and close an event loop."
 msgstr ""
 
+msgid "Raises a :exc:`RuntimeError` if there is no current event loop."
+msgstr ""
+
 msgid ""
-"Deprecation warning is emitted if there is no current event loop. In some "
-"future Python release this will become an error."
+"The :mod:`!asyncio` policy system is deprecated and will be removed in "
+"Python 3.16; from there on, this function will return the current running "
+"event loop if present else it will return the loop set by :func:"
+"`set_event_loop`."
 msgstr ""
 
 msgid "Set *loop* as the current event loop for the current OS thread."
@@ -429,10 +434,20 @@ msgid ""
 "copy is created when no *context* is provided."
 msgstr ""
 
+msgid ""
+"An optional keyword-only *eager_start* argument allows specifying if the "
+"task should execute eagerly during the call to create_task, or be scheduled "
+"later. If *eager_start* is not passed the mode set by :meth:`loop."
+"set_task_factory` will be used."
+msgstr ""
+
 msgid "Added the *name* parameter."
 msgstr ""
 
 msgid "Added the *context* parameter."
+msgstr ""
+
+msgid "Added the *eager_start* parameter."
 msgstr ""
 
 msgid "Set a task factory that will be used by :meth:`loop.create_task`."
@@ -1336,6 +1351,12 @@ msgid ""
 "            pool, cpu_bound)\n"
 "        print('custom process pool', result)\n"
 "\n"
+"    # 4. Run in a custom interpreter pool:\n"
+"    with concurrent.futures.InterpreterPoolExecutor() as pool:\n"
+"        result = await loop.run_in_executor(\n"
+"            pool, cpu_bound)\n"
+"        print('custom interpreter pool', result)\n"
+"\n"
 "if __name__ == '__main__':\n"
 "    asyncio.run(main())"
 msgstr ""
@@ -1365,7 +1386,8 @@ msgstr ""
 msgid ""
 "Set *executor* as the default executor used by :meth:`run_in_executor`. "
 "*executor* must be an instance of :class:`~concurrent.futures."
-"ThreadPoolExecutor`."
+"ThreadPoolExecutor`, which includes :class:`~concurrent.futures."
+"InterpreterPoolExecutor`."
 msgstr ""
 
 msgid ""
@@ -1853,12 +1875,12 @@ msgid ""
 "import asyncio\n"
 "import selectors\n"
 "\n"
-"class MyPolicy(asyncio.DefaultEventLoopPolicy):\n"
-"   def new_event_loop(self):\n"
-"      selector = selectors.SelectSelector()\n"
-"      return asyncio.SelectorEventLoop(selector)\n"
+"async def main():\n"
+"   ...\n"
 "\n"
-"asyncio.set_event_loop_policy(MyPolicy())"
+"loop_factory = lambda: asyncio.SelectorEventLoop(selectors."
+"SelectSelector())\n"
+"asyncio.run(main(), loop_factory=loop_factory)"
 msgstr ""
 
 msgid ""

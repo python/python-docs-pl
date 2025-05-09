@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
 # Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2023
-# Maciej Olko <maciej.olko@gmail.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Stan Ulbrych, 2025
+# Maciej Olko <maciej.olko@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: Stan Ulbrych, 2025\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`typing` --- Support for type hints"
+msgid ":mod:`!typing` --- Support for type hints"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/typing.py`"
@@ -847,9 +847,9 @@ msgid ""
 "User-defined generics for parameter expressions are also supported via "
 "parameter specification variables in the form ``[**P]``.  The behavior is "
 "consistent with type variables' described above as parameter specification "
-"variables are treated by the typing module as a specialized type variable.  "
-"The one exception to this is that a list of types can be used to substitute "
-"a :class:`ParamSpec`::"
+"variables are treated by the :mod:`!typing` module as a specialized type "
+"variable.  The one exception to this is that a list of types can be used to "
+"substitute a :class:`ParamSpec`::"
 msgstr ""
 
 msgid ""
@@ -904,8 +904,8 @@ msgstr ""
 msgid ""
 "A user-defined generic class can have ABCs as base classes without a "
 "metaclass conflict. Generic metaclasses are not supported. The outcome of "
-"parameterizing generics is cached, and most types in the typing module are :"
-"term:`hashable` and comparable for equality."
+"parameterizing generics is cached, and most types in the :mod:`!typing` "
+"module are :term:`hashable` and comparable for equality."
 msgstr ""
 
 msgid "The :data:`Any` type"
@@ -1382,6 +1382,16 @@ msgstr ""
 msgid "Union[Union[int, str], float] == Union[int, str, float]"
 msgstr "Union[Union[int, str], float] == Union[int, str, float]"
 
+msgid ""
+"However, this does not apply to unions referenced through a type alias, to "
+"avoid forcing evaluation of the underlying :class:`TypeAliasType`::"
+msgstr ""
+
+msgid ""
+"type A = Union[int, str]\n"
+"Union[A, float] != Union[int, str, float]"
+msgstr ""
+
 msgid "Unions of a single argument vanish, e.g.::"
 msgstr ""
 
@@ -1412,6 +1422,14 @@ msgstr ""
 msgid ""
 "Unions can now be written as ``X | Y``. See :ref:`union type "
 "expressions<types-union>`."
+msgstr ""
+
+msgid ""
+":class:`types.UnionType` is now an alias for :class:`Union`, and both "
+"``Union[int, str]`` and ``int | str`` create instances of the same class. To "
+"check whether an object is a ``Union`` at runtime, use ``isinstance(obj, "
+"Union)``. For compatibility with earlier versions of Python, use "
+"``get_origin(obj) is typing.Union or get_origin(obj) is types.UnionType``."
 msgstr ""
 
 msgid "``Optional[X]`` is equivalent to ``X | None`` (or ``Union[X, None]``)."
@@ -1530,6 +1548,43 @@ msgid ""
 "``Literal[...]`` cannot be subclassed. At runtime, an arbitrary value is "
 "allowed as type argument to ``Literal[...]``, but type checkers may impose "
 "restrictions. See :pep:`586` for more details about literal types."
+msgstr ""
+
+msgid "Additional details:"
+msgstr ""
+
+msgid "The arguments must be literal values and there must be at least one."
+msgstr ""
+
+msgid "Nested ``Literal`` types are flattened, e.g.::"
+msgstr ""
+
+msgid "assert Literal[Literal[1, 2], 3] == Literal[1, 2, 3]"
+msgstr ""
+
+msgid ""
+"However, this does not apply to ``Literal`` types referenced through a type "
+"alias, to avoid forcing evaluation of the underlying :class:`TypeAliasType`::"
+msgstr ""
+
+msgid ""
+"type A = Literal[1, 2]\n"
+"assert Literal[A, 3] != Literal[1, 2, 3]"
+msgstr ""
+
+msgid "assert Literal[1, 2, 1] == Literal[1, 2]"
+msgstr ""
+
+msgid "When comparing literals, the argument order is ignored, e.g.::"
+msgstr ""
+
+msgid "assert Literal[1, 2] == Literal[2, 1]"
+msgstr ""
+
+msgid "You cannot subclass or instantiate a ``Literal``."
+msgstr ""
+
+msgid "You cannot write ``Literal[X][Y]``."
 msgstr ""
 
 msgid ""
@@ -1718,6 +1773,19 @@ msgid ""
 "assert Annotated[Annotated[int, ValueRange(3, 10)], ctype(\"char\")] == "
 "Annotated[\n"
 "    int, ValueRange(3, 10), ctype(\"char\")\n"
+"]"
+msgstr ""
+
+msgid ""
+"However, this does not apply to ``Annotated`` types referenced through a "
+"type alias, to avoid forcing evaluation of the underlying :class:"
+"`TypeAliasType`::"
+msgstr ""
+
+msgid ""
+"type From3To10[T] = Annotated[T, ValueRange(3, 10)]\n"
+"assert Annotated[From3To10[int], ctype(\"char\")] != Annotated[\n"
+"   int, ValueRange(3, 10), ctype(\"char\")\n"
 "]"
 msgstr ""
 
@@ -2260,6 +2328,15 @@ msgid ""
 "when the type variable is created (see :ref:`lazy-evaluation`)."
 msgstr ""
 
+msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`~TypeVar.__bound__` "
+"attribute. When called directly, this method supports only the :attr:"
+"`~annotationlib.Format.VALUE` format, which is equivalent to accessing the :"
+"attr:`~TypeVar.__bound__` attribute directly, but the method object can be "
+"passed to :func:`annotationlib.call_evaluate_function` to evaluate the value "
+"in a different format."
+msgstr ""
+
 msgid "A tuple containing the constraints of the type variable, if any."
 msgstr ""
 
@@ -2270,8 +2347,26 @@ msgid ""
 msgstr ""
 
 msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`~TypeVar."
+"__constraints__` attribute. When called directly, this method supports only "
+"the :attr:`~annotationlib.Format.VALUE` format, which is equivalent to "
+"accessing the :attr:`~TypeVar.__constraints__` attribute directly, but the "
+"method object can be passed to :func:`annotationlib.call_evaluate_function` "
+"to evaluate the value in a different format."
+msgstr ""
+
+msgid ""
 "The default value of the type variable, or :data:`typing.NoDefault` if it "
 "has no default."
+msgstr ""
+
+msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`~TypeVar."
+"__default__` attribute. When called directly, this method supports only the :"
+"attr:`~annotationlib.Format.VALUE` format, which is equivalent to accessing "
+"the :attr:`~TypeVar.__default__` attribute directly, but the method object "
+"can be passed to :func:`annotationlib.call_evaluate_function` to evaluate "
+"the value in a different format."
 msgstr ""
 
 msgid ""
@@ -2438,6 +2533,15 @@ msgid ""
 msgstr ""
 
 msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`~TypeVarTuple."
+"__default__` attribute. When called directly, this method supports only the :"
+"attr:`~annotationlib.Format.VALUE` format, which is equivalent to accessing "
+"the :attr:`~TypeVarTuple.__default__` attribute directly, but the method "
+"object can be passed to :func:`annotationlib.call_evaluate_function` to "
+"evaluate the value in a different format."
+msgstr ""
+
+msgid ""
 "Return whether or not the type variable tuple has a default value. This is "
 "equivalent to checking whether :attr:`__default__` is not the :data:`typing."
 "NoDefault` singleton, except that it does not force evaluation of the :ref:"
@@ -2538,6 +2642,15 @@ msgstr ""
 msgid ""
 "The default value of the parameter specification, or :data:`typing."
 "NoDefault` if it has no default."
+msgstr ""
+
+msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`~ParamSpec."
+"__default__` attribute. When called directly, this method supports only the :"
+"attr:`~annotationlib.Format.VALUE` format, which is equivalent to accessing "
+"the :attr:`~ParamSpec.__default__` attribute directly, but the method object "
+"can be passed to :func:`annotationlib.call_evaluate_function` to evaluate "
+"the value in a different format."
 msgstr ""
 
 msgid ""
@@ -2658,6 +2771,45 @@ msgid ""
 "Mutually"
 msgstr ""
 
+msgid ""
+"An :term:`evaluate function` corresponding to the :attr:`__value__` "
+"attribute. When called directly, this method supports only the :attr:"
+"`~annotationlib.Format.VALUE` format, which is equivalent to accessing the :"
+"attr:`__value__` attribute directly, but the method object can be passed to :"
+"func:`annotationlib.call_evaluate_function` to evaluate the value in a "
+"different format:"
+msgstr ""
+
+msgid ""
+">>> type Alias = undefined\n"
+">>> Alias.__value__\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"NameError: name 'undefined' is not defined\n"
+">>> from annotationlib import Format, call_evaluate_function\n"
+">>> Alias.evaluate_value(Format.VALUE)\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"NameError: name 'undefined' is not defined\n"
+">>> call_evaluate_function(Alias.evaluate_value, Format.FORWARDREF)\n"
+"ForwardRef('undefined')"
+msgstr ""
+
+msgid "Unpacking"
+msgstr "Rozpakowywanie"
+
+msgid ""
+"Type aliases support star unpacking using the ``*Alias`` syntax. This is "
+"equivalent to using ``Unpack[Alias]`` directly:"
+msgstr ""
+
+msgid ""
+">>> type Alias = tuple[int, str]\n"
+">>> type Unpacked = tuple[bool, *Alias]\n"
+">>> Unpacked.__value__\n"
+"tuple[bool, typing.Unpack[Alias]]"
+msgstr ""
+
 msgid "Other special directives"
 msgstr ""
 
@@ -2764,6 +2916,12 @@ msgid ""
 msgstr ""
 
 msgid "Added support for generic namedtuples."
+msgstr ""
+
+msgid ""
+"Using :func:`super` (and the ``__class__`` :term:`closure variable`) in "
+"methods of ``NamedTuple`` subclasses is unsupported and causes a :class:"
+"`TypeError`."
 msgstr ""
 
 msgid ""
@@ -3194,7 +3352,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"See :pep:`589` for more examples and detailed rules of using ``TypedDict``."
+"See the `TypedDict <https://typing.python.org/en/latest/spec/typeddict."
+"html#typeddict>`_ section in the typing documentation for more examples and "
+"detailed rules."
 msgstr ""
 
 msgid ""
@@ -3226,8 +3386,8 @@ msgid "Protocols"
 msgstr ""
 
 msgid ""
-"The following protocols are provided by the typing module. All are decorated "
-"with :func:`@runtime_checkable <runtime_checkable>`."
+"The following protocols are provided by the :mod:`!typing` module. All are "
+"decorated with :func:`@runtime_checkable <runtime_checkable>`."
 msgstr ""
 
 msgid ""
@@ -3255,13 +3415,37 @@ msgid ""
 "return type."
 msgstr ""
 
-msgid "ABCs for working with IO"
+msgid "ABCs and Protocols for working with I/O"
 msgstr ""
 
 msgid ""
-"Generic type ``IO[AnyStr]`` and its subclasses ``TextIO(IO[str])`` and "
+"Generic class ``IO[AnyStr]`` and its subclasses ``TextIO(IO[str])`` and "
 "``BinaryIO(IO[bytes])`` represent the types of I/O streams such as returned "
-"by :func:`open`."
+"by :func:`open`. Please note that these classes are not protocols, and their "
+"interface is fairly broad."
+msgstr ""
+
+msgid ""
+"The protocols :class:`io.Reader` and :class:`io.Writer` offer a simpler "
+"alternative for argument types, when only the ``read()`` or ``write()`` "
+"methods are accessed, respectively::"
+msgstr ""
+
+msgid ""
+"def read_and_write(reader: Reader[str], writer: Writer[bytes]):\n"
+"    data = reader.read()\n"
+"    writer.write(data.encode())"
+msgstr ""
+
+msgid ""
+"Also consider using :class:`collections.abc.Iterable` for iterating over the "
+"lines of an input stream::"
+msgstr ""
+
+msgid ""
+"def read_config(stream: Iterable[str]):\n"
+"    for line in stream:\n"
+"        ..."
 msgstr ""
 
 msgid "Functions and decorators"
@@ -3938,7 +4122,7 @@ msgstr ""
 
 msgid ""
 "For example, ``List[\"SomeClass\"]`` is implicitly transformed into "
-"``List[ForwardRef(\"SomeClass\")]``.  ``ForwardRef`` should not be "
+"``List[ForwardRef(\"SomeClass\")]``.  :class:`!ForwardRef` should not be "
 "instantiated by a user, but may be used by introspection tools."
 msgstr ""
 
@@ -3946,6 +4130,45 @@ msgid ""
 ":pep:`585` generic types such as ``list[\"SomeClass\"]`` will not be "
 "implicitly transformed into ``list[ForwardRef(\"SomeClass\")]`` and thus "
 "will not automatically resolve to ``list[SomeClass]``."
+msgstr ""
+
+msgid ""
+"This is now an alias for :class:`annotationlib.ForwardRef`. Several "
+"undocumented behaviors of this class have been changed; for example, after a "
+"``ForwardRef`` has been evaluated, the evaluated value is no longer cached."
+msgstr ""
+
+msgid "Evaluate an :class:`annotationlib.ForwardRef` as a :term:`type hint`."
+msgstr ""
+
+msgid ""
+"This is similar to calling :meth:`annotationlib.ForwardRef.evaluate`, but "
+"unlike that method, :func:`!evaluate_forward_ref` also:"
+msgstr ""
+
+msgid "Recursively evaluates forward references nested within the type hint."
+msgstr ""
+
+msgid ""
+"Raises :exc:`TypeError` when it encounters certain objects that are not "
+"valid type hints."
+msgstr ""
+
+msgid ""
+"Replaces type hints that evaluate to :const:`!None` with :class:`types."
+"NoneType`."
+msgstr ""
+
+msgid ""
+"Supports the :attr:`~annotationlib.Format.FORWARDREF` and :attr:"
+"`~annotationlib.Format.STRING` formats."
+msgstr ""
+
+msgid ""
+"See the documentation for :meth:`annotationlib.ForwardRef.evaluate` for the "
+"meaning of the *owner*, *globals*, *locals*, and *type_params* parameters. "
+"*format* specifies the format of the annotation and is a member of the :"
+"class:`annotationlib.Format` enum."
 msgstr ""
 
 msgid ""
@@ -3997,10 +4220,10 @@ msgstr ""
 
 msgid ""
 "This module defines several deprecated aliases to pre-existing standard "
-"library classes. These were originally included in the typing module in "
-"order to support parameterizing these generic classes using ``[]``. However, "
-"the aliases became redundant in Python 3.9 when the corresponding pre-"
-"existing classes were enhanced to support ``[]`` (see :pep:`585`)."
+"library classes. These were originally included in the :mod:`!typing` module "
+"in order to support parameterizing these generic classes using ``[]``. "
+"However, the aliases became redundant in Python 3.9 when the corresponding "
+"pre-existing classes were enhanced to support ``[]`` (see :pep:`585`)."
 msgstr ""
 
 msgid ""
@@ -4013,8 +4236,8 @@ msgstr ""
 msgid ""
 "If at some point it is decided to remove these deprecated aliases, a "
 "deprecation warning will be issued by the interpreter for at least two "
-"releases prior to removal. The aliases are guaranteed to remain in the "
-"typing module without deprecation warnings until at least Python 3.14."
+"releases prior to removal. The aliases are guaranteed to remain in the :mod:"
+"`!typing` module without deprecation warnings until at least Python 3.14."
 msgstr ""
 
 msgid ""
@@ -4198,16 +4421,6 @@ msgstr ""
 msgid ""
 ":class:`collections.abc.Set` now supports subscripting (``[]``). See :pep:"
 "`585` and :ref:`types-genericalias`."
-msgstr ""
-
-msgid ""
-"This type represents the types :class:`bytes`, :class:`bytearray`, and :"
-"class:`memoryview` of byte sequences."
-msgstr ""
-
-msgid ""
-"Prefer :class:`collections.abc.Buffer`, or a union like ``bytes | bytearray "
-"| memoryview``."
 msgstr ""
 
 msgid "Deprecated alias to :class:`collections.abc.Collection`."
@@ -4495,15 +4708,6 @@ msgstr ""
 
 msgid ":pep:`585`"
 msgstr ":pep:`585`"
-
-msgid ":class:`typing.ByteString`"
-msgstr ":class:`typing.ByteString`"
-
-msgid "3.14"
-msgstr ""
-
-msgid ":gh:`91896`"
-msgstr ":gh:`91896`"
 
 msgid ":data:`typing.Text`"
 msgstr ":data:`typing.Text`"

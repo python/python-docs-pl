@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 14:18+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -70,9 +70,14 @@ msgstr ""
 msgid ""
 "Archives are extracted using a :ref:`filter <tarfile-extraction-filter>`, "
 "which makes it possible to either limit surprising/dangerous features, or to "
-"acknowledge that they are expected and the archive is fully trusted. By "
-"default, archives are fully trusted, but this default is deprecated and "
-"slated to change in Python 3.14."
+"acknowledge that they are expected and the archive is fully trusted."
+msgstr ""
+
+msgid ""
+"Set the default extraction filter to :func:`data <data_filter>`, which "
+"disallows some dangerous features such as links to absolute paths or paths "
+"outside of the destination. Previously, the filter strategy was equivalent "
+"to :func:`fully_trusted <fully_trusted_filter>`."
 msgstr ""
 
 msgid ""
@@ -205,8 +210,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"For modes ``'w:xz'`` and ``'x:xz'``, :func:`tarfile.open` accepts the "
-"keyword argument *preset* to specify the compression level of the file."
+"For modes ``'w:xz'``, ``'x:xz'`` and ``'w|xz'``, :func:`tarfile.open` "
+"accepts the keyword argument *preset* to specify the compression level of "
+"the file."
 msgstr ""
 
 msgid ""
@@ -289,6 +295,9 @@ msgid "The *name* parameter accepts a :term:`path-like object`."
 msgstr ""
 
 msgid "The *compresslevel* keyword argument also works for streams."
+msgstr ""
+
+msgid "The *preset* keyword argument also works for streams."
 msgstr ""
 
 msgid ""
@@ -616,20 +625,19 @@ msgstr ""
 msgid ""
 "The *filter* argument specifies how ``members`` are modified or rejected "
 "before extraction. See :ref:`tarfile-extraction-filter` for details. It is "
-"recommended to set this explicitly depending on which *tar* features you "
-"need to support."
+"recommended to set this explicitly only if specific *tar* features are "
+"required, or as ``filter='data'`` to support Python versions with a less "
+"secure default (3.13 and lower)."
+msgstr ""
+
+msgid "Never extract archives from untrusted sources without prior inspection."
 msgstr ""
 
 msgid ""
-"Never extract archives from untrusted sources without prior inspection. It "
-"is possible that files are created outside of *path*, e.g. members that have "
-"absolute filenames starting with ``\"/\"`` or filenames with two dots ``\".."
-"\"``."
-msgstr ""
-
-msgid ""
-"Set ``filter='data'`` to prevent the most dangerous security issues, and "
-"read the :ref:`tarfile-extraction-filter` section for details."
+"Since Python 3.14, the default (:func:`data <data_filter>`) will prevent the "
+"most dangerous security issues. However, it will not prevent *all* "
+"unintended or insecure behavior. Read the :ref:`tarfile-extraction-filter` "
+"section for details."
 msgstr ""
 
 msgid "Added the *numeric_owner* parameter."
@@ -639,6 +647,9 @@ msgid "The *path* parameter accepts a :term:`path-like object`."
 msgstr ""
 
 msgid "Added the *filter* parameter."
+msgstr ""
+
+msgid "The *filter* parameter now defaults to ``'data'``."
 msgstr ""
 
 msgid ""
@@ -659,7 +670,9 @@ msgid ""
 "In most cases you should consider using the :meth:`extractall` method."
 msgstr ""
 
-msgid "See the warning for :meth:`extractall`."
+msgid ""
+"Never extract archives from untrusted sources without prior inspection. See "
+"the warning for :meth:`extractall` for details."
 msgstr ""
 
 msgid "Added the *set_attrs* parameter."
@@ -718,15 +731,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If ``extraction_filter`` is ``None`` (the default), calling an extraction "
-"method without a *filter* argument will raise a ``DeprecationWarning``, and "
-"fall back to the :func:`fully_trusted <fully_trusted_filter>` filter, whose "
-"dangerous behavior matches previous versions of Python."
-msgstr ""
-
-msgid ""
-"In Python 3.14+, leaving ``extraction_filter=None`` will cause extraction "
-"methods to use the :func:`data <data_filter>` filter by default."
+"If ``extraction_filter`` is ``None`` (the default), extraction methods will "
+"use the :func:`data <data_filter>` filter by default."
 msgstr ""
 
 msgid ""
@@ -736,6 +742,13 @@ msgid ""
 "practice to only do so in top-level applications or :mod:`site configuration "
 "<site>`. To set a global default this way, a filter function needs to be "
 "wrapped in :func:`staticmethod` to prevent injection of a ``self`` argument."
+msgstr ""
+
+msgid ""
+"The default filter is set to :func:`data <data_filter>`, which disallows "
+"some dangerous features such as links to absolute paths or paths outside of "
+"the destination. Previously, the default was equivalent to :func:"
+"`fully_trusted <fully_trusted_filter>`."
 msgstr ""
 
 msgid ""
@@ -990,6 +1003,12 @@ msgid ""
 "mitigate some of the security issues."
 msgstr ""
 
+msgid ""
+"None of the available filters blocks *all* dangerous archive features. Never "
+"extract archives from untrusted sources without prior inspection. See also :"
+"ref:`tarfile-further-verification`."
+msgstr ""
+
 msgid ":pep:`706`"
 msgstr ":pep:`706`"
 
@@ -1023,14 +1042,12 @@ msgid "``None`` (default): Use :attr:`TarFile.extraction_filter`."
 msgstr ""
 
 msgid ""
-"If that is also ``None`` (the default), raise a ``DeprecationWarning``, and "
-"fall back to the ``'fully_trusted'`` filter, whose dangerous behavior "
-"matches previous versions of Python."
+"If that is also ``None`` (the default), the ``'data'`` filter will be used."
 msgstr ""
 
 msgid ""
-"In Python 3.14, the ``'data'`` filter will become the default instead. It's "
-"possible to switch earlier; see :attr:`TarFile.extraction_filter`."
+"The default filter is set to :func:`data <data_filter>`. Previously, the "
+"default was equivalent to :func:`fully_trusted <fully_trusted_filter>`."
 msgstr ""
 
 msgid ""
@@ -1150,6 +1167,11 @@ msgid ""
 "``None``, so that extraction methods skip setting it."
 msgstr ""
 
+msgid ""
+"Note that this filter does not block *all* dangerous archive features. See :"
+"ref:`tarfile-further-verification`  for details."
+msgstr ""
+
 msgid "Filter errors"
 msgstr ""
 
@@ -1187,7 +1209,7 @@ msgstr ""
 
 msgid ""
 "Check filenames against an allow-list of characters (to filter out control "
-"characters, confusables, foreign path separators, etc.)."
+"characters, confusables, foreign path separators, and so on)."
 msgstr ""
 
 msgid ""
