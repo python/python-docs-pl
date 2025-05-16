@@ -54,7 +54,7 @@ jobs:
       - run: git config --local user.name "GitHub Action's update-translation job"
       - name: Check changes significance
         run: >
-          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
+          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
       - run: git add .
       - run: git commit -m 'Update translation from Transifex'
         if: env.SIGNIFICANT_CHANGES
