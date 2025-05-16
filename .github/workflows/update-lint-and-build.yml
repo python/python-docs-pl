@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-translation:
+  update:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -71,7 +71,7 @@ jobs:
       fail-fast: false
       matrix:
         version: [3.14, 3.13, 3.12, 3.11]
-    needs: ['update-translation']
+    needs: ['update']
     continue-on-error: true
     steps:
       - uses: actions/setup-python@master
@@ -84,14 +84,14 @@ jobs:
       - uses: rffontenelle/sphinx-lint-problem-matcher@v1.0.0
       - run: sphinx-lint
 
-  build-translation:
+  build:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
+        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
         format: [html, latex, epub]
-    needs: ['update-translation']
+    needs: ['update']
     steps:
       - uses: actions/setup-python@master
         with:
@@ -121,8 +121,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9, 3.8]
-    needs: ['build-translation']
+        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+    needs: ['build']
     steps:
       - uses: actions/download-artifact@master
         with:
@@ -140,7 +140,7 @@ jobs:
     strategy:
       matrix:
         version: [3.14]
-    needs: ['build-translation']
+    needs: ['build']
     continue-on-error: true
     steps:
       - uses: actions/setup-python@v5
