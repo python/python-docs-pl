@@ -66,6 +66,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -85,6 +86,7 @@ jobs:
       - run: sphinx-lint
 
   build-translation:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -118,6 +120,7 @@ jobs:
           path: Doc/build/${{ matrix.format }}
 
   output-pdf:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -136,6 +139,7 @@ jobs:
           path: .
 
   lint-epub:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       matrix:
