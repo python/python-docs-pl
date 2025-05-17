@@ -33,7 +33,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
-[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
+[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 **Chcę pomóc w tłumaczeniu, ale nie wiem od czego zacząć!**
 
@@ -68,6 +68,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * `cog -rP README.md`
 
 **Przydatne materiały**
+* [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 * [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
