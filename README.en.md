@@ -31,13 +31,13 @@ If you find a mistake or have a suggestion,
 * After joining the Project, pick the category you want to fix/translate.
 
 You can find more information about using Transifex
-[in their help guide.](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
+in [their help articles](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) or [our guide](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 **I want to start translating, but I don't know where to start!**
 
 Firstly, you can join as a translator by following the steps outlined above.
 
-Then you can start by translating one of our [prioritized resources.](https://github.com/python/python-docs-pl/issues/50)
+Then you can start by translating one of our [prioritized resources](https://github.com/python/python-docs-pl/issues/50).
 
 **How to see the newest build of the documentation?**
 
@@ -66,7 +66,8 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * `cog -rP README.md`
 
 **Useful Materials**
-* [Site Statistics](https://plausible.io/docs.python.org/?filters=%28%28contains,page,%28/pl/%29%29%29)
+* [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
+* [Site Statistics](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 * [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
 **Similar Translation Projects**
