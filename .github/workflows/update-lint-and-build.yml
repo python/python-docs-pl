@@ -97,11 +97,15 @@ jobs:
       - uses: actions/setup-python@master
         with:
           python-version: 3
-      - run: pip install pospell
       - uses: actions/checkout@master
         with:
           ref: ${{ matrix.version }}
-      - run: pospell --langauge pl --glob '**/*.po'
+      - name: Install dependencies
+        run: |
+          pip install pospell
+          sudo apt-get update && sudo apt-get install -y hunspell hunspell-pl
+      - name: Run pospell
+        run: pospell --language pl --glob '**/*.po'
 
   build:
     runs-on: ubuntu-latest
