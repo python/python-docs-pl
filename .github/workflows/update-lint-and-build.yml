@@ -84,6 +84,24 @@ jobs:
       - uses: rffontenelle/sphinx-lint-problem-matcher@v1.0.0
       - run: sphinx-lint
 
+  spellcheck:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [ 3.14 ]
+    needs: [ 'update' ]
+    continue-on-error: true
+    steps:
+      - uses: actions/setup-python@master
+        with:
+          python-version: 3
+      - run: pip install pospell
+      - uses: actions/checkout@master
+        with:
+          ref: ${{ matrix.version }}
+      - run: pospell --langauge pl --glob '**/*.po'
+
   build:
     runs-on: ubuntu-latest
     strategy:
