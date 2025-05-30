@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 14:19+0000\n"
+"POT-Creation-Date: 2025-05-30 14:22+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
 "Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -317,91 +317,118 @@ msgid ""
 "string that forms a legal token, when read from left to right."
 msgstr ""
 
-msgid "Identifiers and keywords"
+msgid "Names (identifiers and keywords)"
 msgstr ""
 
 msgid ""
-"Identifiers (also referred to as *names*) are described by the following "
-"lexical definitions."
+":data:`~token.NAME` tokens represent *identifiers*, *keywords*, and *soft "
+"keywords*."
 msgstr ""
 
 msgid ""
-"The syntax of identifiers in Python is based on the Unicode standard annex "
-"UAX-31, with elaboration and changes as defined below; see also :pep:`3131` "
-"for further details."
+"Within the ASCII range (U+0001..U+007F), the valid characters for names "
+"include the uppercase and lowercase letters (``A-Z`` and ``a-z``), the "
+"underscore ``_`` and, except for the first character, the digits ``0`` "
+"through ``9``."
 msgstr ""
 
 msgid ""
-"Within the ASCII range (U+0001..U+007F), the valid characters for "
-"identifiers include the uppercase and lowercase letters ``A`` through ``Z``, "
-"the underscore ``_`` and, except for the first character, the digits ``0`` "
-"through ``9``. Python 3.0 introduced additional characters from outside the "
-"ASCII range (see :pep:`3131`).  For these characters, the classification "
-"uses the version of the Unicode Character Database as included in the :mod:"
-"`unicodedata` module."
-msgstr ""
-
-msgid "Identifiers are unlimited in length.  Case is significant."
-msgstr ""
-
-msgid "The Unicode category codes mentioned above stand for:"
-msgstr ""
-
-msgid "*Lu* - uppercase letters"
-msgstr ""
-
-msgid "*Ll* - lowercase letters"
-msgstr ""
-
-msgid "*Lt* - titlecase letters"
-msgstr ""
-
-msgid "*Lm* - modifier letters"
-msgstr ""
-
-msgid "*Lo* - other letters"
-msgstr ""
-
-msgid "*Nl* - letter numbers"
-msgstr ""
-
-msgid "*Mn* - nonspacing marks"
-msgstr ""
-
-msgid "*Mc* - spacing combining marks"
-msgstr ""
-
-msgid "*Nd* - decimal numbers"
-msgstr ""
-
-msgid "*Pc* - connector punctuations"
+"Names must contain at least one character, but have no upper length limit. "
+"Case is significant."
 msgstr ""
 
 msgid ""
-"*Other_ID_Start* - explicit list of characters in `PropList.txt <https://www."
-"unicode.org/Public/16.0.0/ucd/PropList.txt>`_ to support backwards "
-"compatibility"
-msgstr ""
-
-msgid "*Other_ID_Continue* - likewise"
+"Besides ``A-Z``, ``a-z``, ``_`` and ``0-9``, names can also use \"letter-"
+"like\" and \"number-like\" characters from outside the ASCII range, as "
+"detailed below."
 msgstr ""
 
 msgid ""
-"All identifiers are converted into the normal form NFKC while parsing; "
-"comparison of identifiers is based on NFKC."
+"All identifiers are converted into the `normalization form`_ NFKC while "
+"parsing; comparison of identifiers is based on NFKC."
 msgstr ""
 
 msgid ""
-"A non-normative HTML file listing all valid identifier characters for "
-"Unicode 16.0.0 can be found at https://www.unicode.org/Public/16.0.0/ucd/"
-"DerivedCoreProperties.txt"
+"Formally, the first character of a normalized identifier must belong to the "
+"set ``id_start``, which is the union of:"
+msgstr ""
+
+msgid "Unicode category ``<Lu>`` - uppercase letters (includes ``A`` to ``Z``)"
+msgstr ""
+
+msgid "Unicode category ``<Ll>`` - lowercase letters (includes ``a`` to ``z``)"
+msgstr ""
+
+msgid "Unicode category ``<Lt>`` - titlecase letters"
+msgstr ""
+
+msgid "Unicode category ``<Lm>`` - modifier letters"
+msgstr ""
+
+msgid "Unicode category ``<Lo>`` - other letters"
+msgstr ""
+
+msgid "Unicode category ``<Nl>`` - letter numbers"
+msgstr ""
+
+msgid "{``\"_\"``} - the underscore"
+msgstr ""
+
+msgid ""
+"``<Other_ID_Start>`` - an explicit set of characters in `PropList.txt`_ to "
+"support backwards compatibility"
+msgstr ""
+
+msgid ""
+"The remaining characters must belong to the set ``id_continue``, which is "
+"the union of:"
+msgstr ""
+
+msgid "all characters in ``id_start``"
+msgstr ""
+
+msgid "Unicode category ``<Nd>`` - decimal numbers (includes ``0`` to ``9``)"
+msgstr ""
+
+msgid "Unicode category ``<Pc>`` - connector punctuations"
+msgstr ""
+
+msgid "Unicode category ``<Mn>`` - nonspacing marks"
+msgstr ""
+
+msgid "Unicode category ``<Mc>`` - spacing combining marks"
+msgstr ""
+
+msgid ""
+"``<Other_ID_Continue>`` - another explicit set of characters in `PropList."
+"txt`_ to support backwards compatibility"
+msgstr ""
+
+msgid ""
+"Unicode categories use the version of the Unicode Character Database as "
+"included in the :mod:`unicodedata` module."
+msgstr ""
+
+msgid ""
+"These sets are based on the Unicode standard annex `UAX-31`_. See also :pep:"
+"`3131` for further details."
+msgstr ""
+
+msgid ""
+"Even more formally, names are described by the following lexical definitions:"
+msgstr ""
+
+msgid ""
+"A non-normative listing of all valid identifier characters as defined by "
+"Unicode is available in the `DerivedCoreProperties.txt`_ file in the Unicode "
+"Character Database."
 msgstr ""
 
 msgid "Keywords"
 msgstr ""
 
 msgid ""
-"The following identifiers are used as reserved words, or *keywords* of the "
+"The following names are used as reserved words, or *keywords* of the "
 "language, and cannot be used as ordinary identifiers.  They must be spelled "
 "exactly as written here:"
 msgstr ""
@@ -420,21 +447,26 @@ msgid "Soft Keywords"
 msgstr ""
 
 msgid ""
-"Some identifiers are only reserved under specific contexts. These are known "
-"as *soft keywords*.  The identifiers ``match``, ``case``, ``type`` and ``_`` "
-"can syntactically act as keywords in certain contexts, but this distinction "
-"is done at the parser level, not when tokenizing."
+"Some names are only reserved under specific contexts. These are known as "
+"*soft keywords*:"
+msgstr ""
+
+msgid ""
+"``match``, ``case``, and ``_``, when used in the :keyword:`match` statement."
+msgstr ""
+
+msgid "``type``, when used in the :keyword:`type` statement."
+msgstr ""
+
+msgid ""
+"These syntactically act as keywords in their specific contexts, but this "
+"distinction is done at the parser level, not when tokenizing."
 msgstr ""
 
 msgid ""
 "As soft keywords, their use in the grammar is possible while still "
 "preserving compatibility with existing code that uses these names as "
 "identifier names."
-msgstr ""
-
-msgid ""
-"``match``, ``case``, and ``_`` are used in the :keyword:`match` statement. "
-"``type`` is used in the :keyword:`type` statement."
 msgstr ""
 
 msgid "``type`` is now a soft keyword."
