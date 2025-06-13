@@ -35,8 +35,8 @@ def fetch():
     """
     Fetch translations from Transifex, remove source lines.
     """
-    if (code := call("tx --version", shell=True)) != 0:
-        sys.stderr.write("The Transifex client app is required.\n")
+    if (code := call('tx --version', shell=True)) != 0:
+        sys.stderr.write('The Transifex client app is required.\n')
         exit(code)
     lang = LANGUAGE
     _call(f'tx pull -l {lang} --minimum-perc=1 --force --skip')
@@ -71,11 +71,13 @@ def recreate_tx_config():
             file.write(contents)
     warn_about_files_to_delete()
 
+
 def warn_about_files_to_delete():
     files = list(_get_files_to_delete())
     if not files:
         return
     warn(f'Found {len(files)} file(s) to delete: {", ".join(files)}.')
+
 
 def _get_files_to_delete():
     with open('.tx/config') as config_file:
@@ -86,11 +88,13 @@ def _get_files_to_delete():
 
 
 def _clone_cpython_repo(version: str):
-    _call(f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1')
+    _call(
+        f'git clone -b {version} --single-branch https://github.com/python/cpython.git --depth 1'
+    )
 
 
 def _build_gettext():
-    _call("make -C cpython/Doc/ gettext")
+    _call('make -C cpython/Doc/ gettext')
 
 
 def _create_txconfig():
@@ -115,7 +119,9 @@ class ResourceLanguageStatistics:
     @classmethod
     def from_api_entry(cls, data: transifex_api.ResourceLanguageStats) -> Self:
         return cls(
-            name=data.id.removeprefix(f'o:python-doc:p:{PROJECT_SLUG}:r:').removesuffix(f':l:{LANGUAGE}'),
+            name=data.id.removeprefix(f'o:python-doc:p:{PROJECT_SLUG}:r:').removesuffix(
+                f':l:{LANGUAGE}'
+            ),
             total_words=data.attributes['total_words'],
             translated_words=data.attributes['translated_words'],
             total_strings=data.attributes['total_strings'],
@@ -161,21 +167,23 @@ def get_number_of_translators():
 def _fetch_translators() -> Generator[str, None, None]:
     for file in Path().rglob('*.po'):
         header = pofile(file).header.splitlines()
-        for translator_record in header[header.index('Translators:') + 1:]:
+        for translator_record in header[header.index('Translators:') + 1 :]:
             translator, _year = translator_record.split(', ')
             yield translator
 
 
 def _remove_bot(translators: set[str]) -> None:
-    translators.remove("Transifex Bot <>")
+    translators.remove('Transifex Bot <>')
 
 
 def _eliminate_aliases(translators: set[str]) -> set[str]:
     unique = set()
     for name in translators:
         for match in unique:
-            if (ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()) > 0.64:
-                info(f"{name} and {match} are similar ({ratio:.3f}). Deduplicating.")
+            if (
+                ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()
+            ) > 0.64:
+                info(f'{name} and {match} are similar ({ratio:.3f}). Deduplicating.')
                 break
         else:
             unique.add(name)
@@ -184,10 +192,12 @@ def _eliminate_aliases(translators: set[str]) -> set[str]:
 
 def language_switcher(entry: ResourceLanguageStatistics) -> bool:
     language_switcher_resources_prefixes = ('bugs', 'tutorial', 'library--functions')
-    return any(entry.name.startswith(prefix) for prefix in language_switcher_resources_prefixes)
+    return any(
+        entry.name.startswith(prefix) for prefix in language_switcher_resources_prefixes
+    )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'warn_about_files_to_delete')
 
     parser = ArgumentParser()
