@@ -8,7 +8,7 @@ total = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
-f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
+f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.3f}%25-0.svg)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
@@ -51,7 +51,7 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/VCyBDGH38e)
 * [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
-* [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
+* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
 **Licencja**
@@ -68,9 +68,9 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * `cog -rP README.md`
 
 **Przydatne materiały**
+* [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
 * [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
-* [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
 **Podobne projekty**
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
