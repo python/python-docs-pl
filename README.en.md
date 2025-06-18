@@ -8,11 +8,11 @@ total = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
-f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
+f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 ![Total Translation of Documentation](https://img.shields.io/badge/Total-{total:.3f}%25-0.svg)
 ![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
-![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
+[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 ![Total Translation of Documentation](https://img.shields.io/badge/Total-5.198%25-0.svg)
 ![24 Translators](https://img.shields.io/badge/Translators-24-0.svg)
 <!-- [[[end]]] -->
@@ -48,8 +48,8 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 **Communication Channels**
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc)
-* [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
-* [Python Translations Working Group](https://mail.python.org/mailman3/lists/translation.python.org/)
+* [Python Documentation Community](https://docs-community.readthedocs.io/)
+* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
 **License**
@@ -66,9 +66,9 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * `cog -rP README.md`
 
 **Useful Materials**
+* [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
 * [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [Site Statistics](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
-* [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
 **Similar Translation Projects**
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
