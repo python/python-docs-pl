@@ -29,6 +29,8 @@ from polib import pofile
 from transifex.api import transifex_api
 
 LANGUAGE = 'pl'
+PROJECT_SLUG = 'python-newest'
+VERSION = '3.14'
 
 
 def fetch():
@@ -47,10 +49,6 @@ def fetch():
 def _call(command: str):
     if (return_code := call(command, shell=True)) != 0:
         exit(return_code)
-
-
-PROJECT_SLUG = 'python-newest'
-VERSION = '3.14'
 
 
 def recreate_tx_config():
@@ -152,7 +150,7 @@ def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
 
 
 def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> float:
-    pairs = ((e.translated_words, e.total_words) for e in resources)
+    pairs = ((e.translated_strings, e.total_strings) for e in resources)
     translated_total, total_total = (sum(counts) for counts in zip(*pairs))
     return translated_total / total_total * 100
 
