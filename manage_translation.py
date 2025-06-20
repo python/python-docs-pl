@@ -149,10 +149,12 @@ def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     return [ResourceLanguageStatistics.from_api_entry(entry) for entry in resources]
 
 
-def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> float:
-    pairs = ((e.translated_strings, e.total_strings) for e in resources)
-    translated_total, total_total = (sum(counts) for counts in zip(*pairs))
-    return translated_total / total_total * 100
+def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> tuple[float, float]:
+    word_pairs = ((e.translated_words, e.total_words) for e in resources)
+    string_pairs = ((e.translated_strings, e.total_strings) for e in resources)
+    translated_total_words, total_words = (sum(counts) for counts in zip(*word_pairs))
+    translated_total_strs, total_strs = (sum(counts) for counts in zip(*string_pairs))
+    return translated_total_words / total_words * 100, translated_total_strs / total_strs * 100
 
 
 def get_number_of_translators():
