@@ -4,12 +4,13 @@ Polskie tłumaczenie dokumentacji Pythona
 from manage_translation import get_resource_language_stats, progress_from_resources, get_number_of_translators
 
 stats = get_resource_language_stats()
-total = progress_from_resources(stats)
+total_words, total_strings = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.3f}%25-0.svg)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
