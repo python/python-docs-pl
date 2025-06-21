@@ -56,8 +56,7 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 **Postęp tłumaczenia**
 
-![Postęp tłumaczenia](/translation_progress_pl.svg)
-
+<img src="https:///raw.githubusercontent.com/python/python-docs-pl/blob/3.14/translation_progress_pl.svg"  alt="Postęp tłumaczenia">
 **Licencja**
 
 Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy umowę na
