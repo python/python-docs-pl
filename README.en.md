@@ -52,6 +52,10 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 * [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
+**Translation progress**
+
+![Translation progress](/translation_progress_en.svg)
+
 **License**
 
 By inviting you to work on a project on the Transifex platform, we offer a contract for

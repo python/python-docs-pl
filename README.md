@@ -54,6 +54,10 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 * [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
+**Postęp tłumaczenia**
+
+![Postęp tłumaczenia](/translation_progress_pl.svg)
+
 **Licencja**
 
 Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy umowę na
