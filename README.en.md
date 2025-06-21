@@ -54,7 +54,7 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 
 **Translation progress**
 
-<img src="https:///raw.githubusercontent.com/python/python-docs-pl/blob/3.14/translation_progress_en.svg"  alt="Translation progress">
+<img src="translation_progress_en.svg"  alt="Translation progress">
 
 **License**
 
