@@ -5,18 +5,18 @@
 #
 # Translators:
 # Waldemar Stoczkowski, 2023
-# Stan Ulbrych, 2024
 # Maciej Olko <maciej.olko@gmail.com>, 2025
 # Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2025
+# Stan Ulbrych, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 14:21+0000\n"
+"POT-Creation-Date: 2025-06-20 14:21+0000\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
-"Last-Translator: Stefan Ocetkiewicz <stefan.ocetkiewicz@gmail.com>, 2025\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,6 +72,7 @@ msgstr ""
 msgid ""
 "Use this for numeric comparisons, for example, ``#if PY_VERSION_HEX >= ...``."
 msgstr ""
+"Używaj to do porównań liczbowych, na przykład ``#if PY_VERSION_HEX >= ...``."
 
 msgid "Run-time version"
 msgstr ""
@@ -85,6 +86,7 @@ msgstr ""
 msgid ""
 "Use this for numeric comparisons, for example, ``if (Py_Version >= ...)``."
 msgstr ""
+"Używaj to do porównań liczbowych, na przykład ``if (Py_Version >= ...)``."
 
 msgid "Bit-packing macros"
 msgstr ""
@@ -95,10 +97,10 @@ msgid ""
 msgstr ""
 
 msgid "Argument"
-msgstr ""
+msgstr "Argument"
 
 msgid "No. of bits"
-msgstr ""
+msgstr "Liczba bitów"
 
 msgid "Bit mask"
 msgstr ""
@@ -110,73 +112,73 @@ msgid "Example values"
 msgstr ""
 
 msgid "``3.4.1a2``"
-msgstr ""
+msgstr "``3.4.1a2``"
 
 msgid "``3.10.0``"
-msgstr ""
+msgstr "``3.10.0``"
 
 msgid "*major*"
-msgstr ""
+msgstr "*major*"
 
 msgid "8"
 msgstr "8"
 
 msgid "``0xFF000000``"
-msgstr ""
+msgstr "``0xFF000000``"
 
 msgid "24"
-msgstr ""
+msgstr "24"
 
 msgid "``0x03``"
 msgstr "``0x03``"
 
 msgid "*minor*"
-msgstr ""
+msgstr "*minor*"
 
 msgid "``0x00FF0000``"
-msgstr ""
+msgstr "``0x00FF0000``"
 
 msgid "16"
-msgstr ""
+msgstr "16"
 
 msgid "``0x04``"
 msgstr "``0x04``"
 
 msgid "``0x0A``"
-msgstr ""
+msgstr "``0x0A``"
 
 msgid "*micro*"
-msgstr ""
+msgstr "*micro*"
 
 msgid "``0x0000FF00``"
-msgstr ""
+msgstr "``0x0000FF00``"
 
 msgid "``0x01``"
 msgstr "``0x01``"
 
 msgid "``0x00``"
-msgstr ""
+msgstr "``0x00``"
 
 msgid "*release_level*"
-msgstr ""
+msgstr "*release_level*"
 
 msgid "4"
 msgstr "4"
 
 msgid "``0x000000F0``"
-msgstr ""
+msgstr "``0x000000F0``"
 
 msgid "``0xA``"
 msgstr "``0xA``"
 
 msgid "``0xF``"
-msgstr ""
+msgstr "``0xF``"
 
 msgid "*release_serial*"
-msgstr ""
+msgstr "*release_serial*"
 
 msgid "``0x0000000F``"
-msgstr ""
+msgstr "``0x0000000F``"
 
 msgid "0"
 msgstr "0"
@@ -185,7 +187,7 @@ msgid "``0x2``"
 msgstr "``0x2``"
 
 msgid "``0x0``"
-msgstr ""
+msgstr "``0x0``"
 
 msgid "For example:"
 msgstr "Na przykład::"
@@ -194,22 +196,22 @@ msgid "Version"
 msgstr "Wersja"
 
 msgid "``Py_PACK_FULL_VERSION`` arguments"
-msgstr ""
+msgstr "``Py_PACK_FULL_VERSION`` argumenty"
 
 msgid "Encoded version"
-msgstr ""
+msgstr "Zakodowana wersja"
 
 msgid "``(3, 4, 1, 0xA, 2)``"
-msgstr ""
+msgstr "``(3, 4, 1, 0xA, 2)``"
 
 msgid "``0x030401a2``"
-msgstr ""
+msgstr "``0x030401a2``"
 
 msgid "``(3, 10, 0, 0xF, 0)``"
-msgstr ""
+msgstr "``(3, 10, 0, 0xF, 0)``"
 
 msgid "``0x030a00f0``"
-msgstr ""
+msgstr "``0x030a00f0``"
 
 msgid ""
 "Out-of range bits in the arguments are ignored. That is, the macro can be "
@@ -226,6 +228,14 @@ msgid ""
 "   (((SERIAL) & 0xf) << 0))\n"
 "#endif"
 msgstr ""
+"#ifndef Py_PACK_FULL_VERSION\n"
+"#define Py_PACK_FULL_VERSION(X, Y, Z, LEVEL, SERIAL) ( \\\n"
+"   (((X) & 0xff) << 24) |                              \\\n"
+"   (((Y) & 0xff) << 16) |                              \\\n"
+"   (((Z) & 0xff) << 8) |                               \\\n"
+"   (((LEVEL) & 0xf) << 4) |                            \\\n"
+"   (((SERIAL) & 0xf) << 0))\n"
+"#endif"
 
 msgid ""
 "``Py_PACK_FULL_VERSION`` is primarily a macro, intended for use in ``#if`` "
