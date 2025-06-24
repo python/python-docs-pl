@@ -56,6 +56,10 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 
 <img src="translation_progress_en.svg"  alt="Translation progress">
 
+<!---
+Made using: https://gist.github.com/StanFromIreland/ce400e0d497018fc8e8eb6b739e0b8eb
+--->
+
 **License**
 
 By inviting you to work on a project on the Transifex platform, we offer a contract for

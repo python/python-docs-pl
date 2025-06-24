@@ -58,6 +58,10 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 <img src="translation_progress_pl.svg"  alt="Postęp tłumaczenia">
 
+<!---
+Made using: https://gist.github.com/StanFromIreland/ce400e0d497018fc8e8eb6b739e0b8eb
+--->
+
 **Licencja**
 
 Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy umowę na
