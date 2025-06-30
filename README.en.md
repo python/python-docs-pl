@@ -4,16 +4,18 @@ Polish Translation of Python Documentation
 from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
 
 stats = get_resource_language_stats()
-total = progress_from_resources(stats)
+total_words, total_strings = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
-f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![Total Translation of Documentation](https://img.shields.io/badge/Total-{total:.3f}%25-0.svg)
+f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 ![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
-![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![Total Translation of Documentation](https://img.shields.io/badge/Total-4.701%25-0.svg)
+[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.87%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.62%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 ![24 Translators](https://img.shields.io/badge/Translators-24-0.svg)
 <!-- [[[end]]] -->
 
@@ -31,13 +33,13 @@ If you find a mistake or have a suggestion,
 * After joining the Project, pick the category you want to fix/translate.
 
 You can find more information about using Transifex
-[in their help guide.](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
+in [their help articles](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) or [our guide](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 **I want to start translating, but I don't know where to start!**
 
 Firstly, you can join as a translator by following the steps outlined above.
 
-Then you can start by translating one of our [prioritized resources.](https://github.com/python/python-docs-pl/issues/50)
+Then you can start by translating one of our [prioritized resources](https://github.com/python/python-docs-pl/issues/50).
 
 **How to see the newest build of the documentation?**
 
@@ -48,9 +50,18 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 **Communication Channels**
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc)
-* [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
-* [Python Translations Working Group](https://mail.python.org/mailman3/lists/translation.python.org/)
+* [Python Documentation Community](https://docs-community.readthedocs.io/)
+* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
+
+**Translation progress**
+
+<img src="translation_progress_en.svg"  alt="Translation progress">
+
+<!---
+Excludes the changelog from calculations.
+Made using: https://gist.github.com/StanFromIreland/ce400e0d497018fc8e8eb6b739e0b8eb
+--->
 
 **License**
 
@@ -66,8 +77,9 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * `cog -rP README.md`
 
 **Useful Materials**
-* [Site Statistics](https://plausible.io/docs.python.org/?filters=%28%28contains,page,%28/pl/%29%29%29)
-* [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
+* [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
+* [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
+* [Site Statistics](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
 **Similar Translation Projects**
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)

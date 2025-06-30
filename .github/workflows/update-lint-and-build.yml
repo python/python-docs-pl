@@ -54,7 +54,7 @@ jobs:
       - run: git config --local user.name "GitHub Action's update-translation job"
       - name: Check changes significance
         run: >
-          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> $GITHUB_ENV || exit 0
+          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> "$GITHUB_ENV" || exit 0
       - run: git add .
       - run: git commit -m '$(python manage_translation.py generate_commit_msg)'
         if: env.SIGNIFICANT_CHANGES

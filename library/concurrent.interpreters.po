@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001 Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Seweryn Piórkowski <seweryn.piorkowski@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Maciej Olko <maciej.olko@gmail.com>, 2025
+# Stan Ulbrych, 2025
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.14\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-27 14:20+0000\n"
+"PO-Revision-Date: 2025-06-13 14:23+0000\n"
+"Last-Translator: Stan Ulbrych, 2025\n"
+"Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid ""
+":mod:`!concurrent.interpreters` --- Multiple interpreters in the same process"
+msgstr ""
+
+msgid "**Source code:** :source:`Lib/concurrent/interpreters.py`"
+msgstr "**Kod źródłowy:** :source:`Lib/concurrent/interpreters.py`"
+
+msgid "Introduction"
+msgstr "Wprowadzenie"
+
+msgid ""
+"The :mod:`!concurrent.interpreters` module constructs higher-level "
+"interfaces on top of the lower level :mod:`!_interpreters` module."
+msgstr ""
+
+msgid ":ref:`isolating-extensions-howto`"
+msgstr ":ref:`isolating-extensions-howto`"
+
+msgid "how to update an extension module to support multiple interpreters"
+msgstr ""
+
+msgid ":pep:`554`"
+msgstr ":pep:`554`"
+
+msgid ":pep:`734`"
+msgstr ":pep:`734`"
+
+msgid ":pep:`684`"
+msgstr ":pep:`684`"
+
+msgid "Availability"
+msgstr "Dostępność"
+
+msgid ""
+"This module does not work or is not available on WebAssembly. See :ref:`wasm-"
+"availability` for more information."
+msgstr ""
+
+msgid "Key details"
+msgstr ""
+
+msgid ""
+"Before we dive into examples, there are a small number of details to keep in "
+"mind about using multiple interpreters:"
+msgstr ""
+
+msgid "isolated, by default"
+msgstr ""
+
+msgid "no implicit threads"
+msgstr ""
+
+msgid "not all PyPI packages support use in multiple interpreters yet"
+msgstr ""
+
+msgid ""
+"In the context of multiple interpreters, \"isolated\" means that different "
+"interpreters do not share any state.  In practice, there is some process-"
+"global data they all share, but that is managed by the runtime."
+msgstr ""
+
+msgid "Reference"
+msgstr ""
+
+msgid "This module defines the following functions:"
+msgstr ""
+
+msgid ""
+"Return a :class:`list` of :class:`Interpreter` objects, one for each "
+"existing interpreter."
+msgstr ""
+
+msgid ""
+"Return an :class:`Interpreter` object for the currently running interpreter."
+msgstr ""
+
+msgid "Return an :class:`Interpreter` object for the main interpreter."
+msgstr ""
+
+msgid ""
+"Initialize a new (idle) Python interpreter and return a :class:`Interpreter` "
+"object for it."
+msgstr ""
+
+msgid "Interpreter objects"
+msgstr ""
+
+msgid "A single interpreter in the current process."
+msgstr ""
+
+msgid ""
+"Generally, :class:`Interpreter` shouldn't be called directly. Instead, use :"
+"func:`create` or one of the other module functions."
+msgstr ""
+
+msgid "(read-only)"
+msgstr ""
+
+msgid "The interpreter's ID."
+msgstr ""
+
+msgid "A string describing where the interpreter came from."
+msgstr ""
+
+msgid ""
+"Return ``True`` if the interpreter is currently executing code in its :mod:`!"
+"__main__` module and ``False`` otherwise."
+msgstr ""
+
+msgid "Finalize and destroy the interpreter."
+msgstr ""
+
+msgid ""
+"Bind \"shareable\" objects in the interpreter's :mod:`!__main__` module."
+msgstr ""
+
+msgid "Run the given source code in the interpreter (in the current thread)."
+msgstr ""
+
+msgid ""
+"Return the result of calling running the given function in the interpreter "
+"(in the current thread)."
+msgstr ""
+
+msgid "Run the given function in the interpreter (in a new thread)."
+msgstr ""
+
+msgid "Exceptions"
+msgstr "Wyjątki"
+
+msgid ""
+"This exception, a subclass of :exc:`Exception`, is raised when an "
+"interpreter-related error happens."
+msgstr ""
+
+msgid ""
+"This exception, a subclass of :exc:`InterpreterError`, is raised when the "
+"targeted interpreter no longer exists."
+msgstr ""
+
+msgid ""
+"This exception, a subclass of :exc:`InterpreterError`, is raised when the "
+"running code raised an uncaught exception."
+msgstr ""
+
+msgid "A basic snapshot of the exception raised in the other interpreter."
+msgstr ""
+
+msgid ""
+"This exception, a subclass of :exc:`TypeError`, is raised when an object "
+"cannot be sent to another interpreter."
+msgstr ""
+
+msgid "Basic usage"
+msgstr ""
+
+msgid "Creating an interpreter and running code in it::"
+msgstr ""
+
+msgid ""
+"from concurrent import interpreters\n"
+"\n"
+"interp = interpreters.create()\n"
+"\n"
+"# Run in the current OS thread.\n"
+"\n"
+"interp.exec('print(\"spam!\")')\n"
+"\n"
+"interp.exec(\"\"\"if True:\n"
+"    print('spam!')\n"
+"    \"\"\")\n"
+"\n"
+"from textwrap import dedent\n"
+"interp.exec(dedent(\"\"\"\n"
+"    print('spam!')\n"
+"    \"\"\"))\n"
+"\n"
+"def run():\n"
+"    print('spam!')\n"
+"\n"
+"interp.call(run)\n"
+"\n"
+"# Run in new OS thread.\n"
+"\n"
+"t = interp.call_in_thread(run)\n"
+"t.join()"
+msgstr ""

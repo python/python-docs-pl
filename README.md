@@ -4,16 +4,18 @@ Polskie tłumaczenie dokumentacji Pythona
 from manage_translation import get_resource_language_stats, progress_from_resources, get_number_of_translators
 
 stats = get_resource_language_stats()
-total = progress_from_resources(stats)
+total_words, total_strings = progress_from_resources(stats)
 translators = get_number_of_translators()
 
 print(
-f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-{total:.3f}%25-0.svg)
+f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
-![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-4.701%25-0.svg)
+[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.87%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.62%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 ![24 tłumaczy](https://img.shields.io/badge/tłumaczy-24-0.svg)
 <!-- [[[end]]] -->
 
@@ -33,7 +35,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
-[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor).
+[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 **Chcę pomóc w tłumaczeniu, ale nie wiem od czego zacząć!**
 
@@ -51,8 +53,17 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/VCyBDGH38e)
 * [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
-* [Python translations working group](https://mail.python.org/mailman3/lists/translation.python.org/)
+* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
+
+**Postęp tłumaczenia**
+
+<img src="translation_progress_pl.svg"  alt="Postęp tłumaczenia">
+
+<!---
+Excludes the changelog from calculations.
+Made using: https://gist.github.com/StanFromIreland/ce400e0d497018fc8e8eb6b739e0b8eb
+--->
 
 **Licencja**
 
@@ -68,8 +79,9 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * `cog -rP README.md`
 
 **Przydatne materiały**
+* [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
+* [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
-* [Python Developer's Guide: Documentation](https://devguide.python.org/documentation/)
 
 **Podobne projekty**
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
