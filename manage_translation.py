@@ -26,7 +26,7 @@ from tempfile import TemporaryDirectory
 from typing import Self, Generator, Iterable
 from warnings import warn
 
-from polib import pofile
+from polib import pofile, POFile
 from transifex.api import transifex_api
 
 LANGUAGE = 'pl'
@@ -150,12 +150,17 @@ def get_resource_language_stats() -> list[ResourceLanguageStatistics]:
     return [ResourceLanguageStatistics.from_api_entry(entry) for entry in resources]
 
 
-def progress_from_resources(resources: Iterable[ResourceLanguageStatistics]) -> tuple[float, float]:
+def progress_from_resources(
+    resources: Iterable[ResourceLanguageStatistics],
+) -> tuple[float, float]:
     word_pairs = ((e.translated_words, e.total_words) for e in resources)
     string_pairs = ((e.translated_strings, e.total_strings) for e in resources)
     translated_total_words, total_words = (sum(counts) for counts in zip(*word_pairs))
     translated_total_strs, total_strs = (sum(counts) for counts in zip(*string_pairs))
-    return translated_total_words / total_words * 100, translated_total_strs / total_strs * 100
+    return (
+        translated_total_words / total_words * 100,
+        translated_total_strs / total_strs * 100,
+    )
 
 
 def get_number_of_translators():
@@ -205,33 +210,55 @@ def generate_commit_msg():
     """
     translators: set[str] = set()
 
-    result = run(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"], capture_output=True, text=True, check=True)
-    staged = [filename for filename in result.stdout.splitlines() if filename.endswith(".po")]
+    result = run(
+        ['git', 'diff', '--cached', '--name-only', '--diff-filter=ACM'],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    staged = [
+        filename for filename in result.stdout.splitlines() if filename.endswith('.po')
+    ]
 
     for file in staged:
-        staged_file = run(["git", "show", f":{file}"], capture_output=True, text=True, check=True).stdout
+        staged_file = run(
+            ['git', 'show', f':{file}'], capture_output=True, text=True, check=True
+        ).stdout
         try:
-            old_file = run(["git", "show", f"HEAD:{file}"], capture_output=True, text=True, check=True).stdout
+            old_file = run(
+                ['git', 'show', f'HEAD:{file}'],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
         except CalledProcessError:
-            old_file = ""
+            old_file = ''
 
         new_po = pofile(staged_file)
         old_po = pofile(old_file) if old_file else POFile()
         old_entries = {entry.msgid: entry.msgstr for entry in old_po}
 
         for entry in new_po:
-            if entry.msgstr and (entry.msgid not in old_entries or old_entries[entry.msgid] != entry.msgstr):
-                translator = new_po.metadata.get("Last-Translator")
-                translator = translator.split(",")[0].strip()
+            if entry.msgstr and (
+                entry.msgid not in old_entries
+                or old_entries[entry.msgid] != entry.msgstr
+            ):
+                translator = new_po.metadata.get('Last-Translator')
+                translator = translator.split(',')[0].strip()
                 if translator:
                     translators.add(f'Co-Authored-By: {translator}')
                 break
 
-    print('Update translation from Transifex\n\n' + "\n".join(translators))
+    print('Update translation from Transifex\n\n' + '\n'.join(translators))
 
 
-if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'warn_about_files_to_delete', 'generate_commit_msg')
+if __name__ == '__main__':
+    RUNNABLE_SCRIPTS = (
+        'fetch',
+        'recreate_tx_config',
+        'warn_about_files_to_delete',
+        'generate_commit_msg',
+    )
 
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
