@@ -11,6 +11,7 @@
 #          files.
 # * recreate_readme: recreate readme to update translation progress.
 # * regenerate_tx_config: recreate configuration for all resources.
+# * generate_commit_msg: generates commit message with co-authors
 
 from argparse import ArgumentParser
 from collections import Counter
@@ -18,11 +19,13 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 from re import match, search
-from subprocess import call, run
+from subprocess import call, run, CalledProcessError
 import sys
 from typing import Self
 from urllib.parse import unquote
 from warnings import warn
+
+from polib import pofile, POFile
 
 LANGUAGE = 'pl'
 
@@ -271,8 +274,62 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
         )
 
 
+def generate_commit_msg():
+    """Generate a commit message
+    Parses staged files and generates a commit message with Last-Translator's as
+    co-authors.
+    """
+    translators: set[str] = set()
+
+    result = run(
+        ['git', 'diff', '--cached', '--name-only', '--diff-filter=ACM'],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    staged = [
+        filename for filename in result.stdout.splitlines() if filename.endswith('.po')
+    ]
+
+    for file in staged:
+        staged_file = run(
+            ['git', 'show', f':{file}'], capture_output=True, text=True, check=True
+        ).stdout
+        try:
+            old_file = run(
+                ['git', 'show', f'HEAD:{file}'],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except CalledProcessError:
+            old_file = ''
+
+        new_po = pofile(staged_file)
+        old_po = pofile(old_file) if old_file else POFile()
+        old_entries = {entry.msgid: entry.msgstr for entry in old_po}
+
+        for entry in new_po:
+            if entry.msgstr and (
+                entry.msgid not in old_entries
+                or old_entries[entry.msgid] != entry.msgstr
+            ):
+                translator = new_po.metadata.get('Last-Translator')
+                translator = translator.split(',')[0].strip()
+                if translator:
+                    translators.add(f'Co-Authored-By: {translator}')
+                break
+
+    print('Update translation from Transifex\n\n' + '\n'.join(translators))
+
+
 if __name__ == "__main__":
-    RUNNABLE_SCRIPTS = ('fetch', 'recreate_tx_config', 'recreate_readme', 'warn_about_files_to_delete')
+    RUNNABLE_SCRIPTS = (
+        'fetch',
+        'recreate_tx_config',
+        'recreate_readme', 'warn_about_files_to_delete',
+        'generate_commit_msg',
+    )
 
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
