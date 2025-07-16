@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:12+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2025-07-11 15:02+0000\n"
+"PO-Revision-Date: 2025-05-08 05:10+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`queue` --- A synchronized queue class"
+msgid ":mod:`!queue` --- A synchronized queue class"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/queue.py`"
@@ -97,6 +97,16 @@ msgid ""
 msgstr ""
 
 msgid ""
+"from dataclasses import dataclass, field\n"
+"from typing import Any\n"
+"\n"
+"@dataclass(order=True)\n"
+"class PrioritizedItem:\n"
+"    priority: int\n"
+"    item: Any=field(compare=False)"
+msgstr ""
+
+msgid ""
 "Constructor for an unbounded :abbr:`FIFO (first-in, first-out)` queue. "
 "Simple queues lack advanced functionality such as task tracking."
 msgstr ""
@@ -109,6 +119,11 @@ msgstr ""
 msgid ""
 "Exception raised when non-blocking :meth:`~Queue.put` (or :meth:`~Queue."
 "put_nowait`) is called on a :class:`Queue` object which is full."
+msgstr ""
+
+msgid ""
+"Exception raised when :meth:`~Queue.put` or :meth:`~Queue.get` is called on "
+"a :class:`Queue` object which has been shut down."
 msgstr ""
 
 msgid "Queue Objects"
@@ -149,6 +164,9 @@ msgid ""
 "(*timeout* is ignored in that case)."
 msgstr ""
 
+msgid "Raises :exc:`ShutDown` if the queue has been shut down."
+msgstr ""
+
 msgid "Equivalent to ``put(item, block=False)``."
 msgstr ""
 
@@ -168,6 +186,11 @@ msgid ""
 "uninterruptible wait on an underlying lock.  This means that no exceptions "
 "can occur, and in particular a SIGINT will not trigger a :exc:"
 "`KeyboardInterrupt`."
+msgstr ""
+
+msgid ""
+"Raises :exc:`ShutDown` if the queue has been shut down and is empty, or if "
+"the queue has been shut down immediately."
 msgstr ""
 
 msgid "Equivalent to ``get(False)``."
@@ -191,6 +214,13 @@ msgid ""
 msgstr ""
 
 msgid ""
+"``shutdown(immediate=True)`` calls :meth:`task_done` for each remaining item "
+"in the queue."
+msgstr ""
+"``shutdown(immediate=True)`` вызывает :meth:`task_done` для каждого "
+"оставшегося элемента в очереди."
+
+msgid ""
 "Raises a :exc:`ValueError` if called more times than there were items placed "
 "in the queue."
 msgstr ""
@@ -208,6 +238,64 @@ msgstr ""
 
 msgid "Example of how to wait for enqueued tasks to be completed::"
 msgstr ""
+
+msgid ""
+"import threading\n"
+"import queue\n"
+"\n"
+"q = queue.Queue()\n"
+"\n"
+"def worker():\n"
+"    while True:\n"
+"        item = q.get()\n"
+"        print(f'Working on {item}')\n"
+"        print(f'Finished {item}')\n"
+"        q.task_done()\n"
+"\n"
+"# Turn-on the worker thread.\n"
+"threading.Thread(target=worker, daemon=True).start()\n"
+"\n"
+"# Send thirty task requests to the worker.\n"
+"for item in range(30):\n"
+"    q.put(item)\n"
+"\n"
+"# Block until all tasks are done.\n"
+"q.join()\n"
+"print('All work completed')"
+msgstr ""
+
+msgid "Terminating queues"
+msgstr ""
+
+msgid ""
+":class:`Queue` objects can be made to prevent further interaction by "
+"shutting them down."
+msgstr ""
+
+msgid ""
+"Shut down the queue, making :meth:`~Queue.get` and :meth:`~Queue.put` raise :"
+"exc:`ShutDown`."
+msgstr ""
+
+msgid ""
+"By default, :meth:`~Queue.get` on a shut down queue will only raise once the "
+"queue is empty. Set *immediate* to true to make :meth:`~Queue.get` raise "
+"immediately instead."
+msgstr ""
+"По умолчанию :meth:`~Queue.get` в очереди выключения активируется только "
+"тогда, когда очередь пуста. Установите для параметра *immediate* значение "
+"true, чтобы вместо этого немедленно вызвать :meth:`~Queue.get`."
+
+msgid ""
+"All blocked callers of :meth:`~Queue.put` and :meth:`~Queue.get` will be "
+"unblocked. If *immediate* is true, a task will be marked as done for each "
+"remaining item in the queue, which may unblock callers of :meth:`~Queue."
+"join`."
+msgstr ""
+"Все заблокированные вызывающие :meth:`~Queue.put` и :meth:`~Queue.get` будут "
+"разблокированы. Если *immediate* имеет значение true, задача будет помечена "
+"как выполненная для каждого оставшегося элемента в очереди, что может "
+"разблокировать вызывающих :meth:`~Queue.join`."
 
 msgid "SimpleQueue Objects"
 msgstr ""
