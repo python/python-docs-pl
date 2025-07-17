@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2025-07-11 14:21+0000\n"
 "PO-Revision-Date: 2021-06-28 01:09+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,13 +23,13 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`msvcrt` --- Useful routines from the MS VC++ runtime"
+msgid ":mod:`!msvcrt` --- Useful routines from the MS VC++ runtime"
 msgstr ""
 
 msgid ""
 "These functions provide access to some useful capabilities on Windows "
-"platforms. Some higher-level modules use these functions to build the  "
-"Windows implementations of their services.  For example, the :mod:`getpass` "
+"platforms. Some higher-level modules use these functions to build the "
+"Windows implementations of their services. For example, the :mod:`getpass` "
 "module uses this in the implementation of the :func:`getpass` function."
 msgstr ""
 
@@ -49,17 +49,19 @@ msgid ""
 "Operations in this module now raise :exc:`OSError` where :exc:`IOError` was "
 "raised."
 msgstr ""
+"Операції в цьому модулі тепер викликають :exc:`OSError` там, де було "
+"викликано :exc:`IOError`."
 
 msgid "File Operations"
 msgstr ""
 
 msgid ""
-"Lock part of a file based on file descriptor *fd* from the C runtime.  "
-"Raises :exc:`OSError` on failure.  The locked region of the file extends "
-"from the current file position for *nbytes* bytes, and may continue beyond "
-"the end of the file.  *mode* must be one of the :const:`LK_\\*` constants "
-"listed below. Multiple regions in a file may be locked at the same time, but "
-"may not overlap.  Adjacent regions are not merged; they must be unlocked "
+"Lock part of a file based on file descriptor *fd* from the C runtime. "
+"Raises :exc:`OSError` on failure. The locked region of the file extends from "
+"the current file position for *nbytes* bytes, and may continue beyond the "
+"end of the file. *mode* must be one of the :const:`!LK_\\*` constants listed "
+"below. Multiple regions in a file may be locked at the same time, but may "
+"not overlap. Adjacent regions are not merged; they must be unlocked "
 "individually."
 msgstr ""
 
@@ -70,7 +72,7 @@ msgstr ""
 
 msgid ""
 "Locks the specified bytes. If the bytes cannot be locked, the program "
-"immediately tries again after 1 second.  If, after 10 attempts, the bytes "
+"immediately tries again after 1 second. If, after 10 attempts, the bytes "
 "cannot be locked, :exc:`OSError` is raised."
 msgstr ""
 
@@ -89,10 +91,16 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Create a C runtime file descriptor from the file handle *handle*.  The "
+"Create a C runtime file descriptor from the file handle *handle*. The "
 "*flags* parameter should be a bitwise OR of :const:`os.O_APPEND`, :const:`os."
-"O_RDONLY`, and :const:`os.O_TEXT`.  The returned file descriptor may be used "
-"as a parameter to :func:`os.fdopen` to create a file object."
+"O_RDONLY`, :const:`os.O_TEXT` and :const:`os.O_NOINHERIT`. The returned file "
+"descriptor may be used as a parameter to :func:`os.fdopen` to create a file "
+"object."
+msgstr ""
+
+msgid ""
+"The file descriptor is inheritable by default. Pass :const:`os.O_NOINHERIT` "
+"flag to make it non inheritable."
 msgstr ""
 
 msgid ""
@@ -101,7 +109,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Return the file handle for the file descriptor *fd*.  Raises :exc:`OSError` "
+"Return the file handle for the file descriptor *fd*. Raises :exc:`OSError` "
 "if *fd* is not recognized."
 msgstr ""
 
@@ -113,12 +121,14 @@ msgstr ""
 msgid "Console I/O"
 msgstr ""
 
-msgid "Return ``True`` if a keypress is waiting to be read."
+msgid ""
+"Returns a nonzero value if a keypress is waiting to be read. Otherwise, "
+"return 0."
 msgstr ""
 
 msgid ""
 "Read a keypress and return the resulting character as a byte string. Nothing "
-"is echoed to the console.  This call will block if a keypress is not already "
+"is echoed to the console. This call will block if a keypress is not already "
 "available, but will not wait for :kbd:`Enter` to be pressed. If the pressed "
 "key was a special function key, this will return ``'\\000'`` or ``'\\xe0'``; "
 "the next call will return the keycode. The :kbd:`Control-C` keypress cannot "
@@ -129,8 +139,8 @@ msgid "Wide char variant of :func:`getch`, returning a Unicode value."
 msgstr ""
 
 msgid ""
-"Similar to :func:`getch`, but the keypress will be echoed if it  represents "
-"a printable character."
+"Similar to :func:`getch`, but the keypress will be echoed if it represents a "
+"printable character."
 msgstr ""
 
 msgid "Wide char variant of :func:`getche`, returning a Unicode value."
@@ -155,5 +165,88 @@ msgstr ""
 
 msgid ""
 "Force the :c:func:`malloc` heap to clean itself up and return unused blocks "
-"to the operating system.  On failure, this raises :exc:`OSError`."
+"to the operating system. On failure, this raises :exc:`OSError`."
+msgstr ""
+
+msgid ""
+"Changes the location where the C runtime writes an error message for an "
+"error that might end the program. *mode* must be one of the :const:`!"
+"OUT_\\*` constants listed below  or :const:`REPORT_ERRMODE`. Returns the old "
+"setting or -1 if an error occurs. Only available in :ref:`debug build of "
+"Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"Error sink is determined by the app's type. Only available in :ref:`debug "
+"build of Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"Error sink is a standard error. Only available in :ref:`debug build of "
+"Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"Error sink is a message box. Only available in :ref:`debug build of Python "
+"<debug-build>`."
+msgstr ""
+
+msgid ""
+"Report the current error mode value. Only available in :ref:`debug build of "
+"Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"Specifies the destination or destinations for a specific report type "
+"generated by :c:func:`!_CrtDbgReport` in the MS VC++ runtime. *type* must be "
+"one of the :const:`!CRT_\\*` constants listed below. *mode* must be one of "
+"the :const:`!CRTDBG_\\*` constants listed below. Only available in :ref:"
+"`debug build of Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"After you use :func:`CrtSetReportMode` to specify :const:`CRTDBG_MODE_FILE`, "
+"you can specify the file handle to receive the message text. *type* must be "
+"one of the :const:`!CRT_\\*` constants listed below. *file* should be the "
+"file handle your want specified. Only available in :ref:`debug build of "
+"Python <debug-build>`."
+msgstr ""
+
+msgid ""
+"Warnings, messages, and information that doesn't need immediate attention."
+msgstr ""
+
+msgid ""
+"Errors, unrecoverable problems, and issues that require immediate attention."
+msgstr ""
+
+msgid "Assertion failures."
+msgstr ""
+
+msgid "Writes the message to the debugger's output window."
+msgstr ""
+
+msgid ""
+"Writes the message to a user-supplied file handle. :func:`CrtSetReportFile` "
+"should be called to define the specific file or stream to use as the "
+"destination."
+msgstr ""
+
+msgid ""
+"Creates a message box to display the message along with the ``Abort``, "
+"``Retry``, and ``Ignore`` buttons."
+msgstr ""
+
+msgid "Returns current *mode* for the specified *type*."
+msgstr ""
+
+msgid "The CRT Assembly version, from the :file:`crtassem.h` header file."
+msgstr ""
+
+msgid ""
+"The VC Assembly public key token, from the :file:`crtassem.h` header file."
+msgstr ""
+
+msgid ""
+"The Libraries Assembly name prefix, from the :file:`crtassem.h` header file."
 msgstr ""
