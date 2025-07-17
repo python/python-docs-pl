@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
+"POT-Creation-Date: 2025-07-11 14:21+0000\n"
 "PO-Revision-Date: 2022-11-05 19:49+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,25 +23,25 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid ":mod:`importlib.resources.abc` -- Abstract base classes for resources"
+msgid ":mod:`!importlib.resources.abc` -- Abstract base classes for resources"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/importlib/resources/abc.py`"
 msgstr ""
 
 msgid "*Superseded by TraversableResources*"
-msgstr ""
+msgstr "*Замінено TraversableResources*"
 
 msgid ""
 "An :term:`abstract base class` to provide the ability to read *resources*."
-msgstr ""
+msgstr ":term:`abstract base class` для надання можливості читати *ресурси*."
 
 msgid ""
 "From the perspective of this ABC, a *resource* is a binary artifact that is "
 "shipped within a package. Typically this is something like a data file that "
 "lives next to the ``__init__.py`` file of the package. The purpose of this "
 "class is to help abstract out the accessing of such data files so that it "
-"does not matter if the package and its data file(s) are stored in a e.g. zip "
+"does not matter if the package and its data file(s) are stored e.g. in a zip "
 "file versus on the file system."
 msgstr ""
 
@@ -55,6 +55,14 @@ msgid ""
 "class are expected to directly correlate to a specific package (instead of "
 "potentially representing multiple packages or a module)."
 msgstr ""
+"Для будь-якого методу цього класу очікується, що аргумент *resource* буде :"
+"term:`path-like object`, який концептуально представляє лише ім’я файлу. Це "
+"означає, що шляхи підкаталогів не повинні включатися в аргумент *resource*. "
+"Це пояснюється тим, що місце розташування пакета, для якого призначений "
+"зчитувач, діє як \"каталог\". Тому метафорою для каталогів і імен файлів є "
+"пакети та ресурси відповідно. Ось чому очікується, що екземпляри цього класу "
+"безпосередньо співвідносяться з певним пакетом (замість того, щоб потенційно "
+"представляти кілька пакетів або модуль)."
 
 msgid ""
 "Loaders that wish to support resource reading are expected to provide a "
@@ -63,27 +71,40 @@ msgid ""
 "not a package, this method should return :const:`None`. An object compatible "
 "with this ABC should only be returned when the specified module is a package."
 msgstr ""
+"Очікується, що завантажувачі, які бажають підтримувати читання ресурсів, "
+"нададуть метод під назвою ``get_resource_reader(fullname)``, який повертає "
+"об’єкт, що реалізує цей інтерфейс ABC. Якщо модуль, указаний повним іменем, "
+"не є пакетом, цей метод має повернути :const:`None`. Об’єкт, сумісний із цим "
+"ABC, слід повертати лише тоді, коли вказаний модуль є пакетом."
+
+msgid "Use :class:`importlib.resources.abc.TraversableResources` instead."
+msgstr ""
 
 msgid ""
 "Returns an opened, :term:`file-like object` for binary reading of the "
 "*resource*."
 msgstr ""
+"Повертає відкритий :term:`file-like object` для двійкового читання *ресурсу*."
 
 msgid "If the resource cannot be found, :exc:`FileNotFoundError` is raised."
-msgstr ""
+msgstr "Якщо ресурс не знайдено, виникає :exc:`FileNotFoundError`."
 
 msgid "Returns the file system path to the *resource*."
-msgstr ""
+msgstr "Повертає шлях файлової системи до *ресурсу*."
 
 msgid ""
 "If the resource does not concretely exist on the file system, raise :exc:"
 "`FileNotFoundError`."
 msgstr ""
+"Якщо ресурс конкретно не існує у файловій системі, викликайте :exc:"
+"`FileNotFoundError`."
 
 msgid ""
 "Returns ``True`` if the named *name* is considered a resource. :exc:"
 "`FileNotFoundError` is raised if *name* does not exist."
 msgstr ""
+"Повертає ``True``, якщо назване *ім’я* вважається ресурсом. :exc:"
+"`FileNotFoundError` виникає, якщо *name* не існує."
 
 msgid ""
 "Returns an :term:`iterable` of strings over the contents of the package. Do "
@@ -91,6 +112,10 @@ msgid ""
 "actual resources, e.g. it is acceptable to return names for which :meth:"
 "`is_resource` would be false."
 msgstr ""
+"Повертає :term:`iterable` рядків над вмістом пакета. Зауважте, що не "
+"обов’язково, щоб усі імена, які повертає ітератор, були фактичними "
+"ресурсами, наприклад. прийнятно повертати імена, для яких :meth:"
+"`is_resource` буде false."
 
 msgid ""
 "Allowing non-resource names to be returned is to allow for situations where "
@@ -99,9 +124,14 @@ msgid ""
 "is allowed so that when it is known that the package and resources are "
 "stored on the file system then those subdirectory names can be used directly."
 msgstr ""
+"Дозволити повертати нересурсні імена, щоб дозволити ситуації, коли те, як "
+"пакет і його ресурси зберігаються, відомі апріорі, і нересурсні імена будуть "
+"корисними. Наприклад, дозволено повертати імена підкаталогів, щоб, якщо "
+"відомо, що пакет і ресурси зберігаються у файловій системі, ці імена "
+"підкаталогів можна було використовувати безпосередньо."
 
 msgid "The abstract method returns an iterable of no items."
-msgstr ""
+msgstr "Абстрактний метод повертає ітерацію без елементів."
 
 msgid ""
 "An object with a subset of :class:`pathlib.Path` methods suitable for "
@@ -117,40 +147,74 @@ msgid "Abstract. The base name of this object without any parent references."
 msgstr ""
 
 msgid "Yield Traversable objects in self."
+msgstr "Прибуток Traversable об'єктів в себе."
+
+msgid "Return ``True`` if self is a directory."
 msgstr ""
 
-msgid "Return True if self is a directory."
+msgid "Return ``True`` if self is a file."
 msgstr ""
 
-msgid "Return True if self is a file."
+msgid ""
+"Traverse directories according to *pathsegments* and return the result as :"
+"class:`!Traversable`."
 msgstr ""
 
-msgid "Return Traversable child in self."
+msgid ""
+"Each *pathsegments* argument may contain multiple names separated by forward "
+"slashes (``/``, ``posixpath.sep`` ). For example, the following are "
+"equivalent::"
+msgstr ""
+
+msgid ""
+"files.joinpath('subdir', 'subsuddir', 'file.txt')\n"
+"files.joinpath('subdir/subsuddir/file.txt')"
+msgstr ""
+
+msgid ""
+"Note that some :class:`!Traversable` implementations might not be updated to "
+"the latest version of the protocol. For compatibility with such "
+"implementations, provide a single argument without path separators to each "
+"call to ``joinpath``. For example::"
+msgstr ""
+
+msgid "files.joinpath('subdir').joinpath('subsubdir').joinpath('file.txt')"
+msgstr ""
+
+msgid ""
+"``joinpath`` accepts multiple *pathsegments*, and these segments may contain "
+"forward slashes as path separators. Previously, only a single *child* "
+"argument was accepted."
+msgstr ""
+
+msgid "Return Traversable child in self. Equivalent to ``joinpath(child)``."
 msgstr ""
 
 msgid ""
 "*mode* may be 'r' or 'rb' to open as text or binary. Return a handle "
 "suitable for reading (same as :attr:`pathlib.Path.open`)."
 msgstr ""
+"*mode* може бути \"r\" або \"rb\", щоб відкрити як текстовий або двійковий "
+"файл. Повертає дескриптор, придатний для читання (те саме, що :attr:`pathlib."
+"Path.open`)."
 
 msgid ""
 "When opening as text, accepts encoding parameters such as those accepted by :"
-"attr:`io.TextIOWrapper`."
+"class:`io.TextIOWrapper`."
 msgstr ""
 
 msgid "Read contents of self as bytes."
-msgstr ""
+msgstr "Читати вміст себе як байти."
 
 msgid "Read contents of self as text."
-msgstr ""
+msgstr "Прочитати вміст себе як текст."
 
 msgid ""
 "An abstract base class for resource readers capable of serving the :meth:"
-"`importlib.resources.files` interface. Subclasses :class:`importlib."
-"resources.abc.ResourceReader` and provides concrete implementations of the :"
-"class:`importlib.resources.abc.ResourceReader`'s abstract methods. "
-"Therefore, any loader supplying :class:`importlib.abc.TraversableResources` "
-"also supplies ResourceReader."
+"`importlib.resources.files` interface. Subclasses :class:`ResourceReader` "
+"and provides concrete implementations of the :class:`!ResourceReader`'s "
+"abstract methods. Therefore, any loader supplying :class:`!"
+"TraversableResources` also supplies :class:`!ResourceReader`."
 msgstr ""
 
 msgid ""
