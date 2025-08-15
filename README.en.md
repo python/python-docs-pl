@@ -19,7 +19,11 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 ![3 Translators](https://img.shields.io/badge/Translators-3-0.svg)
 <!-- [[[end]]] -->
 
-*Przeczytaj to w innym języku: [polski](README.md)*
+[*Przeczytaj to w języku polskim*](README.md)
+
+> [!IMPORTANT]  
+> Please temporarily refrain from translating on the Transifex platform, the changes made may be lost.
+> [More information.](https://discuss.python.org/t/transifex-translations-are-currently-broken)
 
 **I found a mistake, what do I do?**
 
