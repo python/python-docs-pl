@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-15 14:18+0000\n"
+"POT-Creation-Date: 2025-08-17 14:16+0000\n"
 "PO-Revision-Date: 2025-08-02 17:35+0000\n"
 "Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -1491,6 +1491,19 @@ msgstr ""
 msgid ""
 ":option:`!-J` is no longer a reserved flag for Jython_, and now has no "
 "special meaning. (Contributed by Adam Turner in :gh:`133336`.)"
+msgstr ""
+
+msgid ""
+"The :func:`int` built-in no longer delegates to :meth:`~object.__trunc__`. "
+"Classes that want to support conversion to :func:`!int` must implement "
+"either :meth:`~object.__int__` or :meth:`~object.__index__`. (Contributed by "
+"Mark Dickinson in :gh:`119743`.)"
+msgstr ""
+
+msgid ""
+"Using :data:`NotImplemented` in a boolean context will now raise a :exc:"
+"`TypeError`. This has raised a :exc:`DeprecationWarning` since Python 3.9. "
+"(Contributed by Jelle Zijlstra in :gh:`118767`.)"
 msgstr ""
 
 msgid ""
@@ -3006,6 +3019,324 @@ msgstr ""
 msgid "(Contributed by Steve Dower in :gh:`91349`.)"
 msgstr ""
 
+msgid "Removed"
+msgstr ""
+
+msgid ""
+"Remove the *type*, *choices*, and *metavar* parameters of :class:`!"
+"BooleanOptionalAction`. These have been deprecated since Python 3.12. "
+"(Contributed by Nikita Sobolev in :gh:`118805`.)"
+msgstr ""
+
+msgid ""
+"Calling :meth:`~argparse.ArgumentParser.add_argument_group` on an argument "
+"group now raises a :exc:`ValueError`. Similarly, :meth:`~argparse."
+"ArgumentParser.add_argument_group` or :meth:`~argparse.ArgumentParser."
+"add_mutually_exclusive_group` on a mutually exclusive group now both raise :"
+"exc:`ValueError`\\ s. This 'nesting' was never supported, often failed to "
+"work correctly, and was unintentionally exposed through inheritance. This "
+"functionality has been deprecated since Python 3.11. (Contributed by "
+"Savannah Ostrowski in :gh:`127186`.)"
+msgstr ""
+
+msgid ""
+"Remove the following classes, which have been deprecated aliases of :class:"
+"`~ast.Constant` since Python 3.8 and have emitted deprecation warnings since "
+"Python 3.12:"
+msgstr ""
+
+msgid ":class:`!Bytes`"
+msgstr ""
+
+msgid ":class:`!Ellipsis`"
+msgstr ""
+
+msgid ":class:`!NameConstant`"
+msgstr ""
+
+msgid ":class:`!Num`"
+msgstr ""
+
+msgid ":class:`!Str`"
+msgstr ""
+
+msgid ""
+"As a consequence of these removals, user-defined ``visit_Num``, "
+"``visit_Str``, ``visit_Bytes``, ``visit_NameConstant`` and "
+"``visit_Ellipsis`` methods on custom :class:`~ast.NodeVisitor` subclasses "
+"will no longer be called when the :class:`!NodeVisitor` subclass is visiting "
+"an AST. Define a ``visit_Constant`` method instead."
+msgstr ""
+
+msgid "(Contributed by Alex Waygood in :gh:`119562`.)"
+msgstr ""
+
+msgid ""
+"Remove the following deprecated properties on :class:`ast.Constant`, which "
+"were present for compatibility with the now-removed AST classes:"
+msgstr ""
+
+msgid ":attr:`!Constant.n`"
+msgstr ""
+
+msgid ":attr:`!Constant.s`"
+msgstr ""
+
+msgid ""
+"Use :attr:`!Constant.value` instead. (Contributed by Alex Waygood in :gh:"
+"`119562`.)"
+msgstr ""
+
+msgid ""
+"Remove the following classes, methods, and functions, which have been "
+"deprecated since Python 3.12:"
+msgstr ""
+
+msgid ":class:`!AbstractChildWatcher`"
+msgstr ""
+
+msgid ":class:`!FastChildWatcher`"
+msgstr ""
+
+msgid ":class:`!MultiLoopChildWatcher`"
+msgstr ""
+
+msgid ":class:`!PidfdChildWatcher`"
+msgstr ""
+
+msgid ":class:`!SafeChildWatcher`"
+msgstr ""
+
+msgid ":class:`!ThreadedChildWatcher`"
+msgstr ""
+
+msgid ":meth:`!AbstractEventLoopPolicy.get_child_watcher`"
+msgstr ""
+
+msgid ":meth:`!AbstractEventLoopPolicy.set_child_watcher`"
+msgstr ""
+
+msgid ":func:`!get_child_watcher`"
+msgstr ""
+
+msgid ":func:`!set_child_watcher`"
+msgstr ""
+
+msgid "(Contributed by Kumar Aditya in :gh:`120804`.)"
+msgstr ""
+
+msgid ""
+":func:`asyncio.get_event_loop` now raises a :exc:`RuntimeError` if there is "
+"no current event loop, and no longer implicitly creates an event loop."
+msgstr ""
+
+msgid "(Contributed by Kumar Aditya in :gh:`126353`.)"
+msgstr ""
+
+msgid ""
+"There's a few patterns that use :func:`asyncio.get_event_loop`, most of them "
+"can be replaced with :func:`asyncio.run`."
+msgstr ""
+
+msgid "If you're running an async function, simply use :func:`asyncio.run`."
+msgstr ""
+
+msgid "Before:"
+msgstr ""
+
+msgid ""
+"async def main():\n"
+"    ...\n"
+"\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    loop.run_until_complete(main())\n"
+"finally:\n"
+"    loop.close()"
+msgstr ""
+
+msgid "After:"
+msgstr ""
+
+msgid ""
+"async def main():\n"
+"    ...\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
+msgid ""
+"If you need to start something, for example, a server listening on a socket "
+"and then run forever, use :func:`asyncio.run` and an :class:`asyncio.Event`."
+msgstr ""
+
+msgid ""
+"def start_server(loop): ...\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    start_server(loop)\n"
+"    loop.run_forever()\n"
+"finally:\n"
+"    loop.close()"
+msgstr ""
+
+msgid ""
+"def start_server(loop): ...\n"
+"\n"
+"async def main():\n"
+"    start_server(asyncio.get_running_loop())\n"
+"    await asyncio.Event().wait()\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
+msgid ""
+"If you need to run something in an event loop, then run some blocking code "
+"around it, use :class:`asyncio.Runner`."
+msgstr ""
+
+msgid ""
+"async def operation_one(): ...\n"
+"def blocking_code(): ...\n"
+"async def operation_two(): ...\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    loop.run_until_complete(operation_one())\n"
+"    blocking_code()\n"
+"    loop.run_until_complete(operation_two())\n"
+"finally:\n"
+"    loop.close()"
+msgstr ""
+
+msgid ""
+"async def operation_one(): ...\n"
+"def blocking_code(): ...\n"
+"async def operation_two(): ...\n"
+"\n"
+"with asyncio.Runner() as runner:\n"
+"    runner.run(operation_one())\n"
+"    blocking_code()\n"
+"    runner.run(operation_two())"
+msgstr ""
+
+msgid "collections.abc"
+msgstr ""
+
+msgid ""
+"Remove :class:`!ByteString`, which has been deprecated since Python 3.12. "
+"(Contributed by Nikita Sobolev in :gh:`118803`.)"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid ""
+"Remove :func:`email.utils.localtime`'s *isdst* parameter, which was "
+"deprecated in and has been ignored since Python 3.12. (Contributed by Hugo "
+"van Kemenade in :gh:`118798`.)"
+msgstr ""
+
+msgid "importlib.abc"
+msgstr ""
+
+msgid "Remove deprecated :mod:`importlib.abc` classes:"
+msgstr ""
+
+msgid ""
+":class:`!ResourceReader` (use :class:`~importlib.resources.abc."
+"TraversableResources`)"
+msgstr ""
+
+msgid ""
+":class:`!Traversable` (use :class:`~importlib.resources.abc.Traversable`)"
+msgstr ""
+
+msgid ""
+":class:`!TraversableResources` (use :class:`~importlib.resources.abc."
+"TraversableResources`)"
+msgstr ""
+
+msgid "(Contributed by Jason R. Coombs and Hugo van Kemenade in :gh:`93963`.)"
+msgstr ""
+
+msgid "itertools"
+msgstr ""
+
+msgid ""
+"Remove support for copy, deepcopy, and pickle operations from :mod:"
+"`itertools` iterators. These have emitted a :exc:`DeprecationWarning` since "
+"Python 3.12. (Contributed by Raymond Hettinger in :gh:`101588`.)"
+msgstr ""
+
+msgid ""
+"Remove support for passing additional keyword arguments to :class:`~pathlib."
+"Path`. In previous versions, any such arguments are ignored. (Contributed by "
+"Barney Gale in :gh:`74033`.)"
+msgstr ""
+
+msgid ""
+"Remove support for passing additional positional arguments to :meth:`."
+"PurePath.relative_to` and :meth:`~pathlib.PurePath.is_relative_to`. In "
+"previous versions, any such arguments are joined onto *other*. (Contributed "
+"by Barney Gale in :gh:`78707`.)"
+msgstr ""
+
+msgid "pkgutil"
+msgstr ""
+
+msgid ""
+"Remove the :func:`!get_loader` and :func:`!find_loader` functions, which "
+"have been deprecated since Python 3.12. (Contributed by Bénédikt Tran in :gh:"
+"`97850`.)"
+msgstr ""
+
+msgid "pty"
+msgstr ""
+
+msgid ""
+"Remove the :func:`!master_open` and :func:`!slave_open` functions, which "
+"have been deprecated since Python 3.12. Use :func:`pty.openpty` instead. "
+"(Contributed by Nikita Sobolev in :gh:`118824`.)"
+msgstr ""
+
+msgid "sqlite3"
+msgstr ""
+
+msgid ""
+"Remove :data:`!version` and :data:`!version_info` from the :mod:`sqlite3` "
+"module; use :data:`~sqlite3.sqlite_version` and :data:`~sqlite3."
+"sqlite_version_info` for the actual version number of the runtime SQLite "
+"library. (Contributed by Hugo van Kemenade in :gh:`118924`.)"
+msgstr ""
+
+msgid ""
+"Using a sequence of parameters with named placeholders now raises a :exc:"
+"`~sqlite3.ProgrammingError`, having been deprecated since Python 3.12. "
+"(Contributed by Erlend E. Aasland in :gh:`118928` and :gh:`101693`.)"
+msgstr ""
+
+msgid ""
+"Remove the :class:`!Quoter` class from :mod:`urllib.parse`, which has been "
+"deprecated since Python 3.11. (Contributed by Nikita Sobolev in :gh:"
+"`118827`.)"
+msgstr ""
+
+msgid ""
+"Remove the :class:`!URLopener` and :class:`!FancyURLopener` classes from :"
+"mod:`urllib.request`, which have been deprecated since Python 3.3."
+msgstr ""
+
+msgid ""
+"``myopener.open()`` can be replaced with :func:`~urllib.request.urlopen`. "
+"``myopener.retrieve()`` can be replaced with :func:`~urllib.request."
+"urlretrieve`. Customisations to the opener classes can be replaced by "
+"passing customized handlers to :func:`~urllib.request.build_opener`. "
+"(Contributed by Barney Gale in :gh:`84850`.)"
+msgstr ""
+
 msgid "Deprecated"
 msgstr ""
 
@@ -3722,353 +4053,6 @@ msgstr ""
 msgid ""
 ":func:`sys._clear_type_cache` is deprecated: use :func:`sys."
 "_clear_internal_caches` instead."
-msgstr ""
-
-msgid "Removed"
-msgstr ""
-
-msgid ""
-"Remove the *type*, *choices*, and *metavar* parameters of :class:`!argparse."
-"BooleanOptionalAction`. They were deprecated since 3.12."
-msgstr ""
-
-msgid ""
-"Calling :meth:`~argparse.ArgumentParser.add_argument_group` on an argument "
-"group, and calling :meth:`~argparse.ArgumentParser.add_argument_group` or :"
-"meth:`~argparse.ArgumentParser.add_mutually_exclusive_group` on a mutually "
-"exclusive group now raise exceptions. This nesting was never supported, "
-"often failed to work correctly, and was unintentionally exposed through "
-"inheritance. This functionality has been deprecated since Python 3.11. "
-"(Contributed by Savannah Ostrowski in :gh:`127186`.)"
-msgstr ""
-
-msgid ""
-"Remove the following classes. They were all deprecated since Python 3.8, and "
-"have emitted deprecation warnings since Python 3.12:"
-msgstr ""
-
-msgid ":class:`!ast.Bytes`"
-msgstr ":class:`!ast.Bytes`"
-
-msgid ":class:`!ast.Ellipsis`"
-msgstr ":class:`!ast.Ellipsis`"
-
-msgid ":class:`!ast.NameConstant`"
-msgstr ":class:`!ast.NameConstant`"
-
-msgid ":class:`!ast.Num`"
-msgstr ":class:`!ast.Num`"
-
-msgid ":class:`!ast.Str`"
-msgstr ":class:`!ast.Str`"
-
-msgid ""
-"Use :class:`ast.Constant` instead. As a consequence of these removals, user-"
-"defined ``visit_Num``, ``visit_Str``, ``visit_Bytes``, "
-"``visit_NameConstant`` and ``visit_Ellipsis`` methods on custom :class:`ast."
-"NodeVisitor` subclasses will no longer be called when the :class:`!"
-"NodeVisitor` subclass is visiting an AST. Define a ``visit_Constant`` method "
-"instead."
-msgstr ""
-
-msgid ""
-"Also, remove the following deprecated properties on :class:`ast.Constant`, "
-"which were present for compatibility with the now-removed AST classes:"
-msgstr ""
-
-msgid ":attr:`!ast.Constant.n`"
-msgstr ":attr:`!ast.Constant.n`"
-
-msgid ":attr:`!ast.Constant.s`"
-msgstr ":attr:`!ast.Constant.s`"
-
-msgid ""
-"Use :attr:`!ast.Constant.value` instead. (Contributed by Alex Waygood in :gh:"
-"`119562`.)"
-msgstr ""
-
-msgid ""
-"Remove the following classes and functions. They were all deprecated and "
-"emitted deprecation warnings since Python 3.12:"
-msgstr ""
-
-msgid ":func:`!asyncio.get_child_watcher`"
-msgstr ":func:`!asyncio.get_child_watcher`"
-
-msgid ":func:`!asyncio.set_child_watcher`"
-msgstr ":func:`!asyncio.set_child_watcher`"
-
-msgid ":meth:`!asyncio.AbstractEventLoopPolicy.get_child_watcher`"
-msgstr ":meth:`!asyncio.AbstractEventLoopPolicy.get_child_watcher`"
-
-msgid ":meth:`!asyncio.AbstractEventLoopPolicy.set_child_watcher`"
-msgstr ":meth:`!asyncio.AbstractEventLoopPolicy.set_child_watcher`"
-
-msgid ":class:`!asyncio.AbstractChildWatcher`"
-msgstr ":class:`!asyncio.AbstractChildWatcher`"
-
-msgid ":class:`!asyncio.FastChildWatcher`"
-msgstr ":class:`!asyncio.FastChildWatcher`"
-
-msgid ":class:`!asyncio.MultiLoopChildWatcher`"
-msgstr ":class:`!asyncio.MultiLoopChildWatcher`"
-
-msgid ":class:`!asyncio.PidfdChildWatcher`"
-msgstr ":class:`!asyncio.PidfdChildWatcher`"
-
-msgid ":class:`!asyncio.SafeChildWatcher`"
-msgstr ":class:`!asyncio.SafeChildWatcher`"
-
-msgid ":class:`!asyncio.ThreadedChildWatcher`"
-msgstr ":class:`!asyncio.ThreadedChildWatcher`"
-
-msgid "(Contributed by Kumar Aditya in :gh:`120804`.)"
-msgstr ""
-
-msgid ""
-"Removed implicit creation of event loop by :func:`asyncio.get_event_loop`. "
-"It now raises a :exc:`RuntimeError` if there is no current event loop. "
-"(Contributed by Kumar Aditya in :gh:`126353`.)"
-msgstr ""
-
-msgid ""
-"There's a few patterns that use :func:`asyncio.get_event_loop`, most of them "
-"can be replaced with :func:`asyncio.run`."
-msgstr ""
-
-msgid "If you're running an async function, simply use :func:`asyncio.run`."
-msgstr ""
-
-msgid "Before::"
-msgstr ""
-
-msgid ""
-"async def main():\n"
-"    ...\n"
-"\n"
-"\n"
-"loop = asyncio.get_event_loop()\n"
-"try:\n"
-"    loop.run_until_complete(main())\n"
-"finally:\n"
-"    loop.close()"
-msgstr ""
-
-msgid "After::"
-msgstr ""
-
-msgid ""
-"async def main():\n"
-"    ...\n"
-"\n"
-"asyncio.run(main())"
-msgstr ""
-
-msgid ""
-"If you need to start something, for example, a server listening on a socket "
-"and then run forever, use :func:`asyncio.run` and an :class:`asyncio.Event`."
-msgstr ""
-
-msgid ""
-"def start_server(loop):\n"
-"    ...\n"
-"\n"
-"loop = asyncio.get_event_loop()\n"
-"try:\n"
-"    start_server(loop)\n"
-"    loop.run_forever()\n"
-"finally:\n"
-"    loop.close()"
-msgstr ""
-
-msgid ""
-"def start_server(loop):\n"
-"    ...\n"
-"\n"
-"async def main():\n"
-"    start_server(asyncio.get_running_loop())\n"
-"    await asyncio.Event().wait()\n"
-"\n"
-"asyncio.run(main())"
-msgstr ""
-
-msgid ""
-"If you need to run something in an event loop, then run some blocking code "
-"around it, use :class:`asyncio.Runner`."
-msgstr ""
-
-msgid ""
-"async def operation_one():\n"
-"    ...\n"
-"\n"
-"def blocking_code():\n"
-"    ...\n"
-"\n"
-"async def operation_two():\n"
-"    ...\n"
-"\n"
-"loop = asyncio.get_event_loop()\n"
-"try:\n"
-"    loop.run_until_complete(operation_one())\n"
-"    blocking_code()\n"
-"    loop.run_until_complete(operation_two())\n"
-"finally:\n"
-"    loop.close()"
-msgstr ""
-
-msgid ""
-"async def operation_one():\n"
-"    ...\n"
-"\n"
-"def blocking_code():\n"
-"    ...\n"
-"\n"
-"async def operation_two():\n"
-"    ...\n"
-"\n"
-"with asyncio.Runner() as runner:\n"
-"    runner.run(operation_one())\n"
-"    blocking_code()\n"
-"    runner.run(operation_two())"
-msgstr ""
-
-msgid "collections.abc"
-msgstr ""
-
-msgid ""
-"Remove :class:`!collections.abc.ByteString`. It had previously raised a :exc:"
-"`DeprecationWarning` since Python 3.12."
-msgstr ""
-
-msgid "email"
-msgstr ""
-
-msgid ""
-"Remove the *isdst* parameter from :func:`email.utils.localtime`. "
-"(Contributed by Hugo van Kemenade in :gh:`118798`.)"
-msgstr ""
-
-msgid "importlib"
-msgstr ""
-
-msgid "Remove deprecated :mod:`importlib.abc` classes:"
-msgstr ""
-
-msgid ":class:`!importlib.abc.ResourceReader`"
-msgstr ":class:`!importlib.abc.ResourceReader`"
-
-msgid ":class:`!importlib.abc.Traversable`"
-msgstr ":class:`!importlib.abc.Traversable`"
-
-msgid ":class:`!importlib.abc.TraversableResources`"
-msgstr ":class:`!importlib.abc.TraversableResources`"
-
-msgid "Use :mod:`importlib.resources.abc` classes instead:"
-msgstr ""
-
-msgid ":class:`importlib.resources.abc.Traversable`"
-msgstr ":class:`importlib.resources.abc.Traversable`"
-
-msgid ":class:`importlib.resources.abc.TraversableResources`"
-msgstr ":class:`importlib.resources.abc.TraversableResources`"
-
-msgid "(Contributed by Jason R. Coombs and Hugo van Kemenade in :gh:`93963`.)"
-msgstr ""
-
-msgid "itertools"
-msgstr ""
-
-msgid ""
-"Remove :mod:`itertools` support for copy, deepcopy, and pickle operations. "
-"These had previously raised a :exc:`DeprecationWarning` since Python 3.12. "
-"(Contributed by Raymond Hettinger in :gh:`101588`.)"
-msgstr ""
-
-msgid ""
-"Remove support for passing additional keyword arguments to :class:`pathlib."
-"Path`. In previous versions, any such arguments are ignored."
-msgstr ""
-
-msgid ""
-"Remove support for passing additional positional arguments to :meth:`pathlib."
-"PurePath.relative_to` and :meth:`~pathlib.PurePath.is_relative_to`. In "
-"previous versions, any such arguments are joined onto *other*."
-msgstr ""
-
-msgid "pkgutil"
-msgstr ""
-
-msgid ""
-"Remove deprecated :func:`!pkgutil.get_loader` and :func:`!pkgutil."
-"find_loader`. These had previously raised a :exc:`DeprecationWarning` since "
-"Python 3.12. (Contributed by Bénédikt Tran in :gh:`97850`.)"
-msgstr ""
-
-msgid "pty"
-msgstr ""
-
-msgid ""
-"Remove deprecated :func:`!pty.master_open` and :func:`!pty.slave_open`. They "
-"had previously raised a :exc:`DeprecationWarning` since Python 3.12. Use :"
-"func:`pty.openpty` instead. (Contributed by Nikita Sobolev in :gh:`118824`.)"
-msgstr ""
-
-msgid "sqlite3"
-msgstr ""
-
-msgid ""
-"Remove :data:`!version` and :data:`!version_info` from :mod:`sqlite3`; use :"
-"data:`~sqlite3.sqlite_version` and :data:`~sqlite3.sqlite_version_info` for "
-"the actual version number of the runtime SQLite library. (Contributed by "
-"Hugo van Kemenade in :gh:`118924`.)"
-msgstr ""
-
-msgid ""
-"Disallow using a sequence of parameters with named placeholders. This had "
-"previously raised a :exc:`DeprecationWarning` since Python 3.12; it will now "
-"raise a :exc:`sqlite3.ProgrammingError`. (Contributed by Erlend E. Aasland "
-"in :gh:`118928` and :gh:`101693`.)"
-msgstr ""
-
-msgid ""
-"Remove :class:`!typing.ByteString`. It had previously raised a :exc:"
-"`DeprecationWarning` since Python 3.12."
-msgstr ""
-
-msgid ""
-"Remove deprecated :class:`!Quoter` class from :mod:`urllib.parse`. It had "
-"previously raised a :exc:`DeprecationWarning` since Python 3.11. "
-"(Contributed by Nikita Sobolev in :gh:`118827`.)"
-msgstr ""
-
-msgid ""
-"Remove deprecated :class:`!URLopener` and :class:`!FancyURLopener` classes "
-"from :mod:`urllib.request`. They had previously raised a :exc:"
-"`DeprecationWarning` since Python 3.3."
-msgstr ""
-
-msgid ""
-"``myopener.open()`` can be replaced with :func:`~urllib.request.urlopen`, "
-"and ``myopener.retrieve()`` can be replaced with :func:`~urllib.request."
-"urlretrieve`. Customizations to the opener classes can be replaced by "
-"passing customized handlers to :func:`~urllib.request.build_opener`. "
-"(Contributed by Barney Gale in :gh:`84850`.)"
-msgstr ""
-
-msgid "Others"
-msgstr "Inne"
-
-msgid ""
-"Using :data:`NotImplemented` in a boolean context will now raise a :exc:"
-"`TypeError`. It had previously raised a :exc:`DeprecationWarning` since "
-"Python 3.9. (Contributed by Jelle Zijlstra in :gh:`118767`.)"
-msgstr ""
-
-msgid ""
-"The :func:`int` built-in no longer delegates to :meth:`~object.__trunc__`. "
-"Classes that want to support conversion to integer must implement either :"
-"meth:`~object.__int__` or :meth:`~object.__index__`. (Contributed by Mark "
-"Dickinson in :gh:`119743`.)"
 msgstr ""
 
 msgid "CPython bytecode changes"
