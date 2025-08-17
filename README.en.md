@@ -22,7 +22,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 [*Przeczytaj to w języku polskim*](README.md)
 
 > [!IMPORTANT]  
-> Please temporarily refrain from translating on the Transifex platform, the changes made may be lost.
+> Please temporarily refrain from translating on the Transifex platform, the changes made will most probably be lost.
 > [More information.](https://discuss.python.org/t/transifex-translations-are-currently-broken)
 
 **I found a mistake, what do I do?**

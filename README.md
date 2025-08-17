@@ -22,7 +22,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 [*Read this in English*](README.en.md)
 
 > [!IMPORTANT]  
-> Prosimy o tymczasowe powstrzymanie się od tłumaczenia na platformie Transifex, wprowadzone zmiany mogą przepaść.
+> Prosimy o tymczasowe powstrzymanie się od tłumaczenia na platformie Transifex, wprowadzone zmiany najprawdopodobniej przepadną.
 > [Więcej informacji.](https://discuss.python.org/t/transifex-translations-are-currently-broken)
 
 **Znalazłem błąd, co mam zrobić?**
