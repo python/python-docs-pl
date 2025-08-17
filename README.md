@@ -19,7 +19,11 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 ![3 tłumaczy](https://img.shields.io/badge/tłumaczy-3-0.svg)
 <!-- [[[end]]] -->
 
-*Read this in another language: [English](README.en.md)*
+[*Read this in English*](README.en.md)
+
+> [!IMPORTANT]  
+> Prosimy o tymczasowe powstrzymanie się od tłumaczenia na platformie Transifex, wprowadzone zmiany najprawdopodobniej przepadną.
+> [Więcej informacji.](https://discuss.python.org/t/transifex-translations-are-currently-broken)
 
 **Znalazłem błąd, co mam zrobić?**
 
