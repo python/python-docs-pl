@@ -88,6 +88,7 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
 **Podobne projekty**
+* [micro:bit translation programme](https://microbit.org/translate/)
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)

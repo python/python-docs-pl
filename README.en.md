@@ -86,6 +86,7 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * [Site Statistics](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
 **Similar Translation Projects**
+* [micro:bit translation programme](https://microbit.org/translate/)
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)
