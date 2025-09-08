@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 15:15+0000\n"
+"POT-Creation-Date: 2025-09-07 15:08+0000\n"
 "PO-Revision-Date: 2025-07-18 19:22+0000\n"
 "Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -1149,7 +1149,7 @@ msgstr "``s[i]``"
 msgid "*i*\\ th item of *s*, origin 0"
 msgstr ""
 
-msgid "(3)(9)"
+msgid "(3)(8)"
 msgstr ""
 
 msgid "``s[i:j]``"
@@ -1186,23 +1186,6 @@ msgid "``max(s)``"
 msgstr "``max(s)``"
 
 msgid "largest item of *s*"
-msgstr ""
-
-msgid "``s.index(x[, i[, j]])``"
-msgstr "``s.index(x[, i[, j]])``"
-
-msgid ""
-"index of the first occurrence of *x* in *s* (at or after index *i* and "
-"before index *j*)"
-msgstr ""
-
-msgid "\\(8)"
-msgstr ""
-
-msgid "``s.count(x)``"
-msgstr "``s.count(x)``"
-
-msgid "total number of occurrences of *x* in *s*"
 msgstr ""
 
 msgid ""
@@ -1330,16 +1313,33 @@ msgid ""
 "concatenation or repetition."
 msgstr ""
 
-msgid ""
-"``index`` raises :exc:`ValueError` when *x* is not found in *s*. Not all "
-"implementations support passing the additional arguments *i* and *j*. These "
-"arguments allow efficient searching of subsections of the sequence. Passing "
-"the extra arguments is roughly equivalent to using ``s[i:j].index(x)``, only "
-"without copying any data and with the returned index being relative to the "
-"start of the sequence rather than the start of the slice."
+msgid "An :exc:`IndexError` is raised if *i* is outside the sequence range."
 msgstr ""
 
-msgid "An :exc:`IndexError` is raised if *i* is outside the sequence range."
+msgid "Sequence Methods"
+msgstr ""
+
+msgid "Sequence types also support the following methods:"
+msgstr ""
+
+msgid "Return the total number of occurrences of *value* in *sequence*."
+msgstr ""
+
+msgid "Return the index of the first occurrence of *value* in *sequence*."
+msgstr ""
+
+msgid "Raises :exc:`ValueError` if *value* is not found in *sequence*."
+msgstr ""
+
+msgid ""
+"The *start* or *stop* arguments allow for efficient searching of subsections "
+"of the sequence, beginning at *start* and ending at *stop*. This is roughly "
+"equivalent to ``start + sequence[start:stop].index(value)``, only without "
+"copying any data."
+msgstr ""
+
+msgid ""
+"Not all sequence types support passing the *start* and *stop* arguments."
 msgstr ""
 
 msgid "Immutable Sequence Types"
@@ -1416,26 +1416,7 @@ msgstr "``del s[i:j:k]``"
 msgid "removes the elements of ``s[i:j:k]`` from the list"
 msgstr ""
 
-msgid "``s.append(x)``"
-msgstr "``s.append(x)``"
-
-msgid ""
-"appends *x* to the end of the sequence (same as ``s[len(s):len(s)] = [x]``)"
-msgstr ""
-
-msgid "``s.clear()``"
-msgstr "``s.clear()``"
-
-msgid "removes all items from *s* (same as ``del s[:]``)"
-msgstr ""
-
-msgid "``s.copy()``"
-msgstr "``s.copy()``"
-
-msgid "creates a shallow copy of *s* (same as ``s[:]``)"
-msgstr ""
-
-msgid "``s.extend(t)`` or ``s += t``"
+msgid "``s += t``"
 msgstr ""
 
 msgid ""
@@ -1449,59 +1430,9 @@ msgstr "``s *= n``"
 msgid "updates *s* with its contents repeated *n* times"
 msgstr ""
 
-msgid "``s.insert(i, x)``"
-msgstr "``s.insert(i, x)``"
-
-msgid ""
-"inserts *x* into *s* at the index given by *i* (same as ``s[i:i] = [x]``)"
-msgstr ""
-
-msgid "``s.pop()`` or ``s.pop(i)``"
-msgstr ""
-
-msgid "retrieves the item at *i* and also removes it from *s*"
-msgstr ""
-
-msgid "``s.remove(x)``"
-msgstr "``s.remove(x)``"
-
-msgid "removes the first item from *s* where ``s[i]`` is equal to *x*"
-msgstr ""
-
-msgid "``s.reverse()``"
-msgstr "``s.reverse()``"
-
-msgid "reverses the items of *s* in place"
-msgstr ""
-
 msgid ""
 "If *k* is not equal to ``1``, *t* must have the same length as the slice it "
 "is replacing."
-msgstr ""
-
-msgid ""
-"The optional argument *i* defaults to ``-1``, so that by default the last "
-"item is removed and returned."
-msgstr ""
-
-msgid ":meth:`remove` raises :exc:`ValueError` when *x* is not found in *s*."
-msgstr ""
-
-msgid ""
-"The :meth:`reverse` method modifies the sequence in place for economy of "
-"space when reversing a large sequence.  To remind users that it operates by "
-"side effect, it does not return the reversed sequence."
-msgstr ""
-
-msgid ""
-":meth:`clear` and :meth:`!copy` are included for consistency with the "
-"interfaces of mutable containers that don't support slicing operations (such "
-"as :class:`dict` and :class:`set`). :meth:`!copy` is not part of the :class:"
-"`collections.abc.MutableSequence` ABC, but most concrete mutable sequence "
-"classes provide it."
-msgstr ""
-
-msgid ":meth:`clear` and :meth:`!copy` methods."
 msgstr ""
 
 msgid ""
@@ -1509,6 +1440,57 @@ msgid ""
 "__index__`.  Zero and negative values of *n* clear the sequence.  Items in "
 "the sequence are not copied; they are referenced multiple times, as "
 "explained for ``s * n`` under :ref:`typesseq-common`."
+msgstr ""
+
+msgid "Mutable Sequence Methods"
+msgstr ""
+
+msgid "Mutable sequence types also support the following methods:"
+msgstr ""
+
+msgid ""
+"Append *value* to the end of the sequence This is equivalent to writing "
+"``seq[len(seq):len(seq)] = [value]``."
+msgstr ""
+
+msgid ""
+"Remove all items from *sequence*. This is equivalent to writing ``del "
+"sequence[:]``."
+msgstr ""
+
+msgid ""
+"Create a shallow copy of *sequence*. This is equivalent to writing "
+"``sequence[:]``."
+msgstr ""
+
+msgid ""
+"The :meth:`!copy` method is not part of the :class:`~collections.abc."
+"MutableSequence` :class:`~abc.ABC`, but most concrete mutable sequence types "
+"provide it."
+msgstr ""
+
+msgid ""
+"Extend *sequence* with the contents of *iterable*. For the most part, this "
+"is the same as writing ``seq[len(seq):len(seq)] = iterable``."
+msgstr ""
+
+msgid ""
+"Insert *value* into *sequence* at the given *index*. This is equivalent to "
+"writing ``sequence[index:index] = [value]``."
+msgstr ""
+
+msgid ""
+"Retrieve the item at *index* and also removes it from *sequence*. By "
+"default, the last item in *sequence* is removed and returned."
+msgstr ""
+
+msgid "Remove the first item from *sequence* where ``sequence[i] == value``."
+msgstr ""
+
+msgid ""
+"Reverse the items of *sequence* in place. This method maintains economy of "
+"space when reversing a large sequence. To remind users that it operates by "
+"side-effect, it returns ``None``."
 msgstr ""
 
 msgid "Lists"
@@ -4218,6 +4200,9 @@ msgid ""
 "mapping key selects the value to be formatted from the mapping.  For example:"
 msgstr ""
 
+msgid "\\(8)"
+msgstr ""
+
 msgid "Single byte (accepts integer or single byte objects)."
 msgstr ""
 
@@ -6147,8 +6132,8 @@ msgstr ""
 msgid ""
 "Methods are functions that are called using the attribute notation. There "
 "are two flavors: :ref:`built-in methods <builtin-methods>` (such as :meth:"
-"`append` on lists) and :ref:`class instance method <instance-methods>`. "
-"Built-in methods are described with the types that support them."
+"`~list.append` on lists) and :ref:`class instance method <instance-"
+"methods>`. Built-in methods are described with the types that support them."
 msgstr ""
 
 msgid ""
@@ -6246,13 +6231,53 @@ msgid "The Ellipsis Object"
 msgstr ""
 
 msgid ""
-"This object is commonly used by slicing (see :ref:`slicings`).  It supports "
-"no special operations.  There is exactly one ellipsis object, named :const:"
-"`Ellipsis` (a built-in name).  ``type(Ellipsis)()`` produces the :const:"
-"`Ellipsis` singleton."
+"This object is commonly used used to indicate that something is omitted. It "
+"supports no special operations.  There is exactly one ellipsis object, "
+"named :const:`Ellipsis` (a built-in name).  ``type(Ellipsis)()`` produces "
+"the :const:`Ellipsis` singleton."
 msgstr ""
 
 msgid "It is written as ``Ellipsis`` or ``...``."
+msgstr ""
+
+msgid ""
+"In typical use, ``...`` as the ``Ellipsis`` object appears in a few "
+"different places, for instance:"
+msgstr ""
+
+msgid ""
+"In type annotations, such as :ref:`callable arguments <annotating-"
+"callables>` or :ref:`tuple elements <annotating-tuples>`."
+msgstr ""
+
+msgid ""
+"As the body of a function instead of a :ref:`pass statement <tut-pass>`."
+msgstr ""
+
+msgid ""
+"In third-party libraries, such as `Numpy's slicing and striding <https://"
+"numpy.org/doc/stable/user/basics.indexing.html#slicing-and-striding>`_."
+msgstr ""
+
+msgid ""
+"Python also uses three dots in ways that are not ``Ellipsis`` objects, for "
+"instance:"
+msgstr ""
+
+msgid ""
+"Doctest's :const:`ELLIPSIS <doctest.ELLIPSIS>`, as a pattern for missing "
+"content."
+msgstr ""
+
+msgid ""
+"The default Python prompt of the :term:`interactive` shell when partial "
+"input is incomplete."
+msgstr ""
+
+msgid ""
+"Lastly, the Python documentation often uses three dots in conventional "
+"English usage to mean omitted content, even in code examples that also use "
+"them as the ``Ellipsis``."
 msgstr ""
 
 msgid "The NotImplemented Object"
@@ -6850,12 +6875,6 @@ msgstr ""
 msgid "slice"
 msgstr ""
 
-msgid "count() (sequence method)"
-msgstr ""
-
-msgid "index() (sequence method)"
-msgstr ""
-
 msgid "loop"
 msgstr ""
 
@@ -6893,30 +6912,6 @@ msgid "assignment"
 msgstr ""
 
 msgid "del"
-msgstr ""
-
-msgid "append() (sequence method)"
-msgstr ""
-
-msgid "clear() (sequence method)"
-msgstr ""
-
-msgid "copy() (sequence method)"
-msgstr ""
-
-msgid "extend() (sequence method)"
-msgstr ""
-
-msgid "insert() (sequence method)"
-msgstr ""
-
-msgid "pop() (sequence method)"
-msgstr ""
-
-msgid "remove() (sequence method)"
-msgstr ""
-
-msgid "reverse() (sequence method)"
 msgstr ""
 
 msgid "range"
