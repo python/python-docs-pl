@@ -90,4 +90,5 @@ Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do do
 **Podobne projekty**
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
+* [micro:bit translation programme](https://microbit.org/translate/)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)

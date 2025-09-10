@@ -88,4 +88,5 @@ You signify your acceptance of this agreement by submitting your work for inclus
 **Similar Translation Projects**
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
+* [micro:bit translation programme](https://microbit.org/translate/)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)
