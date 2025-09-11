@@ -14,9 +14,9 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 ![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
-[![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.33%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.52%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-![4 Translators](https://img.shields.io/badge/Translators-4-0.svg)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.32%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.51%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
+![5 Translators](https://img.shields.io/badge/Translators-5-0.svg)
 <!-- [[[end]]] -->
 
 [*Przeczytaj to w języku polskim*](README.md)
