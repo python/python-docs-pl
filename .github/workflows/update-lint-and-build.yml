@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+        version: [3.14, 3.13, 3.12, 3.9]
     steps:
       - uses: styfle/cancel-workflow-action@main
         with:
@@ -68,7 +68,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11]
+        version: [3.14, 3.13, 3.12]
     needs: ['update']
     continue-on-error: true
     steps:
@@ -87,7 +87,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+        version: [3.14, 3.13, 3.12, 3.9]
         format: [html, latex, epub]
     needs: ['update']
     steps:
@@ -119,7 +119,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+        version: [3.14, 3.13, 3.12, 3.9]
     needs: ['build']
     steps:
       - uses: actions/download-artifact@master
