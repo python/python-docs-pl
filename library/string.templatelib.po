@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
-# Mariusz Krzaczkowski, 2025
+# python-doc bot, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-01 14:21+0000\n"
-"PO-Revision-Date: 2025-07-25 14:23+0000\n"
-"Last-Translator: Mariusz Krzaczkowski, 2025\n"
+"POT-Creation-Date: 2025-09-16 17:23+0000\n"
+"PO-Revision-Date: 2025-09-16 00:01+0000\n"
+"Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,94 +24,79 @@ msgstr ""
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid ":mod:`!string.templatelib` --- Support for template string literals"
-msgstr "Obsługa literałów ciągów szablonowych"
+msgstr ""
 
 msgid "**Source code:** :source:`Lib/string/templatelib.py`"
-msgstr "**Kod źródłowy:** :source:`Lib/string/templatelib.py`"
+msgstr ""
 
 msgid ":ref:`Format strings <f-strings>`"
 msgstr ""
 
-msgid ":ref:`T-string literal syntax <t-strings>`"
+msgid ":ref:`Template string literal (t-string) syntax <t-strings>`"
+msgstr ""
+
+msgid ":pep:`750`"
 msgstr ""
 
 msgid "Template strings"
-msgstr "Рядки шаблону"
-
-msgid ""
-"Template strings are a formatting mechanism that allows for deep control "
-"over how strings are processed. You can create templates using :ref:`t-"
-"string literal syntax <t-strings>`, which is identical to :ref:`f-string "
-"syntax <f-strings>` but uses a ``t`` instead of an ``f``. While f-strings "
-"evaluate to ``str``, t-strings create a :class:`Template` instance that "
-"gives you access to the static and interpolated (in curly braces) parts of a "
-"string *before* they are combined."
-msgstr ""
-
-msgid "Template"
 msgstr ""
 
 msgid ""
-"The :class:`!Template` class describes the contents of a template string."
+"Template strings are a mechanism for custom string processing. They have the "
+"full flexibility of Python's :ref:`f-strings`, but return a :class:"
+"`Template` instance that gives access to the static and interpolated (in "
+"curly braces) parts of a string *before* they are combined."
 msgstr ""
 
 msgid ""
-":class:`!Template` instances are immutable: their attributes cannot be "
-"reassigned."
+"To write a t-string, use a ``'t'`` prefix instead of an ``'f'``, like so:"
 msgstr ""
 
-msgid "Create a new :class:`!Template` object."
+msgid ""
+">>> pi = 3.14\n"
+">>> t't-strings are new in Python {pi!s}!'\n"
+"Template(\n"
+"   strings=('t-strings are new in Python ', '!'),\n"
+"   interpolations=(Interpolation(3.14, 'pi', 's', ''),)\n"
+")"
 msgstr ""
 
-msgid "Parameters"
-msgstr "parametry"
+msgid "Types"
+msgstr "Typy"
 
-msgid "A mix of strings and :class:`Interpolation` instances in any order."
+msgid ""
+"The :class:`!Template` class describes the contents of a template string. It "
+"is immutable, meaning that attributes of a template cannot be reassigned."
 msgstr ""
 
 msgid ""
 "The most common way to create a :class:`!Template` instance is to use the :"
-"ref:`t-string literal syntax <t-strings>`. This syntax is identical to that "
-"of :ref:`f-strings <f-strings>` except that it uses a ``t`` instead of an "
-"``f``:"
+"ref:`template string literal syntax <t-strings>`. This syntax is identical "
+"to that of :ref:`f-strings <f-strings>`, except that it uses a ``t`` prefix "
+"in place of an ``f``:"
 msgstr ""
 
 msgid ""
-"Templates ars stored as sequences of literal :attr:`~Template.strings` and "
+"Templates are stored as sequences of literal :attr:`~Template.strings` and "
 "dynamic :attr:`~Template.interpolations`. A :attr:`~Template.values` "
-"attribute holds the interpolation values:"
+"attribute holds the values of the interpolations:"
 msgstr ""
 
 msgid ""
 "The :attr:`!strings` tuple has one more element than :attr:`!interpolations` "
 "and :attr:`!values`; the interpolations “belong” between the strings. This "
-"may be easier to understand when tuples are aligned::"
+"may be easier to understand when tuples are aligned"
 msgstr ""
 
 msgid ""
-"template.strings:  ('Hello ',          '!')\n"
-"template.values:   (          'World',    )"
+"template.strings:  ('Ah! We do have ',              '.')\n"
+"template.values:   (                   'Camembert',    )"
 msgstr ""
 
-msgid ""
-"While literal syntax is the most common way to create :class:`!Template` "
-"instances, it is also possible to create them directly using the constructor:"
+msgid "Attributes"
 msgstr ""
 
-msgid ""
-"If two or more consecutive strings are passed, they will be concatenated "
-"into a single value in the :attr:`~Template.strings` attribute. For example, "
-"the following code creates a :class:`Template` with a single final string:"
-msgstr ""
-
-msgid ""
-"If two or more consecutive interpolations are passed, they will be treated "
-"as separate interpolations and an empty string will be inserted between "
-"them. For example, the following code creates a template with empty "
-"placeholders in the :attr:`~Template.strings` attribute:"
-msgstr ""
-
-msgid "A :ref:`tuple <tut-tuples>` of the static strings in the template."
+msgid "A :class:`tuple` of the static strings in the template."
 msgstr ""
 
 msgid "Empty strings *are* included in the tuple:"
@@ -123,7 +107,7 @@ msgid ""
 "than the ``interpolations`` and ``values`` tuples:"
 msgstr ""
 
-msgid "A tuple of the interpolations in the template."
+msgid "A :class:`tuple` of the interpolations in the template."
 msgstr ""
 
 msgid ""
@@ -136,16 +120,37 @@ msgstr ""
 
 msgid ""
 "The ``values`` tuple always has the same length as the ``interpolations`` "
-"tuple. It is equivalent to ``tuple(i.value for i in template."
+"tuple. It is always equivalent to ``tuple(i.value for i in template."
 "interpolations)``."
 msgstr ""
 
-msgid ""
-"Iterate over the template, yielding each string and :class:`Interpolation` "
-"in order."
+msgid "Methods"
 msgstr ""
 
-msgid "Empty strings are *not* included in the iteration:"
+msgid ""
+"While literal syntax is the most common way to create a :class:`!Template`, "
+"it is also possible to create them directly using the constructor:"
+msgstr ""
+
+msgid ""
+"If multiple strings are passed consecutively, they will be concatenated into "
+"a single value in the :attr:`~Template.strings` attribute. For example, the "
+"following code creates a :class:`Template` with a single final string:"
+msgstr ""
+
+msgid ""
+"If multiple interpolations are passed consecutively, they will be treated as "
+"separate interpolations and an empty string will be inserted between them. "
+"For example, the following code creates a template with empty placeholders "
+"in the :attr:`~Template.strings` attribute:"
+msgstr ""
+
+msgid ""
+"Iterate over the template, yielding each non-empty string and :class:"
+"`Interpolation` in the correct order:"
+msgstr ""
+
+msgid "Empty strings are **not** included in the iteration:"
 msgstr ""
 
 msgid ""
@@ -154,96 +159,18 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Concatenation between a :class:`!Template` and a ``str`` is *not* supported. "
-"This is because it is ambiguous whether the string should be treated as a "
-"static string or an interpolation. If you want to concatenate a :class:`!"
-"Template` with a string, you should either wrap the string directly in a :"
-"class:`!Template` (to treat it as a static string) or use an :class:`!"
-"Interpolation` (to treat it as dynamic):"
-msgstr ""
-
-msgid "Create a new :class:`!Interpolation` object."
-msgstr ""
-
-msgid "The evaluated, in-scope result of the interpolation."
-msgstr ""
-
-msgid "The text of a valid Python expression, or an empty string."
-msgstr ""
-
-msgid ""
-"The optional :ref:`conversion <formatstrings>` to be used, one of r, s, and "
-"a."
-msgstr ""
-
-msgid ""
-"An optional, arbitrary string used as the :ref:`format specification "
-"<formatspec>` to present the value."
+"Concatenating a :class:`!Template` and a ``str`` is **not** supported. This "
+"is because it is unclear whether the string should be treated as a static "
+"string or an interpolation. If you want to concatenate a :class:`!Template` "
+"with a string, you should either wrap the string directly in a :class:`!"
+"Template` (to treat it as a static string) or use an :class:`!Interpolation` "
+"(to treat it as dynamic):"
 msgstr ""
 
 msgid ""
 "The :class:`!Interpolation` type represents an expression inside a template "
-"string."
-msgstr ""
-
-msgid ""
-":class:`!Interpolation` instances are immutable: their attributes cannot be "
-"reassigned."
-msgstr ""
-
-msgid "Returns"
-msgstr "Zwraca"
-
-msgid "The evaluated value of the interpolation."
-msgstr ""
-
-msgid "type"
-msgstr "typ"
-
-msgid "str"
-msgstr "str"
-
-msgid ""
-"The :attr:`~Interpolation.expression` is the original text of the "
-"interpolation's Python expression, if the interpolation was created from a t-"
-"string literal. Developers creating interpolations manually should either "
-"set this to an empty string or choose a suitable valid Python expression."
-msgstr ""
-
-msgid "The conversion to apply to the value, or ``None``."
-msgstr ""
-
-msgid "``Literal[\"a\", \"r\", \"s\"] | None``"
-msgstr ""
-
-msgid ""
-"The :attr:`!Interpolation.conversion` is the optional conversion to apply to "
-"the value:"
-msgstr ""
-
-msgid ""
-"Unlike f-strings, where conversions are applied automatically, the expected "
-"behavior with t-strings is that code that *processes* the :class:`!Template` "
-"will decide how to interpret and whether to apply the :attr:`!Interpolation."
-"conversion`."
-msgstr ""
-
-msgid "The format specification to apply to the value."
-msgstr ""
-
-msgid ""
-"The :attr:`!Interpolation.format_spec` is an optional, arbitrary string used "
-"as the format specification to present the value:"
-msgstr ""
-
-msgid ""
-"Unlike f-strings, where format specifications are applied automatically via "
-"the :func:`format` protocol, the expected behavior with t-strings is that "
-"code that *processes* the :class:`!Template` will decide how to interpret "
-"and whether to apply the format specification. As a result, :attr:`!"
-"Interpolation.format_spec` values in :class:`!Template` instances can be "
-"arbitrary strings, even those that do not necessarily conform to the rules "
-"of Python's :func:`format` protocol."
+"string. It is immutable, meaning that attributes of an interpolation cannot "
+"be reassigned."
 msgstr ""
 
 msgid ""
@@ -251,8 +178,72 @@ msgid ""
 "attributes with the :ref:`match statement <match>`:"
 msgstr ""
 
+msgid "The evaluated value of the interpolation."
+msgstr ""
+
+msgid "The text of a valid Python expression, or an empty string."
+msgstr ""
+
+msgid ""
+"The :attr:`.expression` is the original text of the interpolation's Python "
+"expression, if the interpolation was created from a t-string literal. "
+"Developers creating interpolations manually should either set this to an "
+"empty string or choose a suitable valid Python expression."
+msgstr ""
+
+msgid "The conversion to apply to the value, or ``None``."
+msgstr ""
+
+msgid ""
+"The :attr:`!conversion` is the optional conversion to apply to the value:"
+msgstr ""
+
+msgid ""
+"Unlike f-strings, where conversions are applied automatically, the expected "
+"behavior with t-strings is that code that *processes* the :class:`!Template` "
+"will decide how to interpret and whether to apply the :attr:`!conversion`. "
+"For convenience, the :func:`convert` function can be used to mimic f-string "
+"conversion semantics."
+msgstr ""
+
+msgid "The format specification to apply to the value."
+msgstr ""
+
+msgid ""
+"The :attr:`!format_spec` is an optional, arbitrary string used as the format "
+"specification to present the value:"
+msgstr ""
+
+msgid ""
+"Unlike f-strings, where format specifications are applied automatically via "
+"the :func:`format` protocol, the expected behavior with t-strings is that "
+"code that *processes* the interpolation will decide how to interpret and "
+"whether to apply the format specification. As a result, :attr:`!format_spec` "
+"values in interpolations can be arbitrary strings, including those that do "
+"not conform to the :func:`format` protocol."
+msgstr ""
+
+msgid "Create a new :class:`!Interpolation` object from component parts."
+msgstr ""
+
+msgid "Parameters"
+msgstr "parametry"
+
+msgid "The evaluated, in-scope result of the interpolation."
+msgstr ""
+
+msgid ""
+"The :ref:`conversion <formatstrings>` to be used, one of ``None``, ``'a'``, "
+"``'r'``, or ``'s'``."
+msgstr ""
+
+msgid ""
+"An optional, arbitrary string used as the :ref:`format specification "
+"<formatspec>` to present the value."
+msgstr ""
+
 msgid "Helper functions"
-msgstr "Допоміжні функції"
+msgstr ""
 
 msgid ""
 "Applies formatted string literal :ref:`conversion <formatstrings-"
@@ -263,13 +254,13 @@ msgstr ""
 msgid "Three conversion flags are currently supported:"
 msgstr ""
 
-msgid "``'s'`` which calls :func:`str` on the value,"
+msgid "``'s'`` which calls :func:`str` on the value (like ``!s``),"
 msgstr ""
 
-msgid "``'r'`` which calls :func:`repr`, and"
+msgid "``'r'`` which calls :func:`repr` (like ``!r``), and"
 msgstr ""
 
-msgid "``'a'`` which calls :func:`ascii`."
+msgid "``'a'`` which calls :func:`ascii` (like ``!a``)."
 msgstr ""
 
 msgid "If the conversion flag is ``None``, *obj* is returned unchanged."
