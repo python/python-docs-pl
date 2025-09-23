@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# python-doc bot, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:14+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2025-09-23 15:37+0000\n"
+"PO-Revision-Date: 2025-07-18 19:58+0000\n"
+"Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid ""
-":mod:`sysconfig` --- Provide access to Python's configuration information"
+":mod:`!sysconfig` --- Provide access to Python's configuration information"
 msgstr ""
 
 msgid "**Source code:** :source:`Lib/sysconfig.py`"
@@ -42,7 +42,7 @@ msgstr ""
 msgid ""
 "A Python distribution contains a :file:`Makefile` and a :file:`pyconfig.h` "
 "header file that are necessary to build both the Python binary itself and "
-"third-party C extensions compiled using :mod:`distutils`."
+"third-party C extensions compiled using ``setuptools``."
 msgstr ""
 
 msgid ""
@@ -77,6 +77,16 @@ msgstr ""
 msgid "Example of usage::"
 msgstr ""
 
+msgid ""
+">>> import sysconfig\n"
+">>> sysconfig.get_config_var('Py_ENABLE_SHARED')\n"
+"0\n"
+">>> sysconfig.get_config_var('LIBDIR')\n"
+"'/usr/local/lib'\n"
+">>> sysconfig.get_config_vars('AR', 'CXX')\n"
+"['ar', 'g++']"
+msgstr ""
+
 msgid "Installation paths"
 msgstr ""
 
@@ -84,13 +94,8 @@ msgid ""
 "Python uses an installation scheme that differs depending on the platform "
 "and on the installation options.  These schemes are stored in :mod:"
 "`sysconfig` under unique identifiers based on the value returned by :const:"
-"`os.name`."
-msgstr ""
-
-msgid ""
-"Every new component that is installed using :mod:`distutils` or a Distutils-"
-"based system will follow the same scheme to copy its file in the right "
-"places."
+"`os.name`. The schemes are used by package installers to determine where to "
+"copy files to."
 msgstr ""
 
 msgid "Python currently supports nine schemes:"
@@ -102,36 +107,37 @@ msgid ""
 msgstr ""
 
 msgid ""
-"*posix_home*: scheme for POSIX platforms used when a *home* option is used "
-"upon installation.  This scheme is used when a component is installed "
-"through Distutils with a specific home prefix."
+"*posix_home*: scheme for POSIX platforms, when the *home* option is used. "
+"This scheme defines paths located under a specific home prefix."
 msgstr ""
 
 msgid ""
-"*posix_user*: scheme for POSIX platforms used when a component is installed "
-"through Distutils and the *user* option is used.  This scheme defines paths "
-"located under the user home directory."
+"*posix_user*: scheme for POSIX platforms, when the *user* option is used. "
+"This scheme defines paths located under the user's home directory (:const:"
+"`site.USER_BASE`)."
 msgstr ""
 
 msgid ""
 "*posix_venv*: scheme for :mod:`Python virtual environments <venv>` on POSIX "
-"platforms; by default it is the same as *posix_prefix* ."
-msgstr ""
-
-msgid "*nt*: scheme for NT platforms like Windows."
-msgstr ""
-
-msgid "*nt_user*: scheme for NT platforms, when the *user* option is used."
+"platforms; by default it is the same as *posix_prefix*."
 msgstr ""
 
 msgid ""
-"*nt_venv*: scheme for :mod:`Python virtual environments <venv>` on NT "
-"platforms; by default it is the same as *nt* ."
+"*nt*: scheme for Windows. This is the default scheme used when Python or a "
+"component is installed."
+msgstr ""
+
+msgid "*nt_user*: scheme for Windows, when the *user* option is used."
 msgstr ""
 
 msgid ""
-"*venv*: a scheme with values from ether *posix_venv* or *nt_venv* depending "
-"on the platform Python runs on"
+"*nt_venv*: scheme for :mod:`Python virtual environments <venv>` on Windows; "
+"by default it is the same as *nt*."
+msgstr ""
+
+msgid ""
+"*venv*: a scheme with values from either *posix_venv* or *nt_venv* depending "
+"on the platform Python runs on."
 msgstr ""
 
 msgid "*osx_framework_user*: scheme for macOS, when the *user* option is used."
@@ -155,7 +161,9 @@ msgstr ""
 msgid "*platlib*: directory for site-specific, platform-specific files."
 msgstr ""
 
-msgid "*purelib*: directory for site-specific, non-platform-specific files."
+msgid ""
+"*purelib*: directory for site-specific, non-platform-specific files ('pure' "
+"Python)."
 msgstr ""
 
 msgid ""
@@ -174,7 +182,191 @@ msgstr ""
 msgid "*data*: directory for data files."
 msgstr ""
 
-msgid ":mod:`sysconfig` provides some functions to determine these paths."
+msgid "User scheme"
+msgstr ""
+
+msgid ""
+"This scheme is designed to be the most convenient solution for users that "
+"don't have write permission to the global site-packages directory or don't "
+"want to install into it."
+msgstr ""
+
+msgid ""
+"Files will be installed into subdirectories of :const:`site.USER_BASE` "
+"(written as :file:`{userbase}` hereafter).  This scheme installs pure Python "
+"modules and extension modules in the same location (also known as :const:"
+"`site.USER_SITE`)."
+msgstr ""
+
+msgid "``posix_user``"
+msgstr ""
+
+msgid "Path"
+msgstr ""
+
+msgid "Installation directory"
+msgstr ""
+
+msgid "*stdlib*"
+msgstr ""
+
+msgid ":file:`{userbase}/lib/python{X.Y}`"
+msgstr ":file:`{userbase}/lib/python{X.Y}`"
+
+msgid "*platstdlib*"
+msgstr ""
+
+msgid "*platlib*"
+msgstr ""
+
+msgid ":file:`{userbase}/lib/python{X.Y}/site-packages`"
+msgstr ":file:`{userbase}/lib/python{X.Y}/site-packages`"
+
+msgid "*purelib*"
+msgstr ""
+
+msgid "*include*"
+msgstr ""
+
+msgid ":file:`{userbase}/include/python{X.Y}`"
+msgstr ":file:`{userbase}/include/python{X.Y}`"
+
+msgid "*scripts*"
+msgstr ""
+
+msgid ":file:`{userbase}/bin`"
+msgstr ":file:`{userbase}/bin`"
+
+msgid "*data*"
+msgstr ""
+
+msgid ":file:`{userbase}`"
+msgstr ":file:`{userbase}`"
+
+msgid "``nt_user``"
+msgstr ""
+
+msgid ":file:`{userbase}\\\\Python{XY}`"
+msgstr ":file:`{userbase}\\\\Python{XY}`"
+
+msgid ":file:`{userbase}\\\\Python{XY}\\\\site-packages`"
+msgstr ":file:`{userbase}\\\\Python{XY}\\\\site-packages`"
+
+msgid ":file:`{userbase}\\\\Python{XY}\\\\Include`"
+msgstr ":file:`{userbase}\\\\Python{XY}\\\\Include`"
+
+msgid ":file:`{userbase}\\\\Python{XY}\\\\Scripts`"
+msgstr ":file:`{userbase}\\\\Python{XY}\\\\Scripts`"
+
+msgid "``osx_framework_user``"
+msgstr ""
+
+msgid ":file:`{userbase}/lib/python`"
+msgstr ":file:`{userbase}/lib/python`"
+
+msgid ":file:`{userbase}/lib/python/site-packages`"
+msgstr ":file:`{userbase}/lib/python/site-packages`"
+
+msgid "Home scheme"
+msgstr ""
+
+msgid ""
+"The idea behind the \"home scheme\" is that you build and maintain a "
+"personal stash of Python modules.  This scheme's name is derived from the "
+"idea of a \"home\" directory on Unix, since it's not unusual for a Unix user "
+"to make their home directory have a layout similar to :file:`/usr/` or :file:"
+"`/usr/local/`. This scheme can be used by anyone, regardless of the "
+"operating system they are installing for."
+msgstr ""
+
+msgid "``posix_home``"
+msgstr ""
+
+msgid ":file:`{home}/lib/python`"
+msgstr ":file:`{home}/lib/python`"
+
+msgid ":file:`{home}/include/python`"
+msgstr ":file:`{home}/include/python`"
+
+msgid "*platinclude*"
+msgstr ""
+
+msgid ":file:`{home}/bin`"
+msgstr ":file:`{home}/bin`"
+
+msgid ":file:`{home}`"
+msgstr ":file:`{home}`"
+
+msgid "Prefix scheme"
+msgstr ""
+
+msgid ""
+"The \"prefix scheme\" is useful when you wish to use one Python installation "
+"to perform the build/install (i.e., to run the setup script), but install "
+"modules into the third-party module directory of a different Python "
+"installation (or something that looks like a different Python "
+"installation).  If this sounds a trifle unusual, it is---that's why the user "
+"and home schemes come before.  However, there are at least two known cases "
+"where the prefix scheme will be useful."
+msgstr ""
+
+msgid ""
+"First, consider that many Linux distributions put Python in :file:`/usr`, "
+"rather than the more traditional :file:`/usr/local`.  This is entirely "
+"appropriate, since in those cases Python is part of \"the system\" rather "
+"than a local add-on. However, if you are installing Python modules from "
+"source, you probably want them to go in :file:`/usr/local/lib/python2.{X}` "
+"rather than :file:`/usr/lib/python2.{X}`."
+msgstr ""
+
+msgid ""
+"Another possibility is a network filesystem where the name used to write to "
+"a remote directory is different from the name used to read it: for example, "
+"the Python interpreter accessed as :file:`/usr/local/bin/python` might "
+"search for modules in :file:`/usr/local/lib/python2.{X}`, but those modules "
+"would have to be installed to, say, :file:`/mnt/{@server}/export/lib/python2."
+"{X}`."
+msgstr ""
+
+msgid "``posix_prefix``"
+msgstr ""
+
+msgid ":file:`{prefix}/lib/python{X.Y}`"
+msgstr ":file:`{prefix}/lib/python{X.Y}`"
+
+msgid ":file:`{prefix}/lib/python{X.Y}/site-packages`"
+msgstr ":file:`{prefix}/lib/python{X.Y}/site-packages`"
+
+msgid ":file:`{prefix}/include/python{X.Y}`"
+msgstr ":file:`{prefix}/include/python{X.Y}`"
+
+msgid ":file:`{prefix}/bin`"
+msgstr ":file:`{prefix}/bin`"
+
+msgid ":file:`{prefix}`"
+msgstr ":file:`{prefix}`"
+
+msgid "``nt``"
+msgstr "``nt``"
+
+msgid ":file:`{prefix}\\\\Lib`"
+msgstr ":file:`{prefix}\\\\Lib`"
+
+msgid ":file:`{prefix}\\\\Lib\\\\site-packages`"
+msgstr ":file:`{prefix}\\\\Lib\\\\site-packages`"
+
+msgid ":file:`{prefix}\\\\Include`"
+msgstr ":file:`{prefix}\\\\Include`"
+
+msgid ":file:`{prefix}\\\\Scripts`"
+msgstr ":file:`{prefix}\\\\Scripts`"
+
+msgid "Installation path functions"
+msgstr ""
+
+msgid ""
+":mod:`sysconfig` provides some functions to determine these installation "
+"paths."
 msgstr ""
 
 msgid ""
@@ -223,7 +415,7 @@ msgstr ""
 
 msgid ""
 "End users should not use this function, but :func:`get_default_scheme` and :"
-"func:`get_preferred_scheme()` instead."
+"func:`get_preferred_scheme` instead."
 msgstr ""
 
 msgid ""
@@ -260,7 +452,7 @@ msgstr ""
 
 msgid ""
 "If *vars* is provided, it must be a dictionary of variables that will update "
-"the dictionary return by :func:`get_config_vars`."
+"the dictionary returned by :func:`get_config_vars`."
 msgstr ""
 
 msgid ""
@@ -308,7 +500,7 @@ msgstr ""
 msgid ""
 "This is used mainly to distinguish platform-specific build directories and "
 "platform-specific built distributions.  Typically includes the OS name and "
-"version and the architecture (as supplied by 'os.uname()'), although the "
+"version and the architecture (as supplied by :func:`os.uname`), although the "
 "exact information included depends on the OS; e.g., on Linux, the kernel "
 "version isn't particularly important."
 msgstr ""
@@ -328,7 +520,10 @@ msgstr ""
 msgid "Windows will return one of:"
 msgstr ""
 
-msgid "win-amd64 (64bit Windows on AMD64, aka x86_64, Intel64, and EM64T)"
+msgid "win-amd64 (64-bit Windows on AMD64, aka x86_64, Intel64, and EM64T)"
+msgstr ""
+
+msgid "win-arm64 (64-bit Windows on ARM64, aka AArch64)"
 msgstr ""
 
 msgid "win32 (all others - specifically, sys.platform is returned)"
@@ -382,6 +577,30 @@ msgid "Using :mod:`sysconfig` as a script"
 msgstr ""
 
 msgid "You can use :mod:`sysconfig` as a script with Python's *-m* option:"
+msgstr ""
+
+msgid ""
+"$ python -m sysconfig\n"
+"Platform: \"macosx-10.4-i386\"\n"
+"Python version: \"3.2\"\n"
+"Current installation scheme: \"posix_prefix\"\n"
+"\n"
+"Paths:\n"
+"        data = \"/usr/local\"\n"
+"        include = \"/Users/tarek/Dev/svn.python.org/py3k/Include\"\n"
+"        platinclude = \".\"\n"
+"        platlib = \"/usr/local/lib/python3.2/site-packages\"\n"
+"        platstdlib = \"/usr/local/lib/python3.2\"\n"
+"        purelib = \"/usr/local/lib/python3.2/site-packages\"\n"
+"        scripts = \"/usr/local/bin\"\n"
+"        stdlib = \"/usr/local/lib/python3.2\"\n"
+"\n"
+"Variables:\n"
+"        AC_APPLE_UNIVERSAL_BUILD = \"0\"\n"
+"        AIX_GENUINE_CPLUSPLUS = \"0\"\n"
+"        AR = \"ar\"\n"
+"        ARFLAGS = \"rc\"\n"
+"        ..."
 msgstr ""
 
 msgid ""
