@@ -1,22 +1,19 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
-from manage_translation import get_resource_language_stats, progress_from_resources, get_number_of_translators
+from manage_translation import get_resource_language_stats, progress_from_resources
 
 stats = get_resource_language_stats()
 total_words, total_strings = progress_from_resources(stats)
-translators = get_number_of_translators()
 
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.41%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.57%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-![3 tłumaczy](https://img.shields.io/badge/tłumaczy-3-0.svg)
 <!-- [[[end]]] -->
 
 *Read this in another language: [English](README.en.md)*

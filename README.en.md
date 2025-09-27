@@ -1,22 +1,19 @@
 Polish Translation of Python Documentation
 ==========================================
 <!-- [[[cog
-from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher, get_number_of_translators
+from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher
 
 stats = get_resource_language_stats()
 total_words, total_strings = progress_from_resources(stats)
-translators = get_number_of_translators()
 
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.41%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.57%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-![3 Translators](https://img.shields.io/badge/Translators-3-0.svg)
 <!-- [[[end]]] -->
 
 *Przeczytaj to w innym języku: [polski](README.md)*
