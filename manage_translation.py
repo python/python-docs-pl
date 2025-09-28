@@ -17,13 +17,11 @@ from argparse import ArgumentParser
 import os
 from contextlib import chdir
 from dataclasses import dataclass
-from difflib import SequenceMatcher
-from logging import info
 from pathlib import Path
 from subprocess import call, run, CalledProcessError
 import sys
 from tempfile import TemporaryDirectory
-from typing import Self, Generator, Iterable
+from typing import Self, Iterable
 from warnings import warn
 
 from polib import pofile, POFile
@@ -161,39 +159,6 @@ def progress_from_resources(
         translated_total_words / total_words * 100,
         translated_total_strs / total_strs * 100,
     )
-
-
-def get_number_of_translators():
-    translators = set(_fetch_translators())
-    _remove_bot(translators)
-    translators = _eliminate_aliases(translators)
-    return len(translators)
-
-
-def _fetch_translators() -> Generator[str, None, None]:
-    for file in Path().rglob('*.po'):
-        header = pofile(file).header.splitlines()
-        for translator_record in header[header.index('Translators:') + 1 :]:
-            translator, _year = translator_record.split(', ')
-            yield translator
-
-
-def _remove_bot(translators: set[str]) -> None:
-    translators.remove('Transifex Bot <>')
-
-
-def _eliminate_aliases(translators: set[str]) -> set[str]:
-    unique = set()
-    for name in translators:
-        for match in unique:
-            if (
-                ratio := SequenceMatcher(lambda x: x in '<>@', name, match).ratio()
-            ) > 0.64:
-                info(f'{name} and {match} are similar ({ratio:.3f}). Deduplicating.')
-                break
-        else:
-            unique.add(name)
-    return unique
 
 
 def language_switcher(entry: ResourceLanguageStatistics) -> bool:
