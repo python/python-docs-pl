@@ -90,7 +90,7 @@ jobs:
       fail-fast: false
       matrix:
         version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
-        format: [html, latex, epub]
+        format: [html, dist-pdf, epub]
     needs: ['update']
     steps:
       - uses: actions/setup-python@master
@@ -109,6 +109,10 @@ jobs:
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
       - uses: sphinx-doc/github-problem-matcher@v1.1
+      - run: sudo apt-get update
+        if: matrix.format == 'dist-pdf'
+      - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
+        if: matrix.format == 'dist-pdf'
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
       - uses: actions/upload-artifact@master
@@ -116,24 +120,6 @@ jobs:
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
           path: Doc/build/${{ matrix.format }}
-
-  output-pdf:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
-    needs: ['build']
-    steps:
-      - uses: actions/download-artifact@master
-        with:
-          name: build-${{ matrix.version }}-latex
-      - run: sudo apt-get update
-      - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
-      - run: make
-      - uses: actions/upload-artifact@master
-        with:
-          name: build-${{ matrix.version }}-pdf
-          path: .
 
   lint-epub:
     runs-on: ubuntu-latest
