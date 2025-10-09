@@ -89,7 +89,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+        version: [3.14, 3.13, 3.12, 3.11, '3.10']
         format: [html, latex, epub]
     needs: ['update']
     steps:
@@ -121,7 +121,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [3.14, 3.13, 3.12, 3.11, '3.10', 3.9]
+        version: [3.14, 3.13, 3.12, 3.11, '3.10']
     needs: ['build']
     steps:
       - uses: actions/download-artifact@master
