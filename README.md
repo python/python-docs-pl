@@ -1,13 +1,15 @@
 Polskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
-from manage_translation import get_resource_language_stats, progress_from_resources
+from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher
 
 stats = get_resource_language_stats()
+core = progress_from_resources(filter(language_switcher, stats))
 total_words, total_strings = progress_from_resources(stats)
 
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+![{core:.2f}% core](https://img.shields.io/badge/podstawowe_artykuły-{core:.2f}%25-0.svg)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)''')
 ]]] -->
