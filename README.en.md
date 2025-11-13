@@ -9,9 +9,9 @@ total_words, total_strings = progress_from_resources(stats)
 
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
-[![core {core_words:.2f}%](https://img.shields.io/badge/core-{core_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-[![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
-[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://python-docs-translations.github.io/dashboard/)''')
+[![core {core_words:.2f}%](https://img.shields.io/badge/core-{core_words:.2f}%25-0.svg)](https://translations.python.org/)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://translations.python.org/)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://translations.python.org/)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![core 99.59%](https://img.shields.io/badge/core-99.59%25-0.svg)](https://python-docs-translations.github.io/dashboard/)
