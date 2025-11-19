@@ -19,7 +19,7 @@ jobs:
       - uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-python@v6.0.0
+      - uses: actions/setup-python@v6
         with:
           python-version: 3
       - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
           pip install requests cogapp polib transifex-python sphinx-intl blurb six
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
         working-directory: /usr/local/bin
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v5
         with:
           ref: ${{ matrix.version }}
           fetch-depth: 0
@@ -74,11 +74,11 @@ jobs:
     needs: ['update']
     continue-on-error: true
     steps:
-      - uses: actions/setup-python@v6.0.0
+      - uses: actions/setup-python@v6
         with:
           python-version: 3
       - run: pip install sphinx-lint
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v5
         with:
           ref: ${{ matrix.version }}
       - uses: rffontenelle/sphinx-lint-problem-matcher@v1.0.0
@@ -93,16 +93,16 @@ jobs:
         format: [html, latex, epub]
     needs: ['update']
     steps:
-      - uses: actions/setup-python@v6.0.0
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.12  # pin for Sphinx 3.4.3 in 3.10 branch (see #63)
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v5
         with:
           repository: python/cpython
           ref: ${{ matrix.version }}
       - run: make venv
         working-directory: ./Doc
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v5
         with:
           ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
@@ -143,10 +143,10 @@ jobs:
     needs: ['build']
     continue-on-error: true
     steps:
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.x
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v7
       - uses: actions/download-artifact@v6.0.0
         with:
           name: build-${{ matrix.version }}-epub
