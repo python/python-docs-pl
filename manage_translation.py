@@ -89,6 +89,7 @@ def _clone_cpython_repo(version: str):
 
 
 def _build_gettext():
+    _call("make -C cpython/Doc/ venv")
     _call(
         "make -C cpython/Doc/ ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -d build/.doctrees . locales/pot' build"
     )
