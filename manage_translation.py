@@ -90,6 +90,7 @@ def _clone_cpython_repo(version: str):
 
 
 def _build_gettext():
+    _call("make -C cpython/Doc/ venv")
     _call("make -C cpython/Doc/ gettext")
 
 
