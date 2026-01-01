@@ -111,7 +111,7 @@ jobs:
       - uses: sphinx-doc/github-problem-matcher@v1.1
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
-      - uses: actions/upload-artifact@v5.0.0
+      - uses: actions/upload-artifact@v6.0.0
         if: success() || failure()
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
@@ -124,13 +124,13 @@ jobs:
         version: [3.14, 3.13, 3.12, 3.11, '3.10']
     needs: ['build']
     steps:
-      - uses: actions/download-artifact@v6.0.0
+      - uses: actions/download-artifact@v7.0.0
         with:
           name: build-${{ matrix.version }}-latex
       - run: sudo apt-get update
       - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
       - run: make
-      - uses: actions/upload-artifact@v5.0.0
+      - uses: actions/upload-artifact@v6.0.0
         with:
           name: build-${{ matrix.version }}-pdf
           path: .
@@ -147,7 +147,7 @@ jobs:
         with:
           python-version: 3.x
       - uses: astral-sh/setup-uv@v7
-      - uses: actions/download-artifact@v6.0.0
+      - uses: actions/download-artifact@v7.0.0
         with:
           name: build-${{ matrix.version }}-epub
       - run: uvx epubcheck
