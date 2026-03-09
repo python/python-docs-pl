@@ -14,7 +14,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://translations.python.org/#pl)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
-[![core 100.00%](https://img.shields.io/badge/core-100.00%25-0.svg)](https://translations.python.org/#pl)
+[![core 99.95%](https://img.shields.io/badge/core-99.95%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.43%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.36%25-0.svg)](https://translations.python.org/#pl)
 <!-- [[[end]]] -->
