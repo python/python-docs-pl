@@ -130,9 +130,11 @@ jobs:
       - run: sudo apt-get update
       - run: |
           sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
-          if ${{ fromJSON(matrix.version) >= 3.14 }}; then
+          if python -c "import os,sys; sys.exit(0 if tuple(map(int, os.environ['MATRIX_VERSION'].split('.'))) >= (3, 14) else 1)"; then
             sudo apt-get install -y librsvg2-bin
           fi
+        env:
+          MATRIX_VERSION: ${{ matrix.version }}
       - run: make
       - uses: actions/upload-artifact@v7.0.0
         with:
