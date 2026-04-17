@@ -108,6 +108,8 @@ jobs:
           path: Doc/locales/pl/LC_MESSAGES
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
+      - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+        if: ${{ matrix.format == 'latex' && fromJSON(matrix.version) >= 3.14 }}
       - uses: sphinx-doc/github-problem-matcher@v1.1
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
@@ -129,8 +131,6 @@ jobs:
           name: build-${{ matrix.version }}-latex
       - run: sudo apt-get update
       - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
-      - run: sudo apt-get install -y librsvg2-bin
-        if: ${{ fromJSON(matrix.version) >= 3.14 }}
       - run: make
       - uses: actions/upload-artifact@v7.0.0
         with:
