@@ -59,7 +59,7 @@ jobs:
       - run: git commit -m "$(python manage_translation.py generate_commit_msg)"
         if: env.SIGNIFICANT_CHANGES
       - name: Push commit
-        uses: ad-m/github-push-action@v1.0.0
+        uses: ad-m/github-push-action@v1.1.0
         if: env.SIGNIFICANT_CHANGES
         with:
           branch: ${{ matrix.version }}
@@ -113,7 +113,7 @@ jobs:
       - uses: sphinx-doc/github-problem-matcher@v1.1
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
-      - uses: actions/upload-artifact@v7.0.0
+      - uses: actions/upload-artifact@v7.0.1
         if: success() || failure()
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
@@ -132,7 +132,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
       - run: make
-      - uses: actions/upload-artifact@v7.0.0
+      - uses: actions/upload-artifact@v7.0.1
         with:
           name: build-${{ matrix.version }}-pdf
           path: .
