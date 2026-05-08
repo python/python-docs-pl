@@ -28,7 +28,7 @@ from polib import pofile, POFile
 from transifex.api import transifex_api
 
 LANGUAGE = 'pl'
-PROJECT_SLUG = 'python-newest'
+PROJECT_SLUG = 'python-314'
 VERSION = '3.14'
 
 
