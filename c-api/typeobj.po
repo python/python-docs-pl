@@ -816,10 +816,10 @@ msgid "Parameter Types"
 msgstr "Typy parametrów"
 
 msgid "Return Type"
-msgstr ""
+msgstr "Typ zwracany"
 
 msgid "void"
-msgstr ""
+msgstr "próżnia"
 
 msgid ":c:type:`visitproc`"
 msgstr ":c:type:`visitproc`"
@@ -840,10 +840,10 @@ msgid ":c:type:`releasebufferproc`"
 msgstr ":c:type:`releasebufferproc`"
 
 msgid "See :ref:`slot-typedefs` below for more detail."
-msgstr ""
+msgstr "Więcej szczegółów znajdziesz poniżej w :ref:`slot-typedefs`."
 
 msgid "PyTypeObject Definition"
-msgstr ""
+msgstr "Definicja obiektu PyTypeObject"
 
 msgid ""
 "The structure definition for :c:type:`PyTypeObject` can be found in :file:"
@@ -852,7 +852,7 @@ msgid ""
 msgstr ""
 
 msgid "PyObject Slots"
-msgstr ""
+msgstr "Sloty PyObject"
 
 msgid ""
 "The type object structure extends the :c:type:`PyVarObject` structure. The :"
@@ -872,10 +872,10 @@ msgid ""
 msgstr ""
 
 msgid "**Inheritance:**"
-msgstr ""
+msgstr "**Dziedzictwo:**"
 
 msgid "This field is not inherited by subtypes."
-msgstr ""
+msgstr "To pole nie jest dziedziczone przez podtypy."
 
 msgid ""
 "This is the type's type, in other words its metatype.  It is initialized by "
@@ -887,6 +887,15 @@ msgid ""
 "explicitly at the start of the module's initialization function, before "
 "doing anything else.  This is typically done like this::"
 msgstr ""
+"To jest typ typu, innymi słowy jego metatyp. Jest on inicjowany przez "
+"argument makra ``PyObject_HEAD_INIT``, a jego wartość powinna normalnie "
+"wynosić ``&PyType_Type``. Jednak w przypadku dynamicznie ładowalnych modułów "
+"rozszerzeń, które muszą działać w systemie Windows (przynajmniej), "
+"kompilator zgłasza, że ​​nie jest to prawidłowy inicjator. Dlatego przyjętą "
+"konwencją jest przekazywanie ``NULL`` do makra ``PyObject_HEAD_INIT`` i "
+"jawne inicjowanie tego pola na początku funkcji inicjującej modułu, przed "
+"wykonaniem jakichkolwiek innych czynności. Zazwyczaj robi się to w "
+"następujący sposób:"
 
 msgid ""
 "This should be done before any instances of the type are created. :c:func:"
