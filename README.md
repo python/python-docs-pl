@@ -1,4 +1,4 @@
-Polskie tłumaczenie dokumentacji Pythona
+dPolskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
 from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher
@@ -6,7 +6,7 @@ bh
 stats = get_resource_language_stats()
 core_words, _ = progress_from_resources(list(filter(language_switcher, stats)))
 total_words, total_strings = progress_from_resources(stats)
-
+dsad
 print(
 f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![podstawowe artykuły {core_words:.2f}%](https://img.shields.io/badge/podstawowe_artykuły-{core_words:.2f}%25-0.svg)](https://translations.python.org/#pl)
