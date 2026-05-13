@@ -2,7 +2,7 @@ Polskie tłumaczenie dokumentacji Pythona
 ========================================
 <!-- [[[cog
 from manage_translation import get_resource_language_stats, progress_from_resources, language_switcher
-
+bh
 stats = get_resource_language_stats()
 core_words, _ = progress_from_resources(list(filter(language_switcher, stats)))
 total_words, total_strings = progress_from_resources(stats)
