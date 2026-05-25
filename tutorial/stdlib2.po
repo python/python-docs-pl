@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Maciej Olko <maciej.olko@gmail.com>, 2026
 # python-doc bot, 2026
+# Maciej Olko <maciej.olko@gmail.com>, 2026
 #
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-23 14:55+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
-"Last-Translator: python-doc bot, 2026\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -557,6 +557,28 @@ msgid ""
 "    o = self.data[key]()\n"
 "KeyError: 'primary'"
 msgstr ""
+">>> import weakref, gc\n"
+">>> class A:\n"
+"... def __init__(self, value):\n"
+"... self.value = value\n"
+"... def __repr__(self):\n"
+"... return str(self.value)\n"
+"...\n"
+">>> a = A(10) # utwórz odniesienie\n"
+">>> d = weakref.WeakValueDictionary()\n"
+">>> d['primary'] = a # nie tworzy odniesienia\n"
+">>> d['primary'] # pobierz obiekt, jeśli nadal istnieje\n"
+"10\n"
+">>> del a # usuń jedyne odniesienie\n"
+">>> gc.collect() # wymuś natychmiastowe uruchomienie garbage collection\n"
+"0\n"
+">>> d['primary'] # wpis został automatycznie usunięty\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"    d['primary'] # wpis został automatycznie usunięty\n"
+"  File \"C:/python315/lib/weakref.py\", line 46, in __getitem__\n"
+"    o = self.data[key]()\n"
+"KeyError: 'primary'"
 
 msgid "Tools for working with lists"
 msgstr "Narzędzia do pracy z listami"
