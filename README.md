@@ -14,9 +14,9 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-{total_strings:.2f}%25-0.svg)](https://translations.python.org/#pl)''')
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
-[![podstawowe artykuły 98.15%](https://img.shields.io/badge/podstawowe_artykuły-98.15%25-0.svg)](https://translations.python.org/#pl)
-[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.66%25-0.svg)](https://translations.python.org/#pl)
-[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.56%25-0.svg)](https://translations.python.org/#pl)
+[![podstawowe artykuły 98.99%](https://img.shields.io/badge/podstawowe_artykuły-98.99%25-0.svg)](https://translations.python.org/#pl)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.69%25-0.svg)](https://translations.python.org/#pl)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.57%25-0.svg)](https://translations.python.org/#pl)
 <!-- [[[end]]] -->
 
 *Read this in another language: [English](README.en.md)*
