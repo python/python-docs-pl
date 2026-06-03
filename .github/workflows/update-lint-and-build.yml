@@ -8,6 +8,8 @@ on:
       - '*'
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -15,6 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11, '3.10']
+    permissions:
+      contents: write  # commit and push
     steps:
       - uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66 # 0.13.1
         with:
@@ -32,6 +36,7 @@ jobs:
         with:
           ref: ${{ matrix.version }}
           fetch-depth: 0
+          persist-credentials: false
       - name: Recreate Transifex config
         run: ./manage_translation.py recreate_tx_config
         env:
@@ -81,6 +86,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ matrix.version }}
+          persist-credentials: false
       - uses: rffontenelle/sphinx-lint-problem-matcher@4270bf50b2c93640a7cbb231c09f8e694699af9f # v1.0.0
       - run: sphinx-lint
 
@@ -100,12 +106,14 @@ jobs:
         with:
           repository: python/cpython
           ref: ${{ matrix.version }}
+          persist-credentials: false
       - run: make venv
         working-directory: ./Doc
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
+          persist-credentials: false
       - run: git pull
         working-directory: ./Doc/locales/pl/LC_MESSAGES
       - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
