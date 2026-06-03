@@ -1,5 +1,4 @@
 name: Translation and Linting Workflow
-
 on:
   schedule:
     - cron: '0 * * * *'
@@ -7,9 +6,7 @@ on:
     branches:
       - '*'
   workflow_dispatch:
-
 permissions: {}
-
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -18,7 +15,7 @@ jobs:
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11, '3.10']
     permissions:
-      contents: write  # commit and push
+      contents: write # commit and push
     steps:
       - uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66 # 0.13.1
         with:
@@ -50,7 +47,7 @@ jobs:
         if: ${{ hashFiles('README.md') != '' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - name:  Update README.en.md
+      - name: Update README.en.md
         run: python -Werror -m cogapp -rP README.en.md
         if: ${{ hashFiles('README.en.md') != '' }}
         env:
@@ -60,6 +57,7 @@ jobs:
       - name: Check changes significance
         run: >
           ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> "$GITHUB_ENV" || exit 0
+
       - run: git add .
       - run: git commit -m "$(python manage_translation.py generate_commit_msg)"
         if: env.SIGNIFICANT_CHANGES
@@ -69,7 +67,6 @@ jobs:
         with:
           branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
   lint:
     runs-on: ubuntu-latest
     strategy:
@@ -89,7 +86,6 @@ jobs:
           persist-credentials: false
       - uses: rffontenelle/sphinx-lint-problem-matcher@4270bf50b2c93640a7cbb231c09f8e694699af9f # v1.0.0
       - run: sphinx-lint
-
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -101,7 +97,7 @@ jobs:
     steps:
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: 3.12  # pin for Sphinx 3.4.3 in 3.10 branch (see #63)
+          python-version: 3.12 # pin for Sphinx 3.4.3 in 3.10 branch (see #63)
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: python/cpython
@@ -126,7 +122,6 @@ jobs:
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
           path: Doc/build/${{ matrix.format }}
-
   output-pdf:
     runs-on: ubuntu-latest
     strategy:
@@ -144,7 +139,6 @@ jobs:
         with:
           name: build-${{ matrix.version }}-pdf
           path: .
-
   lint-epub:
     runs-on: ubuntu-latest
     strategy:
