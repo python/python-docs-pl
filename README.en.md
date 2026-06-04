@@ -78,7 +78,7 @@ You signify your acceptance of this agreement by submitting your work for inclus
 **Updating Translations**
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
-* `uvx cog -rP README.en.md`
+* `cog -rP README.en.md`
 
 **Useful Materials**
 * [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
