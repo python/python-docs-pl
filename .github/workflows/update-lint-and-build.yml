@@ -2,10 +2,9 @@ name: Translation and Linting Workflow
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: 0 * * * *
   push:
-    branches:
-      - '*'
+    branches: ['*']
   workflow_dispatch:
 
 permissions: {}
@@ -20,10 +19,10 @@ jobs:
     permissions:
       contents: write  # commit and push
     steps:
-      - uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66 # 0.13.1
+      - uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66  # 0.13.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
           python-version: 3
       - name: Install dependencies
@@ -32,7 +31,7 @@ jobs:
           pip install requests cogapp polib transifex-python sphinx-intl blurb six
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
         working-directory: /usr/local/bin
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           ref: ${{ matrix.version }}
           fetch-depth: 0
@@ -50,7 +49,7 @@ jobs:
         if: ${{ hashFiles('README.md') != '' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
-      - name:  Update README.en.md
+      - name: Update README.en.md
         run: python -Werror -m cogapp -rP README.en.md
         if: ${{ hashFiles('README.en.md') != '' }}
         env:
@@ -59,12 +58,14 @@ jobs:
       - run: git config --local user.name "GitHub Action's update-translation job"
       - name: Check changes significance
         run: >
-          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator: ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> "$GITHUB_ENV" || exit 0
+          ! git diff -I'^"POT-Creation-Date: ' -I'^"Language-Team: ' -I'^# ' -I'^"Last-Translator:
+          ' -I'^"Project-Id-Version: ' --exit-code && echo "SIGNIFICANT_CHANGES=1" >> "$GITHUB_ENV"
+          || exit 0
       - run: git add .
       - run: git commit -m "$(python manage_translation.py generate_commit_msg)"
         if: env.SIGNIFICANT_CHANGES
       - name: Push commit
-        uses: ad-m/github-push-action@881a6320fdb16eb5318c5054f31c218aec2b324c # v1.3.0
+        uses: ad-m/github-push-action@881a6320fdb16eb5318c5054f31c218aec2b324c  # v1.3.0
         if: env.SIGNIFICANT_CHANGES
         with:
           branch: ${{ matrix.version }}
@@ -76,18 +77,18 @@ jobs:
       fail-fast: false
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11]
-    needs: ['update']
+    needs: [update]
     continue-on-error: true
     steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
           python-version: 3
       - run: pip install sphinx-lint
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           ref: ${{ matrix.version }}
           persist-credentials: false
-      - uses: rffontenelle/sphinx-lint-problem-matcher@4270bf50b2c93640a7cbb231c09f8e694699af9f # v1.0.0
+      - uses: rffontenelle/sphinx-lint-problem-matcher@4270bf50b2c93640a7cbb231c09f8e694699af9f  # v1.0.0
       - run: sphinx-lint
 
   build:
@@ -97,19 +98,19 @@ jobs:
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11, '3.10']
         format: [html, latex, epub]
-    needs: ['update']
+    needs: [update]
     steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
-          python-version: 3.12  # pin for Sphinx 3.4.3 in 3.10 branch (see #63)
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+          python-version: 3.12  # pin for Sphinx 3.4.3 in 3.10 branch (see  # 63)
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           repository: python/cpython
           ref: ${{ matrix.version }}
           persist-credentials: false
       - run: make venv
         working-directory: ./Doc
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
         with:
           ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
@@ -118,10 +119,10 @@ jobs:
         working-directory: ./Doc/locales/pl/LC_MESSAGES
       - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
         if: ${{ matrix.format == 'latex' && fromJSON(matrix.version) >= 3.14 }}
-      - uses: sphinx-doc/github-problem-matcher@1f74d6599f4a5e89a20d3c99aab4e6a70f7bda0f # v1.1
+      - uses: sphinx-doc/github-problem-matcher@1f74d6599f4a5e89a20d3c99aab4e6a70f7bda0f  # v1.1
       - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
         working-directory: ./Doc
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         if: success() || failure()
         with:
           name: build-${{ matrix.version }}-${{ matrix.format }}
@@ -132,15 +133,15 @@ jobs:
     strategy:
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11, '3.10']
-    needs: ['build']
+    needs: [build]
     steps:
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
         with:
           name: build-${{ matrix.version }}-latex
       - run: sudo apt-get update
       - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy
       - run: make
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
           name: build-${{ matrix.version }}-pdf
           path: .
@@ -150,14 +151,14 @@ jobs:
     strategy:
       matrix:
         version: [3.15, 3.14]
-    needs: ['build']
+    needs: [build]
     continue-on-error: true
     steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
           python-version: 3.x
-      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.1.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
         with:
           name: build-${{ matrix.version }}-epub
       - run: uvx epubcheck
