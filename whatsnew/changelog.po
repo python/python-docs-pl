@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-09 17:19+0000\n"
+"POT-Creation-Date: 2026-06-11 18:32+0000\n"
 "PO-Revision-Date: 2026-05-08 17:19+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -32,40 +32,84 @@ msgstr "Następna wersja Pythona"
 msgid "*Release date: XXXX-XX-XX*"
 msgstr "*Data wydania: XX.XX.XXXX*"
 
-msgid "macOS"
-msgstr "macOS"
+msgid "Library"
+msgstr "Biblioteka"
 
 msgid ""
-":gh:`150644`: When system logging is enabled (with ``config."
-"use_system_logger``, messages are now tagged as public. This allows the "
-"macOS 26 system logger to view messages without special configuration."
-msgstr ""
-
-msgid ":gh:`149254`: Update macOS installer to use OpenSSL 3.5.6."
-msgstr ""
-
-msgid ":gh:`115119`: Update macOS installer to use libmpdecimal 4.0.1."
-msgstr ""
-
-msgid "Windows"
-msgstr "Windows"
-
-msgid ":gh:`149254`: Updated bundled version of OpenSSL to 3.5.6."
-msgstr ""
-
-msgid "Tests"
-msgstr "Testy"
-
-msgid ":gh:`151130`: Add more tests for ``PyWeakref_*`` C API."
+":gh:`151126`: Fix a crash when :exc:`MemoryError` in :func:`!os."
+"_path_splitroot` was not set properly."
 msgstr ""
 
 msgid ""
-":gh:`149776`: Fix test_socket on Linux kernel 7.1 and newer: skip UDP Lite "
-"tests if it's not supported. Patch by Victor Stinner."
+":gh:`151126`: Fix a crash, when there's no memory left on a device, which "
+"happened in :mod:`!_interpchannels` module."
+msgstr ""
+
+msgid "Now it raises proper :exc:`MemoryError` errors."
+msgstr ""
+
+msgid ""
+":gh:`151295`: Fixed a crash (use-after-free) in :meth:`bytes.join` and :meth:"
+"`bytearray.join` that could occur if an item's :meth:`~object.__buffer__` "
+"concurrently mutates the sequence being joined. The mutation is now reported "
+"as a :exc:`RuntimeError` instead."
+msgstr ""
+
+msgid ""
+":gh:`109940`: Fix Windows :mod:`venv` activation in ``cmd.exe`` to respect "
+"``VIRTUAL_ENV_DISABLE_PROMPT``."
+msgstr ""
+
+msgid ""
+":gh:`143988`: Fixed crashes in :meth:`socket.socket.sendmsg` and :meth:"
+"`socket.socket.recvmsg_into` that could occur if buffer sequences are "
+"concurrently mutated."
+msgstr ""
+
+msgid ""
+":gh:`130796`: Undeprecate the :func:`locale.getdefaultlocale` function. "
+"Patch by Victor Stinner."
+msgstr ""
+
+msgid "Core and Builtins"
+msgstr "Core i builtiny"
+
+msgid ""
+":gh:`151253`: If ``import encodings`` (first import) fails at Python "
+"startup, dump the Python path configuration to help users debugging their "
+"configuration. Patch by Victor Stinner."
+msgstr ""
+
+msgid ""
+":gh:`151238`: Fix a crash when compiling a concatenated f-string or t-string "
+"if an error occurs when processing one of it's parts."
+msgstr ""
+
+msgid ""
+":gh:`150988`: Fix a reference leak in :exc:`OSError` when attributes are set "
+"before ``super().__init__()``."
+msgstr ""
+
+msgid "C API"
+msgstr "C API"
+
+msgid ""
+":gh:`123619`: :c:func:`PyUnstable_Object_EnableDeferredRefcount` now returns "
+"``0`` if the object is not tracked by the garbage collector: if :func:`gc."
+"is_tracked` is false. Patch by Victor Stinner."
+msgstr ""
+
+msgid "Python 3.14.6 final"
+msgstr ""
+
+msgid "*Release date: 2026-06-10*"
 msgstr ""
 
 msgid "Security"
 msgstr "Bezpieczeństwo"
+
+msgid ":gh:`151159`: Update Android and iOS installers to use OpenSSL 3.5.7."
+msgstr ""
 
 msgid ""
 ":gh:`150599`: Fix a possible stack buffer overflow in :mod:`bz2` when a :"
@@ -118,8 +162,106 @@ msgid ""
 "with libExpat 2.8.0 or later."
 msgstr ""
 
-msgid "Library"
-msgstr "Biblioteka"
+msgid ""
+":gh:`151112`: Fix a crash in the compiler that could occur when running out "
+"of memory."
+msgstr ""
+
+msgid ""
+":gh:`151126`: Fix a crash, when there's no memory left on a device, which "
+"happened in:"
+msgstr ""
+
+msgid "code compilation - :func:`!_winapi.CreateProcess`"
+msgstr ""
+
+msgid "Now these places raise proper :exc:`MemoryError` errors."
+msgstr ""
+
+msgid ""
+":gh:`150700`: Fix a :exc:`SystemError` when compiling a class-scope "
+"comprehension containing a ``lambda`` that references ``__class__``, "
+"``__classdict__``, or ``__conditional_annotations__``. Patch by Bartosz "
+"Sławecki."
+msgstr ""
+
+msgid ""
+":gh:`150633`: Fix the frozen importer accepting module names with embedded "
+"null bytes, which caused it to bypass the :data:`sys.modules` cache and "
+"create duplicate module objects."
+msgstr ""
+
+msgid ""
+":gh:`148613`: Fix a data race in the free-threaded build between :func:`gc."
+"set_threshold` and garbage collection scheduling during object allocation."
+msgstr ""
+
+msgid ""
+":gh:`149156`: Fix an intermittent crash after :func:`os.fork` when perf "
+"trampoline profiling is enabled and the child returns through trampoline "
+"frames inherited from the parent process."
+msgstr ""
+
+msgid ""
+":gh:`149449`: Fix a use-after-free crash when the :mod:`unicodedata` module "
+"was removed from :data:`sys.modules` and garbage-collected between calls "
+"that decode ``\\N{...}`` escapes or use the ``namereplace`` codec error "
+"handler."
+msgstr ""
+
+msgid ""
+":gh:`150207`: Fix a crash when a memory allocation fails during tokenizer "
+"initialization. A proper :exc:`MemoryError` is now raised instead."
+msgstr ""
+
+msgid ""
+":gh:`150107`: :mod:`asyncio`: ``sendfile()`` and ``sock_sendfile()`` event "
+"loop methods now call ``file.seek(offset)`` if *file* has a ``seek()`` "
+"method, even if *offset* is ``0`` (default value)."
+msgstr ""
+
+msgid ":gh:`150146`: Fix a crash on a complex type variable substitution."
+msgstr ""
+
+msgid ""
+"``from typing import TypeVar; memoryview[TypeVar(\"\")][*typing."
+"Mapping[..., ...]]`` used to fail due to missing ``NULL`` check on "
+"``_unpack_args`` C function call."
+msgstr ""
+
+msgid ":gh:`149590`: Fix crash when faulthandler is imported more than once."
+msgstr ""
+
+msgid ""
+":gh:`149816`: Fix a race condition in ``_PyBytes_FromList`` in free-"
+"threading mode."
+msgstr ""
+
+msgid ""
+":gh:`149816`: Fix a race condition in :class:`memoryview` with free-"
+"threading."
+msgstr ""
+
+msgid ""
+":gh:`149805`: Fix a :exc:`SystemError` when compiling a compiling "
+"``__classdict__`` class annotation. Found by OSS-Fuzz in :oss-fuzz:"
+"`512907042`."
+msgstr ""
+
+msgid ""
+":gh:`149738`: :mod:`sqlite3`: Disallow removing ``row_factory`` and "
+"``text_factory`` attributes of a connection to prevent a crash on a query."
+msgstr ""
+
+msgid ""
+":gh:`139808`: Add branch protections for AArch64 (BTI/PAC) in assembly code "
+"used by :option:`-X perf_jit <-X>` (Linux perf profiler integration)."
+msgstr ""
+
+msgid ""
+":gh:`148450`: Fix ``abc.register()`` so it invalidates type version tags for "
+"registered classes."
+msgstr ""
 
 msgid ""
 ":gh:`151039`: Fix a crash when static :mod:`datetime` types outlive the "
@@ -130,6 +272,11 @@ msgid ""
 ":gh:`150913`: Fix :class:`sqlite3.Blob` slice assignment to raise :exc:"
 "`TypeError` and :exc:`IndexError` for type and size mismatches respectively, "
 "even when the target slice is empty."
+msgstr ""
+
+msgid ""
+":gh:`143008`: Fix race conditions when re-initializing a :class:`io."
+"TextIOWrapper` object."
 msgstr ""
 
 msgid ""
@@ -295,12 +442,6 @@ msgid ""
 "`str` instead of :class:`bytes`. Patch by Florian Best."
 msgstr ""
 
-msgid "IDLE"
-msgstr "IDLE"
-
-msgid ":issue:`6699`: Warn the user if a file will be overwritten when saving."
-msgstr ""
-
 msgid "Documentation"
 msgstr "Dokumentacja"
 
@@ -315,100 +456,51 @@ msgid ""
 "same filesystem. Patch by Fang Li"
 msgstr ""
 
-msgid "Core and Builtins"
-msgstr "Core i builtiny"
+msgid "Tests"
+msgstr "Testy"
 
-msgid ""
-":gh:`151126`: Fix a crash, when there's no memory left on a device, which "
-"happened in:"
-msgstr ""
-
-msgid "code compilation - :func:`!_winapi.CreateProcess`"
-msgstr ""
-
-msgid "Now these places raise proper :exc:`MemoryError` errors."
+msgid ":gh:`151130`: Add more tests for ``PyWeakref_*`` C API."
 msgstr ""
 
 msgid ""
-":gh:`150633`: Fix the frozen importer accepting module names with embedded "
-"null bytes, which caused it to bypass the :data:`sys.modules` cache and "
-"create duplicate module objects."
+":gh:`149776`: Fix test_socket on Linux kernel 7.1 and newer: skip UDP Lite "
+"tests if it's not supported. Patch by Victor Stinner."
+msgstr ""
+
+msgid "Build"
+msgstr "Build"
+
+msgid ""
+":gh:`148294`: Corrected the use of ``AC_PATH_TOOL`` in ``configure.ac`` to "
+"allow a C++ compiler to be found on :envvar:`!PATH`."
+msgstr ""
+
+msgid "Windows"
+msgstr "Windows"
+
+msgid ":gh:`151159`: Updated bundled version of OpenSSL to 3.5.7."
+msgstr ""
+
+msgid "macOS"
+msgstr "macOS"
+
+msgid ":gh:`151159`: Update macOS installer to use OpenSSL 3.5.7."
 msgstr ""
 
 msgid ""
-":gh:`148613`: Fix a data race in the free-threaded build between :func:`gc."
-"set_threshold` and garbage collection scheduling during object allocation."
+":gh:`150644`: When system logging is enabled (with ``config."
+"use_system_logger``, messages are now tagged as public. This allows the "
+"macOS 26 system logger to view messages without special configuration."
 msgstr ""
 
-msgid ""
-":gh:`149156`: Fix an intermittent crash after :func:`os.fork` when perf "
-"trampoline profiling is enabled and the child returns through trampoline "
-"frames inherited from the parent process."
+msgid ":gh:`115119`: Update macOS installer to use libmpdecimal 4.0.1."
 msgstr ""
 
-msgid ""
-":gh:`149449`: Fix a use-after-free crash when the :mod:`unicodedata` module "
-"was removed from :data:`sys.modules` and garbage-collected between calls "
-"that decode ``\\N{...}`` escapes or use the ``namereplace`` codec error "
-"handler."
-msgstr ""
+msgid "IDLE"
+msgstr "IDLE"
 
-msgid ""
-":gh:`150207`: Fix a crash when a memory allocation fails during tokenizer "
-"initialization. A proper :exc:`MemoryError` is now raised instead."
+msgid ":issue:`6699`: Warn the user if a file will be overwritten when saving."
 msgstr ""
-
-msgid ""
-":gh:`150107`: :mod:`asyncio`: ``sendfile()`` and ``sock_sendfile()`` event "
-"loop methods now call ``file.seek(offset)`` if *file* has a ``seek()`` "
-"method, even if *offset* is ``0`` (default value)."
-msgstr ""
-
-msgid ":gh:`150146`: Fix a crash on a complex type variable substitution."
-msgstr ""
-
-msgid ""
-"``from typing import TypeVar; memoryview[TypeVar(\"\")][*typing."
-"Mapping[..., ...]]`` used to fail due to missing ``NULL`` check on "
-"``_unpack_args`` C function call."
-msgstr ""
-
-msgid ":gh:`149590`: Fix crash when faulthandler is imported more than once."
-msgstr ""
-
-msgid ""
-":gh:`149816`: Fix a race condition in ``_PyBytes_FromList`` in free-"
-"threading mode."
-msgstr ""
-
-msgid ""
-":gh:`149816`: Fix a race condition in :class:`memoryview` with free-"
-"threading."
-msgstr ""
-
-msgid ""
-":gh:`149805`: Fix a :exc:`SystemError` when compiling a compiling "
-"``__classdict__`` class annotation. Found by OSS-Fuzz in :oss-fuzz:"
-"`512907042`."
-msgstr ""
-
-msgid ""
-":gh:`149738`: :mod:`sqlite3`: Disallow removing ``row_factory`` and "
-"``text_factory`` attributes of a connection to prevent a crash on a query."
-msgstr ""
-
-msgid ""
-":gh:`139808`: Add branch protections for AArch64 (BTI/PAC) in assembly code "
-"used by :option:`-X perf_jit <-X>` (Linux perf profiler integration)."
-msgstr ""
-
-msgid ""
-":gh:`148450`: Fix ``abc.register()`` so it invalidates type version tags for "
-"registered classes."
-msgstr ""
-
-msgid "C API"
-msgstr "C API"
 
 msgid ""
 ":gh:`150907`: Fix ``dynamic_annotations.h`` header file when built with C++ "
@@ -420,18 +512,6 @@ msgid ""
 ":gh:`145235`: Made :c:func:`PyDict_AddWatcher`, :c:func:"
 "`PyDict_ClearWatcher`, :c:func:`PyDict_Watch`, and :c:func:`PyDict_Unwatch` "
 "thread-safe on the :term:`free threaded <free threading>` build."
-msgstr ""
-
-msgid "Build"
-msgstr "Build"
-
-msgid ""
-":gh:`148294`: Corrected the use of ``AC_PATH_TOOL`` in ``configure.ac`` to "
-"allow a C++ compiler to be found on :envvar:`!PATH`."
-msgstr ""
-
-msgid ""
-":gh:`149329`: Updated bundled version of OpenSSL on iOS and Android to 3.5.6."
 msgstr ""
 
 msgid "Python 3.14.5 final"
