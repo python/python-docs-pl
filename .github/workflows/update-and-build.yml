@@ -100,7 +100,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
         if: ${{ matrix.format == 'latex' && fromJSON(matrix.version) >= 3.14 }}
       - uses: sphinx-doc/github-problem-matcher@1f74d6599f4a5e89a20d3c99aab4e6a70f7bda0f  # v1.1
-      - run: make -e SPHINXOPTS="--color -D language='pl' --keep-going" ${{ matrix.format }}
+      - run: make -e SPHINXOPTS="--color -D language='pl'" ${{ matrix.format }}
         working-directory: ./Doc
         env:
           SPHINXERRORHANDLING: ''
