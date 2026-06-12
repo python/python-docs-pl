@@ -12,14 +12,14 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 [![core {core_words:.2f}%](https://img.shields.io/badge/core-{core_words:.2f}%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://translations.python.org/#pl)
-[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/lint.yml)
 ''')
 ]]] -->
-[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![build](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml)
 [![core 100.00%](https://img.shields.io/badge/core-100.00%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.75%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.64%25-0.svg)](https://translations.python.org/#pl)
-[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/lint.yml)
 
 <!-- [[[end]]] -->
 
