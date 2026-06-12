@@ -55,7 +55,6 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc)
 * [Python Documentation Community](https://docs-community.readthedocs.io/)
-* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
 **Translation progress**
