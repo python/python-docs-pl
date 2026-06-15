@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 16:27+0000\n"
+"POT-Creation-Date: 2026-06-15 18:22+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
 "Last-Translator: python-doc bot, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -32,8 +32,115 @@ msgstr "Następna wersja Pythona"
 msgid "*Release date: XXXX-XX-XX*"
 msgstr "*Data wydania: XX.XX.XXXX*"
 
+msgid "macOS"
+msgstr "macOS"
+
+msgid ":gh:`151163`: Updated macOS installer to include SQLite version 3.53.2."
+msgstr ""
+
+msgid "Windows"
+msgstr "Windows"
+
+msgid ":gh:`151163`: Updated Windows builds to include SQLite version 3.53.2."
+msgstr ""
+
+msgid ":gh:`151159`: Updated bundled version of OpenSSL to 3.5.7."
+msgstr ""
+
+msgid "Tests"
+msgstr "Testy"
+
+msgid ":gh:`151130`: Add more tests for ``PyWeakref_*`` C API."
+msgstr ""
+
+msgid ""
+":gh:`148853`: Fix tests failing on FreeBSD in test.support's "
+"in_systemd_nspawn_sync_suppressed()  due to unreadable /run directory."
+msgstr ""
+
+msgid "Security"
+msgstr "Bezpieczeństwo"
+
+msgid ":gh:`151159`: Update macOS installer to use OpenSSL 3.5.7."
+msgstr ""
+
+msgid ":gh:`151159`: Update Android and iOS installers to use OpenSSL 3.5.7."
+msgstr ""
+
+msgid ""
+":gh:`150599`: Fix a possible stack buffer overflow in :mod:`bz2` when a :"
+"class:`bz2.BZ2Decompressor` is reused after a decompression error. The "
+"decompressor now becomes unusable after libbz2 reports an error."
+msgstr ""
+
+msgid ""
+":gh:`149835`: :func:`shutil.move` now resolves symlinks via :func:`os.path."
+"realpath` when checking whether the destination is inside the source "
+"directory, preventing a symlink-based bypass of that guard."
+msgstr ""
+
 msgid "Library"
 msgstr "Biblioteka"
+
+msgid ""
+":gh:`151426`: Fix impossible stack traces (callers and callees cross called, "
+"orphans and incorrect lines) in the Tachyon profiler when caching frames, by "
+"snapshotting the stack chunks before walking the frame chain on a cache "
+"miss. Patch by Maurycy Pawłowski-Wieroński."
+msgstr ""
+
+msgid ""
+":gh:`151403`: Fixed a crash in :class:`subprocess.Popen` (and "
+"``_posixsubprocess.fork_exec``) when an ``argv`` item's :meth:`~os.PathLike."
+"__fspath__` concurrently mutates the ``args`` sequence being converted."
+msgstr ""
+
+msgid ""
+":gh:`151390`: Colorize ``match`` in the :term:`REPL` when followed by a "
+"unary ``+`` or ``-`` operator. Patch by Bartosz Sławecki."
+msgstr ""
+
+msgid ""
+":gh:`151126`: Fix crash on unset :exc:`MemoryError` on allocation failure "
+"in :func:`ctypes.get_errno`."
+msgstr ""
+
+msgid ":gh:`151337`: Avoid possible memory leak in ``tkinter.c`` on Windows."
+msgstr ""
+
+msgid ""
+":gh:`151126`: Fix a crash when :exc:`MemoryError` in :func:`!os."
+"_path_splitroot` was not set properly."
+msgstr ""
+
+msgid ""
+":gh:`149671`: Restore compatibility with setuptools ``-nspkg.pth`` files in "
+"the :mod:`site` module. Inject ``sitedir`` variable in the frame which "
+"executes pth code. Patch by Victor Stinner."
+msgstr ""
+
+msgid ""
+":gh:`151295`: Fixed a crash (use-after-free) in :meth:`bytes.join` and :meth:"
+"`bytearray.join` that could occur if an item's :meth:`~object.__buffer__` "
+"concurrently mutates the sequence being joined. The mutation is now reported "
+"as a :exc:`RuntimeError` instead."
+msgstr ""
+
+msgid ""
+":gh:`109940`: Fix Windows :mod:`venv` activation in ``cmd.exe`` to respect "
+"``VIRTUAL_ENV_DISABLE_PROMPT``."
+msgstr ""
+
+msgid ""
+":gh:`151039`: Fix a crash when static :mod:`datetime` types outlive the "
+"``_datetime`` module."
+msgstr ""
+
+msgid ""
+":gh:`151021`: Fix :meth:`mmap.mmap.find` and :meth:`~mmap.mmap.rfind` to "
+"return ``-1`` when searching for an empty subsequence with a start position "
+"past the end of the mapping."
+msgstr ""
 
 msgid ""
 ":gh:`62825`: Encodings \"KS_C_5601-1987\", \"KS X 1001\", etc are now "
@@ -47,8 +154,28 @@ msgid ""
 msgstr ""
 
 msgid ""
+":gh:`143008`: Fix race conditions when re-initializing a :class:`io."
+"TextIOWrapper` object."
+msgstr ""
+
+msgid ""
+":gh:`150662`: Fix the ``--gecko`` collector in :mod:`profiling.sampling` "
+"that kept every sample in memory. It now writes sample and marker data to "
+"temporary files and reads them back, ultimately building the output file at "
+"the end. Patch by Pablo Galindo and Maurycy Pawłowski-Wieroński."
+msgstr ""
+
+msgid ""
 ":gh:`150750`: Fix a race condition in :meth:`collections.deque.index` with "
 "free-threading."
+msgstr ""
+
+msgid ""
+":gh:`148932`: Fix ``profiling.sampling`` on Windows virtual environments to "
+"resolve the actual Python PID from a virtual environment shim."
+msgstr ""
+
+msgid ":gh:`149816`: Fix race condition in :attr:`ssl.SSLContext.sni_callback`"
 msgstr ""
 
 msgid ""
@@ -68,8 +195,36 @@ msgid ""
 msgstr ""
 
 msgid ""
+":gh:`148954`: Fix XML injection vulnerability in :func:`xmlrpc.client.dumps` "
+"where the ``methodname`` was not being escaped before interpolation into the "
+"XML body."
+msgstr ""
+
+msgid ""
+":gh:`143988`: Fixed crashes in :meth:`socket.socket.sendmsg` and :meth:"
+"`socket.socket.recvmsg_into` that could occur if buffer sequences are "
+"concurrently mutated."
+msgstr ""
+
+msgid ""
 ":gh:`91099`: :meth:`imaplib.IMAP4.login` now raises exceptions with :class:"
 "`str` instead of :class:`bytes`. Patch by Florian Best."
+msgstr ""
+
+msgid ""
+":gh:`101267`: When a worker process terminates unexpectedly, :class:"
+"`concurrent.futures.ProcessPoolExecutor` now sets a separate :exc:"
+"`~concurrent.futures.process.BrokenProcessPool` exception on each pending "
+"future instead of sharing a single instance among them all. Sharing one "
+"exception produced malformed tracebacks: each :meth:`Future.result() "
+"<concurrent.futures.Future.result>` call re-raised the same object, "
+"appending another copy of the traceback to it."
+msgstr ""
+
+msgid "IDLE"
+msgstr "IDLE"
+
+msgid ":issue:`6699`: Warn the user if a file will be overwritten when saving."
 msgstr ""
 
 msgid "Documentation"
@@ -80,8 +235,62 @@ msgid ""
 "meaning of their type parameters."
 msgstr ""
 
+msgid ""
+":gh:`109503`: Fix documentation for :func:`shutil.move` on usage of :func:"
+"`os.rename` since nonatomic move might be used even if the files are on the "
+"same filesystem. Patch by Fang Li"
+msgstr ""
+
 msgid "Core and Builtins"
 msgstr "Core i builtiny"
+
+msgid ""
+":gh:`151461`: Fix direct execution of files with invalid source encodings to "
+"report the underlying codec lookup or decoding error instead of the generic "
+"``SyntaxError: encoding problem`` message. Patch by Bartosz Sławecki."
+msgstr ""
+
+msgid ""
+":gh:`151297`: Fix an invalid pointer dereference that could occur when "
+"calling :c:func:`PyObject_Realloc` with a NULL pointer in :term:`free-"
+"threaded builds <free-threaded build>` or with :envvar:`PYTHONMALLOC` set to "
+"``mimalloc``."
+msgstr ""
+
+msgid ""
+":gh:`151253`: If ``import encodings`` (first import) fails at Python "
+"startup, dump the Python path configuration to help users debugging their "
+"configuration. Patch by Victor Stinner."
+msgstr ""
+
+msgid ""
+":gh:`151238`: Fix a crash when compiling a concatenated f-string or t-string "
+"if an error occurs when processing one of it's parts."
+msgstr ""
+
+msgid ""
+":gh:`151112`: Fix a crash in the compiler that could occur when running out "
+"of memory."
+msgstr ""
+
+msgid ""
+":gh:`151126`: Fix a crash, when there's no memory left on a device, which "
+"happened in: code compilation, :mod:`!_interpchannels` module, :func:`!"
+"_winapi.CreateProcess` function."
+msgstr ""
+
+msgid "Now these places raise proper :exc:`MemoryError` errors."
+msgstr ""
+
+msgid ""
+":gh:`151065`: Fix memory leak when using the :ref:`mimalloc memory allocator "
+"<mimalloc>`."
+msgstr ""
+
+msgid ""
+":gh:`150988`: Fix a reference leak in :exc:`OSError` when attributes are set "
+"before ``super().__init__()``."
+msgstr ""
 
 msgid ""
 ":gh:`150723`: Fix perf jitdump timestamps on macOS. Events were stamped "
@@ -99,8 +308,26 @@ msgid ""
 msgstr ""
 
 msgid ""
+":gh:`150700`: Fix a :exc:`SystemError` when compiling a class-scope "
+"comprehension containing a ``lambda`` that references ``__class__``, "
+"``__classdict__``, or ``__conditional_annotations__``. Patch by Bartosz "
+"Sławecki."
+msgstr ""
+
+msgid ""
+":gh:`150633`: Fix the frozen importer accepting module names with embedded "
+"null bytes, which caused it to bypass the :data:`sys.modules` cache and "
+"create duplicate module objects."
+msgstr ""
+
+msgid ""
 ":gh:`148613`: Fix a data race in the free-threaded build between :func:`gc."
 "set_threshold` and garbage collection scheduling during object allocation."
+msgstr ""
+
+msgid ""
+":gh:`150207`: Fix a crash when a memory allocation fails during tokenizer "
+"initialization. A proper :exc:`MemoryError` is now raised instead."
 msgstr ""
 
 msgid ""
@@ -109,8 +336,17 @@ msgid ""
 "`512907042`."
 msgstr ""
 
+msgid ":gh:`149321`: Do not support ``none`` as a lazy imports mode."
+msgstr ""
+
 msgid "C API"
 msgstr "C API"
+
+msgid ""
+":gh:`123619`: :c:func:`PyUnstable_Object_EnableDeferredRefcount` now returns "
+"``0`` if the object is not tracked by the garbage collector: if :func:`gc."
+"is_tracked` is false. Patch by Victor Stinner."
+msgstr ""
 
 msgid ""
 ":gh:`150907`: Fix ``dynamic_annotations.h`` header file when built with C++ "
@@ -118,14 +354,17 @@ msgid ""
 "Victor Stinner."
 msgstr ""
 
+msgid "Build"
+msgstr "Build"
+
+msgid ":gh:`151163`: Updated Android build to include SQLite version 3.53.2."
+msgstr ""
+
 msgid "Python 3.15.0 beta 2"
 msgstr ""
 
 msgid "*Release date: 2026-06-02*"
 msgstr ""
-
-msgid "Security"
-msgstr "Bezpieczeństwo"
 
 msgid ""
 ":gh:`149698`: Update bundled `libexpat <https://libexpat.github.io/>`_ to "
@@ -492,9 +731,6 @@ msgid ""
 "HCRC fields."
 msgstr ""
 
-msgid "Tests"
-msgstr "Testy"
-
 msgid ""
 ":gh:`150387`: Fix hang in ``test.test_profiling.test_sampling_profiler."
 "test_live_collector_ui.TestLiveModeErrors.test_run_failed_script_live`` on "
@@ -508,9 +744,6 @@ msgid ""
 "tests if it's not supported. Patch by Victor Stinner."
 msgstr ""
 
-msgid "Build"
-msgstr "Build"
-
 msgid ""
 ":gh:`148294`: Corrected the use of ``AC_PATH_TOOL`` in ``configure.ac`` to "
 "allow a C++ compiler to be found on :envvar:`!PATH`."
@@ -521,9 +754,6 @@ msgid ""
 "thread stack size of at least 1 MiB instead of musl default which is 128 "
 "kiB. Patch by Victor Stinner."
 msgstr ""
-
-msgid "Windows"
-msgstr "Windows"
 
 msgid ""
 ":gh:`149786`: Fixes virtual environment launchers on Windows free-threaded "
@@ -542,9 +772,6 @@ msgstr ""
 
 msgid ":gh:`149029`: Update Windows installer to ship with SQLite 3.53.1."
 msgstr ""
-
-msgid "macOS"
-msgstr "macOS"
 
 msgid ""
 ":gh:`150644`: When system logging is enabled (with ``config."
@@ -1732,9 +1959,6 @@ msgstr ""
 msgid ":gh:`149254`: Update macOS installer to use OpenSSL 3.5.6."
 msgstr ""
 
-msgid "IDLE"
-msgstr "IDLE"
-
 msgid ""
 ":gh:`94523`: Detect file if modified at local disk and prompt to ask "
 "refresh. Patch by Shixian Li."
@@ -1907,12 +2131,6 @@ msgstr ""
 msgid ""
 ":gh:`146388`: Adds a null check to handle when the JIT optimizer runs out of "
 "space when dealing with contradictions in ``make_bottom``."
-msgstr ""
-
-msgid ""
-":gh:`146369`: Ensure ``-X lazy_imports=none`` and "
-"``PYTHON_LAZY_IMPORTS=none`` override :attr:`~module.__lazy_modules__`. "
-"Patch by Hugo van Kemenade."
 msgstr ""
 
 msgid ""
