@@ -1,4 +1,4 @@
-name: Translation and Linting Workflow
+name: update and build
 
 on:
   schedule:
@@ -66,30 +66,11 @@ jobs:
         if: env.SIGNIFICANT_CHANGES
       - name: Push commit
         uses: ad-m/github-push-action@881a6320fdb16eb5318c5054f31c218aec2b324c  # v1.3.0
-        if: env.SIGNIFICANT_CHANGES
+        if: env.SIGNIFICANT_CHANGES && (github.event_name == 'schedule' || github.ref_name
+          == github.event.repository.default_branch)
         with:
           branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-  lint:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        version: [3.15, 3.14, 3.13, 3.12, 3.11]
-    needs: [update]
-    continue-on-error: true
-    steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
-        with:
-          python-version: 3
-      - run: pip install sphinx-lint
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
-        with:
-          ref: ${{ matrix.version }}
-          persist-credentials: false
-      - uses: rffontenelle/sphinx-lint-problem-matcher@4270bf50b2c93640a7cbb231c09f8e694699af9f  # v1.0.0
-      - run: sphinx-lint
 
   build:
     runs-on: ubuntu-latest
@@ -120,8 +101,10 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
         if: ${{ matrix.format == 'latex' && fromJSON(matrix.version) >= 3.14 }}
       - uses: sphinx-doc/github-problem-matcher@1f74d6599f4a5e89a20d3c99aab4e6a70f7bda0f  # v1.1
-      - run: make -e SPHINXOPTS="--color -D language='pl' -W --keep-going" ${{ matrix.format }}
+      - run: make -e SPHINXOPTS="--color -D language='pl'" ${{ matrix.format }}
         working-directory: ./Doc
+        env:
+          SPHINXERRORHANDLING: ''
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         if: success() || failure()
         with:
@@ -131,6 +114,7 @@ jobs:
   output-pdf:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         version: [3.15, 3.14, 3.13, 3.12, 3.11, '3.10']
     needs: [build]
@@ -145,20 +129,3 @@ jobs:
         with:
           name: build-${{ matrix.version }}-pdf
           path: .
-
-  lint-epub:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [3.15, 3.14]
-    needs: [build]
-    continue-on-error: true
-    steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
-        with:
-          python-version: 3.x
-      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.1.0
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
-        with:
-          name: build-${{ matrix.version }}-epub
-      - run: uvx epubcheck

@@ -8,18 +8,18 @@ core_words, _ = progress_from_resources(list(filter(language_switcher, stats)))
 total_words, total_strings = progress_from_resources(stats)
 
 print(
-f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml)
 [![core {core_words:.2f}%](https://img.shields.io/badge/core-{core_words:.2f}%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-{total_words:.2f}%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_strings-{total_strings:.2f}%25-0.svg)](https://translations.python.org/#pl)
-[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/lint.yml)
 ''')
 ]]] -->
-[![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![build](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml)
 [![core 100.00%](https://img.shields.io/badge/core-100.00%25-0.svg)](https://translations.python.org/#pl)
 [![Total Translation of Documentation](https://img.shields.io/badge/total_words-5.71%25-0.svg)](https://translations.python.org/#pl)
-[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.48%25-0.svg)](https://translations.python.org/#pl)
-[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
+[![Total Translation of Documentation](https://img.shields.io/badge/total_strings-12.49%25-0.svg)](https://translations.python.org/#pl)
+[![lint errors count](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=lint%20errors)](https://github.com/python/python-docs-pl/actions/workflows/lint.yml)
 
 <!-- [[[end]]] -->
 
@@ -55,7 +55,6 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc)
 * [Python Documentation Community](https://docs-community.readthedocs.io/)
-* [Python translations mailing list](https://mail.python.org/mailman3/lists/translation.python.org/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
 **Translation progress**
@@ -89,4 +88,5 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [micro:bit translation programme](https://microbit.org/translate/)
+* [Sphinx translation](https://www.sphinx-doc.org/en/master/usage/advanced/intl.html#contributing-to-sphinx-reference-translation)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)
