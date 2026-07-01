@@ -22,7 +22,7 @@ jobs:
       - uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66  # 0.13.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6.3.0
         with:
           python-version: 3
       - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
           pip install requests cogapp polib transifex-python sphinx-intl blurb six
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
         working-directory: /usr/local/bin
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           ref: ${{ matrix.version }}
           fetch-depth: 0
@@ -81,17 +81,17 @@ jobs:
         format: [html, latex, epub]
     needs: [update]
     steps:
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6.3.0
         with:
           python-version: 3.12  # pin for Sphinx 3.4.3 in 3.10 branch (see  # 63)
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           repository: python/cpython
           ref: ${{ matrix.version }}
           persist-credentials: false
       - run: make venv
         working-directory: ./Doc
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           ref: ${{ matrix.version }}
           path: Doc/locales/pl/LC_MESSAGES
