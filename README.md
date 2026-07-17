@@ -17,7 +17,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-and-build.yml)
 [![podstawowe artykuły 100.00%](https://img.shields.io/badge/podstawowe_artykuły-100.00%25-0.svg)](https://translations.python.org/#pl)
-[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.69%25-0.svg)](https://translations.python.org/#pl)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.70%25-0.svg)](https://translations.python.org/#pl)
 [![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.47%25-0.svg)](https://translations.python.org/#pl)
 [![liczba błędów lintowania](https://shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftranslations.python.org%2Fbuild-details.html&query=%2F%2Ftr%5Btd%5B%40data-label%3D%27language%27%20and%20contains%28.%2C%20%27%28pl%29%27%29%5D%5D%20%20%20%2F%2Ftd%5B%40data-label%3D%27lint%27%5D%2Fa%2Ftext()&label=b%C5%82%C4%99dy%20lintowania)](https://github.com/python/python-docs-pl/actions/workflows/lint.yml)
 
