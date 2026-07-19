@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2026, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Transifex Bot <>, 2023
+# python-doc bot, 2026
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.11\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 14:13+0000\n"
-"PO-Revision-Date: 2022-11-05 19:48+0000\n"
-"Last-Translator: Transifex Bot <>, 2023\n"
+"POT-Creation-Date: 2026-07-19 16:20+0000\n"
+"PO-Revision-Date: 2025-09-15 01:03+0000\n"
+"Last-Translator: python-doc bot, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-msgid "Frame Objects"
+msgid "Frame objects"
 msgstr ""
 
 msgid "The C structure of the objects used to describe frame objects."
@@ -54,6 +54,12 @@ msgid ""
 "Previously, this type was only available after including ``<frameobject.h>``."
 msgstr ""
 
+msgid ""
+"Create a new frame object. This function returns a :term:`strong reference` "
+"to the new frame object on success, and returns ``NULL`` with an exception "
+"set on failure."
+msgstr ""
+
 msgid "Return non-zero if *obj* is a frame object."
 msgstr ""
 
@@ -66,10 +72,11 @@ msgid "Get the *frame* next outer frame."
 msgstr ""
 
 msgid ""
-"Return a :term:`strong reference`, or ``NULL`` if *frame* has no outer frame."
+"Return a :term:`strong reference`, or ``NULL`` if *frame* has no outer "
+"frame. This raises no exceptions."
 msgstr ""
 
-msgid "Get the *frame*'s ``f_builtins`` attribute."
+msgid "Get the *frame*'s :attr:`~frame.f_builtins` attribute."
 msgstr ""
 
 msgid "Return a :term:`strong reference`. The result cannot be ``NULL``."
@@ -93,17 +100,181 @@ msgstr ""
 msgid "Return a :term:`strong reference`, or ``NULL``."
 msgstr ""
 
-msgid "Get the *frame*'s ``f_globals`` attribute."
+msgid "Get the *frame*'s :attr:`~frame.f_globals` attribute."
 msgstr ""
 
-msgid "Get the *frame*'s ``f_lasti`` attribute."
+msgid "Get the *frame*'s :attr:`~frame.f_lasti` attribute."
 msgstr ""
 
 msgid "Returns -1 if ``frame.f_lasti`` is ``None``."
 msgstr ""
 
-msgid "Get the *frame*'s ``f_locals`` attribute (:class:`dict`)."
+msgid "Get the variable *name* of *frame*."
+msgstr ""
+
+msgid "Return a :term:`strong reference` to the variable value on success."
+msgstr ""
+
+msgid ""
+"Raise :exc:`NameError` and return ``NULL`` if the variable does not exist."
+msgstr ""
+
+msgid "Raise an exception and return ``NULL`` on error."
+msgstr ""
+
+msgid "*name* type must be a :class:`str`."
+msgstr ""
+
+msgid ""
+"Similar to :c:func:`PyFrame_GetVar`, but the variable name is a C string "
+"encoded in UTF-8."
+msgstr ""
+
+msgid ""
+"Get the *frame*'s :attr:`~frame.f_locals` attribute. If the frame refers to "
+"an :term:`optimized scope`, this returns a write-through proxy object that "
+"allows modifying the locals. In all other cases (classes, modules, :func:"
+"`exec`, :func:`eval`) it returns the mapping representing the frame locals "
+"directly (as described for :func:`locals`)."
+msgstr ""
+
+msgid ""
+"As part of :pep:`667`, return an instance of :c:var:"
+"`PyFrameLocalsProxy_Type`."
 msgstr ""
 
 msgid "Return the line number that *frame* is currently executing."
+msgstr ""
+
+msgid "Frame locals proxies"
+msgstr ""
+
+msgid ""
+"The :attr:`~frame.f_locals` attribute on a :ref:`frame object <frame-"
+"objects>` is an instance of a \"frame-locals proxy\". The proxy object "
+"exposes a write-through view of the underlying locals dictionary for the "
+"frame. This ensures that the variables exposed by ``f_locals`` are always up "
+"to date with the live local variables in the frame itself."
+msgstr ""
+
+msgid "See :pep:`667` for more information."
+msgstr ""
+
+msgid "The type of frame :func:`locals` proxy objects."
+msgstr ""
+
+msgid "Return non-zero if *obj* is a frame :func:`locals` proxy."
+msgstr ""
+
+msgid "Legacy local variable APIs"
+msgstr ""
+
+msgid ""
+"These APIs are :term:`soft deprecated`. As of Python 3.13, they do nothing. "
+"They exist solely for backwards compatibility."
+msgstr ""
+
+msgid ""
+"Prior to Python 3.13, this function would copy the :attr:`~frame.f_locals` "
+"attribute of *f* to the internal \"fast\" array of local variables, allowing "
+"changes in frame objects to be visible to the interpreter. If *clear* was "
+"true, this function would process variables that were unset in the locals "
+"dictionary."
+msgstr ""
+
+msgid "This function now does nothing."
+msgstr ""
+
+msgid ""
+"Prior to Python 3.13, this function would copy the internal \"fast\" array "
+"of local variables (which is used by the interpreter) to the :attr:`~frame."
+"f_locals` attribute of *f*, allowing changes in local variables to be "
+"visible to frame objects."
+msgstr ""
+
+msgid ""
+"Prior to Python 3.13, this function was similar to :c:func:"
+"`PyFrame_FastToLocals`, but would return ``0`` on success, and ``-1`` with "
+"an exception set on failure."
+msgstr ""
+
+msgid ":pep:`667`"
+msgstr ""
+
+msgid "Internal frames"
+msgstr ""
+
+msgid "Unless using :pep:`523`, you will not need this."
+msgstr ""
+
+msgid "The interpreter's internal frame representation."
+msgstr ""
+
+msgid "Return a :term:`strong reference` to the code object for the frame."
+msgstr ""
+
+msgid "Return the byte offset into the last executed instruction."
+msgstr ""
+
+msgid ""
+"Return the currently executing line number, or -1 if there is no line number."
+msgstr ""
+
+msgid ""
+"An array of executable kinds (executor types) for frames, used for internal "
+"debugging and tracing."
+msgstr ""
+
+msgid ""
+"Tools like debuggers and profilers can use this to identify the type of "
+"execution context associated with a frame (such as to filter out internal "
+"frames). The entries are indexed by the following constants:"
+msgstr ""
+
+msgid "Constant"
+msgstr "Stała"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid ""
+"The frame is internal (For example: inlined) and should be skipped by tools."
+msgstr ""
+
+msgid "The frame corresponds to a standard Python function."
+msgstr ""
+
+msgid "The frame corresponds to a function defined in native code."
+msgstr ""
+
+msgid "The frame corresponds to a method on a class instance."
+msgstr ""
+
+msgid ""
+"However, Python's C API lacks a function to read the executable kind from a "
+"frame. Instead, use this recipe:"
+msgstr ""
+
+msgid ""
+"int\n"
+"get_executable_kind(PyFrameObject *frame)\n"
+"{\n"
+"   _PyInterpreterFrame *f = frame->f_frame;\n"
+"   PyObject *exec = PyStackRef_AsPyObjectBorrow(f->f_executable);\n"
+"\n"
+"   if (PyCode_Check(exec)) {\n"
+"      return PyUnstable_EXECUTABLE_KIND_PY_FUNCTION;\n"
+"   }\n"
+"   if (PyMethod_Check(exec)) {\n"
+"      return PyUnstable_EXECUTABLE_KIND_BUILTIN_FUNCTION;\n"
+"   }\n"
+"   if (Py_IS_TYPE(exec, &PyMethodDescr_Type)) {\n"
+"      return PyUnstable_EXECUTABLE_KIND_METHOD_DESCRIPTOR;\n"
+"   }\n"
+"\n"
+"   return PyUnstable_EXECUTABLE_KIND_SKIP;\n"
+"}"
+msgstr ""
+
+msgid "The number of entries in :c:data:`PyUnstable_ExecutableKinds`."
 msgstr ""
