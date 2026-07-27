@@ -25,33 +25,73 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 
 *Read this in another language: [English](README.en.md)*
 
-**Znalazłem błąd, co mam zrobić?**
+**Jak sprawdzić, co jest do przetłumaczenia?**
 
-Jeśli znalazłeś(-aś) błąd lub masz sugestię,
-[dodaj zgłoszenie](https://github.com/python/python-docs-pl/issues) w tym projekcie lub
-napraw go sam(a):
+Służy do tego paczka `potodo`. Wywołaj ją w głównym katalogu projektu, np. `uvx potodo`.
+
+Jeżeli interesują cię podstawowe artykuły, użyj filtrowania. Przykład:
+
+```
+$ uvx potodo --exclude '**/*' '!tutorial/*' '!bugs.po' '!library/functions.po'`
+1 directory  99.68% done
+└── python-docs-pl/  99.68% done
+    ├── library/  98.61% done
+    │   └── functions.po                  99.0% translated 535/536
+    └── tutorial/  100.00% done
+```
+
+Propozycje priorytetowych zasobów do tłumaczenia można znaleźć w [issue #50](https://github.com/python/python-docs-pl/issues/50).
+
+**Jak tłumaczyć?**
 
 * Wejdź na stronę
-projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-newest/).
+projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-newest/) na Transifeksie.
 * Naciśnij przycisk „Join this project”, aby dołączyć do projektu.
 * Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
+* Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc). Pozwoli to szybciej potwierdzić Twoje zgłoszenie.
 * Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować.
 
 Więcej informacji o używaniu Transifeksa znajdziesz w
 [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
-**Chcę pomóc w tłumaczeniu, ale nie wiem od czego zacząć!**
+**Jak lokalnie sprawdzić poprawność moich zmian?**
 
-Najpierw dołącz do projektu jako tłumacz, postępując zgodnie z przewodnikiem w poprzedniej sekcji.
+Pobierz Transifex CLI i zapisz klucz API Transifex do `.tx/api-key`, aby pobrać zmiany z Transifeksa. Pobierz zmieniony
+rozdział, np.:
 
-Następnie możesz zacząć od tłumaczenia jednego z naszych [priorytetowych zasobów.](https://github.com/python/python-docs-pl/issues/50)
+```
+$ tx pull --languages pl python-newest.library--turtle
+# Getting info about resources
+
+python-newest.library--turtle - Done
+[##############################] (1 / 1)
+
+# Pulling files
+
+python-newest.library--turtle [pl] - Done
+[##############################] (1 / 1)
+```
+
+Uruchom `sphinx-lint`, aby sprawdzić poprawność zmian, np.:
+
+```
+$ uvx sphinx-lint library/turtle.po
+No problems found.
+```
 
 **Jak obejrzeć najnowszy build dokumentacji?**
 
 Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions).
-Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około pół godziny.
+Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około godzinę.
 Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dziennie.
+
+**Jak zbudować dokumentację?**
+
+Na Uniksach zrób link symboliczny projektu `python-docs-pl` w katalogu `Doc/locales/pl` on nazwie `LC_MESSAGES`.
+Na Windowsie skopiuj zawartość katalogu projektu do podanej ścieżki.
+
+Następnie uruchom `make -C Doc SPHINXOPTS="-D language=pl" html` w projekcie CPython, aby zbudować dokumentację.
 
 **Kanały komunikacji**
 
@@ -61,7 +101,7 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 **Postęp tłumaczenia**
 
-<img src="translation_progress_pl.svg"  alt="Postęp tłumaczenia">
+<img src="translation_progress_pl.svg" alt="Postęp tłumaczenia">
 
 <!---
 Excludes the changelog from calculations.
