@@ -114,7 +114,7 @@ Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy u
 przekazanie twoich tłumaczeń Python Software Foundation
 [na licencji CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.pl).
 W zamian będzie widoczne, że jesteś tłumaczem(-ką) części, którą przetłumaczyłeś(-łaś).
-Wyrażasz akceptację tej umowy przesyłając swoją pracę do włączenia do dokumentacji.
+Wyrażasz akceptację tej umowy, przesyłając swoją pracę do włączenia do dokumentacji.
 
 **Aktualizacja tłumaczeń**
 * `./manage_translation.py recreate_tx_config`
