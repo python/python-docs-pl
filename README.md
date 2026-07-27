@@ -57,8 +57,9 @@ Więcej informacji o używaniu Transifeksa znajdziesz w
 
 **Jak lokalnie sprawdzić poprawność moich zmian?**
 
-Pobierz Transifex CLI i zapisz klucz API Transifex do `.tx/api-key`, aby pobrać zmiany z Transifeksa. Pobierz zmieniony
-rozdział, np.:
+[Zainstaluj Transifex CLI](https://github.com/transifex/cli#installation) i zapisz
+[klucz API Transifex](https://help.transifex.com/en/articles/6248858-generating-an-api-token) do `~/.transifexrc`, aby
+pobrać zmiany z Transifeksa. Pobierz zmieniony rozdział, np.:
 
 ```
 $ tx pull --languages pl python-newest.library--turtle
