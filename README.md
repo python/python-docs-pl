@@ -15,8 +15,8 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 ]]] -->
 [![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml)
 [![podstawowe artykuły 99.24%](https://img.shields.io/badge/podstawowe_artykuły-99.24%25-0.svg)](https://translations.python.org/#pl)
-[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.28%25-0.svg)](https://translations.python.org/#pl)
-[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.07%25-0.svg)](https://translations.python.org/#pl)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_słów-5.29%25-0.svg)](https://translations.python.org/#pl)
+[![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość_napisów-12.08%25-0.svg)](https://translations.python.org/#pl)
 <!-- [[[end]]] -->
 
 *Read this in another language: [English](README.en.md)*
