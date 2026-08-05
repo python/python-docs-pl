@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# python-doc bot, 2026
+# python-doc bot, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 17:57+0000\n"
+"POT-Creation-Date: 2026-08-05 17:29+0000\n"
 "PO-Revision-Date: 2025-09-15 01:05+0000\n"
-"Last-Translator: python-doc bot, 2026\n"
+"Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,11 +26,20 @@ msgstr ""
 msgid "Changelog"
 msgstr "Lista zmian"
 
-msgid "Python next"
-msgstr "Następna wersja Pythona"
+msgid "Python 3.13.15 final"
+msgstr ""
 
-msgid "*Release date: XXXX-XX-XX*"
-msgstr "*Data wydania: XX.XX.XXXX*"
+msgid "*Release date: 2026-08-05*"
+msgstr ""
+
+msgid "macOS"
+msgstr "macOS"
+
+msgid ""
+":gh:`153711`: On macOS, do not attempt to use the :manpage:`dup3(2)` and :"
+"manpage:`pipe2(2)` system calls introduced in macOS 27 to prevent problems "
+"when running on older systems."
+msgstr ""
 
 msgid "Windows"
 msgstr "Windows"
@@ -44,6 +53,23 @@ msgstr ""
 
 msgid "Tools/Demos"
 msgstr "Narzędzia/Demo"
+
+msgid ""
+":gh:`155218`: Fix Argument Clinic generating the flags of the optional "
+"groups in different order on 32-bit and 64-bit platforms."
+msgstr ""
+
+msgid ""
+":gh:`155207`: Argument Clinic now supports the ``--dry-run`` and ``--diff`` "
+"options. They list the files which would be changed, or write a unified diff "
+"of the changes to the standard output, without modifying any file."
+msgstr ""
+
+msgid ""
+":gh:`64502`: Fix Argument Clinic support of parameters with a default value "
+"used together with optional groups. Such parameters were always required in "
+"the generated parsing code."
+msgstr ""
 
 msgid ""
 ":gh:`154580`: Fix ``python-gdb.py`` raising :exc:`UnicodeEncodeError` when "
@@ -154,6 +180,14 @@ msgid "Library"
 msgstr "Biblioteka"
 
 msgid ""
+":gh:`155063`: Bump the version of pip bundled in ensurepip to version 26.2.1"
+msgstr ""
+
+msgid ""
+":gh:`155063`: Bump the version of pip bundled in ensurepip to version 26.2"
+msgstr ""
+
+msgid ""
 ":gh:`154936`: Fix the pure Python :mod:`json` decoder to report the correct "
 "position for invalid literal control characters in JSON strings."
 msgstr ""
@@ -162,6 +196,11 @@ msgid ""
 ":gh:`154892`: Fix a bug in the C accelerator for :mod:`zoneinfo` where :"
 "class:`datetime.datetime` subclasses returning ``-1`` for ``hour``, "
 "``minute``, or ``second`` could incorrectly raise a :exc:`SystemError`."
+msgstr ""
+
+msgid ""
+":gh:`154871`: Fixed a crash in :meth:`asyncio.Task.get_context` when called "
+"on an uninitialized task."
 msgstr ""
 
 msgid ""
@@ -177,6 +216,12 @@ msgid ""
 ":gh:`109638`: Fix exponential time in :meth:`csv.Sniffer.sniff` for a sample "
 "which contains many quote characters.  A doubled quote character is now also "
 "detected in a field which contains the delimiter or a line break."
+msgstr ""
+
+msgid ""
+":gh:`98820`: Fix quadratic time in :meth:`csv.Sniffer.sniff` for a sample "
+"which contains quoted fields, in particular for a single column of quoted "
+"fields."
 msgstr ""
 
 msgid ""
@@ -275,8 +320,9 @@ msgstr ""
 
 msgid ""
 ":gh:`145030`: Fix :mod:`asyncio` write pipe transports for named FIFOs on "
-"macOS.  Unread data sitting in the FIFO made the transport misinterpret a "
-"poll event as the reader disconnecting, wrongly closing the transport."
+"macOS and Solaris. Unread data sitting in the FIFO made the transport "
+"misinterpret a poll event as the reader disconnecting, wrongly closing the "
+"transport."
 msgstr ""
 
 msgid ""
@@ -421,6 +467,12 @@ msgid ""
 "valid IMAP4 greeting (for example a POP3 server answering on the IMAP port) "
 "now raises an error reporting the server's response instead of ``imaplib."
 "IMAP4.error: None``."
+msgstr ""
+
+msgid ""
+":gh:`151126`: Fix a crash caused by failing to set :exc:`MemoryError` on "
+"allocation failure when passing :class:`ctypes.Structure` or :class:`ctypes."
+"Union` instances by value to ctypes foreign functions."
 msgstr ""
 
 msgid ""
@@ -688,6 +740,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+":gh:`117807`: Fix :mod:`mimetypes` initialization from MIME map files "
+"containing invalid UTF-8 bytes."
+msgstr ""
+
+msgid ""
+":gh:`150771`: Fix serialization of :mod:`email` messages using the "
+"``shift_jis`` or ``euc-jp`` charsets: ``set_content()`` now encodes the "
+"payload using the output charset, so ``str(m)`` no longer raises :exc:"
+"`UnicodeEncodeError`."
+msgstr ""
+
+msgid ""
 ":gh:`150484`: Fix :func:`unittest.mock.mock_open` ``__exit__`` raising "
 "``TypeError`` when used with :class:`contextlib.ExitStack`."
 msgstr ""
@@ -715,6 +779,15 @@ msgid ""
 "regular headers set via :meth:`~urllib.request.Request.add_header` priority "
 "over unredirected headers, consistent with :meth:`~urllib.request.Request."
 "get_header` and :meth:`~urllib.request.Request.header_items`."
+msgstr ""
+
+msgid ""
+":gh:`123720`: asyncio: Fix :func:`asyncio.Server.serve_forever` shutdown "
+"regression. Since 3.12, cancelling ``serve_forever()`` could hang waiting "
+"for a handler blocked on a read from a client that never closed (effectively "
+"requiring two interrupts to stop); the shutdown sequence now ensures client "
+"streams are closed so ``serve_forever()`` exits promptly and handlers "
+"observe EOF."
 msgstr ""
 
 msgid ""
@@ -864,6 +937,12 @@ msgid "Core and Builtins"
 msgstr "Core i builtiny"
 
 msgid ""
+":gh:`154937`: Fix a data race on thread handle identifiers when ``_thread."
+"_shutdown()`` runs concurrently with the startup of non-daemon threads in "
+"the free-threaded build."
+msgstr ""
+
+msgid ""
 ":gh:`154709`: Fix an out-of-bounds access in reverse dictionary iterators "
 "when the underlying dictionary is cleared and modified after the iterator is "
 "created."
@@ -1003,14 +1082,16 @@ msgstr ""
 msgid ":gh:`138800`: Fix library name in python3.pc on Android."
 msgstr ""
 
+msgid ""
+":gh:`115869`: Make ``jit_stencils.h`` (which is produced during JIT builds) "
+"reproducible."
+msgstr ""
+
 msgid "Python 3.13.14 final"
 msgstr ""
 
 msgid "*Release date: 2026-06-10*"
 msgstr ""
-
-msgid "macOS"
-msgstr "macOS"
 
 msgid ":gh:`124111`: Update macOS installer to use Tcl/Tk 8.6.18."
 msgstr ""
