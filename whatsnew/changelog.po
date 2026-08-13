@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-11 15:43+0000\n"
+"POT-Creation-Date: 2026-08-13 15:42+0000\n"
 "PO-Revision-Date: 2026-05-08 17:19+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -41,6 +41,23 @@ msgid ""
 "the generated parsing code."
 msgstr ""
 
+msgid "Tests"
+msgstr "Testy"
+
+msgid ""
+":gh:`155411`: Fix :func:`!test.support.subTests` for asynchronous test "
+"methods.  They were wrapped in a synchronous function, which discarded the "
+"coroutine without awaiting it, so the test silently did not run at all."
+msgstr ""
+
+msgid "Security"
+msgstr "Bezpieczeństwo"
+
+msgid ""
+":gh:`155558`: Update bundled `libexpat <https://libexpat.github.io/>`_ to "
+"version 2.8.3 for the fix to :cve:`2026-72522`."
+msgstr ""
+
 msgid "Library"
 msgstr "Biblioteka"
 
@@ -50,8 +67,30 @@ msgid ""
 msgstr ""
 
 msgid ""
+":gh:`154871`: Fixed a crash in :meth:`asyncio.Task.get_context` when called "
+"on an uninitialized task."
+msgstr ""
+
+msgid ""
 ":gh:`153133`: Fix a socket leak in :meth:`asyncio.loop.create_connection` "
 "when the transport cannot be created."
+msgstr ""
+
+msgid ""
+":gh:`113329`: Fix :exc:`OSError` being raised when trying to run doctests on "
+"a class objects in the REPL. Patch by Sten Wessel."
+msgstr ""
+
+msgid ""
+":gh:`102967`: A bug in :func:`!doctest._SpoofOut.truncate` was causing None "
+"to be passed to :func:`!StringIO.seek` when no size was given. A simple fix "
+"skips the seek call when no size is given so the buffer can be truncated "
+"from the current position."
+msgstr ""
+
+msgid ""
+":gh:`82039`: :meth:`http.cookiejar.FileCookieJar.load` now checks the first, "
+"format signature line in a case-insensitive manner. Patch by Ashley Harvey."
 msgstr ""
 
 msgid ""
@@ -59,12 +98,37 @@ msgid ""
 "closed no longer raises ``turtle.Terminator`` on the first turtle command."
 msgstr ""
 
+msgid ""
+":issue:`44012`: The ``exploded`` attribute of :class:`ipaddress.IPv6Address` "
+"and :class:`ipaddress.IPv6Interface` now supports addresses with a scope ID "
+"(link-local addresses). Previously the former raised :exc:`~ipaddress."
+"AddressValueError` and the latter omitted the scope ID."
+msgstr ""
+
+msgid ""
+":gh:`61366`: :class:`http.cookiejar.MozillaCookieJar` now reads session "
+"cookies written by curl and Wget, which use ``0`` in the expiration time "
+"field. Contributed by Jérémie Detrey."
+msgstr ""
+
 msgid "Core and Builtins"
 msgstr "Core i builtiny"
 
 msgid ""
+":gh:`129752`: Don't update adaptive counters in the free-threaded build when "
+"thread-local bytecode is disabled (``-X tlbc=0``). Patch by Donghee Na."
+msgstr ""
+
+msgid ""
 ":gh:`154902`: Fix a crash when ``__conditional_annotations__`` is rebound to "
 "a non-set object."
+msgstr ""
+
+msgid ""
+":gh:`85260`: :func:`compile` now raises :exc:`ValueError` instead of "
+"crashing on a debug build if an identifier field of an AST node (such as the "
+"name of a function, a class, an imported module or a caught exception) is "
+"``\"None\"``, ``\"True\"`` or ``\"False\"``."
 msgstr ""
 
 msgid "Python 3.14.7 final"
@@ -72,9 +136,6 @@ msgstr ""
 
 msgid "*Release date: 2026-08-05*"
 msgstr ""
-
-msgid "Security"
-msgstr "Bezpieczeństwo"
 
 msgid ""
 ":gh:`153030`: Fixed quadratic complexity in incremental parsing of long "
@@ -1147,9 +1208,6 @@ msgid ""
 "oriented towards Python rather than Tcl/Tk, with corrected return types and "
 "``versionadded``/``versionchanged`` information."
 msgstr ""
-
-msgid "Tests"
-msgstr "Testy"
 
 msgid ""
 ":gh:`155109`: Add ``test.support.run_with_limited_c_stack()`` and use it in "
