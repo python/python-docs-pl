@@ -13,7 +13,7 @@ f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-l
 ![{translators} tłumaczy](https://img.shields.io/badge/tłumaczy-{translators}-0.svg)''')
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-5.841%25-0.svg)
+![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-5.840%25-0.svg)
 ![7 tłumaczy](https://img.shields.io/badge/tłumaczy-7-0.svg)
 <!-- [[[end]]] -->
 
