@@ -25,7 +25,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 
 *Read this in another language: [English](README.en.md)*
 
-**Jak sprawdzić, co jest do przetłumaczenia?**
+### Jak sprawdzić, co jest do przetłumaczenia?
 
 Służy do tego paczka `potodo`. Wywołaj ją w głównym katalogu projektu, np. `uvx potodo`.
 
@@ -42,7 +42,7 @@ $ uvx potodo --exclude '**/*' '!tutorial/*' '!bugs.po' '!library/functions.po'`
 
 Propozycje priorytetowych zasobów do tłumaczenia można znaleźć w [issue #50](https://github.com/python/python-docs-pl/issues/50).
 
-**Jak tłumaczyć?**
+### Jak tłumaczyć?
 
 * Wejdź na stronę
 projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-newest/) na Transifeksie.
@@ -55,7 +55,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 Więcej informacji o używaniu Transifeksa znajdziesz w
 [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
-**Jak lokalnie sprawdzić poprawność moich zmian?**
+### Jak lokalnie sprawdzić poprawność moich zmian?
 
 [Zainstaluj Transifex CLI](https://github.com/transifex/cli#installation) i zapisz
 [klucz API Transifex](https://help.transifex.com/en/articles/6248858-generating-an-api-token) do `~/.transifexrc`, aby
@@ -81,26 +81,28 @@ $ uvx sphinx-lint library/turtle.po
 No problems found.
 ```
 
-**Jak obejrzeć najnowszy build dokumentacji?**
+### Jak obejrzeć najnowszy build dokumentacji?
 
 Pobierz ostatnią zbudowaną dokumentację z listy artefaktów w ostatniej GitHub Action (zakładka Actions).
 Tłumaczenia pobierane są z Transifeksa do tego repozytorium co około godzinę.
 Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dziennie.
 
-**Jak zbudować dokumentację?**
+### Jak zbudować dokumentację?
 
-Na Uniksach zrób link symboliczny projektu `python-docs-pl` w katalogu `Doc/locales/pl` on nazwie `LC_MESSAGES`.
-Na Windowsie skopiuj zawartość katalogu projektu do podanej ścieżki.
+Aby zbudować dokumentację potrzebujesz mieć kopię repozytorium CPythona.
+
+Zrób link symboliczny (Unix) lub kopię (Windows) projektu `python-docs-pl` w katalogu `Doc/locales/pl` repozytorium
+CPython, o nazwie `LC_MESSAGES`.
 
 Następnie uruchom `make -C Doc SPHINXOPTS="-D language=pl" html` w projekcie CPython, aby zbudować dokumentację.
 
-**Kanały komunikacji**
+### Kanały komunikacji
 
 * [Discord Python Polska #dokumentacja](https://discord.gg/VCyBDGH38e)
 * [Python Documentation Community](https://docs-community.readthedocs.io/en/latest/)
 * [Python Documentation Special Interest Group](https://www.python.org/community/sigs/current/doc-sig/)
 
-**Postęp tłumaczenia**
+### Postęp tłumaczenia
 
 <img src="translation_progress_pl.svg" alt="Postęp tłumaczenia">
 
@@ -109,7 +111,7 @@ Excludes the changelog from calculations.
 Made using: https://gist.github.com/StanFromIreland/ce400e0d497018fc8e8eb6b739e0b8eb
 --->
 
-**Licencja**
+### Licencja
 
 Zapraszając do współtworzenia projektu na platformie Transifex, proponujemy umowę na
 przekazanie twoich tłumaczeń Python Software Foundation
@@ -117,17 +119,17 @@ przekazanie twoich tłumaczeń Python Software Foundation
 W zamian będzie widoczne, że jesteś tłumaczem(-ką) części, którą przetłumaczyłeś(-łaś).
 Wyrażasz akceptację tej umowy, przesyłając swoją pracę do włączenia do dokumentacji.
 
-**Aktualizacja tłumaczeń**
+### Aktualizacje w repozytorium
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
 * `cog -rP README.md`
 
-**Przydatne materiały**
+### Przydatne materiały
 * [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
 * [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
-**Podobne projekty**
+### Podobne projekty
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [micro:bit translation programme](https://microbit.org/translate/)
