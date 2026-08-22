@@ -27,7 +27,8 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 
 ### How do I check what needs translating?
 
-Use the `potodo` package. Run it in the project's root directory, for example: `uvx potodo`.
+Use the [`potodo`](https://pypi.org/project/sphinx-lint/) package. Run it in the project's root directory,
+for example: `uvx potodo`.
 
 If you are interested in the core articles, use filtering. For example:
 
@@ -49,9 +50,7 @@ Suggested priority resources for translation can be found in [issue #50](https:/
 * Create an account on Transifex.
 * Select Polish on the project page.
 * After submitting your request to join the team, introduce yourself on the [Python Polska #dokumentacja Discord channel](https://discord.gg/QB3h2Sxc). This will help us approve your request sooner.
-* After joining the team, select the resource you want to improve or update.
-
-You can find more information about using Transifex
+* After joining the team, select the resource you want to improve or update.  You can find more information about using Transifex
 in [their help articles](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) or [our guide](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 ### How do I check my changes locally?
@@ -73,7 +72,7 @@ python-newest.library--turtle [pl] - Done
 [##############################] (1 / 1)
 ```
 
-Run `sphinx-lint` to check your changes, for example:
+Run [`sphinx-lint`](https://pypi.org/project/sphinx-lint/) to check your changes, for example:
 
 ```
 $ uvx sphinx-lint library/turtle.po
@@ -88,12 +87,7 @@ The documentation at https://docs.python.org/pl/ is updated around once daily.
 
 ### How do I build the documentation?
 
-You need a checkout of the CPython repository to build the documentation.
-
-Create a symbolic link (Unix) or a copy (Windows) of the `python-docs-pl` project in the CPython repository's
-`Doc/locales/pl` directory, named `LC_MESSAGES`.
-
-Then run `make -C Doc SPHINXOPTS="-D language=pl" html` in the CPython repository to build the documentation.
+[See devguide's instructions.](https://devguide.python.org/documentation/translations/translating/#how-do-i-build-a-docs-translation)
 
 ### Communication channels
 
@@ -119,16 +113,19 @@ In return, it will be visible that you are the translator of the part you transl
 You signify your acceptance of this agreement by submitting your work for inclusion in the documentation.
 
 ### Repository updates
+
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
 * `cog -rP README.en.md`
 
 ### Useful materials
+
 * [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
 * [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [Site Statistics](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
 ### Similar projects
+
 * [Projects of the Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [micro:bit translation programme](https://microbit.org/translate/)

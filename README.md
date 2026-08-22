@@ -27,7 +27,8 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 
 ### Jak sprawdzić, co jest do przetłumaczenia?
 
-Służy do tego paczka `potodo`. Wywołaj ją w głównym katalogu projektu, np. `uvx potodo`.
+Służy do tego paczka [`potodo`](https://pypi.org/project/potodo/). Wywołaj ją w głównym katalogu projektu,
+na przykład `uvx potodo`.
 
 Jeżeli interesują cię podstawowe artykuły, użyj filtrowania. Przykład:
 
@@ -50,9 +51,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
 * Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc). Pozwoli to szybciej potwierdzić Twoje zgłoszenie.
-* Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować.
-
-Więcej informacji o używaniu Transifeksa znajdziesz w
+* Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować. Więcej informacji o używaniu Transifeksa znajdziesz w
 [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 ### Jak lokalnie sprawdzić poprawność moich zmian?
@@ -74,7 +73,7 @@ python-newest.library--turtle [pl] - Done
 [##############################] (1 / 1)
 ```
 
-Uruchom `sphinx-lint`, aby sprawdzić poprawność zmian, np.:
+Uruchom [`sphinx-lint`](https://pypi.org/project/sphinx-lint/), aby sprawdzić poprawność zmian, na przykład:
 
 ```
 $ uvx sphinx-lint library/turtle.po
@@ -91,8 +90,8 @@ Dokumentacja na https://docs.python.org/pl/ aktualizowana jest około raz dzienn
 
 Aby zbudować dokumentację potrzebujesz mieć kopię repozytorium CPythona.
 
-Zrób link symboliczny (Unix) lub kopię (Windows) projektu `python-docs-pl` w katalogu `Doc/locales/pl` repozytorium
-CPython, o nazwie `LC_MESSAGES`.
+Zrób link symboliczny (Unix) lub kopię (Windows) zawartości projektu `python-docs-pl` w katalogu
+`Doc/locales/pl/LC_MESSAGES` w repozytorium CPython.
 
 Następnie uruchom `make -C Doc SPHINXOPTS="-D language=pl" html` w projekcie CPython, aby zbudować dokumentację.
 
@@ -120,16 +119,19 @@ W zamian będzie widoczne, że jesteś tłumaczem(-ką) części, którą przet�
 Wyrażasz akceptację tej umowy, przesyłając swoją pracę do włączenia do dokumentacji.
 
 ### Aktualizacje w repozytorium
+
 * `./manage_translation.py recreate_tx_config`
 * `./manage_translation.py fetch`
 * `cog -rP README.md`
 
 ### Przydatne materiały
+
 * [Python Developer's Guide: Translating](https://devguide.python.org/documentation/translations/translating/)
 * [Python docs Transifex: Documentation](https://python-docs-transifex-automation.readthedocs.io/)
 * [statystyki oglądalności](https://analytics.python.org/docs.python.org?f=contains,page,/pl/)
 
 ### Podobne projekty
+
 * [projekty Python Packaging Authority](https://hosted.weblate.org/projects/pypa/-/pl/)
 * [Scientific Python Translations](https://scientific-python-translations.github.io/)
 * [micro:bit translation programme](https://microbit.org/translate/)
