@@ -50,9 +50,11 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Naciśnij przycisk „Join this project”, aby dołączyć do projektu.
 * Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
-* Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc). Pozwoli to szybciej potwierdzić Twoje zgłoszenie.
-* Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować. Więcej informacji o używaniu Transifeksa znajdziesz w
-[jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
+* Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc).
+  Pozwoli to szybciej potwierdzić Twoje zgłoszenie.
+* Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić/zaktualizować. Więcej informacji o używaniu Transifeksa
+  znajdziesz w [jego artykułach pomocy](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
+  lub [w naszym przewodniku](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 ### Jak lokalnie sprawdzić poprawność moich zmian?
 

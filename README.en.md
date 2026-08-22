@@ -49,9 +49,11 @@ Suggested priority resources for translation can be found in [issue #50](https:/
 * Click the "Join this project" button.
 * Create an account on Transifex.
 * Select Polish on the project page.
-* After submitting your request to join the team, introduce yourself on the [Python Polska #dokumentacja Discord channel](https://discord.gg/QB3h2Sxc). This will help us approve your request sooner.
-* After joining the team, select the resource you want to improve or update.  You can find more information about using Transifex
-in [their help articles](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor) or [our guide](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
+* After submitting your request to join the team, introduce yourself on the [Python Polska #dokumentacja Discord channel](https://discord.gg/QB3h2Sxc).
+  This will help us approve your request sooner.
+* After joining the team, select the resource you want to improve or update.  You can find more information about using
+  Transifex in [their help articles](https://help.transifex.com/en/articles/6318216-translating-with-the-web-editor)
+  or [our guide](https://python-docs-transifex-automation.readthedocs.io/new-translators.html).
 
 ### How do I check my changes locally?
 
