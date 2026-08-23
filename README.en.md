@@ -27,7 +27,7 @@ f'''[![build](https://github.com/python/python-docs-pl/actions/workflows/update-
 
 ### How do I check what needs translating?
 
-Use the [`potodo`](https://pypi.org/project/sphinx-lint/) package. Run it in the project's root directory,
+Use the [`potodo`](https://pypi.org/project/potodo/) package. Run it in the project's root directory,
 for example: `uvx potodo`.
 
 If you are interested in the core articles, use filtering. For example:
