@@ -90,3 +90,4 @@ You signify your acceptance of this agreement by submitting your work for inclus
 * [micro:bit translation programme](https://microbit.org/translate/)
 * [Sphinx translation](https://www.sphinx-doc.org/en/master/usage/advanced/intl.html#contributing-to-sphinx-reference-translation)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)
+* [friendly-traceback: notes on translations](https://friendly-traceback.github.io/docs/translation_notes.html)
