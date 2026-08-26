@@ -33,7 +33,7 @@ na przykład `uvx potodo`.
 Jeżeli interesują cię podstawowe artykuły, użyj filtrowania. Przykład:
 
 ```
-$ uvx potodo --exclude '**/*' '!tutorial/*' '!bugs.po' '!library/functions.po'`
+$ uvx potodo --exclude '**/*' '!tutorial/*' '!bugs.po' '!library/functions.po'
 1 directory  99.68% done
 └── python-docs-pl/  99.68% done
     ├── library/  98.61% done
