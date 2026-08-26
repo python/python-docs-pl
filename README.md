@@ -50,7 +50,7 @@ projektu [dokumentacji Pythona](https://explore.transifex.com/python-doc/python-
 * Naciśnij przycisk „Join this project”, aby dołączyć do projektu.
 * Utwórz konto Transifex.
 * Na stronie projektu wybierz język polski.
-* Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska #dokumentacja](https://discord.gg/QB3h2Sxc).
+* Po wysłaniu zgłoszenia do zespołu przedstaw się na kanale [Discord Python Polska `#dokumentacja`](https://discord.gg/VCyBDGH38e).
   Pozwoli to szybciej potwierdzić Twoje zgłoszenie.
 * Po dołączeniu do zespołu wybierz zasób, który chcesz poprawić lub zaktualizować.
 * Zapoznaj się ze [składnią reStructuredText](https://www.sphinx-doc.org/pl/master/usage/restructuredtext/basics.html),

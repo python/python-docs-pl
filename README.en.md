@@ -49,7 +49,8 @@ Suggested priority resources for translation can be found in [issue #50](https:/
 * Click the "Join this project" button.
 * Create an account on Transifex.
 * Select Polish on the project page.
-* After submitting your request to join the team, introduce yourself on the [Python Polska `#dokumentacja` Discord channel](https://discord.gg/QB3h2Sxc).
+* After submitting your request to join the team, introduce yourself on
+  the [Python Polska `#dokumentacja` Discord channel](https://discord.gg/VCyBDGH38e).
   This will help us approve your request sooner.
 * After joining the team, select the resource you want to improve or update.
 * Get familiar with [reStructuredText syntax](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html),
