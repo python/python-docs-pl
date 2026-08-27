@@ -141,4 +141,3 @@ Wyrażasz akceptację tej umowy, przesyłając swoją pracę do włączenia do d
 * [micro:bit translation programme](https://microbit.org/translate/)
 * [tłumaczenie Sphinksa](https://www.sphinx-doc.org/en/master/usage/advanced/intl.html#contributing-to-sphinx-reference-translation)
 * [Localizing Django](https://docs.djangoproject.com/en/dev/internals/contributing/localizing/)
-* [friendly-traceback: notes on translations](https://friendly-traceback.github.io/docs/translation_notes.html)
