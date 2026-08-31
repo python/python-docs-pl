@@ -13,7 +13,7 @@ f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-l
 ![{translators} Translators](https://img.shields.io/badge/Translators-{translators}-0.svg)''')
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
-![Total Translation of Documentation](https://img.shields.io/badge/Total-5.876%25-0.svg)
+![Total Translation of Documentation](https://img.shields.io/badge/Total-5.881%25-0.svg)
 ![11 Translators](https://img.shields.io/badge/Translators-11-0.svg)
 <!-- [[[end]]] -->
 
