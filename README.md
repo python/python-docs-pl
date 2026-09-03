@@ -14,7 +14,7 @@ f'''![build](https://github.com/python/python-docs-pl/actions/workflows/update-l
 ]]] -->
 ![build](https://github.com/python/python-docs-pl/actions/workflows/update-lint-and-build.yml/badge.svg)
 ![postęp tłumaczenia całości dokumentacji](https://img.shields.io/badge/całość-5.875%25-0.svg)
-![11 tłumaczy](https://img.shields.io/badge/tłumaczy-11-0.svg)
+![10 tłumaczy](https://img.shields.io/badge/tłumaczy-10-0.svg)
 <!-- [[[end]]] -->
 
 *Read this in another language: [English](README.en.md)*
