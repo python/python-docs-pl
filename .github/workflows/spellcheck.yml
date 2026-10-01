@@ -1,0 +1,70 @@
+name: spellcheck
+
+on:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        description: CPython documentation version
+        required: true
+        type: string
+      translations-ref:
+        description: Translation branch updated by the calling workflow
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  pospell:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cpython/Doc
+    steps:
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      - name: Check out CPython documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          repository: python/cpython
+          ref: ${{ inputs.version || github.base_ref || github.ref_name }}
+          path: cpython
+          persist-credentials: false
+      - name: Check out translations
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ inputs.translations-ref }}
+          path: cpython/Doc/locales/pl/LC_MESSAGES
+          persist-credentials: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hunspell hunspell-pl
+          make venv
+          # Pospell needs newer Docutils than the Sphinx used by older branches.
+          uv venv "$RUNNER_TEMP/spellcheck-venv"
+          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell
+      - name: Generate POT files without literal blocks
+        run: |
+          if make -n gettext >/dev/null 2>&1; then
+            make gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=False"
+          else
+            # CPython 3.10 and 3.11 do not have a dedicated gettext target.
+            make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=False"
+          fi
+      - name: Update temporary PO files
+        # Drop obsolete entries so removed literal blocks are not spellchecked.
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/sphinx-intl" update -p build/gettext -d locales
+          -l pl
+          --no-obsolete
+      - name: Check Polish spelling
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl
+          --glob 'locales/pl/LC_MESSAGES/**/*.po'
+      # PO updates exist only in this disposable checkout; nothing is committed.

@@ -72,6 +72,17 @@ jobs:
           branch: ${{ matrix.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+  spellcheck:
+    needs: [update]
+    # These are the runs in which update publishes the fetched translations.
+    if: github.event_name == 'schedule' || github.ref_name == github.event.repository.default_branch
+    permissions:
+      contents: read
+    uses: ./.github/workflows/spellcheck.yml
+    with:
+      version: ${{ github.ref_name }}
+      translations-ref: ${{ github.ref_name }}
+
   build:
     runs-on: ubuntu-latest
     strategy:
