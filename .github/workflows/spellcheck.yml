@@ -13,6 +13,10 @@ on:
         description: Translation branch updated by the calling workflow
         required: true
         type: string
+    secrets:
+      TX_TOKEN:
+        description: Transifex API token with access to the Polish terminology glossary
+        required: true
 
 permissions:
   contents: read
@@ -20,6 +24,7 @@ permissions:
 jobs:
   pospell:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: cpython/Doc
@@ -48,7 +53,7 @@ jobs:
           make venv
           # Pospell needs newer Docutils than the Sphinx used by older branches.
           uv venv "$RUNNER_TEMP/spellcheck-venv"
-          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell
+          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell transifex-python six
       - name: Prepare UTF-8 Polish dictionary
         # The packaged dictionary uses ISO-8859-2, which cannot represent all prose.
         run: |
@@ -59,6 +64,14 @@ jobs:
           sed -i 's/^SET .*/SET UTF-8/' "$RUNNER_TEMP/hunspell-utf8/pl_PL.aff"
           iconv -f "$dictionary_encoding" -t UTF-8 /usr/share/hunspell/pl_PL.dic \
             > "$RUNNER_TEMP/hunspell-utf8/pl_PL.dic"
+      - name: Download Polish terminology glossary
+        working-directory: cpython/Doc/locales/pl/LC_MESSAGES
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/python"
+          manage_translation.py fetch_glossary
+          --output "$RUNNER_TEMP/hunspell-glossary.dic"
       - name: Generate POT files without literal blocks
         run: |
           if make -n gettext >/dev/null 2>&1; then
@@ -78,5 +91,6 @@ jobs:
           DICPATH: ${{ runner.temp }}/hunspell-utf8
         run: >
           "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl_PL
+          --personal-dict "$RUNNER_TEMP/hunspell-glossary.dic"
           --glob 'locales/pl/LC_MESSAGES/**/*.po'
       # PO updates exist only in this disposable checkout; nothing is committed.
