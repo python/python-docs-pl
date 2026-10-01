@@ -49,6 +49,16 @@ jobs:
           # Pospell needs newer Docutils than the Sphinx used by older branches.
           uv venv "$RUNNER_TEMP/spellcheck-venv"
           uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell
+      - name: Prepare UTF-8 Polish dictionary
+        # The packaged dictionary uses ISO-8859-2, which cannot represent all prose.
+        run: |
+          mkdir -p "$RUNNER_TEMP/hunspell-utf8"
+          dictionary_encoding=$(sed -n 's/^SET //p' /usr/share/hunspell/pl_PL.aff)
+          iconv -f "$dictionary_encoding" -t UTF-8 /usr/share/hunspell/pl_PL.aff \
+            > "$RUNNER_TEMP/hunspell-utf8/pl_PL.aff"
+          sed -i 's/^SET .*/SET UTF-8/' "$RUNNER_TEMP/hunspell-utf8/pl_PL.aff"
+          iconv -f "$dictionary_encoding" -t UTF-8 /usr/share/hunspell/pl_PL.dic \
+            > "$RUNNER_TEMP/hunspell-utf8/pl_PL.dic"
       - name: Generate POT files without literal blocks
         run: |
           if make -n gettext >/dev/null 2>&1; then
@@ -64,6 +74,8 @@ jobs:
           -l pl
           --no-obsolete
       - name: Check Polish spelling
+        env:
+          DICPATH: ${{ runner.temp }}/hunspell-utf8
         run: >
           "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl_PL
           --glob 'locales/pl/LC_MESSAGES/**/*.po'
