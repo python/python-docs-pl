@@ -52,10 +52,10 @@ jobs:
       - name: Generate POT files without literal blocks
         run: |
           if make -n gettext >/dev/null 2>&1; then
-            make gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=False"
+            make gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
           else
             # CPython 3.10 and 3.11 do not have a dedicated gettext target.
-            make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=False"
+            make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
           fi
       - name: Update temporary PO files
         # Drop obsolete entries so removed literal blocks are not spellchecked.
@@ -65,6 +65,6 @@ jobs:
           --no-obsolete
       - name: Check Polish spelling
         run: >
-          "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl
+          "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl_PL
           --glob 'locales/pl/LC_MESSAGES/**/*.po'
       # PO updates exist only in this disposable checkout; nothing is committed.
