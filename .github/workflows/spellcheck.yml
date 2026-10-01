@@ -1,0 +1,96 @@
+name: spellcheck
+
+on:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        description: CPython documentation version
+        required: true
+        type: string
+      translations-ref:
+        description: Translation branch updated by the calling workflow
+        required: true
+        type: string
+    secrets:
+      TX_TOKEN:
+        description: Transifex API token with access to the Polish terminology glossary
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  pospell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: cpython/Doc
+    steps:
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: 3
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      - name: Check out CPython documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          repository: python/cpython
+          ref: ${{ inputs.version || github.base_ref || github.ref_name }}
+          path: cpython
+          persist-credentials: false
+      - name: Check out translations
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ inputs.translations-ref }}
+          path: cpython/Doc/locales/pl/LC_MESSAGES
+          persist-credentials: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hunspell hunspell-pl
+          make venv
+          # Pospell needs newer Docutils than the Sphinx used by older branches.
+          uv venv "$RUNNER_TEMP/spellcheck-venv"
+          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell transifex-python six
+      - name: Prepare UTF-8 Polish dictionary
+        # The packaged dictionary uses ISO-8859-2, which cannot represent all prose.
+        run: |
+          mkdir -p "$RUNNER_TEMP/hunspell-utf8"
+          dictionary_encoding=$(sed -n 's/^SET //p' /usr/share/hunspell/pl_PL.aff)
+          iconv -f "$dictionary_encoding" -t UTF-8 /usr/share/hunspell/pl_PL.aff \
+            > "$RUNNER_TEMP/hunspell-utf8/pl_PL.aff"
+          sed -i 's/^SET .*/SET UTF-8/' "$RUNNER_TEMP/hunspell-utf8/pl_PL.aff"
+          iconv -f "$dictionary_encoding" -t UTF-8 /usr/share/hunspell/pl_PL.dic \
+            > "$RUNNER_TEMP/hunspell-utf8/pl_PL.dic"
+      - name: Download Polish terminology glossary
+        working-directory: cpython/Doc/locales/pl/LC_MESSAGES
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/python"
+          manage_translation.py fetch_glossary
+          --output "$RUNNER_TEMP/hunspell-glossary.dic"
+      - name: Generate POT files without literal blocks
+        run: |
+          if make -n gettext >/dev/null 2>&1; then
+            make gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
+          else
+            # CPython 3.10 and 3.11 do not have a dedicated gettext target.
+            make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
+          fi
+      - name: Update temporary PO files
+        # Drop obsolete entries so removed literal blocks are not spellchecked.
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/sphinx-intl" update -p build/gettext -d locales
+          -l pl
+          --no-obsolete
+      - name: Check Polish spelling
+        env:
+          DICPATH: ${{ runner.temp }}/hunspell-utf8
+        run: >
+          "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl_PL
+          --personal-dict "$RUNNER_TEMP/hunspell-glossary.dic"
+          --glob 'locales/pl/LC_MESSAGES/**/*.po'
+      # PO updates exist only in this disposable checkout; nothing is committed.
