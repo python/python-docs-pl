@@ -13,18 +13,19 @@
 # * warn_about_files_to_delete: lists files that are not available upstream
 # * generate_commit_msg: generates commit message with co-authors
 
-from argparse import ArgumentParser
 import os
+import sys
+from argparse import ArgumentParser
+from collections.abc import Iterable
 from contextlib import chdir
 from dataclasses import dataclass
 from pathlib import Path
-from subprocess import call, run, CalledProcessError
-import sys
+from subprocess import CalledProcessError, call, run
 from tempfile import TemporaryDirectory
-from typing import Self, Iterable
+from typing import Self
 from warnings import warn
 
-from polib import pofile, POFile
+from polib import POFile, pofile
 from transifex.api import transifex_api
 
 LANGUAGE = 'pl'
