@@ -39,7 +39,7 @@ def fetch():
     """
     if (code := call('tx --version', shell=True)) != 0:
         sys.stderr.write('The Transifex client app is required.\n')
-        exit(code)
+        sys.exit(code)
     lang = LANGUAGE
     _call(f'tx pull -l {lang} --minimum-perc=1 --force --skip')
     for file in Path().rglob('*.po'):
@@ -48,7 +48,7 @@ def fetch():
 
 def _call(command: str):
     if (return_code := call(command, shell=True)) != 0:
-        exit(return_code)
+        sys.exit(return_code)
 
 
 def recreate_tx_config():
