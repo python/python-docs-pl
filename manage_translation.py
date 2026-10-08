@@ -14,25 +14,25 @@
 # * generate_commit_msg: generates commit message with co-authors
 # * fetch_glossary: download Polish terminology as a Hunspell personal dictionary
 
+import csv
+import io
+import os
+import re
+import sys
+import time
+import unicodedata
 from argparse import ArgumentParser
 from collections.abc import Iterable
 from contextlib import chdir
-import csv
 from dataclasses import dataclass
-import io
-import os
 from pathlib import Path
-import re
 from subprocess import CalledProcessError, call, run
-import sys
 from tempfile import TemporaryDirectory
-import time
-from typing import Self, Iterable
-import unicodedata
+from typing import Self
 from warnings import warn
 
-from polib import POFile, pofile
 import requests
+from polib import POFile, pofile
 from transifex.api import transifex_api
 from transifex.api.jsonapi.exceptions import JsonApiException
 
