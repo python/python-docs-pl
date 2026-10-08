@@ -15,14 +15,15 @@
 # * fetch_glossary: download Polish terminology as a Hunspell personal dictionary
 
 from argparse import ArgumentParser
+from collections.abc import Iterable
+from contextlib import chdir
 import csv
+from dataclasses import dataclass
 import io
 import os
-from contextlib import chdir
-from dataclasses import dataclass
 from pathlib import Path
 import re
-from subprocess import call, run, CalledProcessError
+from subprocess import CalledProcessError, call, run
 import sys
 from tempfile import TemporaryDirectory
 import time
@@ -30,7 +31,7 @@ from typing import Self, Iterable
 import unicodedata
 from warnings import warn
 
-from polib import pofile, POFile
+from polib import POFile, pofile
 import requests
 from transifex.api import transifex_api
 from transifex.api.jsonapi.exceptions import JsonApiException
@@ -47,7 +48,7 @@ def fetch():
     """
     if (code := call('tx --version', shell=True)) != 0:
         sys.stderr.write('The Transifex client app is required.\n')
-        exit(code)
+        sys.exit(code)
     lang = LANGUAGE
     _call(f'tx pull -l {lang} --minimum-perc=1 --force --skip')
     for file in Path().rglob('*.po'):
@@ -109,7 +110,7 @@ def fetch_glossary(output: Path):
 
 def _call(command: str):
     if (return_code := call(command, shell=True)) != 0:
-        exit(return_code)
+        sys.exit(return_code)
 
 
 def recreate_tx_config():
