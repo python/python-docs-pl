@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 20:58+0000\n"
+"POT-Creation-Date: 2026-10-19 20:31+0000\n"
 "PO-Revision-Date: 2026-05-08 17:17+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Polish (https://app.transifex.com/python-doc/teams/5390/pl/)\n"
@@ -2573,7 +2573,10 @@ msgstr ""
 
 msgid ""
 "The returned function prototype creates functions that use the Python "
-"calling convention.  The function will *not* release the GIL during the call."
+"calling convention.  Unlike :func:`CFUNCTYPE` and :func:`WINFUNCTYPE`, "
+"ctypes does *not* release the GIL before calling the foreign function, so "
+"the function may safely use the Python C API. Note that this does not "
+"prevent the GIL from being released *during* the call."
 msgstr ""
 
 msgid ""
@@ -3462,11 +3465,354 @@ msgstr ""
 msgid ":class:`!py_object` is now a :term:`generic type`."
 msgstr ""
 
+msgid "Windows data types"
+msgstr ""
+
+msgid "**Source code:** :source:`Lib/ctypes/wintypes.py`"
+msgstr ""
+
 msgid ""
-"The :mod:`!ctypes.wintypes` module provides quite some other Windows "
-"specific data types, for example :c:type:`!HWND`, :c:type:`!WPARAM`, :c:type:"
-"`!VARIANT_BOOL` or :c:type:`!DWORD`. Some useful structures like :c:type:`!"
-"MSG` or :c:type:`!RECT` are also defined."
+"The :mod:`!ctypes.wintypes` module provides types for use with Windows APIs. "
+"Most are aliases for types defined in :mod:`ctypes`. See Microsoft's "
+"`Windows data types <https://learn.microsoft.com/en-us/windows/win32/winprog/"
+"windows-data-types>`_ documentation for the corresponding C definitions. On "
+"non-Windows platforms, the sizes and layouts of these types may differ from "
+"their Windows counterparts."
+msgstr ""
+
+msgid ""
+"Added :class:`HCONV`, :class:`HCONVLIST`, :class:`HCURSOR`, :class:"
+"`HDDEDATA`, :class:`HDROP`, :class:`HFILE`, :class:`HRESULT`, and :class:"
+"`HSZ`."
+msgstr ""
+
+msgid ""
+">>> from ctypes import POINTER\n"
+">>> from ctypes.wintypes import LPRECT, RECT, SHORT\n"
+">>> SHORT(-1).value\n"
+"-1\n"
+">>> rect = RECT(0, 0, 100, 50)\n"
+">>> rect.right, rect.bottom\n"
+"(100, 50)\n"
+">>> LPRECT is POINTER(RECT)\n"
+"True"
+msgstr ""
+
+msgid "Simple types"
+msgstr ""
+
+msgid "The following names are aliases for fundamental :mod:`ctypes` types:"
+msgstr ""
+
+msgid "Windows types"
+msgstr ""
+
+msgid ":mod:`ctypes` type"
+msgstr ""
+
+msgid ":class:`~ctypes.c_ubyte`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_char`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_wchar`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_ushort`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_ulong`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_long`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_int`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_uint`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_short`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_double`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_float`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_longlong`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_ulonglong`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_char_p`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_wchar_p`"
+msgstr ""
+
+msgid ":class:`~ctypes.c_void_p`"
+msgstr ""
+
+msgid ""
+":class:`LARGE_INTEGER` and :class:`ULARGE_INTEGER` expose an integer :attr:`!"
+"value` attribute, with no ``LowPart``, ``HighPart``, or ``QuadPart`` fields."
+msgstr ""
+
+msgid ""
+"An unsigned integer type with the same size as :class:`~ctypes.c_void_p`."
+msgstr ""
+
+msgid "A signed integer type with the same size as :class:`~ctypes.c_void_p`."
+msgstr ""
+
+msgid ""
+"A 16-bit Boolean type whose :attr:`!value` attribute is a Python :class:"
+"`bool`.  Assigning to :attr:`!value` stores ``-1`` for a true value and "
+"``0`` for a false value."
+msgstr ""
+
+msgid "Handle types"
+msgstr ""
+
+msgid ""
+"An alias for :class:`~ctypes.c_void_p`, used to represent Windows handles."
+msgstr ""
+
+msgid ""
+"Aliases for :class:`HANDLE` for use with specific Windows APIs. :class:"
+"`HFILE` is an alias for :class:`INT` and is listed among the simple types "
+"above."
+msgstr ""
+
+msgid "Structures"
+msgstr ""
+
+msgid "The following types are subclasses of :class:`ctypes.Structure`."
+msgstr ""
+
+msgid ""
+"A rectangle with ``left``, ``top``, ``right``, and ``bottom`` fields, all of "
+"type :class:`LONG`."
+msgstr ""
+
+msgid ""
+"A rectangle with ``Left``, ``Top``, ``Right``, and ``Bottom`` fields, all of "
+"type :class:`SHORT`."
+msgstr ""
+
+msgid "A point with ``x`` and ``y`` fields, both of type :class:`LONG`."
+msgstr ""
+
+msgid "Dimensions with ``cx`` and ``cy`` fields, both of type :class:`LONG`."
+msgstr ""
+
+msgid ""
+"A file time with ``dwLowDateTime`` and ``dwHighDateTime`` fields, both of "
+"type :class:`DWORD`."
+msgstr ""
+
+msgid "A Windows message with the following fields:"
+msgstr ""
+
+msgid "Field"
+msgstr "Pole"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "``hWnd``"
+msgstr ""
+
+msgid ":class:`HWND`"
+msgstr ""
+
+msgid "``message``"
+msgstr ""
+
+msgid ":class:`UINT`"
+msgstr ""
+
+msgid "``wParam``"
+msgstr ""
+
+msgid ":class:`WPARAM`"
+msgstr ""
+
+msgid "``lParam``"
+msgstr ""
+
+msgid ":class:`LPARAM`"
+msgstr ""
+
+msgid "``time``"
+msgstr ""
+
+msgid ":class:`DWORD`"
+msgstr ""
+
+msgid "``pt``"
+msgstr ""
+
+msgid ":class:`POINT`"
+msgstr ""
+
+msgid ""
+"Structures used by Windows file-search functions, with the following "
+"fields.  :class:`WIN32_FIND_DATAA` uses :class:`CHAR` for its file names, "
+"and :class:`WIN32_FIND_DATAW` uses :class:`WCHAR`."
+msgstr ""
+
+msgid "Fields"
+msgstr ""
+
+msgid "``dwFileAttributes``"
+msgstr ""
+
+msgid "``ftCreationTime``, ``ftLastAccessTime``, ``ftLastWriteTime``"
+msgstr ""
+
+msgid ":class:`FILETIME`"
+msgstr ""
+
+msgid "``nFileSizeHigh``, ``nFileSizeLow``"
+msgstr ""
+
+msgid "``dwReserved0``, ``dwReserved1``"
+msgstr ""
+
+msgid "``cFileName``"
+msgstr ""
+
+msgid "An array of :data:`MAX_PATH` characters"
+msgstr ""
+
+msgid "``cAlternateFileName``"
+msgstr ""
+
+msgid "An array of 14 characters"
+msgstr ""
+
+msgid "Pointer types"
+msgstr ""
+
+msgid ""
+"The following names are aliases for ``ctypes.POINTER(T)``, where *T* is the "
+"type in the second column:"
+msgstr ""
+
+msgid "Referenced type"
+msgstr ""
+
+msgid ":class:`BOOL`"
+msgstr ""
+
+msgid ":class:`BOOLEAN`"
+msgstr ""
+
+msgid ":class:`BYTE`"
+msgstr ""
+
+msgid ":class:`CHAR`"
+msgstr ""
+
+msgid ":class:`COLORREF`"
+msgstr ""
+
+msgid ":class:`FLOAT`"
+msgstr ""
+
+msgid ":class:`HANDLE`"
+msgstr ""
+
+msgid ":class:`HKEY`"
+msgstr ""
+
+msgid ":class:`HKL`"
+msgstr ""
+
+msgid ":class:`INT`"
+msgstr ""
+
+msgid ":class:`LARGE_INTEGER`"
+msgstr ""
+
+msgid ":class:`LCID`"
+msgstr ""
+
+msgid ":class:`LONG`"
+msgstr ""
+
+msgid ":class:`MSG`"
+msgstr ""
+
+msgid ":class:`POINTL`"
+msgstr ""
+
+msgid ":class:`RECT`"
+msgstr ""
+
+msgid ":class:`RECTL`"
+msgstr ""
+
+msgid ":class:`SC_HANDLE`"
+msgstr ""
+
+msgid ":class:`SHORT`"
+msgstr ""
+
+msgid ":class:`SIZE`"
+msgstr ""
+
+msgid ":class:`SIZEL`"
+msgstr ""
+
+msgid ":class:`SMALL_RECT`"
+msgstr ""
+
+msgid ":class:`ULARGE_INTEGER`"
+msgstr ""
+
+msgid ":class:`ULONG`"
+msgstr ""
+
+msgid ":class:`USHORT`"
+msgstr ""
+
+msgid ":class:`WCHAR`"
+msgstr ""
+
+msgid ":class:`WIN32_FIND_DATAA`"
+msgstr ""
+
+msgid ":class:`WIN32_FIND_DATAW`"
+msgstr ""
+
+msgid ":class:`WORD`"
+msgstr ""
+
+msgid "Constants and functions"
+msgstr ""
+
+msgid ""
+"The value ``260``, used as the size of the file-name arrays in :class:"
+"`WIN32_FIND_DATAA` and :class:`WIN32_FIND_DATAW`."
+msgstr ""
+
+msgid ""
+"Return a :class:`COLORREF` value as a Python integer.  The *red*, *green*, "
+"and *blue* arguments are integers from ``0`` to ``255``, specifying the "
+"intensity of each color component::"
+msgstr ""
+
+msgid ""
+">>> from ctypes.wintypes import RGB\n"
+">>> hex(RGB(255, 128, 0))\n"
+"'0x80ff'"
 msgstr ""
 
 msgid "Structured data types"
