@@ -5,6 +5,10 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
+      advisory:
+        description: Report failures without failing the calling workflow
+        type: boolean
+        default: false
       version:
         description: CPython documentation version
         required: true
@@ -24,6 +28,7 @@ permissions:
 jobs:
   pospell:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ inputs.advisory || false }}
     timeout-minutes: 15
     defaults:
       run:
