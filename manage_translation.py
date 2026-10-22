@@ -12,9 +12,15 @@
 # * recreate_tx_config: recreate configuration for all resources.
 # * warn_about_files_to_delete: lists files that are not available upstream
 # * generate_commit_msg: generates commit message with co-authors
+# * fetch_glossary: download Polish terminology as a Hunspell personal dictionary
 
+import csv
+import io
 import os
+import re
 import sys
+import time
+import unicodedata
 from argparse import ArgumentParser
 from collections.abc import Iterable
 from contextlib import chdir
@@ -25,12 +31,15 @@ from tempfile import TemporaryDirectory
 from typing import Self
 from warnings import warn
 
+import requests
 from polib import POFile, pofile
 from transifex.api import transifex_api
+from transifex.api.jsonapi.exceptions import JsonApiException
 
 LANGUAGE = 'pl'
 PROJECT_SLUG = 'python-newest'
 VERSION = '3.14'
+GLOSSARY_ID = 'o:python-doc:g:python_global'
 
 
 def fetch():
@@ -44,6 +53,59 @@ def fetch():
     _call(f'tx pull -l {lang} --minimum-perc=1 --force --skip')
     for file in Path().rglob('*.po'):
         _call(f'msgcat --no-location -o {file} {file}')
+
+
+def _download_glossary(token: str, *, max_wait: float = 300) -> str:
+    transifex_api.setup(auth=token)
+    # The SDK supports new API resource types before adding dedicated classes.
+    download = transifex_api.new(
+        type='glossaries_async_downloads',
+        glossary=transifex_api.new(type='glossaries', id=GLOSSARY_ID),
+        language=transifex_api.Language(id=f'l:{LANGUAGE}'),
+    )
+    download.save()
+    deadline = time.monotonic() + max_wait
+    while not download.redirect:
+        status = download.attributes['status']
+        if status == 'failed':
+            raise ValueError('Transifex glossary export failed.')
+        if status not in {'pending', 'processing'}:
+            raise ValueError(f'Unexpected glossary export status: {status!r}')
+        if time.monotonic() >= deadline:
+            raise ValueError('Transifex glossary export timed out.')
+        time.sleep(3)
+        download.reload()
+    # Download the CSV without sending the API token to the signed storage URL.
+    export = requests.get(download.redirect, timeout=30)
+    export.raise_for_status()
+    return export.content.decode('utf-8-sig')
+
+
+def _glossary_words(content: str) -> list[str]:
+    reader = csv.DictReader(io.StringIO(content))
+    translation_column = f'translation_{LANGUAGE}'
+    if not reader.fieldnames or translation_column not in reader.fieldnames:
+        raise ValueError('Transifex glossary CSV has no Polish translation column.')
+    words = {
+        word
+        for row in reader
+        for word in re.findall(
+            r'[^\W\d_]+', unicodedata.normalize('NFC', row[translation_column] or '')
+        )
+    }
+    if not words:
+        raise ValueError('Transifex glossary has no Polish terms.')
+    return sorted(words)
+
+
+def fetch_glossary(output: Path):
+    """Fetch Polish terminology and write a UTF-8 Hunspell personal dictionary."""
+    token = _get_tx_token().strip()
+    if not token:
+        raise ValueError('TX_TOKEN is required to download the Transifex glossary.')
+    words = _glossary_words(_download_glossary(token))
+    output.write_text(f'{len(words)}\n' + '\n'.join(words) + '\n', encoding='utf-8')
+    print(f'Added {len(words)} Polish glossary words to {output}.')
 
 
 def _call(command: str):
@@ -224,10 +286,30 @@ if __name__ == '__main__':
         'recreate_tx_config',
         'warn_about_files_to_delete',
         'generate_commit_msg',
+        'fetch_glossary',
     )
 
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=RUNNABLE_SCRIPTS)
+    parser.add_argument(
+        '--output', type=Path, help='Hunspell dictionary path for fetch_glossary'
+    )
     options = parser.parse_args()
 
-    eval(options.cmd)()
+    if options.cmd == 'fetch_glossary':
+        if options.output is None:
+            parser.error('--output is required for fetch_glossary')
+        try:
+            fetch_glossary(options.output)
+        except (requests.RequestException, JsonApiException) as error:
+            # Exceptions may contain signed URLs; report the status without those URLs.
+            status = (
+                error.response.status_code
+                if error.response is not None
+                else 'network error'
+            )
+            parser.exit(1, f'Transifex glossary request failed: {status}.\n')
+        except (ValueError, KeyError) as error:
+            parser.exit(1, f'Invalid Transifex glossary export: {error}\n')
+    else:
+        eval(options.cmd)()
