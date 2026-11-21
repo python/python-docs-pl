@@ -38,6 +38,15 @@ jobs:
         with:
           python-version: 3
       - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      - name: Check out workflow tools
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          path: spellcheck-tools
+          sparse-checkout: |
+            /spellcheck_report.py
+            /manage_translation.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
       - name: Check out CPython documentation
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
@@ -58,7 +67,10 @@ jobs:
           make venv
           # Pospell needs newer Docutils than the Sphinx used by older branches.
           uv venv "$RUNNER_TEMP/spellcheck-venv"
-          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" sphinx-intl pospell transifex-python six
+          # Pospell PR 24 provides --report; switch to a release when available.
+          uv pip install --python "$RUNNER_TEMP/spellcheck-venv/bin/python" \
+            sphinx-intl transifex-python six \
+            'pospell @ git+https://git.afpy.org/maciek/pospell.git@feat/json-reports'
       - name: Prepare UTF-8 Polish dictionary
         # The packaged dictionary uses ISO-8859-2, which cannot represent all prose.
         run: |
@@ -90,7 +102,7 @@ jobs:
           iconv -f "$dictionary_encoding" -t UTF-8 "$RUNNER_TEMP/sjp-pl_PL.dic" \
             > "$RUNNER_TEMP/hunspell-utf8/pl_SJP.dic"
       - name: Download Polish terminology glossary
-        working-directory: cpython/Doc/locales/pl/LC_MESSAGES
+        working-directory: spellcheck-tools
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: >
@@ -105,6 +117,11 @@ jobs:
             # CPython 3.10 and 3.11 do not have a dedicated gettext target.
             make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
           fi
+      - name: Record original translation checksums
+        run: >
+          python "$GITHUB_WORKSPACE/spellcheck-tools/spellcheck_report.py" snapshot
+          --translations locales/pl/LC_MESSAGES --cpython .
+          --output "$RUNNER_TEMP/spellcheck-source.json"
       - name: Update temporary PO files
         # Drop obsolete entries so removed literal blocks are not spellchecked.
         run: >
@@ -112,10 +129,31 @@ jobs:
           -l pl
           --no-obsolete
       - name: Check Polish spelling
+        id: spelling
         env:
           DICPATH: ${{ runner.temp }}/hunspell-utf8
         run: >
           "$RUNNER_TEMP/spellcheck-venv/bin/pospell" --language pl_PL,pl_SJP
           --personal-dict "$RUNNER_TEMP/hunspell-glossary.dic"
           --glob 'locales/pl/LC_MESSAGES/**/*.po'
+          --report "$RUNNER_TEMP/pospell.json"
+          --report-root locales/pl/LC_MESSAGES
+      - name: Prepare spelling report
+        id: report
+        if: ${{ !cancelled() && (steps.spelling.outcome == 'success' || steps.spelling.outcome == 'failure') }}
+        env:
+          DOCS_VERSION: ${{ inputs.version || github.base_ref || github.ref_name }}
+        run: >
+          python "$GITHUB_WORKSPACE/spellcheck-tools/spellcheck_report.py" prepare
+          --input "$RUNNER_TEMP/pospell.json"
+          --snapshot "$RUNNER_TEMP/spellcheck-source.json"
+          --docs-version "$DOCS_VERSION"
+          --output "$RUNNER_TEMP/spellcheck.json"
+      - name: Upload spelling report
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        if: ${{ !cancelled() && steps.report.outcome == 'success' }}
+        with:
+          name: spellcheck-pl
+          path: ${{ runner.temp }}/spellcheck.json
+          if-no-files-found: error
       # PO updates exist only in this disposable checkout; nothing is committed.
