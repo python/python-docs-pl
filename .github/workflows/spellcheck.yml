@@ -8,7 +8,7 @@ on:
       advisory:
         description: Report failures without failing the calling workflow
         type: boolean
-        default: false
+        default: true
       version:
         description: CPython documentation version
         required: true
@@ -28,7 +28,7 @@ permissions:
 jobs:
   pospell:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ inputs.advisory || false }}
+    continue-on-error: ${{ inputs.advisory || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
     timeout-minutes: 15
     defaults:
       run:
