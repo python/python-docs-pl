@@ -57,8 +57,8 @@ class SpellcheckReportTests(unittest.TestCase):
         self.catalog.write_text('# temporary changes\n', encoding='utf-8')
         result = self.prepare()
         catalog = result['catalogs']['tutorial/guide.po']
-        self.assertEqual(catalog['source_sha256'], original)
-        self.assertEqual(catalog['scanned_sha256'], 'temporary-po-digest')
+        self.assertEqual(catalog['checkout_sha256'], original)
+        self.assertEqual(catalog['source_sha256'], 'temporary-po-digest')
         self.assertEqual(catalog['findings'], [self.finding])
         self.assertEqual(result['language'], 'pl')
         self.assertEqual(result['dictionaries'], ['pl_PL', 'pl_SJP'])
@@ -144,3 +144,63 @@ class SpellcheckReportTests(unittest.TestCase):
         ):
             main()
         self.assertFalse(output.exists())
+
+    def test_snapshot_keeps_current_catalogs_and_sphinx_but_drops_orphans(self):
+        pots = self.root / 'pots'
+        (pots / 'tutorial').mkdir(parents=True)
+        (pots / 'tutorial' / 'guide.pot').write_text('msgid "Source"\nmsgstr ""\n')
+        orphan = self.root / 'old.po'
+        orphan.write_text('msgid "Literal code"\nmsgstr "Literal code"\n')
+        sphinx = self.root / 'sphinx.po'
+        sphinx.write_text('msgid "Template"\nmsgstr "Szablon"\n')
+        output = self.root / 'snapshot.json'
+        with (
+            patch(
+                'spellcheck_report.revision', side_effect=['translations', 'cpython']
+            ),
+            patch(
+                'sys.argv',
+                [
+                    'spellcheck_report.py',
+                    'snapshot',
+                    '--translations',
+                    str(self.root),
+                    '--cpython',
+                    str(self.root),
+                    '--pot-dir',
+                    str(pots),
+                    '--output',
+                    str(output),
+                ],
+            ),
+        ):
+            main()
+        self.assertFalse(orphan.exists())
+        self.assertTrue(self.catalog.exists())
+        self.assertTrue(sphinx.exists())
+        self.assertEqual(
+            set(json.loads(output.read_text())['catalogs']),
+            {'tutorial/guide.po', 'sphinx.po'},
+        )
+
+    def test_missing_pot_directory_does_not_remove_catalogs(self):
+        with (
+            patch(
+                'sys.argv',
+                [
+                    'spellcheck_report.py',
+                    'snapshot',
+                    '--translations',
+                    str(self.root),
+                    '--cpython',
+                    str(self.root),
+                    '--pot-dir',
+                    str(self.root / 'missing'),
+                    '--output',
+                    str(self.root / 'snapshot.json'),
+                ],
+            ),
+            self.assertRaises(SystemExit),
+        ):
+            main()
+        self.assertTrue(self.catalog.exists())

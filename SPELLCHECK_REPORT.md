@@ -23,15 +23,19 @@ is published.
 - `translations_revision` and `cpython_revision`: the checked-out Git commits.
 
 Catalog paths are relative to `locales/pl/LC_MESSAGES`, such as
-`tutorial/guide.po`. Each catalog's `source_sha256` is replaced with the checksum
-of the original PO, recorded before the temporary `sphinx-intl update`. This lets
-consumers compare coverage with their repository checkout. Pospell's checksum of
-the temporarily updated PO is retained as `scanned_sha256`.
+`tutorial/guide.po`. Each catalog retains pospell's `source_sha256`, the checksum
+of the temporarily updated PO that was scanned. `checkout_sha256` records the
+original repository PO before `sphinx-intl update`, so consumers can check
+freshness against their checkout.
 
-Only catalogs present both in the original checkout and in pospell's report are
-published; unscanned files are not added as clean. The scan covers prose and
-excludes literal blocks through the temporary gettext update.
+Before the temporary update, catalogs with no matching current POT are removed
+from the disposable checkout; otherwise old catalogs would retain literal blocks.
+`sphinx.po` is kept separately for Sphinx's template messages. Only catalogs
+present both in the original snapshot and pospell's report are published;
+unscanned files are not added as clean.
 
-`potodo-docs-priority` downloads the artifact separately. It validates the source
-run, selects complete reports for its requested branch, and checks local entry
-identities and fingerprints. This workflow requires no dispatch to that project.
+The translation dashboard downloads `spellcheck-pl/spellcheck.json` and publishes
+the complete report at `https://translations.python.org/spellcheck-pl.json`, or
+JSON `null` when unavailable. `potodo-docs-priority` reads that public file and
+checks local entry identities and translation fingerprints. Only the dashboard
+needs a token for cross-repository Actions access.

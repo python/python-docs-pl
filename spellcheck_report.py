@@ -53,8 +53,7 @@ def prepare_report(
         'catalogs': {
             resource: {
                 **catalog,
-                'scanned_sha256': catalog['source_sha256'],
-                'source_sha256': snapshot['catalogs'][resource],
+                'checkout_sha256': snapshot['catalogs'][resource],
             }
             for resource, catalog in report['catalogs'].items()
             # Newly created catalogs have no corresponding repository file.
@@ -69,6 +68,7 @@ def main() -> None:
     snapshot_parser = commands.add_parser('snapshot')
     snapshot_parser.add_argument('--translations', type=Path, required=True)
     snapshot_parser.add_argument('--cpython', type=Path, required=True)
+    snapshot_parser.add_argument('--pot-dir', type=Path, required=True)
     snapshot_parser.add_argument('--output', type=Path, required=True)
     report_parser = commands.add_parser('prepare')
     report_parser.add_argument('--input', type=Path, required=True)
@@ -77,6 +77,17 @@ def main() -> None:
     report_parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if args.command == 'snapshot':
+        if not args.pot_dir.is_dir():
+            parser.error(f'POT directory does not exist: {args.pot_dir}')
+        # Only current POT catalogs have had literal blocks excluded. Sphinx's
+        # template messages are maintained separately from the documentation.
+        for path in args.translations.rglob('*.po'):
+            resource = path.relative_to(args.translations)
+            if (
+                resource != Path('sphinx.po')
+                and not (args.pot_dir / resource.with_suffix('.pot')).is_file()
+            ):
+                path.unlink()
         data = snapshot_catalogs(args.translations, args.cpython)
     else:
         data = prepare_report(

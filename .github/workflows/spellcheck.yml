@@ -27,6 +27,8 @@ permissions:
 
 jobs:
   pospell:
+    # Fork PRs cannot access TX_TOKEN; forks can run manually with their own secret.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     continue-on-error: ${{ inputs.advisory || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
     timeout-minutes: 15
@@ -117,10 +119,10 @@ jobs:
             # CPython 3.10 and 3.11 do not have a dedicated gettext target.
             make build BUILDER=gettext SPHINXOPTS="-D gettext_additional_targets=index -D gettext_compact=0"
           fi
-      - name: Record original translation checksums
+      - name: Select current catalogs and record original checksums
         run: >
           python "$GITHUB_WORKSPACE/spellcheck-tools/spellcheck_report.py" snapshot
-          --translations locales/pl/LC_MESSAGES --cpython .
+          --translations locales/pl/LC_MESSAGES --cpython . --pot-dir build/gettext
           --output "$RUNNER_TEMP/spellcheck-source.json"
       - name: Update temporary PO files
         # Drop obsolete entries so removed literal blocks are not spellchecked.
